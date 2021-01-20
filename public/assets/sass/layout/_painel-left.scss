@@ -1,0 +1,129 @@
+// Painel Left 
+
+#painel-left {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 1000;
+
+    li {
+        padding: 10px;
+        text-align: left;
+        padding-left: 40px;
+        transition: 0.8s;
+
+        &:hover {
+            background-color: $painel-left-li-hover;
+            border-left: 20px solid white;
+        }
+    }
+
+    .link-collapse:hover{
+        background-color: $painel-left-li-hover;
+        border-left: 0px;
+    }
+
+    .collapse li{
+        background-color: $painel-left-li-hover;
+        border-left: 20px solid #FAFAFF;
+        cursor: pointer;
+    }
+
+    .collapse li:hover{
+        background-color: #30343F;
+        border-left: 20px solid #FAFAFF;
+    }
+
+    /* .collapse li > a{
+        color: blue;
+    } */
+
+    li:hover>a {
+        color: white;
+    }
+
+    .sider-bar .logo {
+        width: 150px;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .sider-bar .logo img {
+        width: 100%;
+    }
+
+    h5 {
+        color: $painel-left-color;
+        text-align: left;
+        padding-left: 40px;
+        font-size: 13px;
+        margin-top: 15px;
+        font-family: Bold;
+    }
+
+    a {
+        text-decoration: none;
+        font-family: Semi-bold;
+        font-size: 12px;
+        color: $painel-left-color;
+    }
+
+    .sider-bar {
+        position: fixed;
+        width: 240px;
+        height: 100%;
+        margin-left: 150px;
+        background-color: $painel-left-background;
+        transition: 0.7s;
+    }
+
+    .sider-bar-responsivo {
+        position: fixed;
+        width: 180px;
+        height: 100%;
+        background-color: $painel-left-background;
+        transition: 0.7s;
+
+        span {
+            display: none;
+        }
+
+        li {
+            padding: 10px;
+            text-align: center;
+            padding-left: 70px;
+
+            &:hover {
+                background-color: $painel-left-li-hover;
+                border-left: 0px;
+            }
+        }
+
+        h5 {
+            display: none;
+        }
+
+        .logo {
+            width: 100px;
+            padding-left: 60px;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            font-family: Semi-bold;
+            padding-bottom: 10px;
+            font-size: 15px;
+            color: $painel-left-color;
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+    }
+
+}

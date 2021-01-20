@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "Projeto Web Gest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "mate551"
+  },
+  "keywords": [
+    "/"
+  ],
+  "author": "Matheus de Souza",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
+    "jquery": "^3.5.1"
+  }
+}

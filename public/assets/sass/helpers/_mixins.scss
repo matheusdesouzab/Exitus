@@ -1,0 +1,24 @@
+@mixin borda-card {
+    border: 1px solid #f1eeee;
+}
+
+@mixin active {
+    padding: 14px 15px;
+    border-radius: 8px;
+    background-color: white;
+    transition: 0.4ms;
+}
+
+@mixin icons-painel($color){
+
+    .fa-home,
+    .fa-user-plus,
+    .fa-users,
+    .fa-chart-pie,
+    .fa-question-circle,
+    .fa-user-times {
+        color: $color;
+        font-size: 17px;
+    }
+
+}

@@ -1,0 +1,39 @@
+@import 'helpers/variaveis';
+
+@import 'helpers/fonts';
+
+@import 'helpers/mixins';
+
+@import 'layout/geral';
+
+@import 'layout/painel-left';
+
+@import 'layout/navbar-top';
+
+@import 'layout/media-screen';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Regular;
+    color: $font-color-padrao;  
+    transition: 0.6s; 
+}
+
+html > body {
+    background-color: $background-padrao;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}

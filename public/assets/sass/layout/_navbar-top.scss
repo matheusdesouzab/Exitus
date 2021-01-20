@@ -1,0 +1,28 @@
+#navbar-top{
+    
+    background-color: $navbar-top-background;
+    transition: 0.7s;
+
+    .navbar-brand{
+        font-weight:bold;
+    }
+
+    .fa-bars{
+        color:black;
+    }
+
+    .foto-usuario{
+        width: 40px;
+    }
+
+    .foto-usuario img{
+        width: 100%;
+    }
+
+    #navbarDropdown{
+        color:#5B6875;
+        font-family: Semi-bold;
+        font-size: 14px;
+    }
+
+}

@@ -1,0 +1,43 @@
+@media screen and (min-width: 0px) and (max-width: 578px) {
+  #pagina {
+    border-radius: 15px;
+  }
+  #pagina .linha-pagina {
+    margin-top: 30px;
+  }
+  #pagina #matricula .assistente-etapas p {
+    font-size: 10px;
+  }
+  #pagina #home .card {
+    margin-top: 20px;
+  }
+
+  #painel-left .sider-bar {
+    display: none;
+  }
+  #painel-left .sider-bar-responsivo {
+    display: none;
+  }
+
+  #navbar-top {
+    display: none;
+  }
+}
+@media screen and (min-width: 579px) and (max-width: 778px) {
+  #painel-left .sider-bar-responsivo {
+    width: 26%;
+  }
+  #painel-left .sider-bar-responsivo li {
+    padding: 10px;
+    padding-left: 45%;
+  }
+  #painel-left .sider-bar-responsivo .logo {
+    padding-left: 40%;
+    width: 100px;
+  }
+}
+@media screen and (min-width: 778px) and (max-width: 992px) {
+  .sider-bar-responsivo {
+    border: 2px solid red;
+  }
+}
