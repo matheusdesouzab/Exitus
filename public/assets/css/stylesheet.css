@@ -1,34 +1,34 @@
 @font-face {
   font-family: Extra-light;
-  src: url(../../fonts/Montserrat-ExtraLight.ttf);
+  src: url(../../../assets/fonts/Montserrat-ExtraLight.ttf);
 }
 @font-face {
   font-family: Light;
-  src: url(../../fonts/Montserrat-Light.ttf);
+  src: url(../../../assets/fonts/Montserrat-Light.ttf);
 }
 @font-face {
   font-family: Regular;
-  src: url(../../fonts/Montserrat-Regular.ttf);
+  src: url(../../../assets/fonts/Montserrat-Regular.ttf);
 }
 @font-face {
   font-family: Medio;
-  src: url(../../fonts/Montserrat-Medium.ttf);
+  src: url(../../../assets/fonts/Montserrat-Medium.ttf);
 }
 @font-face {
   font-family: Semi-bold;
-  src: url(../../fonts/Montserrat-SemiBold.ttf);
+  src: url(../../../assets/fonts/Montserrat-SemiBold.ttf);
 }
 @font-face {
   font-family: Bold;
-  src: url(../../fonts/Montserrat-Bold.ttf);
+  src: url(../../../assets/fonts/Montserrat-Bold.ttf);
 }
 @font-face {
   font-family: Extra-bold;
-  src: url(../../fonts/Montserrat-ExtraBold.ttf);
+  src: url(../../../assets/fonts/Montserrat-ExtraBold.ttf);
 }
 @font-face {
   font-family: Supreme-bold;
-  src: url(../../fonts/Montserrat-Black.ttf);
+  src: url(./../../assets/fonts/Montserrat-Black.ttf);
 }
 #pagina h5 {
   color: #30343f;
@@ -141,10 +141,7 @@
   padding: 0;
   margin: 0;
   width: 100%;
-  z-index: 1000;
-  /* .collapse li > a{
-      color: blue;
-  } */
+  z-index: 2000;
 }
 #painel-left li {
   padding: 10px;
@@ -172,13 +169,13 @@
 #painel-left li:hover > a {
   color: white;
 }
-#painel-left .sider-bar .logo {
-  width: 150px;
+#painel-left .side-bar .logo {
+  width: 100px;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-#painel-left .sider-bar .logo img {
+#painel-left .logo img {
   width: 100%;
 }
 #painel-left h5 {
@@ -195,7 +192,7 @@
   font-size: 12px;
   color: #e5e5e5;
 }
-#painel-left .sider-bar {
+#painel-left .side-bar {
   position: fixed;
   width: 240px;
   height: 100%;
@@ -203,43 +200,43 @@
   background-color: #1e2749;
   transition: 0.7s;
 }
-#painel-left .sider-bar-responsivo {
+#painel-left .side-bar-responsivo {
   position: fixed;
   width: 180px;
   height: 100%;
   background-color: #1e2749;
   transition: 0.7s;
 }
-#painel-left .sider-bar-responsivo span {
+#painel-left .side-bar-responsivo span {
   display: none;
 }
-#painel-left .sider-bar-responsivo li {
+#painel-left .side-bar-responsivo li {
   padding: 10px;
   text-align: center;
   padding-left: 70px;
 }
-#painel-left .sider-bar-responsivo li:hover {
+#painel-left .side-bar-responsivo li:hover {
   background-color: #273469;
   border-left: 0px;
 }
-#painel-left .sider-bar-responsivo h5 {
+#painel-left .side-bar-responsivo h5 {
   display: none;
 }
-#painel-left .sider-bar-responsivo .logo {
+#painel-left .side-bar-responsivo .logo {
   width: 100px;
   padding-left: 60px;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
 }
-#painel-left .sider-bar-responsivo a {
+#painel-left .side-bar-responsivo a {
   text-decoration: none;
   font-family: Semi-bold;
   padding-bottom: 10px;
   font-size: 15px;
   color: #e5e5e5;
 }
-#painel-left .sider-bar-responsivo .logo img {
+#painel-left .side-bar-responsivo .logo img {
   width: 100%;
 }
 

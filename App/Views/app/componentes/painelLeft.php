@@ -1,5 +1,5 @@
 <div id="painel-left" class="col-sm-2 d-flex justify-content-center ">
-    <ul class="sider-bar">
+    <ul class="side-bar">
         <div class="logo"><img src="/assets/img/logo-completo.png" alt=""></div>
         <li><a href="/home"><i class="fas fa-home mr-2"></i> <span>Home</span></a></li>
 

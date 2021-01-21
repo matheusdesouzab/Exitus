@@ -8,18 +8,18 @@
 
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script defer src="/fontawesome/js/all.js"></script>
+	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-	<div class="container-fluid" >
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-2 col-sm-2 sider-painel">
+			<div class="col-lg-2 col-sm-2 side-painel">
 				<?php require '../App/Views/app/componentes/painelLeft.php' ?>
 			</div>
-			<div id="pagina" class="col-lg-10 col-sm-10  sider-pagina">
+			<div id="pagina" class="col-lg-10 col-sm-10 side-pagina">
 				<?php require '../App/Views/app/componentes/navbar.php' ?>
 				<?= $this->content() ?>
 			</div>
@@ -36,7 +36,7 @@
 
 <!-- <script src="/node_modules/chart.js/dist/Chart.min.js"></script> -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
 <script src="/assets/js/estilo.js"></script>
 

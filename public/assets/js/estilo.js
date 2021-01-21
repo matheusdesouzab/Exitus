@@ -1,17 +1,27 @@
-$(document).ready(() => {
+class Paginas{
 
-    //Formatação de campos com Jquey Mask 
+    // Mudança randômica entre side-bar normal e side-bar-responsive
+
+    sideBarResposive() {
+
+        let painelLeftImg = $('#painel-left .logo img')
+
+        $('.side-pagina  #navbar-top').toggleClass('col-lg-11 col-lg-10')
+
+        $('.side-painel').toggleClass('col-lg-1 col-lg-2')
+
+        $('#painel-left ul').toggleClass('side-bar-responsivo side-bar')
+
+        $('#painel-left ul').hasClass('side-bar-responsivo') ?
+            painelLeftImg.attr('src', '/assets/img/logo.png') :
+            painelLeftImg.attr('src', '/assets/img/logo-completo.png')
+
+    }
 
 
-    $("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
+    // Preenchimento automático do endereço do aluno
 
-    $("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
-
-
-    // Preenchimento automático da localidade do aluno
-
-
-    $('#cep').on('blur', () => {
+    getCep() {
 
         let cep = $('#cep').val()
 
@@ -32,252 +42,50 @@ $(document).ready(() => {
                 console.log(`Ocorreu um erro na busca do cep, código de erro = ${erro.status}`)
             }
         })
-    })
+    }
+}
 
+class matriculaAluno extends Paginas{
 
-    /** Assistente de etapas 
-     * ? Autor: omri-shaiko's
-     * ? Link: https://bootsnipp.com/snippets/yaZa 
-     * ? Codigo atualizado por Matheus de Souza
-     */
+}
 
+let pagina_matriculaAluno = new matriculaAluno()
 
-    let grupoDados = $('div.assistente-etapas-painel div a')
-    let allWells = $('.assistente-etapas-conteudo')
-    let allNextBtn = $('.nextBtn')
+$("#cep").on('blur', (pagina_matriculaAluno.getCep))
+$("#bars").on("click", (pagina_matriculaAluno.sideBarResposive))
 
-    allWells.hide()
 
-    grupoDados.on('click', function (e) {
 
-        e.preventDefault
 
-        let target = $($(this).attr('href'))
-        let item = $(this)
 
-        if (!item.hasClass('disabled')) {
-            grupoDados.removeClass('btn-primary').addClass('btn-default')
-            item.addClass('btn-primary')
-            allWells.hide()
-            target.show()
-            target.find('input:eq(0)').focus()
-        }
 
-    })
 
-    allNextBtn.on('click', function (e) {
 
-        let curStep = $(this).closest(".assistente-etapas-conteudo")
-        let curStepBtn = curStep.attr("id")
-        let nextStepWizard = $('div.assistente-etapas-painel div a[href="#' + curStepBtn + '"]').parent().next().children("a")
-        let curInputs = curStep.find("input[type='text'],input[type='url']")
-        let isValid = true
 
-        $(".form-group").removeClass("has-error")
 
-        for (var i = 0; i < curInputs.length; i++) {
-            if (!curInputs[i].validity.valid) {
-                isValid = false
-                $(curInputs[i]).closest(".form-group").addClass("has-error")
-            }
-        }
 
-        isValid ? nextStepWizard.removeAttr('disabled').trigger('click') : ''
 
-    })
 
 
-    $('div.assistente-etapas-painel div a.btn-primary').trigger('click')
 
-        
-        if(window.innerWidth < 992){
+//Formatação de campos com Jquey Mask 
 
-            $("#bars").hide()  
+$("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
+$("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
 
-            $('#painel-left ul').toggleClass('sider-bar sider-bar-responsivo')
 
-            $('#painel-left img').attr('src', '/assets/img/logo.png')
 
-        }
+$(document).ready(() => {
 
-    $("#bars").on("click", () => {     
+    if (window.innerWidth < 992) {
 
-        if ($('#painel-left ul').hasClass('sider-bar-responsivo')) {
+        $("#bars").hide()
 
-            $('.sider-pagina #navbar-top').toggleClass('col-lg-11 col-lg-10')
+        $('#painel-left ul').toggleClass('sider-bar sider-bar-responsivo')
 
-            $('.sider-painel').toggleClass('col-lg-1 col-lg-2')         
+        $('#painel-left img').attr('src', '/assets/img/logo.png')
 
-            $('#painel-left img').attr('src', '/assets/img/logo-completo.png')
-
-            $('#painel-left ul').toggleClass('sider-bar-responsivo sider-bar')   
-                   
-        } else {
-
-            $('.sider-pagina #navbar-top').toggleClass('col-lg-10 col-lg-11')
-
-            $('.sider-painel').toggleClass('col-lg-2 col-lg-1')
-
-            $('#painel-left img').attr('src', '/assets/img/logo.png')
-
-            $('#painel-left ul').toggleClass('sider-bar sider-bar-responsivo')
-
-        }
-
-    }) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    let nome_curso = []
-    let aluno_curso = []
-
-    $.ajax({
-        url: '/graficoAlunoCurso',
-        type: 'get',
-        success: dados => {
-
-            var dadosArray = JSON.parse(dados)
-
-            dadosArray.forEach(element => {
-                nome_curso.push(element['nome_curso'])
-                aluno_curso.push(element['Alunos'])
-            })
-
-            let ctxalunoCurso = document.getElementById("alunoCurso");
-
-            Chart.defaults.scale.gridLines.display = false;
-
-            let alunoCurso = new Chart(ctxalunoCurso, {
-
-                type: 'bar',
-                data: {
-                    // Legendas das Barras
-                    labels: nome_curso,
-                    datasets: [{
-                        // Legenda geral
-                        label: 'Aluno por curso',
-                        // Dados a serem inseridos nas barras
-                        data: aluno_curso,
-                        // Define as cores de preenchimento das barras
-                        // de acordo com sua posição no vetor
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        // Define as cores de preenchimento das bordas das barras
-                        // de acordo com sua posição no vetor
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        // Define a espessura da borda dos retângulos
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            })
-        },
-        error: erro => console.log(erro)
-    })
-
-    let dataDias = []
-    let dataMatriculaTotais = []
-    let novaData = []
-
-    $.ajax({
-        url: '/graficoMatriculasSemanais',
-        type: 'get',
-        success: dados => {
-
-            var dadosArray = JSON.parse(dados)
-
-            dadosArray.forEach(dados => {
-
-                dataMatriculaTotais.push(dados[0]['total'])
-                dataDias.push(dados[1])
-
-            })
-
-            let hoje = new Date().getDate()
-
-            dataDias.forEach(datas => {
-                datas = datas.split('-')
-                if (hoje == datas[2]) {
-                    novaData.push(`Hoje`)
-                } else {
-                    novaData.push(datas[2])
-                }
-
-            })
-
-
-            var ctx = document.getElementById("matriculaSemana").getContext('2d');
-
-            var myChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: novaData,
-                    datasets: [{
-                        label: 'Matriculas', // Name the series
-                        data: dataMatriculaTotais, // Specify the data values array
-                        fill: false,
-                        borderColor: '#2196f3', // Add custom color border (Line)
-                        backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
-                        borderWidth: 1 // Specify bar border width
-                    }]
-                },
-                options: {
-                    responsive: true, // Instruct chart js to respond nicely.
-                    maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
-                }
-            });
-        },
-        erro: erro => console.log(erro)
-    })
-
-
-    let chart1 = document.getElementById("chart1")
-
+    }
 
 })
 

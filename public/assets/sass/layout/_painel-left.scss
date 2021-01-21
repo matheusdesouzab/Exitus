@@ -4,7 +4,7 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 2000;
 
     li {
         padding: 10px;
@@ -34,23 +34,19 @@
         border-left: 20px solid #FAFAFF;
     }
 
-    /* .collapse li > a{
-        color: blue;
-    } */
-
     li:hover>a {
         color: white;
     }
 
-    .sider-bar .logo {
-        width: 150px;
+    .side-bar .logo {
+        width: 100px;
         margin: auto;
         margin-top: 20px;
         margin-bottom: 20px;
     }
 
-    .sider-bar .logo img {
-        width: 100%;
+    .logo img{
+        width:100%;
     }
 
     h5 {
@@ -69,7 +65,7 @@
         color: $painel-left-color;
     }
 
-    .sider-bar {
+    .side-bar {
         position: fixed;
         width: 240px;
         height: 100%;
@@ -78,7 +74,7 @@
         transition: 0.7s;
     }
 
-    .sider-bar-responsivo {
+    .side-bar-responsivo {
         position: fixed;
         width: 180px;
         height: 100%;
