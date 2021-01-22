@@ -17,10 +17,10 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-2 col-sm-2 side-painel">
-				<?php require '../App/Views/app/componentes/painelLeft.php' ?>
+				<?php require '../App/Views/adm/componentes/painelLeft.php' ?>
 			</div>
 			<div id="pagina" class="col-lg-10 col-sm-10 side-pagina">
-				<?php require '../App/Views/app/componentes/navbar.php' ?>
+				<?php require '../App/Views/adm/componentes/navbar.php' ?>
 				<?= $this->content() ?>
 			</div>
 		</div>
@@ -34,14 +34,12 @@
 
 <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-<!-- <script src="/node_modules/chart.js/dist/Chart.min.js"></script> -->
+<script src="/node_modules/chart.js/dist/Chart.min.js"></script>
 
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
 <script src="/assets/js/estilo.js"></script>
 
 <script src="/assets/js/ajax.js"></script>
-
-
 
 </html>

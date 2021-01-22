@@ -35,30 +35,6 @@ class Matricula extends Model
         return $this->$atual = $novoValor;
     }
 
-    public function getDadosCurso()
-    {
-
-        $query = "select c.id_curso , c.nome_curso from tb_cursos as c;";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        $cursos = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-        $query = "select t.id_turma , t.nome_turma from tb_turma as t";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        $turma = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-        $query = "select tu.id_turno , tu.nome_turno from tb_turno as tu";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        $turno = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-        return [
-            'cursos' => $cursos,
-            'turma' => $turma,
-            'turno' => $turno
-        ];
-    }
 
     public function matricularAluno()
     {
@@ -150,63 +126,6 @@ class Matricula extends Model
         $stmt->execute();
     }
 
-    public function verificarVaga()
-    {
-
-        $query = "select count(*) as total, c.nome_curso , tu.nome_turno , tb_turma.nome_turma from tb_matricula as m 
-        left join tb_alunos on(m.fk_id_aluno = tb_alunos.id_aluno)
-		left join tb_cursos as c on(m.fk_id_curso = c.id_curso) 
-		left join tb_turno as tu on(m.fk_id_turno = tu.id_turno) 
-		left join tb_turma on(tb_turma.id_turma = m.fk_id_turma)  
-        where m.fk_id_curso = :curso and m.fk_id_turma = :turma and m.fk_id_turno = :turno and c.id_curso = :curso
-        and tu.id_turno = :turno and tb_turma.id_turma = :turma
-        ";
-
-        $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':curso', $this->__get('curso'));
-        $stmt->bindValue(':turma', $this->__get('turma'));
-        $stmt->bindValue(':turno', $this->__get('turno'));
-        $stmt->execute();
-
-        $totalVagasOcupadas = $stmt->fetchAll(\PDO::FETCH_OBJ);
-
-        $query = "select * from tb_alunos where cpf = :cpf;";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':cpf', $this->__get('cpf'));
-        $stmt->execute();
-
-        $situacaoCpf = $stmt->fetchAll(\PDO::FETCH_OBJ);
-
-        $query = "select * from tb_alunos where email = :email;";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':email', $this->__get('email'));
-        $stmt->execute();
-
-        $situacaoEmail = $stmt->fetchAll(\PDO::FETCH_OBJ);
-
-        return [
-            'totalVagasOcupadas' => $totalVagasOcupadas,
-            'situacaoCPF' => $situacaoCpf,
-            'situacaoEmail' => $situacaoEmail
-        ];
-    }
-
-    public function matriculasRecentes($total)
-    {
-
-        $query = "select tb_alunos.id_aluno , tb_alunos.data_hora_matricula , tb_alunos.nome_aluno , tb_cursos.nome_curso , 
-		tb_turma.nome_turma , tb_turno.nome_turno from tb_matricula 
-		left join tb_cursos on(tb_matricula.fk_id_curso = tb_cursos.id_curso) 
-		left join tb_turno on(tb_matricula.fk_id_turno = tb_turno.id_turno) 
-		left join tb_turma on(tb_turma.id_turma = tb_matricula.fk_id_turma) 
-		left join tb_alunos on(tb_matricula.fk_id_aluno = tb_alunos.id_aluno) 
-		order by tb_alunos.id_aluno desc limit $total ";
-
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
     public function getDataAntiga($data)
     {
 
@@ -228,26 +147,6 @@ class Matricula extends Model
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         return $stmt->fetch(\PDO::FETCH_ASSOC);
-    }
-
-    public function fichaAluno()
-    {
-
-        $query = "select tb_alunos.nome_aluno, tb_alunos.cpf , tb_alunos.sexo , tb_alunos.telefone , tb_alunos.data_nascimento , tb_alunos.email , tb_alunos.naturalidade , 
-        tb_localidade.cep , tb_localidade.endereco , tb_localidade.bairro, tb_localidade.uf, tb_localidade.municipio, 
-        tb_cursos.nome_curso , tb_turno.nome_turno, tb_turma.nome_turma, tb_matricula.fk_id_curso, tb_matricula.fk_id_turma , 
-        tb_matricula.fk_id_turno, tb_alunos.id_aluno from tb_matricula 
-        left join tb_alunos on(tb_matricula.fk_id_aluno = tb_alunos.id_aluno) 
-        left join tb_cursos on(tb_matricula.fk_id_curso = tb_cursos.id_curso) 
-        left join tb_turno on(tb_matricula.fk_id_turno = tb_turno.id_turno) 
-        left join tb_turma on(tb_turma.id_turma = tb_matricula.fk_id_turma) 
-        left join tb_localidade on(tb_alunos.id_aluno = tb_localidade.fk_id_aluno)
-        where tb_alunos.id_aluno = :id_aluno";
-
-        $stmt = $this->db->prepare($query);
-        $stmt->bindValue(":id_aluno", $this->__get('id_aluno'));
-        $stmt->execute();
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
     public function getTotalAlunosCurso()

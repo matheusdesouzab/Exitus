@@ -30,18 +30,13 @@
   font-family: Supreme-bold;
   src: url(./../../assets/fonts/Montserrat-Black.ttf);
 }
-#pagina h5 {
-  color: #30343f;
-  font-family: Bold;
-  font-size: 20px;
-}
 #pagina .linha-pagina {
   margin-top: 80px;
 }
 #pagina .card {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  border: none;
   border-radius: 10px;
+  border: 1px solid #e5e5e5;
 }
 #pagina .card .card-title {
   font-size: 15px;
@@ -59,7 +54,7 @@
 #pagina #home td {
   line-height: 30px;
   font-family: Semi-bold;
-  color: #30343f;
+  color: #1e2749;
   font-size: 13px;
   cursor: pointer;
 }
@@ -130,8 +125,13 @@
   font-size: 12px;
   line-height: 1.428571429;
   border-radius: 15px;
-  background-color: #e4d9ff;
+  background-color: blue;
   z-index: 2;
+  color: white;
+}
+#pagina #matricula div > .collapsed {
+  background-color: #e4d9ff;
+  color: black;
 }
 #pagina #matricula :disabled {
   background-color: white;
@@ -147,24 +147,37 @@
   padding: 10px;
   text-align: left;
   padding-left: 40px;
-  transition: 0.8s;
+  transition: background-color 0.8s;
+  background-size: 0% 100%;
+  font-family: Regular;
 }
 #painel-left li:hover {
-  background-color: #273469;
-  border-left: 20px solid white;
+  background-color: blueviolet;
+}
+#painel-left li a {
+  text-decoration: none;
+  font-size: 12px;
+  font-family: Medio;
+  color: #F4F6F6;
 }
 #painel-left .link-collapse:hover {
   background-color: #273469;
   border-left: 0px;
 }
+#painel-left .link-collapse a {
+  font-family: Semi-bold;
+}
 #painel-left .collapse li {
-  background-color: #273469;
+  background-color: #1D2140;
   border-left: 20px solid #FAFAFF;
   cursor: pointer;
+  transition: 0.6s;
 }
 #painel-left .collapse li:hover {
   background-color: #30343F;
-  border-left: 20px solid #FAFAFF;
+}
+#painel-left .collapse li span {
+  font-family: Semi-bold;
 }
 #painel-left li:hover > a {
   color: white;
@@ -179,35 +192,39 @@
   width: 100%;
 }
 #painel-left h5 {
-  color: #e5e5e5;
+  color: #F4F6F6;
   text-align: left;
   padding-left: 40px;
   font-size: 13px;
   margin-top: 15px;
   font-family: Bold;
 }
-#painel-left a {
-  text-decoration: none;
-  font-family: Semi-bold;
-  font-size: 12px;
-  color: #e5e5e5;
-}
 #painel-left .side-bar {
   position: fixed;
   width: 240px;
   height: 100%;
   margin-left: 150px;
-  background-color: #1e2749;
+  background: #41295a;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2F0743, #41295a);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2F0743, #41295a);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   transition: 0.7s;
 }
 #painel-left .side-bar-responsivo {
   position: fixed;
   width: 180px;
   height: 100%;
-  background-color: #1e2749;
+  background: #41295a;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2F0743, #41295a);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2F0743, #41295a);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   transition: 0.7s;
 }
-#painel-left .side-bar-responsivo span {
+#painel-left .side-bar-responsivo .link-collapse span, #painel-left .side-bar-responsivo .fa-angle-down {
   display: none;
 }
 #painel-left .side-bar-responsivo li {
@@ -229,12 +246,18 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-#painel-left .side-bar-responsivo a {
+#painel-left .side-bar-responsivo .link-collapse a {
   text-decoration: none;
   font-family: Semi-bold;
   padding-bottom: 10px;
   font-size: 15px;
-  color: #e5e5e5;
+  color: #F4F6F6;
+}
+#painel-left .side-bar-responsivo .collapse a {
+  font-size: 10px;
+}
+#painel-left .side-bar-responsivo .collapse li {
+  border-left: 0px;
 }
 #painel-left .side-bar-responsivo .logo img {
   width: 100%;
@@ -315,12 +338,12 @@ html,
 body {
   height: 100%;
   font-family: Regular;
-  color: #30343f;
+  color: #1e2749;
   transition: 0.6s;
 }
 
 html > body {
-  background-color: #fafaff;
+  background-color: #F4F6F6;
 }
 
 a {
@@ -329,6 +352,12 @@ a {
 
 li {
   list-style-type: none;
+}
+
+h5 {
+  color: #1e2749;
+  font-family: Bold;
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */

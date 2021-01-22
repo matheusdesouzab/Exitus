@@ -6,7 +6,8 @@ class Paginas{
 
         let painelLeftImg = $('#painel-left .logo img')
 
-        $('.side-pagina  #navbar-top').toggleClass('col-lg-11 col-lg-10')
+        $('#navbar-top').toggleClass('col-lg-11 col-lg-10')
+        $('.side-pagina').toggleClass('col-lg-11 col-lg-10') 
 
         $('.side-painel').toggleClass('col-lg-1 col-lg-2')
 

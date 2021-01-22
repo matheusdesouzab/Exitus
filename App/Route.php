@@ -8,9 +8,39 @@ class Route extends Bootstrap {
 
 	protected function initRoutes() {
 
+		// ADM
+
+		$routes['home'] = array(
+			'route' => '/home',
+			'controller' => 'AdmController',
+			'action' => 'admHome'
+		);
+
+		$routes['matricula'] = array(
+			'route' => '/matricula',
+			'controller' => 'AdmController',
+			'action' => 'matricula'
+		);
+
+		$routes['listaAlunos'] = array(
+			'route' => '/listaAlunos',
+			'controller' => 'AdmController',
+			'action' => 'listaAlunos'
+		);
+
+
+
+
+
+
+
+
+
+
+
 		$routes['index'] = array(
 			'route' => '/',
-			'controller' => 'indexController',
+			'controller' => 'IndexController',
 			'action' => 'index'
 		);
 
@@ -20,23 +50,7 @@ class Route extends Bootstrap {
 			'action' => 'autenticar'
 		);
 
-		$routes['home'] = array(
-			'route' => '/home',
-			'controller' => 'AppController',
-			'action' => 'home'
-		);
-
-		$routes['matricula'] = array(
-			'route' => '/matricula',
-			'controller' => 'AppController',
-			'action' => 'matricula'
-		);
-
-		$routes['listaAlunos'] = array(
-			'route' => '/listaAlunos',
-			'controller' => 'AppController',
-			'action' => 'listaAlunos'
-		);
+		
 
 		$routes['matricular'] = array(
 			'route' => '/matricular',
@@ -49,30 +63,7 @@ class Route extends Bootstrap {
 			'controller' => 'AppController',
 			'action' => 'verificarVaga'
 		);	
-
-		$routes['fichaAluno'] = array(
-			'route' => '/fichaAluno',
-			'controller' => 'AppController',
-			'action' => 'fichaAluno'
-		);
-
-		$routes['atualizarDados'] = array(
-			'route' => '/atualizarDados',
-			'controller' => 'AppController',
-			'action' => 'atualizarDados'
-		);
-
-		$routes['graficoAlunoCurso'] = array(
-			'route' => '/graficoAlunoCurso',
-			'controller' => 'AppController',
-			'action' => 'graficoAlunoCurso'
-		);
-
-		$routes['graficoMatriculasSemanais'] = array(
-			'route' => '/graficoMatriculasSemanais',
-			'controller' => 'AppController',
-			'action' => 'graficoMatriculasSemanais'
-		);
+	
 
 		$this->setRoutes($routes);
 	}

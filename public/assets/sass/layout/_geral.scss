@@ -2,12 +2,6 @@
 
 #pagina {
 
-    h5 {
-        color: $font-color-padrao;
-        font-family: Bold;
-        font-size: 20px;
-    }
-
     .linha-pagina {
         margin-top: 80px;
     }
@@ -17,8 +11,8 @@
     .card {
 
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-        border: none;
         border-radius: 10px;
+        border: 1px solid #e5e5e5;
 
         .card-title {
             font-size: 15px;
@@ -138,8 +132,14 @@
             font-size: 12px;
             line-height: 1.428571429;
             border-radius: 15px;
-            background-color: #e4d9ff;
+            background-color: blue;
             z-index: 2;
+            color: white;
+        }
+
+        div>.collapsed {
+            background-color: #e4d9ff;
+            color: black;
         }
 
         :disabled {

@@ -10,28 +10,28 @@
 
             <div class="col-lg-12">
 
-                <div class="card pt-5 p-3">
+                <div class="card col-lg-12 pt-5 p-3 accordion" id="accordionExample">
 
                     <div class="assistente-etapas-sessao">
                         <div class="assistente-etapas-row assistente-etapas-painel">
                             <div class="linha-conexao"></div>
-                            <div class="assistente-etapas">
-                                <a href="#dados-pessoais" type="button" class=" btn btn-primary btn-circle"><i class="fas fa-user-alt"></i></a>
+                            <div class="assistente-etapas" id="headingOne">
+                                <a type="button" class="btn btn-circle" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
                                 <p>Dados pessoais</p>
                             </div>
-                            <div class="assistente-etapas">
-                                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled"><i class="fas fa-home"></i></a>
+                            <div class="assistente-etapas" id="headingTwo">
+                                <a type="button" class="btn btn-circle collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
                                 <p>Endereço e contato</p>
                             </div>
-                            <div class="assistente-etapas">
-                                <a href="#step-3" type="button" class="btn btn-default  btn-circle" disabled="disabled"><i class="fas fa-users"></i></a>
+                            <div class="assistente-etapas" id="headingThree">
+                                <a type="button" class="btn btn-circle collapsed" data-toggle="collapse" data-target="#collapseThree"><i class="fas fa-users"></i></a>
                                 <p>Curso e turma</p>
                             </div>
                         </div>
                     </div>
 
                     <form class="was-validated" role="form">
-                        <div class="row assistente-etapas-conteudo" id="dados-pessoais">
+                        <div class="row assistente-etapas-conteudo collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
                                     <div class="form-row mt-3">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="row assistente-etapas-conteudo" id="step-2">
+                        <div class="row assistente-etapas-conteudo collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
 
@@ -156,7 +156,7 @@
                             </div>
                         </div>
 
-                        <div class="row assistente-etapas-conteudo" id="step-3">
+                        <div class="row assistente-etapas-conteudo collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
 
@@ -209,8 +209,8 @@
                                         </div>
 
                                         <div class="form-group col-md-8">
-                                           <label for="">Situação da turma </label>                                          
-                                                <input type="text" class="form-control" disabled placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                            <label for="">Situação da turma </label>
+                                            <input type="text" class="form-control" disabled placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                                         </div>
                                     </div>
 

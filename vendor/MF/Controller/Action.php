@@ -21,13 +21,16 @@ abstract class Action {
 	}
 
 	protected function content() {
+		
 		$classAtual = get_class($this);
 
 		$classAtual = str_replace('App\\Controllers\\', '', $classAtual);
 
 		$classAtual = strtolower(str_replace('Controller', '', $classAtual));
 
-		require_once "../App/Views/".$classAtual."/".$this->view->page.".php";
+		$pastaArquivo = explode('_',$this->view->page);
+
+		require_once "../App/Views/".$classAtual."/".$pastaArquivo[0]."/".$this->view->page.".php";
 	}
 }
 

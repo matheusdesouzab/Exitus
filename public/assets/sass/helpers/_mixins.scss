@@ -1,24 +1,10 @@
-@mixin borda-card {
-    border: 1px solid #f1eeee;
+@mixin side-bar-background {
+    background: #41295a;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2F0743, #41295a);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2F0743, #41295a);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    transition: 0.7s;
 }
 
-@mixin active {
-    padding: 14px 15px;
-    border-radius: 8px;
-    background-color: white;
-    transition: 0.4ms;
-}
-
-@mixin icons-painel($color){
-
-    .fa-home,
-    .fa-user-plus,
-    .fa-users,
-    .fa-chart-pie,
-    .fa-question-circle,
-    .fa-user-times {
-        color: $color;
-        font-size: 17px;
-    }
-
-}

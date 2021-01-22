@@ -15,5 +15,4 @@ class IndexController extends Action {
 
 }
 
-
 ?>

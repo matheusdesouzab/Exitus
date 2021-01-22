@@ -10,28 +10,45 @@
         padding: 10px;
         text-align: left;
         padding-left: 40px;
-        transition: 0.8s;
+        transition: background-color .8s;
+        background-size: 0% 100%;
+        font-family: Regular;
 
         &:hover {
-            background-color: $painel-left-li-hover;
-            border-left: 20px solid white;
+            background-color: blueviolet;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 12px;
+            font-family: Medio;
+            color: $painel-left-color;
         }
     }
 
-    .link-collapse:hover{
+
+    .link-collapse:hover {
         background-color: $painel-left-li-hover;
         border-left: 0px;
     }
 
-    .collapse li{
-        background-color: $painel-left-li-hover;
-        border-left: 20px solid #FAFAFF;
-        cursor: pointer;
+    .link-collapse a {
+        font-family: Semi-bold;
     }
 
-    .collapse li:hover{
-        background-color: #30343F;
+    .collapse li {
+        background-color: #1D2140;
         border-left: 20px solid #FAFAFF;
+        cursor: pointer;
+        transition: 0.6s;
+
+        &:hover {
+            background-color: #30343F;
+        }
+    }
+
+    .collapse li span {
+        font-family: Semi-bold;
     }
 
     li:hover>a {
@@ -45,8 +62,8 @@
         margin-bottom: 20px;
     }
 
-    .logo img{
-        width:100%;
+    .logo img {
+        width: 100%;
     }
 
     h5 {
@@ -58,33 +75,24 @@
         font-family: Bold;
     }
 
-    a {
-        text-decoration: none;
-        font-family: Semi-bold;
-        font-size: 12px;
-        color: $painel-left-color;
-    }
-
     .side-bar {
         position: fixed;
         width: 240px;
         height: 100%;
         margin-left: 150px;
-        background-color: $painel-left-background;
-        transition: 0.7s;
+        @include side-bar-background;
     }
 
     .side-bar-responsivo {
         position: fixed;
         width: 180px;
         height: 100%;
-        background-color: $painel-left-background;
-        transition: 0.7s;
+        @include side-bar-background;
 
-        span {
+        .link-collapse span , .fa-angle-down {
             display: none;
         }
-
+        
         li {
             padding: 10px;
             text-align: center;
@@ -108,12 +116,20 @@
             margin-bottom: 20px;
         }
 
-        a {
+        .link-collapse a {
             text-decoration: none;
             font-family: Semi-bold;
             padding-bottom: 10px;
             font-size: 15px;
             color: $painel-left-color;
+        }
+
+        .collapse a{
+            font-size: 10px;
+        }
+
+        .collapse li{
+            border-left: 0px;
         }
 
         .logo img {
