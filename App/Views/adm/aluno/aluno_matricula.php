@@ -5,7 +5,7 @@
         <div class="col-lg-11 mx-auto">
 
             <div class="col-lg-12 mb-4">
-                <h5>Cadastro do Aluno</h5>
+                <h5>Matricula do aluno</h5>
             </div>
 
             <div class="col-lg-12">
@@ -215,20 +215,50 @@
                                     </div>
 
                                     <div class="form-row">
-                                        <div class="form-group col-md-3 mb-5 mx-auto">
-                                            <a class="btn btn-success disabled w-100" href="">Finalizar cadastro</a>
+                                        <div class="form-group col-md-3 mt-3 mb-5 mx-auto">
+                                            <a id="matricularAluno" class="btn btn-success w-100" href="#">Finalizar cadastro</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
+
+                    <div class="modal fade" id="matriculaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    Situação da matricula
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                    </div>
+                                    <div class="col-lg-12 d-flex justify-content-center">
+                                        <!-- <i class="fas fa-check-circle"></i> -->
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                    <div class="col-lg-12 modal-texto">
+                                        <p>Aluno não matriculado!</p>
+                                        <p>INFO-1M-B chegou ao limite de alunos! </p>
+                                    </div>
+                                    <div class="col-lg-12 modal-links-alternativos mt-5 d-flex justify-content-around mb-4">
+
+                                        <a class="btn btn-primary" href="">Lista de Alunos <i class="fas fa-arrow-alt-circle-left ml-2"></i></a>
+                                        <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
             </div>
         </div>
-
     </div>
+
+</div>
 
 </div>

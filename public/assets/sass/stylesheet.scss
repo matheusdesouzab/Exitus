@@ -1,16 +1,5 @@
+
 @import 'helpers/variaveis';
-
-@import 'helpers/fonts';
-
-@import 'helpers/mixins';
-
-@import 'layout/geral';
-
-@import 'layout/painel-left';
-
-@import 'layout/navbar-top';
-
-@import 'layout/media-screen';
 
 * {
     margin: 0;
@@ -31,7 +20,7 @@ html > body {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 li {
@@ -43,3 +32,21 @@ h5 {
     font-family: Bold;
     font-size: 20px;
 }
+
+@import 'helpers/fonts';
+
+@import 'helpers/mixins';
+
+@import 'layout/geral';
+
+@import 'layout/card';
+
+@import 'layout/painel-left';
+
+@import 'layout/navbar-top';
+
+@import 'layout/modal';
+
+@import 'layout/media-screen';
+
+@import 'layout/button';

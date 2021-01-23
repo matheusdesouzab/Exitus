@@ -1,0 +1,44 @@
+.modal {
+
+    margin-top: 40px;
+
+    .modal-content {
+        border: none;
+        background-color: $modal-background;
+        border-radius: 5px;
+    }
+
+    .modal-texto {
+        margin-top: 30px;
+        text-align: center;
+        font-family: Medio;
+    }
+
+    span {
+        color: white;
+    }
+
+    .modal-aluno-matricular-sucesso {
+
+        .modal-header {
+            @include modal-header($modal-sucesso);
+        }
+
+        .fa-check-circle {
+            @include icon-modal($modal-sucesso);
+        }
+
+    }
+
+    .modal-aluno-matricular-erro {
+
+        .modal-header {
+            @include modal-header($modal-erro);
+        }
+
+        .fa-times-circle {
+            @include icon-modal($modal-erro);
+        }
+
+    }
+}

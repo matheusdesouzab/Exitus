@@ -1,0 +1,18 @@
+#matricula {
+
+    .btn-circle {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        padding: 7px;
+        font-size: 12px;
+        border-radius: 15px;
+        background-color: blue;
+        z-index: 2;
+        color: white;
+    }
+}
+
+button{
+    outline: none;
+}

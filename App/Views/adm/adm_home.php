@@ -19,7 +19,7 @@
                                     <p class="card-valor">1232</p>
                                 </div>
                                 <div class="col-6 d-flex align-items-center justify-content-center">
-                                    <div class="box-icon"><i class="fas fa-users"></i></div>
+                                    <div class="card-icon"><i class="fas fa-users"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                     <p class="card-valor">82</p>
                                 </div>
                                 <div class="col-6 d-flex align-items-center justify-content-center">
-                                    <div class="box-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                                    <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                     <p class="card-valor">2</p>
                                 </div>
                                 <div class="col-6 d-flex align-items-center justify-content-center">
-                                    <div class="box-icon"><i class="fas fa-hourglass-half"></i></div>
+                                    <div class="card-icon"><i class="fas fa-hourglass-half"></i></div>
                                 </div>
                             </div>
                         </div>

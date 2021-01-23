@@ -1,10 +1,70 @@
-@mixin side-bar-background {
-    background: #41295a;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2F0743, #41295a);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2F0743, #41295a);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    transition: 0.7s;
+
+
+@mixin icon-modal($color) {
+    margin-top: 30px;
+    font-size: 100px;
+    color: $color;
+    justify-content: space-around;
 }
 
+
+@mixin modal-header($background) {
+    background-color: $background;
+    color: white;
+    font-weight: bold;
+}
+
+
+@mixin card($padding, $background , $border) {
+    padding: $padding;
+    border-radius: 10px;
+    border: $border;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    background-color: $background;
+}
+
+
+@mixin side-bar($width){
+    background: #41295a;
+    background: -webkit-linear-gradient(to right, #2F0743, #41295a);
+    background: linear-gradient(to right, #2F0743, #41295a);
+    transition: 0.7s;
+    position: fixed;
+    height: 100%;
+    width: $width;
+}
+
+
+@mixin side-bar-li($padding, $text-align, $padding-left, $font-family, $background, $background-hover, $border-left) {
+    padding: $padding;
+    text-align: $text-align;
+    padding-left: $padding-left;
+    transition: background-color .8s;
+    background-size: 0% 100%;
+    font-family: $font-family;
+    background-color: $background;
+
+    &:hover {
+        background-color: $background-hover;
+        border-left: $border-left;
+    }
+}
+
+
+@mixin side-bar-a($font-size, $font-family, $color, $padding-bottom) {
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $color;
+    padding-bottom: $padding-bottom;
+}
+
+
+@mixin side-bar-logo($width,$padding-left,$margin) {
+    width: $width;
+    padding-left: $padding-left;
+    margin: $margin;
+
+    img{
+        width: 100%;
+    }
+}

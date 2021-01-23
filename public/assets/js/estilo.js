@@ -1,4 +1,4 @@
-class Paginas{
+class Paginas {
 
     // Mudança randômica entre side-bar normal e side-bar-responsive
 
@@ -7,7 +7,7 @@ class Paginas{
         let painelLeftImg = $('#painel-left .logo img')
 
         $('#navbar-top').toggleClass('col-lg-11 col-lg-10')
-        $('.side-pagina').toggleClass('col-lg-11 col-lg-10') 
+        $('.side-pagina').toggleClass('col-lg-11 col-lg-10')
 
         $('.side-painel').toggleClass('col-lg-1 col-lg-2')
 
@@ -46,7 +46,16 @@ class Paginas{
     }
 }
 
-class matriculaAluno extends Paginas{
+class matriculaAluno extends Paginas {
+
+    matricularAluno() {
+
+
+        $('#matriculaModal > div').addClass('modal-aluno-matricular-erro')
+
+        $('#matriculaModal').modal('show')
+
+    }
 
 }
 
@@ -54,27 +63,17 @@ let pagina_matriculaAluno = new matriculaAluno()
 
 $("#cep").on('blur', (pagina_matriculaAluno.getCep))
 $("#bars").on("click", (pagina_matriculaAluno.sideBarResposive))
+$("#matricularAluno").on('click', (e) => {
+    e.target.preventDefault
+    pagina_matriculaAluno.matricularAluno()
 
-
-
-
-
-
-
-
-
-
-
-
-
+})
 
 
 //Formatação de campos com Jquey Mask 
 
 $("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
 $("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
-
-
 
 $(document).ready(() => {
 

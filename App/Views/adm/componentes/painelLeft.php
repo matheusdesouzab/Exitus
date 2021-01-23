@@ -1,4 +1,4 @@
-<div id="painel-left" class="col-sm-2 d-flex justify-content-center ">
+<div id="painel-left" class="col-sm-2  d-flex justify-content-center ">
     <ul class="side-bar">
         <div class="logo"><img src="/assets/img/logo-completo.png" alt=""></div>
         <li class="link-collapse"><a href="/home"><i class="fas fa-home mr-2"></i> <span>Home</span></a></li>
