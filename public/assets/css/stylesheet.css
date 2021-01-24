@@ -81,52 +81,93 @@ h5 {
   font-size: 15px;
   color: white;
 }
-#pagina #matricula form :invalid {
+#pagina #matricula_aluno form :invalid,
+#pagina #cadastro_professor form :invalid {
   border: 1px solid #E4D9FF;
 }
-#pagina #matricula form :valid {
+#pagina #matricula_aluno form :valid,
+#pagina #cadastro_professor form :valid {
   border: 1px solid #7DCEA0;
 }
-#pagina #matricula .assistente-etapas {
+#pagina #matricula_aluno .assistente-etapas,
+#pagina #cadastro_professor .assistente-etapas {
   display: table-cell;
   text-align: center;
   position: relative;
   z-index: 1000;
 }
-#pagina #matricula .assistente-etapas p {
+#pagina #matricula_aluno .assistente-etapas p,
+#pagina #cadastro_professor .assistente-etapas p {
   margin-top: 10px;
   z-index: 1000;
   font-size: 2.5vh;
   font-family: Semi-bold;
 }
-#pagina #matricula .assistente-etapas .btn-primary {
+#pagina #matricula_aluno .assistente-etapas .btn-primary,
+#pagina #cadastro_professor .assistente-etapas .btn-primary {
   background-color: #273469;
 }
-#pagina #matricula .assistente-etapas-row {
+#pagina #matricula_aluno .assistente-etapas-row,
+#pagina #cadastro_professor .assistente-etapas-row {
   display: table-row;
 }
-#pagina #matricula .assistente-etapas-sessao {
+#pagina #matricula_aluno .assistente-etapas-sessao,
+#pagina #cadastro_professor .assistente-etapas-sessao {
   display: table;
   width: 100%;
   position: relative;
 }
-#pagina #matricula .linha-conexao {
+#pagina #matricula_aluno .linha-conexao,
+#pagina #cadastro_professor .linha-conexao {
   height: 2px;
   background: #e0e0e0;
   position: absolute;
   width: 71%;
-  margin: 0 auto;
+  margin-left: auto;
   left: 0;
   right: 0;
   top: 15%;
   z-index: 1;
 }
-#pagina #matricula div > .collapsed {
+#pagina #matricula_aluno div > .collapsed,
+#pagina #cadastro_professor div > .collapsed {
   background-color: #e4d9ff;
   color: black;
 }
-#pagina #matricula :disabled {
+#pagina #matricula_aluno :disabled,
+#pagina #cadastro_professor :disabled {
   background-color: white;
+}
+#pagina #cadastro_professor .linha-conexao {
+  height: 2px;
+  background: #e0e0e0;
+  position: absolute;
+  width: 60%;
+  margin-left: 163px;
+  left: 0;
+  right: 0;
+  top: 15%;
+  z-index: 1;
+}
+#pagina #aluno-lista .btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+#pagina #aluno-lista table img {
+  border-radius: 50%;
+  width: 30px;
+}
+#pagina #aluno-lista table td {
+  line-height: 30px;
+}
+#pagina #aluno-lista table tr {
+  text-align: center;
+}
+#pagina #aluno-lista table .nota-unidade-indefinida {
+  color: grey;
+}
+#pagina #aluno-lista table .nota-unidade-definida {
+  color: green;
 }
 
 #pagina .card-icon {
@@ -380,7 +421,7 @@ h5 {
     border: 2px solid red;
   }
 }
-#matricula .btn-circle {
+#matricula_aluno .btn-circle, #cadastro_professor .btn-circle {
   width: 30px;
   height: 30px;
   text-align: center;

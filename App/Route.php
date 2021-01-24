@@ -16,10 +16,16 @@ class Route extends Bootstrap {
 			'action' => 'admHome'
 		);
 
-		$routes['matricula'] = array(
-			'route' => '/matricula',
+		$routes['matriculaAluno'] = array(
+			'route' => '/matriculaAluno',
 			'controller' => 'AdmController',
-			'action' => 'matricula'
+			'action' => 'matricular_aluno'
+		);
+
+		$routes['cadastraProfessor'] = array(
+			'route' => '/cadastraProfessor',
+			'controller' => 'AdmController',
+			'action' => 'cadastrar_professor'
 		);
 
 		$routes['listaAlunos'] = array(

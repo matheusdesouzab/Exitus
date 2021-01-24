@@ -1,11 +1,11 @@
-<div id="matricula_aluno">
+<div id="cadastro_professor">
 
     <div class="row linha-pagina">
 
         <div class="col-lg-11 mx-auto">
 
             <div class="col-lg-12 mb-4">
-                <h5>Matricular aluno</h5>
+                <h5>Cadastra professor(a)</h5>
             </div>
 
             <div class="col-lg-12">
@@ -23,10 +23,7 @@
                                 <a type="button" class="btn btn-circle collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
                                 <p>Endereço e contato</p>
                             </div>
-                            <div class="assistente-etapas" id="headingThree">
-                                <a type="button" class="btn btn-circle collapsed" data-toggle="collapse" data-target="#collapseThree"><i class="fas fa-users"></i></a>
-                                <p>Curso e turma</p>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -76,27 +73,19 @@
 
                                     </div>
 
-                                    <div class="form-row mb-5">
+                                    <div class="form-row mt-3 mb-5">
 
-                                        <div class="form-group col-md-5">
-                                            <label for="inputCity">Nome da Mãe:</label>
-                                            <input type="text" class="form-control is-valid" id="inputCity" maxlength="120" required>
-                                        </div>
-
-                                        <div class="form-group col-md-5">
-                                            <label for="inputCity">Nome do Pai:</label>
-                                            <input type="text" class="form-control is-valid" id="inputCity" maxlength="120" required>
-                                        </div>
-
-                                        <div class="form-group col-md-2">
-                                            <label for="inputCity">PcD:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option>Não</option>
-                                                <option>Sim</option>
-                                            </select>
+                                        <div class="form-group col-md-12">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input is-valid" id="customFileLangHTML" required>
+                                                <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do professor(a)</label>
+                                            </div>
                                         </div>
 
                                     </div>
+                                    
+
+                                   
 
                                 </div>
                             </div>
@@ -148,17 +137,13 @@
                                         </div>
 
                                     </div>
-
-                                    <div class="form-row mt-3 mb-5">
-
-                                        <div class="form-group col-md-12">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input is-valid" id="customFileLangHTML" required>
-                                                <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do aluno(a)</label>
-                                            </div>
+                                    <div class="form-row mt-3">
+                                        <div class="form-group col-md-3 mt-3 mb-5 mx-auto">
+                                            <a id="matricularAluno" class="btn btn-success w-100" href="#">Finalizar cadastro</a>
                                         </div>
-
                                     </div>
+
+                                    
 
                                 </div>
                             </div>
@@ -224,7 +209,7 @@
 
                                     <div class="form-row">
                                         <div class="form-group col-md-3 mt-3 mb-5 mx-auto">
-                                            <a id="matricularAluno" class="btn btn-success w-100" href="#">Finalizar cadastro</a>
+                                            <a id="cadastrarProfessor" class="btn btn-success w-100" href="#">Finalizar cadastro</a>
                                         </div>
                                     </div>
                                 </div>

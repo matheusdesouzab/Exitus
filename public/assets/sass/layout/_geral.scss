@@ -33,7 +33,8 @@
 
     // Matricula
 
-    #matricula {
+    #matricula_aluno,
+    #cadastro_professor {
 
         form {
             :invalid {
@@ -78,17 +79,9 @@
         }
 
         .linha-conexao {
-            height: 2px;
-            background: #e0e0e0;
-            position: absolute;
-            width: 71%;
-            margin: 0 auto;
-            left: 0;
-            right: 0;
-            top: 15%;
-            z-index: 1;
+            @include linha-conexao(71%, auto, 0 auto);
         }
-       
+
         div>.collapsed {
             background-color: #e4d9ff;
             color: black;
@@ -97,6 +90,44 @@
         :disabled {
             background-color: white;
 
+        }
+    }
+
+    #cadastro_professor {
+
+        .linha-conexao {
+            @include linha-conexao(60%, 163px, 0);
+        }
+
+    }
+
+    #aluno-lista {
+        .btn:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        table {
+
+            img {
+                border-radius: 50%;
+                width: 30px;
+            }
+
+            td {
+                line-height: 30px;
+            }
+
+            tr {
+                text-align: center;
+            }
+
+            .nota-unidade-indefinida{
+                color:grey;
+            }
+
+            .nota-unidade-definida{
+                color: green;
+            }
         }
     }
 }

@@ -15,10 +15,15 @@ class AdmController extends Action
         $this->render('adm_home');
     }
 
-    public function matricula()
+    public function matricular_aluno()
     {
 
         $this->render('aluno_matricula');
+    }
+
+    public function cadastrar_professor()
+    {
+        $this->render('professor_cadastro');
     }
 
     public function listaAlunos()

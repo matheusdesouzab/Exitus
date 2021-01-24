@@ -1,5 +1,3 @@
-
-
 @mixin icon-modal($color) {
     margin-top: 30px;
     font-size: 100px;
@@ -15,7 +13,7 @@
 }
 
 
-@mixin card($padding, $background , $border) {
+@mixin card($padding, $background, $border) {
     padding: $padding;
     border-radius: 10px;
     border: $border;
@@ -24,7 +22,7 @@
 }
 
 
-@mixin side-bar($width){
+@mixin side-bar($width) {
     background: #41295a;
     background: -webkit-linear-gradient(to right, #2F0743, #41295a);
     background: linear-gradient(to right, #2F0743, #41295a);
@@ -59,12 +57,24 @@
 }
 
 
-@mixin side-bar-logo($width,$padding-left,$margin) {
+@mixin side-bar-logo($width, $padding-left, $margin) {
     width: $width;
     padding-left: $padding-left;
     margin: $margin;
 
-    img{
+    img {
         width: 100%;
     }
+}
+
+@mixin linha-conexao($width,$margin-left,$margin : 0 auto) {
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: $width;
+    margin-left: $margin-left;
+    left: 0;
+    right: 0;
+    top: 15%;
+    z-index: 1;
 }

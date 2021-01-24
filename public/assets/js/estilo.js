@@ -50,7 +50,6 @@ class matriculaAluno extends Paginas {
 
     matricularAluno() {
 
-
         $('#matriculaModal > div').addClass('modal-aluno-matricular-erro')
 
         $('#matriculaModal').modal('show')
