@@ -58,8 +58,9 @@
             p {
                 margin-top: 10px;
                 z-index: 1000;
-                font-size: 2.5vh;
+                font-size: 2.3vh;
                 font-family: Semi-bold;
+                color: $font-color-padrao;
             }
 
             .btn-primary {
@@ -78,8 +79,8 @@
             position: relative;
         }
 
-        .linha-conexao {
-            @include linha-conexao(71%, auto, 0 auto);
+        .linha-conexao {         
+            @include linha-conexao(70%);
         }
 
         div>.collapsed {
@@ -96,16 +97,22 @@
     #cadastro_professor {
 
         .linha-conexao {
-            @include linha-conexao(60%, 163px, 0);
+            @include linha-conexao(60%);
         }
 
     }
 
     #aluno-lista {
+
+        input,select{
+            border-radius: 10px;
+        }
+
         .btn:focus {
             outline: none;
             box-shadow: none;
-          }
+        }
+
         table {
 
             img {
@@ -115,17 +122,30 @@
 
             td {
                 line-height: 30px;
+                font-weight: 400;
+                color: $font-color-padrao
+            }
+
+            .col-lg-2 {
+                display: flex;
+                justify-content: center;
+            }
+
+            .nome-aluno {
+                text-align: left;
+
             }
 
             tr {
                 text-align: center;
+                cursor: pointer;
             }
 
-            .nota-unidade-indefinida{
-                color:grey;
+            .nota-unidade-indefinida {
+                color: #BDC3C7;
             }
 
-            .nota-unidade-definida{
+            .nota-unidade-definida {
                 color: green;
             }
         }

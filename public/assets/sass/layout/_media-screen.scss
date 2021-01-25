@@ -2,8 +2,6 @@
 
     #pagina {
 
-        border-radius: 15px;
-
         .linha-pagina {
             margin-top: 30px;
         }
@@ -13,7 +11,6 @@
             .assistente-etapas p {
                 font-size: 10px;
             }
-
         }
 
         #home {
@@ -21,27 +18,30 @@
             .card {
                 margin-top: 20px;
             }
-
         }
 
+
+        th,td{
+            font-size: 12px;
+        }
+    }
+
+    
+
+    .side-painel {
+        display: none;
     }
 
     #painel-left {
 
-        .sider-bar {
-            display: none;
-        }
-
         .sider-bar-responsivo {
             display: none;
         }
-
     }
 
     #navbar-top {
         display: none;
     }
-
 }
 
 @media screen and (min-width: 579px) and (max-width:778px) {
@@ -69,9 +69,8 @@
 
 @media screen and (min-width: 778px) and (max-width:992px) {
 
-    .sider-bar-responsivo{
+    .sider-bar-responsivo {
         border: 2px solid red;
     }
 
 }
-

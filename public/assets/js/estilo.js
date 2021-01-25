@@ -13,10 +13,8 @@ class Paginas {
 
         $('#painel-left ul').toggleClass('side-bar-responsivo side-bar')
 
-        $('#painel-left ul').hasClass('side-bar-responsivo') ?
-            painelLeftImg.attr('src', '/assets/img/logo.png') :
-            painelLeftImg.attr('src', '/assets/img/logo-completo.png')
-
+        $('#painel-left ul').hasClass('side-bar-responsivo') ? [painelLeftImg.attr('src', '/assets/img/logo.png'), $('.fa-bars').addClass('ml-2')] :
+            [painelLeftImg.attr('src', '/assets/img/logo-completo.png'), $('.fa-bars').removeClass('ml-2')]
     }
 
 
@@ -74,19 +72,7 @@ $("#matricularAluno").on('click', (e) => {
 $("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
 $("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
 
-$(document).ready(() => {
 
-    if (window.innerWidth < 992) {
-
-        $("#bars").hide()
-
-        $('#painel-left ul').toggleClass('sider-bar sider-bar-responsivo')
-
-        $('#painel-left img').attr('src', '/assets/img/logo.png')
-
-    }
-
-})
 
 
 

@@ -10,11 +10,11 @@
 
             <div class="col-lg-12">
 
-                <div class="card col-lg-12 pt-5 p-3 accordion" id="accordionExample">
+                <div class="card col-lg-12 pt-4 p-3 accordion" id="accordionExample">
 
                     <div class="assistente-etapas-sessao">
                         <div class="assistente-etapas-row assistente-etapas-painel">
-                            <div class="linha-conexao"></div>
+                            <div class="linha-conexao"></div> 
                             <div class="assistente-etapas" id="headingOne">
                                 <a type="button" class="btn btn-circle" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
                                 <p>Dados pessoais</p>
@@ -30,11 +30,13 @@
                         </div>
                     </div>
 
+                    <hr>
+
                     <form class="was-validated" role="form">
                         <div class="row assistente-etapas-conteudo collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="col-lg-10 mx-auto">
+                            <div class="col-lg-10 mt-2 mx-auto">
                                 <div class="col-md-12">
-                                    <div class="form-row mt-3">
+                                    <div class="form-row mt-1">
 
                                         <div class="form-group col-md-5">
                                             <label for="inputEmail4">Nome Completo:</label>

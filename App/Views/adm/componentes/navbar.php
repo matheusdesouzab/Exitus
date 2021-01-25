@@ -8,7 +8,7 @@
 			
 			<li class="nav-item">
 				<div class="foto-usuario">
-					<img src="/assets/img/mulher2.png" alt="">
+					<img src="/assets/img/foto-perfil-1.png" alt="">
 				</div>
 
 			</li>

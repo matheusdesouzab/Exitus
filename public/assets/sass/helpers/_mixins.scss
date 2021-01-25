@@ -67,12 +67,12 @@
     }
 }
 
-@mixin linha-conexao($width,$margin-left,$margin : 0 auto) {
+@mixin linha-conexao($width) {
     height: 2px;
     background: #e0e0e0;
+    margin: auto;
     position: absolute;
     width: $width;
-    margin-left: $margin-left;
     left: 0;
     right: 0;
     top: 15%;

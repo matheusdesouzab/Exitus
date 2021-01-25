@@ -59,6 +59,10 @@
             display: none;
         }
 
+        .navbar-brand{
+            margin-left: 50px;
+        }
+
         li {
             @include side-bar-li(10px, center, 70px, Regular, transparet, $painel-left-li-hover, none);
         }

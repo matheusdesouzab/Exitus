@@ -30,6 +30,12 @@ h5 {
   font-size: 20px;
 }
 
+label {
+  font-family: Semi-bold;
+  font-size: 15px;
+  color: #34495E;
+}
+
 @font-face {
   font-family: Extra-light;
   src: url(../../../assets/fonts/Montserrat-ExtraLight.ttf);
@@ -100,8 +106,9 @@ h5 {
 #pagina #cadastro_professor .assistente-etapas p {
   margin-top: 10px;
   z-index: 1000;
-  font-size: 2.5vh;
+  font-size: 2.3vh;
   font-family: Semi-bold;
+  color: #1e2749;
 }
 #pagina #matricula_aluno .assistente-etapas .btn-primary,
 #pagina #cadastro_professor .assistente-etapas .btn-primary {
@@ -121,9 +128,9 @@ h5 {
 #pagina #cadastro_professor .linha-conexao {
   height: 2px;
   background: #e0e0e0;
+  margin: auto;
   position: absolute;
-  width: 71%;
-  margin-left: auto;
+  width: 70%;
   left: 0;
   right: 0;
   top: 15%;
@@ -141,13 +148,16 @@ h5 {
 #pagina #cadastro_professor .linha-conexao {
   height: 2px;
   background: #e0e0e0;
+  margin: auto;
   position: absolute;
   width: 60%;
-  margin-left: 163px;
   left: 0;
   right: 0;
   top: 15%;
   z-index: 1;
+}
+#pagina #aluno-lista input, #pagina #aluno-lista select {
+  border-radius: 10px;
 }
 #pagina #aluno-lista .btn:focus {
   outline: none;
@@ -159,12 +169,22 @@ h5 {
 }
 #pagina #aluno-lista table td {
   line-height: 30px;
+  font-weight: 400;
+  color: #1e2749;
+}
+#pagina #aluno-lista table .col-lg-2 {
+  display: flex;
+  justify-content: center;
+}
+#pagina #aluno-lista table .nome-aluno {
+  text-align: left;
 }
 #pagina #aluno-lista table tr {
   text-align: center;
+  cursor: pointer;
 }
 #pagina #aluno-lista table .nota-unidade-indefinida {
-  color: grey;
+  color: #BDC3C7;
 }
 #pagina #aluno-lista table .nota-unidade-definida {
   color: green;
@@ -280,6 +300,9 @@ h5 {
 #painel-left .side-bar-responsivo .fa-angle-down {
   display: none;
 }
+#painel-left .side-bar-responsivo .navbar-brand {
+  margin-left: 50px;
+}
 #painel-left .side-bar-responsivo li {
   padding: 10px;
   text-align: center;
@@ -328,10 +351,11 @@ h5 {
   color: black;
 }
 #navbar-top .foto-usuario {
-  width: 40px;
+  width: 35px;
 }
 #navbar-top .foto-usuario img {
   width: 100%;
+  border-radius: 50%;
 }
 #navbar-top #navbarDropdown {
   color: #5B6875;
@@ -379,9 +403,6 @@ h5 {
 }
 
 @media screen and (min-width: 0px) and (max-width: 578px) {
-  #pagina {
-    border-radius: 15px;
-  }
   #pagina .linha-pagina {
     margin-top: 30px;
   }
@@ -391,10 +412,14 @@ h5 {
   #pagina #home .card {
     margin-top: 20px;
   }
+  #pagina th, #pagina td {
+    font-size: 12px;
+  }
 
-  #painel-left .sider-bar {
+  .side-painel {
     display: none;
   }
+
   #painel-left .sider-bar-responsivo {
     display: none;
   }
