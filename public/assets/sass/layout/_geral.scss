@@ -1,5 +1,6 @@
 // Página
 
+
 #pagina {
 
     .linha-pagina {
@@ -34,7 +35,13 @@
     // Matricula
 
     #matricula_aluno,
-    #cadastro_professor {
+    #cadastro_professor{
+
+        label{
+            font-family: Semi-bold;
+            font-size: 15px;
+            color: #34495E ;
+        }
 
         form {
             :invalid {

@@ -1,44 +1,81 @@
-.modal {
+.modal-content {
+    border: none;
+    background-color: $modal-background;
+    border-radius: 10px;
+}
 
-    margin-top: 40px;
+#matricula-aluno {
 
-    .modal-content {
-        border: none;
-        background-color: $modal-background;
-        border-radius: 5px;
+    .modal {
+
+        margin-top: 40px;
+
+        .modal-texto {
+            margin-top: 30px;
+            text-align: center;
+            font-family: Medio;
+        }
+
+        span {
+            color: white;
+        }
+
+        .modal-aluno-matricular-sucesso {
+
+            .modal-header {
+                @include modal-header($modal-sucesso);
+            }
+
+            .fa-check-circle {
+                @include icon-modal($modal-sucesso);
+            }
+
+        }
+
+        .modal-aluno-matricular-erro {
+
+            .modal-header {
+                @include modal-header($modal-erro);
+            }
+
+            .fa-times-circle {
+                @include icon-modal($modal-erro);
+            }
+
+        }
     }
 
-    .modal-texto {
-        margin-top: 30px;
-        text-align: center;
-        font-family: Medio;
-    }
+}
 
-    span {
-        color: white;
-    }
 
-    .modal-aluno-matricular-sucesso {
+#aluno-lista {
+
+    .modal {
+
+        label{
+            font-weight: bold;
+        }
+
+        input{
+            border:none;
+
+            &:disabled{
+                background-color: white;
+                text-align: left;
+                padding-left: 0;
+                border: 2px solid red;
+            }
+        }
 
         .modal-header {
-            @include modal-header($modal-sucesso);
+            font-family: Semi-bold;
         }
 
-        .fa-check-circle {
-            @include icon-modal($modal-sucesso);
-        }
-
-    }
-
-    .modal-aluno-matricular-erro {
-
-        .modal-header {
-            @include modal-header($modal-erro);
-        }
-
-        .fa-times-circle {
-            @include icon-modal($modal-erro);
+        img {
+            border-radius: 50%;
+            border: 5px solid #e4d9ff;
         }
 
     }
+
 }

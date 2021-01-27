@@ -30,12 +30,6 @@ h5 {
   font-size: 20px;
 }
 
-label {
-  font-family: Semi-bold;
-  font-size: 15px;
-  color: #34495E;
-}
-
 @font-face {
   font-family: Extra-light;
   src: url(../../../assets/fonts/Montserrat-ExtraLight.ttf);
@@ -86,6 +80,12 @@ label {
 #pagina #home .fa-hourglass-half {
   font-size: 15px;
   color: white;
+}
+#pagina #matricula_aluno label,
+#pagina #cadastro_professor label {
+  font-family: Semi-bold;
+  font-size: 15px;
+  color: #34495E;
 }
 #pagina #matricula_aluno form :invalid,
 #pagina #cadastro_professor form :invalid {
@@ -218,7 +218,7 @@ label {
 
 #painel-left {
   width: 100%;
-  z-index: 2000;
+  z-index: 2;
 }
 #painel-left li {
   padding: 10px;
@@ -343,6 +343,7 @@ label {
 #navbar-top {
   background-color: white;
   transition: 0.7s;
+  z-index: 1;
 }
 #navbar-top .navbar-brand {
   font-weight: bold;
@@ -363,43 +364,64 @@ label {
   font-size: 14px;
 }
 
-.modal {
-  margin-top: 40px;
-}
-.modal .modal-content {
+.modal-content {
   border: none;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
 }
-.modal .modal-texto {
+
+#matricula-aluno .modal {
+  margin-top: 40px;
+}
+#matricula-aluno .modal .modal-texto {
   margin-top: 30px;
   text-align: center;
   font-family: Medio;
 }
-.modal span {
+#matricula-aluno .modal span {
   color: white;
 }
-.modal .modal-aluno-matricular-sucesso .modal-header {
+#matricula-aluno .modal .modal-aluno-matricular-sucesso .modal-header {
   background-color: #2ECC71;
   color: white;
   font-weight: bold;
 }
-.modal .modal-aluno-matricular-sucesso .fa-check-circle {
+#matricula-aluno .modal .modal-aluno-matricular-sucesso .fa-check-circle {
   margin-top: 30px;
   font-size: 100px;
   color: #2ECC71;
   justify-content: space-around;
 }
-.modal .modal-aluno-matricular-erro .modal-header {
+#matricula-aluno .modal .modal-aluno-matricular-erro .modal-header {
   background-color: #DC7633;
   color: white;
   font-weight: bold;
 }
-.modal .modal-aluno-matricular-erro .fa-times-circle {
+#matricula-aluno .modal .modal-aluno-matricular-erro .fa-times-circle {
   margin-top: 30px;
   font-size: 100px;
   color: #DC7633;
   justify-content: space-around;
+}
+
+#aluno-lista .modal label {
+  font-weight: bold;
+}
+#aluno-lista .modal input {
+  border: none;
+}
+#aluno-lista .modal input:disabled {
+  background-color: white;
+  text-align: left;
+  padding-left: 0;
+  border: 2px solid red;
+}
+#aluno-lista .modal .modal-header {
+  font-family: Semi-bold;
+}
+#aluno-lista .modal img {
+  border-radius: 50%;
+  border: 5px solid #e4d9ff;
 }
 
 @media screen and (min-width: 0px) and (max-width: 578px) {

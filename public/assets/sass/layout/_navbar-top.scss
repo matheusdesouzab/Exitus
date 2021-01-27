@@ -2,6 +2,7 @@
     
     background-color: $navbar-top-background;
     transition: 0.7s;
+    z-index: 1;
 
     .navbar-brand{
         font-weight:bold;

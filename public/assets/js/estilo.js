@@ -72,7 +72,7 @@ $("#matricularAluno").on('click', (e) => {
 $("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
 $("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
 
-
+$("#perfilAlunoModal").modal('show')
 
 
 
