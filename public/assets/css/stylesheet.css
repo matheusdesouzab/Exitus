@@ -364,14 +364,13 @@ h5 {
   font-size: 14px;
 }
 
-.modal-content {
+#matricula-aluno .modal {
+  margin-top: 40px;
+}
+#matricula-aluno .modal .modal-content {
   border: none;
   background-color: white;
   border-radius: 10px;
-}
-
-#matricula-aluno .modal {
-  margin-top: 40px;
 }
 #matricula-aluno .modal .modal-texto {
   margin-top: 30px;
@@ -404,24 +403,60 @@ h5 {
   justify-content: space-around;
 }
 
+#aluno-lista h5 {
+  font-size: 17px;
+}
+#aluno-lista .modal .list-group {
+  border-radius: 15px;
+}
+#aluno-lista .modal .modal-content {
+  border: none;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+}
+#aluno-lista .modal .lado-foto-aluno {
+  background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  height: 500px;
+}
+#aluno-lista .modal .lado-info-aluno {
+  background-color: white;
+  height: 500px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+#aluno-lista .modal .rank-aluno {
+  font-size: 12px;
+  color: white;
+}
 #aluno-lista .modal label {
   font-weight: bold;
+  color: #34495E;
+  border: 2px solid red;
+}
+#aluno-lista .modal .input-group-text {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+}
+#aluno-lista .modal .input-group {
+  padding-left: 0;
+  margin-bottom: 13px;
 }
 #aluno-lista .modal input {
   border: none;
 }
 #aluno-lista .modal input:disabled {
   background-color: white;
-  text-align: left;
   padding-left: 0;
-  border: 2px solid red;
 }
 #aluno-lista .modal .modal-header {
   font-family: Semi-bold;
 }
 #aluno-lista .modal img {
   border-radius: 50%;
-  border: 5px solid #e4d9ff;
+  border: 5px solid #fafaff;
 }
 
 @media screen and (min-width: 0px) and (max-width: 578px) {

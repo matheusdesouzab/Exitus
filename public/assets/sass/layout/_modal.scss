@@ -1,14 +1,16 @@
-.modal-content {
-    border: none;
-    background-color: $modal-background;
-    border-radius: 10px;
-}
+
 
 #matricula-aluno {
 
     .modal {
 
         margin-top: 40px;
+
+        .modal-content {
+            border: none;
+            background-color: $modal-background;
+            border-radius: 10px;
+}
 
         .modal-texto {
             margin-top: 30px;
@@ -50,20 +52,65 @@
 
 #aluno-lista {
 
+    h5{
+        font-size:17px;
+    }
+
     .modal {
+
+        .list-group{
+            border-radius: 15px;
+        }
+
+        .modal-content {
+          border: none;
+          background-color: #e5e5e5;
+          border-radius: 10px;
+}
+
+        .lado-foto-aluno{
+            background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            height: 500px;
+        }
+
+        .lado-info-aluno{
+            background-color: white;
+            height: 500px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px; 
+        }
+
+        .rank-aluno{
+            font-size: 12px;
+            color: white;
+        }
 
         label{
             font-weight: bold;
+            color: #34495E;
+            border: 2px solid red;
+        }
+
+        .input-group-text{
+            background-color: white;
+            border: none;
+            font-weight: bold;
+        }
+
+        .input-group{
+            padding-left: 0;
+            margin-bottom: 13px;
         }
 
         input{
+
             border:none;
 
             &:disabled{
                 background-color: white;
-                text-align: left;
                 padding-left: 0;
-                border: 2px solid red;
             }
         }
 
@@ -73,7 +120,7 @@
 
         img {
             border-radius: 50%;
-            border: 5px solid #e4d9ff;
+            border: 5px solid #fafaff;
         }
 
     }
