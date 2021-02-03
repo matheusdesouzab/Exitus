@@ -8,7 +8,7 @@
 
 @mixin modal-header($background) {
     background-color: $background;
-    color: white;
+    color: $branco-padrao;
     font-weight: bold;
 }
 
@@ -17,15 +17,13 @@
     padding: $padding;
     border-radius: 10px;
     border: $border;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
     background-color: $background;
 }
 
 
 @mixin side-bar($width) {
-    background: #41295a;
-    background: -webkit-linear-gradient(to right, #2F0743, #41295a);
-    background: linear-gradient(to right, #2F0743, #41295a);
+    background: $preto-claro;
     transition: 0.7s;
     position: fixed;
     height: 100%;
@@ -33,13 +31,13 @@
 }
 
 
-@mixin side-bar-li($padding, $text-align, $padding-left, $font-family, $background, $background-hover, $border-left) {
+@mixin side-bar-li($padding, $text-align, $padding-left, $background, $background-hover, $border-left) {
     padding: $padding;
     text-align: $text-align;
     padding-left: $padding-left;
     transition: background-color .8s;
     background-size: 0% 100%;
-    font-family: $font-family;
+
     background-color: $background;
 
     &:hover {
@@ -49,10 +47,11 @@
 }
 
 
-@mixin side-bar-a($font-size, $font-family, $color, $padding-bottom) {
+@mixin side-bar-a($font-size, $color, $padding-bottom) {
     font-size: $font-size;
-    font-family: $font-family;
+    font-weight: bold;
     color: $color;
+    text-decoration: none;
     padding-bottom: $padding-bottom;
 }
 
@@ -69,7 +68,7 @@
 
 @mixin linha-conexao($width) {
     height: 2px;
-    background: #e0e0e0;
+    background: $cinza-claro;
     margin: auto;
     position: absolute;
     width: $width;
@@ -77,4 +76,31 @@
     right: 0;
     top: 15%;
     z-index: 1;
+}
+
+@mixin model-content($background) {
+
+    .modal-content {
+        border: none;
+        background-color: $background;
+    }
+
+}
+
+@mixin aria-expanded($background,$color) {
+
+        background-color: $background;
+        color: $color;
+
+        a {
+            color: $color;
+            font-weight: bold;
+        }
+
+}
+
+@mixin list-group($border-radius,$border){
+    border-radius: $border-radius;
+    border: $border;
+    cursor: pointer;
 }

@@ -9,18 +9,17 @@
 
 html,
 body {
-    height: 100%;
-    font-family: Regular;
-    color: $font-color-padrao;  
+    height: 100%;   
+    color: $azul-escuro;  
     transition: 0.6s; 
 }
 
 html > body {
-    background-color: $background-padrao;
+    background-color: $cinza-extra-claro;
 }
 
 a {
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 li {
@@ -28,11 +27,52 @@ li {
 }
 
 h5 {
-    color: $font-color-padrao;
+    color: $azul-escuro;
     font-family: Bold;
-    font-size: 20px;
 }
 
+label{
+    font-size: 15px;
+    font-weight: bold;
+    color: $azul-escuro;
+}
+
+input,select{
+    border-radius: 10px;
+}
+
+form {
+
+    :invalid {
+        border: 1px solid #E4D9FF;
+    }
+
+    :valid {
+        border: 1px solid #7DCEA0;
+    }
+}
+
+table{
+
+    td {
+        line-height: 30px;
+        color: $preto-claro;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 30px;
+    }
+
+    tr {
+        text-align: center;
+        cursor: pointer;
+    }
+
+
+}
 
 
 @import 'helpers/fonts';

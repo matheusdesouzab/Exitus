@@ -26,7 +26,7 @@ class AdmController extends Action
         $this->render('professor_cadastro');
     }
 
-    public function listaAlunos()
+    public function alunoLista()
     {
 
         $this->render('aluno_lista');

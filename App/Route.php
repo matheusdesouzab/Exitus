@@ -29,9 +29,9 @@ class Route extends Bootstrap {
 		);
 
 		$routes['listaAlunos'] = array(
-			'route' => '/listaAlunos',
+			'route' => '/alunoLista',
 			'controller' => 'AdmController',
-			'action' => 'listaAlunos'
+			'action' => 'alunoLista'
 		);
 
 

@@ -1,35 +1,31 @@
 // Painel Left 
 
 #painel-left {
+    
     width: 100%;
     z-index: 2;
 
     li {
 
-        @include side-bar-li(10px, left, 40px, Regular, transparet, blueviolet, none);
+        @include side-bar-li(10px, left, 40px, transparet, $cinza-escuro, none);
 
         a {
-            @include side-bar-a(12, Medio, $painel-left-color, 0);
+            @include side-bar-a(12, $branco-padrao, 0);
         }
 
     }
 
     h5 {
-        color: $painel-left-color;
+        color: $branco-padrao;
         text-align: left;
         padding-left: 40px;
         font-size: 13px;
         margin-top: 15px;
-        font-family: Bold;
     }
 
-    .link-collapse a,
-    .collapse li span {
-        font-family: Semi-bold;
-    }
 
     .link-collapse:hover {
-        background-color: $painel-left-li-hover;
+        background-color: $cinza-escuro;
         border-left: 0px;
     }
 
@@ -37,7 +33,7 @@
 
         border-left: 20px solid #FAFAFF;
 
-        @include side-bar-li(10px, left, 40px, Regular, #1D2140, #30343F, 20px solid #FAFAFF);
+        @include side-bar-li(10px, left, 40px, $cinza-escuro, #30343F, 20px solid #FAFAFF);
 
     }
 
@@ -45,7 +41,7 @@
         margin-left: 150px;
         @include side-bar(240px);
 
-        .logo{
+        .logo {
             @include side-bar-logo(100px, 0px, 20px auto);
         }
     }
@@ -59,12 +55,12 @@
             display: none;
         }
 
-        .navbar-brand{
+        .navbar-brand {
             margin-left: 50px;
         }
 
         li {
-            @include side-bar-li(10px, center, 70px, Regular, transparet, $painel-left-li-hover, none);
+            @include side-bar-li(10px, center, 70px, transparet, $azul-escuro, none);
         }
 
         h5 {
@@ -76,7 +72,7 @@
         }
 
         .link-collapse a {
-            @include side-bar-a(15, Semi-bold, $painel-left-color, 10px);
+            @include side-bar-a(15, $branco-padrao, 10px);
         }
 
         .collapse {

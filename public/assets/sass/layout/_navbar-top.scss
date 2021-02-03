@@ -1,6 +1,6 @@
 #navbar-top{
     
-    background-color: $navbar-top-background;
+    background-color: $branco-padrao;
     transition: 0.7s;
     z-index: 1;
 
@@ -22,9 +22,9 @@
     }
 
     #navbarDropdown{
-        color:#5B6875;
-        font-family: Semi-bold;
+        color:$cinza-escuro;
         font-size: 14px;
+        font-weight: 500;
     }
 
 }

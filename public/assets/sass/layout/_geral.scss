@@ -3,7 +3,7 @@
 
 #pagina {
 
-    .linha-pagina {
+    .container-pai {
         margin-top: 80px;
     }
 
@@ -11,23 +11,11 @@
 
     #home {
 
-        table img {
-            width: 30px;
-        }
-
-        td {
-            line-height: 30px;
-            font-family: Semi-bold;
-            color: $font-color-padrao;
-            font-size: 13px;
-            cursor: pointer;
-        }
-
         .fa-users,
         .fa-chalkboard-teacher,
         .fa-hourglass-half {
             font-size: 15px;
-            color: $icon-card-color;
+            color: $branco-padrao;
         }
 
     }
@@ -36,22 +24,6 @@
 
     #matricula_aluno,
     #cadastro_professor{
-
-        label{
-            font-family: Semi-bold;
-            font-size: 15px;
-            color: #34495E ;
-        }
-
-        form {
-            :invalid {
-                border: 1px solid #E4D9FF;
-            }
-
-            :valid {
-                border: 1px solid #7DCEA0;
-            }
-        }
 
         // Assistente-etapas
 
@@ -66,12 +38,12 @@
                 margin-top: 10px;
                 z-index: 1000;
                 font-size: 2.3vh;
-                font-family: Semi-bold;
-                color: $font-color-padrao;
+                font-weight: 500;
+                color: $azul-escuro;
             }
 
             .btn-primary {
-                background-color: #273469;
+                background-color: $azul-escuro;
             }
         }
 
@@ -96,7 +68,7 @@
         }
 
         :disabled {
-            background-color: white;
+            background-color: $branco-padrao;
 
         }
     }
@@ -111,48 +83,18 @@
 
     #aluno-lista {
 
-        input,select{
-            border-radius: 10px;
-        }
-
-        .btn:focus {
+        #heading-busca-avancada .btn:focus {
             outline: none;
             box-shadow: none;
         }
 
         table {
 
-            img {
-                border-radius: 50%;
-                width: 30px;
-            }
-
-            td {
-                line-height: 30px;
-                font-weight: 400;
-                color: $font-color-padrao
-            }
-
-            .col-lg-2 {
-                display: flex;
-                justify-content: center;
-            }
-
-            .nome-aluno {
-                text-align: left;
-
-            }
-
-            tr {
-                text-align: center;
-                cursor: pointer;
-            }
-
-            .nota-unidade-indefinida {
+            .icon-unidade-nao-cadastrada{
                 color: #BDC3C7;
             }
 
-            .nota-unidade-definida {
+            .icon-unidade-cadastrada{
                 color: green;
             }
         }

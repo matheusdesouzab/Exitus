@@ -1,14 +1,14 @@
 #pagina {
 
     .card-icon {
-        @include card(10, $card-icon-color, none); // border-radius | color | border
+        @include card(10, $azul-padrao, none); // border-radius | color | border
     }
 
     .card {
 
-        @include card(15, $card-padrao-background, 1px solid #e5e5e5); // border-radius | color | border
+        @include card(15, $branco-padrao, 1px solid $cinza-claro); // border-radius | color | border
 
-        transition: 0.9s;
+        transition: 0.5s;
 
         .card-title {
             font-size: 15px;
@@ -16,7 +16,6 @@
 
         .card-valor {
             font-size: 25px;
-            font-family: Regular;
         }
 
         .card-body {

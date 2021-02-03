@@ -1,35 +1,29 @@
-
-
 #matricula-aluno {
 
     .modal {
 
         margin-top: 40px;
 
-        .modal-content {
-            border: none;
-            background-color: $modal-background;
-            border-radius: 10px;
-}
+        @include model-content($branco-padrao);
 
         .modal-texto {
             margin-top: 30px;
             text-align: center;
-            font-family: Medio;
+            font-weight: 500;
         }
 
         span {
-            color: white;
+            color: $branco-padrao;
         }
 
         .modal-aluno-matricular-sucesso {
 
             .modal-header {
-                @include modal-header($modal-sucesso);
+                @include modal-header($verde-padrao);
             }
 
             .fa-check-circle {
-                @include icon-modal($modal-sucesso);
+                @include icon-modal($verde-padrao);
             }
 
         }
@@ -37,14 +31,159 @@
         .modal-aluno-matricular-erro {
 
             .modal-header {
-                @include modal-header($modal-erro);
+                @include modal-header($vermelho-padrao);
             }
 
             .fa-times-circle {
-                @include icon-modal($modal-erro);
+                @include icon-modal($vermelho-padrao);
             }
 
         }
+    }
+
+}
+
+#perfilAlunoModal {
+
+    .modal-content {
+        margin-left: -410px;
+        width: 1350px !important;
+        margin-top: -30px;
+        height: 100%;
+
+        /* &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        } */
+
+
+    }
+
+    h5 {
+        font-size: 17px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .fa-edit {
+        color: $cinza-escuro;
+    }
+
+    [aria-expanded="false"] {
+        @include aria-expanded($branco-padrao, $cinza-escuro);
+    }
+
+    @include model-content($cinza-extra-claro);
+
+    img {
+        border-radius: 50%;
+        border: 5px solid $cinza-claro;
+    }
+
+    .card-icon {
+
+        cursor: pointer;
+        background-color: $cinza-claro;
+
+        &:hover {
+            transition: 0.5s ease-in-out;
+            background-color: $azul-padrao;
+
+            .fa-edit,.fa-print {
+                color: $branco-padrao;
+            }
+        }
+    }
+
+    .list-group {
+        @include list-group(5px, none);
+    }
+
+    .lista-disciplinas {
+
+        height: 500px;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        } 
+
+        .active {
+            background-color: $azul-padrao;
+        }
+
+        .list-group-item {
+            border-radius: 5px;
+            border: none;
+
+            &:hover {
+                background-color: $azul-padrao;
+                color: $branco-padrao;
+            }
+        }
+
+    }
+
+    .controle-opcoes {
+
+        border: 1px solid $cinza-claro !important;
+
+        li:hover {
+            background-color: $azul-padrao;
+
+            a {
+                color: $branco-padrao;
+            }
+        }
+
+        [aria-expanded="true"] {
+            @include aria-expanded($azul-padrao, $branco-padrao);
+        }
+
+    }
+
+    .list-group {
+        @include list-group(10px, 1px solid $cinza-claro);
+    }
+
+    #collapse-perfil-aluno-opcoes-dados,
+    #collapse-perfil-aluno-opcoes-nota {
+        height: 520px;
+    }
+
+    #collapse-perfil-aluno-opcoes-boletim {
+
+        h5{
+            text-transform: initial;
+        }
+
+        text-transform: uppercase;
+
+        height: 520px;
+
+        .th-rowspan-2 div{
+            margin-top: -50px !important;
+        }
+
+    }
+
+    .conteudo-lista-disciplinas {
+
+        [aria-expanded="true"] {
+            @include aria-expanded($azul-padrao, $branco-padrao);
+        }
+
+        [aria-expanded="false"] {
+            @include aria-expanded($cinza-claro, $cinza-escuro);
+        }
+
+        .icon-unidade {
+            border-radius: 30px;
+            padding: 10px;
+        }
+
     }
 
 }
@@ -52,75 +191,43 @@
 
 #aluno-lista {
 
-    h5{
-        font-size:17px;
-    }
-
     .modal {
 
-        .list-group{
-            border-radius: 15px;
+        .unidades input {
+            width: 50px !important;
+            border: 1px solid $cinza-claro;
         }
 
-        .modal-content {
-          border: none;
-          background-color: #e5e5e5;
-          border-radius: 10px;
-}
-
-        .lado-foto-aluno{
-            background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-            height: 500px;
+        .unidades td,
+        .unidades th {
+            line-height: 40px;
+            justify-content: center;
         }
 
-        .lado-info-aluno{
-            background-color: white;
-            height: 500px;
-            border-top-right-radius: 15px;
-            border-bottom-right-radius: 15px; 
-        }
-
-        .rank-aluno{
-            font-size: 12px;
-            color: white;
-        }
-
-        label{
+        .input-group-prepend span {
             font-weight: bold;
-            color: #34495E;
-            border: 2px solid red;
+            color: $cinza-escuro;
         }
 
-        .input-group-text{
-            background-color: white;
+        .input-group-text {
+            background-color: $branco-padrao;
             border: none;
             font-weight: bold;
         }
 
-        .input-group{
+        .input-group {
             padding-left: 0;
             margin-bottom: 13px;
         }
 
-        input{
+        input {
 
-            border:none;
+            border: none;
 
-            &:disabled{
-                background-color: white;
+            &:disabled {
+                background-color: $branco-padrao;
                 padding-left: 0;
             }
-        }
-
-        .modal-header {
-            font-family: Semi-bold;
-        }
-
-        img {
-            border-radius: 50%;
-            border: 5px solid #fafaff;
         }
 
     }
