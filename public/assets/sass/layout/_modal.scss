@@ -1,5 +1,7 @@
 #matricula-aluno {
 
+    // Modal da realização de cadastro entre alunos e professores
+
     .modal {
 
         margin-top: 40px;
@@ -12,15 +14,7 @@
             font-weight: 500;
         }
 
-        span {
-            color: $branco-padrao;
-        }
-
         .modal-aluno-matricular-sucesso {
-
-            .modal-header {
-                @include modal-header($verde-padrao);
-            }
 
             .fa-check-circle {
                 @include icon-modal($verde-padrao);
@@ -29,10 +23,6 @@
         }
 
         .modal-aluno-matricular-erro {
-
-            .modal-header {
-                @include modal-header($vermelho-padrao);
-            }
 
             .fa-times-circle {
                 @include icon-modal($vermelho-padrao);
@@ -45,18 +35,12 @@
 
 #perfilAlunoModal {
 
-    .modal-content {
-        margin-left: -410px;
-        width: 1350px !important;
-        margin-top: -30px;
-        height: 100%;
+    .modal-body>.row:nth-child(1) {
+        @include card(10px, $branco-padrao, 2px solid $cinza-claro);
+    }
 
-        /* &::-webkit-scrollbar {
-            width: 0;
-            background: transparent;
-        } */
-
-
+    .list-group {
+        @include list-group(5px, none);
     }
 
     h5 {
@@ -67,142 +51,33 @@
         text-decoration: none;
     }
 
-    .fa-edit {
+    .fa-edit,
+    .fa-check {
         color: $cinza-escuro;
     }
-
-    [aria-expanded="false"] {
-        @include aria-expanded($branco-padrao, $cinza-escuro);
-    }
-
-    @include model-content($cinza-extra-claro);
 
     img {
         border-radius: 50%;
         border: 5px solid $cinza-claro;
     }
 
-    .card-icon {
-
-        cursor: pointer;
-        background-color: $cinza-claro;
-
-        &:hover {
-            transition: 0.5s ease-in-out;
-            background-color: $azul-padrao;
-
-            .fa-edit,.fa-print {
-                color: $branco-padrao;
-            }
-        }
+    .modal-content {
+        margin-left: -410px;
+        width: 1350px;
+        margin-top: -30px;
+        height: 100%;
+        background-color: $cinza-extra-claro;
     }
 
-    .list-group {
-        @include list-group(5px, none);
+    .editar-dados-aluno {
+        @include card-icon($cinza-claro, $azul-padrao);
     }
 
-    .lista-disciplinas {
-
-        height: 500px;
-
-        &::-webkit-scrollbar {
-            width: 0;
-            background: transparent;
-        } 
-
-        .active {
-            background-color: $azul-padrao;
-        }
-
-        .list-group-item {
-            border-radius: 5px;
-            border: none;
-
-            &:hover {
-                background-color: $azul-padrao;
-                color: $branco-padrao;
-            }
-        }
-
+    .atualizar-dados-aluno {
+        @include card-icon($cinza-claro, $verde-padrao);
     }
 
-    .controle-opcoes {
-
-        border: 1px solid $cinza-claro !important;
-
-        li:hover {
-            background-color: $azul-padrao;
-
-            a {
-                color: $branco-padrao;
-            }
-        }
-
-        [aria-expanded="true"] {
-            @include aria-expanded($azul-padrao, $branco-padrao);
-        }
-
-    }
-
-    .list-group {
-        @include list-group(10px, 1px solid $cinza-claro);
-    }
-
-    #collapse-perfil-aluno-opcoes-dados,
-    #collapse-perfil-aluno-opcoes-nota {
-        height: 520px;
-    }
-
-    #collapse-perfil-aluno-opcoes-boletim {
-
-        h5{
-            text-transform: initial;
-        }
-
-        text-transform: uppercase;
-
-        height: 520px;
-
-        .th-rowspan-2 div{
-            margin-top: -50px !important;
-        }
-
-    }
-
-    .conteudo-lista-disciplinas {
-
-        [aria-expanded="true"] {
-            @include aria-expanded($azul-padrao, $branco-padrao);
-        }
-
-        [aria-expanded="false"] {
-            @include aria-expanded($cinza-claro, $cinza-escuro);
-        }
-
-        .icon-unidade {
-            border-radius: 30px;
-            padding: 10px;
-        }
-
-    }
-
-}
-
-
-#aluno-lista {
-
-    .modal {
-
-        .unidades input {
-            width: 50px !important;
-            border: 1px solid $cinza-claro;
-        }
-
-        .unidades td,
-        .unidades th {
-            line-height: 40px;
-            justify-content: center;
-        }
+    #collapse-perfil-aluno-opcoes-dados {
 
         .input-group-prepend span {
             font-weight: bold;
@@ -220,16 +95,118 @@
             margin-bottom: 13px;
         }
 
-        input {
+        input:disabled {
+            background-color: $branco-padrao;
+            border: none;
+            padding-left: 0px;
+        }
+    }
 
+    #collapse-perfil-aluno-opcoes-nota input:disabled {
+        background-color: $branco-padrao;
+        border: none;
+    }
+
+    .lista-disciplinas {
+
+        &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        .active {
+            background-image: $plum-plate;
+        }
+
+        .list-group-item {
+            border-radius: 10px;
+            margin-bottom: 3px;
             border: none;
 
-            &:disabled {
-                background-color: $branco-padrao;
-                padding-left: 0;
+            &:hover {
+                background-image: $plum-plate;
+                color: $branco-padrao;
             }
         }
 
+    }
+
+    .controle-opcoes {
+
+        [aria-expanded="true"] {
+            @include aria-expanded($plum-plate, $branco-padrao);
+        }
+
+        [aria-expanded="false"] {
+            @include aria-expanded($branco-padrao, $cinza-escuro);
+        }
+
+    }
+
+    #collapse-perfil-aluno-opcoes-dados,
+    #collapse-perfil-aluno-opcoes-nota,
+    #collapse-perfil-aluno-opcoes-boletim {
+        height: 520px;
+        width: 890px;
+    }
+
+    #collapse-perfil-aluno-opcoes-boletim {
+
+        h5 {
+            text-transform: initial;
+        }
+
+        .imprimir-boletim {
+            @include card-icon($cinza-escuro, $azul-padrao);
+        }
+
+        text-transform: uppercase;
+        font-size: 13px;
+
+        .th-rowspan-2 div {
+            margin-top: -50px;
+        }
+
+        td,
+        th {
+            font-size: 13px;
+        }
+
+    }
+
+    .conteudo-lista-disciplinas {
+
+        [aria-expanded="true"] {
+            @include aria-expanded($azul-padrao, $branco-padrao);
+        }
+
+        [aria-expanded="false"] {
+            @include aria-expanded($cinza-claro, $cinza-escuro);
+        }
+
+        .icon-unidade {
+            border-radius: 30px;
+            padding: 10px;
+
+            &:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .unidades {
+
+        input {
+            width: 60px;
+            text-align: center !important;
+        }
+
+        td,
+        th {
+            line-height: 40px;
+            justify-content: center;
+        }
     }
 
 }

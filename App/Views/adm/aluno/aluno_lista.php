@@ -224,220 +224,216 @@
 
                         <div class="modal-body">
 
-                            <div class="row accordion" id="accordion-perfil-aluno-opcoes">
+                            <div class="row bg-white p-3 d-flex justify-content-around col-lg-11 mx-auto">
 
-                                <div class="col-lg-10">
+                                <div class="col-lg-9">
 
-                                    <div class="row">
+                                    <div class="row accordion" id="accordion-perfil-aluno-opcoes">
 
-                                        <div class="col-lg-11 mx-auto">
+                                        <div class="row">
 
-                                            <div class="row card">
+                                            <div class="col-lg-12">
 
-                                                <div class="col-lg-12">
+                                                <div class="row">
 
-                                                    <div class="row">
-
-                                                        <div class="col-lg-12 collapse show overflow-auto p-3" id="collapse-perfil-aluno-opcoes-dados" aria-labelledby="dados" data-parent="#accordion-perfil-aluno-opcoes" style="border-radius: 15px">
+                                                    <div class="col-lg-12 collapse show overflow-auto p-3" id="collapse-perfil-aluno-opcoes-dados" aria-labelledby="dados" data-parent="#accordion-perfil-aluno-opcoes" style="border-radius: 15px">
 
 
-                                                            <div class="row">
+                                                        <div class="row">
 
-                                                                <div class="col-lg-2">
+                                                            <div class="col-lg-2">
 
-                                                                    <div class="row">
+                                                                <div class="row">
 
-                                                                        <div class="col-lg-12 mt-4 d-flex justify-content-center"><img src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
+                                                                    <div class="col-lg-12 mt-4 d-flex justify-content-center"><img src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="col-lg-10">
+
+                                                                <div class="row">
+
+                                                                    <div class="col-lg-12 d-flex justify-content-end">
+
+                                                                        <span class="mr-2 editar-dados-aluno"><i class="text-center fas fa-edit"></i></span>
+                                                                        <span class="mr-2 atualizar-dados-aluno"><i class="fas fa-check"></i></span>
 
                                                                     </div>
 
                                                                 </div>
 
-                                                                <div class="col-lg-10">
+                                                                <div class="row">
 
-                                                                    <div class="row">
+                                                                    <div class="col-lg-7">
 
-                                                                        <div class="col-lg-12 d-flex justify-content-end">
+                                                                        <form class="" action="">
 
-                                                                            <span class="mr-2 card-icon"><i class="text-center fas fa-edit"></i></span>
-                                                                            <span class="mr-2"></span>
+                                                                            <h5 class="mt-3 mb-3 ml-2">Dados pessoais:</h5>
 
-                                                                        </div>
+                                                                            <div class="input-group d-flex col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Nome:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="João Pedro de Lima" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Nome da mãe:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Maria Silva Costa Barbosa" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Nome do pai:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Carlos Silva Costa Teixeira" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">CPF:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="876.324.242-34" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Sexo:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Masculino" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Brasileiro(a)" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Naturalidade:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Paulo Afonso" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">PcD:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Não" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <hr>
+
+                                                                            <h5 class="mt-3 mb-3 ml-2">Endereço e contato:</h5>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">CEP:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="48.601-340" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">UF:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="BA" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Município:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Paulo Afonso" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Bairro:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Poty" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Endereço:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Rua São Jorge n 100" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Telefone 01:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="(75) 98873-2423" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Telefone 02:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="(75) 98825-2328" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <hr>
+
+                                                                            <h5 class="mt-3 mb-3 ml-2">Curso e turma:</h5>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Situação do aluno:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="Matriculado" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Turma:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="INFO-1M-C" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
+                                                                        </form>
 
                                                                     </div>
 
-                                                                    <div class="row">
+                                                                    <div class="col-lg-5">
 
-                                                                        <div class="col-lg-7">
+                                                                        <div class="row p-3">
 
-                                                                            <form class="" action="">
+                                                                            <h5 class="mb-4">Observações:</h5>
 
-                                                                                <h5 class="mt-3 mb-3 ml-2">Dados pessoais:</h5>
+                                                                            <div class="card card-hover bg-white w-100 mb-3" style="max-width: 18rem;">
 
-                                                                                <div class="input-group d-flex col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Nome:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="João Pedro de Lima" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
+                                                                                <div class="card-body">
+                                                                                    <h5 class="card-title">Comportamento Infantil</h5>
+                                                                                    <p class="card-text">Aluno xingou seus colegas com palavras de baixo calão.</p>
 
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Nome da mãe:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Maria Silva Costa Barbosa" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Nome do pai:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Carlos Silva Costa Teixeira" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">CPF:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="876.324.242-34" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Sexo:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Masculino" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Brasileiro(a)" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Naturalidade:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Paulo Afonso" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">PcD:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Não" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <hr>
-
-                                                                                <h5 class="mt-3 mb-3 ml-2">Endereço e contato:</h5>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">CEP:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="48.601-340" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">UF:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="BA" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Município:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Paulo Afonso" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Bairro:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Poty" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Endereço:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Rua São Jorge n 100" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Telefone 01:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="(75) 98873-2423" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Telefone 02:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="(75) 98825-2328" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <hr>
-
-                                                                                <h5 class="mt-3 mb-3 ml-2">Curso e turma:</h5>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Situação do aluno:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="Matriculado" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                                <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                    <div class="input-group-prepend">
-                                                                                        <span class="input-group-text" id="addon-wrapping">Turma:</span>
-                                                                                    </div>
-                                                                                    <input type="text" disabled class="form-control" value="INFO-1M-C" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                </div>
-
-                                                                            </form>
-
-                                                                        </div>
-
-                                                                        <div class="col-lg-5">
-
-                                                                            <div class="row p-3">
-
-                                                                                <h5 class="mb-4">Observações:</h5>
-
-                                                                                <div class="card card-hover bg-white w-100 mb-3" style="max-width: 18rem;">
-
-                                                                                    <div class="card-body">
-                                                                                        <h5 class="card-title">Comportamento Infantil</h5>
-                                                                                        <p class="card-text">Aluno xingou seus colegas com palavras de baixo calão.</p>
-
-                                                                                        <p><b>Professor(a):</b> Magno Lima</p>
-                                                                                        <p><b>Disciplina:</b> Mátematica</p>
-                                                                                        <p><b>Unidade:</b> 1</p>
-                                                                                        <p><b>Data do ocorrido:</b> 31/08</p>
-
-                                                                                    </div>
-
+                                                                                    <p><b>Professor(a):</b> Magno Lima</p>
+                                                                                    <p><b>Disciplina:</b> Mátematica</p>
+                                                                                    <p><b>Unidade:</b> 1</p>
+                                                                                    <p><b>Data do ocorrido:</b> 31/08</p>
 
                                                                                 </div>
 
-                                                                                <div class="card bg-white w-100 mt-3 mb-3" style="max-width: 18rem;">
-                                                                                    <div class="card-body">
-                                                                                        <h5 class="card-title">Gazeamento</h5>
-                                                                                        <p class="card-text">Aluno saio para jogar bola</p>
 
-                                                                                        <p><b>Professor(a):</b> Tássio Silva</p>
-                                                                                        <p><b>Disciplina:</b> Biologia</p>
-                                                                                        <p><b>Unidade:</b> 1</p>
-                                                                                        <p><b>Data do ocorrido:</b> 11/10</p>
+                                                                            </div>
 
-                                                                                    </div>
+                                                                            <div class="card bg-white w-100 mt-3 mb-3" style="max-width: 18rem;">
+                                                                                <div class="card-body">
+                                                                                    <h5 class="card-title">Gazeamento</h5>
+                                                                                    <p class="card-text">Aluno saio para jogar bola</p>
+
+                                                                                    <p><b>Professor(a):</b> Tássio Silva</p>
+                                                                                    <p><b>Disciplina:</b> Biologia</p>
+                                                                                    <p><b>Unidade:</b> 1</p>
+                                                                                    <p><b>Data do ocorrido:</b> 11/10</p>
 
                                                                                 </div>
 
@@ -453,262 +449,205 @@
 
                                                         </div>
 
-                                                        <div class="col-lg-12 collapse lado-info-aluno overflow-auto" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes" style="border-radius: 15px">
-
-                                                            <div class="row p-1">
-
-                                                                <h5 class="mt-3 col-lg-12 mb-3">Notas</h5>
+                                                    </div>
 
 
-                                                                <div class="col-3 lista-disciplinas overflow-auto">
 
-                                                                    <div class="list-group card" id="list-tab" role="tablist">
+                                                    <div class="col-lg-12 collapse overflow-auto" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
 
-                                                                        <b class="text-center text-secondary mb-3">Disciplinas</b>
+                                                        <div class="row p-1">
 
-                                                                        <a class="list-group-item list-group-item-action active" id="list-disciplina-1" data-toggle="list" href="#disciplina-1" role="tab" aria-controls="home">Matemática</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-2" data-toggle="list" href="#disciplina-2" role="tab" aria-controls="profile">Português</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-3" data-toggle="list" href="#disciplina-3" role="tab" aria-controls="messages">Biologia</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-4" data-toggle="list" href="#disciplina-4" role="tab" aria-controls="settings">Física</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-5" data-toggle="list" href="#disciplina-5" role="tab" aria-controls="settings">Arte</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-9" data-toggle="list" href="#disciplina-9" role="tab" aria-controls="settings">L.T.P</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-10" data-toggle="list" href="#disciplina-10" role="tab" aria-controls="settings">Intervenção Social</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-11" data-toggle="list" href="#disciplina-11" role="tab" aria-controls="settings">Sociologia</a>
-
-                                                                        <a class="list-group-item list-group-item-action" id="list-disciplina-12" data-toggle="list" href="#disciplina-12" role="tab" aria-controls="settings">POPIC</a>
+                                                            <h5 class="mt-3 col-lg-12 mb-3">Gestão de nota</h5>
 
 
-                                                                    </div>
+                                                            <div class="col-3 card lista-disciplinas overflow-auto">
+
+                                                                <div class="list-group" id="list-tab" role="tablist">
+
+                                                                    <a class="list-group-item list-group-item-action active" id="list-disciplina-1" data-toggle="list" href="#disciplina-1" role="tab" aria-controls="home">Matemática</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-2" data-toggle="list" href="#disciplina-2" role="tab" aria-controls="profile">Português</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-3" data-toggle="list" href="#disciplina-3" role="tab" aria-controls="messages">Biologia</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-4" data-toggle="list" href="#disciplina-4" role="tab" aria-controls="settings">Física</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-5" data-toggle="list" href="#disciplina-5" role="tab" aria-controls="settings">Arte</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
+                                                                    
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
+
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
+
 
                                                                 </div>
 
-                                                                <div class="col-9">
+                                                            </div>
 
-                                                                    <div class="tab-content conteudo-lista-disciplinas" id="nav-tabContent">
+                                                            <div class="col-9">
 
-                                                                        <div class="tab-pane card fade show active" id="disciplina-1" role="tabpanel" aria-labelledby="list-disciplina-1">
+                                                                <div class="tab-content conteudo-lista-disciplinas" id="nav-tabContent">
 
-                                                                            <div class="accordion" id="conteudo-disciplina">
+                                                                    <div class="tab-pane card fade show active" id="disciplina-1" role="tabpanel" aria-labelledby="list-disciplina-1">
 
-                                                                                <div class="row d-flex justify-content-center mt-3">
+                                                                        <div class="accordion" id="conteudo-disciplina">
 
-                                                                                    <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-1-unidade" aria-expanded="true" id="unidade-1" data-toggle="collapse">1 Unidade</a>
+                                                                            <div class="row d-flex justify-content-center mt-3">
 
-                                                                                    <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-2-unidade" aria-expanded="false" id="unidade-2" data-toggle="collapse">2 Unidade</a>
+                                                                                <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-1-unidade" aria-expanded="true" id="unidade-1" data-toggle="collapse">1 Unidade</a>
 
-                                                                                    <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-3-unidade" aria-expanded="false" id="unidade-3" data-toggle="collapse" href="#">3 Unidade</a>
+                                                                                <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-2-unidade" aria-expanded="false" id="unidade-2" data-toggle="collapse">2 Unidade</a>
 
-                                                                                </div>
+                                                                                <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-3-unidade" aria-expanded="false" id="unidade-3" data-toggle="collapse" href="#">3 Unidade</a>
 
-                                                                                <div class="row unidades">
+                                                                            </div>
 
-                                                                                    <div class="col-lg-12">
+                                                                            <div class="row">
 
-                                                                                        <div class="collapse show overflow-auto p-3" id="conteudo-1-unidade" aria-labelledby="unidade-1" data-parent="#conteudo-disciplina">
+                                                                                <div class="col-lg-12">
+
+                                                                                    <div class="collapse show overflow-auto p-3" id="conteudo-1-unidade" aria-labelledby="unidade-1" data-parent="#conteudo-disciplina">
+
+                                                                                        <div class="row mt-3">
+
+                                                                                            <div class="col-lg-12">
 
                                                                                             <div class="row">
 
-                                                                                                <h5 class="text-center mt-3 mb-3 col-lg-12">Avaliações da 1 Unidade</h5>
+                                                                                            <div class="col-lg-6">
+                                                                                            <h5 class="mt-2">Visão Geral da 1 Unidade</h5>
+                                                                                            </div>
 
-                                                                                                <table class="table table-hover mt-3 table-borderless col-lg-12">
-                                                                                                    <thead>
-                                                                                                        <tr>
-                                                                                                            <th scope="col">ID</th>
-                                                                                                            <th scope="col">Nome</th>
-                                                                                                            <th scope="col">Data Realizada</th>
-                                                                                                            <th scope="col">Valor</th>
-                                                                                                            <th scope="col">Nota</th>
-                                                                                                        </tr>
-                                                                                                    </thead>
-                                                                                                    <tbody>
-                                                                                                        <tr>
-                                                                                                            <th class="" scope="row" style="top: 50%;">1</th>
-                                                                                                            <td class="">Avaliação em Grupo</td>
-                                                                                                            <td>15/06</td>
-                                                                                                            <td>4,0</td>
-                                                                                                            <td class="">
-                                                                                                                <input class="form-control mx-auto" type="text" name="" value="2,0" id="" maxlength="3">
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <th scope="row">2</th>
-                                                                                                            <td>Avaliação Individual</td>
-                                                                                                            <td>15/07</td>
-                                                                                                            <td>2,0</td>
-                                                                                                            <td class="">
-                                                                                                                <input class="form-control mx-auto" type="text" name="" value="1,0" id="" maxlength="3">
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                            <th scope="row">3</th>
-                                                                                                            <td>Prova Final</td>
-                                                                                                            <td>25/08</td>
-                                                                                                            <td>4,0</td>
-                                                                                                            <td class="">
-                                                                                                                <input class="form-control mx-auto" type="text" name="" value="3,0" id="" maxlength="3">
-                                                                                                            </td>
-                                                                                                        </tr>
-                                                                                                    </tbody>
-                                                                                                </table>
+                                                                                               <div class="col-lg-6 d-flex justify-content-end">
 
-                                                                                                <div class="col-lg-6 text-center mx-auto">
-
-                                                                                                    <div class="input-group p-0 d-flex justify-content-center col-lg-12 flex-nowrap">
-                                                                                                        <div class="input-group-prepend">
-                                                                                                            <span class="input-group-text" id="addon-wrapping">Nota final da unidade:</span>
-                                                                                                        </div>
-                                                                                                        <input type="text" disabled class="form-control border-0" value="5,0" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                                                    </div>
+                                                                                                    <span class="mr-2 editar-dados-aluno"><i class="text-center fas fa-edit"></i></span>
+                                                                                                    <span class="mr-2 atualizar-dados-aluno"><i class="fas fa-check"></i></span>
 
                                                                                                 </div>
 
-                                                                                                <hr class="text-dark w-100">
-
+                                                                                            </div>
                                                                                             </div>
 
-
+                                                                                            <table class="table unidades table-hover mt-3 table-borderless col-lg-12">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th scope="col">ID</th>
+                                                                                                        <th scope="col">Descrição</th>
+                                                                                                        <th scope="col">Realização</th>
+                                                                                                        <th scope="col">Valor</th>
+                                                                                                        <th scope="col">Nota</th>
+                                                                                                    </tr>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <th class="" scope="row" style="top: 50%;">1</th>
+                                                                                                        <td class="">Avaliação em Grupo</td>
+                                                                                                        <td>15/06</td>
+                                                                                                        <td>4,0</td>
+                                                                                                        <td class="">
+                                                                                                            <input disabled class="form-control mx-auto" type="text" name="" value="2,00" id="" maxlength="4">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <th scope="row">2</th>
+                                                                                                        <td>Avaliação Individual</td>
+                                                                                                        <td>15/07</td>
+                                                                                                        <td>2,0</td>
+                                                                                                        <td class="">
+                                                                                                            <input disabled class="form-control mx-auto" type="text" name="" value="1,00" id="" maxlength="4">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <th scope="row">3</th>
+                                                                                                        <td>Prova Final</td>
+                                                                                                        <td>25/08</td>
+                                                                                                        <td>4,0</td>
+                                                                                                        <td class="">
+                                                                                                            <input disabled class="form-control mx-auto" type="text" name="" value="3,00" id="" maxlength="4">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <th scope="row">Outros:</th>
+                                                                                                        <td>Faltas</td>
+                                                                                                        <td><input disabled class="form-control mx-auto" type="text" name="" value="6" id="" maxlength="4"></td>
+                                                                                                        <td>Dispensas</td>
+                                                                                                        <td>
+                                                                                                            <input disabled class="form-control mx-auto" type="text" name="" value="0" id="" maxlength="4">
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                   
+                                                                                                </tbody>
+                                                                                               
+                                                                                            </table>
                                                                                         </div>
+                                                                                    </div>
 
-                                                                                        <div class="collapse overflow-auto p-3 lado-info-aluno" id="conteudo-2-unidade" aria-labelledby="unidade-2" data-parent="#conteudo-disciplina">
+                                                                                    <div class="collapse overflow-auto p-3 lado-info-aluno" id="conteudo-2-unidade" aria-labelledby="unidade-2" data-parent="#conteudo-disciplina">
 
-                                                                                            Conteudo
-
-                                                                                        </div>
-
-                                                                                        <div class="collapse overflow-auto p-3 lado-info-aluno" id="conteudo-3-unidade" aria-labelledby="unidade-3" data-parent="#conteudo-disciplina">
-
-                                                                                            Conteudo
-
-
-                                                                                        </div>
+                                                                                        Conteudo
 
                                                                                     </div>
+
 
                                                                                 </div>
 
                                                                             </div>
-                                                                        </div>
-
-                                                                        <div class="tab-pane fade card" id="disciplina-2" role="tabpanel" aria-labelledby="list-disciplina-2">
-
-                                                                            <div class="row">
-
-                                                                                Portugues
-
-                                                                            </div>
 
                                                                         </div>
+                                                                    </div>
 
-                                                                        <div class="tab-pane fade card" id="disciplina-3" role="tabpanel" aria-labelledby="list-disciplina-3">
+                                                                    <div class="tab-pane col-lg-12 fade card" id="disciplina-2" role="tabpanel" aria-labelledby="list-disciplina-2">
 
-                                                                            <div class="row">
+                                                                        <div class="row">
 
-                                                                                Biologia
-
-                                                                            </div>
+                                                                            Portugues
 
                                                                         </div>
 
-                                                                        <div class="tab-pane fade card" id="disciplina-4" role="tabpanel" aria-labelledby="list-disciplina-4">
+                                                                    </div>
 
-                                                                            <div class="row">
+                                                                    <div class="tab-pane fade card" id="disciplina-3" role="tabpanel" aria-labelledby="list-disciplina-3">
 
-                                                                                Física
+                                                                        <div class="row">
 
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                        <div class="tab-pane fade card" id="disciplina-5" role="tabpanel" aria-labelledby="list-disciplina-5">
-
-                                                                            <div class="row">
-
-                                                                                Arte
-
-                                                                            </div>
+                                                                            Biologia
 
                                                                         </div>
 
-                                                                        <div class="tab-pane fade card" id="disciplina-6" role="tabpanel" aria-labelledby="list-disciplina-6">
+                                                                    </div>
 
-                                                                            <div class="row">
+                                                                    <div class="tab-pane fade card" id="disciplina-4" role="tabpanel" aria-labelledby="list-disciplina-4">
 
-                                                                                Filosofia
+                                                                        <div class="row">
 
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                        <div class="tab-pane fade card" id="disciplina-7" role="tabpanel" aria-labelledby="list-disciplina-7">
-
-                                                                            <div class="row">
-
-                                                                                Química
-
-                                                                            </div>
+                                                                            Física
 
                                                                         </div>
 
-                                                                        <div class="tab-pane fade card" id="disciplina-8" role="tabpanel" aria-labelledby="list-disciplina-8">
+                                                                    </div>
 
-                                                                            <div class="row">
+                                                                    <div class="tab-pane fade card" id="disciplina-5" role="tabpanel" aria-labelledby="list-disciplina-5">
 
-                                                                                Língua Estrangeira Moderna
+                                                                        <div class="row">
 
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                        <div class="tab-pane fade card" id="disciplina-9" role="tabpanel" aria-labelledby="list-disciplina-9">
-
-                                                                            <div class="row">
-
-                                                                                Lógica e Técnica dd Programação
-
-                                                                            </div>
+                                                                            Arte
 
                                                                         </div>
 
-                                                                        <div class="tab-pane fade card" id="disciplina-10" role="tabpanel" aria-labelledby="list-disciplina-10">
+                                                                    </div>
 
-                                                                            <div class="row">
+                                                                    <div class="tab-pane fade card" id="disciplina-6" role="tabpanel" aria-labelledby="list-disciplina-6">
 
-                                                                                Intervenção Social
+                                                                        <div class="row">
 
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                        <div class="tab-pane fade card" id="disciplina-11" role="tabpanel" aria-labelledby="list-disciplina-11">
-
-                                                                            <div class="row">
-
-                                                                                Sociologia
-
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                        <div class="tab-pane fade card" id="disciplina-12" role="tabpanel" aria-labelledby="list-disciplina-12">
-
-                                                                            <div class="row">
-
-                                                                                POPIC
-
-                                                                            </div>
+                                                                            Filosofia
 
                                                                         </div>
 
@@ -720,189 +659,212 @@
 
                                                         </div>
 
-                                                        <div class="col-lg-12 collapse overflow-auto lado-info-aluno" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    </div>
 
-                                                            <div class="row">
+                                                    <div class="col-lg-12 collapse overflow-auto" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#accordion-perfil-aluno-opcoes">
 
-                                                                <div class="col-lg-6">
-                                                                    <h5 class="mt-3 mb-3">Boletim do aluno</h5>
+                                                        <div class="row">
+
+                                                            <div class="col-lg-12">
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <h5 class="mt-3 mb-3">Boletim do aluno</h5>
+                                                                    </div>
+                                                                    <div class="col-lg-6 mt-3 text-right"><span class="imprimir-boletim"><i class="fas fa-print"></i></span></div>
+
                                                                 </div>
-
-                                                                <div class="col-lg-6 mt-3 text-right"><span class="card-icon"><i class="fas fa-print"></i></span></div>
-
                                                             </div>
 
                                                             <div class="col-lg-12 mt-3"><b>Aluno:</b> João Pedro de Souza</div>
 
                                                             <div class="col-lg-12 mt-3"><b>Nível / Modalidade de ensino:</b> Ensino Profissional, Médio Intregado</div>
 
-                                                            <div class="row p-0 mt-3 d-flex justify-content-around">
-                                                                <div class="col-lg-5"><b>Série:</b> 1 Serie - Tecnico em Informática</div>
-                                                                <div class="col-lg-3"><b>Classe:</b> INFO-1M-B</div>
-                                                                <div class="col-lg-3"><b>Sala:</b> 13</div>
+                                                            <div class="col-lg-12">
+
+                                                                <div class="row mt-3">
+                                                                    <div class="col-lg-5"><b>Série:</b> 1 Serie - Tecnico em Informática</div>
+                                                                    <div class="col-lg-3"><b>Classe:</b> INFO-1M-B</div>
+                                                                    <div class="col-lg-3"><b>Sala:</b> 13</div>
+                                                                </div>
                                                             </div>
 
-                                                            <div class="row mt-3">
+                                                            <div class="col-lg-12 mt-3">
 
-                                                                <table class="table col-lg-12 p-2 table-responsive-xl table-striped table-bordered mt-3 col-lg-12" style="width: 1500px;">
+                                                                <div class="row">
 
-                                                                    <thead class="">
+                                                                    <table class="table table-striped table-bordered mt-3">
 
-                                                                        <tr>
+                                                                        <thead class="">
 
-                                                                            <th class="th-rowspan-2" colspan="" rowspan="2" scope="col" style="width: 200px">
-                                                                                <div class="col-lg-11">Componentes Curriculares</div>
-                                                                            </th>
+                                                                            <tr>
 
-                                                                            <th class="text-center" colspan="3" scope="col">I Unidade</th>
-                                                                            <th class="text-center " colspan="3" scope="col">II Unidade</th>
-                                                                            <th class="text-center " colspan="3" scope="col">III Unidade</th>
+                                                                                <th class="th-rowspan-2" colspan="" rowspan="2" scope="col">
+                                                                                    <div class="col-lg-11">Componentes Curriculares</div>
+                                                                                </th>
 
-                                                                            <th class="th-rowspan-2" rowspan="2" scope="col">
-                                                                                <div class="col-lg-11">REC FINAL</div>
-                                                                            </th>
+                                                                                <th class="text-center" colspan="3" scope="col">I Unidade</th>
+                                                                                <th class="text-center " colspan="3" scope="col">II Unidade</th>
+                                                                                <th class="text-center " colspan="3" scope="col">III Unidade</th>
 
-                                                                            <th class="th-rowspan-2" rowspan="2" scope="col">
-                                                                                <div class="col-lg-11">Média Final</div>
-                                                                            </th>
+                                                                                <th class="th-rowspan-2" rowspan="2" scope="col">
+                                                                                    <div class="col-lg-11">REC FINAL</div>
+                                                                                </th>
 
-                                                                            <th class="th-rowspan-2" rowspan="2" scope="col">
-                                                                                <div class="col-lg-11">Freq(%)</div>
-                                                                            </th>
+                                                                                <th class="th-rowspan-2" rowspan="2" scope="col">
+                                                                                    <div class="col-lg-11">Média Final</div>
+                                                                                </th>
 
-                                                                            <th class="th-rowspan-2" rowspan="2" scope="col">
-                                                                                <div class="col-lg-11">Resultado Final</div>
-                                                                            </th>
-                                                                        </tr>
+                                                                                <th class="th-rowspan-2" rowspan="2" scope="col">
+                                                                                    <div class="col-lg-11">Freq(%)</div>
+                                                                                </th>
 
-                                                                        <tr class="dados-unidade">
-                                                                            <th class="" scope="col">Nota</th>
-                                                                            <th class="" scope="col">Faltas</th>
-                                                                            <th class="" scope="col">Dispensa</th>
-                                                                            <th class="" scope="col">Nota</th>
-                                                                            <th class="" scope="col">Faltas</th>
-                                                                            <th class="" scope="col">Dispensa</th>
-                                                                            <th class="" scope="col">Nota</th>
-                                                                            <th class="" scope="col">Faltas</th>
-                                                                            <th class="" scope="col">Dispensa</th>
-                                                                        </tr>
+                                                                                <th class="th-rowspan-2" rowspan="2" scope="col">
+                                                                                    <div class="col-lg-11">Resultado Final</div>
+                                                                                </th>
+                                                                            </tr>
 
-
-
-                                                                    </thead>
-
-                                                                    <tbody>
-
-                                                                        <tr class="">
-                                                                            <td class="">Biologia</td>
-                                                                            <td class="nota-verde">8,20</td>
-                                                                            <td class="">2</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-vermelha">3,20</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-verde">9,00</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="">&nbsp;</td>
-                                                                            <td class="">7,25</td>
-                                                                            <td class="">87,25</td>
-                                                                            <td class="">AP</td>
-                                                                        </tr>
-                                                                        <tr class="">
-                                                                            <td class="">Biologia</td>
-                                                                            <td class="nota-verde">8,20</td>
-                                                                            <td class="">2</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-vermelha">3,20</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-verde">9,00</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="">&nbsp;</td>
-                                                                            <td class="">7,25</td>
-                                                                            <td class="">87,25</td>
-                                                                            <td class="">AP</td>
-                                                                        </tr>
-                                                                        <tr class="">
-                                                                            <td class="">Biologia</td>
-                                                                            <td class="nota-verde">8,20</td>
-                                                                            <td class="">2</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-vermelha">3,20</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-verde">9,00</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="">&nbsp;</td>
-                                                                            <td class="">7,25</td>
-                                                                            <td class="">87,25</td>
-                                                                            <td class="">AP</td>
-                                                                        </tr>
-                                                                        <tr class="">
-                                                                            <td class="">Biologia</td>
-                                                                            <td class="nota-verde">8,20</td>
-                                                                            <td class="">2</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-vermelha">3,20</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-verde">9,00</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="">&nbsp;</td>
-                                                                            <td class="">7,25</td>
-                                                                            <td class="">87,25</td>
-                                                                            <td class="">AP</td>
-                                                                        </tr>
-                                                                        <tr class="">
-                                                                            <td class="">Biologia</td>
-                                                                            <td class="nota-verde">8,20</td>
-                                                                            <td class="">2</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-vermelha">3,20</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="nota-verde">9,00</td>
-                                                                            <td class="">3</td>
-                                                                            <td class="">0</td>
-                                                                            <td class="">&nbsp;</td>
-                                                                            <td class="">7,25</td>
-                                                                            <td class="">87,25</td>
-                                                                            <td class="">AP</td>
-                                                                        </tr>
-
-                                                                     
-
-                                                                    </tbody>
+                                                                            <tr class="dados-unidade">
+                                                                                <th class="" scope="col">Nota</th>
+                                                                                <th class="" scope="col">Faltas</th>
+                                                                                <th class="" scope="col">Dispensa</th>
+                                                                                <th class="" scope="col">Nota</th>
+                                                                                <th class="" scope="col">Faltas</th>
+                                                                                <th class="" scope="col">Dispensa</th>
+                                                                                <th class="" scope="col">Nota</th>
+                                                                                <th class="" scope="col">Faltas</th>
+                                                                                <th class="" scope="col">Dispensa</th>
+                                                                            </tr>
 
 
 
+                                                                        </thead>
 
-                                                                </table>
+                                                                        <tbody>
+
+                                                                            <tr class="">
+                                                                                <td class="">Biologia</td>
+                                                                                <td class="nota-verde">8,20</td>
+                                                                                <td class="">2</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-vermelha">3,20</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-verde">9,00</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="">&nbsp;</td>
+                                                                                <td class="">7,25</td>
+                                                                                <td class="">87,25</td>
+                                                                                <td class="">AP</td>
+                                                                            </tr>
+                                                                            <tr class="">
+                                                                                <td class="">Biologia</td>
+                                                                                <td class="nota-verde">8,20</td>
+                                                                                <td class="">2</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-vermelha">3,20</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-verde">9,00</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="">&nbsp;</td>
+                                                                                <td class="">7,25</td>
+                                                                                <td class="">87,25</td>
+                                                                                <td class="">AP</td>
+                                                                            </tr>
+                                                                            <tr class="">
+                                                                                <td class="">Biologia</td>
+                                                                                <td class="nota-verde">8,20</td>
+                                                                                <td class="">2</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-vermelha">3,20</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-verde">9,00</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="">&nbsp;</td>
+                                                                                <td class="">7,25</td>
+                                                                                <td class="">87,25</td>
+                                                                                <td class="">AP</td>
+                                                                            </tr>
+                                                                            <tr class="">
+                                                                                <td class="">Biologia</td>
+                                                                                <td class="nota-verde">8,20</td>
+                                                                                <td class="">2</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-vermelha">3,20</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-verde">9,00</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="">&nbsp;</td>
+                                                                                <td class="">7,25</td>
+                                                                                <td class="">87,25</td>
+                                                                                <td class="">AP</td>
+                                                                            </tr>
+                                                                            <tr class="">
+                                                                                <td class="">Biologia</td>
+                                                                                <td class="nota-verde">8,20</td>
+                                                                                <td class="">2</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-vermelha">3,20</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="nota-verde">9,00</td>
+                                                                                <td class="">3</td>
+                                                                                <td class="">0</td>
+                                                                                <td class="">&nbsp;</td>
+                                                                                <td class="">7,25</td>
+                                                                                <td class="">87,25</td>
+                                                                                <td class="">AP</td>
+                                                                            </tr>
 
 
+
+                                                                        </tbody>
+
+
+
+
+                                                                    </table>
+
+
+
+                                                                </div>
 
                                                             </div>
+
+
+
+
+
 
 
                                                         </div>
 
-                                                        <div class="col-lg-12 collapse overflow-auto" id="modalThree" aria-labelledby="mais" data-parent="#accordion-perfil-aluno-opcoes">
-                                                            <h5>Mais</h5>
-                                                        </div>
+
+
 
                                                     </div>
+
+
+                                                    <div class="col-lg-12 border border-dark collapse overflow-auto" id="modalThree" aria-labelledby="mais" data-parent="#accordion-perfil-aluno-opcoes">
+                                                        <h5>Mais</h5>
+                                                    </div>
+
                                                 </div>
+
                                             </div>
+
                                         </div>
-
                                     </div>
-
                                 </div>
-                                <div class="col-lg-2">
+
+
+                                <div class="col-lg-2 mt-3">
 
                                     <ul class="list-group controle-opcoes text-center">
 
@@ -915,6 +877,7 @@
                                         <li class="list-group-item border-0" id="mais" aria-expanded="false" data-toggle="collapse" data-target="#modalThree"><a href="#"><i class="fas fa-chart-line mr-2"></i> Análise </a></li>
 
                                     </ul>
+
                                 </div>
                             </div>
                         </div>

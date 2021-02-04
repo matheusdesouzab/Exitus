@@ -348,24 +348,11 @@ table tr {
   text-align: center;
   font-weight: 500;
 }
-#matricula-aluno .modal span {
-  color: #ffffff;
-}
-#matricula-aluno .modal .modal-aluno-matricular-sucesso .modal-header {
-  background-color: #2ECC71;
-  color: #ffffff;
-  font-weight: bold;
-}
 #matricula-aluno .modal .modal-aluno-matricular-sucesso .fa-check-circle {
   margin-top: 30px;
   font-size: 100px;
   color: #2ECC71;
   justify-content: space-around;
-}
-#matricula-aluno .modal .modal-aluno-matricular-erro .modal-header {
-  background-color: #DC7633;
-  color: #ffffff;
-  font-weight: bold;
 }
 #matricula-aluno .modal .modal-aluno-matricular-erro .fa-times-circle {
   margin-top: 30px;
@@ -374,15 +361,17 @@ table tr {
   justify-content: space-around;
 }
 
-#perfilAlunoModal .modal-content {
-  margin-left: -410px;
-  width: 1350px !important;
-  margin-top: -30px;
-  height: 100%;
-  /* &::-webkit-scrollbar {
-      width: 0;
-      background: transparent;
-  } */
+#perfilAlunoModal .modal-body > .row:nth-child(1) {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  background-color: #ffffff;
+}
+#perfilAlunoModal .list-group {
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
 #perfilAlunoModal h5 {
   font-size: 17px;
@@ -390,97 +379,148 @@ table tr {
 #perfilAlunoModal a {
   text-decoration: none;
 }
-#perfilAlunoModal .fa-edit {
+#perfilAlunoModal .fa-edit,
+#perfilAlunoModal .fa-check {
   color: #506177;
-}
-#perfilAlunoModal [aria-expanded=false] {
-  background-color: #ffffff;
-  color: #506177;
-}
-#perfilAlunoModal [aria-expanded=false] a {
-  color: #506177;
-  font-weight: bold;
-}
-#perfilAlunoModal .modal-content {
-  border: none;
-  background-color: #E3ECF5;
 }
 #perfilAlunoModal img {
   border-radius: 50%;
   border: 5px solid #e5e5e5;
 }
-#perfilAlunoModal .card-icon {
+#perfilAlunoModal .modal-content {
+  margin-left: -410px;
+  width: 1350px;
+  margin-top: -30px;
+  height: 100%;
+  background-color: #E3ECF5;
+}
+#perfilAlunoModal .editar-dados-aluno {
   cursor: pointer;
+  color: #e5e5e5;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
   background-color: #e5e5e5;
 }
-#perfilAlunoModal .card-icon:hover {
+#perfilAlunoModal .editar-dados-aluno:hover {
   transition: 0.5s ease-in-out;
   background-color: #325EDE;
 }
-#perfilAlunoModal .card-icon:hover .fa-edit, #perfilAlunoModal .card-icon:hover .fa-print {
+#perfilAlunoModal .editar-dados-aluno:hover .fa-edit, #perfilAlunoModal .editar-dados-aluno:hover .fa-print, #perfilAlunoModal .editar-dados-aluno:hover .fa-check {
   color: #ffffff;
 }
-#perfilAlunoModal .list-group {
-  border-radius: 5px;
-  border: none;
+#perfilAlunoModal .atualizar-dados-aluno {
   cursor: pointer;
+  color: #e5e5e5;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  background-color: #e5e5e5;
 }
-#perfilAlunoModal .lista-disciplinas {
-  height: 500px;
+#perfilAlunoModal .atualizar-dados-aluno:hover {
+  transition: 0.5s ease-in-out;
+  background-color: #2ECC71;
+}
+#perfilAlunoModal .atualizar-dados-aluno:hover .fa-edit, #perfilAlunoModal .atualizar-dados-aluno:hover .fa-print, #perfilAlunoModal .atualizar-dados-aluno:hover .fa-check {
+  color: #ffffff;
+}
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group-prepend span {
+  font-weight: bold;
+  color: #506177;
+}
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group-text {
+  background-color: #ffffff;
+  border: none;
+  font-weight: bold;
+}
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group {
+  padding-left: 0;
+  margin-bottom: 13px;
+}
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados input:disabled {
+  background-color: #ffffff;
+  border: none;
+  padding-left: 0px;
+}
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-nota input:disabled {
+  background-color: #ffffff;
+  border: none;
 }
 #perfilAlunoModal .lista-disciplinas::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
 #perfilAlunoModal .lista-disciplinas .active {
-  background-color: #325EDE;
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 #perfilAlunoModal .lista-disciplinas .list-group-item {
-  border-radius: 5px;
+  border-radius: 10px;
+  margin-bottom: 3px;
   border: none;
 }
 #perfilAlunoModal .lista-disciplinas .list-group-item:hover {
-  background-color: #325EDE;
-  color: #ffffff;
-}
-#perfilAlunoModal .controle-opcoes {
-  border: 1px solid #e5e5e5 !important;
-}
-#perfilAlunoModal .controle-opcoes li:hover {
-  background-color: #325EDE;
-}
-#perfilAlunoModal .controle-opcoes li:hover a {
+  background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
 }
 #perfilAlunoModal .controle-opcoes [aria-expanded=true] {
-  background-color: #325EDE;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
   color: #ffffff;
 }
 #perfilAlunoModal .controle-opcoes [aria-expanded=true] a {
   color: #ffffff;
   font-weight: bold;
 }
-#perfilAlunoModal .list-group {
+#perfilAlunoModal .controle-opcoes [aria-expanded=false] {
+  background: #ffffff;
   border-radius: 10px;
-  border: 1px solid #e5e5e5;
-  cursor: pointer;
+  color: #506177;
+}
+#perfilAlunoModal .controle-opcoes [aria-expanded=false] a {
+  color: #506177;
+  font-weight: bold;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-dados,
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-nota {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-nota,
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim {
   height: 520px;
+  width: 890px;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim {
   text-transform: uppercase;
-  height: 520px;
+  font-size: 13px;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim h5 {
   text-transform: initial;
 }
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim {
+  cursor: pointer;
+  color: #506177;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  background-color: #e5e5e5;
+}
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover {
+  transition: 0.5s ease-in-out;
+  background-color: #325EDE;
+}
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check {
+  color: #ffffff;
+}
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div {
-  margin-top: -50px !important;
+  margin-top: -50px;
+}
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim td,
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim th {
+  font-size: 13px;
 }
 #perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=true] {
-  background-color: #325EDE;
+  background: #325EDE;
+  border-radius: 10px;
   color: #ffffff;
 }
 #perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=true] a {
@@ -488,7 +528,8 @@ table tr {
   font-weight: bold;
 }
 #perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=false] {
-  background-color: #e5e5e5;
+  background: #e5e5e5;
+  border-radius: 10px;
   color: #506177;
 }
 #perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=false] a {
@@ -499,35 +540,18 @@ table tr {
   border-radius: 30px;
   padding: 10px;
 }
-
-#aluno-lista .modal .unidades input {
-  width: 50px !important;
-  border: 1px solid #e5e5e5;
+#perfilAlunoModal .conteudo-lista-disciplinas .icon-unidade:focus {
+  outline: none;
+  box-shadow: none;
 }
-#aluno-lista .modal .unidades td,
-#aluno-lista .modal .unidades th {
+#perfilAlunoModal .unidades input {
+  width: 60px;
+  text-align: center !important;
+}
+#perfilAlunoModal .unidades td,
+#perfilAlunoModal .unidades th {
   line-height: 40px;
   justify-content: center;
-}
-#aluno-lista .modal .input-group-prepend span {
-  font-weight: bold;
-  color: #506177;
-}
-#aluno-lista .modal .input-group-text {
-  background-color: #ffffff;
-  border: none;
-  font-weight: bold;
-}
-#aluno-lista .modal .input-group {
-  padding-left: 0;
-  margin-bottom: 13px;
-}
-#aluno-lista .modal input {
-  border: none;
-}
-#aluno-lista .modal input:disabled {
-  background-color: #ffffff;
-  padding-left: 0;
 }
 
 @media screen and (min-width: 0px) and (max-width: 578px) {

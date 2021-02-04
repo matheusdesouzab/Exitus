@@ -5,20 +5,29 @@
     justify-content: space-around;
 }
 
-
-@mixin modal-header($background) {
-    background-color: $background;
-    color: $branco-padrao;
-    font-weight: bold;
-}
-
-
 @mixin card($padding, $background, $border) {
     padding: $padding;
     border-radius: 10px;
     border: $border;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
     background-color: $background;
+}
+
+@mixin card-icon($color,$background-hover){
+
+    cursor: pointer;
+    color: $color;
+
+        @include card(10, $cinza-claro, none);
+
+        &:hover {
+            transition: 0.5s ease-in-out;
+            background-color: $background-hover;
+
+            .fa-edit,.fa-print,.fa-check {
+                color: $branco-padrao;
+            }
+        }
 }
 
 
@@ -89,7 +98,8 @@
 
 @mixin aria-expanded($background,$color) {
 
-        background-color: $background;
+        background: $background;
+        border-radius: 10px;
         color: $color;
 
         a {
