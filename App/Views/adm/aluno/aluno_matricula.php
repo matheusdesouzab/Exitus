@@ -1,6 +1,6 @@
 <div id="matricula_aluno">
 
-    <div class="row linha-pagina">
+    <div class="row container-pai">
 
         <div class="col-lg-11 mx-auto">
 

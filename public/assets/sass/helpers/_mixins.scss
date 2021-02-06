@@ -17,11 +17,12 @@
 
     cursor: pointer;
     color: $color;
+    font-size: 15px;
 
         @include card(10, $cinza-claro, none);
 
         &:hover {
-            transition: 0.5s ease-in-out;
+            transition: 1s;
             background-color: $background-hover;
 
             .fa-edit,.fa-print,.fa-check {

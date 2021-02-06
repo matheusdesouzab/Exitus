@@ -17,9 +17,9 @@ class Route extends Bootstrap {
 		);
 
 		$routes['matriculaAluno'] = array(
-			'route' => '/matriculaAluno',
+			'route' => '/alunoMatricula',
 			'controller' => 'AdmController',
-			'action' => 'matricular_aluno'
+			'action' => 'aluno_matricula'
 		);
 
 		$routes['cadastraProfessor'] = array(

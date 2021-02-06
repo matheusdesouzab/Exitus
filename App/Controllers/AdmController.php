@@ -15,7 +15,7 @@ class AdmController extends Action
         $this->render('adm_home');
     }
 
-    public function matricular_aluno()
+    public function aluno_matricula()
     {
 
         $this->render('aluno_matricula');

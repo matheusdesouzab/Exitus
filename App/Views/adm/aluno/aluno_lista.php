@@ -455,12 +455,9 @@
 
                                                     <div class="col-lg-12 collapse overflow-auto" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
 
-                                                        <div class="row p-1">
+                                                        <div class="row mt-1">
 
-                                                            <h5 class="mt-3 col-lg-12 mb-3">Gestão de nota</h5>
-
-
-                                                            <div class="col-3 card lista-disciplinas overflow-auto">
+                                                            <div class="col-2  card lista-disciplinas overflow-auto">
 
                                                                 <div class="list-group" id="list-tab" role="tablist">
 
@@ -491,15 +488,15 @@
 
                                                             </div>
 
-                                                            <div class="col-9">
+                                                            <div class="col-9 mx-auto mt-5">
 
                                                                 <div class="tab-content conteudo-lista-disciplinas" id="nav-tabContent">
 
-                                                                    <div class="tab-pane card fade show active" id="disciplina-1" role="tabpanel" aria-labelledby="list-disciplina-1">
+                                                                    <div class="tab-pane fade show active" id="disciplina-1" role="tabpanel" aria-labelledby="list-disciplina-1">
 
                                                                         <div class="accordion" id="conteudo-disciplina">
 
-                                                                            <div class="row d-flex justify-content-center mt-3">
+                                                                            <div class="row d-flex unidades justify-content-center mt-3">
 
                                                                                 <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-1-unidade" aria-expanded="true" id="unidade-1" data-toggle="collapse">1 Unidade</a>
 
@@ -522,7 +519,7 @@
                                                                                             <div class="row">
 
                                                                                             <div class="col-lg-6">
-                                                                                            <h5 class="mt-2">Visão Geral da 1 Unidade</h5>
+                                                                                            <h5 class="mt-2">Avaliações e outros</h5>
                                                                                             </div>
 
                                                                                                <div class="col-lg-6 d-flex justify-content-end">
@@ -535,8 +532,8 @@
                                                                                             </div>
                                                                                             </div>
 
-                                                                                            <table class="table unidades table-hover mt-3 table-borderless col-lg-12">
-                                                                                                <thead>
+                                                                                            <table class="table dados-avaliacoes mt-3 col-lg-12">
+                                                                                                <thead class="">
                                                                                                     <tr>
                                                                                                         <th scope="col">ID</th>
                                                                                                         <th scope="col">Descrição</th>
@@ -547,7 +544,7 @@
                                                                                                 </thead>
                                                                                                 <tbody>
                                                                                                     <tr>
-                                                                                                        <th class="" scope="row" style="top: 50%;">1</th>
+                                                                                                        <td>1</td>
                                                                                                         <td class="">Avaliação em Grupo</td>
                                                                                                         <td>15/06</td>
                                                                                                         <td>4,0</td>
@@ -556,7 +553,7 @@
                                                                                                         </td>
                                                                                                     </tr>
                                                                                                     <tr>
-                                                                                                        <th scope="row">2</th>
+                                                                                                        <td>2</td>
                                                                                                         <td>Avaliação Individual</td>
                                                                                                         <td>15/07</td>
                                                                                                         <td>2,0</td>
@@ -565,7 +562,7 @@
                                                                                                         </td>
                                                                                                     </tr>
                                                                                                     <tr>
-                                                                                                        <th scope="row">3</th>
+                                                                                                        <td>3</td>
                                                                                                         <td>Prova Final</td>
                                                                                                         <td>25/08</td>
                                                                                                         <td>4,0</td>
@@ -573,6 +570,9 @@
                                                                                                             <input disabled class="form-control mx-auto" type="text" name="" value="3,00" id="" maxlength="4">
                                                                                                         </td>
                                                                                                     </tr>
+
+                                                                                                    <hr>
+
                                                                                                     <tr>
                                                                                                         <th scope="row">Outros:</th>
                                                                                                         <td>Faltas</td>
@@ -826,6 +826,13 @@
 
                                                                         </tbody>
 
+                                                                        <tfoot>
+
+                                                                        <th>Situação do aluno(a):</th>
+                                                                        <td>APROVADO</td>
+
+                                                                        </tfoot>
+
 
 
 
@@ -864,9 +871,9 @@
                                 </div>
 
 
-                                <div class="col-lg-2 mt-3">
+                                <div class="col-lg-2 controle-opcoes">
 
-                                    <ul class="list-group controle-opcoes text-center">
+                                    <ul class="list-group text-center">
 
                                         <li class="list-group-item border-0" data-target="#collapse-perfil-aluno-opcoes-dados" aria-expanded="true" id="dados" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
 

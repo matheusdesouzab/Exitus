@@ -34,23 +34,26 @@ h5 {
 label{
     font-size: 15px;
     font-weight: bold;
-    color: $azul-escuro;
+    color: $preto-claro;
 }
 
 input,select{
     border-radius: 10px;
 }
 
-form {
+/* form {
 
     :invalid {
         border: 1px solid #E4D9FF;
     }
 
     :valid {
-        border: 1px solid #7DCEA0;
+        border: 1px solid blue;
     }
-}
+} */
+
+
+
 
 table{
 

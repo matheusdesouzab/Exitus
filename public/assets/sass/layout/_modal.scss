@@ -1,12 +1,20 @@
-#matricula-aluno {
+#matriculaModal{
 
     // Modal da realização de cadastro entre alunos e professores
 
-    .modal {
-
         margin-top: 40px;
 
+        .modal-header{
+            font-weight: bold;
+        }
+
+       
+
         @include model-content($branco-padrao);
+
+        .modal-content{
+            border-radius: 10px;
+        }
 
         .modal-texto {
             margin-top: 30px;
@@ -29,14 +37,14 @@
             }
 
         }
-    }
 
 }
 
 #perfilAlunoModal {
 
     .modal-body>.row:nth-child(1) {
-        @include card(10px, $branco-padrao, 2px solid $cinza-claro);
+        @include card(10px, $branco-padrao, 1px solid $cinza-claro);
+        margin-top: -10px;
     }
 
     .list-group {
@@ -58,14 +66,14 @@
 
     img {
         border-radius: 50%;
-        border: 5px solid $cinza-claro;
+        border: 5px solid $cinza-escuro;
     }
 
     .modal-content {
-        margin-left: -410px;
+        margin-left: -415px;
         width: 1350px;
         margin-top: -30px;
-        height: 100%;
+        height: 630px;
         background-color: $cinza-extra-claro;
     }
 
@@ -78,6 +86,10 @@
     }
 
     #collapse-perfil-aluno-opcoes-dados {
+
+        b{
+            color:$cinza-escuro;
+        }
 
         .input-group-prepend span {
             font-weight: bold;
@@ -109,23 +121,31 @@
 
     .lista-disciplinas {
 
+        background-color: $cinza-escuro;
+
         &::-webkit-scrollbar {
             width: 0;
             background: transparent;
         }
 
-        .active {
-            background-image: $plum-plate;
+        a.active {
+            background: $branco-padrao;
+            color: $cinza-escuro;
         }
 
         .list-group-item {
-            border-radius: 10px;
+            
             margin-bottom: 3px;
-            border: none;
+            border: 0px;
+            font-weight: bold;
+            font-size: 13.5px;
+            color:white;
+            border-radius: 10px;
+            background-color: transparent;
 
             &:hover {
-                background-image: $plum-plate;
-                color: $branco-padrao;
+                background: $branco-padrao;
+                color: $cinza-escuro;
             }
         }
 
@@ -133,13 +153,30 @@
 
     .controle-opcoes {
 
+        .list-group{
+            margin-top: 20px;
+        }
+
+        border-radius: 10px;
+        background: $cinza-escuro;
+
+        .list-group-item{
+            background-color: transparent;
+            margin-top: 5px;
+
+            &:hover{
+                @include aria-expanded($branco-padrao, $cinza-escuro);
+            }
+        }
+
         [aria-expanded="true"] {
-            @include aria-expanded($plum-plate, $branco-padrao);
+            @include aria-expanded($branco-padrao, $cinza-escuro);
         }
 
         [aria-expanded="false"] {
-            @include aria-expanded($branco-padrao, $cinza-escuro);
+            @include aria-expanded(transparent , $branco-padrao);
         }
+        
 
     }
 
@@ -148,6 +185,11 @@
     #collapse-perfil-aluno-opcoes-boletim {
         height: 520px;
         width: 890px;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
     }
 
     #collapse-perfil-aluno-opcoes-boletim {
@@ -165,6 +207,10 @@
 
         .th-rowspan-2 div {
             margin-top: -50px;
+        }
+
+        b{
+            font-weight: 700;
         }
 
         td,
@@ -195,7 +241,7 @@
         }
     }
 
-    .unidades {
+    .dados-avaliacoes {
 
         input {
             width: 60px;
@@ -206,7 +252,13 @@
         th {
             line-height: 40px;
             justify-content: center;
+            cursor: context-menu;
         }
+    }
+
+    .unidades a[aria-expanded="true"]{
+        @include aria-expanded($azul-escuro, $branco-padrao);
+        border-radius: 15px;
     }
 
 }

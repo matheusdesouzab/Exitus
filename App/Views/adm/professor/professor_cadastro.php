@@ -1,6 +1,6 @@
 <div id="cadastro_professor">
 
-    <div class="row linha-pagina">
+    <div class="row container-pai">
 
         <div class="col-lg-11 mx-auto">
 
@@ -26,6 +26,8 @@
                             
                         </div>
                     </div>
+
+                    <hr>
 
                     <form class="was-validated" role="form">
                         <div class="row assistente-etapas-conteudo collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">

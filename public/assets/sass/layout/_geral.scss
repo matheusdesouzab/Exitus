@@ -76,7 +76,8 @@
     #cadastro_professor {
 
         .linha-conexao {
-            @include linha-conexao(60%);
+            @include linha-conexao(51%);
+            margin-left: 21%;
         }
 
     }
