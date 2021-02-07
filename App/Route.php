@@ -16,24 +16,37 @@ class Route extends Bootstrap {
 			'action' => 'admHome'
 		);
 
-		$routes['matriculaAluno'] = array(
-			'route' => '/alunoMatricula',
+		$routes['admCadastroAluno'] = array(
+			'route' => '/admAlunoCadastro',
 			'controller' => 'AdmController',
-			'action' => 'aluno_matricula'
+			'action' => 'aluno_cadastro'
 		);
 
-		$routes['cadastraProfessor'] = array(
-			'route' => '/cadastraProfessor',
+		$routes['admListaAlunos'] = array(
+			'route' => '/admAlunoLista',
 			'controller' => 'AdmController',
-			'action' => 'cadastrar_professor'
+			'action' => 'aluno_lista'
 		);
 
-		$routes['listaAlunos'] = array(
-			'route' => '/alunoLista',
+		$routes['admCadastroProfessor'] = array(
+			'route' => '/admProfessorCadastro',
 			'controller' => 'AdmController',
-			'action' => 'alunoLista'
+			'action' => 'professor_cadastro'
 		);
 
+		$routes['admGestaoGeral'] = array(
+			'route' => '/admGestaoGeral',
+			'controller' => 'AdmController',
+			'action' => 'gestao_geral'
+		);
+
+		$routes['admCursoGestao'] = array(
+			'route' => '/admGestaoCursos',
+			'controller' => 'AdmController',
+			'action' => 'gestao_curso'
+		);
+
+		
 
 
 

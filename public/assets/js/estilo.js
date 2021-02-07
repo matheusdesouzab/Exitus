@@ -13,8 +13,7 @@ class Paginas {
 
         $('#painel-left ul').toggleClass('side-bar-responsivo side-bar')
 
-        $('#painel-left ul').hasClass('side-bar-responsivo') ? [painelLeftImg.attr('src', '/assets/img/logo.png'), $('.fa-bars').addClass('ml-2')] :
-            [painelLeftImg.attr('src', '/assets/img/logo-completo.png'), $('.fa-bars').removeClass('ml-2')]
+        $('#painel-left ul').hasClass('side-bar-responsivo') ? [painelLeftImg.attr('src', '/assets/img/logo.png'), $('.fa-bars').addClass('ml-2')] : [painelLeftImg.attr('src', '/assets/img/logo-completo.png'), $('.fa-bars').removeClass('ml-2')]
     }
 
 
@@ -75,7 +74,29 @@ $(".unidades input").on('keypress', e => $(e.target).mask('0,00'))
 
 $("#perfilAlunoModal").modal('show')
 
+$('.assistente-etapas-painel a i').on('click', function () {
 
+    let tela = this.className
+
+    tela = tela.replace('fas', '')
+
+    console.log(tela)
+
+    switch(tela){
+
+        case ' fa-home':
+            $('.linha-conexao').css({"background-image": "linear-gradient(to right, #0000FF 50%, #e5e5e5 50% )"})
+            break
+        case ' fa-users':
+            $('.linha-conexao').css({"background-image": "linear-gradient(to left, #0000FF 50%, #0000ff 50% )"})
+            break
+        default:
+            $('.linha-conexao').css({"background-image": "linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50% )"})
+        
+    }
+
+
+})
 
 
 

@@ -5,7 +5,7 @@
         <div class="col-lg-11 mx-auto">
 
             <div class="col-lg-12 mb-4">
-                <h5>Matricular aluno</h5>
+                <h5>Cadastra aluno(a)</h5>
             </div>
 
             <div class="col-lg-12">

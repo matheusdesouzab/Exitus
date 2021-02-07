@@ -15,20 +15,31 @@ class AdmController extends Action
         $this->render('adm_home');
     }
 
-    public function aluno_matricula()
+    public function aluno_cadastro()
     {
 
-        $this->render('aluno_matricula');
+        $this->render('aluno_cadastro');
     }
 
-    public function cadastrar_professor()
-    {
-        $this->render('professor_cadastro');
-    }
-
-    public function alunoLista()
+    public function aluno_lista()
     {
 
         $this->render('aluno_lista');
     }
+
+    public function professor_cadastro()
+    {
+        $this->render('professor_cadastro');
+    }
+
+    public function gestao_geral()
+    {
+        $this->render('gestao_geral');
+    }
+
+    public function gestao_curso()
+    {
+        $this->render('gestao_curso');
+    }
+
 }

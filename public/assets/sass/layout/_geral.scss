@@ -100,4 +100,36 @@
             }
         }
     }
+
+    .lista-disciplinas {
+
+        background-color: $preto-claro;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        a.active {
+            background: $branco-padrao;
+            color: $preto-claro;
+        }
+
+        .list-group-item {
+            
+            margin-bottom: 3px;
+            border: 0px;
+            font-weight: bold;
+            font-size: 13.5px;
+            color:white;
+            border-radius: 10px;
+            background-color: transparent;
+
+            &:hover {
+                background: $branco-padrao;
+                color: $cinza-escuro;
+            }
+        }
+
+    }
 }

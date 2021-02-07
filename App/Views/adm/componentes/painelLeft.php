@@ -8,14 +8,14 @@
         <li data-toggle="collapse" href="#alunos" role="button" aria-expanded="false" aria-controls="alunos" class="active link-collapse"><a><i class="fas fa-users mr-2"></i> <span class="mr-5">Alunos</span><i class="fas fa-angle-down ml-5"></i></a></li>
 
         <div class="collapse" id="alunos">
-        <li><a href="/matriculaAluno"><span>Cadastra aluno</span></a></li>
-        <li><a href="/listaAlunos"><span>Lista de alunos</span></a></li>
+        <li><a href="/admAlunoCadastro"><span>Cadastra aluno</span></a></li>
+        <li><a href="/admAlunoLista"><span>Lista de alunos</span></a></li>
         </div>
 
         <li data-toggle="collapse" href="#professores" role="button" aria-expanded="false" aria-controls="professores" class="active link-collapse"><a><i class="fas fa-chalkboard-teacher mr-2"></i> <span class="mr-3">Professores</span> <i class="fas fa-angle-down ml-5"></i></a></li>
 
         <div class="collapse" id="professores">
-        <li><a href="/cadastraProfessor"><span>Cadastra professor(a)</span></a></li>
+        <li><a href="/admProfessorCadastro"><span>Cadastra professor(a)</span></a></li>
         <li><a href=""><span>Lista professores</span></a></li>
         <li><a href=""><span>Adicionar avaliações</span></a></li>
         </div>

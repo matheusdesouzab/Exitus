@@ -47,6 +47,36 @@
         margin-top: -10px;
     }
 
+    .controle-opcoes {
+
+        .list-group{
+            margin-top: 20px;
+        }
+
+        border-radius: 10px;
+        border: 0;
+        background: $cinza-escuro;
+
+        .list-group-item{
+            background-color: transparent;
+            margin-top: 5px;
+
+            &:hover{
+                @include aria-expanded($branco-padrao, $cinza-escuro);
+            }
+        }
+
+        [aria-expanded="true"] {
+            @include aria-expanded($branco-padrao, $cinza-escuro);
+        }
+
+        [aria-expanded="false"] {
+            @include aria-expanded(transparent , $branco-padrao);
+        }
+        
+
+    }
+
     .list-group {
         @include list-group(5px, none);
     }
@@ -119,66 +149,8 @@
         border: none;
     }
 
-    .lista-disciplinas {
+    
 
-        background-color: $cinza-escuro;
-
-        &::-webkit-scrollbar {
-            width: 0;
-            background: transparent;
-        }
-
-        a.active {
-            background: $branco-padrao;
-            color: $cinza-escuro;
-        }
-
-        .list-group-item {
-            
-            margin-bottom: 3px;
-            border: 0px;
-            font-weight: bold;
-            font-size: 13.5px;
-            color:white;
-            border-radius: 10px;
-            background-color: transparent;
-
-            &:hover {
-                background: $branco-padrao;
-                color: $cinza-escuro;
-            }
-        }
-
-    }
-
-    .controle-opcoes {
-
-        .list-group{
-            margin-top: 20px;
-        }
-
-        border-radius: 10px;
-        background: $cinza-escuro;
-
-        .list-group-item{
-            background-color: transparent;
-            margin-top: 5px;
-
-            &:hover{
-                @include aria-expanded($branco-padrao, $cinza-escuro);
-            }
-        }
-
-        [aria-expanded="true"] {
-            @include aria-expanded($branco-padrao, $cinza-escuro);
-        }
-
-        [aria-expanded="false"] {
-            @include aria-expanded(transparent , $branco-padrao);
-        }
-        
-
-    }
 
     #collapse-perfil-aluno-opcoes-dados,
     #collapse-perfil-aluno-opcoes-nota,

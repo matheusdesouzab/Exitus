@@ -172,6 +172,30 @@ table tr {
 #pagina #aluno-lista table .icon-unidade-cadastrada {
   color: green;
 }
+#pagina .lista-disciplinas {
+  background-color: #283339;
+}
+#pagina .lista-disciplinas::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+#pagina .lista-disciplinas a.active {
+  background: #ffffff;
+  color: #283339;
+}
+#pagina .lista-disciplinas .list-group-item {
+  margin-bottom: 3px;
+  border: 0px;
+  font-weight: bold;
+  font-size: 13.5px;
+  color: white;
+  border-radius: 10px;
+  background-color: transparent;
+}
+#pagina .lista-disciplinas .list-group-item:hover {
+  background: #ffffff;
+  color: #506177;
+}
 
 #pagina .card-icon {
   padding: 10;
@@ -375,6 +399,45 @@ table tr {
   background-color: #ffffff;
   margin-top: -10px;
 }
+#perfilAlunoModal .controle-opcoes {
+  border-radius: 10px;
+  border: 0;
+  background: #506177;
+}
+#perfilAlunoModal .controle-opcoes .list-group {
+  margin-top: 20px;
+}
+#perfilAlunoModal .controle-opcoes .list-group-item {
+  background-color: transparent;
+  margin-top: 5px;
+}
+#perfilAlunoModal .controle-opcoes .list-group-item:hover {
+  background: #ffffff;
+  border-radius: 10px;
+  color: #506177;
+}
+#perfilAlunoModal .controle-opcoes .list-group-item:hover a {
+  color: #506177;
+  font-weight: bold;
+}
+#perfilAlunoModal .controle-opcoes [aria-expanded=true] {
+  background: #ffffff;
+  border-radius: 10px;
+  color: #506177;
+}
+#perfilAlunoModal .controle-opcoes [aria-expanded=true] a {
+  color: #506177;
+  font-weight: bold;
+}
+#perfilAlunoModal .controle-opcoes [aria-expanded=false] {
+  background: transparent;
+  border-radius: 10px;
+  color: #ffffff;
+}
+#perfilAlunoModal .controle-opcoes [aria-expanded=false] a {
+  color: #ffffff;
+  font-weight: bold;
+}
 #perfilAlunoModal .list-group {
   border-radius: 5px;
   border: none;
@@ -459,68 +522,6 @@ table tr {
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-nota input:disabled {
   background-color: #ffffff;
   border: none;
-}
-#perfilAlunoModal .lista-disciplinas {
-  background-color: #506177;
-}
-#perfilAlunoModal .lista-disciplinas::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
-}
-#perfilAlunoModal .lista-disciplinas a.active {
-  background: #ffffff;
-  color: #506177;
-}
-#perfilAlunoModal .lista-disciplinas .list-group-item {
-  margin-bottom: 3px;
-  border: 0px;
-  font-weight: bold;
-  font-size: 13.5px;
-  color: white;
-  border-radius: 10px;
-  background-color: transparent;
-}
-#perfilAlunoModal .lista-disciplinas .list-group-item:hover {
-  background: #ffffff;
-  color: #506177;
-}
-#perfilAlunoModal .controle-opcoes {
-  border-radius: 10px;
-  background: #506177;
-}
-#perfilAlunoModal .controle-opcoes .list-group {
-  margin-top: 20px;
-}
-#perfilAlunoModal .controle-opcoes .list-group-item {
-  background-color: transparent;
-  margin-top: 5px;
-}
-#perfilAlunoModal .controle-opcoes .list-group-item:hover {
-  background: #ffffff;
-  border-radius: 10px;
-  color: #506177;
-}
-#perfilAlunoModal .controle-opcoes .list-group-item:hover a {
-  color: #506177;
-  font-weight: bold;
-}
-#perfilAlunoModal .controle-opcoes [aria-expanded=true] {
-  background: #ffffff;
-  border-radius: 10px;
-  color: #506177;
-}
-#perfilAlunoModal .controle-opcoes [aria-expanded=true] a {
-  color: #506177;
-  font-weight: bold;
-}
-#perfilAlunoModal .controle-opcoes [aria-expanded=false] {
-  background: transparent;
-  border-radius: 10px;
-  color: #ffffff;
-}
-#perfilAlunoModal .controle-opcoes [aria-expanded=false] a {
-  color: #ffffff;
-  font-weight: bold;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-dados,
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-nota,
