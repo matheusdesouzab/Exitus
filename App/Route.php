@@ -34,6 +34,8 @@ class Route extends Bootstrap {
 			'action' => 'professor_cadastro'
 		);
 
+		// Gestão
+
 		$routes['admGestaoGeral'] = array(
 			'route' => '/admGestaoGeral',
 			'controller' => 'AdmController',
@@ -44,6 +46,18 @@ class Route extends Bootstrap {
 			'route' => '/admGestaoCursos',
 			'controller' => 'AdmController',
 			'action' => 'gestao_curso'
+		);
+
+		$routes['admDisciplinaGestao'] = array(
+			'route' => '/admGestaoDisciplinas',
+			'controller' => 'AdmController',
+			'action' => 'gestao_disciplina'
+		);
+
+		$routes['admPeriodoLetivoGestao'] = array(
+			'route' => '/admGestaoPeriodosLetivos',
+			'controller' => 'AdmController',
+			'action' => 'gestao_periodosLetivos'
 		);
 
 		

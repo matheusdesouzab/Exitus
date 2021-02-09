@@ -41,5 +41,15 @@ class AdmController extends Action
     {
         $this->render('gestao_curso');
     }
+    
+    public function gestao_disciplina()
+    {
+        $this->render('gestao_disciplina');
+    }
+
+    public function gestao_periodosLetivos()
+    {
+        $this->render('gestao_periodoLetivo');
+    }
 
 }

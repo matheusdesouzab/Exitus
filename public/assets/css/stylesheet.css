@@ -38,16 +38,6 @@ input, select {
   border-radius: 10px;
 }
 
-/* form {
-
-    :invalid {
-        border: 1px solid #E4D9FF;
-    }
-
-    :valid {
-        border: 1px solid blue;
-    }
-} */
 table td {
   line-height: 30px;
   color: #283339;
@@ -61,6 +51,10 @@ table img {
 table tr {
   text-align: center;
   cursor: pointer;
+}
+
+input:disabled {
+  border: none;
 }
 
 @font-face {
@@ -172,19 +166,19 @@ table tr {
 #pagina #aluno-lista table .icon-unidade-cadastrada {
   color: green;
 }
-#pagina .lista-disciplinas {
-  background-color: #283339;
+#pagina .lista-grupo {
+  background-color: #273469;
 }
-#pagina .lista-disciplinas::-webkit-scrollbar {
+#pagina .lista-grupo::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
-#pagina .lista-disciplinas a.active {
+#pagina .lista-grupo a.active {
   background: #ffffff;
-  color: #283339;
+  color: #1e2749;
 }
-#pagina .lista-disciplinas .list-group-item {
-  margin-bottom: 3px;
+#pagina .lista-grupo .list-group-item {
+  margin-bottom: 8px;
   border: 0px;
   font-weight: bold;
   font-size: 13.5px;
@@ -192,9 +186,60 @@ table tr {
   border-radius: 10px;
   background-color: transparent;
 }
-#pagina .lista-disciplinas .list-group-item:hover {
+#pagina .lista-grupo .list-group-item:hover {
   background: #ffffff;
-  color: #506177;
+  color: #1e2749;
+}
+#pagina .editar-dados-icon {
+  cursor: pointer;
+  color: #283339;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  background-color: #e5e5e5;
+}
+#pagina .editar-dados-icon:hover {
+  transition: 1s;
+  background-color: #325EDE;
+}
+#pagina .editar-dados-icon:hover .fa-edit, #pagina .editar-dados-icon:hover .fa-print, #pagina .editar-dados-icon:hover .fa-check, #pagina .editar-dados-icon:hover .fa-ban {
+  color: #ffffff;
+}
+#pagina .atualizar-dados-icon {
+  cursor: pointer;
+  color: #283339;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  background-color: #e5e5e5;
+}
+#pagina .atualizar-dados-icon:hover {
+  transition: 1s;
+  background-color: #2ECC71;
+}
+#pagina .atualizar-dados-icon:hover .fa-edit, #pagina .atualizar-dados-icon:hover .fa-print, #pagina .atualizar-dados-icon:hover .fa-check, #pagina .atualizar-dados-icon:hover .fa-ban {
+  color: #ffffff;
+}
+#pagina .apagar-dados-icon {
+  cursor: pointer;
+  color: #283339;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  background-color: #e5e5e5;
+}
+#pagina .apagar-dados-icon:hover {
+  transition: 1s;
+  background-color: #D35400;
+}
+#pagina .apagar-dados-icon:hover .fa-edit, #pagina .apagar-dados-icon:hover .fa-print, #pagina .apagar-dados-icon:hover .fa-check, #pagina .apagar-dados-icon:hover .fa-ban {
+  color: #ffffff;
 }
 
 #pagina .card-icon {
@@ -271,7 +316,7 @@ table tr {
 }
 #painel-left .side-bar {
   margin-left: 150px;
-  background: #283339;
+  background: #1e2749;
   transition: 0.7s;
   position: fixed;
   height: 100%;
@@ -286,7 +331,7 @@ table tr {
   width: 100%;
 }
 #painel-left .side-bar-responsivo {
-  background: #283339;
+  background: #1e2749;
   transition: 0.7s;
   position: fixed;
   height: 100%;
@@ -387,7 +432,7 @@ table tr {
 #matriculaModal .modal-aluno-matricular-erro .fa-times-circle {
   margin-top: 30px;
   font-size: 100px;
-  color: #DC7633;
+  color: #D35400;
   justify-content: space-around;
 }
 
@@ -464,40 +509,6 @@ table tr {
   height: 630px;
   background-color: #E3ECF5;
 }
-#perfilAlunoModal .editar-dados-aluno {
-  cursor: pointer;
-  color: #e5e5e5;
-  font-size: 15px;
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #e5e5e5;
-}
-#perfilAlunoModal .editar-dados-aluno:hover {
-  transition: 1s;
-  background-color: #325EDE;
-}
-#perfilAlunoModal .editar-dados-aluno:hover .fa-edit, #perfilAlunoModal .editar-dados-aluno:hover .fa-print, #perfilAlunoModal .editar-dados-aluno:hover .fa-check {
-  color: #ffffff;
-}
-#perfilAlunoModal .atualizar-dados-aluno {
-  cursor: pointer;
-  color: #e5e5e5;
-  font-size: 15px;
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #e5e5e5;
-}
-#perfilAlunoModal .atualizar-dados-aluno:hover {
-  transition: 1s;
-  background-color: #2ECC71;
-}
-#perfilAlunoModal .atualizar-dados-aluno:hover .fa-edit, #perfilAlunoModal .atualizar-dados-aluno:hover .fa-print, #perfilAlunoModal .atualizar-dados-aluno:hover .fa-check {
-  color: #ffffff;
-}
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-dados b {
   color: #506177;
 }
@@ -556,7 +567,7 @@ table tr {
   transition: 1s;
   background-color: #325EDE;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-ban {
   color: #ffffff;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div {

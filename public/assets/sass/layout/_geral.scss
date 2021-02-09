@@ -101,9 +101,9 @@
         }
     }
 
-    .lista-disciplinas {
+    .lista-grupo {
 
-        background-color: $preto-claro;
+        background-color: #273469;
 
         &::-webkit-scrollbar {
             width: 0;
@@ -112,12 +112,12 @@
 
         a.active {
             background: $branco-padrao;
-            color: $preto-claro;
+            color: $azul-escuro;
         }
 
         .list-group-item {
             
-            margin-bottom: 3px;
+            margin-bottom: 8px;
             border: 0px;
             font-weight: bold;
             font-size: 13.5px;
@@ -127,9 +127,23 @@
 
             &:hover {
                 background: $branco-padrao;
-                color: $cinza-escuro;
+                color: $azul-escuro;
             }
         }
 
     }
+   
+    .editar-dados-icon{
+        @include card-icon($preto-claro, $azul-padrao);
+    }
+
+    .atualizar-dados-icon{
+        @include card-icon($preto-claro, $verde-padrao);
+    }
+
+    .apagar-dados-icon{
+        @include card-icon($preto-claro, $vermelho-padrao);
+    }
+
+    
 }

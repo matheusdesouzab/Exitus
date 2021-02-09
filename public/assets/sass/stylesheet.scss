@@ -41,20 +41,6 @@ input,select{
     border-radius: 10px;
 }
 
-/* form {
-
-    :invalid {
-        border: 1px solid #E4D9FF;
-    }
-
-    :valid {
-        border: 1px solid blue;
-    }
-} */
-
-
-
-
 table{
 
     td {
@@ -74,7 +60,10 @@ table{
         cursor: pointer;
     }
 
+}
 
+input:disabled {
+    border: none;
 }
 
 

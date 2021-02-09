@@ -5,6 +5,10 @@
 
         <h5>GESTÃO</h5>
 
+        <li class="link-collapse"><a href="/admGestaoGeral"><i class="fab fa-buffer mr-2"></i><span> Gestão geral</span></a></li>
+
+        <h5>ALUNO</h5>
+
         <li data-toggle="collapse" href="#alunos" role="button" aria-expanded="false" aria-controls="alunos" class="active link-collapse"><a><i class="fas fa-users mr-2"></i> <span class="mr-5">Alunos</span><i class="fas fa-angle-down ml-5"></i></a></li>
 
         <div class="collapse" id="alunos">

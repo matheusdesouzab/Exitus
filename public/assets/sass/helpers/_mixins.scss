@@ -25,7 +25,7 @@
             transition: 1s;
             background-color: $background-hover;
 
-            .fa-edit,.fa-print,.fa-check {
+            .fa-edit,.fa-print,.fa-check,.fa-ban {
                 color: $branco-padrao;
             }
         }
@@ -33,7 +33,7 @@
 
 
 @mixin side-bar($width) {
-    background: $preto-claro;
+    background: $azul-escuro;
     transition: 0.7s;
     position: fixed;
     height: 100%;

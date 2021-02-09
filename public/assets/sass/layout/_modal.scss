@@ -107,14 +107,6 @@
         background-color: $cinza-extra-claro;
     }
 
-    .editar-dados-aluno {
-        @include card-icon($cinza-claro, $azul-padrao);
-    }
-
-    .atualizar-dados-aluno {
-        @include card-icon($cinza-claro, $verde-padrao);
-    }
-
     #collapse-perfil-aluno-opcoes-dados {
 
         b{
@@ -150,8 +142,6 @@
     }
 
     
-
-
     #collapse-perfil-aluno-opcoes-dados,
     #collapse-perfil-aluno-opcoes-nota,
     #collapse-perfil-aluno-opcoes-boletim {
