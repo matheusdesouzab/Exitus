@@ -2,19 +2,32 @@
 
     <div class="row container-pai">
 
-        <div class="col-lg-11 mx-auto">
+        <div class="col-lg-11 mx-auto accordion" id="accordion-cursos">
 
-            <div class="col-lg-12 mb-3">
-                <h5>Gestão dos Cursos</h5>
+        <div class="col-lg-12 mb-3">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-6">
+                        <h5>Gestão dos Cursos</h5>
+                    </div>
+
+                    <div class="col-lg-6 d-flex justify-content-end">
+
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-cursos" ><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Cursos</span></a>
+
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-cursos"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        
+
+                    </div>
+                </div>
             </div>
 
             <div class="col-lg-12">
 
                 <div class="row d-flex justify-content-between mb-3">
 
-                    <div class="col-lg-10">
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="cursos-dados" role="tabpanel" aria-labelledby="cursos-dados-list">
+                    <div class="col-lg-12">
+                        
+                            <div  class="collapse show" id="collapse-cursos" data-parent="#accordion-cursos">
                                 <div class="row">
                                     <div class="col-lg-12">
 
@@ -135,7 +148,7 @@
                                 </div>
                             </div>
 
-                            <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                            <div class="collapse" id="collapse-adicionar-cursos" data-parent="#accordion-cursos">
 
                                 <div class="row">
 
@@ -189,23 +202,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-2 mt-3 lista-grupo" style="border-radius: 10px;height:190px">
-                        <div class="list-group mt-3 mb-3" id="list-tab" role="tablist">
-                            <a class="list-group-item list-group-item-action active" id="cursos-dados-list" data-toggle="list" href="#cursos-dados" role="tab" aria-controls="home"><i class="fas fa-boxes mr-2"></i> Cursos</a>
-                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"><i class="fas fa-plus-circle mr-2"></i> Adicionar</a>
-                            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages"><i class="fas fa-chart-line mr-2"></i> Dados</a>
-                        </div>
-                    </div>
                 </div>
-
-
-
             </div>
-
         </div>
-
     </div>
-
-
 </div>

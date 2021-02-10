@@ -39,7 +39,7 @@
                     <div class="card-deck mt-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Cursos</h5>
+                                <h5 class="card-title">Salas</h5>
                                 <p class="card-text">Adicione um novo curso técnico ou edite algum já existente.</p>
                                 <a href="#" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                             </div>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="card col-lg-4">
                             <div class="card-body">
-                                <h5 class="card-title">Períodos Letivos</h5>
+                                <h5 class="card-title">Turmas</h5>
                                 <p class="card-text">Adicione uma novo período letivo ou edite algum já existente.</p>
                                 <a href="#" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                             </div>

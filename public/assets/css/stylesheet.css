@@ -16,7 +16,7 @@ html > body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 li {
@@ -53,7 +53,7 @@ table tr {
   cursor: pointer;
 }
 
-input:disabled {
+input:disabled, select:disabled {
   border: none;
 }
 
@@ -201,10 +201,10 @@ input:disabled {
   background-color: #e5e5e5;
 }
 #pagina .editar-dados-icon:hover {
-  transition: 1s;
-  background-color: #325EDE;
+  color: white;
+  background-color: #273469;
 }
-#pagina .editar-dados-icon:hover .fa-edit, #pagina .editar-dados-icon:hover .fa-print, #pagina .editar-dados-icon:hover .fa-check, #pagina .editar-dados-icon:hover .fa-ban {
+#pagina .editar-dados-icon:hover .fa-edit, #pagina .editar-dados-icon:hover .fa-print, #pagina .editar-dados-icon:hover .fa-check, #pagina .editar-dados-icon:hover .fa-ban, #pagina .editar-dados-icon:hover .fa-boxes, #pagina .editar-dados-icon:hover .fa-plus-circle {
   color: #ffffff;
 }
 #pagina .atualizar-dados-icon {
@@ -218,10 +218,10 @@ input:disabled {
   background-color: #e5e5e5;
 }
 #pagina .atualizar-dados-icon:hover {
-  transition: 1s;
+  color: white;
   background-color: #2ECC71;
 }
-#pagina .atualizar-dados-icon:hover .fa-edit, #pagina .atualizar-dados-icon:hover .fa-print, #pagina .atualizar-dados-icon:hover .fa-check, #pagina .atualizar-dados-icon:hover .fa-ban {
+#pagina .atualizar-dados-icon:hover .fa-edit, #pagina .atualizar-dados-icon:hover .fa-print, #pagina .atualizar-dados-icon:hover .fa-check, #pagina .atualizar-dados-icon:hover .fa-ban, #pagina .atualizar-dados-icon:hover .fa-boxes, #pagina .atualizar-dados-icon:hover .fa-plus-circle {
   color: #ffffff;
 }
 #pagina .apagar-dados-icon {
@@ -235,11 +235,47 @@ input:disabled {
   background-color: #e5e5e5;
 }
 #pagina .apagar-dados-icon:hover {
-  transition: 1s;
+  color: white;
   background-color: #D35400;
 }
-#pagina .apagar-dados-icon:hover .fa-edit, #pagina .apagar-dados-icon:hover .fa-print, #pagina .apagar-dados-icon:hover .fa-check, #pagina .apagar-dados-icon:hover .fa-ban {
+#pagina .apagar-dados-icon:hover .fa-edit, #pagina .apagar-dados-icon:hover .fa-print, #pagina .apagar-dados-icon:hover .fa-check, #pagina .apagar-dados-icon:hover .fa-ban, #pagina .apagar-dados-icon:hover .fa-boxes, #pagina .apagar-dados-icon:hover .fa-plus-circle {
   color: #ffffff;
+}
+#pagina .items-icon {
+  cursor: pointer;
+  color: #506177;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#pagina .items-icon:hover {
+  color: white;
+  background-color: #273469;
+}
+#pagina .items-icon:hover .fa-edit, #pagina .items-icon:hover .fa-print, #pagina .items-icon:hover .fa-check, #pagina .items-icon:hover .fa-ban, #pagina .items-icon:hover .fa-boxes, #pagina .items-icon:hover .fa-plus-circle {
+  color: #ffffff;
+}
+#pagina .justify-content-end [aria-expanded=true] .items-icon {
+  background: #273469;
+  color: white;
+}
+#pagina .card-disciplinas {
+  background: #e5e5e5 !important;
+}
+#pagina .card-form {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  background-color: #506177;
+}
+#pagina .card-form label {
+  color: white;
 }
 
 #pagina .card-icon {
@@ -564,10 +600,10 @@ input:disabled {
   background-color: #e5e5e5;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover {
-  transition: 1s;
+  color: white;
   background-color: #325EDE;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-ban {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-ban, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-boxes, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-plus-circle {
   color: #ffffff;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div {

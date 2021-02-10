@@ -23,7 +23,7 @@
     // Matricula
 
     #matricula_aluno,
-    #cadastro_professor{
+    #cadastro_professor {
 
         // Assistente-etapas
 
@@ -58,7 +58,7 @@
             position: relative;
         }
 
-        .linha-conexao {         
+        .linha-conexao {
             @include linha-conexao(70%);
         }
 
@@ -91,11 +91,11 @@
 
         table {
 
-            .icon-unidade-nao-cadastrada{
+            .icon-unidade-nao-cadastrada {
                 color: #BDC3C7;
             }
 
-            .icon-unidade-cadastrada{
+            .icon-unidade-cadastrada {
                 color: green;
             }
         }
@@ -116,12 +116,12 @@
         }
 
         .list-group-item {
-            
+
             margin-bottom: 8px;
             border: 0px;
             font-weight: bold;
             font-size: 13.5px;
-            color:white;
+            color: white;
             border-radius: 10px;
             background-color: transparent;
 
@@ -132,18 +132,43 @@
         }
 
     }
-   
-    .editar-dados-icon{
-        @include card-icon($preto-claro, $azul-padrao);
+
+    .editar-dados-icon {
+        @include card-icon($preto-claro, $azul-escuro-fraco, $cinza-claro);
     }
 
-    .atualizar-dados-icon{
-        @include card-icon($preto-claro, $verde-padrao);
+    .atualizar-dados-icon {
+        @include card-icon($preto-claro, $verde-padrao, $cinza-claro);
     }
 
-    .apagar-dados-icon{
-        @include card-icon($preto-claro, $vermelho-padrao);
+    .apagar-dados-icon {
+        @include card-icon($preto-claro, $vermelho-padrao, $cinza-claro);
     }
 
-    
+    .items-icon {
+        @include card-icon($cinza-escuro, $azul-escuro-fraco, $branco-padrao);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .justify-content-end [aria-expanded="true"] .items-icon {
+
+        background: $azul-escuro-fraco;
+        color: white;
+
+    }
+
+    .card-disciplinas {
+        background: $cinza-claro !important;
+    }
+
+    .card-form{
+        @include card(15px,$cinza-escuro,none);
+
+        label {
+            color: white;
+        }
+    }
+
+
 }

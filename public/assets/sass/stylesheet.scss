@@ -19,7 +19,7 @@ html > body {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 li {
@@ -62,7 +62,7 @@ table{
 
 }
 
-input:disabled {
+input:disabled,select:disabled {
     border: none;
 }
 
