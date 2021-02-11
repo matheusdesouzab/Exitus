@@ -8,8 +8,6 @@
             font-weight: bold;
         }
 
-       
-
         @include model-content($branco-padrao);
 
         .modal-content{
@@ -222,5 +220,15 @@
         @include aria-expanded($azul-escuro, $branco-padrao);
         border-radius: 15px;
     }
+
+}
+
+#disciplinaModal{
+
+    @include model-content($branco-padrao);
+
+        .modal-content{
+            border-radius: 10px;
+        }
 
 }

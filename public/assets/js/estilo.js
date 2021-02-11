@@ -72,7 +72,7 @@ $("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
 $("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
 $(".unidades input").on('keypress', e => $(e.target).mask('0,00'))
 
-$("#perfilAlunoModal").modal('show')
+$("#perfilAlunoModal , #disciplinaModal").modal('show')
 
 $('.assistente-etapas-painel a i').on('click', function () {
 

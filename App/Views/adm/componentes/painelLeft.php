@@ -16,6 +16,8 @@
         <li><a href="/admAlunoLista"><span>Lista de alunos</span></a></li>
         </div>
 
+        <h5>FUNCIONÁRIOS</h5>
+
         <li data-toggle="collapse" href="#professores" role="button" aria-expanded="false" aria-controls="professores" class="active link-collapse"><a><i class="fas fa-chalkboard-teacher mr-2"></i> <span class="mr-3">Professores</span> <i class="fas fa-angle-down ml-5"></i></a></li>
 
         <div class="collapse" id="professores">

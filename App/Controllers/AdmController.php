@@ -52,4 +52,9 @@ class AdmController extends Action
         $this->render('gestao_periodoLetivo');
     }
 
+    public function gestao_salas()
+    {
+        $this->render('gestao_sala');
+    }
+
 }

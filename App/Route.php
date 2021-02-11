@@ -60,6 +60,12 @@ class Route extends Bootstrap {
 			'action' => 'gestao_periodosLetivos'
 		);
 
+		$routes['admSalaGestao'] = array(
+			'route' => '/admGestaoSalas',
+			'controller' => 'AdmController',
+			'action' => 'gestao_salas'
+		);
+
 		
 
 

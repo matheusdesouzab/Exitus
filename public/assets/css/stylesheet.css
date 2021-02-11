@@ -277,6 +277,10 @@ input:disabled, select:disabled {
 #pagina .card-form label {
   color: white;
 }
+#pagina .btn-success {
+  background: #2ECC71;
+  border: none;
+}
 
 #pagina .card-icon {
   padding: 10;
@@ -661,6 +665,14 @@ input:disabled, select:disabled {
 #perfilAlunoModal .unidades a[aria-expanded=true] a {
   color: #ffffff;
   font-weight: bold;
+}
+
+#disciplinaModal .modal-content {
+  border: none;
+  background-color: #ffffff;
+}
+#disciplinaModal .modal-content {
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 0px) and (max-width: 578px) {
