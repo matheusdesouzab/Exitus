@@ -257,8 +257,8 @@
 
                                                                     <div class="col-lg-12 d-flex justify-content-end">
 
-                                                                        <span class="mr-2 editar-dados-aluno"><i class="text-center fas fa-edit"></i></span>
-                                                                        <span class="mr-2 atualizar-dados-aluno"><i class="fas fa-check"></i></span>
+                                                                        <span class="mr-2 editar-dados-icon"><i class="text-center fas fa-edit"></i></span>
+                                                                        <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
 
                                                                     </div>
 
@@ -453,42 +453,42 @@
 
 
 
-                                                    <div class="col-lg-12 collapse overflow-auto" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse  overflow-auto" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
 
                                                         <div class="row mt-1">
 
-                                                            <div class="col-2  card lista-disciplinas overflow-auto">
+                                                            <div class="col-3 overflow-auto">
 
-                                                                <div class="list-group" id="list-tab" role="tablist">
+                                                                <div class="list-group lista-disciplinas" id="list-tab" role="tablist">
 
-                                                                    <a class="list-group-item list-group-item-action active" id="list-disciplina-1" data-toggle="list" href="#disciplina-1" role="tab" aria-controls="home">Matemática</a>
+                                                                    <a class="list-group-item list-group-item-action active" id="list-disciplina-1" data-toggle="list" aria-selected="true" href="#disciplina-1" role="tab" aria-controls="home">Matemática</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-2" data-toggle="list" href="#disciplina-2" role="tab" aria-controls="profile">Português</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-2" data-toggle="list" aria-selected="false" href="#disciplina-2" role="tab" aria-controls="profile">Português</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-3" data-toggle="list" href="#disciplina-3" role="tab" aria-controls="messages">Biologia</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-3" data-toggle="list" aria-selected="false" href="#disciplina-3" role="tab" aria-controls="messages">Biologia</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-4" data-toggle="list" href="#disciplina-4" role="tab" aria-controls="settings">Física</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-4" data-toggle="list" aria-selected="false" href="#disciplina-4" role="tab" aria-controls="settings">Física</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-5" data-toggle="list" href="#disciplina-5" role="tab" aria-controls="settings">Arte</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-5" data-toggle="list" aria-selected="false" href="#disciplina-5" role="tab" aria-controls="settings">Arte</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" aria-selected="false" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" aria-selected="false" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" aria-selected="false" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
                                                                     
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" aria-selected="false" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" aria-selected="false" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
+                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" aria-selected="false" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
 
 
                                                                 </div>
 
                                                             </div>
 
-                                                            <div class="col-9 mx-auto mt-5">
+                                                            <div class="col-9 card mx-auto">
 
                                                                 <div class="tab-content conteudo-lista-disciplinas" id="nav-tabContent">
 
@@ -524,15 +524,15 @@
 
                                                                                                <div class="col-lg-6 d-flex justify-content-end">
 
-                                                                                                    <span class="mr-2 editar-dados-aluno"><i class="text-center fas fa-edit"></i></span>
-                                                                                                    <span class="mr-2 atualizar-dados-aluno"><i class="fas fa-check"></i></span>
+                                                                                                    <span class="mr-2 editar-dados-icon"><i class="text-center fas fa-edit"></i></span>
+                                                                                                    <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
 
                                                                                                 </div>
 
                                                                                             </div>
                                                                                             </div>
 
-                                                                                            <table class="table dados-avaliacoes mt-3 col-lg-12">
+                                                                                            <table class="table table-borderless dados-avaliacoes mt-3 col-lg-12">
                                                                                                 <thead class="">
                                                                                                     <tr>
                                                                                                         <th scope="col">ID</th>

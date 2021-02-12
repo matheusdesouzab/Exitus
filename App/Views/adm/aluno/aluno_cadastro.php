@@ -14,7 +14,7 @@
 
                     <div class="assistente-etapas-sessao">
                         <div class="assistente-etapas-row assistente-etapas-painel">
-                            <div class="linha-conexao"></div> 
+                            <div class="linha-conexao-0"></div> 
                             <div class="assistente-etapas" id="headingOne">
                                 <a type="button" class="btn btn-circle" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
                                 <p>Dados pessoais</p>

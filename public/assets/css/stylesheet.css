@@ -123,8 +123,8 @@ input:disabled, select:disabled {
   width: 100%;
   position: relative;
 }
-#pagina #matricula_aluno .linha-conexao,
-#pagina #cadastro_professor .linha-conexao {
+#pagina #matricula_aluno .linha-conexao-0,
+#pagina #cadastro_professor .linha-conexao-0 {
   height: 2px;
   background: #e5e5e5;
   margin: auto;
@@ -134,6 +134,33 @@ input:disabled, select:disabled {
   right: 0;
   top: 15%;
   z-index: 1;
+  background-image: linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50%) !important;
+}
+#pagina #matricula_aluno .linha-conexao-50,
+#pagina #cadastro_professor .linha-conexao-50 {
+  height: 2px;
+  background: #e5e5e5;
+  margin: auto;
+  position: absolute;
+  width: 70%;
+  left: 0;
+  right: 0;
+  top: 15%;
+  z-index: 1;
+  background-image: linear-gradient(to right, #0000FF 50%, #e5e5e5 50%) !important;
+}
+#pagina #matricula_aluno .linha-conexao-100,
+#pagina #cadastro_professor .linha-conexao-100 {
+  height: 2px;
+  background: #e5e5e5;
+  margin: auto;
+  position: absolute;
+  width: 70%;
+  left: 0;
+  right: 0;
+  top: 15%;
+  z-index: 1;
+  background-image: linear-gradient(to left, #0000FF 50%, #0000ff 50%) !important;
 }
 #pagina #matricula_aluno div > .collapsed,
 #pagina #cadastro_professor div > .collapsed {
@@ -281,6 +308,12 @@ input:disabled, select:disabled {
   background: #2ECC71;
   border: none;
 }
+#pagina .was-validated .form-control:valid {
+  border: 1px solid #2ECC71;
+}
+#pagina .was-validated .form-control:invalid {
+  border: 1px solid #F2DCD6;
+}
 
 #pagina .card-icon {
   padding: 10;
@@ -320,7 +353,7 @@ input:disabled, select:disabled {
   background-color: transparet;
 }
 #painel-left li:hover {
-  background-color: #506177;
+  background-color: #273469;
   border-left: none;
 }
 #painel-left li a {
@@ -338,7 +371,7 @@ input:disabled, select:disabled {
   margin-top: 15px;
 }
 #painel-left .link-collapse:hover {
-  background-color: #506177;
+  background-color: #273469;
   border-left: 0px;
 }
 #painel-left .collapse li {
@@ -348,7 +381,7 @@ input:disabled, select:disabled {
   padding-left: 40px;
   transition: background-color 0.8s;
   background-size: 0% 100%;
-  background-color: #506177;
+  background-color: #273469;
 }
 #painel-left .collapse li:hover {
   background-color: #30343F;
@@ -487,7 +520,7 @@ input:disabled, select:disabled {
 #perfilAlunoModal .controle-opcoes {
   border-radius: 10px;
   border: 0;
-  background: #506177;
+  background: #273469;
 }
 #perfilAlunoModal .controle-opcoes .list-group {
   margin-top: 20px;
@@ -499,19 +532,19 @@ input:disabled, select:disabled {
 #perfilAlunoModal .controle-opcoes .list-group-item:hover {
   background: #ffffff;
   border-radius: 10px;
-  color: #506177;
+  color: #273469;
 }
 #perfilAlunoModal .controle-opcoes .list-group-item:hover a {
-  color: #506177;
+  color: #273469;
   font-weight: bold;
 }
 #perfilAlunoModal .controle-opcoes [aria-expanded=true] {
   background: #ffffff;
   border-radius: 10px;
-  color: #506177;
+  color: #273469;
 }
 #perfilAlunoModal .controle-opcoes [aria-expanded=true] a {
-  color: #506177;
+  color: #273469;
   font-weight: bold;
 }
 #perfilAlunoModal .controle-opcoes [aria-expanded=false] {
@@ -540,14 +573,14 @@ input:disabled, select:disabled {
 }
 #perfilAlunoModal img {
   border-radius: 50%;
-  border: 5px solid #506177;
+  border: 5px solid #273469;
 }
 #perfilAlunoModal .modal-content {
   margin-left: -415px;
   width: 1350px;
   margin-top: -30px;
   height: 630px;
-  background-color: #E3ECF5;
+  background-color: #e5e5e5;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-dados b {
   color: #506177;
@@ -646,6 +679,45 @@ input:disabled, select:disabled {
   outline: none;
   box-shadow: none;
 }
+#perfilAlunoModal .lista-disciplinas {
+  background: #273469;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  padding: 15px;
+}
+#perfilAlunoModal .lista-disciplinas .list-group-item {
+  border: none;
+  background: transparent;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#perfilAlunoModal .lista-disciplinas .list-group-item:hover {
+  background: #ffffff;
+  border-radius: 10px;
+  color: #273469;
+}
+#perfilAlunoModal .lista-disciplinas .list-group-item:hover a {
+  color: #273469;
+  font-weight: bold;
+}
+#perfilAlunoModal .lista-disciplinas [aria-selected=true] {
+  background: #ffffff;
+  border-radius: 10px;
+  color: #273469;
+}
+#perfilAlunoModal .lista-disciplinas [aria-selected=true] a {
+  color: #273469;
+  font-weight: bold;
+}
+#perfilAlunoModal .lista-disciplinas [aria-selected=false] {
+  background: transparent;
+  border-radius: 10px;
+  color: #ffffff;
+}
+#perfilAlunoModal .lista-disciplinas [aria-selected=false] a {
+  color: #ffffff;
+  font-weight: bold;
+}
 #perfilAlunoModal .dados-avaliacoes input {
   width: 60px;
   text-align: center !important;
@@ -657,7 +729,7 @@ input:disabled, select:disabled {
   cursor: context-menu;
 }
 #perfilAlunoModal .unidades a[aria-expanded=true] {
-  background: #1e2749;
+  background: #273469;
   border-radius: 10px;
   color: #ffffff;
   border-radius: 15px;

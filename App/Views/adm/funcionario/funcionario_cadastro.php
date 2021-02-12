@@ -5,12 +5,12 @@
         <div class="col-lg-11 mx-auto">
 
             <div class="col-lg-12 mb-4">
-                <h5>Cadastra professor(a)</h5>
+                <h5>Cadastra funcionário(a)</h5>
             </div>
 
             <div class="col-lg-12">
 
-                <div class="card col-lg-12 pt-5 p-3 accordion" id="accordionExample">
+                <div class="card col-lg-12 pt-4 p-3 accordion" id="accordionExample">
 
                     <div class="assistente-etapas-sessao">
                         <div class="assistente-etapas-row assistente-etapas-painel">
@@ -33,7 +33,7 @@
                         <div class="row assistente-etapas-conteudo collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
-                                    <div class="form-row mt-3">
+                                    <div class="form-row mt-2">
 
                                         <div class="form-group col-md-5">
                                             <label for="inputEmail4">Nome Completo:</label>
@@ -75,13 +75,22 @@
 
                                     </div>
 
-                                    <div class="form-row mt-3 mb-5">
+                                    <div class="form-row mb-5">
 
-                                        <div class="form-group col-md-12">
-                                            <div class="custom-file">
+                                        <div class="form-group col-md-8">
+                                        <label for="">Foto do perfil:</label>
+                                            <div class="custom-file">                                               
                                                 <input type="file" class="custom-file-input is-valid" id="customFileLangHTML" required>
                                                 <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do professor(a)</label>
                                             </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="inputState">Cargo:</label>
+                                            <select id="inputState" class="form-control custom-select is-valid" required>
+                                                <option selected></option>
+                                                <option>Professor</option>
+                                                <option>Vígia</option>
+                                            </select>
                                         </div>
 
                                     </div>

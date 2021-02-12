@@ -27,9 +27,9 @@ class AdmController extends Action
         $this->render('aluno_lista');
     }
 
-    public function professor_cadastro()
+    public function funcionario_cadastro()
     {
-        $this->render('professor_cadastro');
+        $this->render('funcionario_cadastro');
     }
 
     public function gestao_geral()

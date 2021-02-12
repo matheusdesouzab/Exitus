@@ -53,19 +53,19 @@
 
         border-radius: 10px;
         border: 0;
-        background: $cinza-escuro;
+        background: $azul-escuro-fraco;
 
         .list-group-item{
             background-color: transparent;
             margin-top: 5px;
 
             &:hover{
-                @include aria-expanded($branco-padrao, $cinza-escuro);
+                @include aria-expanded($branco-padrao, $azul-escuro-fraco);
             }
         }
 
         [aria-expanded="true"] {
-            @include aria-expanded($branco-padrao, $cinza-escuro);
+            @include aria-expanded($branco-padrao, $azul-escuro-fraco);
         }
 
         [aria-expanded="false"] {
@@ -94,7 +94,7 @@
 
     img {
         border-radius: 50%;
-        border: 5px solid $cinza-escuro;
+        border: 5px solid $azul-escuro-fraco
     }
 
     .modal-content {
@@ -102,7 +102,7 @@
         width: 1350px;
         margin-top: -30px;
         height: 630px;
-        background-color: $cinza-extra-claro;
+        background-color: $cinza-claro;
     }
 
     #collapse-perfil-aluno-opcoes-dados {
@@ -201,6 +201,35 @@
         }
     }
 
+    .lista-disciplinas{
+
+        background: $azul-escuro-fraco;
+        border-radius: 10px;
+        border: 1px solid $cinza-claro;
+        padding: 15px;
+
+        .list-group-item{
+            border: none; 
+            background: transparent;   
+            font-weight: bold; 
+            margin-bottom:5px;
+
+            &:hover{
+                @include aria-expanded($branco-padrao, $azul-escuro-fraco);
+            }     
+        }
+
+        [aria-selected="true"] {
+            @include aria-expanded($branco-padrao, $azul-escuro-fraco);
+        }
+
+        [aria-selected="false"] {
+            @include aria-expanded(transparent, $branco-padrao);
+        }
+
+
+    }
+
     .dados-avaliacoes {
 
         input {
@@ -217,7 +246,7 @@
     }
 
     .unidades a[aria-expanded="true"]{
-        @include aria-expanded($azul-escuro, $branco-padrao);
+        @include aria-expanded($azul-escuro-fraco, $branco-padrao);
         border-radius: 15px;
     }
 

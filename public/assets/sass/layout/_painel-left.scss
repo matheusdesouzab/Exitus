@@ -7,7 +7,7 @@
 
     li {
 
-        @include side-bar-li(10px, left, 40px, transparet, $cinza-escuro, none);
+        @include side-bar-li(10px, left, 40px, transparet, $azul-escuro-fraco, none);
 
         a {
             @include side-bar-a(12, $branco-padrao, 0);
@@ -25,7 +25,7 @@
 
 
     .link-collapse:hover {
-        background-color: $cinza-escuro;
+        background-color: $azul-escuro-fraco;
         border-left: 0px;
     }
 
@@ -33,7 +33,7 @@
 
         border-left: 20px solid #FAFAFF;
 
-        @include side-bar-li(10px, left, 40px, $cinza-escuro, #30343F, 20px solid #FAFAFF);
+        @include side-bar-li(10px, left, 40px, $azul-escuro-fraco, #30343F, 20px solid #FAFAFF);
 
     }
 

@@ -28,10 +28,10 @@ class Route extends Bootstrap {
 			'action' => 'aluno_lista'
 		);
 
-		$routes['admCadastroProfessor'] = array(
-			'route' => '/admProfessorCadastro',
+		$routes['admCadastroFuncionario'] = array(
+			'route' => '/admFuncionarioCadastro',
 			'controller' => 'AdmController',
-			'action' => 'professor_cadastro'
+			'action' => 'funcionario_cadastro'
 		);
 
 		// Gestão

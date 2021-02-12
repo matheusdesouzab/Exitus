@@ -76,23 +76,23 @@ $("#perfilAlunoModal , #disciplinaModal").modal('show')
 
 $('.assistente-etapas-painel a i').on('click', function () {
 
-    let tela = this.className
+    let tela = this.className.replace('fas', '')
 
-    tela = tela.replace('fas', '')
+    let linha_conexao = '.' + $('.assistente-etapas-row div:nth-child(1)')[0].className
 
-    console.log(tela)
+    console.log(linha_conexao)
 
-    switch(tela){
+    switch (tela) {
 
-        case ' fa-home':
-            $('.linha-conexao').css({"background-image": "linear-gradient(to right, #0000FF 50%, #e5e5e5 50% )"})
+        case ' fa-user-alt':
+            $(linha_conexao).addClass('linha-conexao-0').removeClass('linha-conexao-100 , linha-conexao-50')
             break
-        case ' fa-users':
-            $('.linha-conexao').css({"background-image": "linear-gradient(to left, #0000FF 50%, #0000ff 50% )"})
+        case ' fa-home':
+            $(linha_conexao).addClass('linha-conexao-50').removeClass('linha-conexao-0 , linha-conexao-100')
             break
         default:
-            $('.linha-conexao').css({"background-image": "linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50% )"})
-        
+            $(linha_conexao).addClass('linha-conexao-100').removeClass('linha-conexao-0 , linha-conexao-50')
+
     }
 
 
