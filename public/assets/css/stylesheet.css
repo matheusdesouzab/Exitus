@@ -113,18 +113,8 @@ input:disabled, select:disabled {
 #pagina #cadastro_professor .assistente-etapas .btn-primary {
   background-color: #1e2749;
 }
-#pagina #matricula_aluno .assistente-etapas-row,
-#pagina #cadastro_professor .assistente-etapas-row {
-  display: table-row;
-}
-#pagina #matricula_aluno .assistente-etapas-sessao,
-#pagina #cadastro_professor .assistente-etapas-sessao {
-  display: table;
-  width: 100%;
-  position: relative;
-}
-#pagina #matricula_aluno .linha-conexao-0,
-#pagina #cadastro_professor .linha-conexao-0 {
+#pagina #matricula_aluno .linha-conexao,
+#pagina #cadastro_professor .linha-conexao {
   height: 2px;
   background: #e5e5e5;
   margin: auto;
@@ -136,31 +126,15 @@ input:disabled, select:disabled {
   z-index: 1;
   background-image: linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50%) !important;
 }
-#pagina #matricula_aluno .linha-conexao-50,
-#pagina #cadastro_professor .linha-conexao-50 {
-  height: 2px;
-  background: #e5e5e5;
-  margin: auto;
-  position: absolute;
-  width: 70%;
-  left: 0;
-  right: 0;
-  top: 15%;
-  z-index: 1;
-  background-image: linear-gradient(to right, #0000FF 50%, #e5e5e5 50%) !important;
+#pagina #matricula_aluno .assistente-etapas-row,
+#pagina #cadastro_professor .assistente-etapas-row {
+  display: table-row;
 }
-#pagina #matricula_aluno .linha-conexao-100,
-#pagina #cadastro_professor .linha-conexao-100 {
-  height: 2px;
-  background: #e5e5e5;
-  margin: auto;
-  position: absolute;
-  width: 70%;
-  left: 0;
-  right: 0;
-  top: 15%;
-  z-index: 1;
-  background-image: linear-gradient(to left, #0000FF 50%, #0000ff 50%) !important;
+#pagina #matricula_aluno .assistente-etapas-sessao,
+#pagina #cadastro_professor .assistente-etapas-sessao {
+  display: table;
+  width: 100%;
+  position: relative;
 }
 #pagina #matricula_aluno div > .collapsed,
 #pagina #cadastro_professor div > .collapsed {
@@ -170,6 +144,7 @@ input:disabled, select:disabled {
 #pagina #matricula_aluno :disabled,
 #pagina #cadastro_professor :disabled {
   background-color: #ffffff;
+  border: 1px solid #e5e5e5;
 }
 #pagina #cadastro_professor .linha-conexao {
   height: 2px;
@@ -229,7 +204,7 @@ input:disabled, select:disabled {
 }
 #pagina .editar-dados-icon:hover {
   color: white;
-  background-color: #273469;
+  background-color: #325EDE;
 }
 #pagina .editar-dados-icon:hover .fa-edit, #pagina .editar-dados-icon:hover .fa-print, #pagina .editar-dados-icon:hover .fa-check, #pagina .editar-dados-icon:hover .fa-ban, #pagina .editar-dados-icon:hover .fa-boxes, #pagina .editar-dados-icon:hover .fa-plus-circle {
   color: #ffffff;
@@ -387,6 +362,9 @@ input:disabled, select:disabled {
   background-color: #30343F;
   border-left: 20px solid #FAFAFF;
 }
+#painel-left .collapse li a {
+  padding: 10px;
+}
 #painel-left .side-bar {
   margin-left: 150px;
   background: #1e2749;
@@ -509,7 +487,7 @@ input:disabled, select:disabled {
   justify-content: space-around;
 }
 
-#perfilAlunoModal .modal-body > .row:nth-child(1) {
+#perfilAlunoModal .modal-body > .row:nth-child(1), #perfilFuncionarioModal .modal-body > .row:nth-child(1) {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #e5e5e5;
@@ -517,116 +495,121 @@ input:disabled, select:disabled {
   background-color: #ffffff;
   margin-top: -10px;
 }
-#perfilAlunoModal .controle-opcoes {
+#perfilAlunoModal .controle-opcoes, #perfilFuncionarioModal .controle-opcoes {
   border-radius: 10px;
   border: 0;
   background: #273469;
 }
-#perfilAlunoModal .controle-opcoes .list-group {
+#perfilAlunoModal .controle-opcoes .list-group, #perfilFuncionarioModal .controle-opcoes .list-group {
   margin-top: 20px;
 }
-#perfilAlunoModal .controle-opcoes .list-group-item {
+#perfilAlunoModal .controle-opcoes .list-group-item, #perfilFuncionarioModal .controle-opcoes .list-group-item {
   background-color: transparent;
   margin-top: 5px;
 }
-#perfilAlunoModal .controle-opcoes .list-group-item:hover {
+#perfilAlunoModal .controle-opcoes .list-group-item:hover, #perfilFuncionarioModal .controle-opcoes .list-group-item:hover {
   background: #ffffff;
   border-radius: 10px;
   color: #273469;
 }
-#perfilAlunoModal .controle-opcoes .list-group-item:hover a {
+#perfilAlunoModal .controle-opcoes .list-group-item:hover a, #perfilFuncionarioModal .controle-opcoes .list-group-item:hover a {
   color: #273469;
   font-weight: bold;
 }
-#perfilAlunoModal .controle-opcoes [aria-expanded=true] {
+#perfilAlunoModal .controle-opcoes [aria-expanded=true], #perfilFuncionarioModal .controle-opcoes [aria-expanded=true] {
   background: #ffffff;
   border-radius: 10px;
   color: #273469;
 }
-#perfilAlunoModal .controle-opcoes [aria-expanded=true] a {
+#perfilAlunoModal .controle-opcoes [aria-expanded=true] a, #perfilFuncionarioModal .controle-opcoes [aria-expanded=true] a {
   color: #273469;
   font-weight: bold;
 }
-#perfilAlunoModal .controle-opcoes [aria-expanded=false] {
+#perfilAlunoModal .controle-opcoes [aria-expanded=false], #perfilFuncionarioModal .controle-opcoes [aria-expanded=false] {
   background: transparent;
   border-radius: 10px;
   color: #ffffff;
 }
-#perfilAlunoModal .controle-opcoes [aria-expanded=false] a {
+#perfilAlunoModal .controle-opcoes [aria-expanded=false] a, #perfilFuncionarioModal .controle-opcoes [aria-expanded=false] a {
   color: #ffffff;
   font-weight: bold;
 }
-#perfilAlunoModal .list-group {
+#perfilAlunoModal .list-group, #perfilFuncionarioModal .list-group {
   border-radius: 5px;
   border: none;
   cursor: pointer;
 }
-#perfilAlunoModal h5 {
+#perfilAlunoModal h5, #perfilFuncionarioModal h5 {
   font-size: 17px;
 }
-#perfilAlunoModal a {
+#perfilAlunoModal a, #perfilFuncionarioModal a {
   text-decoration: none;
 }
 #perfilAlunoModal .fa-edit,
-#perfilAlunoModal .fa-check {
+#perfilAlunoModal .fa-check, #perfilFuncionarioModal .fa-edit,
+#perfilFuncionarioModal .fa-check {
   color: #506177;
 }
-#perfilAlunoModal img {
+#perfilAlunoModal img, #perfilFuncionarioModal img {
   border-radius: 50%;
   border: 5px solid #273469;
 }
-#perfilAlunoModal .modal-content {
+#perfilAlunoModal .modal-content, #perfilFuncionarioModal .modal-content {
   margin-left: -415px;
   width: 1350px;
   margin-top: -30px;
   height: 630px;
   background-color: #e5e5e5;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados b {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados b, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-dados b {
   color: #506177;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group-prepend span {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group-prepend span, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-dados .input-group-prepend span {
   font-weight: bold;
   color: #506177;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group-text {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group-text, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-dados .input-group-text {
   background-color: #ffffff;
   border: none;
   font-weight: bold;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados .input-group, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-dados .input-group {
   padding-left: 0;
   margin-bottom: 13px;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados input:disabled {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-dados input:disabled, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-dados input:disabled {
   background-color: #ffffff;
   border: none;
   padding-left: 0px;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-nota input:disabled {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-nota input:disabled, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-nota input:disabled {
   background-color: #ffffff;
   border: none;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-dados,
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-nota,
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-dados,
+#perfilFuncionarioModal #collapse-perfil-aluno-opcoes-nota,
+#perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim {
   height: 520px;
   width: 890px;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-dados::-webkit-scrollbar,
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-nota::-webkit-scrollbar,
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim::-webkit-scrollbar {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim::-webkit-scrollbar, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-dados::-webkit-scrollbar,
+#perfilFuncionarioModal #collapse-perfil-aluno-opcoes-nota::-webkit-scrollbar,
+#perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim {
   text-transform: uppercase;
   font-size: 13px;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim h5 {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim h5, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim h5 {
   text-transform: initial;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim {
   cursor: pointer;
   color: #506177;
   font-size: 15px;
@@ -636,106 +619,119 @@ input:disabled, select:disabled {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
   background-color: #e5e5e5;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover {
   color: white;
   background-color: #325EDE;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-ban, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-boxes, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-plus-circle {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-ban, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-boxes, #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-plus-circle, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-ban, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-boxes, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-plus-circle {
   color: #ffffff;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div {
   margin-top: -50px;
 }
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim b {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim b, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim b {
   font-weight: 700;
 }
 #perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim td,
-#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim th {
+#perfilAlunoModal #collapse-perfil-aluno-opcoes-boletim th, #perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim td,
+#perfilFuncionarioModal #collapse-perfil-aluno-opcoes-boletim th {
   font-size: 13px;
 }
-#perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=true] {
+#perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=true], #perfilFuncionarioModal .conteudo-lista-disciplinas [aria-expanded=true] {
   background: #325EDE;
   border-radius: 10px;
   color: #ffffff;
 }
-#perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=true] a {
+#perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=true] a, #perfilFuncionarioModal .conteudo-lista-disciplinas [aria-expanded=true] a {
   color: #ffffff;
   font-weight: bold;
 }
-#perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=false] {
+#perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=false], #perfilFuncionarioModal .conteudo-lista-disciplinas [aria-expanded=false] {
   background: #e5e5e5;
   border-radius: 10px;
   color: #506177;
 }
-#perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=false] a {
+#perfilAlunoModal .conteudo-lista-disciplinas [aria-expanded=false] a, #perfilFuncionarioModal .conteudo-lista-disciplinas [aria-expanded=false] a {
   color: #506177;
   font-weight: bold;
 }
-#perfilAlunoModal .conteudo-lista-disciplinas .icon-unidade {
+#perfilAlunoModal .conteudo-lista-disciplinas .icon-unidade, #perfilFuncionarioModal .conteudo-lista-disciplinas .icon-unidade {
   border-radius: 30px;
   padding: 10px;
 }
-#perfilAlunoModal .conteudo-lista-disciplinas .icon-unidade:focus {
+#perfilAlunoModal .conteudo-lista-disciplinas .icon-unidade:focus, #perfilFuncionarioModal .conteudo-lista-disciplinas .icon-unidade:focus {
   outline: none;
   box-shadow: none;
 }
-#perfilAlunoModal .lista-disciplinas {
+#perfilAlunoModal .lista-disciplinas, #perfilFuncionarioModal .lista-disciplinas {
   background: #273469;
   border-radius: 10px;
   border: 1px solid #e5e5e5;
   padding: 15px;
 }
-#perfilAlunoModal .lista-disciplinas .list-group-item {
+#perfilAlunoModal .lista-disciplinas .list-group-item, #perfilFuncionarioModal .lista-disciplinas .list-group-item {
   border: none;
   background: transparent;
   font-weight: bold;
   margin-bottom: 5px;
 }
-#perfilAlunoModal .lista-disciplinas .list-group-item:hover {
+#perfilAlunoModal .lista-disciplinas .list-group-item:hover, #perfilFuncionarioModal .lista-disciplinas .list-group-item:hover {
   background: #ffffff;
   border-radius: 10px;
   color: #273469;
 }
-#perfilAlunoModal .lista-disciplinas .list-group-item:hover a {
+#perfilAlunoModal .lista-disciplinas .list-group-item:hover a, #perfilFuncionarioModal .lista-disciplinas .list-group-item:hover a {
   color: #273469;
   font-weight: bold;
 }
-#perfilAlunoModal .lista-disciplinas [aria-selected=true] {
+#perfilAlunoModal .lista-disciplinas [aria-selected=true], #perfilFuncionarioModal .lista-disciplinas [aria-selected=true] {
   background: #ffffff;
   border-radius: 10px;
   color: #273469;
 }
-#perfilAlunoModal .lista-disciplinas [aria-selected=true] a {
+#perfilAlunoModal .lista-disciplinas [aria-selected=true] a, #perfilFuncionarioModal .lista-disciplinas [aria-selected=true] a {
   color: #273469;
   font-weight: bold;
 }
-#perfilAlunoModal .lista-disciplinas [aria-selected=false] {
+#perfilAlunoModal .lista-disciplinas [aria-selected=false], #perfilFuncionarioModal .lista-disciplinas [aria-selected=false] {
   background: transparent;
   border-radius: 10px;
   color: #ffffff;
 }
-#perfilAlunoModal .lista-disciplinas [aria-selected=false] a {
+#perfilAlunoModal .lista-disciplinas [aria-selected=false] a, #perfilFuncionarioModal .lista-disciplinas [aria-selected=false] a {
   color: #ffffff;
   font-weight: bold;
 }
-#perfilAlunoModal .dados-avaliacoes input {
+#perfilAlunoModal .dados-avaliacoes input, #perfilFuncionarioModal .dados-avaliacoes input {
   width: 60px;
   text-align: center !important;
 }
 #perfilAlunoModal .dados-avaliacoes td,
-#perfilAlunoModal .dados-avaliacoes th {
+#perfilAlunoModal .dados-avaliacoes th, #perfilFuncionarioModal .dados-avaliacoes td,
+#perfilFuncionarioModal .dados-avaliacoes th {
   line-height: 40px;
   justify-content: center;
   cursor: context-menu;
 }
-#perfilAlunoModal .unidades a[aria-expanded=true] {
-  background: #273469;
+#perfilAlunoModal .unidades a, #perfilFuncionarioModal .unidades a {
+  padding: 0;
+}
+#perfilAlunoModal .unidades a[aria-expanded=true], #perfilFuncionarioModal .unidades a[aria-expanded=true] {
+  background: #325EDE;
   border-radius: 10px;
   color: #ffffff;
-  border-radius: 15px;
 }
-#perfilAlunoModal .unidades a[aria-expanded=true] a {
+#perfilAlunoModal .unidades a[aria-expanded=true] a, #perfilFuncionarioModal .unidades a[aria-expanded=true] a {
   color: #ffffff;
+  font-weight: bold;
+}
+#perfilAlunoModal .unidades a[aria-expanded=false], #perfilFuncionarioModal .unidades a[aria-expanded=false] {
+  background: #e5e5e5;
+  border-radius: 10px;
+  color: #283339;
+}
+#perfilAlunoModal .unidades a[aria-expanded=false] a, #perfilFuncionarioModal .unidades a[aria-expanded=false] a {
+  color: #283339;
   font-weight: bold;
 }
 

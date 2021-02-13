@@ -1,44 +1,44 @@
-#matriculaModal{
+#matriculaModal {
 
     // Modal da realização de cadastro entre alunos e professores
 
-        margin-top: 40px;
+    margin-top: 40px;
 
-        .modal-header{
-            font-weight: bold;
+    .modal-header {
+        font-weight: bold;
+    }
+
+    @include model-content($branco-padrao);
+
+    .modal-content {
+        border-radius: 10px;
+    }
+
+    .modal-texto {
+        margin-top: 30px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .modal-aluno-matricular-sucesso {
+
+        .fa-check-circle {
+            @include icon-modal($verde-padrao);
         }
 
-        @include model-content($branco-padrao);
+    }
 
-        .modal-content{
-            border-radius: 10px;
+    .modal-aluno-matricular-erro {
+
+        .fa-times-circle {
+            @include icon-modal($vermelho-padrao);
         }
 
-        .modal-texto {
-            margin-top: 30px;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .modal-aluno-matricular-sucesso {
-
-            .fa-check-circle {
-                @include icon-modal($verde-padrao);
-            }
-
-        }
-
-        .modal-aluno-matricular-erro {
-
-            .fa-times-circle {
-                @include icon-modal($vermelho-padrao);
-            }
-
-        }
+    }
 
 }
 
-#perfilAlunoModal {
+#perfilAlunoModal,#perfilFuncionarioModal {
 
     .modal-body>.row:nth-child(1) {
         @include card(10px, $branco-padrao, 1px solid $cinza-claro);
@@ -47,7 +47,7 @@
 
     .controle-opcoes {
 
-        .list-group{
+        .list-group {
             margin-top: 20px;
         }
 
@@ -55,11 +55,11 @@
         border: 0;
         background: $azul-escuro-fraco;
 
-        .list-group-item{
+        .list-group-item {
             background-color: transparent;
             margin-top: 5px;
 
-            &:hover{
+            &:hover {
                 @include aria-expanded($branco-padrao, $azul-escuro-fraco);
             }
         }
@@ -69,9 +69,9 @@
         }
 
         [aria-expanded="false"] {
-            @include aria-expanded(transparent , $branco-padrao);
+            @include aria-expanded(transparent, $branco-padrao);
         }
-        
+
 
     }
 
@@ -107,8 +107,8 @@
 
     #collapse-perfil-aluno-opcoes-dados {
 
-        b{
-            color:$cinza-escuro;
+        b {
+            color: $cinza-escuro;
         }
 
         .input-group-prepend span {
@@ -139,7 +139,7 @@
         border: none;
     }
 
-    
+
     #collapse-perfil-aluno-opcoes-dados,
     #collapse-perfil-aluno-opcoes-nota,
     #collapse-perfil-aluno-opcoes-boletim {
@@ -169,7 +169,7 @@
             margin-top: -50px;
         }
 
-        b{
+        b {
             font-weight: 700;
         }
 
@@ -201,22 +201,22 @@
         }
     }
 
-    .lista-disciplinas{
+    .lista-disciplinas {
 
         background: $azul-escuro-fraco;
         border-radius: 10px;
         border: 1px solid $cinza-claro;
         padding: 15px;
 
-        .list-group-item{
-            border: none; 
-            background: transparent;   
-            font-weight: bold; 
-            margin-bottom:5px;
+        .list-group-item {
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            margin-bottom: 5px;
 
-            &:hover{
+            &:hover {
                 @include aria-expanded($branco-padrao, $azul-escuro-fraco);
-            }     
+            }
         }
 
         [aria-selected="true"] {
@@ -245,19 +245,28 @@
         }
     }
 
-    .unidades a[aria-expanded="true"]{
-        @include aria-expanded($azul-escuro-fraco, $branco-padrao);
-        border-radius: 15px;
+    .unidades {
+
+        a{
+            padding: 0;
+        }
+
+        a[aria-expanded="true"] {
+            @include aria-expanded($azul-padrao, $branco-padrao);
+        }
+        a[aria-expanded="false"] {
+            @include aria-expanded($cinza-claro, $preto-claro);
+        }
     }
 
 }
 
-#disciplinaModal{
+#disciplinaModal {
 
     @include model-content($branco-padrao);
 
-        .modal-content{
-            border-radius: 10px;
-        }
+    .modal-content {
+        border-radius: 10px;
+    }
 
 }

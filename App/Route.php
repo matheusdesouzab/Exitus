@@ -8,13 +8,15 @@ class Route extends Bootstrap {
 
 	protected function initRoutes() {
 
-		// ADM
+		// Home
 
 		$routes['home'] = array(
 			'route' => '/home',
 			'controller' => 'AdmController',
 			'action' => 'admHome'
 		);
+
+		// Aluno
 
 		$routes['admCadastroAluno'] = array(
 			'route' => '/admAlunoCadastro',
@@ -28,10 +30,18 @@ class Route extends Bootstrap {
 			'action' => 'aluno_lista'
 		);
 
+		// Funcionário
+
 		$routes['admCadastroFuncionario'] = array(
 			'route' => '/admFuncionarioCadastro',
 			'controller' => 'AdmController',
 			'action' => 'funcionario_cadastro'
+		);
+
+		$routes['admlistaFuncionario'] = array(
+			'route' => '/admFuncionariolista',
+			'controller' => 'AdmController',
+			'action' => 'funcionario_lista'
 		);
 
 		// Gestão

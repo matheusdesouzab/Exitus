@@ -45,8 +45,13 @@
             .btn-primary {
                 background-color: $azul-escuro;
             }
+
         }
 
+        .linha-conexao{
+            @include linha-conexao(70%);
+            background-image:linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50% ) !important;
+        }
 
         .assistente-etapas-row {
             display: table-row;
@@ -58,19 +63,7 @@
             position: relative;
         }
 
-        .linha-conexao-0{
-            @include linha-conexao(70%);
-            background-image:linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50% ) !important;
-        }
-        .linha-conexao-50{
-            @include linha-conexao(70%);
-            background-image:linear-gradient(to right, #0000FF 50%, #e5e5e5 50%) !important;
-        }
-        .linha-conexao-100{
-            @include linha-conexao(70%);
-            background-image:linear-gradient(to left, #0000FF 50%, #0000ff 50%) !important;
-        }
-
+       
         div>.collapsed {
             background-color: #e4d9ff;
             color: black;
@@ -78,6 +71,7 @@
 
         :disabled {
             background-color: $branco-padrao;
+            border: 1px solid $cinza-claro;
 
         }
     }
@@ -143,7 +137,7 @@
     }
 
     .editar-dados-icon {
-        @include card-icon($preto-claro, $azul-escuro-fraco, $cinza-claro);
+        @include card-icon($preto-claro, $azul-padrao, $cinza-claro);
     }
 
     .atualizar-dados-icon {

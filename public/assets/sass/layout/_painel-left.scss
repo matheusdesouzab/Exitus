@@ -35,6 +35,10 @@
 
         @include side-bar-li(10px, left, 40px, $azul-escuro-fraco, #30343F, 20px solid #FAFAFF);
 
+        a{
+            padding: 10px;
+        }
+
     }
 
     .side-bar {

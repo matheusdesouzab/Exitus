@@ -498,11 +498,11 @@
 
                                                                             <div class="row d-flex unidades justify-content-center mt-3">
 
-                                                                                <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-1-unidade" aria-expanded="true" id="unidade-1" data-toggle="collapse">1 Unidade</a>
+                                                                                <a href="#" class="col-lg-2 icon-unidade  mr-3 btn" data-target="#conteudo-1-unidade" aria-expanded="true" id="unidade-1" data-toggle="collapse">1 Unidade</a>
 
-                                                                                <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-2-unidade" aria-expanded="false" id="unidade-2" data-toggle="collapse">2 Unidade</a>
+                                                                                <a href="#" class="col-lg-2 icon-unidade mr-3 btn" data-target="#conteudo-2-unidade" aria-expanded="false" id="unidade-2" data-toggle="collapse">2 Unidade</a>
 
-                                                                                <a href="#" class="col-lg-2 icon-unidade p-0 mr-3 btn" data-target="#conteudo-3-unidade" aria-expanded="false" id="unidade-3" data-toggle="collapse" href="#">3 Unidade</a>
+                                                                                <a href="#" class="col-lg-2 icon-unidade mr-3 btn" data-target="#conteudo-3-unidade" aria-expanded="false" id="unidade-3" data-toggle="collapse" href="#">3 Unidade</a>
 
                                                                             </div>
 
@@ -574,7 +574,7 @@
                                                                                                     <hr>
 
                                                                                                     <tr>
-                                                                                                        <th scope="row">Outros:</th>
+                                                                                                        <th class="text-right" scope="row">Outros:</th>
                                                                                                         <td>Faltas</td>
                                                                                                         <td><input disabled class="form-control mx-auto" type="text" name="" value="6" id="" maxlength="4"></td>
                                                                                                         <td>Dispensas</td>

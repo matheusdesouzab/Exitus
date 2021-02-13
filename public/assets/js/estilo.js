@@ -72,31 +72,9 @@ $("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
 $("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
 $(".unidades input").on('keypress', e => $(e.target).mask('0,00'))
 
-$("#perfilAlunoModal , #disciplinaModal").modal('show')
-
-$('.assistente-etapas-painel a i').on('click', function () {
-
-    let tela = this.className.replace('fas', '')
-
-    let linha_conexao = '.' + $('.assistente-etapas-row div:nth-child(1)')[0].className
-
-    console.log(linha_conexao)
-
-    switch (tela) {
-
-        case ' fa-user-alt':
-            $(linha_conexao).addClass('linha-conexao-0').removeClass('linha-conexao-100 , linha-conexao-50')
-            break
-        case ' fa-home':
-            $(linha_conexao).addClass('linha-conexao-50').removeClass('linha-conexao-0 , linha-conexao-100')
-            break
-        default:
-            $(linha_conexao).addClass('linha-conexao-100').removeClass('linha-conexao-0 , linha-conexao-50')
-
-    }
+$("#perfilAlunoModal , #disciplinaModal , #perfilFuncionarioModal").modal('show')
 
 
-})
 
 
 

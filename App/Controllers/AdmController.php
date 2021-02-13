@@ -32,6 +32,11 @@ class AdmController extends Action
         $this->render('funcionario_cadastro');
     }
 
+    public function funcionario_lista()
+    {
+        $this->render('funcionario_lista');
+    }
+
     public function gestao_geral()
     {
         $this->render('gestao_geral');
