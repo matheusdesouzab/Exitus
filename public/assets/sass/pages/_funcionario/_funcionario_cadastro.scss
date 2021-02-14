@@ -1,0 +1,8 @@
+#funcionario_cadastro {
+
+    .linha-conexao {
+        @include linha-conexao(51%);
+        margin-left: 21%;
+    }
+
+}

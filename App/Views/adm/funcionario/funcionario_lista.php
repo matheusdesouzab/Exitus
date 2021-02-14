@@ -254,6 +254,13 @@
                                                                                 <input type="text" disabled class="form-control" value="Não" aria-label="Username" aria-describedby="addon-wrapping">
                                                                             </div>
 
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Tipo sanguíneo:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="AB" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
                                                                             <hr>
 
                                                                             <h5 class="mt-3 mb-3 ml-2">Endereço e contato:</h5>
@@ -336,10 +343,7 @@
                                                                                     <h5 class="card-title">Comportamento Infantil</h5>
                                                                                     <p class="card-text">Aluno xingou seus colegas com palavras de baixo calão.</p>
 
-                                                                                    <p><b>Professor(a):</b> Magno Lima</p>
-                                                                                    <p><b>Disciplina:</b> Mátematica</p>
-                                                                                    <p><b>Unidade:</b> 1</p>
-                                                                                    <p><b>Data do ocorrido:</b> 31/08</p>
+                                                                                    <p><b>Data:</b> 31/08/2020</p>
 
                                                                                 </div>
 
@@ -351,10 +355,7 @@
                                                                                     <h5 class="card-title">Gazeamento</h5>
                                                                                     <p class="card-text">Aluno saio para jogar bola</p>
 
-                                                                                    <p><b>Professor(a):</b> Tássio Silva</p>
-                                                                                    <p><b>Disciplina:</b> Biologia</p>
-                                                                                    <p><b>Unidade:</b> 1</p>
-                                                                                    <p><b>Data do ocorrido:</b> 11/10</p>
+                                                                                    <p><b>Data:</b> 11/10/2019</p>
 
                                                                                 </div>
 

@@ -1,0 +1,60 @@
+
+
+@mixin linha-conexao($width) {
+    height: 2px;
+    background: $cinza-claro;
+    margin: auto;
+    position: absolute;
+    width: $width;
+    left: 0;
+    right: 0;
+    top: 15%;
+    z-index: 1;
+}
+
+
+@mixin aria-expanded($background,$color) {
+
+        background: $background;
+        border-radius: 10px;
+        color: $color;
+
+        a {
+            color: $color;
+            font-weight: bold;
+        }
+
+}
+
+@mixin aria-expanded-false-and-true($aria-background-true,$aria-color-true,$aria-background-false,$aria-color-false){
+
+    [aria-expanded="true"] {
+        @include aria-expanded($aria-background-true, $aria-color-true);
+    }
+
+    [aria-expanded="false"] {
+        @include aria-expanded($aria-background-false, $aria-color-false);
+    }
+
+}
+
+@mixin list-group($border-radius,$border){
+    border-radius: $border-radius;
+    border: $border;
+    cursor: pointer;
+}
+
+@mixin list-group-item{
+
+    .list-group-item {
+        border: none;
+        background: transparent;
+        font-weight: bold;
+        margin-bottom: 5px;
+
+        &:hover {
+            @include aria-expanded($branco-padrao, $azul-escuro-fraco);
+        }
+    }
+
+}

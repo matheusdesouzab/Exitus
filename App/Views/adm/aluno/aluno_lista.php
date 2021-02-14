@@ -328,6 +328,13 @@
                                                                                 <input type="text" disabled class="form-control" value="Não" aria-label="Username" aria-describedby="addon-wrapping">
                                                                             </div>
 
+                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                                <div class="input-group-prepend">
+                                                                                    <span class="input-group-text" id="addon-wrapping">Tipo sanguíneo:</span>
+                                                                                </div>
+                                                                                <input type="text" disabled class="form-control" value="AB" aria-label="Username" aria-describedby="addon-wrapping">
+                                                                            </div>
+
                                                                             <hr>
 
                                                                             <h5 class="mt-3 mb-3 ml-2">Endereço e contato:</h5>

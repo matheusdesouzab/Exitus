@@ -39,7 +39,7 @@ class Route extends Bootstrap {
 		);
 
 		$routes['admlistaFuncionario'] = array(
-			'route' => '/admFuncionariolista',
+			'route' => '/admFuncionarioLista',
 			'controller' => 'AdmController',
 			'action' => 'funcionario_lista'
 		);
@@ -74,6 +74,12 @@ class Route extends Bootstrap {
 			'route' => '/admGestaoSalas',
 			'controller' => 'AdmController',
 			'action' => 'gestao_salas'
+		);
+
+		$routes['admTurmaGestao'] = array(
+			'route' => '/admGestaoTurmas',
+			'controller' => 'AdmController',
+			'action' => 'gestao_turmas'
 		);
 
 		

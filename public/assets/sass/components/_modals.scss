@@ -1,18 +1,12 @@
 #matriculaModal {
 
-    // Modal da realização de cadastro entre alunos e professores
-
     margin-top: 40px;
 
     .modal-header {
         font-weight: bold;
     }
 
-    @include model-content($branco-padrao);
-
-    .modal-content {
-        border-radius: 10px;
-    }
+    @include model-content($branco-padrao, 10px);
 
     .modal-texto {
         margin-top: 30px;
@@ -38,7 +32,8 @@
 
 }
 
-#perfilAlunoModal,#perfilFuncionarioModal {
+#perfilAlunoModal,
+#perfilFuncionarioModal {
 
     .modal-body>.row:nth-child(1) {
         @include card(10px, $branco-padrao, 1px solid $cinza-claro);
@@ -55,23 +50,9 @@
         border: 0;
         background: $azul-escuro-fraco;
 
-        .list-group-item {
-            background-color: transparent;
-            margin-top: 5px;
+        @include list-group-item;
 
-            &:hover {
-                @include aria-expanded($branco-padrao, $azul-escuro-fraco);
-            }
-        }
-
-        [aria-expanded="true"] {
-            @include aria-expanded($branco-padrao, $azul-escuro-fraco);
-        }
-
-        [aria-expanded="false"] {
-            @include aria-expanded(transparent, $branco-padrao);
-        }
-
+        @include aria-expanded-false-and-true($branco-padrao, $azul-escuro-fraco, transparent, $branco-padrao);
 
     }
 
@@ -182,13 +163,7 @@
 
     .conteudo-lista-disciplinas {
 
-        [aria-expanded="true"] {
-            @include aria-expanded($azul-padrao, $branco-padrao);
-        }
-
-        [aria-expanded="false"] {
-            @include aria-expanded($cinza-claro, $cinza-escuro);
-        }
+        @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $cinza-escuro);
 
         .icon-unidade {
             border-radius: 30px;
@@ -207,17 +182,9 @@
         border-radius: 10px;
         border: 1px solid $cinza-claro;
         padding: 15px;
+        font-size: 14px;
 
-        .list-group-item {
-            border: none;
-            background: transparent;
-            font-weight: bold;
-            margin-bottom: 5px;
-
-            &:hover {
-                @include aria-expanded($branco-padrao, $azul-escuro-fraco);
-            }
-        }
+        @include list-group-item;
 
         [aria-selected="true"] {
             @include aria-expanded($branco-padrao, $azul-escuro-fraco);
@@ -226,7 +193,6 @@
         [aria-selected="false"] {
             @include aria-expanded(transparent, $branco-padrao);
         }
-
 
     }
 
@@ -247,26 +213,14 @@
 
     .unidades {
 
-        a{
-            padding: 0;
-        }
+        @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $preto-claro);
 
-        a[aria-expanded="true"] {
-            @include aria-expanded($azul-padrao, $branco-padrao);
-        }
-        a[aria-expanded="false"] {
-            @include aria-expanded($cinza-claro, $preto-claro);
-        }
     }
 
 }
 
 #disciplinaModal {
 
-    @include model-content($branco-padrao);
-
-    .modal-content {
-        border-radius: 10px;
-    }
+    @include model-content($branco-padrao, 10px);
 
 }

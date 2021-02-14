@@ -16,11 +16,11 @@
                         <div class="assistente-etapas-row assistente-etapas-painel">
                             <div class="linha-conexao"></div>
                             <div class="assistente-etapas" id="headingOne">
-                                <a type="button" class="btn btn-circle" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
+                                <a type="button" class="btn button-circle" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
                                 <p>Dados pessoais</p>
                             </div>
                             <div class="assistente-etapas" id="headingTwo">
-                                <a type="button" class="btn btn-circle collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
+                                <a type="button" class="btn button-circle collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
                                 <p>Endereço e contato</p>
                             </div>
                             
@@ -77,14 +77,14 @@
 
                                     <div class="form-row mb-5">
 
-                                        <div class="form-group col-md-8">
+                                        <div class="form-group col-md-6">
                                         <label for="">Foto do perfil:</label>
                                             <div class="custom-file">                                               
                                                 <input type="file" class="custom-file-input is-valid" id="customFileLangHTML" required>
                                                 <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do professor(a)</label>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
                                             <label for="inputState">Cargo:</label>
                                             <select id="inputState" class="form-control custom-select is-valid" required>
                                                 <option selected></option>
@@ -92,6 +92,20 @@
                                                 <option>Vígia</option>
                                             </select>
                                         </div>
+                                        <div class="form-group col-md-3">
+                                    <label for="inputCity">Tipo sanguíneo:</label>
+                                            <select id="inputState" class="form-control custom-select is-valid" required>
+                                                <option value=""></option>
+                                                <option>A+</option>
+                                                <option>A-</option>
+                                                <option>B+</option>
+                                                <option>B-</option>
+                                                <option>AB+</option>
+                                                <option>AB-</option>
+                                                <option>O+</option>
+                                                <option>O-</option>
+                                            </select>
+                                    </div>
 
                                     </div>
                                     

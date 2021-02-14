@@ -1,0 +1,56 @@
+#pagina {
+
+    .card-icon {
+        @include card(10, $azul-padrao, none); // border-radius | color | border
+    }
+
+    .card {
+
+        @include card(15, $branco-padrao, 1px solid $cinza-claro); // border-radius | color | border
+
+        transition: 0.5s;
+
+        .card-title {
+            font-size: 15px;
+        }
+
+        .card-valor {
+            font-size: 25px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+    }
+
+    .editar-dados-icon {
+        @include card-icon($preto-claro, $azul-padrao, $cinza-claro);
+    }
+
+    .atualizar-dados-icon {
+        @include card-icon($preto-claro, $verde-padrao, $cinza-claro);
+    }
+
+    .apagar-dados-icon {
+        @include card-icon($preto-claro, $vermelho-padrao, $cinza-claro);
+    }
+
+    .items-icon {
+        @include card-icon($cinza-escuro, $azul-escuro-fraco, $branco-padrao);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .card-disciplinas {
+        background: $cinza-claro !important;
+    }
+
+    .card-form {
+        @include card(15px, $cinza-escuro, none);
+
+        label {
+            color: white;
+        }
+    }
+}

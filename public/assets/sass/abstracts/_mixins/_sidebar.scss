@@ -1,0 +1,43 @@
+@mixin side-bar($width) {
+    background: $azul-escuro;
+    transition: 0.7s;
+    position: fixed;
+    height: 100%;
+    width: $width;
+}
+
+
+@mixin side-bar-li($padding, $text-align, $padding-left, $background, $background-hover, $border-left) {
+    padding: $padding;
+    text-align: $text-align;
+    padding-left: $padding-left;
+    transition: background-color .8s;
+    background-size: 0% 100%;
+
+    background-color: $background;
+
+    &:hover {
+        background-color: $background-hover;
+        border-left: $border-left;
+    }
+}
+
+
+@mixin side-bar-a($font-size, $color, $padding-bottom) {
+    font-size: $font-size;
+    font-weight: bold;
+    color: $color;
+    text-decoration: none;
+    padding-bottom: $padding-bottom;
+}
+
+
+@mixin side-bar-logo($width, $padding-left, $margin) {
+    width: $width;
+    padding-left: $padding-left;
+    margin: $margin;
+
+    img {
+        width: 100%;
+    }
+}

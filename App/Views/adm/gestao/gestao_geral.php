@@ -55,7 +55,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Turmas</h5>
                                 <p class="card-text">Adicione uma nova turma ou edite alguma já existente.</p>
-                                <a href="#" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
+                                <a href="/admGestaoTurmas" target="_blank" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                             </div>
                         </div>
                     </div>

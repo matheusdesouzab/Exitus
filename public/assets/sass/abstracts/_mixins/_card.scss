@@ -1,0 +1,25 @@
+@mixin card($padding, $background, $border) {
+    padding: $padding;
+    border-radius: 10px;
+    border: $border;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+    background-color: $background;
+}
+
+@mixin card-icon($color,$background-hover,$background){
+
+    cursor: pointer;
+    color: $color;
+    font-size: 15px;
+
+        @include card(10, $background, none);
+
+        &:hover {
+            color:white;
+            background-color: $background-hover;
+
+            .fa-edit,.fa-print,.fa-check,.fa-ban,.fa-boxes,.fa-plus-circle {
+                color: $branco-padrao;
+            }
+        }
+}

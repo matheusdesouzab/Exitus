@@ -1,0 +1,16 @@
+@mixin icon-modal($color) {
+    margin-top: 30px;
+    font-size: 100px;
+    color: $color;
+    justify-content: space-around;
+}
+
+@mixin model-content($background,$border-radius) {
+
+    .modal-content {
+        border: none;
+        background-color: $background;
+        border-radius: $border-radius;
+    }
+
+}

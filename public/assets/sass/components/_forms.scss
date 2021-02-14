@@ -1,0 +1,11 @@
+#pagina {
+
+    .was-validated .form-control:valid {
+        border: 1px solid $verde-padrao;
+    }
+
+    .was-validated .form-control:invalid {
+        border: 1.5px solid $vermelho-extra-claro;
+    }
+
+}

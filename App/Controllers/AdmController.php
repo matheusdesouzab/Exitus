@@ -62,4 +62,9 @@ class AdmController extends Action
         $this->render('gestao_sala');
     }
 
+    public function gestao_turmas()
+    {
+        $this->render('gestao_turma');
+    }
+
 }

@@ -1,0 +1,18 @@
+#aluno-lista {
+
+    #heading-busca-avancada .btn:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    table {
+
+        .icon-unidade-nao-cadastrada {
+            color: #BDC3C7;
+        }
+
+        .icon-unidade-cadastrada {
+            color: green;
+        }
+    }
+}

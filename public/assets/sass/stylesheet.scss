@@ -1,86 +1,49 @@
 
-@import 'helpers/variaveis';
+// Abstracts
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import 'abstracts/variables';
 
-html,
-body {
-    height: 100%;   
-    color: $azul-escuro;  
-    transition: 0.6s; 
-}
+@import 'abstracts/base';
 
-html > body {
-    background-color: $cinza-extra-claro;
-}
+// Abstracts/Mixins
 
-a {
-    text-decoration: none !important;
-}
+@import 'abstracts/_mixins/mixins';
 
-li {
-    list-style-type: none;
-}
+@import 'abstracts/_mixins/sidebar';
 
-h5 {
-    color: $azul-escuro;
-    font-family: Bold;
-}
+@import 'abstracts/_mixins/card';
 
-label{
-    font-size: 15px;
-    font-weight: bold;
-    color: $preto-claro;
-}
+@import 'abstracts/_mixins/modal';
 
-input,select{
-    border-radius: 10px;
-}
+// Core
 
-table{
+@import 'core/typography';
 
-    td {
-        line-height: 30px;
-        color: $preto-claro;
-        font-size: 14px;
-        font-weight: 500;
-    }
+// Components
 
-    img {
-        border-radius: 50%;
-        width: 30px;
-    }
+@import 'components/buttons';
 
-    tr {
-        text-align: center;
-        cursor: pointer;
-    }
+@import 'components/cards';
 
-}
+@import 'components/navbars';
 
-input:disabled,select:disabled {
-    border: none;
-}
+@import 'components/modals';
 
+@import 'components/forms';
 
-@import 'helpers/fonts';
-
-@import 'helpers/mixins';
+// Layout
 
 @import 'layout/geral';
 
-@import 'layout/card';
-
 @import 'layout/painel-left';
-
-@import 'layout/navbar-top';
-
-@import 'layout/modal';
 
 @import 'layout/media-screen';
 
-@import 'layout/button';
+// Pages/Aluno
+
+@import 'pages/_aluno/aluno_cadastro';
+@import 'pages/_aluno/aluno_lista';
+
+// Pages/Page General
+
+@import 'pages/page_general';

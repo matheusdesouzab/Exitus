@@ -1,6 +1,6 @@
-#matricula_aluno , #cadastro_professor{
+#pagina {
 
-    .btn-circle {
+    .button-circle {
         width: 30px;
         height: 30px;
         text-align: center;
@@ -11,8 +11,10 @@
         z-index: 2;
         color: white;
     }
-}
 
-button{
-    outline: none;
+    .btn-success {
+        background: $verde-padrao;
+        border: none;
+    }
+
 }

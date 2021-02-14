@@ -1,0 +1,45 @@
+#pagina {
+
+    .container-pai {
+        margin-top: 80px;
+    }
+
+    .justify-content-end [aria-expanded="true"] .items-icon {
+
+        background: $azul-escuro-fraco;
+        color: white;
+
+    }
+
+    .lista-grupo {
+
+        background-color: #273469;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        a.active {
+            background: $branco-padrao;
+            color: $azul-escuro;
+        }
+
+        .list-group-item {
+
+            margin-bottom: 8px;
+            border: 0px;
+            font-weight: bold;
+            font-size: 13.5px;
+            color: white;
+            border-radius: 10px;
+            background-color: transparent;
+
+            &:hover {
+                background: $branco-padrao;
+                color: $azul-escuro;
+            }
+        }
+
+    }
+}
