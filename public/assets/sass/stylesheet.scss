@@ -33,17 +33,23 @@
 
 // Layout
 
-@import 'layout/geral';
-
-@import 'layout/painel-left';
+@import 'layout/sidebar';
 
 @import 'layout/media-screen';
+
+// Pages/Page General
+
+@import 'pages/page_general';
 
 // Pages/Aluno
 
 @import 'pages/_aluno/aluno_cadastro';
 @import 'pages/_aluno/aluno_lista';
 
-// Pages/Page General
+// Pages/Funcionário
 
-@import 'pages/page_general';
+@import 'pages/_funcionario/funcionario_cadastro';
+
+// Pages/Gestão/Gestão Turma
+
+@import 'pages/_gestao/gestao_turma';

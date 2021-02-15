@@ -33,7 +33,8 @@
 }
 
 #perfilAlunoModal,
-#perfilFuncionarioModal {
+#perfilFuncionarioModal,
+#perfilTurmaModal {
 
     .modal-body>.row:nth-child(1) {
         @include card(10px, $branco-padrao, 1px solid $cinza-claro);
@@ -200,7 +201,7 @@
 
         input {
             width: 60px;
-            text-align: center !important;
+            text-align: center;
         }
 
         td,

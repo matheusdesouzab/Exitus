@@ -80,7 +80,7 @@
                                 <tr>
                                     <th class="" colspan="2" scope="col">Nome do funcionário(a)</th>
                                     <th scope="col">CPF</th>
-                                    <th scope="col">Função atual</th>
+                                    <th scope="col">Cargo atual</th>
                                     <th scope="col">Idade</th>
                                     <th scope="col">Sexo</th>
                                 </tr>
@@ -316,11 +316,11 @@
 
                                                                             <hr>
 
-                                                                            <h5 class="mt-3 mb-3 ml-2">Cargo:</h5>
+                                                                            <h5 class="mt-3 mb-3 ml-2">Cargo atual:</h5>
 
                                                                             <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                                                 <div class="input-group-prepend">
-                                                                                    <span class="input-group-text" id="addon-wrapping">Função atual:</span>
+                                                                                    <span class="input-group-text" id="addon-wrapping">Cargo atual:</span>
                                                                                 </div>
                                                                                 <input type="text" disabled class="form-control" value="Vigilante" aria-label="Username" aria-describedby="addon-wrapping">
                                                                             </div>

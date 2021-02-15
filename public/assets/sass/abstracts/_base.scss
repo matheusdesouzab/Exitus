@@ -16,7 +16,7 @@ html > body {
 }
 
 a {
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 li {
@@ -39,6 +39,10 @@ input,select{
 }
 
 table{
+
+    th{
+        color: $azul-escuro;
+    }
 
     td {
         line-height: 30px;
@@ -66,5 +70,7 @@ button{
 input:disabled,select:disabled {
     border: none;
 }
+
+
 
 

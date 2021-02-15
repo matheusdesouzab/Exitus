@@ -1,0 +1,33 @@
+#gestao-turmas {
+
+    table {
+        td {
+            justify-content: center;
+            line-height: 35px;
+        }
+
+        .nota-vermelha {
+            background-color: $vermelho-padrao;
+            font-weight: 500;
+            color: white;
+        }
+
+        .nota-verde {
+            background-color: $verde-padrao;
+            font-weight: 500;
+            color: white;
+        }
+
+        .nota-azul {
+            background-color: $azul-padrao;
+            font-weight: 500;
+            color: white;
+        }
+
+        .nota-dourada {
+            background: #d4af37;
+            font-weight: 500;
+            color: white;
+        }
+    }
+}

@@ -18,8 +18,7 @@
 
         <div class="collapse" id="professores">
             <li><a href="/admFuncionarioCadastro"><span>Cadastra funcionario(a)</span></a></li>
-            <li><a href="/admFuncionariolista"><span>Lista funcionario</span></a></li>
-            <li><a href=""><span>Adicionar avaliações</span></a></li>
+            <li><a href="/admFuncionarioLista"><span>Lista funcionario</span></a></li>
         </div>
 
         <li class="link-collapse"><a href=""><i class="fas fa-chart-pie mr-2"></i> <span>Análise de Dados</span></a></li>

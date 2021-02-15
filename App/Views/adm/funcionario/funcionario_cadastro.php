@@ -1,4 +1,4 @@
-<div id="cadastro_professor">
+<div id="funcionario-cadastro">
 
     <div class="row container-pai">
 
