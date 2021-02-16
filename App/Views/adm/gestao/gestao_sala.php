@@ -27,43 +27,43 @@
 
                     <div class="col-lg-12">
 
-                    <div class="collapse" id="collapse-adicionar-salas" data-parent="#accordion-salas">
+                        <div class="collapse" id="collapse-adicionar-salas" data-parent="#accordion-salas">
 
-                    <div class="row">
+                            <div class="row">
 
-                                    <div class="col-lg-12">
+                                <div class="col-lg-12">
 
-                                        <form class="card mt-3" action="">
+                                    <form class="card mt-3" action="">
 
-                                            <div class="row mt-2">
-                                                <div class="font-weight-bold col-lg-12">Adicionar nova sala:</div>
+                                        <div class="row mt-2">
+                                            <div class="font-weight-bold col-lg-12">Adicionar nova sala:</div>
+                                        </div>
+
+                                        <div class="form-row mt-4 mb-2">
+                                            <div class="form-group col-lg-2">
+                                                <label for="">Numero da sala:</label>
+                                                <input class="form-control" value="" type="text" name="" id="">
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="">Parvilhão:</label>
+                                                <input class="form-control" maxlength="4" value="" type="text" name="" id="">
                                             </div>
 
-                                            <div class="form-row mt-4 mb-2">
-                                                <div class="form-group col-lg-2">
-                                                    <label for="">Numero da sala:</label>
-                                                    <input class="form-control" value="" type="text" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Parvilhão:</label>
-                                                    <input class="form-control" maxlength="4" value="" type="text" name="" id="">
-                                                </div>
-                                               
 
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-lg-4">
+                                                <a class="btn btn-success w-75 text-center" href="#">Adicionar sala</a>
                                             </div>
+                                        </div>
 
-                                            <div class="form-row">
-                                                <div class="form-group col-lg-4">
-                                                    <a class="btn btn-success w-75 text-center" href="#">Adicionar sala</a>
-                                                </div>
-                                            </div>
+                                    </form>
 
-                                        </form>
-
-                                    </div>
                                 </div>
+                            </div>
 
-                    </div>
+                        </div>
 
                     </div>
 

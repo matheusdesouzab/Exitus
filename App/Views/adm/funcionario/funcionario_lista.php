@@ -151,7 +151,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="perfilFuncionarioModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal modal-perfil fade" id="perfilFuncionarioModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content p-2">
                         <div class="row" style="margin-left: -50px !important;">
@@ -174,7 +174,7 @@
 
                                                 <div class="row">
 
-                                                    <div class="col-lg-12 collapse show overflow-auto p-3" id="collapse-perfil-aluno-opcoes-dados" aria-labelledby="dados" data-parent="#accordion-perfil-aluno-opcoes" style="border-radius: 15px">
+                                                    <div class="col-lg-12 collapse show overflow-auto p-3 container-accordion" id="collapse-perfil-aluno-opcoes-dados" aria-labelledby="dados" data-parent="#accordion-perfil-aluno-opcoes" style="border-radius: 15px">
 
 
                                                         <div class="row">

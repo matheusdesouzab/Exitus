@@ -81,7 +81,6 @@
 
 
     div>.collapsed {
-        
         color: black;
     }
 
@@ -90,4 +89,40 @@
         border: 1px solid $cinza-claro;
 
     }
+
+    .icon-unidade-nao-cadastrada {
+        color: #BDC3C7;
+    }
+
+    .icon-unidade-cadastrada {
+        color: green;
+    }
+
+    .border-img-red {
+        @include border-img($vermelho-padrao, 3px);
+    }
+
+    .border-img-green {
+        @include border-img($verde-padrao, 3px);
+    }
+
+    .border-img-blue {
+        @include border-img($azul-padrao, 3px);
+    }
+
+    .border-img-golden {
+        @include border-img($golden, 3px);
+    }
+
+    .container-accordion{
+        height: 520px;
+        width: 890px;
+
+        &::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+    }
+
+
 }

@@ -32,9 +32,7 @@
 
 }
 
-#perfilAlunoModal,
-#perfilFuncionarioModal,
-#perfilTurmaModal {
+.modal-perfil{
 
     .modal-body>.row:nth-child(1) {
         @include card(10px, $branco-padrao, 1px solid $cinza-claro);
@@ -76,7 +74,6 @@
 
     img {
         border-radius: 50%;
-        border: 5px solid $azul-escuro-fraco
     }
 
     .modal-content {
@@ -121,18 +118,6 @@
         border: none;
     }
 
-
-    #collapse-perfil-aluno-opcoes-dados,
-    #collapse-perfil-aluno-opcoes-nota,
-    #collapse-perfil-aluno-opcoes-boletim {
-        height: 520px;
-        width: 890px;
-
-        &::-webkit-scrollbar {
-            width: 0;
-            background: transparent;
-        }
-    }
 
     #collapse-perfil-aluno-opcoes-boletim {
 
