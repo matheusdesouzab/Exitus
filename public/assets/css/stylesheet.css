@@ -738,8 +738,9 @@ input:disabled, select:disabled {
   width: 100%;
   position: relative;
 }
-#pagina div > .collapsed {
+#pagina .assistente-etapas a.collapsed {
   color: black;
+  background-color: #e4d9ff;
 }
 #pagina :disabled {
   background-color: #ffffff;
@@ -823,6 +824,34 @@ input:disabled, select:disabled {
   background: #d4af37;
   font-weight: 500;
   color: white;
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 2vh;
+  }
+
+  #pagina #aluno-lista table {
+    width: 700px;
+  }
+  #pagina #funcionario-lista table {
+    width: 700px;
+  }
+  #pagina .collapse-option {
+    margin-top: 30px;
+  }
+  #pagina .collapse-option span {
+    font-size: 3vw;
+  }
+  #pagina h5 {
+    font-size: 5vw;
+  }
+  #pagina .container-pai {
+    margin-top: 40px;
+  }
+  #pagina .assistente-etapas-sessao .assistente-etapas p {
+    font-size: 2.5vw;
+  }
 }
 
 /*# sourceMappingURL=stylesheet.css.map */

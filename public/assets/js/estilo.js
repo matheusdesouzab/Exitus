@@ -1,19 +1,18 @@
-class Paginas {
+class App {
 
     // Mudança randômica entre side-bar normal e side-bar-responsive
 
-    sideBarResposive() {
+    sideState() {
 
-        let painelLeftImg = $('#painel-left .logo img')
+        let $sidebarLogo = $('#painel-left .logo img')
 
-        $('#navbar-top').toggleClass('col-lg-11 col-lg-10')
-        $('.side-pagina').toggleClass('col-lg-11 col-lg-10')
+        $("#navbar-top , .side-pagina").toggleClass('col-lg-11 col-lg-10')
 
         $('.side-painel').toggleClass('col-lg-1 col-lg-2')
 
         $('#painel-left ul').toggleClass('side-bar-responsivo side-bar')
 
-        $('#painel-left ul').hasClass('side-bar-responsivo') ? [painelLeftImg.attr('src', '/assets/img/logo.png'), $('.fa-bars').addClass('ml-2')] : [painelLeftImg.attr('src', '/assets/img/logo-completo.png'), $('.fa-bars').removeClass('ml-2')]
+        $('#painel-left ul').hasClass('side-bar-responsivo') ? [$sidebarLogo.attr('src', '/assets/img/logo.png'), $('.fa-bars').addClass('ml-2')] : [$sidebarLogo.attr('src', '/assets/img/logo-completo.png'), $('.fa-bars').removeClass('ml-2')]
     }
 
 
@@ -43,25 +42,15 @@ class Paginas {
     }
 }
 
-class matriculaAluno extends Paginas {
+let app = new App()
 
-    matricularAluno() {
+$("#cep").on('blur', (app.getCep))
 
-        $('#matriculaModal > div').addClass('modal-aluno-matricular-erro')
+$("#bars").on("click", (app.sideState))
 
-        $('#matriculaModal').modal('show')
-
-    }
-
-}
-
-let pagina_matriculaAluno = new matriculaAluno()
-
-$("#cep").on('blur', (pagina_matriculaAluno.getCep))
-$("#bars").on("click", (pagina_matriculaAluno.sideBarResposive))
-$("#matricularAluno").on('click', (e) => {
+$("#matricularAluno").on('click', e => {
     e.target.preventDefault
-    pagina_matriculaAluno.matricularAluno()
+    app.matricularAluno()
 
 })
 
@@ -69,98 +58,9 @@ $("#matricularAluno").on('click', (e) => {
 //Formatação de campos com Jquey Mask 
 
 $("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
+
 $("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
+
 $(".unidades input").on('keypress', e => $(e.target).mask('0,00'))
 
-$("#perfilAlunoModal , #disciplinaModal , #perfilFuncionarioModal , #perfilTurmaModal").modal('show')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let dataAtual = document.querySelector('#dataAtual')
-let horaAtual = document.querySelector('#horaAtual')
-
-let dia = new Array("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado")
-let mes = new Array("janeiro", "fevereiro", "março", "abril", "Maio", "junho", "julho", "agosto", "Setembro", "Outubro", "Novembro", "Dezembro")
-
-now = new Date
-
-let obterDataAtual = () => {
-    let data = `${dia[now.getDay()]} ${now.getDate()} de ${mes[now.getMonth()]}`
-    return data
-}
-
-let obterHoraAtual = () => {
-
-    h = new Date().getHours();
-    m = new Date().getMinutes();
-    s = new Date().getSeconds();
-
-    h <= 9 ? h = `0${h}` : h
-    m <= 9 ? m = `0${m}` : m
-    s <= 9 ? s = `0${s}` : s
-
-    horaAtual.innerHTML = h + ":" + m + ":" + s;
-    setTimeout('obterHoraAtual()', 100);
-}
-
-console.log(obterHoraAtual())
-
-let body = document.querySelector('body')
-
-body.onload = () => {
-    dataAtual.innerHTML = obterDataAtual()
-    horaAtual.innerHTML = obterHoraAtual()
-}
-
-
-let modoNoturno = document.querySelector('#night-mode')
-let modoNoturnoLS = localStorage.getItem('noturno')
-let html = document.querySelector('html')
-
-if (modoNoturnoLS) {
-    html.classList.add('night-mode')
-    modoNoturno.checked = true
-}
-
-modoNoturno.onclick = () => {
-    html.classList.toggle('night-mode')
-    if (html.classList.contains('night-mode')) {
-        localStorage.setItem('noturno', true)
-        return
-    }
-    localStorage.removeItem('noturno')
-}
-
-/* let verificarModoNoturno = () => {
-    if(localStorage.getItem('noturno')){
-        let html = document.querySelector('html')
-        html.classList.add('night-mode')
-    }
-} */
+//$("#perfilAlunoModal , #disciplinaModal , #perfilFuncionarioModal , #perfilTurmaModal").modal('show')

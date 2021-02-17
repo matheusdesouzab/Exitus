@@ -10,7 +10,7 @@
                         <h5>Gestão dos Cursos</h5>
                     </div>
 
-                    <div class="col-lg-6 d-flex justify-content-end">
+                    <div class="col-lg-6 d-flex collapse-option justify-content-end">
 
                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-cursos" ><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Cursos</span></a>
 

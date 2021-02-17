@@ -79,9 +79,9 @@
         position: relative;
     }
 
-
-    div>.collapsed {
+    .assistente-etapas a.collapsed {
         color: black;
+        background-color: $azul-extra-claro;
     }
 
     :disabled {

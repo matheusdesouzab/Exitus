@@ -1,0 +1,49 @@
+@media (max-width:576px) {
+
+    body {
+        font-size: 2vh;
+    }
+
+    #pagina {
+
+        #aluno-lista {
+            table {
+                width: 700px;
+            }
+        }
+
+        #funcionario-lista {
+            table {
+                width: 700px;
+            }
+        }
+
+        .collapse-option {
+            margin-top: 30px;
+
+            span {
+                font-size: 3vw;
+            }
+
+        }
+
+        h5 {
+            font-size: 5vw;
+        }
+
+        .container-pai {
+            margin-top: 40px;
+        }
+
+        .assistente-etapas-sessao {
+
+            .assistente-etapas p {
+                font-size: 2.5vw;
+            }
+
+        }
+
+    }
+
+
+}

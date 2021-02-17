@@ -575,9 +575,9 @@
                                                                                                     <div class="form-group col-lg-3">
                                                                                                         <label for="inputState">UE referente:</label>
                                                                                                         <select id="inputState" class="form-control custom-select" required>
-                                                                                                            <option>1 e 2</option>
                                                                                                             <option>1</option>
                                                                                                             <option>2</option>
+                                                                                                            <option>3</option>
                                                                                                         </select>
                                                                                                     </div>
 
@@ -592,8 +592,9 @@
                                                                                                     <tr>
                                                                                                         <th scope="col">Id</th>
                                                                                                         <th scope="col">Avaliação</th>
-                                                                                                        <th scope="col">Unidade</th>
+                                                                                                        <th scope="col">UE</th>
                                                                                                         <th scope="col">Disciplina</th>
+                                                                                                        <th scope="col">Data</th>
                                                                                                         <th scope="col">Valor</th>
                                                                                                     </tr>
                                                                                                 </thead>
@@ -603,7 +604,27 @@
                                                                                                         <td>1</td>
                                                                                                         <td>Prova em dupla</td>
                                                                                                         <td>1</td>
+
                                                                                                         <td>Matemática</td>
+                                                                                                        <td>20/12/2001</td>
+                                                                                                        <td>4,0</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>1</td>
+                                                                                                        <td>Prova em dupla</td>
+                                                                                                        <td>1</td>
+
+                                                                                                        <td>Matemática</td>
+                                                                                                        <td>20/12/2001</td>
+                                                                                                        <td>4,0</td>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>1</td>
+                                                                                                        <td>Prova em dupla</td>
+                                                                                                        <td>1</td>
+
+                                                                                                        <td>Matemática</td>
+                                                                                                        <td>20/12/2001</td>
                                                                                                         <td>4,0</td>
                                                                                                     </tr>
 
@@ -611,34 +632,11 @@
                                                                                                         <td>1</td>
                                                                                                         <td>Prova em dupla</td>
                                                                                                         <td>1</td>
+
                                                                                                         <td>Matemática</td>
+                                                                                                        <td>20/12/2001</td>
                                                                                                         <td>4,0</td>
                                                                                                     </tr>
-
-                                                                                                    <tr>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Prova em dupla</td>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Matemática</td>
-                                                                                                        <td>4,0</td>
-                                                                                                    </tr>
-
-                                                                                                    <tr>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Prova em dupla</td>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Matemática</td>
-                                                                                                        <td>4,0</td>
-                                                                                                    </tr>
-
-                                                                                                    <tr>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Prova em dupla</td>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Matemática</td>
-                                                                                                        <td>4,0</td>
-                                                                                                    </tr>
-
 
                                                                                                 </tbody>
                                                                                             </table>
@@ -707,9 +705,11 @@
                                                                                                     </div> -->
 
 
-                                                                                       
 
-                                                                                        </form>
+
+                                                                                            </form>
+
+                                                                                        </div>
 
                                                                                     </div>
 
@@ -720,26 +720,25 @@
                                                                         </div>
 
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
 
-                                                    <div class="col-lg-2 controle-opcoes">
+                                                        <div class="col-lg-2 controle-opcoes">
 
-                                                        <ul class="list-group text-center">
+                                                            <ul class="list-group text-center">
 
-                                                            <li class="list-group-item border-0" id="turma-dados" aria-expanded="true" data-toggle="collapse" data-target="#collapse-perfil-turma-dados"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
+                                                                <li class="list-group-item border-0" id="turma-dados" aria-expanded="true" data-toggle="collapse" data-target="#collapse-perfil-turma-dados"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
 
-                                                            <li class="list-group-item border-0" id="turma-disciplinas" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-disciplinas"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
+                                                                <li class="list-group-item border-0" id="turma-disciplinas" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-disciplinas"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
 
-                                                            <li class="list-group-item border-0" id="turma-avaliacoes" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-avaliacoes"><a href="#"><i class="fas fa-clipboard-list mr-2"></i> Avaliações </a></li>
+                                                                <li class="list-group-item border-0" id="turma-avaliacoes" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-avaliacoes"><a href="#"><i class="fas fa-clipboard-list mr-2"></i> Avaliações </a></li>
 
-                                                            <li class="list-group-item border-0" id="mais" aria-expanded="false" data-toggle="collapse" data-target="#"><a href="#"><i class="fas fa-chart-line mr-2"></i> Análise </a></li>
+                                                                <li class="list-group-item border-0" id="mais" aria-expanded="false" data-toggle="collapse" data-target="#"><a href="#"><i class="fas fa-chart-line mr-2"></i> Análise </a></li>
 
-                                                        </ul>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -748,76 +747,75 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="collapse" id="collapse-adicionar-turmas" data-parent="#accordion-turmas">
+                        <div class="collapse" id="collapse-adicionar-turmas" data-parent="#accordion-turmas">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-lg-12 mx-auto">
+                                <div class="col-lg-12 mx-auto">
 
-                                <form class="card mt-3" action="">
+                                    <form class="card mt-3" action="">
 
-                                    <div class="row mt-2">
-                                        <div class="font-weight-bold col-lg-12">Adicionar nova disciplina:</div>
-                                    </div>
-
-                                    <div class="form-row mt-4 mb-2">
-                                        <div class="form-group col-lg-4">
-                                            <label for="">Nome da disciplina:</label>
-                                            <input class="form-control" value="" type="text" name="" id="">
-                                        </div>
-                                        <div class="form-group col-lg-3">
-                                            <label for="">Sigla:</label>
-                                            <input class="form-control" value="" type="text" name="" id="">
-                                        </div>
-                                        <div class="form-group col-lg-3">
-                                            <label for="inputState">Modalidade:</label>
-                                            <select id="inputState" class="form-control custom-select" required>
-                                                <option>Técnico</option>
-                                                <option>Ensino Médio</option>
-                                                <option>Técnico</option>
-                                            </select>
+                                        <div class="row mt-2">
+                                            <div class="font-weight-bold col-lg-12">Adicionar nova disciplina:</div>
                                         </div>
 
+                                        <div class="form-row mt-4 mb-2">
+                                            <div class="form-group col-lg-4">
+                                                <label for="">Nome da disciplina:</label>
+                                                <input class="form-control" value="" type="text" name="" id="">
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="">Sigla:</label>
+                                                <input class="form-control" value="" type="text" name="" id="">
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="inputState">Modalidade:</label>
+                                                <select id="inputState" class="form-control custom-select" required>
+                                                    <option>Técnico</option>
+                                                    <option>Ensino Médio</option>
+                                                    <option>Técnico</option>
+                                                </select>
+                                            </div>
 
 
-                                        <div class="form-group col-lg-2">
-                                            <label for="inputState">UE referente:</label>
-                                            <select id="inputState" class="form-control custom-select" required>
-                                                <option>1 e 2</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                            </select>
+
+                                            <div class="form-group col-lg-2">
+                                                <label for="inputState">UE referente:</label>
+                                                <select id="inputState" class="form-control custom-select" required>
+                                                    <option>1 e 2</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                </select>
+                                            </div>
+
                                         </div>
 
-                                    </div>
-
-                                    <div class="row d-flex justify-content-end">
-                                        <div class="form-group col-lg-4">
-                                            <a class="btn btn-success w-100 text-center" href="#">Adicionar nova disciplina</a>
+                                        <div class="row d-flex justify-content-end">
+                                            <div class="form-group col-lg-4">
+                                                <a class="btn btn-success w-100 text-center" href="#">Adicionar nova disciplina</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                </form>
+                                    </form>
 
+                                </div>
                             </div>
+
                         </div>
+                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                            Dados
 
-                    </div>
-                    <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                        Dados
-
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+
         </div>
 
-
-
     </div>
-
-</div>
 
 </div>
 

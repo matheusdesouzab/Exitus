@@ -245,7 +245,7 @@
 
                                                                 <div class="row">
 
-                                                                    <div class="col-lg-12 mt-4 d-flex justify-content-center"><img src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
+                                                                    <div class="col-lg-12 mt-4 d-flex justify-content-center"><img class="border-img-golden" src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
 
                                                                 </div>
 
@@ -462,203 +462,192 @@
 
                                                     <div class="col-lg-12 collapse container-accordion  overflow-auto" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
 
-                                                        <div class="row mt-1">
+                                                        <div class="accordion" id="accordion-turma-avaliacoes">
+                                                            <div class="col-lg-12 mb-4 mt-3">
+                                                                <div class="row d-flex align-items-center">
+                                                                    <div class="col-lg-6">
+                                                                        <h5>Avaliações por disciplinas</h5>
+                                                                    </div>
 
-                                                            <div class="col-3 overflow-auto">
+                                                                    <div class="col-lg-6 d-flex justify-content-end">
 
-                                                                <div class="list-group lista-disciplinas" id="list-tab" role="tablist">
+                                                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
-                                                                    <a class="list-group-item list-group-item-action active" id="list-disciplina-1" data-toggle="list" aria-selected="true" href="#disciplina-1" role="tab" aria-controls="home">Matemática</a>
+                                                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-2" data-toggle="list" aria-selected="false" href="#disciplina-2" role="tab" aria-controls="profile">Português</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-3" data-toggle="list" aria-selected="false" href="#disciplina-3" role="tab" aria-controls="messages">Biologia</a>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-4" data-toggle="list" aria-selected="false" href="#disciplina-4" role="tab" aria-controls="settings">Física</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-5" data-toggle="list" aria-selected="false" href="#disciplina-5" role="tab" aria-controls="settings">Arte</a>
+                                                            <div class="col-lg-12">
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" aria-selected="false" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
+                                                                <div class="collapse show card" id="collapse-lista-avaliacoes" data-parent="#accordion-turma-avaliacoes">
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" aria-selected="false" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
+                                                                    <form class="mt-3 col-lg-11 mx-auto  text-dark" action="">
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" aria-selected="false" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
-                                                                    
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-6" data-toggle="list" aria-selected="false" href="#disciplina-6" role="tab" aria-controls="settings">Filosofia</a>
+                                                                        <div class="form-row mt-3">
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-7" data-toggle="list" aria-selected="false" href="#disciplina-7" role="tab" aria-controls="settings">Química</a>
+                                                                            <div class="form-group col-lg-6">
+                                                                                <label for="">Nome da avaliacão:</label>
+                                                                                <input type="text" placeholder="Nome da avaliação" class="form-control">
+                                                                            </div>
 
-                                                                    <a class="list-group-item list-group-item-action" id="list-disciplina-8" data-toggle="list" aria-selected="false" href="#disciplina-8" role="tab" aria-controls="settings">L.E.M</a>
+                                                                            <div class="form-group col-lg-3">
+                                                                                <label for="inputState">Disciplina:</label>
+                                                                                <select id="inputState" class="form-control custom-select" required>
+                                                                                    <option>Matemática</option>
+                                                                                    <option>Ensino Médio</option>
+                                                                                    <option>Técnico</option>
+                                                                                </select>
+                                                                            </div>
 
+                                                                            <div class="form-group col-lg-3">
+                                                                                <label for="inputState">UE referente:</label>
+                                                                                <select id="inputState" class="form-control custom-select" required>
+                                                                                    <option>1</option>
+                                                                                    <option>2</option>
+                                                                                    <option>3</option>
+                                                                                </select>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </form>
+
+                                                                    <hr class="col-lg-11 mx-auto">
+
+                                                                    <table class="table col-lg-11 mx-auto table-borderless table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th scope="col">Id</th>
+                                                                                <th scope="col">Avaliação</th>
+                                                                                <th scope="col">UE</th>
+                                                                                <th scope="col">Disciplina</th>
+                                                                                <th scope="col">Data</th>
+                                                                                <th scope="col">Valor</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Prova em dupla</td>
+                                                                                <td>1</td>
+                                                                                
+                                                                                <td>Matemática</td>
+                                                                                <td>20/12/2001</td>
+                                                                                <td>4,0</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Prova em dupla</td>
+                                                                                <td>1</td>
+                                                                                
+                                                                                <td>Matemática</td>
+                                                                                <td>20/12/2001</td>
+                                                                                <td>4,0</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Prova em dupla</td>
+                                                                                <td>1</td>
+                                                                                
+                                                                                <td>Matemática</td>
+                                                                                <td>20/12/2001</td>
+                                                                                <td>4,0</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Prova em dupla</td>
+                                                                                <td>1</td>
+                                                                                
+                                                                                <td>Matemática</td>
+                                                                                <td>20/12/2001</td>
+                                                                                <td>4,0</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Prova em dupla</td>
+                                                                                <td>1</td>
+                                                                                
+                                                                                <td>Matemática</td>
+                                                                                <td>20/12/2001</td>
+                                                                                <td>4,0</td>
+                                                                            </tr>
+
+                                                                            
+
+
+                                                                        </tbody>
+                                                                    </table>
 
                                                                 </div>
 
-                                                            </div>
-
-                                                            <div class="col-9 card mx-auto">
-
-                                                                <div class="tab-content conteudo-lista-disciplinas" id="nav-tabContent">
-
-                                                                    <div class="tab-pane fade show active" id="disciplina-1" role="tabpanel" aria-labelledby="list-disciplina-1">
-
-                                                                        <div class="accordion" id="conteudo-disciplina">
-
-                                                                            <div class="row d-flex unidades justify-content-center mt-3">
-
-                                                                                <a href="#" class="col-lg-2 icon-unidade  mr-3 btn" data-target="#conteudo-1-unidade" aria-expanded="true" id="unidade-1" data-toggle="collapse">1 Unidade</a>
-
-                                                                                <a href="#" class="col-lg-2 icon-unidade mr-3 btn" data-target="#conteudo-2-unidade" aria-expanded="false" id="unidade-2" data-toggle="collapse">2 Unidade</a>
-
-                                                                                <a href="#" class="col-lg-2 icon-unidade mr-3 btn" data-target="#conteudo-3-unidade" aria-expanded="false" id="unidade-3" data-toggle="collapse" href="#">3 Unidade</a>
-
-                                                                            </div>
-
-                                                                            <div class="row">
-
-                                                                                <div class="col-lg-12">
-
-                                                                                    <div class="collapse show overflow-auto p-3" id="conteudo-1-unidade" aria-labelledby="unidade-1" data-parent="#conteudo-disciplina">
-
-                                                                                        <div class="row mt-3">
-
-                                                                                            <div class="col-lg-12">
-
-                                                                                            <div class="row">
-
-                                                                                            <div class="col-lg-6">
-                                                                                            <h5 class="mt-2">Avaliações e outros</h5>
-                                                                                            </div>
-
-                                                                                               <div class="col-lg-6 d-flex justify-content-end">
-
-                                                                                                    <span class="mr-2 editar-dados-icon"><i class="text-center fas fa-edit"></i></span>
-                                                                                                    <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
-
-                                                                                                </div>
-
-                                                                                            </div>
-                                                                                            </div>
-
-                                                                                            <table class="table table-borderless dados-avaliacoes mt-3 col-lg-12">
-                                                                                                <thead class="">
-                                                                                                    <tr>
-                                                                                                        <th scope="col">ID</th>
-                                                                                                        <th scope="col">Descrição</th>
-                                                                                                        <th scope="col">Realização</th>
-                                                                                                        <th scope="col">Valor</th>
-                                                                                                        <th scope="col">Nota</th>
-                                                                                                    </tr>
-                                                                                                </thead>
-                                                                                                <tbody>
-                                                                                                    <tr>
-                                                                                                        <td>1</td>
-                                                                                                        <td class="">Avaliação em Grupo</td>
-                                                                                                        <td>15/06</td>
-                                                                                                        <td>4,0</td>
-                                                                                                        <td class="">
-                                                                                                            <input disabled class="form-control mx-auto" type="text" name="" value="2,00" id="" maxlength="4">
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td>2</td>
-                                                                                                        <td>Avaliação Individual</td>
-                                                                                                        <td>15/07</td>
-                                                                                                        <td>2,0</td>
-                                                                                                        <td class="">
-                                                                                                            <input disabled class="form-control mx-auto" type="text" name="" value="1,00" id="" maxlength="4">
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td>3</td>
-                                                                                                        <td>Prova Final</td>
-                                                                                                        <td>25/08</td>
-                                                                                                        <td>4,0</td>
-                                                                                                        <td class="">
-                                                                                                            <input disabled class="form-control mx-auto" type="text" name="" value="3,00" id="" maxlength="4">
-                                                                                                        </td>
-                                                                                                    </tr>
-
-                                                                                                    <hr>
-
-                                                                                                    <tr>
-                                                                                                        <th class="text-right" scope="row">Outros:</th>
-                                                                                                        <td>Faltas</td>
-                                                                                                        <td><input disabled class="form-control mx-auto" type="text" name="" value="6" id="" maxlength="4"></td>
-                                                                                                        <td>Dispensas</td>
-                                                                                                        <td>
-                                                                                                            <input disabled class="form-control mx-auto" type="text" name="" value="0" id="" maxlength="4">
-                                                                                                        </td>
-                                                                                                    </tr>
-                                                                                                   
-                                                                                                </tbody>
-                                                                                               
-                                                                                            </table>
-                                                                                        </div>
-                                                                                    </div>
-
-                                                                                    <div class="collapse overflow-auto p-3 lado-info-aluno" id="conteudo-2-unidade" aria-labelledby="unidade-2" data-parent="#conteudo-disciplina">
-
-                                                                                        Conteudo
-
-                                                                                    </div>
 
 
-                                                                                </div>
+                                                                <div class="collapse card" id="collapse-adicionar-avaliacoes" data-parent="#accordion-turma-avaliacoes">
+
+                                                                    <form class="col-lg-12" action="">
+
+                                                                        <div class="form-row mt-3">
+
+                                                                
+
+                                                                            <div class="form-group col-lg-3">
+                                                                                <label for="">Disciplina:</label>
+
+                                                                                <select id="inputState" class="form-control custom-select" required>
+                                                                                    <option>Matemática</option>
+                                                                                    <option>Meickson</option>
+                                                                                    <option>Tassio</option>
+                                                                                    <option>Carlos</option>
+                                                                                </select>
 
                                                                             </div>
 
-                                                                        </div>
-                                                                    </div>
+                                                                            <div class="form-group col-lg-4">
+                                                                                <label for="">Avaliação:</label>
 
-                                                                    <div class="tab-pane col-lg-12 fade card" id="disciplina-2" role="tabpanel" aria-labelledby="list-disciplina-2">
+                                                                                <select id="inputState" class="form-control custom-select" required>
+                                                                                    <option>5 - Avaliação em equipe</option>
+                                                                                    <option>Biologia</option>
+                                                                                    <option>Português</option>
+                                                                                    <option>Filosofia</option>
+                                                                                </select>
 
-                                                                        <div class="row">
+                                                                            </div>
 
-                                                                            Portugues
+                                                                            <div class="form-group col-lg-2">
+                                                                                <label for="">Valor:</label>
 
-                                                                        </div>
+                                                                                <input class="form-control" type="text">
+                                                                            </div>
 
-                                                                    </div>
+                                                                             
+                                                                            <div class="form-group col-lg-3">
+                                                                                <label for="">&nbsp;</label>
+                                                                                <a class="btn btn-success w-100" href="">Adicionar nota</a>
+                                                                            </div>
 
-                                                                    <div class="tab-pane fade card" id="disciplina-3" role="tabpanel" aria-labelledby="list-disciplina-3">
 
-                                                                        <div class="row">
-
-                                                                            Biologia
-
-                                                                        </div>
-
-                                                                    </div>
-
-                                                                    <div class="tab-pane fade card" id="disciplina-4" role="tabpanel" aria-labelledby="list-disciplina-4">
-
-                                                                        <div class="row">
-
-                                                                            Física
 
                                                                         </div>
 
-                                                                    </div>
+                                                                        
 
-                                                                    <div class="tab-pane fade card" id="disciplina-5" role="tabpanel" aria-labelledby="list-disciplina-5">
 
-                                                                        <div class="row">
 
-                                                                            Arte
+                                                                        <!-- <div class="form-group col-lg-3">
+                                                                                                        <label for="">&nbsp;</label>
+                                                                                                        <a class="btn btn-success w-100" href="">Adicionar disciplina</a>
+                                                                                                    </div> -->
 
-                                                                        </div>
 
-                                                                    </div>
 
-                                                                    <div class="tab-pane fade card" id="disciplina-6" role="tabpanel" aria-labelledby="list-disciplina-6">
 
-                                                                        <div class="row">
-
-                                                                            Filosofia
-
-                                                                        </div>
-
-                                                                    </div>
+                                                                    </form>
 
                                                                 </div>
 
@@ -835,8 +824,8 @@
 
                                                                         <tfoot>
 
-                                                                        <th>Situação do aluno(a):</th>
-                                                                        <td>APROVADO</td>
+                                                                            <th>Situação do aluno(a):</th>
+                                                                            <td>APROVADO</td>
 
                                                                         </tfoot>
 
