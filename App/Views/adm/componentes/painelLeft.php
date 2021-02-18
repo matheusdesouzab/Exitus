@@ -1,6 +1,9 @@
-<div id="painel-left" class="col-sm-2  d-flex justify-content-center ">
+<div id="painel-left" class="col-sm-2  d-flex justify-content-center">
+
     <ul class="side-bar">
+
         <div class="logo"><img src="/assets/img/logo-completo.png" alt=""></div>
+        <li class="link-collapse"><a class="bars-xs" href="#"><i class="fas fa-chevron-circle-left mr-2"></i> <span>Retorna</span></a></li>
         <li class="link-collapse"><a href="/home"><i class="fas fa-home mr-2"></i> <span>Home</span></a></li>
 
         <h5>GESTÃO</h5>
@@ -24,5 +27,7 @@
         <li class="link-collapse"><a href=""><i class="fas fa-chart-pie mr-2"></i> <span>Análise de Dados</span></a></li>
 
         <li class="link-collapse"><a href=""><i class="fas fa-cog mr-2"></i> <span>Configurações</span> </a></li>
+
     </ul>
+
 </div>

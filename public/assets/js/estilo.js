@@ -8,7 +8,7 @@ class App {
 
         $("#navbar-top , .side-pagina").toggleClass('col-lg-11 col-lg-10')
 
-        $('.side-painel').toggleClass('col-lg-1 col-lg-2')
+        $('.panel-side').toggleClass('col-lg-1 col-lg-2')
 
         $('#painel-left ul').toggleClass('side-bar-responsivo side-bar')
 
@@ -63,4 +63,6 @@ $("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0
 
 $(".unidades input").on('keypress', e => $(e.target).mask('0,00'))
 
-//$("#perfilAlunoModal , #disciplinaModal , #perfilFuncionarioModal , #perfilTurmaModal").modal('show')
+$('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
+
+$("#perfilAlunoModal , #disciplinaModal , #perfilFuncionarioModal , #perfilTurmaModal").modal('show')

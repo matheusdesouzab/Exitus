@@ -10,7 +10,7 @@
                         <h5>Gestão dos periodos letivos</h5>
                     </div>
 
-                    <div class="col-lg-6 d-flex justify-content-end">
+                    <div class="col-lg-6 collapse-option d-flex justify-content-end">
 
                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-periodos" ><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Periodos</span></a>
 
@@ -111,7 +111,7 @@
 
                                                 <div class="col-lg-8 font-weight-bold">Periodo letivo de 2019</div>
 
-                                                <div class="col-lg-4 d-flex justify-content-end mt-2">
+                                                <div class="col-lg-4 d-flex  justify-content-end mt-2">
 
                                                     <span class="mr-2 editar-dados-icon"><i class="fas fa-edit"></i></span>
                                                     <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>

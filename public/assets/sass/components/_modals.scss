@@ -111,6 +111,16 @@
             border: none;
             padding-left: 0px;
         }
+
+        img{
+            display: flex;
+            justify-content:center;
+        }
+
+        .option-side{
+            display: flex;
+            justify-content:end;
+        }
     }
 
     #collapse-perfil-aluno-opcoes-nota input:disabled {

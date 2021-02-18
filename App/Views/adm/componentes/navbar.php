@@ -1,11 +1,12 @@
-<nav id="navbar-top" class="navbar fixed-top col-lg-10 col-sm-10 col-md-10 ml-auto shadow-sm navbar-expand-sm">
+<nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-10 col-md-10 ml-auto shadow-sm navbar-expand-sm">
 	<a class="navbar-brand" id="bars" href="#"><i class="fas fa-bars"></i></a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+	<a class="navbar-brand bars-xs"  href="#"><i class="fas fa-bars"></i></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	<i class="fas fa-bars"></i>
 	</button>
-	<div class="collapse navbar-collapse" id="navbarNav">
+	<div class="collapse navbar-collapse" id="navbarText">
 		<ul class="navbar-nav ml-auto">
-			
+
 			<li class="nav-item">
 				<div class="foto-usuario">
 					<img src="/assets/img/foto-perfil-1.png" alt="">

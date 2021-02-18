@@ -245,7 +245,7 @@
 
                                                                 <div class="row">
 
-                                                                    <div class="col-lg-12 mt-4 d-flex justify-content-center"><img class="border-img-golden" src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
+                                                                    <div class="col-lg-12 mx-auto col-8 mt-4 "><img class="border-img-golden" src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
 
                                                                 </div>
 
@@ -255,7 +255,7 @@
 
                                                                 <div class="row">
 
-                                                                    <div class="col-lg-12 d-flex justify-content-end">
+                                                                    <div class="col-lg-12 option-side">
 
                                                                         <span class="mr-2 editar-dados-icon"><i class="text-center fas fa-edit"></i></span>
                                                                         <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
@@ -266,7 +266,7 @@
 
                                                                 <div class="row">
 
-                                                                    <div class="col-lg-7">
+                                                                    <div class="col-lg-7 col-12">
 
                                                                         <form class="" action="">
 
@@ -279,7 +279,7 @@
                                                                                 <input type="text" disabled class="form-control" value="João Pedro de Lima" aria-label="Username" aria-describedby="addon-wrapping">
                                                                             </div>
 
-                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                                            <div class="input-group d-flex justify-content-start col-12 col-lg-12 flex-nowrap">
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text" id="addon-wrapping">Nome da mãe:</span>
                                                                                 </div>
@@ -410,13 +410,17 @@
 
                                                                     </div>
 
-                                                                    <div class="col-lg-5">
+                                                                    <div class="col-lg-5 observation-side col-12 overflow-auto">
 
                                                                         <div class="row p-3">
 
-                                                                            <h5 class="mb-4">Observações:</h5>
+                                                                            <h5 class="mt-3 mb-3 ml-2">Observações:</h5>
 
-                                                                            <div class="card card-hover bg-white w-100 mb-3" style="max-width: 18rem;">
+                                                                            <div class="col-lg-12">
+
+                                                                            <div class="row">
+
+                                                                            <div class="card col-5 col-lg-12 card-hover bg-white mb-3">
 
                                                                                 <div class="card-body">
                                                                                     <h5 class="card-title">Comportamento Infantil</h5>
@@ -432,7 +436,11 @@
 
                                                                             </div>
 
-                                                                            <div class="card bg-white w-100 mt-3 mb-3" style="max-width: 18rem;">
+                                                                            </div>
+
+                                                                            <div class="row">
+
+                                                                            <div class="card col-5 col-lg-12 bg-white  mt-3 mb-3">
                                                                                 <div class="card-body">
                                                                                     <h5 class="card-title">Gazeamento</h5>
                                                                                     <p class="card-text">Aluno saio para jogar bola</p>
@@ -443,6 +451,10 @@
                                                                                     <p><b>Data do ocorrido:</b> 11/10</p>
 
                                                                                 </div>
+
+                                                                            </div>
+
+                                                                            </div>
 
                                                                             </div>
 

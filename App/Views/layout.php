@@ -23,10 +23,10 @@ $title = $title[1].' '.$title[2];
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-2 col-sm-2 side-painel">
+			<div class="col-lg-2 col-sm-2 panel-side">
 				<?php require '../App/Views/adm/componentes/painelLeft.php' ?>
 			</div>
-			<div id="pagina" class="col-lg-10 col-sm-10 side-pagina">
+			<div id="pagina" class="col-12 col-sm-10 side-pagina">
 				<?php require '../App/Views/adm/componentes/navbar.php' ?>
 				<?= $this->content() ?>
 			</div>

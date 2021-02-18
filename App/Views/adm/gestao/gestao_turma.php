@@ -10,7 +10,7 @@
                         <h5>Gestão das turmas</h5>
                     </div>
 
-                    <div class="col-lg-6 d-flex justify-content-end">
+                    <div class="col-lg-6 d-flex collapse-option justify-content-end">
 
                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-turmas"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Turmas</span></a>
 
@@ -79,6 +79,8 @@
 
                                     <hr class="">
 
+                                    <div class="table-responsive">
+
 
                                     <table class="table table-borderless table-hover">
                                         <thead>
@@ -138,6 +140,7 @@
 
                                         </tbody>
                                     </table>
+                                    </div>
 
                                     <div class="modal modal-perfil fade" id="perfilTurmaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog">

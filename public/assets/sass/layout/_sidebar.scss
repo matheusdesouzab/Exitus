@@ -1,7 +1,8 @@
 // Painel Left 
 
 #painel-left {
-    
+
+    transition: 1s;
     width: 100%;
     z-index: 2;
 
@@ -23,7 +24,6 @@
         margin-top: 15px;
     }
 
-
     .link-collapse:hover {
         background-color: $azul-escuro-fraco;
         border-left: 0px;
@@ -44,6 +44,7 @@
     .side-bar {
         margin-left: 150px;
         @include side-bar(240px);
+        
 
         .logo {
             @include side-bar-logo(100px, 0px, 20px auto);

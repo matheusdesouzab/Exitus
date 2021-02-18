@@ -10,7 +10,7 @@
                         <h5>Gestão das disciplinas</h5>
                     </div>
 
-                    <div class="col-lg-6 d-flex justify-content-end">
+                    <div class="col-lg-6 collapse-option d-flex justify-content-end">
 
                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-disciplinas"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 
@@ -70,7 +70,7 @@
 
                                     </form>
 
-                                    
+                                    <div class="table-responsive">
 
                                     <table class="table table-borderless table-hover">
                                         <thead> 
@@ -129,6 +129,7 @@
 
                                         </tbody>
                                     </table>
+                                    </div>
 
                                     <div class="modal fade" id="disciplinaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg mt-5">

@@ -13,13 +13,14 @@
                 <div class="row">
 
                     <div class="card-deck">
-                        <div class="card">
+                        <div class="card col-lg-4">
                             <div class="card-body">
                                 <h5 class="card-title">Cursos</h5>
                                 <p class="card-text">Defina os cursos que serão ofertados para os alunos.</p>
                                 <a href="/admGestaoCursos" target="_blank" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                             </div>
                         </div>
+
                         <div class="card col-lg-4">
                             <div class="card-body">
                                 <h5 class="card-title">Disciplinas</h5>
@@ -27,6 +28,7 @@
                                 <a href="/admGestaoDisciplinas" target="_blank" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                             </div>
                         </div>
+
                         <div class="card col-lg-4">
                             <div class="card-body">
                                 <h5 class="card-title">Períodos Letivos</h5>

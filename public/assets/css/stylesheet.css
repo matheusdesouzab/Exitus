@@ -227,6 +227,9 @@ input:disabled, select:disabled {
 #navbar-top .fa-bars {
   color: black;
 }
+#navbar-top a.bars-xs {
+  display: none;
+}
 #navbar-top .foto-usuario {
   width: 35px;
 }
@@ -363,6 +366,14 @@ input:disabled, select:disabled {
   background-color: #ffffff;
   border: none;
   padding-left: 0px;
+}
+.modal-perfil #collapse-perfil-aluno-opcoes-dados img {
+  display: flex;
+  justify-content: center;
+}
+.modal-perfil #collapse-perfil-aluno-opcoes-dados .option-side {
+  display: flex;
+  justify-content: end;
 }
 .modal-perfil #collapse-perfil-aluno-opcoes-nota input:disabled {
   background-color: #ffffff;
@@ -511,6 +522,7 @@ input:disabled, select:disabled {
 }
 
 #painel-left {
+  transition: 1s;
   width: 100%;
   z-index: 2;
 }
@@ -627,50 +639,6 @@ input:disabled, select:disabled {
   border-left: 0px;
 }
 
-@media screen and (min-width: 0px) and (max-width: 578px) {
-  #pagina .linha-pagina {
-    margin-top: 30px;
-  }
-  #pagina #matricula .assistente-etapas p {
-    font-size: 10px;
-  }
-  #pagina #home .card {
-    margin-top: 20px;
-  }
-  #pagina th, #pagina td {
-    font-size: 12px;
-  }
-
-  .side-painel {
-    display: none;
-  }
-
-  #painel-left .sider-bar-responsivo {
-    display: none;
-  }
-
-  #navbar-top {
-    display: none;
-  }
-}
-@media screen and (min-width: 579px) and (max-width: 778px) {
-  #painel-left .sider-bar-responsivo {
-    width: 26%;
-  }
-  #painel-left .sider-bar-responsivo li {
-    padding: 10px;
-    padding-left: 45%;
-  }
-  #painel-left .sider-bar-responsivo .logo {
-    padding-left: 40%;
-    width: 100px;
-  }
-}
-@media screen and (min-width: 778px) and (max-width: 992px) {
-  .sider-bar-responsivo {
-    border: 2px solid red;
-  }
-}
 #pagina .container-pai {
   margin-top: 80px;
 }
@@ -829,12 +797,56 @@ input:disabled, select:disabled {
 @media (max-width: 576px) {
   body {
     font-size: 2vh;
+    width: 100%;
+  }
+  body .panel-side {
+    display: none;
+  }
+  body .panel-side-xs {
+    display: block;
+  }
+  body .panel-side-xs #painel-left > .side-bar {
+    width: 50%;
+    margin-left: -50vw;
+  }
+  body .panel-side-xs #painel-left > .side-bar .bars-xs {
+    color: white;
+  }
+  body .panel-side-xs #painel-left > .side-bar img {
+    width: 80%;
+  }
+  body .panel-side-xs #painel-left > .side-bar .fa-angle-down {
+    display: none;
+  }
+  body .panel-side-xs #painel-left > .side-bar h5 {
+    font-size: 2vw;
+  }
+  body .panel-side-xs #painel-left > .side-bar li,
+body .panel-side-xs #painel-left > .side-bar h5 {
+    margin-left: -5vw;
+  }
+  body .panel-side-xs #painel-left > .side-bar .link-collapse a,
+body .panel-side-xs #painel-left > .side-bar .collapse li a {
+    font-size: 2.5vw;
+  }
+  body .panel-side-xs #painel-left > .side-bar .collapse li {
+    border-left: 5px solid white;
   }
 
-  #pagina #aluno-lista table {
-    width: 700px;
+  #navbar-top .navbar-toggler .fa-bars {
+    font-size: 20px;
   }
-  #pagina #funcionario-lista table {
+  #navbar-top #bars {
+    display: none;
+  }
+  #navbar-top a.bars-xs {
+    display: block;
+  }
+  #navbar-top .navbar-toggler {
+    display: none;
+  }
+
+  #pagina table {
     width: 700px;
   }
   #pagina .collapse-option {
@@ -847,10 +859,25 @@ input:disabled, select:disabled {
     font-size: 5vw;
   }
   #pagina .container-pai {
-    margin-top: 40px;
+    margin-top: 80px;
   }
   #pagina .assistente-etapas-sessao .assistente-etapas p {
     font-size: 2.5vw;
+  }
+  #pagina .modal-perfil .modal-content {
+    width: 98%;
+    margin: auto;
+    margin-top: 10px;
+    height: 100%;
+  }
+  #pagina .modal-perfil .modal-content .controle-opcoes {
+    display: none;
+  }
+  #pagina .modal-perfil .modal-content .option-side {
+    margin: 15px 0px 15px 0px;
+  }
+  #pagina .modal-perfil .modal-content .input-group {
+    width: 70vw;
   }
 }
 

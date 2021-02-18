@@ -1,24 +1,84 @@
 @media (max-width:576px) {
 
     body {
+
         font-size: 2vh;
+        width: 100%;
+
+        .panel-side {
+            display: none;
+        }
+
+        .panel-side-xs {
+
+            display: block;
+
+            #painel-left>.side-bar {
+
+                width: 50%;
+                margin-left: -50vw;
+
+                .bars-xs {
+                    color: white;
+                }
+
+                img {
+                    width: 80%;
+                }
+
+                .fa-angle-down {
+                    display: none;
+                }
+
+                h5 {
+                    font-size: 2vw;
+                }
+
+                li,
+                h5 {
+                    margin-left: -5vw;
+                }
+
+                .link-collapse a,
+                .collapse li a {
+                    font-size: 2.5vw;
+                }
+
+                .collapse li {
+                    border-left: 5px solid white;
+                }
+            }
+        }
     }
+
+    #navbar-top {
+
+        .navbar-toggler .fa-bars {
+            font-size: 20px;
+        }
+
+        #bars {
+            display: none;
+        }
+
+        a.bars-xs {
+            display: block;
+        }
+
+        .navbar-toggler {
+            display: none;
+        }
+    }
+
 
     #pagina {
 
-        #aluno-lista {
-            table {
-                width: 700px;
-            }
-        }
-
-        #funcionario-lista {
-            table {
-                width: 700px;
-            }
+        table {
+            width: 700px;
         }
 
         .collapse-option {
+
             margin-top: 30px;
 
             span {
@@ -32,13 +92,39 @@
         }
 
         .container-pai {
-            margin-top: 40px;
+            margin-top: 80px;
         }
 
         .assistente-etapas-sessao {
 
             .assistente-etapas p {
                 font-size: 2.5vw;
+            }
+
+        }
+
+        .modal-perfil {
+
+            .modal-content {
+                width: 98%;
+                margin: auto;
+                margin-top: 10px;
+                height: 100%;
+
+                .controle-opcoes{
+                    display: none;
+                }
+
+                .option-side{
+                    margin: 15px 0px 15px 0px;
+                    
+                }
+
+               
+
+                .input-group{
+                    width: 70vw;
+                }
             }
 
         }
