@@ -4,7 +4,7 @@
         margin-top: 80px;
     }
 
-    .justify-content-end [aria-expanded="true"] .items-icon {
+    .collapse-option [aria-expanded="true"] .items-icon {
 
         background: $azul-escuro-fraco;
         color: white;
@@ -122,6 +122,11 @@
             width: 0;
             background: transparent;
         }
+    }
+
+    .collapse-option{
+        display: flex;
+        justify-content: flex-end;
     }
 
 

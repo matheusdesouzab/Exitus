@@ -38,6 +38,7 @@
 
     .items-icon {
         @include card-icon($cinza-escuro, $azul-escuro-fraco, $branco-padrao);
+        border: 1px solid $cinza-claro;
         padding-left: 20px;
         padding-right: 20px;
     }

@@ -80,9 +80,13 @@
         .collapse-option {
 
             margin-top: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
 
             span {
                 font-size: 3vw;
+                padding: 10px;
             }
 
         }
@@ -105,26 +109,117 @@
 
         .modal-perfil {
 
+            .collapse-option{
+                
+                .fa-user-friends,.fa-chalkboard-teacher,.fa-boxes,.fa-plus-circle{
+                    display: none;
+                }
+            }
+
+            h5 {
+                font-size: 4vw;
+            }
+
+            .input-group-text,
+            input {
+                font-size: 3vw;
+            }
+
+            .horizontal-control-list {
+
+                background-color: $cinza-claro;
+                margin: 10px;
+                display: flex;
+
+                .list-group-item {
+                    border: 0px;
+                    padding: 10px;
+                }
+
+                a {
+                    font-size: 2vw;
+                }
+
+                @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $preto-claro, 5px);
+
+            }
+
+            .container-accordion {
+                overflow: auto;
+                height: 520px;
+                width: 80vw;
+                margin: auto;
+            }
+
             .modal-content {
-                width: 98%;
+                width: 97%;
                 margin: auto;
                 margin-top: 10px;
                 height: 100%;
+                overflow: auto;
 
-                .controle-opcoes{
+                #collapse-alunos,#collapse-professores,#collapse-disciplinas {
+
+                    table {
+                        width: 500px;
+
+                        img {
+                            width: 35px;
+                        }
+
+                        th,
+                        td {
+                            line-height: 35px;
+                            font-size: 2.5vw;
+                        }
+                    }
+                }
+
+                #collapse-perfil-aluno-opcoes-dados {
+
+                    img {
+                        margin: auto;
+                    }
+
+                    .card {
+                        font-size: 3vw;
+                    }
+                }
+
+                #collapse-perfil-aluno-opcoes-nota {
+
+                    table {
+
+                        width: 500px;
+
+                        td,
+                        th {
+                            font-size: 2.5vw;
+                        }
+                    }
+
+                    .collapse-option {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+
+                        span {
+                            padding: 10px;
+                        }
+                    }
+
+                }
+
+                .controle-opcoes {
                     display: none;
                 }
 
-                .option-side{
+                .option-list {
+                    display: flex;
+                    justify-content: flex-end;
                     margin: 15px 0px 15px 0px;
-                    
                 }
 
-               
 
-                .input-group{
-                    width: 70vw;
-                }
             }
 
         }

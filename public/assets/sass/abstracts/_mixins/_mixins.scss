@@ -25,14 +25,28 @@
 
 }
 
-@mixin aria-expanded-false-and-true($aria-background-true,$aria-color-true,$aria-background-false,$aria-color-false){
+@mixin aria-expanded-false-and-true($aria-background-true,$aria-color-true,$aria-background-false,$aria-color-false,$border-radius){
 
     [aria-expanded="true"] {
-        @include aria-expanded($aria-background-true, $aria-color-true);
+        background: $aria-background-true;
+        border-radius: $border-radius;
+        color: $aria-color-true;
+
+        a {
+            color: $aria-color-true;
+            font-weight: bold;
+        }
     }
 
     [aria-expanded="false"] {
-        @include aria-expanded($aria-background-false, $aria-color-false);
+        background: $aria-background-false;
+        border-radius: $border-radius;
+        color: $aria-color-false;
+
+        a {
+            color: $aria-color-false;
+            font-weight: bold;
+        }
     }
 
 }

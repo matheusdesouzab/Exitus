@@ -82,64 +82,64 @@
                                     <div class="table-responsive">
 
 
-                                    <table class="table table-borderless table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Nome da turma</th>
-                                                <th scope="col">Total de alunos</th>
-                                                <th scope="col">Vagas da turma</th>
-                                                <th scope="col">Média da turma</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                        <table class="table table-borderless table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Nome da turma</th>
+                                                    <th scope="col">Total de alunos</th>
+                                                    <th scope="col">Vagas da turma</th>
+                                                    <th scope="col">Média da turma</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                            <tr>
-                                                <td>Informática 1 ano A Matutino</td>
-                                                <td>35 alunos</td>
-                                                <td>40 vagas</td>
-                                                <td>
-                                                    <article class="btn nota-vermelha">4,8</article>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Informática 1 ano A Matutino</td>
+                                                    <td>35 alunos</td>
+                                                    <td>40 vagas</td>
+                                                    <td>
+                                                        <article class="btn nota-vermelha">4,8</article>
+                                                    </td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Informática 1 ano A Matutino</td>
-                                                <td>35 alunos</td>
-                                                <td>40 vagas</td>
-                                                <td>
-                                                    <article class="btn nota-verde">6,5</article>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Informática 1 ano A Matutino</td>
+                                                    <td>35 alunos</td>
+                                                    <td>40 vagas</td>
+                                                    <td>
+                                                        <article class="btn nota-verde">6,5</article>
+                                                    </td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Informática 1 ano A Matutino</td>
-                                                <td>35 alunos</td>
-                                                <td>40 vagas</td>
-                                                <td>
-                                                    <article class="btn nota-azul">8,5</article>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Informática 1 ano A Matutino</td>
+                                                    <td>35 alunos</td>
+                                                    <td>40 vagas</td>
+                                                    <td>
+                                                        <article class="btn nota-azul">8,5</article>
+                                                    </td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Informática 1 ano A Matutino</td>
-                                                <td>35 alunos</td>
-                                                <td>40 vagas</td>
-                                                <td>
-                                                    <article class="btn nota-dourada">9,5</article>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Informática 1 ano A Matutino</td>
+                                                    <td>35 alunos</td>
+                                                    <td>40 vagas</td>
+                                                    <td>
+                                                        <article class="btn nota-dourada">9,5</article>
+                                                    </td>
+                                                </tr>
 
-                                            <tr>
-                                                <td>Informática 1 ano A Matutino</td>
-                                                <td>35 alunos</td>
-                                                <td>40 vagas</td>
-                                                <td>
-                                                    <article class="btn nota-azul">7,8</article>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td>Informática 1 ano A Matutino</td>
+                                                    <td>35 alunos</td>
+                                                    <td>40 vagas</td>
+                                                    <td>
+                                                        <article class="btn nota-azul">7,8</article>
+                                                    </td>
+                                                </tr>
 
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
                                     </div>
 
                                     <div class="modal modal-perfil fade" id="perfilTurmaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -158,6 +158,12 @@
                                                         <div class="col-lg-9">
 
                                                             <div class="row accordion" id="accordion-perfil-turma">
+
+                                                                <ul class="list-group horizontal-control-list mx-auto list-group-horizontal">
+                                                                    <li class="list-group-item" id="turma-dados" aria-expanded="true" data-toggle="collapse" data-target="#collapse-perfil-turma-dados"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
+                                                                    <li class="list-group-item" id="turma-disciplinas" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-disciplinas"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
+                                                                    <li class="list-group-item" id="turma-avaliacoes" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-avaliacoes"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Avaliações</a></li>
+                                                                </ul>
 
                                                                 <div class="row">
 
@@ -182,11 +188,11 @@
                                                                                                             <h5>Dados da turma</h5>
                                                                                                         </div>
 
-                                                                                                        <div class="col-lg-6 d-flex justify-content-end">
+                                                                                                        <div class="col-lg-6 col-12 collapse-option">
 
-                                                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-alunos"><span class="mr-2 items-icon"><i class="fas fa-user-friends mr-2"></i> Alunos</span></a>
+                                                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-alunos"><span class="mr-2 items-icon"><i class="fas fa-user-friends"></i> <span class="collapse-option-text">Alunos</span></span></a>
 
-                                                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-professores"><span class="mr-2 items-icon"><i class="fas fa-chalkboard-teacher mr-2"></i> Professores</span></a>
+                                                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-professores"><span class="mr-2 items-icon"><i class="fas fa-chalkboard-teacher"></i> <span class="collapse-option-text">Professores</span></span></a>
 
 
                                                                                                         </div>
@@ -200,7 +206,7 @@
                                                                                                         <div class="col-lg-12">
                                                                                                             <div class="collapse show card" id="collapse-alunos" data-parent="#accordion-turma-dados">
                                                                                                                 <div class="row">
-                                                                                                                    <div class="col-lg-12">
+                                                                                                                    <div class="col-lg-12 table-responsive">
 
                                                                                                                         <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto">
 
@@ -312,7 +318,7 @@
 
                                                                                                             <div class="collapse card" id="collapse-professores" data-parent="#accordion-turma-dados">
                                                                                                                 <div class="row">
-                                                                                                                    <div class="col-lg-12">
+                                                                                                                    <div class="col-lg-12 table-responsive">
                                                                                                                         <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto">
 
                                                                                                                             <thead>
@@ -399,7 +405,7 @@
                                                                                                 <h5>Disciplinas da turma</h5>
                                                                                             </div>
 
-                                                                                            <div class="col-lg-6 d-flex justify-content-end">
+                                                                                            <div class="col-lg-6 col-12 collapse-option">
 
                                                                                                 <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-disciplinas"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 
@@ -417,7 +423,7 @@
                                                                                             <div class="col-lg-12">
                                                                                                 <div class="collapse show card" id="collapse-disciplinas" data-parent="#accordion-turma-disciplinas">
                                                                                                     <div class="row">
-                                                                                                        <div class="col-lg-12">
+                                                                                                        <div class="col-lg-12 table-responsive">
 
                                                                                                             <table class="table table-borderless table-hover">
                                                                                                                 <thead>
@@ -541,7 +547,7 @@
                                                                                                 <h5>Avaliações da turma</h5>
                                                                                             </div>
 
-                                                                                            <div class="col-lg-6 d-flex justify-content-end">
+                                                                                            <div class="col-lg-6 col-12 collapse-option">
 
                                                                                                 <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
@@ -588,7 +594,9 @@
 
                                                                                             </form>
 
-                                                                                            <hr class="col-lg-11 mx-auto">
+                                                                                            <hr class="col-lg-11 mx-auto col-11">
+
+                                                                                            <div class="table-responsive">
 
                                                                                             <table class="table col-lg-11 mx-auto table-borderless table-hover">
                                                                                                 <thead>
@@ -643,6 +651,7 @@
 
                                                                                                 </tbody>
                                                                                             </table>
+                                                                                            </div>
 
                                                                                         </div>
 

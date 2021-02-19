@@ -51,12 +51,21 @@
 
         @include list-group-item;
 
-        @include aria-expanded-false-and-true($branco-padrao, $azul-escuro-fraco, transparent, $branco-padrao);
+        @include aria-expanded-false-and-true($branco-padrao, $azul-escuro-fraco, transparent, $branco-padrao, 10px);
 
     }
 
     .list-group {
         @include list-group(5px, none);
+    }
+
+    .option-list{
+        display: flex;
+        justify-content:flex-end;
+    }
+
+    .horizontal-control-list{
+        display: none;
     }
 
     h5 {
@@ -116,11 +125,6 @@
             display: flex;
             justify-content:center;
         }
-
-        .option-side{
-            display: flex;
-            justify-content:end;
-        }
     }
 
     #collapse-perfil-aluno-opcoes-nota input:disabled {
@@ -159,7 +163,7 @@
 
     .conteudo-lista-disciplinas {
 
-        @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $cinza-escuro);
+        @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $cinza-escuro, 10px);
 
         .icon-unidade {
             border-radius: 30px;
@@ -209,7 +213,7 @@
 
     .unidades {
 
-        @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $preto-claro);
+        @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $preto-claro, 10px);
 
     }
 

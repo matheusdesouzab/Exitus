@@ -222,13 +222,19 @@
                                 </button></div>
                         </div>
 
-                        <div class="modal-body">
+                        <div class="modal-body w-100">
 
                             <div class="row bg-white p-3 d-flex justify-content-around col-lg-11 mx-auto">
 
                                 <div class="col-lg-9">
 
                                     <div class="row accordion" id="accordion-perfil-aluno-opcoes">
+
+                                        <ul class="list-group horizontal-control-list mx-auto list-group-horizontal">
+                                            <li class="list-group-item" data-target="#collapse-perfil-aluno-opcoes-dados" aria-expanded="true" id="dados" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
+                                            <li class="list-group-item" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-nota"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
+                                            <li class="list-group-item" id="boletim" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-boletim"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Boletim</a></li>
+                                        </ul>
 
                                         <div class="row">
 
@@ -238,14 +244,13 @@
 
                                                     <div class="col-lg-12 collapse show overflow-auto p-3 container-accordion" id="collapse-perfil-aluno-opcoes-dados" aria-labelledby="dados" data-parent="#accordion-perfil-aluno-opcoes" style="border-radius: 15px">
 
-
                                                         <div class="row">
 
                                                             <div class="col-lg-2">
 
                                                                 <div class="row">
 
-                                                                    <div class="col-lg-12 mx-auto col-8 mt-4 "><img class="border-img-golden" src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
+                                                                    <div class="col-lg-12 mt-4"><img class="border-img-golden" src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
 
                                                                 </div>
 
@@ -255,7 +260,7 @@
 
                                                                 <div class="row">
 
-                                                                    <div class="col-lg-12 option-side">
+                                                                    <div class="option-list col-lg-12">
 
                                                                         <span class="mr-2 editar-dados-icon"><i class="text-center fas fa-edit"></i></span>
                                                                         <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
@@ -272,7 +277,7 @@
 
                                                                             <h5 class="mt-3 mb-3 ml-2">Dados pessoais:</h5>
 
-                                                                            <div class="input-group d-flex col-lg-12 flex-nowrap">
+                                                                            <div class="input-group d-flex col-12 col-lg-12 flex-nowrap">
                                                                                 <div class="input-group-prepend">
                                                                                     <span class="input-group-text" id="addon-wrapping">Nome:</span>
                                                                                 </div>
@@ -418,43 +423,43 @@
 
                                                                             <div class="col-lg-12">
 
-                                                                            <div class="row">
+                                                                                <div class="row">
 
-                                                                            <div class="card col-5 col-lg-12 card-hover bg-white mb-3">
+                                                                                    <div class="card col-lg-12 card-hover bg-white mb-3">
 
-                                                                                <div class="card-body">
-                                                                                    <h5 class="card-title">Comportamento Infantil</h5>
-                                                                                    <p class="card-text">Aluno xingou seus colegas com palavras de baixo calão.</p>
+                                                                                        <div class="card-body">
+                                                                                            <h5 class="card-title">Comportamento Infantil</h5>
+                                                                                            <p class="card-text">Aluno xingou seus colegas com palavras de baixo calão.</p>
 
-                                                                                    <p><b>Professor(a):</b> Magno Lima</p>
-                                                                                    <p><b>Disciplina:</b> Mátematica</p>
-                                                                                    <p><b>Unidade:</b> 1</p>
-                                                                                    <p><b>Data do ocorrido:</b> 31/08</p>
+                                                                                            <p><b>Professor(a):</b> Magno Lima</p>
+                                                                                            <p><b>Disciplina:</b> Mátematica</p>
+                                                                                            <p><b>Unidade:</b> 1</p>
+                                                                                            <p><b>Data do ocorrido:</b> 31/08</p>
 
-                                                                                </div>
+                                                                                        </div>
 
 
-                                                                            </div>
-
-                                                                            </div>
-
-                                                                            <div class="row">
-
-                                                                            <div class="card col-5 col-lg-12 bg-white  mt-3 mb-3">
-                                                                                <div class="card-body">
-                                                                                    <h5 class="card-title">Gazeamento</h5>
-                                                                                    <p class="card-text">Aluno saio para jogar bola</p>
-
-                                                                                    <p><b>Professor(a):</b> Tássio Silva</p>
-                                                                                    <p><b>Disciplina:</b> Biologia</p>
-                                                                                    <p><b>Unidade:</b> 1</p>
-                                                                                    <p><b>Data do ocorrido:</b> 11/10</p>
+                                                                                    </div>
 
                                                                                 </div>
 
-                                                                            </div>
+                                                                                <div class="row">
 
-                                                                            </div>
+                                                                                    <div class="card col-lg-12 bg-white  mt-3 mb-3">
+                                                                                        <div class="card-body">
+                                                                                            <h5 class="card-title">Gazeamento</h5>
+                                                                                            <p class="card-text">Aluno saio para jogar bola</p>
+
+                                                                                            <p><b>Professor(a):</b> Tássio Silva</p>
+                                                                                            <p><b>Disciplina:</b> Biologia</p>
+                                                                                            <p><b>Unidade:</b> 1</p>
+                                                                                            <p><b>Data do ocorrido:</b> 11/10</p>
+
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                </div>
 
                                                                             </div>
 
@@ -472,213 +477,209 @@
 
 
 
-                                                    <div class="col-lg-12 collapse container-accordion  overflow-auto" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
-
-                                                        <div class="accordion" id="accordion-turma-avaliacoes">
-                                                            <div class="col-lg-12 mb-4 mt-3">
-                                                                <div class="row d-flex align-items-center">
-                                                                    <div class="col-lg-6">
-                                                                        <h5>Avaliações por disciplinas</h5>
-                                                                    </div>
-
-                                                                    <div class="col-lg-6 d-flex justify-content-end">
-
-                                                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
-
-                                                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                                    <div class="col-lg-12 collapse overflow-auto p-3 container-accordion" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
 
 
 
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        <div class="col-lg-12 accordion" id="accordion-avaliacoes">
 
-                                                            <div class="col-lg-12">
+                                                            <div class="row">
 
-                                                                <div class="collapse show card" id="collapse-lista-avaliacoes" data-parent="#accordion-turma-avaliacoes">
-
-                                                                    <form class="mt-3 col-lg-11 mx-auto  text-dark" action="">
-
-                                                                        <div class="form-row mt-3">
-
-                                                                            <div class="form-group col-lg-6">
-                                                                                <label for="">Nome da avaliacão:</label>
-                                                                                <input type="text" placeholder="Nome da avaliação" class="form-control">
-                                                                            </div>
-
-                                                                            <div class="form-group col-lg-3">
-                                                                                <label for="inputState">Disciplina:</label>
-                                                                                <select id="inputState" class="form-control custom-select" required>
-                                                                                    <option>Matemática</option>
-                                                                                    <option>Ensino Médio</option>
-                                                                                    <option>Técnico</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="form-group col-lg-3">
-                                                                                <label for="inputState">UE referente:</label>
-                                                                                <select id="inputState" class="form-control custom-select" required>
-                                                                                    <option>1</option>
-                                                                                    <option>2</option>
-                                                                                    <option>3</option>
-                                                                                </select>
-                                                                            </div>
-
+                                                                <div class="col-lg-12 mb-3">
+                                                                    <div class="row d-flex align-items-center">
+                                                                        <div class="col-lg-6">
+                                                                            <h5>Avaliações</h5>
                                                                         </div>
 
-                                                                    </form>
+                                                                        <div class="col-lg-6 d-flex collapse-option justify-content-end">
 
-                                                                    <hr class="col-lg-11 mx-auto">
+                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
-                                                                    <table class="table col-lg-11 mx-auto table-borderless table-hover">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">Id</th>
-                                                                                <th scope="col">Avaliação</th>
-                                                                                <th scope="col">UE</th>
-                                                                                <th scope="col">Disciplina</th>
-                                                                                <th scope="col">Data</th>
-                                                                                <th scope="col">Valor</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-
-                                                                            <tr>
-                                                                                <td>1</td>
-                                                                                <td>Prova em dupla</td>
-                                                                                <td>1</td>
-                                                                                
-                                                                                <td>Matemática</td>
-                                                                                <td>20/12/2001</td>
-                                                                                <td>4,0</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>1</td>
-                                                                                <td>Prova em dupla</td>
-                                                                                <td>1</td>
-                                                                                
-                                                                                <td>Matemática</td>
-                                                                                <td>20/12/2001</td>
-                                                                                <td>4,0</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>1</td>
-                                                                                <td>Prova em dupla</td>
-                                                                                <td>1</td>
-                                                                                
-                                                                                <td>Matemática</td>
-                                                                                <td>20/12/2001</td>
-                                                                                <td>4,0</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>1</td>
-                                                                                <td>Prova em dupla</td>
-                                                                                <td>1</td>
-                                                                                
-                                                                                <td>Matemática</td>
-                                                                                <td>20/12/2001</td>
-                                                                                <td>4,0</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>1</td>
-                                                                                <td>Prova em dupla</td>
-                                                                                <td>1</td>
-                                                                                
-                                                                                <td>Matemática</td>
-                                                                                <td>20/12/2001</td>
-                                                                                <td>4,0</td>
-                                                                            </tr>
-
-                                                                            
-
-
-                                                                        </tbody>
-                                                                    </table>
-
-                                                                </div>
-
-
-
-                                                                <div class="collapse card" id="collapse-adicionar-avaliacoes" data-parent="#accordion-turma-avaliacoes">
-
-                                                                    <form class="col-lg-12" action="">
-
-                                                                        <div class="form-row mt-3">
-
-                                                                
-
-                                                                            <div class="form-group col-lg-3">
-                                                                                <label for="">Disciplina:</label>
-
-                                                                                <select id="inputState" class="form-control custom-select" required>
-                                                                                    <option>Matemática</option>
-                                                                                    <option>Meickson</option>
-                                                                                    <option>Tassio</option>
-                                                                                    <option>Carlos</option>
-                                                                                </select>
-
-                                                                            </div>
-
-                                                                            <div class="form-group col-lg-4">
-                                                                                <label for="">Avaliação:</label>
-
-                                                                                <select id="inputState" class="form-control custom-select" required>
-                                                                                    <option>5 - Avaliação em equipe</option>
-                                                                                    <option>Biologia</option>
-                                                                                    <option>Português</option>
-                                                                                    <option>Filosofia</option>
-                                                                                </select>
-
-                                                                            </div>
-
-                                                                            <div class="form-group col-lg-2">
-                                                                                <label for="">Valor:</label>
-
-                                                                                <input class="form-control" type="text">
-                                                                            </div>
-
-                                                                             
-                                                                            <div class="form-group col-lg-3">
-                                                                                <label for="">&nbsp;</label>
-                                                                                <a class="btn btn-success w-100" href="">Adicionar nota</a>
-                                                                            </div>
-
+                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                                                                         </div>
+                                                                    </div>
+                                                                </div>
 
-                                                                        
+                                                                <div class="col-lg-12">
+
+                                                                    <div class="collapse show card" id="collapse-lista-avaliacoes" data-parent="#accordion-avaliacoes">
+
+                                                                        <form class="mt-3 col-lg-11 mx-auto  text-dark" action="">
+
+                                                                            <div class="form-row mt-3">
+
+                                                                                <div class="form-group col-lg-6">
+                                                                                    <label for="">Nome da avaliacão:</label>
+                                                                                    <input type="text" placeholder="Nome da avaliação" class="form-control">
+                                                                                </div>
+
+                                                                                <div class="form-group col-lg-3">
+                                                                                    <label for="inputState">Disciplina:</label>
+                                                                                    <select id="inputState" class="form-control custom-select" required>
+                                                                                        <option>Matemática</option>
+                                                                                        <option>Ensino Médio</option>
+                                                                                        <option>Técnico</option>
+                                                                                    </select>
+                                                                                </div>
+
+                                                                                <div class="form-group col-lg-3">
+                                                                                    <label for="inputState">UE referente:</label>
+                                                                                    <select id="inputState" class="form-control custom-select" required>
+                                                                                        <option>1</option>
+                                                                                        <option>2</option>
+                                                                                        <option>3</option>
+                                                                                    </select>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                        </form>
+
+                                                                        <hr class="col-lg-11 mx-auto">
+
+                                                                        <div class="table-responsive">
+
+                                                                            <table class="table col-lg-11 mx-auto table-borderless table-hover">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th scope="col">Id</th>
+                                                                                        <th scope="col">Avaliação</th>
+                                                                                        <th scope="col">UE</th>
+                                                                                        <th scope="col">Disciplina</th>
+                                                                                        <th scope="col">Data</th>
+                                                                                        <th scope="col">Valor</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Prova em dupla</td>
+                                                                                        <td>1</td>
+
+                                                                                        <td>Matemática</td>
+                                                                                        <td>20/12/2001</td>
+                                                                                        <td>4,0</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Prova em dupla</td>
+                                                                                        <td>1</td>
+
+                                                                                        <td>Matemática</td>
+                                                                                        <td>20/12/2001</td>
+                                                                                        <td>4,0</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Prova em dupla</td>
+                                                                                        <td>1</td>
+
+                                                                                        <td>Matemática</td>
+                                                                                        <td>20/12/2001</td>
+                                                                                        <td>4,0</td>
+                                                                                    </tr>
+
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>Prova em dupla</td>
+                                                                                        <td>1</td>
+
+                                                                                        <td>Matemática</td>
+                                                                                        <td>20/12/2001</td>
+                                                                                        <td>4,0</td>
+                                                                                    </tr>
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
+
+                                                                    </div>
 
 
 
-                                                                        <!-- <div class="form-group col-lg-3">
-                                                                                                        <label for="">&nbsp;</label>
-                                                                                                        <a class="btn btn-success w-100" href="">Adicionar disciplina</a>
-                                                                                                    </div> -->
+                                                                    <div class="collapse card" id="collapse-adicionar-avaliacoes" data-parent="#accordion-avaliacoes">
 
+                                                                        <form class="col-lg-12" action="">
 
+                                                                            <div class="form-row mt-3">
 
+                                                                                <div class="form-group col-lg-6">
+                                                                                    <label for="">Nome da avaliação:</label>
 
-                                                                    </form>
+                                                                                    <input class="form-control" type="text">
+
+                                                                                </div>
+
+                                                                                <div class="form-group col-lg-3">
+                                                                                    <label for="">Disciplina:</label>
+
+                                                                                    <select id="inputState" class="form-control custom-select" required>
+                                                                                        <option>Ana Silva</option>
+                                                                                        <option>Meickson</option>
+                                                                                        <option>Tassio</option>
+                                                                                        <option>Carlos</option>
+                                                                                    </select>
+
+                                                                                </div>
+
+                                                                                <div class="form-group col-lg-3">
+                                                                                    <label for="">Unidade:</label>
+
+                                                                                    <select id="inputState" class="form-control custom-select" required>
+                                                                                        <option>Matemática</option>
+                                                                                        <option>Biologia</option>
+                                                                                        <option>Português</option>
+                                                                                        <option>Filosofia</option>
+                                                                                    </select>
+
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                            <div class="form-row">
+                                                                                <div class="form-group col-lg-2">
+                                                                                    <label for="">Valor:</label>
+
+                                                                                    <input class="form-control" type="text">
+                                                                                </div>
+                                                                                <div class="form-group col-lg-3">
+                                                                                    <label for="">&nbsp;</label>
+                                                                                    <a class="btn btn-success w-100" href="">Adicionar disciplina</a>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                        </form>
+
+                                                                    </div>
 
                                                                 </div>
 
+
+
                                                             </div>
+
+
 
                                                         </div>
 
+
                                                     </div>
 
-                                                    <div class="col-lg-12 container-accordion collapse overflow-auto" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#accordion-perfil-aluno-opcoes">
+
+                                                    <div class="col-lg-12 collapse container-accordion overflow-auto" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#accordion-perfil-aluno-opcoes">
 
                                                         <div class="row">
 
                                                             <div class="col-lg-12">
-                                                                <div class="row">
-                                                                    <div class="col-lg-6">
-                                                                        <h5 class="mt-3 mb-3">Boletim do aluno</h5>
+                                                                <div class="row mt-3">
+                                                                    <div class="col-lg-6 col-8">
+                                                                        <h5 class="">Boletim do aluno</h5>
                                                                     </div>
-                                                                    <div class="col-lg-6 mt-3 text-right"><span class="imprimir-boletim"><i class="fas fa-print"></i></span></div>
+                                                                    <div class="col-lg-6 col-4 mt-3 text-right"><span class="imprimir-boletim"><i class="fas fa-print"></i></span></div>
 
                                                                 </div>
                                                             </div>
@@ -698,7 +699,7 @@
 
                                                             <div class="col-lg-12 mt-3">
 
-                                                                <div class="row">
+                                                                <div class="row table-responsive">
 
                                                                     <table class="table table-striped table-bordered mt-3">
 
@@ -852,21 +853,12 @@
 
                                                             </div>
 
-
-
-
-
-
-
                                                         </div>
-
-
-
 
                                                     </div>
 
 
-                                                    <div class="col-lg-12 border border-dark collapse overflow-auto" id="modalThree" aria-labelledby="mais" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse overflow-auto" id="modalThree" aria-labelledby="mais" data-parent="#accordion-perfil-aluno-opcoes">
                                                         <h5>Mais</h5>
                                                     </div>
 

@@ -192,6 +192,7 @@ input:disabled, select:disabled {
   border: none;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
   background-color: #ffffff;
+  border: 1px solid #e5e5e5;
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -326,6 +327,13 @@ input:disabled, select:disabled {
   border: none;
   cursor: pointer;
 }
+.modal-perfil .option-list {
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-perfil .horizontal-control-list {
+  display: none;
+}
 .modal-perfil h5 {
   font-size: 17px;
 }
@@ -370,10 +378,6 @@ input:disabled, select:disabled {
 .modal-perfil #collapse-perfil-aluno-opcoes-dados img {
   display: flex;
   justify-content: center;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-dados .option-side {
-  display: flex;
-  justify-content: end;
 }
 .modal-perfil #collapse-perfil-aluno-opcoes-nota input:disabled {
   background-color: #ffffff;
@@ -642,7 +646,7 @@ input:disabled, select:disabled {
 #pagina .container-pai {
   margin-top: 80px;
 }
-#pagina .justify-content-end [aria-expanded=true] .items-icon {
+#pagina .collapse-option [aria-expanded=true] .items-icon {
   background: #273469;
   color: white;
 }
@@ -743,6 +747,10 @@ input:disabled, select:disabled {
 #pagina .container-accordion::-webkit-scrollbar {
   width: 0;
   background: transparent;
+}
+#pagina .collapse-option {
+  display: flex;
+  justify-content: flex-end;
 }
 
 #aluno-lista #heading-busca-avancada .btn:focus {
@@ -851,9 +859,13 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   }
   #pagina .collapse-option {
     margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
   }
   #pagina .collapse-option span {
     font-size: 3vw;
+    padding: 10px;
   }
   #pagina h5 {
     font-size: 5vw;
@@ -864,20 +876,99 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   #pagina .assistente-etapas-sessao .assistente-etapas p {
     font-size: 2.5vw;
   }
+  #pagina .modal-perfil .collapse-option .fa-user-friends, #pagina .modal-perfil .collapse-option .fa-chalkboard-teacher, #pagina .modal-perfil .collapse-option .fa-boxes, #pagina .modal-perfil .collapse-option .fa-plus-circle {
+    display: none;
+  }
+  #pagina .modal-perfil h5 {
+    font-size: 4vw;
+  }
+  #pagina .modal-perfil .input-group-text,
+#pagina .modal-perfil input {
+    font-size: 3vw;
+  }
+  #pagina .modal-perfil .horizontal-control-list {
+    background-color: #e5e5e5;
+    margin: 10px;
+    display: flex;
+  }
+  #pagina .modal-perfil .horizontal-control-list .list-group-item {
+    border: 0px;
+    padding: 10px;
+  }
+  #pagina .modal-perfil .horizontal-control-list a {
+    font-size: 2vw;
+  }
+  #pagina .modal-perfil .horizontal-control-list [aria-expanded=true] {
+    background: #325EDE;
+    border-radius: 5px;
+    color: #ffffff;
+  }
+  #pagina .modal-perfil .horizontal-control-list [aria-expanded=true] a {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  #pagina .modal-perfil .horizontal-control-list [aria-expanded=false] {
+    background: #e5e5e5;
+    border-radius: 5px;
+    color: #283339;
+  }
+  #pagina .modal-perfil .horizontal-control-list [aria-expanded=false] a {
+    color: #283339;
+    font-weight: bold;
+  }
+  #pagina .modal-perfil .container-accordion {
+    overflow: auto;
+    height: 520px;
+    width: 80vw;
+    margin: auto;
+  }
   #pagina .modal-perfil .modal-content {
-    width: 98%;
+    width: 97%;
     margin: auto;
     margin-top: 10px;
     height: 100%;
+    overflow: auto;
+  }
+  #pagina .modal-perfil .modal-content #collapse-alunos table, #pagina .modal-perfil .modal-content #collapse-professores table, #pagina .modal-perfil .modal-content #collapse-disciplinas table {
+    width: 500px;
+  }
+  #pagina .modal-perfil .modal-content #collapse-alunos table img, #pagina .modal-perfil .modal-content #collapse-professores table img, #pagina .modal-perfil .modal-content #collapse-disciplinas table img {
+    width: 35px;
+  }
+  #pagina .modal-perfil .modal-content #collapse-alunos table th,
+#pagina .modal-perfil .modal-content #collapse-alunos table td, #pagina .modal-perfil .modal-content #collapse-professores table th,
+#pagina .modal-perfil .modal-content #collapse-professores table td, #pagina .modal-perfil .modal-content #collapse-disciplinas table th,
+#pagina .modal-perfil .modal-content #collapse-disciplinas table td {
+    line-height: 35px;
+    font-size: 2.5vw;
+  }
+  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-dados img {
+    margin: auto;
+  }
+  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-dados .card {
+    font-size: 3vw;
+  }
+  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota table {
+    width: 500px;
+  }
+  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota table td,
+#pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota table th {
+    font-size: 2.5vw;
+  }
+  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota .collapse-option {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota .collapse-option span {
+    padding: 10px;
   }
   #pagina .modal-perfil .modal-content .controle-opcoes {
     display: none;
   }
-  #pagina .modal-perfil .modal-content .option-side {
+  #pagina .modal-perfil .modal-content .option-list {
+    display: flex;
+    justify-content: flex-end;
     margin: 15px 0px 15px 0px;
-  }
-  #pagina .modal-perfil .modal-content .input-group {
-    width: 70vw;
   }
 }
 
