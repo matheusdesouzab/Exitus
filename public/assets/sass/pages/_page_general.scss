@@ -6,14 +6,20 @@
 
     .collapse-option [aria-expanded="true"] .items-icon {
 
-        background: $azul-escuro-fraco;
-        color: white;
+        background: $color-smooth-blue;
+        color: $color-white;
 
+    }
+    
+    .items-icon {
+        @include icon-card($color-dark-gray, $color-smooth-blue, $color-white);
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .lista-grupo {
 
-        background-color: #273469;
+        background-color: $color-smooth-blue;
 
         &::-webkit-scrollbar {
             width: 0;
@@ -21,8 +27,8 @@
         }
 
         a.active {
-            background: $branco-padrao;
-            color: $azul-escuro;
+            background: $color-white;
+            color: $color-dark-blue;
         }
 
         .list-group-item {
@@ -31,13 +37,13 @@
             border: 0px;
             font-weight: bold;
             font-size: 13.5px;
-            color: white;
+            color: $color-white;
             border-radius: 10px;
             background-color: transparent;
 
             &:hover {
-                background: $branco-padrao;
-                color: $azul-escuro;
+                background: $color-white;
+                color: $color-dark-blue;
             }
         }
 
@@ -55,18 +61,18 @@
             z-index: 1000;
             font-size: 2.3vh;
             font-weight: 500;
-            color: $azul-escuro;
+            color: $color-dark-blue;
         }
 
         .btn-primary {
-            background-color: $azul-escuro;
+            background-color: $color-dark-blue;
         }
 
     }
 
     .linha-conexao {
         @include linha-conexao(70%);
-        background-image: linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50%);
+        background-image: linear-gradient(to left, $color-smooth-gray 50%, $color-smooth-gray 50%);
     }
 
     .assistente-etapas-row {
@@ -80,13 +86,13 @@
     }
 
     .assistente-etapas a.collapsed {
-        color: black;
-        background-color: $azul-extra-claro;
+        color: $color-black;
+        background-color: $color-extra-light-blue;
     }
 
     :disabled {
-        background-color: $branco-padrao;
-        border: 1px solid $cinza-claro;
+        background-color: $color-white;
+        border: 1px solid $color-smooth-gray;
 
     }
 
@@ -99,19 +105,19 @@
     }
 
     .border-img-red {
-        @include border-img($vermelho-padrao, 3px);
+        @include border-img($color-red, 5px);
     }
 
     .border-img-green {
-        @include border-img($verde-padrao, 3px);
+        @include border-img($color-green, 5px);
     }
 
     .border-img-blue {
-        @include border-img($azul-padrao, 3px);
+        @include border-img($color-blue, 5px);
     }
 
     .border-img-golden {
-        @include border-img($golden, 3px);
+        @include border-img($color-golden, 5px);
     }
 
     .container-accordion{

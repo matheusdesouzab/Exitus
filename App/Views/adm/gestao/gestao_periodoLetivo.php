@@ -39,9 +39,9 @@
 
                                                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                                                    <span class="mr-2 editar-dados-icon"><i class="fas fa-edit"></i></span>
-                                                    <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
-                                                    <span class="mr-2 apagar-dados-icon"><i class="fas fa-ban"></i></span>
+                                                <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                    <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
                                                 </div>
 
@@ -76,9 +76,9 @@
 
                                                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                                                    <span class="mr-2 editar-dados-icon"><i class="fas fa-edit"></i></span>
-                                                    <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
-                                                    <span class="mr-2 apagar-dados-icon"><i class="fas fa-ban"></i></span>
+                                                <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                    <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
                                                 </div>
 
@@ -113,9 +113,9 @@
 
                                                 <div class="col-lg-4 d-flex  justify-content-end mt-2">
 
-                                                    <span class="mr-2 editar-dados-icon"><i class="fas fa-edit"></i></span>
-                                                    <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
-                                                    <span class="mr-2 apagar-dados-icon"><i class="fas fa-ban"></i></span>
+                                                <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                    <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
                                                 </div>
 

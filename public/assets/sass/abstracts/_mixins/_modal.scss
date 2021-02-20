@@ -5,7 +5,7 @@
     justify-content: space-around;
 }
 
-@mixin model-content($background,$border-radius) {
+@mixin modal-content($background,$border-radius) {
 
     .modal-content {
         border: none;

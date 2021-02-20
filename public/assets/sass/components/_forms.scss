@@ -1,11 +1,11 @@
 #pagina {
 
     .was-validated .form-control:valid {
-        border: 1px solid $verde-padrao;
+        border: 1px solid $color-green;
     }
 
     .was-validated .form-control:invalid {
-        border: 1.5px solid $vermelho-extra-claro;
+        border: 1.5px solid $color-extra-light-red
     }
 
 }

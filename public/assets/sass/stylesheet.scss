@@ -1,7 +1,7 @@
 
 // Abstracts
 
-@import 'abstracts/variables';
+@import 'abstracts/colors';
 
 @import 'abstracts/base';
 
@@ -14,6 +14,8 @@
 @import 'abstracts/_mixins/card';
 
 @import 'abstracts/_mixins/modal';
+
+@import 'abstracts/_mixins/notes';
 
 // Core
 
@@ -30,6 +32,8 @@
 @import 'components/modals';
 
 @import 'components/forms';
+
+@import 'components/icons';
 
 // Layout
 

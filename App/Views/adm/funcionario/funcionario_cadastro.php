@@ -16,11 +16,11 @@
                         <div class="assistente-etapas-row assistente-etapas-painel">
                             <div class="linha-conexao"></div>
                             <div class="assistente-etapas" id="headingOne">
-                                <a type="button" class="btn button-circle" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
+                                <a type="button" class="btn round-button" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
                                 <p>Dados pessoais</p>
                             </div>
                             <div class="assistente-etapas" id="headingTwo">
-                                <a type="button" class="btn button-circle collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
                                 <p>Endereço e contato</p>
                             </div>
                             

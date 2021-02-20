@@ -2,6 +2,10 @@
 
     body {
 
+        #painel-left{
+            z-index: 120000000;
+        }
+
         font-size: 2vh;
         width: 100%;
 
@@ -15,11 +19,15 @@
 
             #painel-left>.side-bar {
 
+                li:nth-child(2) {
+                    display: block;
+                }
+
                 width: 50%;
                 margin-left: -50vw;
 
                 .bars-xs {
-                    color: white;
+                    color: $color-white;
                 }
 
                 img {
@@ -45,7 +53,7 @@
                 }
 
                 .collapse li {
-                    border-left: 5px solid white;
+                    border-left: 5px solid $color-white;
                 }
             }
         }
@@ -66,6 +74,10 @@
         }
 
         .navbar-toggler {
+            display: none;
+        }
+
+        .navbar-nav{
             display: none;
         }
     }
@@ -109,9 +121,12 @@
 
         .modal-perfil {
 
-            .collapse-option{
-                
-                .fa-user-friends,.fa-chalkboard-teacher,.fa-boxes,.fa-plus-circle{
+            .collapse-option {
+
+                .fa-user-friends,
+                .fa-chalkboard-teacher,
+                .fa-boxes,
+                .fa-plus-circle {
                     display: none;
                 }
             }
@@ -127,7 +142,7 @@
 
             .horizontal-control-list {
 
-                background-color: $cinza-claro;
+                background-color: $color-smooth-gray;
                 margin: 10px;
                 display: flex;
 
@@ -140,7 +155,7 @@
                     font-size: 2vw;
                 }
 
-                @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $preto-claro, 5px);
+                @include aria-expanded-false-and-true($color-blue, $color-white, $color-smooth-gray, $color-black, 5px);
 
             }
 
@@ -158,7 +173,9 @@
                 height: 100%;
                 overflow: auto;
 
-                #collapse-alunos,#collapse-professores,#collapse-disciplinas {
+                #collapse-alunos,
+                #collapse-professores,
+                #collapse-disciplinas {
 
                     table {
                         width: 500px;

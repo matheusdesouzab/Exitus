@@ -52,7 +52,7 @@
 
                                 <div class="form-row mx-auto">
 
-                                    <div class="form-group col-6 col-lg-2">
+                                    <div class="form-group col-12 col-lg-2">
                                         <label for="">Curso:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">Todos</option>
@@ -63,7 +63,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-6 col-lg-2">
+                                    <div class="form-group col-12 col-lg-2">
                                         <label for="">Sexo:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">Todos</option>
@@ -73,7 +73,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-6 col-lg-2">
+                                    <div class="form-group col-12 col-lg-2">
                                         <label for="">Periodo Letivo:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">2021</option>
@@ -82,7 +82,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-6 col-lg-2">
+                                    <div class="form-group col-12 col-lg-2">
                                         <label for="">Turno:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">Todos</option>
@@ -92,7 +92,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-6 col-lg-2">
+                                    <div class="form-group col-12 col-lg-2">
                                         <label for="">Série:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">Todas</option>
@@ -107,7 +107,7 @@
                         </div>
                     </form>
 
-                    <hr class="col-lg-10 mx-auto">
+                    <hr class="col-lg-10 col-10 mx-auto">
 
                     <div class="table-responsive">
                         <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto">
@@ -216,15 +216,15 @@
             <div class="modal fade modal-perfil" id="perfilAlunoModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content p-2">
-                        <div class="row" style="margin-left: -50px !important;">
+                        <div class="row">
                             <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
                                 </button></div>
                         </div>
 
                         <div class="modal-body w-100">
 
-                            <div class="row bg-white p-3 d-flex justify-content-around col-lg-11 mx-auto">
+                            <div class="row p-3 d-flex justify-content-around col-lg-11 mx-auto">
 
                                 <div class="col-lg-9">
 
@@ -232,7 +232,7 @@
 
                                         <ul class="list-group horizontal-control-list mx-auto list-group-horizontal">
                                             <li class="list-group-item" data-target="#collapse-perfil-aluno-opcoes-dados" aria-expanded="true" id="dados" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
-                                            <li class="list-group-item" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-nota"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
+                                            <li class="list-group-item" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-avaliacoes"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
                                             <li class="list-group-item" id="boletim" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-boletim"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Boletim</a></li>
                                         </ul>
 
@@ -262,8 +262,8 @@
 
                                                                     <div class="option-list col-lg-12">
 
-                                                                        <span class="mr-2 editar-dados-icon"><i class="text-center fas fa-edit"></i></span>
-                                                                        <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
+                                                                        <span class="mr-2 edit-data-icon"><i class="text-center fas fa-edit"></i></span>
+                                                                        <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
                                                                     </div>
 
@@ -477,7 +477,7 @@
 
 
 
-                                                    <div class="col-lg-12 collapse overflow-auto p-3 container-accordion" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse overflow-auto p-3 container-accordion" id="collapse-perfil-aluno-opcoes-avaliacoes" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
 
 
 
@@ -491,7 +491,7 @@
                                                                             <h5>Avaliações</h5>
                                                                         </div>
 
-                                                                        <div class="col-lg-6 d-flex collapse-option justify-content-end">
+                                                                        <div class="col-lg-6 d-flex collapse-option mb-3 justify-content-end">
 
                                                                             <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
@@ -670,7 +670,7 @@
                                                     </div>
 
 
-                                                    <div class="col-lg-12 collapse container-accordion overflow-auto" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse  container-accordion overflow-auto" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#accordion-perfil-aluno-opcoes">
 
                                                         <div class="row">
 
@@ -697,7 +697,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-lg-12 mt-3">
+                                                            <div class="col-lg-12 card mt-3">
 
                                                                 <div class="row table-responsive">
 
@@ -877,7 +877,7 @@
 
                                         <li class="list-group-item border-0" data-target="#collapse-perfil-aluno-opcoes-dados" aria-expanded="true" id="dados" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
 
-                                        <li class="list-group-item border-0" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-nota"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
+                                        <li class="list-group-item border-0" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-avaliacoes"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
 
                                         <li class="list-group-item border-0" id="boletim" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-boletim"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Boletim</a></li>
 

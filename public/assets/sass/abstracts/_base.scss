@@ -7,12 +7,12 @@
 html,
 body {
     height: 100%;   
-    color: $azul-escuro;  
+    color: $color-dark-blue;  
     transition: 0.6s; 
 }
 
 html > body {
-    background-color: $cinza-extra-claro;
+    background-color: $color-extra-light-gray;
 }
 
 a {
@@ -24,14 +24,14 @@ li {
 }
 
 h5 {
-    color: $azul-escuro;
+    color: $color-dark-blue;
     font-family: Bold;
 }
 
 label{
     font-size: 15px;
     font-weight: bold;
-    color: $preto-claro;
+    color: $color-black;
 }
 
 input,select{
@@ -41,12 +41,12 @@ input,select{
 table{
 
     th{
-        color: $azul-escuro;
+        color: $color-dark-blue;
     }
 
     td {
         line-height: 30px;
-        color: $preto-claro;
+        color: $color-black;
         font-size: 14px;
         font-weight: 500;
     }

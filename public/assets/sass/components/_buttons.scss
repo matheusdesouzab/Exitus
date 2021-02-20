@@ -1,20 +1,15 @@
 #pagina {
 
-    .button-circle {
+    .round-button {
         width: 30px;
         height: 30px;
         text-align: center;
         padding: 7px;
         font-size: 12px;
         border-radius: 15px;
-        background-color: blue;
+        background-color: $color-blue;
         z-index: 2;
-        color: white;
-    }
-
-    .btn-success {
-        background: $verde-padrao;
-        border: none;
+        color: $color-white;
     }
 
 }

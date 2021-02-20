@@ -3,7 +3,7 @@
     <ul class="side-bar">
 
         <div class="logo"><img src="/assets/img/logo-completo.png" alt=""></div>
-        <li class="link-collapse"><a class="bars-xs" href="#"><i class="fas fa-chevron-circle-left mr-2"></i> <span>Retorna</span></a></li>
+        <li class="link-collapse link-return"><a class="bars-xs" href="#"><i class="fas fa-chevron-circle-left mr-2"></i> <span>Retorna</span></a></li>
         <li class="link-collapse"><a href="/home"><i class="fas fa-home mr-2"></i> <span>Home</span></a></li>
 
         <h5>GESTÃO</h5>

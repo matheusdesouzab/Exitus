@@ -2,22 +2,26 @@
 
 #painel-left {
 
-    transition: 1s;
+    transition: 1s width;
     width: 100%;
     z-index: 2;
 
     li {
 
-        @include side-bar-li(10px, left, 40px, transparet, $azul-escuro-fraco, none);
+        @include side-bar-li(10px, left, 40px, transparet, $color-smooth-blue, none);
 
         a {
-            @include side-bar-a(12, $branco-padrao, 0);
+            @include side-bar-a(12, $color-white, 0);
         }
 
     }
 
+    .link-return{
+        display: none;
+    }
+
     h5 {
-        color: $branco-padrao;
+        color: $color-white;
         text-align: left;
         padding-left: 40px;
         font-size: 13px;
@@ -25,7 +29,7 @@
     }
 
     .link-collapse:hover {
-        background-color: $azul-escuro-fraco;
+        background-color: $color-smooth-blue;
         border-left: 0px;
     }
 
@@ -33,7 +37,7 @@
 
         border-left: 20px solid #FAFAFF;
 
-        @include side-bar-li(10px, left, 40px, $azul-escuro-fraco, #30343F, 20px solid #FAFAFF);
+        @include side-bar-li(10px, left, 40px, $color-smooth-blue, $color-black, 20px solid $color-extra-light-blue);
 
         a{
             padding: 10px;
@@ -65,7 +69,7 @@
         }
 
         li {
-            @include side-bar-li(10px, center, 70px, transparet, $azul-escuro, none);
+            @include side-bar-li(10px, center, 70px, transparet, $color-dark-blue, none);
         }
 
         h5 {
@@ -77,7 +81,7 @@
         }
 
         .link-collapse a {
-            @include side-bar-a(15, $branco-padrao, 10px);
+            @include side-bar-a(15, $color-white, 10px);
         }
 
         .collapse {

@@ -1,6 +1,6 @@
 #navbar-top{
     
-    background-color: $branco-padrao;
+    background-color: $color-white;
     transition: 0.7s;
     z-index: 1;
 
@@ -9,7 +9,7 @@
     }
 
     .fa-bars{
-        color:black;
+        color:$color-black;
     }
 
     a.bars-xs{
@@ -26,7 +26,7 @@
     }
 
     #navbarDropdown{
-        color:$cinza-escuro;
+        color:$color-dark-gray;
         font-size: 14px;
         font-weight: 500;
     }

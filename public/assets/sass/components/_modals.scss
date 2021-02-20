@@ -1,226 +1,171 @@
-#matriculaModal {
+#pagina {
 
-    margin-top: 40px;
+    #matriculaModal {
 
-    .modal-header {
-        font-weight: bold;
-    }
+        margin-top: 40px;
 
-    @include model-content($branco-padrao, 10px);
+        @include modal-content($color-white, 10px);
 
-    .modal-texto {
-        margin-top: 30px;
-        text-align: center;
-        font-weight: 500;
-    }
-
-    .modal-aluno-matricular-sucesso {
-
-        .fa-check-circle {
-            @include icon-modal($verde-padrao);
-        }
-
-    }
-
-    .modal-aluno-matricular-erro {
-
-        .fa-times-circle {
-            @include icon-modal($vermelho-padrao);
-        }
-
-    }
-
-}
-
-.modal-perfil{
-
-    .modal-body>.row:nth-child(1) {
-        @include card(10px, $branco-padrao, 1px solid $cinza-claro);
-        margin-top: -10px;
-    }
-
-    .controle-opcoes {
-
-        .list-group {
-            margin-top: 20px;
-        }
-
-        border-radius: 10px;
-        border: 0;
-        background: $azul-escuro-fraco;
-
-        @include list-group-item;
-
-        @include aria-expanded-false-and-true($branco-padrao, $azul-escuro-fraco, transparent, $branco-padrao, 10px);
-
-    }
-
-    .list-group {
-        @include list-group(5px, none);
-    }
-
-    .option-list{
-        display: flex;
-        justify-content:flex-end;
-    }
-
-    .horizontal-control-list{
-        display: none;
-    }
-
-    h5 {
-        font-size: 17px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    .fa-edit,
-    .fa-check {
-        color: $cinza-escuro;
-    }
-
-    img {
-        border-radius: 50%;
-    }
-
-    .modal-content {
-        margin-left: -415px;
-        width: 1350px;
-        margin-top: -30px;
-        height: 630px;
-        background-color: $cinza-claro;
-    }
-
-    #collapse-perfil-aluno-opcoes-dados {
-
-        b {
-            color: $cinza-escuro;
-        }
-
-        .input-group-prepend span {
-            font-weight: bold;
-            color: $cinza-escuro;
-        }
-
-        .input-group-text {
-            background-color: $branco-padrao;
-            border: none;
+        .modal-header {
             font-weight: bold;
         }
 
-        .input-group {
-            padding-left: 0;
-            margin-bottom: 13px;
+        .modal-text {
+            margin-top: 30px;
+            text-align: center;
+            font-weight: 500;
         }
 
-        input:disabled {
-            background-color: $branco-padrao;
-            border: none;
-            padding-left: 0px;
+        .modal-aluno-matricular-sucesso {
+
+            .fa-check-circle {
+                @include icon-modal($color-green);
+            }
+
         }
 
-        img{
-            display: flex;
-            justify-content:center;
+        .modal-aluno-matricular-erro {
+
+            .fa-times-circle {
+                @include icon-modal($color-red);
+            }
+
         }
+
     }
 
-    #collapse-perfil-aluno-opcoes-nota input:disabled {
-        background-color: $branco-padrao;
-        border: none;
-    }
+    .modal-perfil {
 
+        z-index: 1300;
 
-    #collapse-perfil-aluno-opcoes-boletim {
+        .modal-content {
+            margin-left: -415px;
+            width: 1350px;
+            margin-top: -30px;
+            height: 630px;
+            background-color: $color-dark-gray;
+        }
+
+        .modal-body>.row:nth-child(1) {
+            @include card(10px, #F4F6F6, 1px solid $color-smooth-gray);
+            margin-top: -10px;
+        }
 
         h5 {
-            text-transform: initial;
+            font-size: 17px;
         }
 
-        .imprimir-boletim {
-            @include card-icon($cinza-escuro, $azul-padrao, $cinza-claro);
+        a {
+            text-decoration: none;
         }
 
-        text-transform: uppercase;
-        font-size: 13px;
-
-        .th-rowspan-2 div {
-            margin-top: -50px;
+        .fa-edit,
+        .fa-check {
+            color: $color-dark-gray;
         }
 
-        b {
-            font-weight: 700;
+        img {
+            border-radius: 50%;
         }
 
-        td,
-        th {
-            font-size: 13px;
+        .close:focus {
+            outline: none;
+            box-shadow: none;
         }
 
-    }
+        .controle-opcoes {
 
-    .conteudo-lista-disciplinas {
+            .list-group {
+                margin-top: 20px;
+            }
 
-        @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $cinza-escuro, 10px);
+            border-radius: 10px;
+            border: 0;
+            background: $color-smooth-blue;
 
-        .icon-unidade {
-            border-radius: 30px;
-            padding: 10px;
+            @include list-group-item;
 
-            &:focus {
-                outline: none;
-                box-shadow: none;
+            @include aria-expanded-false-and-true($color-white, $color-smooth-blue, transparent, $color-white, 10px);
+
+        }
+
+        .option-list {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .horizontal-control-list {
+            display: none;
+        }    
+
+        #collapse-perfil-aluno-opcoes-dados {
+
+            b {
+                color: $color-dark-gray;
+            }
+
+            .input-group-prepend span {
+                font-weight: bold;
+                color: $color-dark-blue;
+            }
+
+            .input-group-text {
+                background-color: transparent;
+                border: none;
+                font-weight: bold;
+            }
+
+            .input-group {
+                padding-left: 0;
+                margin-bottom: 13px;
+            }
+
+            input:disabled {
+                background-color: transparent;
+                font-weight: bold;
+                border: none;
+                padding-left: 0px;
+            }
+
+            img {
+                display: flex;
+                justify-content: center;
             }
         }
-    }
 
-    .lista-disciplinas {
+        #collapse-perfil-aluno-opcoes-boletim {
 
-        background: $azul-escuro-fraco;
-        border-radius: 10px;
-        border: 1px solid $cinza-claro;
-        padding: 15px;
-        font-size: 14px;
+            h5 {
+                text-transform: initial;
+            }
 
-        @include list-group-item;
+            text-transform: uppercase;
+            font-size: 13px;
 
-        [aria-selected="true"] {
-            @include aria-expanded($branco-padrao, $azul-escuro-fraco);
+            .th-rowspan-2 div {
+                margin-top: -50px;
+            }
+
+            table {
+                width: 1200px;
+            }
+
+            b {
+                font-weight: 700;
+            }
+
+            td,
+            th {
+                font-size: 13px;
+            }
+
         }
-
-        [aria-selected="false"] {
-            @include aria-expanded(transparent, $branco-padrao);
-        }
-
-    }
-
-    .dados-avaliacoes {
-
-        input {
-            width: 60px;
-            text-align: center;
-        }
-
-        td,
-        th {
-            line-height: 40px;
-            justify-content: center;
-            cursor: context-menu;
-        }
-    }
-
-    .unidades {
-
-        @include aria-expanded-false-and-true($azul-padrao, $branco-padrao, $cinza-claro, $preto-claro, 10px);
 
     }
 
-}
+    #disciplinaModal {
 
-#disciplinaModal {
+        @include modal-content($color-white, 10px);
 
-    @include model-content($branco-padrao, 10px);
-
+    }
 }

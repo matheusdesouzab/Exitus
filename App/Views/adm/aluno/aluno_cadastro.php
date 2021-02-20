@@ -16,21 +16,21 @@
                         <div class="assistente-etapas-row assistente-etapas-painel">
                             <div class="linha-conexao"></div>
                             <div class="assistente-etapas" id="headingOne">
-                                <a type="button" class="btn button-circle" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
+                                <a type="button" class="btn round-button" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
                                 <p>Dados pessoais</p>
                             </div>
                             <div class="assistente-etapas" id="headingTwo">
-                                <a type="button" class="btn button-circle collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
                                 <p>Endereço e contato</p>
                             </div>
                             <div class="assistente-etapas" id="headingThree">
-                                <a type="button" class="btn button-circle collapsed" data-toggle="collapse" data-target="#collapseThree"><i class="fas fa-users"></i></a>
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#collapseThree"><i class="fas fa-users"></i></a>
                                 <p>Curso e turma</p>
                             </div>
                         </div>
                     </div>
 
-                    <hr>
+                    <hr class="col-lg-11 mx-auto">
 
                     <form class="was-validated" role="form">
                         <div class="row assistente-etapas-conteudo collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">

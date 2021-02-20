@@ -92,125 +92,40 @@ input:disabled, select:disabled {
   font-family: Supreme-bold;
   src: url(./../../assets/fonts/Montserrat-Black.ttf);
 }
-#pagina .button-circle {
+#pagina .round-button {
   width: 30px;
   height: 30px;
   text-align: center;
   padding: 7px;
   font-size: 12px;
   border-radius: 15px;
-  background-color: blue;
+  background-color: #007BFF;
   z-index: 2;
-  color: white;
-}
-#pagina .btn-success {
-  background: #2ECC71;
-  border: none;
+  color: #ffffff;
 }
 
-#pagina .card-icon {
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #325EDE;
-}
 #pagina .card {
   padding: 15;
   border-radius: 10px;
   border: 1px solid #e5e5e5;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: #ffffff;
   transition: 0.5s;
 }
 #pagina .card .card-title {
   font-size: 15px;
 }
-#pagina .card .card-valor {
+#pagina .card .card-value {
   font-size: 25px;
 }
 #pagina .card .card-body {
   padding: 15px;
 }
-#pagina .editar-dados-icon {
-  cursor: pointer;
-  color: #283339;
-  font-size: 15px;
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #e5e5e5;
-}
-#pagina .editar-dados-icon:hover {
-  color: white;
-  background-color: #325EDE;
-}
-#pagina .editar-dados-icon:hover .fa-edit, #pagina .editar-dados-icon:hover .fa-print, #pagina .editar-dados-icon:hover .fa-check, #pagina .editar-dados-icon:hover .fa-ban, #pagina .editar-dados-icon:hover .fa-boxes, #pagina .editar-dados-icon:hover .fa-plus-circle {
-  color: #ffffff;
-}
-#pagina .atualizar-dados-icon {
-  cursor: pointer;
-  color: #283339;
-  font-size: 15px;
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #e5e5e5;
-}
-#pagina .atualizar-dados-icon:hover {
-  color: white;
-  background-color: #2ECC71;
-}
-#pagina .atualizar-dados-icon:hover .fa-edit, #pagina .atualizar-dados-icon:hover .fa-print, #pagina .atualizar-dados-icon:hover .fa-check, #pagina .atualizar-dados-icon:hover .fa-ban, #pagina .atualizar-dados-icon:hover .fa-boxes, #pagina .atualizar-dados-icon:hover .fa-plus-circle {
-  color: #ffffff;
-}
-#pagina .apagar-dados-icon {
-  cursor: pointer;
-  color: #283339;
-  font-size: 15px;
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #e5e5e5;
-}
-#pagina .apagar-dados-icon:hover {
-  color: white;
-  background-color: #D35400;
-}
-#pagina .apagar-dados-icon:hover .fa-edit, #pagina .apagar-dados-icon:hover .fa-print, #pagina .apagar-dados-icon:hover .fa-check, #pagina .apagar-dados-icon:hover .fa-ban, #pagina .apagar-dados-icon:hover .fa-boxes, #pagina .apagar-dados-icon:hover .fa-plus-circle {
-  color: #ffffff;
-}
-#pagina .items-icon {
-  cursor: pointer;
-  color: #506177;
-  font-size: 15px;
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-#pagina .items-icon:hover {
-  color: white;
-  background-color: #273469;
-}
-#pagina .items-icon:hover .fa-edit, #pagina .items-icon:hover .fa-print, #pagina .items-icon:hover .fa-check, #pagina .items-icon:hover .fa-ban, #pagina .items-icon:hover .fa-boxes, #pagina .items-icon:hover .fa-plus-circle {
-  color: #ffffff;
-}
-#pagina .card-disciplinas {
-  background: #e5e5e5;
-}
 #pagina .card-form {
   padding: 15px;
   border-radius: 10px;
   border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: #506177;
 }
 #pagina .card-form label {
@@ -226,7 +141,7 @@ input:disabled, select:disabled {
   font-weight: bold;
 }
 #navbar-top .fa-bars {
-  color: black;
+  color: #283339;
 }
 #navbar-top a.bars-xs {
   display: none;
@@ -244,289 +159,247 @@ input:disabled, select:disabled {
   font-weight: 500;
 }
 
-#matriculaModal {
+#pagina #matriculaModal {
   margin-top: 40px;
 }
-#matriculaModal .modal-header {
-  font-weight: bold;
-}
-#matriculaModal .modal-content {
+#pagina #matriculaModal .modal-content {
   border: none;
   background-color: #ffffff;
   border-radius: 10px;
 }
-#matriculaModal .modal-texto {
+#pagina #matriculaModal .modal-header {
+  font-weight: bold;
+}
+#pagina #matriculaModal .modal-text {
   margin-top: 30px;
   text-align: center;
   font-weight: 500;
 }
-#matriculaModal .modal-aluno-matricular-sucesso .fa-check-circle {
+#pagina #matriculaModal .modal-aluno-matricular-sucesso .fa-check-circle {
   margin-top: 30px;
   font-size: 100px;
-  color: #2ECC71;
+  color: #28A745;
   justify-content: space-around;
 }
-#matriculaModal .modal-aluno-matricular-erro .fa-times-circle {
+#pagina #matriculaModal .modal-aluno-matricular-erro .fa-times-circle {
   margin-top: 30px;
   font-size: 100px;
-  color: #D35400;
+  color: #DC3545;
   justify-content: space-around;
 }
-
-.modal-perfil .modal-body > .row:nth-child(1) {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #ffffff;
-  margin-top: -10px;
+#pagina .modal-perfil {
+  z-index: 1300;
 }
-.modal-perfil .controle-opcoes {
-  border-radius: 10px;
-  border: 0;
-  background: #273469;
-}
-.modal-perfil .controle-opcoes .list-group {
-  margin-top: 20px;
-}
-.modal-perfil .controle-opcoes .list-group-item {
-  border: none;
-  background: transparent;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-.modal-perfil .controle-opcoes .list-group-item:hover {
-  background: #ffffff;
-  border-radius: 10px;
-  color: #273469;
-}
-.modal-perfil .controle-opcoes .list-group-item:hover a {
-  color: #273469;
-  font-weight: bold;
-}
-.modal-perfil .controle-opcoes [aria-expanded=true] {
-  background: #ffffff;
-  border-radius: 10px;
-  color: #273469;
-}
-.modal-perfil .controle-opcoes [aria-expanded=true] a {
-  color: #273469;
-  font-weight: bold;
-}
-.modal-perfil .controle-opcoes [aria-expanded=false] {
-  background: transparent;
-  border-radius: 10px;
-  color: #ffffff;
-}
-.modal-perfil .controle-opcoes [aria-expanded=false] a {
-  color: #ffffff;
-  font-weight: bold;
-}
-.modal-perfil .list-group {
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-}
-.modal-perfil .option-list {
-  display: flex;
-  justify-content: flex-end;
-}
-.modal-perfil .horizontal-control-list {
-  display: none;
-}
-.modal-perfil h5 {
-  font-size: 17px;
-}
-.modal-perfil a {
-  text-decoration: none;
-}
-.modal-perfil .fa-edit,
-.modal-perfil .fa-check {
-  color: #506177;
-}
-.modal-perfil img {
-  border-radius: 50%;
-}
-.modal-perfil .modal-content {
+#pagina .modal-perfil .modal-content {
   margin-left: -415px;
   width: 1350px;
   margin-top: -30px;
   height: 630px;
-  background-color: #e5e5e5;
+  background-color: #506177;
 }
-.modal-perfil #collapse-perfil-aluno-opcoes-dados b {
-  color: #506177;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-dados .input-group-prepend span {
-  font-weight: bold;
-  color: #506177;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-dados .input-group-text {
-  background-color: #ffffff;
-  border: none;
-  font-weight: bold;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-dados .input-group {
-  padding-left: 0;
-  margin-bottom: 13px;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-dados input:disabled {
-  background-color: #ffffff;
-  border: none;
-  padding-left: 0px;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-dados img {
-  display: flex;
-  justify-content: center;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-nota input:disabled {
-  background-color: #ffffff;
-  border: none;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim {
-  text-transform: uppercase;
-  font-size: 13px;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim h5 {
-  text-transform: initial;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim {
-  cursor: pointer;
-  color: #506177;
-  font-size: 15px;
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(109, 76, 76, 0.06);
-  background-color: #e5e5e5;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover {
-  color: white;
-  background-color: #325EDE;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-edit, .modal-perfil #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-print, .modal-perfil #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-check, .modal-perfil #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-ban, .modal-perfil #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-boxes, .modal-perfil #collapse-perfil-aluno-opcoes-boletim .imprimir-boletim:hover .fa-plus-circle {
-  color: #ffffff;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div {
-  margin-top: -50px;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim b {
-  font-weight: 700;
-}
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim td,
-.modal-perfil #collapse-perfil-aluno-opcoes-boletim th {
-  font-size: 13px;
-}
-.modal-perfil .conteudo-lista-disciplinas [aria-expanded=true] {
-  background: #325EDE;
-  border-radius: 10px;
-  color: #ffffff;
-}
-.modal-perfil .conteudo-lista-disciplinas [aria-expanded=true] a {
-  color: #ffffff;
-  font-weight: bold;
-}
-.modal-perfil .conteudo-lista-disciplinas [aria-expanded=false] {
-  background: #e5e5e5;
-  border-radius: 10px;
-  color: #506177;
-}
-.modal-perfil .conteudo-lista-disciplinas [aria-expanded=false] a {
-  color: #506177;
-  font-weight: bold;
-}
-.modal-perfil .conteudo-lista-disciplinas .icon-unidade {
-  border-radius: 30px;
+#pagina .modal-perfil .modal-body > .row:nth-child(1) {
   padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #F4F6F6;
+  margin-top: -10px;
 }
-.modal-perfil .conteudo-lista-disciplinas .icon-unidade:focus {
+#pagina .modal-perfil h5 {
+  font-size: 17px;
+}
+#pagina .modal-perfil a {
+  text-decoration: none;
+}
+#pagina .modal-perfil .fa-edit,
+#pagina .modal-perfil .fa-check {
+  color: #506177;
+}
+#pagina .modal-perfil img {
+  border-radius: 50%;
+}
+#pagina .modal-perfil .close:focus {
   outline: none;
   box-shadow: none;
 }
-.modal-perfil .lista-disciplinas {
-  background: #273469;
+#pagina .modal-perfil .controle-opcoes {
   border-radius: 10px;
-  border: 1px solid #e5e5e5;
-  padding: 15px;
-  font-size: 14px;
+  border: 0;
+  background: #273469;
 }
-.modal-perfil .lista-disciplinas .list-group-item {
+#pagina .modal-perfil .controle-opcoes .list-group {
+  margin-top: 20px;
+}
+#pagina .modal-perfil .controle-opcoes .list-group-item {
   border: none;
   background: transparent;
   font-weight: bold;
   margin-bottom: 5px;
 }
-.modal-perfil .lista-disciplinas .list-group-item:hover {
+#pagina .modal-perfil .controle-opcoes .list-group-item:hover {
   background: #ffffff;
   border-radius: 10px;
   color: #273469;
 }
-.modal-perfil .lista-disciplinas .list-group-item:hover a {
+#pagina .modal-perfil .controle-opcoes .list-group-item:hover a {
   color: #273469;
   font-weight: bold;
 }
-.modal-perfil .lista-disciplinas [aria-selected=true] {
+#pagina .modal-perfil .controle-opcoes [aria-expanded=true] {
   background: #ffffff;
   border-radius: 10px;
   color: #273469;
 }
-.modal-perfil .lista-disciplinas [aria-selected=true] a {
+#pagina .modal-perfil .controle-opcoes [aria-expanded=true] a {
   color: #273469;
   font-weight: bold;
 }
-.modal-perfil .lista-disciplinas [aria-selected=false] {
+#pagina .modal-perfil .controle-opcoes [aria-expanded=false] {
   background: transparent;
   border-radius: 10px;
   color: #ffffff;
 }
-.modal-perfil .lista-disciplinas [aria-selected=false] a {
+#pagina .modal-perfil .controle-opcoes [aria-expanded=false] a {
   color: #ffffff;
   font-weight: bold;
 }
-.modal-perfil .dados-avaliacoes input {
-  width: 60px;
-  text-align: center;
+#pagina .modal-perfil .option-list {
+  display: flex;
+  justify-content: flex-end;
 }
-.modal-perfil .dados-avaliacoes td,
-.modal-perfil .dados-avaliacoes th {
-  line-height: 40px;
+#pagina .modal-perfil .horizontal-control-list {
+  display: none;
+}
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-dados b {
+  color: #506177;
+}
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-dados .input-group-prepend span {
+  font-weight: bold;
+  color: #1e2749;
+}
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-dados .input-group-text {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+}
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-dados .input-group {
+  padding-left: 0;
+  margin-bottom: 13px;
+}
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-dados input:disabled {
+  background-color: transparent;
+  font-weight: bold;
+  border: none;
+  padding-left: 0px;
+}
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-dados img {
+  display: flex;
   justify-content: center;
-  cursor: context-menu;
 }
-.modal-perfil .unidades [aria-expanded=true] {
-  background: #325EDE;
-  border-radius: 10px;
-  color: #ffffff;
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim {
+  text-transform: uppercase;
+  font-size: 13px;
 }
-.modal-perfil .unidades [aria-expanded=true] a {
-  color: #ffffff;
-  font-weight: bold;
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim h5 {
+  text-transform: initial;
 }
-.modal-perfil .unidades [aria-expanded=false] {
-  background: #e5e5e5;
-  border-radius: 10px;
-  color: #283339;
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div {
+  margin-top: -50px;
 }
-.modal-perfil .unidades [aria-expanded=false] a {
-  color: #283339;
-  font-weight: bold;
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim table {
+  width: 1200px;
 }
-
-#disciplinaModal .modal-content {
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim b {
+  font-weight: 700;
+}
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim td,
+#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim th {
+  font-size: 13px;
+}
+#pagina #disciplinaModal .modal-content {
   border: none;
   background-color: #ffffff;
   border-radius: 10px;
 }
 
 #pagina .was-validated .form-control:valid {
-  border: 1px solid #2ECC71;
+  border: 1px solid #28A745;
 }
 #pagina .was-validated .form-control:invalid {
   border: 1.5px solid #F2DCD6;
 }
 
+#pagina .edit-data-icon {
+  cursor: pointer;
+  color: #283339;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #e5e5e5;
+}
+#pagina .edit-data-icon:hover {
+  color: #ffffff;
+  background-color: #007BFF;
+}
+#pagina .edit-data-icon:hover .fa-edit, #pagina .edit-data-icon:hover .fa-print, #pagina .edit-data-icon:hover .fa-check, #pagina .edit-data-icon:hover .fa-ban, #pagina .edit-data-icon:hover .fa-boxes, #pagina .edit-data-icon:hover .fa-plus-circle {
+  color: #ffffff;
+}
+#pagina .update-data-icon {
+  cursor: pointer;
+  color: #283339;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #e5e5e5;
+}
+#pagina .update-data-icon:hover {
+  color: #ffffff;
+  background-color: #28A745;
+}
+#pagina .update-data-icon:hover .fa-edit, #pagina .update-data-icon:hover .fa-print, #pagina .update-data-icon:hover .fa-check, #pagina .update-data-icon:hover .fa-ban, #pagina .update-data-icon:hover .fa-boxes, #pagina .update-data-icon:hover .fa-plus-circle {
+  color: #ffffff;
+}
+#pagina .delete-data-icon {
+  cursor: pointer;
+  color: #283339;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #e5e5e5;
+}
+#pagina .delete-data-icon:hover {
+  color: #ffffff;
+  background-color: #DC3545;
+}
+#pagina .delete-data-icon:hover .fa-edit, #pagina .delete-data-icon:hover .fa-print, #pagina .delete-data-icon:hover .fa-check, #pagina .delete-data-icon:hover .fa-ban, #pagina .delete-data-icon:hover .fa-boxes, #pagina .delete-data-icon:hover .fa-plus-circle {
+  color: #ffffff;
+}
+#pagina .printer-icon {
+  cursor: pointer;
+  color: #506177;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #e5e5e5;
+}
+#pagina .printer-icon:hover {
+  color: #ffffff;
+  background-color: #007BFF;
+}
+#pagina .printer-icon:hover .fa-edit, #pagina .printer-icon:hover .fa-print, #pagina .printer-icon:hover .fa-check, #pagina .printer-icon:hover .fa-ban, #pagina .printer-icon:hover .fa-boxes, #pagina .printer-icon:hover .fa-plus-circle {
+  color: #ffffff;
+}
+
 #painel-left {
-  transition: 1s;
+  transition: 1s width;
   width: 100%;
   z-index: 2;
 }
@@ -549,6 +422,9 @@ input:disabled, select:disabled {
   text-decoration: none;
   padding-bottom: 0;
 }
+#painel-left .link-return {
+  display: none;
+}
 #painel-left h5 {
   color: #ffffff;
   text-align: left;
@@ -570,8 +446,8 @@ input:disabled, select:disabled {
   background-color: #273469;
 }
 #painel-left .collapse li:hover {
-  background-color: #30343F;
-  border-left: 20px solid #FAFAFF;
+  background-color: #283339;
+  border-left: 20px solid #e4d9ff;
 }
 #painel-left .collapse li a {
   padding: 10px;
@@ -648,7 +524,26 @@ input:disabled, select:disabled {
 }
 #pagina .collapse-option [aria-expanded=true] .items-icon {
   background: #273469;
-  color: white;
+  color: #ffffff;
+}
+#pagina .items-icon {
+  cursor: pointer;
+  color: #506177;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#pagina .items-icon:hover {
+  color: #ffffff;
+  background-color: #273469;
+}
+#pagina .items-icon:hover .fa-edit, #pagina .items-icon:hover .fa-print, #pagina .items-icon:hover .fa-check, #pagina .items-icon:hover .fa-ban, #pagina .items-icon:hover .fa-boxes, #pagina .items-icon:hover .fa-plus-circle {
+  color: #ffffff;
 }
 #pagina .lista-grupo {
   background-color: #273469;
@@ -666,7 +561,7 @@ input:disabled, select:disabled {
   border: 0px;
   font-weight: bold;
   font-size: 13.5px;
-  color: white;
+  color: #ffffff;
   border-radius: 10px;
   background-color: transparent;
 }
@@ -711,7 +606,7 @@ input:disabled, select:disabled {
   position: relative;
 }
 #pagina .assistente-etapas a.collapsed {
-  color: black;
+  color: #283339;
   background-color: #e4d9ff;
 }
 #pagina :disabled {
@@ -725,19 +620,19 @@ input:disabled, select:disabled {
   color: green;
 }
 #pagina .border-img-red {
-  border: 3px solid #D35400;
+  border: 5px solid #DC3545;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 #pagina .border-img-green {
-  border: 3px solid #2ECC71;
+  border: 5px solid #28A745;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 #pagina .border-img-blue {
-  border: 3px solid #325EDE;
+  border: 5px solid #007BFF;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 #pagina .border-img-golden {
-  border: 3px solid #d4af37;
+  border: 5px solid #d4af37;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 #pagina .container-accordion {
@@ -782,22 +677,22 @@ input:disabled, select:disabled {
   line-height: 35px;
 }
 #gestao-turmas table .nota-vermelha {
-  background-color: #D35400;
+  background-color: #DC3545;
   font-weight: 500;
   color: white;
 }
 #gestao-turmas table .nota-verde {
-  background-color: #2ECC71;
+  background-color: #28A745;
   font-weight: 500;
   color: white;
 }
 #gestao-turmas table .nota-azul {
-  background-color: #325EDE;
+  background-color: #007BFF;
   font-weight: 500;
   color: white;
 }
 #gestao-turmas table .nota-dourada {
-  background: #d4af37;
+  background-color: #d4af37;
   font-weight: 500;
   color: white;
 }
@@ -806,6 +701,9 @@ input:disabled, select:disabled {
   body {
     font-size: 2vh;
     width: 100%;
+  }
+  body #painel-left {
+    z-index: 120000000;
   }
   body .panel-side {
     display: none;
@@ -817,8 +715,11 @@ input:disabled, select:disabled {
     width: 50%;
     margin-left: -50vw;
   }
+  body .panel-side-xs #painel-left > .side-bar li:nth-child(2) {
+    display: block;
+  }
   body .panel-side-xs #painel-left > .side-bar .bars-xs {
-    color: white;
+    color: #ffffff;
   }
   body .panel-side-xs #painel-left > .side-bar img {
     width: 80%;
@@ -838,7 +739,7 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
     font-size: 2.5vw;
   }
   body .panel-side-xs #painel-left > .side-bar .collapse li {
-    border-left: 5px solid white;
+    border-left: 5px solid #ffffff;
   }
 
   #navbar-top .navbar-toggler .fa-bars {
@@ -851,6 +752,9 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
     display: block;
   }
   #navbar-top .navbar-toggler {
+    display: none;
+  }
+  #navbar-top .navbar-nav {
     display: none;
   }
 
@@ -876,7 +780,10 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   #pagina .assistente-etapas-sessao .assistente-etapas p {
     font-size: 2.5vw;
   }
-  #pagina .modal-perfil .collapse-option .fa-user-friends, #pagina .modal-perfil .collapse-option .fa-chalkboard-teacher, #pagina .modal-perfil .collapse-option .fa-boxes, #pagina .modal-perfil .collapse-option .fa-plus-circle {
+  #pagina .modal-perfil .collapse-option .fa-user-friends,
+#pagina .modal-perfil .collapse-option .fa-chalkboard-teacher,
+#pagina .modal-perfil .collapse-option .fa-boxes,
+#pagina .modal-perfil .collapse-option .fa-plus-circle {
     display: none;
   }
   #pagina .modal-perfil h5 {
@@ -899,7 +806,7 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
     font-size: 2vw;
   }
   #pagina .modal-perfil .horizontal-control-list [aria-expanded=true] {
-    background: #325EDE;
+    background: #007BFF;
     border-radius: 5px;
     color: #ffffff;
   }
@@ -929,15 +836,21 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
     height: 100%;
     overflow: auto;
   }
-  #pagina .modal-perfil .modal-content #collapse-alunos table, #pagina .modal-perfil .modal-content #collapse-professores table, #pagina .modal-perfil .modal-content #collapse-disciplinas table {
+  #pagina .modal-perfil .modal-content #collapse-alunos table,
+#pagina .modal-perfil .modal-content #collapse-professores table,
+#pagina .modal-perfil .modal-content #collapse-disciplinas table {
     width: 500px;
   }
-  #pagina .modal-perfil .modal-content #collapse-alunos table img, #pagina .modal-perfil .modal-content #collapse-professores table img, #pagina .modal-perfil .modal-content #collapse-disciplinas table img {
+  #pagina .modal-perfil .modal-content #collapse-alunos table img,
+#pagina .modal-perfil .modal-content #collapse-professores table img,
+#pagina .modal-perfil .modal-content #collapse-disciplinas table img {
     width: 35px;
   }
   #pagina .modal-perfil .modal-content #collapse-alunos table th,
-#pagina .modal-perfil .modal-content #collapse-alunos table td, #pagina .modal-perfil .modal-content #collapse-professores table th,
-#pagina .modal-perfil .modal-content #collapse-professores table td, #pagina .modal-perfil .modal-content #collapse-disciplinas table th,
+#pagina .modal-perfil .modal-content #collapse-alunos table td,
+#pagina .modal-perfil .modal-content #collapse-professores table th,
+#pagina .modal-perfil .modal-content #collapse-professores table td,
+#pagina .modal-perfil .modal-content #collapse-disciplinas table th,
 #pagina .modal-perfil .modal-content #collapse-disciplinas table td {
     line-height: 35px;
     font-size: 2.5vw;

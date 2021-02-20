@@ -12,7 +12,7 @@
         }
     }
 
-    
+
     table {
 
         td {
@@ -21,27 +21,19 @@
         }
 
         .nota-vermelha {
-            background-color: $vermelho-padrao;
-            font-weight: 500;
-            color: white;
+            @include note-state($color-red);
         }
 
         .nota-verde {
-            background-color: $verde-padrao;
-            font-weight: 500;
-            color: white;
+            @include note-state($color-green);
         }
 
         .nota-azul {
-            background-color: $azul-padrao;
-            font-weight: 500;
-            color: white;
+            @include note-state($color-blue);
         }
 
         .nota-dourada {
-            background: #d4af37;
-            font-weight: 500;
-            color: white;
+            @include note-state($color-golden);
         }
     }
 

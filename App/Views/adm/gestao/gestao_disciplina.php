@@ -4,7 +4,7 @@
 
         <div class="col-lg-12  accordion" id="accordion-disciplinas">
 
-            <div class="col-lg-11 mx-auto mb-4">
+            <div class="col-lg-11 mx-auto">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6">
                         <h5>Gestão das disciplinas</h5>
@@ -139,9 +139,10 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 mt-2">Linguagem e Técnica de Programação</div>
                                                             <div class="col-lg-6 d-flex justify-content-end">
-                                                                <span class="mr-2 editar-dados-icon"><i class="fas fa-edit"></i></span>
-                                                                <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
-                                                                <span class="mr-2 apagar-dados-icon"><i class="fas fa-ban"></i></span>
+
+                                                            <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                    <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
                                                             </div>
                                                         </div>

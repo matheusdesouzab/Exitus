@@ -195,8 +195,8 @@
 
                                                                     <div class="col-lg-12 d-flex justify-content-end">
 
-                                                                        <span class="mr-2 editar-dados-icon"><i class="text-center fas fa-edit"></i></span>
-                                                                        <span class="mr-2 atualizar-dados-icon"><i class="fas fa-check"></i></span>
+                                                                        <span class="mr-2 edit-data-icon"><i class="text-center fas fa-edit"></i></span>
+                                                                        <span class="mr-2 update-dados-icon"><i class="fas fa-check"></i></span>
 
                                                                     </div>
 
