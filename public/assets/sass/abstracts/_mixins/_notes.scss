@@ -3,3 +3,27 @@
     font-weight: 500;
     color: white;
 }
+
+@mixin image-border-colors($border-color, $border-size) {
+    border: $border-size solid $border-color;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@mixin all-edges-of-images($border-size) {
+
+    .border-img-red {
+        @include image-border-colors($color-red, $border-size);
+    }
+
+    .border-img-green {
+        @include image-border-colors($color-green, $border-size);
+    }
+
+    .border-img-blue {
+        @include image-border-colors($color-blue, $border-size);
+    }
+
+    .border-img-golden {
+        @include image-border-colors($color-golden, $border-size);
+    }
+}

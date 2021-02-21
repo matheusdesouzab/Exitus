@@ -6,12 +6,12 @@
 
 html,
 body {
-    height: 100%;   
-    color: $color-dark-blue;  
-    transition: 0.6s; 
+    height: 100%;
+    color: $color-dark-blue;
+    transition: 0.6s;
 }
 
-html > body {
+html>body {
     background-color: $color-extra-light-gray;
 }
 
@@ -28,19 +28,20 @@ h5 {
     font-family: Bold;
 }
 
-label{
+label {
     font-size: 15px;
     font-weight: bold;
     color: $color-black;
 }
 
-input,select{
+input,
+select {
     border-radius: 10px;
 }
 
-table{
+table {
 
-    th{
+    th {
         color: $color-dark-blue;
     }
 
@@ -63,14 +64,15 @@ table{
 
 }
 
-button{
+button {
     outline: none;
 }
 
-input:disabled,select:disabled {
-    border: none;
+#pagina {
+
+    input:disabled,
+    select:disabled {
+        border: none;
+        background-color: $color-white;
+    }
 }
-
-
-
-

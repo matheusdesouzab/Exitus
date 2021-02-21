@@ -1,11 +1,15 @@
 #pagina {
 
-    .was-validated .form-control:valid {
-        border: 1px solid $color-green;
-    }
+    .was-validated {
 
-    .was-validated .form-control:invalid {
-        border: 1.5px solid $color-extra-light-red
+        .form-control {
+            border: 2px solid $color-extra-light-blue;
+        }
+
+        .form-control {
+            border: 2px solid $color-extra-light-red;
+        }
+
     }
 
 }

@@ -12,8 +12,22 @@
         @include icon-card($color-black, $color-red, $color-smooth-gray);
     }
 
-    .printer-icon{
+    .printer-icon {
         @include icon-card($color-dark-gray, $color-blue, $color-smooth-gray);
+    }
+
+    .items-icon {
+        @include icon-card($color-dark-gray, $color-green, $color-white);
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .unregistered-unit-icon {
+        color: #BDC3C7;
+    }
+
+    .registered-unit-icon {
+        color: green;
     }
 
 }

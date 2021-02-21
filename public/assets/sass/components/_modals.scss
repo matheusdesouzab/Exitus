@@ -43,11 +43,11 @@
             width: 1350px;
             margin-top: -30px;
             height: 630px;
-            background-color: $color-dark-gray;
+            background-color: $color-black;
         }
 
         .modal-body>.row:nth-child(1) {
-            @include card(10px, #F4F6F6, 1px solid $color-smooth-gray);
+            @include card(10px, $color-pure-gray, 1px solid $color-smooth-gray);
             margin-top: -10px;
         }
 
@@ -81,7 +81,7 @@
 
             border-radius: 10px;
             border: 0;
-            background: $color-smooth-blue;
+            background: $color-dark-gray;
 
             @include list-group-item;
 

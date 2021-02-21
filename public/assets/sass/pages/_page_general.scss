@@ -1,20 +1,14 @@
 #pagina {
 
-    .container-pai {
+    .main-container {
         margin-top: 80px;
     }
 
     .collapse-option [aria-expanded="true"] .items-icon {
 
-        background: $color-smooth-blue;
+        background: $color-green;
         color: $color-white;
 
-    }
-    
-    .items-icon {
-        @include icon-card($color-dark-gray, $color-smooth-blue, $color-white);
-        padding-left: 20px;
-        padding-right: 20px;
     }
 
     .lista-grupo {
@@ -49,7 +43,17 @@
 
     }
 
-    .assistente-etapas {
+
+    // Registration in stages  ( Cadastro por etapas )
+
+
+    .registration-session-in-stages {
+        display: table;
+        width: 100%;
+        position: relative;
+    }
+
+    .registration-in-stages {
 
         display: table-cell;
         text-align: center;
@@ -64,63 +68,25 @@
             color: $color-dark-blue;
         }
 
-        .btn-primary {
-            background-color: $color-dark-blue;
-        }
-
     }
 
-    .linha-conexao {
+    .registration-by-content-step {
+        display: table-row;
+    }
+
+    .registration-connection-line-in-stages{
         @include linha-conexao(70%);
         background-image: linear-gradient(to left, $color-smooth-gray 50%, $color-smooth-gray 50%);
     }
 
-    .assistente-etapas-row {
-        display: table-row;
-    }
-
-    .assistente-etapas-sessao {
-        display: table;
-        width: 100%;
-        position: relative;
-    }
-
-    .assistente-etapas a.collapsed {
+    .registration-in-stages a.collapsed {
         color: $color-black;
         background-color: $color-extra-light-blue;
     }
+  
+    @include all-edges-of-images(5px);
 
-    :disabled {
-        background-color: $color-white;
-        border: 1px solid $color-smooth-gray;
-
-    }
-
-    .icon-unidade-nao-cadastrada {
-        color: #BDC3C7;
-    }
-
-    .icon-unidade-cadastrada {
-        color: green;
-    }
-
-    .border-img-red {
-        @include border-img($color-red, 5px);
-    }
-
-    .border-img-green {
-        @include border-img($color-green, 5px);
-    }
-
-    .border-img-blue {
-        @include border-img($color-blue, 5px);
-    }
-
-    .border-img-golden {
-        @include border-img($color-golden, 5px);
-    }
-
-    .container-accordion{
+    .container-accordion {
         height: 520px;
         width: 890px;
 
@@ -130,7 +96,7 @@
         }
     }
 
-    .collapse-option{
+    .collapse-option {
         display: flex;
         justify-content: flex-end;
     }

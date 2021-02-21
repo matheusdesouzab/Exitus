@@ -147,13 +147,13 @@
                                             <div class="modal-content p-2">
                                                 <div class="row" style="margin-left: -50px !important;">
                                                     <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
+                                                    <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
                                                         </button></div>
                                                 </div>
 
                                                 <div class="modal-body">
 
-                                                    <div class="row bg-white p-3 d-flex justify-content-around col-lg-11 mx-auto">
+                                                    <div class="row p-3 d-flex justify-content-around col-lg-11 mx-auto">
 
                                                         <div class="col-lg-9">
 
@@ -227,9 +227,9 @@
 
                                                                                                                                     <td>
                                                                                                                                         <div class="row text-center d-flex justify-content-center mt-3">
-                                                                                                                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                                                                                                                         </div>
                                                                                                                                     </td>
                                                                                                                                 </tr>
@@ -241,9 +241,9 @@
 
                                                                                                                                     <td>
                                                                                                                                         <div class="row text-center d-flex justify-content-center mt-3">
-                                                                                                                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                                                                                                                         </div>
                                                                                                                                     </td>
                                                                                                                                 </tr>
@@ -255,9 +255,9 @@
 
                                                                                                                                     <td>
                                                                                                                                         <div class="row text-center d-flex justify-content-center mt-3">
-                                                                                                                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                                                                                                                         </div>
                                                                                                                                     </td>
                                                                                                                                 </tr>
@@ -269,9 +269,9 @@
 
                                                                                                                                     <td>
                                                                                                                                         <div class="row text-center d-flex justify-content-center mt-3">
-                                                                                                                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                                                                                                                         </div>
                                                                                                                                     </td>
                                                                                                                                 </tr>
@@ -283,9 +283,9 @@
 
                                                                                                                                     <td>
                                                                                                                                         <div class="row text-center d-flex justify-content-center mt-3">
-                                                                                                                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                                                                                                                         </div>
                                                                                                                                     </td>
                                                                                                                                 </tr>
@@ -297,9 +297,9 @@
 
                                                                                                                                     <td>
                                                                                                                                         <div class="row text-center d-flex justify-content-center mt-3">
-                                                                                                                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                                                                                                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                                                                                                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                                                                                                                         </div>
                                                                                                                                     </td>
                                                                                                                                 </tr>

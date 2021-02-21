@@ -1,8 +1,8 @@
-<div id="gestao-cursos">
+<div id="course-management">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
-        <div class="col-lg-11 mx-auto accordion" id="accordion-cursos">
+        <div class="col-lg-11 mx-auto accordion" id="accordion-courses">
 
         <div class="col-lg-12">
                 <div class="row d-flex align-items-center">
@@ -12,9 +12,9 @@
 
                     <div class="col-lg-6 d-flex collapse-option justify-content-end">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-cursos" ><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Cursos</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-list-courses" ><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Cursos</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-cursos"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-add-course"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
                         
 
                     </div>
@@ -27,7 +27,7 @@
 
                     <div class="col-lg-12">
                         
-                            <div  class="collapse show" id="collapse-cursos" data-parent="#accordion-cursos">
+                            <div  class="collapse show" id="collapse-list-courses" data-parent="#accordion-courses">
                                 <div class="row">
                                     <div class="col-lg-12">
 
@@ -148,7 +148,7 @@
                                 </div>
                             </div>
 
-                            <div class="collapse" id="collapse-adicionar-cursos" data-parent="#accordion-cursos">
+                            <div class="collapse" id="collapse-add-course" data-parent="#accordion-courses">
 
                                 <div class="row">
 

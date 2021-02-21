@@ -1,6 +1,6 @@
-<div id="matricula_aluno">
+<div id="student-registration">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
         <div class="col-lg-11 mx-auto">
 
@@ -10,21 +10,21 @@
 
             <div class="col-lg-12">
 
-                <div class="card mb-5 col-lg-12 pt-4 p-3 accordion" id="accordionExample">
+                <div class="card mb-5 col-lg-12 pt-4 p-3 accordion" id="student-record-accordion">
 
-                    <div class="assistente-etapas-sessao">
-                        <div class="assistente-etapas-row assistente-etapas-painel">
-                            <div class="linha-conexao"></div>
-                            <div class="assistente-etapas" id="headingOne">
-                                <a type="button" class="btn round-button" data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-user-alt"></i></a>
-                                <p>Dados pessoais</p>
+                    <div class="registration-session-in-stages">
+                        <div class="registration-by-content-step">
+                            <div class="registration-connection-line-in-stages"></div>
+                            <div class="registration-in-stages">
+                                <a type="button" class="btn round-button" data-toggle="collapse" data-target="#student-registration-initial-data"><i class="fas fa-user-alt"></i></a>
+                                <p>Dados iniciais</p>
                             </div>
-                            <div class="assistente-etapas" id="headingTwo">
-                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#collapseTwo"><i class="fas fa-home"></i></a>
-                                <p>Endereço e contato</p>
+                            <div class="registration-in-stages">
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#student-registration-address-and-others"><i class="fas fa-home"></i></a>
+                                <p>Endereço e outros</p>
                             </div>
-                            <div class="assistente-etapas" id="headingThree">
-                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#collapseThree"><i class="fas fa-users"></i></a>
+                            <div class="registration-in-stages">
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#student-registration-course-and-class"><i class="fas fa-users"></i></a>
                                 <p>Curso e turma</p>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                     <hr class="col-lg-11 mx-auto">
 
                     <form class="was-validated" role="form">
-                        <div class="row assistente-etapas-conteudo collapse show" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="row collapse show" id="student-registration-initial-data" data-parent="#student-record-accordion">
                             <div class="col-lg-10 mt-2 mx-auto">
                                 <div class="col-md-12">
                                     <div class="form-row mt-1">
@@ -78,7 +78,7 @@
 
                                     </div>
 
-                                    <div class="form-row">
+                                    <div class="form-row mb-4">
 
                                         <div class="form-group col-md-5">
                                             <label for="inputCity">Nome da Mãe:</label>
@@ -100,38 +100,13 @@
 
                                     </div>
 
-                                    <div class="form-row mb-3">
 
-                                        <div class="form-group col-md-4">
-                                            <label for="inputCity">Tipo sanguíneo:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option value=""></option>
-                                                <option>A+</option>
-                                                <option>A-</option>
-                                                <option>B+</option>
-                                                <option>B-</option>
-                                                <option>AB+</option>
-                                                <option>AB-</option>
-                                                <option>O+</option>
-                                                <option>O-</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-md-8">
-                                            <label for="">&nbsp;</label>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input is-valid" id="customFileLangHTML" required>
-                                                <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do aluno(a)</label>
-                                            </div>
-                                        </div>
-
-                                    </div>
 
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row assistente-etapas-conteudo collapse" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="row collapse" id="student-registration-address-and-others" data-parent="#student-record-accordion">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
 
@@ -159,7 +134,7 @@
 
                                     </div>
 
-                                    <div class="form-row mb-3">
+                                    <div class="form-row">
 
                                         <div class="form-group col-md-4">
                                             <label for="inputCity">Endereço:</label>
@@ -178,13 +153,40 @@
 
                                     </div>
 
+                                    <div class="form-row mb-3">
+
+                                        <div class="form-group col-md-4">
+                                            <label for="inputCity">Tipo sanguíneo:</label>
+                                            <select id="inputState" class="form-control custom-select is-valid" required>
+                                                <option value=""></option>
+                                                <option>A+</option>
+                                                <option>A-</option>
+                                                <option>B+</option>
+                                                <option>B-</option>
+                                                <option>AB+</option>
+                                                <option>AB-</option>
+                                                <option>O+</option>
+                                                <option>O-</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-md-8">
+                                            <label for="">&nbsp;</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="customFileLangHTML" required>
+                                                <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do aluno(a)</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
 
 
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row assistente-etapas-conteudo collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="row collapse" id="student-registration-course-and-class" data-parent="#student-record-accordion">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
 
@@ -268,11 +270,11 @@
                                         <!-- <i class="fas fa-check-circle"></i> -->
                                         <i class="fas fa-times-circle"></i>
                                     </div>
-                                    <div class="col-lg-12 modal-texto">
+                                    <div class="col-lg-12 modal-text">
                                         <p>Aluno não matriculado!</p>
                                         <p>INFO-1M-B chegou ao limite de alunos! </p>
                                     </div>
-                                    <div class="col-lg-12 modal-links-alternativos mt-5 d-flex justify-content-around mb-4">
+                                    <div class="col-lg-12 alternative-modal-links mt-5 d-flex justify-content-around mb-4">
 
                                         <a class="btn btn-primary" href="">Lista de Alunos <i class="fas fa-arrow-alt-circle-left ml-2"></i></a>
                                         <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>

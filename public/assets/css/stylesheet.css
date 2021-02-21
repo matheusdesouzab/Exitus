@@ -7,7 +7,7 @@
 html,
 body {
   height: 100%;
-  color: #1e2749;
+  color: #09023B;
   transition: 0.6s;
 }
 
@@ -24,7 +24,7 @@ li {
 }
 
 h5 {
-  color: #1e2749;
+  color: #09023B;
   font-family: Bold;
 }
 
@@ -34,12 +34,13 @@ label {
   color: #283339;
 }
 
-input, select {
+input,
+select {
   border-radius: 10px;
 }
 
 table th {
-  color: #1e2749;
+  color: #09023B;
 }
 table td {
   line-height: 30px;
@@ -60,8 +61,10 @@ button {
   outline: none;
 }
 
-input:disabled, select:disabled {
+#pagina input:disabled,
+#pagina select:disabled {
   border: none;
+  background-color: #ffffff;
 }
 
 @font-face {
@@ -195,7 +198,7 @@ input:disabled, select:disabled {
   width: 1350px;
   margin-top: -30px;
   height: 630px;
-  background-color: #506177;
+  background-color: #283339;
 }
 #pagina .modal-perfil .modal-body > .row:nth-child(1) {
   padding: 10px;
@@ -225,7 +228,7 @@ input:disabled, select:disabled {
 #pagina .modal-perfil .controle-opcoes {
   border-radius: 10px;
   border: 0;
-  background: #273469;
+  background: #506177;
 }
 #pagina .modal-perfil .controle-opcoes .list-group {
   margin-top: 20px;
@@ -275,7 +278,7 @@ input:disabled, select:disabled {
 }
 #pagina .modal-perfil #collapse-perfil-aluno-opcoes-dados .input-group-prepend span {
   font-weight: bold;
-  color: #1e2749;
+  color: #09023B;
 }
 #pagina .modal-perfil #collapse-perfil-aluno-opcoes-dados .input-group-text {
   background-color: transparent;
@@ -322,11 +325,11 @@ input:disabled, select:disabled {
   border-radius: 10px;
 }
 
-#pagina .was-validated .form-control:valid {
-  border: 1px solid #28A745;
+#pagina .was-validated .form-control {
+  border: 2px solid #e4d9ff;
 }
-#pagina .was-validated .form-control:invalid {
-  border: 1.5px solid #F2DCD6;
+#pagina .was-validated .form-control {
+  border: 2px solid #F2DCD6;
 }
 
 #pagina .edit-data-icon {
@@ -397,6 +400,31 @@ input:disabled, select:disabled {
 #pagina .printer-icon:hover .fa-edit, #pagina .printer-icon:hover .fa-print, #pagina .printer-icon:hover .fa-check, #pagina .printer-icon:hover .fa-ban, #pagina .printer-icon:hover .fa-boxes, #pagina .printer-icon:hover .fa-plus-circle {
   color: #ffffff;
 }
+#pagina .items-icon {
+  cursor: pointer;
+  color: #506177;
+  font-size: 15px;
+  padding: 10;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: #ffffff;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#pagina .items-icon:hover {
+  color: #ffffff;
+  background-color: #28A745;
+}
+#pagina .items-icon:hover .fa-edit, #pagina .items-icon:hover .fa-print, #pagina .items-icon:hover .fa-check, #pagina .items-icon:hover .fa-ban, #pagina .items-icon:hover .fa-boxes, #pagina .items-icon:hover .fa-plus-circle {
+  color: #ffffff;
+}
+#pagina .unregistered-unit-icon {
+  color: #BDC3C7;
+}
+#pagina .registered-unit-icon {
+  color: green;
+}
 
 #painel-left {
   transition: 1s width;
@@ -454,7 +482,7 @@ input:disabled, select:disabled {
 }
 #painel-left .side-bar {
   margin-left: 150px;
-  background: #1e2749;
+  background: #09023B;
   transition: 0.7s;
   position: fixed;
   height: 100%;
@@ -469,7 +497,7 @@ input:disabled, select:disabled {
   width: 100%;
 }
 #painel-left .side-bar-responsivo {
-  background: #1e2749;
+  background: #09023B;
   transition: 0.7s;
   position: fixed;
   height: 100%;
@@ -491,7 +519,7 @@ input:disabled, select:disabled {
   background-color: transparet;
 }
 #painel-left .side-bar-responsivo li:hover {
-  background-color: #1e2749;
+  background-color: #09023B;
   border-left: none;
 }
 #painel-left .side-bar-responsivo h5 {
@@ -519,30 +547,11 @@ input:disabled, select:disabled {
   border-left: 0px;
 }
 
-#pagina .container-pai {
+#pagina .main-container {
   margin-top: 80px;
 }
 #pagina .collapse-option [aria-expanded=true] .items-icon {
-  background: #273469;
-  color: #ffffff;
-}
-#pagina .items-icon {
-  cursor: pointer;
-  color: #506177;
-  font-size: 15px;
-  padding: 10;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  background-color: #ffffff;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-#pagina .items-icon:hover {
-  color: #ffffff;
-  background-color: #273469;
-}
-#pagina .items-icon:hover .fa-edit, #pagina .items-icon:hover .fa-print, #pagina .items-icon:hover .fa-check, #pagina .items-icon:hover .fa-ban, #pagina .items-icon:hover .fa-boxes, #pagina .items-icon:hover .fa-plus-circle {
+  background: #28A745;
   color: #ffffff;
 }
 #pagina .lista-grupo {
@@ -554,7 +563,7 @@ input:disabled, select:disabled {
 }
 #pagina .lista-grupo a.active {
   background: #ffffff;
-  color: #1e2749;
+  color: #09023B;
 }
 #pagina .lista-grupo .list-group-item {
   margin-bottom: 8px;
@@ -567,25 +576,30 @@ input:disabled, select:disabled {
 }
 #pagina .lista-grupo .list-group-item:hover {
   background: #ffffff;
-  color: #1e2749;
+  color: #09023B;
 }
-#pagina .assistente-etapas {
+#pagina .registration-session-in-stages {
+  display: table;
+  width: 100%;
+  position: relative;
+}
+#pagina .registration-in-stages {
   display: table-cell;
   text-align: center;
   position: relative;
   z-index: 1000;
 }
-#pagina .assistente-etapas p {
+#pagina .registration-in-stages p {
   margin-top: 10px;
   z-index: 1000;
   font-size: 2.3vh;
   font-weight: 500;
-  color: #1e2749;
+  color: #09023B;
 }
-#pagina .assistente-etapas .btn-primary {
-  background-color: #1e2749;
+#pagina .registration-by-content-step {
+  display: table-row;
 }
-#pagina .linha-conexao {
+#pagina .registration-connection-line-in-stages {
   height: 2px;
   background: #e5e5e5;
   margin: auto;
@@ -597,27 +611,9 @@ input:disabled, select:disabled {
   z-index: 1;
   background-image: linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50%);
 }
-#pagina .assistente-etapas-row {
-  display: table-row;
-}
-#pagina .assistente-etapas-sessao {
-  display: table;
-  width: 100%;
-  position: relative;
-}
-#pagina .assistente-etapas a.collapsed {
+#pagina .registration-in-stages a.collapsed {
   color: #283339;
   background-color: #e4d9ff;
-}
-#pagina :disabled {
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
-}
-#pagina .icon-unidade-nao-cadastrada {
-  color: #BDC3C7;
-}
-#pagina .icon-unidade-cadastrada {
-  color: green;
 }
 #pagina .border-img-red {
   border: 5px solid #DC3545;
@@ -653,7 +649,7 @@ input:disabled, select:disabled {
   box-shadow: none;
 }
 
-#funcionario-cadastro .linha-conexao {
+#employee-registration .registration-connection-line-in-stages {
   height: 2px;
   background: #e5e5e5;
   margin: auto;
@@ -695,6 +691,10 @@ input:disabled, select:disabled {
   background-color: #d4af37;
   font-weight: 500;
   color: white;
+}
+
+#course-management input:disabled {
+  background: #F4F6F6;
 }
 
 @media (max-width: 576px) {

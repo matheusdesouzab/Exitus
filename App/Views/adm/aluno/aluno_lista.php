@@ -1,6 +1,6 @@
 <div id="aluno-lista">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
         <div class="col-lg-11 mx-auto">
 
@@ -130,9 +130,9 @@
                                     <td>INFO-1M-A</td>
                                     <td>
                                         <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                         </div>
                                     </td>
                                 </tr>
@@ -144,9 +144,9 @@
                                     <td>INFO-1M-A</td>
                                     <td>
                                         <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                         </div>
                                     </td>
                                 </tr>
@@ -158,9 +158,9 @@
                                     <td>INFO-1M-A</td>
                                     <td>
                                         <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                         </div>
                                     </td>
                                 </tr>
@@ -172,9 +172,9 @@
                                     <td>INFO-1M-A</td>
                                     <td>
                                         <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                         </div>
                                     </td>
                                 </tr>
@@ -186,9 +186,9 @@
                                     <td>INFO-1M-A</td>
                                     <td>
                                         <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                         </div>
                                     </td>
                                 </tr>
@@ -200,9 +200,9 @@
                                     <td>INFO-1M-A</td>
                                     <td>
                                         <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 icon-unidade-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 icon-unidade-nao-cadastrada"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
+                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
                                         </div>
                                     </td>
                                 </tr>
