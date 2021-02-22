@@ -1,6 +1,6 @@
 <div id="gestao-turmas">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
         <div class="col-lg-12  accordion" id="accordion-turmas">
 
@@ -10,11 +10,11 @@
                         <h5>Gestão das turmas</h5>
                     </div>
 
-                    <div class="col-lg-6 d-flex collapse-option justify-content-end">
+                    <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-turmas"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Turmas</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-turmas"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-turmas"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-turmas"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                     </div>
@@ -147,7 +147,7 @@
                                             <div class="modal-content p-2">
                                                 <div class="row" style="margin-left: -50px !important;">
                                                     <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
+                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
                                                         </button></div>
                                                 </div>
 
@@ -171,7 +171,7 @@
 
                                                                         <div class="row">
 
-                                                                            <div class="col-lg-12 collapse show overflow-auto p-3 container-accordion" id="collapse-perfil-turma-dados" aria-labelledby="turma-dados" data-parent="#accordion-perfil-turma" style="border-radius: 15px">
+                                                                            <div class="col-lg-12 collapse show overflow-auto p-3 accordion-container" id="collapse-perfil-turma-dados" aria-labelledby="turma-dados" data-parent="#accordion-perfil-turma" style="border-radius: 15px">
 
 
                                                                                 <div class="row">
@@ -188,11 +188,11 @@
                                                                                                             <h5>Dados da turma</h5>
                                                                                                         </div>
 
-                                                                                                        <div class="col-lg-6 col-12 collapse-option">
+                                                                                                        <div class="col-lg-6 col-12 collapse-options-container">
 
-                                                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-alunos"><span class="mr-2 items-icon"><i class="fas fa-user-friends"></i> <span class="collapse-option-text">Alunos</span></span></a>
+                                                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-alunos"><span class="mr-2"><i class="fas fa-user-friends"></i> Alunos</span></a>
 
-                                                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-professores"><span class="mr-2 items-icon"><i class="fas fa-chalkboard-teacher"></i> <span class="collapse-option-text">Professores</span></span></a>
+                                                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-professores"><span class="mr-2"><i class="fas fa-chalkboard-teacher"></i> Professores</span></a>
 
 
                                                                                                         </div>
@@ -395,7 +395,7 @@
 
                                                                             </div>
 
-                                                                            <div class="col-lg-12 collapse container-accordion overflow-auto" id="collapse-perfil-turma-disciplinas" aria-labelledby="turma-disciplinas" data-parent="#accordion-perfil-turma">
+                                                                            <div class="col-lg-12 collapse accordion-container overflow-auto" id="collapse-perfil-turma-disciplinas" aria-labelledby="turma-disciplinas" data-parent="#accordion-perfil-turma">
 
                                                                                 <div class="col-lg-12  accordion" id="accordion-turma-disciplinas">
 
@@ -405,14 +405,16 @@
                                                                                                 <h5>Disciplinas da turma</h5>
                                                                                             </div>
 
-                                                                                            <div class="col-lg-6 col-12 collapse-option">
+                                                                                            <div class="col-lg-6 col-12 collapse-options-container">
 
-                                                                                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-disciplinas"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
+                                                                                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-disciplinas"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 
-                                                                                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-disciplinas"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                                                                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-disciplinas"><span class="mr-2 "><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                                                                                             </div>
+
+
                                                                                         </div>
                                                                                     </div>
 
@@ -538,7 +540,7 @@
 
 
 
-                                                                            <div class="col-lg-12 collapse overflow-auto container-accordion" id="collapse-perfil-turma-avaliacoes" aria-labelledby="turma-avaliacoes" data-parent="#accordion-perfil-turma">
+                                                                            <div class="col-lg-12 collapse overflow-auto accordion-container" id="collapse-perfil-turma-avaliacoes" aria-labelledby="turma-avaliacoes" data-parent="#accordion-perfil-turma">
 
                                                                                 <div class="accordion" id="accordion-turma-avaliacoes">
                                                                                     <div class="col-lg-12 mb-4 mt-3">
@@ -547,11 +549,14 @@
                                                                                                 <h5>Avaliações da turma</h5>
                                                                                             </div>
 
-                                                                                            <div class="col-lg-6 col-12 collapse-option">
+                                                                                          
 
-                                                                                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
-                                                                                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                                                                            <div class="col-lg-6 col-12 collapse-options-container">
+
+                                                                                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 "><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
+
+                                                                                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-avaliacoes"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
 
@@ -598,59 +603,59 @@
 
                                                                                             <div class="table-responsive">
 
-                                                                                            <table class="table col-lg-11 mx-auto table-borderless table-hover">
-                                                                                                <thead>
-                                                                                                    <tr>
-                                                                                                        <th scope="col">Id</th>
-                                                                                                        <th scope="col">Avaliação</th>
-                                                                                                        <th scope="col">UE</th>
-                                                                                                        <th scope="col">Disciplina</th>
-                                                                                                        <th scope="col">Data</th>
-                                                                                                        <th scope="col">Valor</th>
-                                                                                                    </tr>
-                                                                                                </thead>
-                                                                                                <tbody>
+                                                                                                <table class="table col-lg-11 mx-auto table-borderless table-hover">
+                                                                                                    <thead>
+                                                                                                        <tr>
+                                                                                                            <th scope="col">Id</th>
+                                                                                                            <th scope="col">Avaliação</th>
+                                                                                                            <th scope="col">UE</th>
+                                                                                                            <th scope="col">Disciplina</th>
+                                                                                                            <th scope="col">Data</th>
+                                                                                                            <th scope="col">Valor</th>
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody>
 
-                                                                                                    <tr>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Prova em dupla</td>
-                                                                                                        <td>1</td>
+                                                                                                        <tr>
+                                                                                                            <td>1</td>
+                                                                                                            <td>Prova em dupla</td>
+                                                                                                            <td>1</td>
 
-                                                                                                        <td>Matemática</td>
-                                                                                                        <td>20/12/2001</td>
-                                                                                                        <td>4,0</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Prova em dupla</td>
-                                                                                                        <td>1</td>
+                                                                                                            <td>Matemática</td>
+                                                                                                            <td>20/12/2001</td>
+                                                                                                            <td>4,0</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td>1</td>
+                                                                                                            <td>Prova em dupla</td>
+                                                                                                            <td>1</td>
 
-                                                                                                        <td>Matemática</td>
-                                                                                                        <td>20/12/2001</td>
-                                                                                                        <td>4,0</td>
-                                                                                                    </tr>
-                                                                                                    <tr>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Prova em dupla</td>
-                                                                                                        <td>1</td>
+                                                                                                            <td>Matemática</td>
+                                                                                                            <td>20/12/2001</td>
+                                                                                                            <td>4,0</td>
+                                                                                                        </tr>
+                                                                                                        <tr>
+                                                                                                            <td>1</td>
+                                                                                                            <td>Prova em dupla</td>
+                                                                                                            <td>1</td>
 
-                                                                                                        <td>Matemática</td>
-                                                                                                        <td>20/12/2001</td>
-                                                                                                        <td>4,0</td>
-                                                                                                    </tr>
+                                                                                                            <td>Matemática</td>
+                                                                                                            <td>20/12/2001</td>
+                                                                                                            <td>4,0</td>
+                                                                                                        </tr>
 
-                                                                                                    <tr>
-                                                                                                        <td>1</td>
-                                                                                                        <td>Prova em dupla</td>
-                                                                                                        <td>1</td>
+                                                                                                        <tr>
+                                                                                                            <td>1</td>
+                                                                                                            <td>Prova em dupla</td>
+                                                                                                            <td>1</td>
 
-                                                                                                        <td>Matemática</td>
-                                                                                                        <td>20/12/2001</td>
-                                                                                                        <td>4,0</td>
-                                                                                                    </tr>
+                                                                                                            <td>Matemática</td>
+                                                                                                            <td>20/12/2001</td>
+                                                                                                            <td>4,0</td>
+                                                                                                        </tr>
 
-                                                                                                </tbody>
-                                                                                            </table>
+                                                                                                    </tbody>
+                                                                                                </table>
                                                                                             </div>
 
                                                                                         </div>

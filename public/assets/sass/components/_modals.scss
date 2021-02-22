@@ -46,6 +46,8 @@
             background-color: $color-black;
         }
 
+        @include all-edges-of-images(3px);
+
         .modal-body>.row:nth-child(1) {
             @include card(10px, $color-pure-gray, 1px solid $color-smooth-gray);
             margin-top: -10px;
@@ -73,7 +75,7 @@
             box-shadow: none;
         }
 
-        .controle-opcoes {
+        .side-collapse-options {
 
             .list-group {
                 margin-top: 20px;
@@ -96,42 +98,40 @@
 
         .horizontal-control-list {
             display: none;
-        }    
-
-        #collapse-perfil-aluno-opcoes-dados {
-
-            b {
-                color: $color-dark-gray;
-            }
-
-            .input-group-prepend span {
-                font-weight: bold;
-                color: $color-dark-blue;
-            }
-
-            .input-group-text {
-                background-color: transparent;
-                border: none;
-                font-weight: bold;
-            }
-
-            .input-group {
-                padding-left: 0;
-                margin-bottom: 13px;
-            }
-
-            input:disabled {
-                background-color: transparent;
-                font-weight: bold;
-                border: none;
-                padding-left: 0px;
-            }
-
-            img {
-                display: flex;
-                justify-content: center;
-            }
         }
+
+        b {
+            color: $color-dark-gray;
+        }
+
+        .input-group-prepend span {
+            font-weight: bold;
+            color: $color-dark-blue;
+        }
+
+        .input-group-text {
+            background-color: transparent;
+            border: none;
+            font-weight: bold;
+        }
+
+        .input-group {
+            padding-left: 0;
+            margin-bottom: 13px;
+        }
+
+        input:disabled {
+            background-color: transparent;
+            font-weight: bold;
+            border: none;
+            padding-left: 0px;
+        }
+
+        img {
+            display: flex;
+            justify-content: center;
+        }
+
 
         #collapse-perfil-aluno-opcoes-boletim {
 

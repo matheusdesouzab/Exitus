@@ -1,6 +1,6 @@
-<div id="funcionario-lista">
+<div id="list-employees">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
         <div class="col-lg-11 mx-auto">
 
@@ -10,7 +10,7 @@
 
                 <div class="card p-3 mb-3">
 
-                    <form class="col-lg-11 accordion mx-auto mt-3" id="accordion-busca-avancada">
+                    <form class="col-lg-11 accordion mx-auto mt-3" id="advanced-search-accordion">
 
                         <div class="form-row">
 
@@ -40,13 +40,13 @@
                             <div class="form-group col-2 col-lg-1">
                                 <label for="">&nbsp;</label><br>
                                 <div id="heading-busca-avancada">
-                                    <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#collapse-busca-avancada" aria-expanded="false" aria-controls="collapse-busca-avancada"><i class="fas fa-ellipsis-h"></i></a>
+                                    <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
                                 </div>
                             </div>
 
                         </div>
 
-                            <div id="collapse-busca-avancada" class="collapse" aria-labelledby="heading-busca-avancada" data-parent="#accordion-busca-avancada">
+                            <div id="activate-advanced-search-accordion" class="collapse" data-parent="#advanced-search-accordion">
 
                                 <div class="form-row mx-auto">
 
@@ -151,7 +151,7 @@
                 </div>
             </div>
 
-            <div class="modal modal-perfil fade" id="perfilFuncionarioModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal modal-perfil fade" id="modal-employee-profile" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content p-2">
                         <div class="row" style="margin-left: -50px !important;">
@@ -398,7 +398,7 @@
                                 </div>
 
 
-                                <div class="col-lg-2 controle-opcoes">
+                                <div class="col-lg-2 side-collapse-options">
 
                                     <ul class="list-group text-center">
 

@@ -1,6 +1,6 @@
 <div id="turma-gestao">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
         <div class="col-lg-11 mx-auto">
 

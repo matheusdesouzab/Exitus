@@ -10,7 +10,7 @@
                         <h5>Gestão das disciplinas</h5>
                     </div>
 
-                    <div class="col-lg-6 collapse-option d-flex justify-content-end">
+                    <div class="col-lg-6 collapse-options-container">
 
                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-disciplinas"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 

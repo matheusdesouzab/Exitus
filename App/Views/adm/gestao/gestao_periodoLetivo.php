@@ -10,7 +10,7 @@
                         <h5>Gestão dos periodos letivos</h5>
                     </div>
 
-                    <div class="col-lg-6 collapse-option d-flex justify-content-end">
+                    <div class="col-lg-6 collapse-options-container">
 
                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-periodos" ><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Periodos</span></a>
 

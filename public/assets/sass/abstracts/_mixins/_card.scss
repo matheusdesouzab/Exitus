@@ -6,20 +6,27 @@
     background-color: $background;
 }
 
-@mixin icon-card($color,$background-hover,$background){
+@mixin icon-card($color, $background-hover, $background) {
 
     cursor: pointer;
     color: $color;
     font-size: 15px;
+    border-radius: 10px;
+    background: $background;
+    padding: 10px;
 
-        @include card(10, $background, none);
 
-        &:hover {
-            color:$color-white;
-            background-color: $background-hover;
+    &:hover {
+        color: $color-white;
+        background-color: $background-hover;
 
-            .fa-edit,.fa-print,.fa-check,.fa-ban,.fa-boxes,.fa-plus-circle {
-                color: $color-white;
-            }
+        .fa-edit,
+        .fa-print,
+        .fa-check,
+        .fa-ban,
+        .fa-boxes,
+        .fa-plus-circle {
+            color: $color-white;
         }
+    }
 }

@@ -10,11 +10,11 @@
                         <h5>Gestão dos Cursos</h5>
                     </div>
 
-                    <div class="col-lg-6 d-flex collapse-option justify-content-end">
+                    <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-list-courses" ><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Cursos</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-list-courses" ><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Cursos</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-add-course"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-add-course"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
                         
 
                     </div>

@@ -1,15 +1,15 @@
 #pagina {
 
     .edit-data-icon {
-        @include icon-card($color-black, $color-blue, $color-smooth-gray);
+        @include icon-card($color-dark-gray, $color-blue, $color-smooth-gray);
     }
 
     .update-data-icon {
-        @include icon-card($color-black, $color-green, $color-smooth-gray);
+        @include icon-card($color-dark-gray, $color-green, $color-smooth-gray);
     }
 
     .delete-data-icon {
-        @include icon-card($color-black, $color-red, $color-smooth-gray);
+        @include icon-card($color-dark-gray, $color-red, $color-smooth-gray);
     }
 
     .printer-icon {

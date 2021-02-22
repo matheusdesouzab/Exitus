@@ -2,11 +2,11 @@
 
     .was-validated {
 
-        .form-control {
+        .form-control:valid {
             border: 2px solid $color-extra-light-blue;
         }
 
-        .form-control {
+        .form-control:invalid {
             border: 2px solid $color-extra-light-red;
         }
 

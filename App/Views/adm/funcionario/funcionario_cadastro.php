@@ -173,110 +173,42 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#employee-registration-accordion">
-                            <div class="col-lg-10 mx-auto">
-                                <div class="col-md-12">
-
-                                    <div class="form-row mt-3">
-
-                                        <div class="form-group col-md-3">
-                                            <label for="inputCity">Série:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option> </option>
-                                                <option>1° ano</option>
-                                                <option>2° ano</option>
-                                                <option>3° ano</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-md-3">
-                                            <label for="inputCity">Situação do Aluno:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option> </option>
-                                                <option>Estudando</option>
-                                                <option>Reprovado</option>
-                                                <option>Aprovado</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-md-6">
-                                            <label for="inputCity">Turma</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option value=""></option>
-                                                <option>INFO-1M-A</option>
-                                                <option>INFO-1M-B</option>
-                                                <option>INFO-2V-A</option>
-                                                <option>INFO-2V-B</option>
-                                            </select>
-                                        </div>
-
-
-
-                                    </div>
-
-                                    <div class="form-row">
-
-                                        <div class="form-group col-md-4">
-                                            <label for="inputCity">Período Letivo</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option selected> </option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="form-group col-md-8">
-                                            <label for="">Situação da turma </label>
-                                            <input type="text" class="form-control" disabled placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-3 mt-3 mb-5 mx-auto">
-                                            <a id="cadastrarProfessor" class="btn btn-success w-100" href="#">Finalizar cadastro</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </form>
+                </div>
+            </div>
+        </div>
 
-                    <div class="modal fade" id="matriculaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    Situação da matricula
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                    </div>
-                                    <div class="col-lg-12 d-flex justify-content-center">
-                                        <!-- <i class="fas fa-check-circle"></i> -->
-                                        <i class="fas fa-times-circle"></i>
-                                    </div>
-                                    <div class="col-lg-12 modal-text">
-                                        <p>Aluno não matriculado!</p>
-                                        <p>INFO-1M-B chegou ao limite de alunos! </p>
-                                    </div>
-                                    <div class="col-lg-12 alternative-modal-links mt-5 d-flex justify-content-around mb-4">
 
-                                        <a class="btn btn-primary" href="">Lista de Alunos <i class="fas fa-arrow-alt-circle-left ml-2"></i></a>
-                                        <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
 
-                                    </div>
-                                </div>
-                            </div>
+        <div class="modal fade" id="matriculaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        Situação da matricula
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                        </div>
+                        <div class="col-lg-12 d-flex justify-content-center">
+                            <!-- <i class="fas fa-check-circle"></i> -->
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="col-lg-12 modal-text">
+                            <p>Aluno não matriculado!</p>
+                            <p>INFO-1M-B chegou ao limite de alunos! </p>
+                        </div>
+                        <div class="col-lg-12 alternative-modal-links mt-5 d-flex justify-content-around mb-4">
+
+                            <a class="btn btn-primary" href="">Lista de Alunos <i class="fas fa-arrow-alt-circle-left ml-2"></i></a>
+                            <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-</div>
-
 </div>

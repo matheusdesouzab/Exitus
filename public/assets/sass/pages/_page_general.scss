@@ -1,46 +1,24 @@
 #pagina {
 
+    // Main container ( Recipiente principal )
+
+
     .main-container {
         margin-top: 80px;
     }
 
-    .collapse-option [aria-expanded="true"] .items-icon {
 
-        background: $color-green;
-        color: $color-white;
+    // Accordion container ( Recipiente do acordeão) 
 
-    }
 
-    .lista-grupo {
-
-        background-color: $color-smooth-blue;
+    .accordion-container {
+        height: 520px;
+        width: 890px;
 
         &::-webkit-scrollbar {
             width: 0;
             background: transparent;
         }
-
-        a.active {
-            background: $color-white;
-            color: $color-dark-blue;
-        }
-
-        .list-group-item {
-
-            margin-bottom: 8px;
-            border: 0px;
-            font-weight: bold;
-            font-size: 13.5px;
-            color: $color-white;
-            border-radius: 10px;
-            background-color: transparent;
-
-            &:hover {
-                background: $color-white;
-                color: $color-dark-blue;
-            }
-        }
-
     }
 
 
@@ -74,7 +52,7 @@
         display: table-row;
     }
 
-    .registration-connection-line-in-stages{
+    .registration-connection-line-in-stages {
         @include linha-conexao(70%);
         background-image: linear-gradient(to left, $color-smooth-gray 50%, $color-smooth-gray 50%);
     }
@@ -83,23 +61,40 @@
         color: $color-black;
         background-color: $color-extra-light-blue;
     }
-  
-    @include all-edges-of-images(5px);
 
-    .container-accordion {
-        height: 520px;
-        width: 890px;
 
-        &::-webkit-scrollbar {
-            width: 0;
-            background: transparent;
+    // Collapse options container ( Recipiente das opções de colapso )
+
+
+    .collapse-options-container {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 15px;
+
+        span {
+            @include icon-card(none, $color-blue, $color-white);
+            padding-left: 20px;
+            padding-right: 20px;
+            border: 1px solid $color-smooth-gray;
+            color: $color-dark-gray;
         }
     }
 
-    .collapse-option {
-        display: flex;
-        justify-content: flex-end;
+    .collapse-options-container>[aria-expanded="true"] {
+
+        span {
+            background: $color-blue;
+            color: $color-white;
+            border: none;
+        }
     }
+
+
+    // All edges of images ( Todas as bordas das imagens )
+
+
+    @include all-edges-of-images(5px);
+
 
 
 }

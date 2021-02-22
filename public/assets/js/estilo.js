@@ -65,4 +65,4 @@ $(".unidades input").on('keypress', e => $(e.target).mask('0,00'))
 
 $('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
 
-$("#perfilAlunoModal , #disciplinaModal , #perfilFuncionarioModal , #perfilTurmaModal").modal('show')
+$("#modal-student-profile , #disciplinaModal , #modal-employee-profile , #perfilTurmaModal").modal('show')

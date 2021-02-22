@@ -1,4 +1,4 @@
-<div id="aluno-lista">
+<div id="list-students">
 
     <div class="row main-container">
 
@@ -10,7 +10,7 @@
 
                 <div class="card p-3 mb-3">
 
-                    <form class="col-lg-11 accordion mx-auto mt-3" id="accordion-busca-avancada">
+                    <form class="col-lg-11 accordion mx-auto mt-3" id="advanced-search-accordion">
 
                         <div class="form-row">
 
@@ -43,16 +43,16 @@
 
                             <div class="form-group col-2 col-lg-1">
                                 <label for="">&nbsp;</label><br>
-                                <div id="heading-busca-avancada">
-                                    <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#collapse-busca-avancada" aria-expanded="false" aria-controls="collapse-busca-avancada"><i class="fas fa-ellipsis-h"></i></a>
+                                <div>
+                                    <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
                                 </div>
                             </div>
 
-                            <div id="collapse-busca-avancada" class="collapse" aria-labelledby="heading-busca-avancada" data-parent="#accordion-busca-avancada">
+                            <div id="activate-advanced-search-accordion" class="collapse" data-parent="#advanced-search-accordion">
 
                                 <div class="form-row mx-auto">
 
-                                    <div class="form-group col-12 col-lg-2">
+                                    <div class="form-group col-12 col-lg-3">
                                         <label for="">Curso:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">Todos</option>
@@ -63,7 +63,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-12 col-lg-2">
+                                    <div class="form-group col-12 col-lg-3">
                                         <label for="">Sexo:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">Todos</option>
@@ -73,7 +73,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-12 col-lg-2">
+                                    <div class="form-group col-12 col-lg-3">
                                         <label for="">Periodo Letivo:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">2021</option>
@@ -82,7 +82,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-12 col-lg-2">
+                                    <div class="form-group col-12 col-lg-3">
                                         <label for="">Turno:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">Todos</option>
@@ -92,7 +92,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-12 col-lg-2">
+                                    <div class="form-group col-12 col-lg-3">
                                         <label for="">Série:</label>
                                         <select class="form-control custom-select" name="" id="">
                                             <option value="">Todas</option>
@@ -110,6 +110,7 @@
                     <hr class="col-lg-10 col-10 mx-auto">
 
                     <div class="table-responsive">
+
                         <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto">
 
                             <thead>
@@ -213,7 +214,8 @@
                 </div>
             </div>
 
-            <div class="modal fade modal-perfil" id="perfilAlunoModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade modal-perfil" id="modal-student-profile" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
                 <div class="modal-dialog">
                     <div class="modal-content p-2">
                         <div class="row">
@@ -222,18 +224,22 @@
                                 </button></div>
                         </div>
 
-                        <div class="modal-body w-100">
+                        <div class="modal-body">
 
                             <div class="row p-3 d-flex justify-content-around col-lg-11 mx-auto">
 
                                 <div class="col-lg-9">
 
-                                    <div class="row accordion" id="accordion-perfil-aluno-opcoes">
+                                    <div class="row accordion" id="student-profile-accordion">
 
                                         <ul class="list-group horizontal-control-list mx-auto list-group-horizontal">
-                                            <li class="list-group-item" data-target="#collapse-perfil-aluno-opcoes-dados" aria-expanded="true" id="dados" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
-                                            <li class="list-group-item" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-avaliacoes"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
-                                            <li class="list-group-item" id="boletim" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-boletim"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Boletim</a></li>
+
+                                            <li class="list-group-item" data-target="#student-profile-data" aria-expanded="true" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
+
+                                            <li class="list-group-item" data-toggle="collapse" aria-expanded="false" data-target="#student-profile-assessment"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
+
+                                            <li class="list-group-item" data-toggle="collapse" aria-expanded="false" data-target="#student-profile-newsletter"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Boletim</a></li>
+
                                         </ul>
 
                                         <div class="row">
@@ -242,7 +248,7 @@
 
                                                 <div class="row">
 
-                                                    <div class="col-lg-12 collapse show overflow-auto p-3 container-accordion" id="collapse-perfil-aluno-opcoes-dados" aria-labelledby="dados" data-parent="#accordion-perfil-aluno-opcoes" style="border-radius: 15px">
+                                                    <div class="col-lg-12 collapse show overflow-auto p-3 accordion-container" id="student-profile-data" data-parent="#student-profile-accordion" style="border-radius: 15px">
 
                                                         <div class="row">
 
@@ -415,7 +421,7 @@
 
                                                                     </div>
 
-                                                                    <div class="col-lg-5 observation-side col-12 overflow-auto">
+                                                                    <div class="col-lg-5 col-12 overflow-auto">
 
                                                                         <div class="row p-3">
 
@@ -477,11 +483,11 @@
 
 
 
-                                                    <div class="col-lg-12 collapse overflow-auto p-3 container-accordion" id="collapse-perfil-aluno-opcoes-avaliacoes" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse overflow-auto p-3 accordion-container" id="student-profile-assessment" data-parent="#student-profile-accordion">
 
 
 
-                                                        <div class="col-lg-12 accordion" id="accordion-avaliacoes">
+                                                        <div class="col-lg-12 accordion" id="accordion-ratings">
 
                                                             <div class="row">
 
@@ -491,11 +497,11 @@
                                                                             <h5>Avaliações</h5>
                                                                         </div>
 
-                                                                        <div class="col-lg-6 d-flex collapse-option mb-3 justify-content-end">
+                                                                        <div class="col-lg-6 collapse-options-container">
 
-                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
+                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rating-list"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
-                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-avaliacoes"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-reviews"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                                                                         </div>
@@ -504,7 +510,7 @@
 
                                                                 <div class="col-lg-12">
 
-                                                                    <div class="collapse show card" id="collapse-lista-avaliacoes" data-parent="#accordion-avaliacoes">
+                                                                    <div class="collapse show card" id="rating-list" data-parent="#accordion-ratings">
 
                                                                         <form class="mt-3 col-lg-11 mx-auto  text-dark" action="">
 
@@ -600,7 +606,7 @@
 
 
 
-                                                                    <div class="collapse card" id="collapse-adicionar-avaliacoes" data-parent="#accordion-avaliacoes">
+                                                                    <div class="collapse card" id="add-reviews" data-parent="#accordion-ratings">
 
                                                                         <form class="col-lg-12" action="">
 
@@ -670,7 +676,7 @@
                                                     </div>
 
 
-                                                    <div class="col-lg-12 collapse  container-accordion overflow-auto" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse accordion-container overflow-auto" id="student-profile-newsletter" data-parent="#student-profile-accordion">
 
                                                         <div class="row">
 
@@ -679,7 +685,7 @@
                                                                     <div class="col-lg-6 col-8">
                                                                         <h5 class="">Boletim do aluno</h5>
                                                                     </div>
-                                                                    <div class="col-lg-6 col-4 mt-3 text-right"><span class="imprimir-boletim"><i class="fas fa-print"></i></span></div>
+                                                                    <div class="col-lg-6 col-4 mt-3 text-right"><span class="printer-icon"><i class="fas fa-print"></i></span></div>
 
                                                                 </div>
                                                             </div>
@@ -858,7 +864,7 @@
                                                     </div>
 
 
-                                                    <div class="col-lg-12 collapse overflow-auto" id="modalThree" aria-labelledby="mais" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse overflow-auto" id="modalThree" data-parent="#student-profile-accordion">
                                                         <h5>Mais</h5>
                                                     </div>
 
@@ -871,15 +877,15 @@
                                 </div>
 
 
-                                <div class="col-lg-2 controle-opcoes">
+                                <div class="col-lg-2 side-collapse-options">
 
                                     <ul class="list-group text-center">
 
-                                        <li class="list-group-item border-0" data-target="#collapse-perfil-aluno-opcoes-dados" aria-expanded="true" id="dados" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
+                                        <li class="list-group-item border-0" data-target="#student-profile-data" aria-expanded="true" id="dados" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
 
-                                        <li class="list-group-item border-0" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-avaliacoes"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
+                                        <li class="list-group-item border-0" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#student-profile-assessment"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
 
-                                        <li class="list-group-item border-0" id="boletim" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-boletim"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Boletim</a></li>
+                                        <li class="list-group-item border-0" id="boletim" data-toggle="collapse" aria-expanded="false" data-target="#student-profile-newsletter"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Boletim</a></li>
 
                                         <li class="list-group-item border-0" id="mais" aria-expanded="false" data-toggle="collapse" data-target="#modalThree"><a href="#"><i class="fas fa-chart-line mr-2"></i> Análise </a></li>
 
