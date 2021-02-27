@@ -1,6 +1,6 @@
 
 
-@mixin linha-conexao($width) {
+@mixin connection-line-in-stages($width) {
     height: 2px;
     background: $color-smooth-gray;
     margin: auto;

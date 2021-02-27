@@ -12,9 +12,9 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-list-courses" ><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Cursos</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-courses" ><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Cursos</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-add-course"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-course"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
                         
 
                     </div>
@@ -27,7 +27,7 @@
 
                     <div class="col-lg-12">
                         
-                            <div  class="collapse show" id="collapse-list-courses" data-parent="#accordion-courses">
+                            <div  class="collapse show" id="list-courses" data-parent="#accordion-courses">
                                 <div class="row">
                                     <div class="col-lg-12">
 
@@ -148,7 +148,7 @@
                                 </div>
                             </div>
 
-                            <div class="collapse" id="collapse-add-course" data-parent="#accordion-courses">
+                            <div class="collapse" id="add-course" data-parent="#accordion-courses">
 
                                 <div class="row">
 
@@ -193,11 +193,11 @@
 
 
                             </div>
-                            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+                            <div class="tab-pane fade" role="tabpanel" aria-labelledby="list-messages-list">
 
 
                             </div>
-                            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+                            <div class="tab-pane fade" role="tabpanel" aria-labelledby="list-settings-list">
 
                             </div>
                         </div>

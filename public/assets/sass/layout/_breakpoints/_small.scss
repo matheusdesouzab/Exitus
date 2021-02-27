@@ -1,0 +1,128 @@
+@media (max-width:768px) and (min-width:577px) {
+
+    body {
+
+        #painel-left {
+            z-index: 120000000;
+        }
+
+        font-size: 2vh;
+        width: 100%;
+
+        .panel-side {
+            display: none;
+        }
+
+        .panel-side-xs {
+
+            display: block;
+
+            #painel-left>.side-bar {
+
+                li:nth-child(2) {
+                    display: block;
+                }
+
+                width: 40%;
+                margin-left: 190px;
+
+                .bars-xs {
+                    color: $color-white;
+                }
+
+                img {
+                    width: 80%;
+                }
+
+                .fa-angle-down {
+                    display: none;
+                }
+
+                h5 {
+                    font-size: 2vw;
+                }
+
+                li,
+                h5 {
+                    margin-left: 2vw;
+                    margin-top: 15px;
+
+                }
+
+                .link-collapse a,
+                .collapse li a {
+                    font-size: 2vw;
+                    font-weight: 500;
+                }
+
+                .collapse li {
+                    border-left: 5px solid $color-white;
+                    margin-top: 0px;
+                }
+            }
+        }
+
+        #navbar-top {
+
+            #bars {
+                display: none;
+            }
+
+            a.bars-xs {
+                display: block;
+            }
+
+            .navbar-toggler {
+                display: none;
+            }
+
+
+        }
+
+        #pagina {
+
+            table {
+                width: 700px;
+            }
+
+            .modal-profile {
+
+                .horizontal-control-list {
+                    display: flex;
+                }
+
+                .collapse-options-container{
+                    margin-top: 20px;
+                }
+
+                .side-collapse-options {
+                    display: none;
+                }
+
+                .accordion-container {
+                    overflow: auto;
+                    height: 520px;
+                    width: 70vw;
+                    margin: auto;
+                }
+
+                .modal-content {
+                    width: 570px;
+                    margin: auto;
+                    margin-top: 10px;
+                    margin-left: -2.2vw;
+                    height: 100%;
+                    overflow: auto;
+                }
+
+                .option-list {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin: 15px 0px 15px 0px;
+                }
+
+
+            }
+        }
+    }
+}

@@ -1,8 +1,8 @@
-<div id="gestao-salas">
+<div id="room-management">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
-        <div class="col-lg-11 mx-auto accordion" id="accordion-salas">
+        <div class="col-lg-11 mx-auto accordion" id="room-accordion">
 
             <div class="col-lg-12 mb-3">
                 <div class="row d-flex align-items-center">
@@ -12,9 +12,9 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-salas"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Salas</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-rooms"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Salas</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-salas"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-rooms"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                     </div>
@@ -27,7 +27,7 @@
 
                     <div class="col-lg-12">
 
-                        <div class="collapse show" id="collapse-salas" data-parent="#accordion-salas">
+                        <div class="collapse show" id="list-rooms" data-parent="#room-accordion">
 
                             <form class="card mt-3" action="">
 
@@ -177,7 +177,7 @@
 
                         </div>
 
-                        <div class="collapse" id="collapse-adicionar-salas" data-parent="#accordion-salas">
+                        <div class="collapse" id="add-rooms" data-parent="#room-accordion">
 
                             <div class="row">
 

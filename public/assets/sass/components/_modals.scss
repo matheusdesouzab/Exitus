@@ -1,6 +1,6 @@
 #pagina {
 
-    #matriculaModal {
+    #modal-registration {
 
         margin-top: 40px;
 
@@ -16,7 +16,7 @@
             font-weight: 500;
         }
 
-        .modal-aluno-matricular-sucesso {
+        .modal-registration-success{
 
             .fa-check-circle {
                 @include icon-modal($color-green);
@@ -24,7 +24,7 @@
 
         }
 
-        .modal-aluno-matricular-erro {
+        .modal-registration-error {
 
             .fa-times-circle {
                 @include icon-modal($color-red);
@@ -34,7 +34,7 @@
 
     }
 
-    .modal-perfil {
+    .modal-profile {
 
         z-index: 1300;
 
@@ -51,6 +51,11 @@
         .modal-body>.row:nth-child(1) {
             @include card(10px, $color-pure-gray, 1px solid $color-smooth-gray);
             margin-top: -10px;
+        }
+
+        input:disabled,select:disabled{
+        background: $color-pure-gray;
+        border: 1px solid $color-extra-light-blue;
         }
 
         h5 {
@@ -133,7 +138,7 @@
         }
 
 
-        #collapse-perfil-aluno-opcoes-boletim {
+        #student-profile-newsletter {
 
             h5 {
                 text-transform: initial;
@@ -163,7 +168,7 @@
 
     }
 
-    #disciplinaModal {
+    #modal-discipline {
 
         @include modal-content($color-white, 10px);
 

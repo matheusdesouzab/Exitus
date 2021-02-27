@@ -1,7 +1,7 @@
 #employee-registration {
 
     .registration-connection-line-in-stages {
-        @include linha-conexao(51%);
+        @include connection-line-in-stages(51%);
         margin-left: 21%;
     }
 

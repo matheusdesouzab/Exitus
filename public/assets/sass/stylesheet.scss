@@ -39,25 +39,17 @@
 
 @import 'layout/sidebar';
 
-@import 'layout/media-screen';
-
 // Pages/Page General
 
 @import 'pages/page_general';
 
-// Pages/Aluno
+// Pages/Employee
 
-@import 'pages/_aluno/aluno_cadastro';
-@import 'pages/_aluno/aluno_lista';
+@import 'pages/_employee/employee_registration';
 
-// Pages/Funcionário
+// Pages/Management
 
-@import 'pages/_funcionario/funcionario_cadastro';
+@import 'pages/_management/management_class';
 
-// Pages/Gestão/Gestão Turma
+@import 'layout/breakpoints_all';
 
-@import 'pages/_gestao/gestao_turma';
-
-@import 'pages/_gestao/gestao_curso';
-
-@import 'layout/_breakpoints/extra_small';

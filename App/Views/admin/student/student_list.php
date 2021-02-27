@@ -107,7 +107,7 @@
                         </div>
                     </form>
 
-                    <hr class="col-lg-10 col-10 mx-auto">
+                    <hr class="col-10 mx-auto">
 
                     <div class="table-responsive">
 
@@ -214,7 +214,7 @@
                 </div>
             </div>
 
-            <div class="modal fade modal-perfil" id="modal-student-profile" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade modal-profile" id="modal-student-profile" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
                 <div class="modal-dialog">
                     <div class="modal-content p-2">
@@ -248,7 +248,7 @@
 
                                                 <div class="row">
 
-                                                    <div class="col-lg-12 collapse show overflow-auto p-3 accordion-container" id="student-profile-data" data-parent="#student-profile-accordion" style="border-radius: 15px">
+                                                    <div class="col-lg-12 collapse show overflow-auto p-3 accordion-container" id="student-profile-data" data-parent="#student-profile-accordion">
 
                                                         <div class="row">
 
@@ -256,7 +256,7 @@
 
                                                                 <div class="row">
 
-                                                                    <div class="col-lg-12 mt-4"><img class="border-img-golden" src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
+                                                                    <div class="col-lg-12 mt-4"><img class="border-img-golden mx-auto" src="/assets/img/foto-perfil-1.png" class="" alt=""></div>
 
                                                                 </div>
 
@@ -483,9 +483,7 @@
 
 
 
-                                                    <div class="col-lg-12 collapse overflow-auto p-3 accordion-container" id="student-profile-assessment" data-parent="#student-profile-accordion">
-
-
+                                                    <div class="col-lg-12 ollapse overflow-auto p-3 accordion-container" id="student-profile-assessment" data-parent="#student-profile-accordion">
 
                                                         <div class="col-lg-12 accordion" id="accordion-ratings">
 
@@ -499,9 +497,9 @@
 
                                                                         <div class="col-lg-6 collapse-options-container">
 
-                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rating-list"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
+                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rating-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
-                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-reviews"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-reviews"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                                                                         </div>
@@ -547,7 +545,7 @@
 
                                                                         <div class="table-responsive">
 
-                                                                            <table class="table col-lg-11 mx-auto table-borderless table-hover">
+                                                                            <table class="table col-lg-11 col-sm-10 mx-auto table-borderless table-hover">
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th scope="col">Id</th>

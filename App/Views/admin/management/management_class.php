@@ -1,8 +1,8 @@
-<div id="gestao-turmas">
+<div id="class-management">
 
     <div class="row main-container">
 
-        <div class="col-lg-12  accordion" id="accordion-turmas">
+        <div class="col-lg-12 accordion" id="class-accordion">
 
             <div class="col-lg-11 mx-auto mb-4">
                 <div class="row d-flex align-items-center">
@@ -12,9 +12,9 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-turmas"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#class-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-turmas"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-class"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                     </div>
@@ -26,7 +26,7 @@
                 <div class="row mb-3">
 
                     <div class="col-lg-11 mx-auto">
-                        <div class="collapse show card" id="collapse-turmas" data-parent="#accordion-turmas">
+                        <div class="collapse show card" id="class-list" data-parent="#class-accordion">
                             <div class="row">
                                 <div class="col-lg-11 mx-auto">
 
@@ -142,10 +142,10 @@
                                         </table>
                                     </div>
 
-                                    <div class="modal modal-perfil fade" id="perfilTurmaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal modal-profile fade" id="class-profile-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content p-2">
-                                                <div class="row" style="margin-left: -50px !important;">
+                                                <div class="row">
                                                     <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
                                                         </button></div>
@@ -157,12 +157,16 @@
 
                                                         <div class="col-lg-9">
 
-                                                            <div class="row accordion" id="accordion-perfil-turma">
+                                                            <div class="row accordion" id="class-profile-accordion">
 
                                                                 <ul class="list-group horizontal-control-list mx-auto list-group-horizontal">
-                                                                    <li class="list-group-item" id="turma-dados" aria-expanded="true" data-toggle="collapse" data-target="#collapse-perfil-turma-dados"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
-                                                                    <li class="list-group-item" id="turma-disciplinas" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-disciplinas"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
-                                                                    <li class="list-group-item" id="turma-avaliacoes" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-avaliacoes"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Avaliações</a></li>
+
+                                                                    <li class="list-group-item" aria-expanded="true" data-toggle="collapse" data-target="#class-profile-data"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
+
+                                                                    <li class="list-group-item" aria-expanded="false" data-toggle="collapse" data-target="#class-profile-discipline"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
+
+                                                                    <li class="list-group-item" aria-expanded="false" data-toggle="collapse" data-target="#class-profile-assessments"><a href="#"> <i class="fas fa-clipboard mr-2"></i> Avaliações</a></li>
+
                                                                 </ul>
 
                                                                 <div class="row">
@@ -171,7 +175,7 @@
 
                                                                         <div class="row">
 
-                                                                            <div class="col-lg-12 collapse show overflow-auto p-3 accordion-container" id="collapse-perfil-turma-dados" aria-labelledby="turma-dados" data-parent="#accordion-perfil-turma" style="border-radius: 15px">
+                                                                            <div class="col-lg-12 collapse mx-auto show overflow-auto p-3 accordion-container" id="class-profile-data" data-parent="#class-profile-accordion">
 
 
                                                                                 <div class="row">
@@ -180,7 +184,7 @@
 
                                                                                         <div class="row">
 
-                                                                                            <div class="col-lg-12  accordion" id="accordion-turma-dados">
+                                                                                            <div class="col-lg-12  accordion" id="accordion-class-data">
 
                                                                                                 <div class="col-lg-12 mb-4">
                                                                                                     <div class="row d-flex align-items-center">
@@ -190,9 +194,9 @@
 
                                                                                                         <div class="col-lg-6 col-12 collapse-options-container">
 
-                                                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-alunos"><span class="mr-2"><i class="fas fa-user-friends"></i> Alunos</span></a>
+                                                                                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#students-list"><span class="mr-2"><i class="fas fa-user-friends"></i> Alunos</span></a>
 
-                                                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-professores"><span class="mr-2"><i class="fas fa-chalkboard-teacher"></i> Professores</span></a>
+                                                                                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#teacher-list"><span class="mr-2"><i class="fas fa-chalkboard-teacher"></i> Professores</span></a>
 
 
                                                                                                         </div>
@@ -204,7 +208,7 @@
                                                                                                     <div class="row mb-3">
 
                                                                                                         <div class="col-lg-12">
-                                                                                                            <div class="collapse show card" id="collapse-alunos" data-parent="#accordion-turma-dados">
+                                                                                                            <div class="collapse show card" id="students-list" data-parent="#accordion-class-data">
                                                                                                                 <div class="row">
                                                                                                                     <div class="col-lg-12 table-responsive">
 
@@ -316,7 +320,7 @@
 
 
 
-                                                                                                            <div class="collapse card" id="collapse-professores" data-parent="#accordion-turma-dados">
+                                                                                                            <div class="collapse card" id="teacher-list" data-parent="#accordion-class-data">
                                                                                                                 <div class="row">
                                                                                                                     <div class="col-lg-12 table-responsive">
                                                                                                                         <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto">
@@ -395,9 +399,9 @@
 
                                                                             </div>
 
-                                                                            <div class="col-lg-12 collapse accordion-container overflow-auto" id="collapse-perfil-turma-disciplinas" aria-labelledby="turma-disciplinas" data-parent="#accordion-perfil-turma">
+                                                                            <div class="col-lg-12 collapse accordion-container overflow-auto" id="class-profile-discipline"  data-parent="#class-profile-accordion">
 
-                                                                                <div class="col-lg-12  accordion" id="accordion-turma-disciplinas">
+                                                                                <div class="col-lg-12  accordion" id="class-discipline-accordion">
 
                                                                                     <div class="col-lg-12 mb-4 mt-3">
                                                                                         <div class="row d-flex align-items-center">
@@ -407,9 +411,9 @@
 
                                                                                             <div class="col-lg-6 col-12 collapse-options-container">
 
-                                                                                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-disciplinas"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
+                                                                                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-discipline"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 
-                                                                                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-disciplinas"><span class="mr-2 "><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                                                                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2 "><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                                                                                             </div>
@@ -423,7 +427,7 @@
                                                                                         <div class="row mb-3">
 
                                                                                             <div class="col-lg-12">
-                                                                                                <div class="collapse show card" id="collapse-disciplinas" data-parent="#accordion-turma-disciplinas">
+                                                                                                <div class="collapse show card" id="list-discipline" data-parent="#class-discipline-accordion">
                                                                                                     <div class="row">
                                                                                                         <div class="col-lg-12 table-responsive">
 
@@ -480,7 +484,7 @@
 
 
 
-                                                                                                <div class="collapse card" id="collapse-adicionar-disciplinas" data-parent="#accordion-turma-disciplinas">
+                                                                                                <div class="collapse card" id="add-discipline" data-parent="#class-discipline-accordion">
                                                                                                     <div class="row">
 
 
@@ -540,9 +544,9 @@
 
 
 
-                                                                            <div class="col-lg-12 collapse overflow-auto accordion-container" id="collapse-perfil-turma-avaliacoes" aria-labelledby="turma-avaliacoes" data-parent="#accordion-perfil-turma">
+                                                                            <div class="col-lg-12 collapse overflow-auto accordion-container" id="class-profile-assessments" aria-labelledby="turma-avaliacoes" data-parent="#class-profile-accordion">
 
-                                                                                <div class="accordion" id="accordion-turma-avaliacoes">
+                                                                                <div class="accordion" id="class-assessments-accordion">
                                                                                     <div class="col-lg-12 mb-4 mt-3">
                                                                                         <div class="row d-flex align-items-center">
                                                                                             <div class="col-lg-6">
@@ -554,9 +558,9 @@
 
                                                                                             <div class="col-lg-6 col-12 collapse-options-container">
 
-                                                                                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-lista-avaliacoes"><span class="mr-2 "><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
+                                                                                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-assessments"><span class="mr-2 "><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
-                                                                                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-avaliacoes"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                                                                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
 
@@ -566,7 +570,7 @@
 
                                                                                     <div class="col-lg-12">
 
-                                                                                        <div class="collapse show card" id="collapse-lista-avaliacoes" data-parent="#accordion-turma-avaliacoes">
+                                                                                        <div class="collapse show card" id="list-assessments" data-parent="#class-assessments-accordion">
 
                                                                                             <form class="mt-3 col-lg-11 mx-auto  text-dark" action="">
 
@@ -662,7 +666,7 @@
 
 
 
-                                                                                        <div class="collapse card" id="collapse-adicionar-avaliacoes" data-parent="#accordion-turma-avaliacoes">
+                                                                                        <div class="collapse card" id="add-assessments" data-parent="#class-assessments-accordion">
 
                                                                                             <form class="col-lg-12" action="">
 
@@ -716,14 +720,6 @@
 
 
 
-                                                                                                <!-- <div class="form-group col-lg-3">
-                                                                                                        <label for="">&nbsp;</label>
-                                                                                                        <a class="btn btn-success w-100" href="">Adicionar disciplina</a>
-                                                                                                    </div> -->
-
-
-
-
                                                                                             </form>
 
                                                                                         </div>
@@ -742,15 +738,15 @@
                                                         </div>
 
 
-                                                        <div class="col-lg-2 controle-opcoes">
+                                                        <div class="col-lg-2 side-collapse-options">
 
                                                             <ul class="list-group text-center">
 
-                                                                <li class="list-group-item border-0" id="turma-dados" aria-expanded="true" data-toggle="collapse" data-target="#collapse-perfil-turma-dados"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
+                                                                <li class="list-group-item border-0" id="turma-dados" aria-expanded="true" data-toggle="collapse" data-target="#class-profile-data"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
 
-                                                                <li class="list-group-item border-0" id="turma-disciplinas" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-disciplinas"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
+                                                                <li class="list-group-item border-0" id="turma-disciplinas" aria-expanded="false" data-toggle="collapse" data-target="#class-profile-discipline"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
 
-                                                                <li class="list-group-item border-0" id="turma-avaliacoes" aria-expanded="false" data-toggle="collapse" data-target="#collapse-perfil-turma-avaliacoes"><a href="#"><i class="fas fa-clipboard-list mr-2"></i> Avaliações </a></li>
+                                                                <li class="list-group-item border-0" id="turma-avaliacoes" aria-expanded="false" data-toggle="collapse" data-target="#class-profile-assessments"><a href="#"><i class="fas fa-clipboard-list mr-2"></i> Avaliações </a></li>
 
                                                                 <li class="list-group-item border-0" id="mais" aria-expanded="false" data-toggle="collapse" data-target="#"><a href="#"><i class="fas fa-chart-line mr-2"></i> Análise </a></li>
 
@@ -765,13 +761,13 @@
                             </div>
                         </div>
 
-                        <div class="collapse" id="collapse-adicionar-turmas" data-parent="#accordion-turmas">
+                        <div class="collapse" id="add-class" data-parent="#class-accordion">
 
                             <div class="row">
 
                                 <div class="col-lg-12 mx-auto">
 
-                                    <form class="card mt-3" action="">
+                                    <form class="card" action="">
 
                                         <div class="row mt-2">
                                             <div class="font-weight-bold col-lg-12">Adicionar nova disciplina:</div>

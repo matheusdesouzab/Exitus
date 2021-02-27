@@ -1,8 +1,8 @@
-<div id="gestao-disciplinas">
+<div id="discipline-management">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
-        <div class="col-lg-12  accordion" id="accordion-disciplinas">
+        <div class="col-lg-12 accordion" id="discipline-accordion">
 
             <div class="col-lg-11 mx-auto">
                 <div class="row d-flex align-items-center">
@@ -12,9 +12,9 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-disciplinas"><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-subjects"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-disciplina"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                     </div>
@@ -26,13 +26,13 @@
                 <div class="row mb-3">
 
                     <div class="col-lg-11 mx-auto">
-                        <div class="collapse show card" id="collapse-disciplinas" data-parent="#accordion-disciplinas">
+                        <div class="collapse show card mt-3" id="list-subjects" data-parent="#discipline-accordion">
                             <div class="row">
                                 <div class="col-lg-11 mx-auto">
 
-                                    <form class="mt-3 mb-3  text-dark" action="">
+                                    <form class="mb-3 mt-3 text-dark" action="">
 
-                                        <div class="form-row mt-3">
+                                        <div class="form-row">
 
                                             <div class="form-group col-lg-4">
                                                 <label for="">Nome disciplina:</label>
@@ -69,6 +69,8 @@
                                         </div>
 
                                     </form>
+
+                                    <hr class="col-10 mx-auto">
 
                                     <div class="table-responsive">
 
@@ -131,7 +133,7 @@
                                     </table>
                                     </div>
 
-                                    <div class="modal fade" id="disciplinaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal fade" id="modal-discipline" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg mt-5">
                                             <div class="modal-content">
                                                 <div class="modal-header font-weight-bold">
@@ -213,7 +215,7 @@
 
 
                     
-                    <div class="collapse" id="collapse-adicionar-disciplina" data-parent="#accordion-disciplinas">
+                    <div class="collapse" id="add-discipline" data-parent="#discipline-accordion">
 
                         <div class="row">
 

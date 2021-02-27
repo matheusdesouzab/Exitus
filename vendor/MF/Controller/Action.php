@@ -10,11 +10,11 @@ abstract class Action {
 		$this->view = new \stdClass();
 	}
 
-	protected function render($view, $layout = 'layout') {
+	protected function render($view, $layout) {
 		$this->view->page = $view;
 
-		if(file_exists("../App/Views/".$layout.".php")) {
-			require_once "../App/Views/".$layout.".php";
+		if(file_exists("../App/Views/layouts/".$layout.".php")) {
+			require_once "../App/Views/layouts/".$layout.".php";
 		} else {
 			$this->content();
 		}
@@ -22,15 +22,14 @@ abstract class Action {
 
 	protected function content() {
 		
-		$classAtual = get_class($this);
+		$classAtual = explode('\\',get_class($this));
 
-		$classAtual = str_replace('App\\Controllers\\', '', $classAtual);
+		$caminhoAbsoluto = preg_split('/(?=[A-Z])/', $classAtual[2]);
 
-		$classAtual = strtolower(str_replace('Controller', '', $classAtual));
+		$pastaPrincipal = lcfirst($caminhoAbsoluto[1]);
+		$pastaSecundaria = lcfirst($caminhoAbsoluto[2]);
 
-		$pastaArquivo = explode('_',$this->view->page);
-
-		require_once "../App/Views/".$classAtual."/".$pastaArquivo[0]."/".$this->view->page.".php";
+		require_once "../App/Views/".$pastaPrincipal."/".$pastaSecundaria."/".$this->view->page.".php";
 	}
 }
 

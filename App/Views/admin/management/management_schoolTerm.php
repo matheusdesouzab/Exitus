@@ -1,8 +1,8 @@
-<div id="gestao-periodo-letivo">
+<div id="term-management">
 
-    <div class="row container-pai">
+    <div class="row main-container">
 
-        <div class="col-lg-11 mx-auto accordion" id="accordion-periodo-letivo">
+        <div class="col-lg-11 mx-auto accordion" id="accordion-period">
 
             <div class="col-lg-12 mb-3">
                 <div class="row d-flex align-items-center">
@@ -12,9 +12,9 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#collapse-periodos" ><span class="mr-2 items-icon"><i class="fas fa-boxes mr-2"></i> Periodos</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-terms" ><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Periodos</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#collapse-adicionar-periodo-letivo"><span class="mr-2 items-icon"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
                         
 
                     </div>
@@ -27,11 +27,11 @@
 
                     <div class="col-lg-12">
                         
-                        <div class="collapse show" id="collapse-periodos" data-parent="#accordion-periodo-letivo">
+                        <div class="collapse show" id="list-terms" data-parent="#accordion-period">
                                 <div class="row">
                                     <div class="col-lg-12">
 
-                                        <form class="card mt-3" action="">
+                                        <form class="card" action="">
 
                                             <div class="row d-flex align-items-center">
 
@@ -149,13 +149,13 @@
                                 </div>
                             </div>
 
-                            <div class="collapse" id="collapse-adicionar-periodo-letivo" data-parent="#accordion-periodo-letivo">
+                            <div class="collapse" id="add-school-term" data-parent="#accordion-period">
 
                                 <div class="row">
 
                                     <div class="col-lg-12">
 
-                                        <form class="card mt-3" action="">
+                                        <form class="card" action="">
 
                                             <div class="row mt-2">
                                                 <div class="font-weight-bold col-lg-12">Adicionar novo periodo:</div>
@@ -194,11 +194,6 @@
 
 
                             </div>
-                            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-
-
-                            </div>
-                            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
 
                           
                         </div>

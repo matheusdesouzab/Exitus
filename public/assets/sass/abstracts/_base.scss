@@ -68,11 +68,8 @@ button {
     outline: none;
 }
 
-#pagina {
-
-    input:disabled,
-    select:disabled {
-        border: none;
-        background-color: $color-white;
-    }
+input:disabled,
+select:disabled {
+    background: $color-pure-gray;
+    border: 1px solid $color-extra-light-blue;
 }

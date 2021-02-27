@@ -16,70 +16,70 @@ class Route extends Bootstrap {
 			'action' => 'admHome'
 		);
 
-		// Aluno
+		// Student ( Aluno )
 
 		$routes['admCadastroAluno'] = array(
 			'route' => '/admAlunoCadastro',
-			'controller' => 'AdmController',
-			'action' => 'aluno_cadastro'
+			'controller' => 'AdminStudentController',
+			'action' => 'studentRegistration'
 		);
 
 		$routes['admListaAlunos'] = array(
 			'route' => '/admAlunoLista',
-			'controller' => 'AdmController',
-			'action' => 'aluno_lista'
+			'controller' => 'AdminStudentController',
+			'action' => 'studentList'
 		);
 
-		// Funcionário
+		// Employee ( Funcionário )
 
 		$routes['admCadastroFuncionario'] = array(
 			'route' => '/admFuncionarioCadastro',
-			'controller' => 'AdmController',
-			'action' => 'funcionario_cadastro'
+			'controller' => 'AdminEmployeeController',
+			'action' => 'employeeRegistration'
 		);
 
 		$routes['admlistaFuncionario'] = array(
 			'route' => '/admFuncionarioLista',
-			'controller' => 'AdmController',
-			'action' => 'funcionario_lista'
+			'controller' => 'AdminEmployeeController',
+			'action' => 'employeeList'
 		);
 
-		// Gestão
+		// Management ( Gestão )
 
 		$routes['admGestaoGeral'] = array(
 			'route' => '/admGestaoGeral',
-			'controller' => 'AdmController',
-			'action' => 'gestao_geral'
+			'controller' => 'AdminManagementController',
+			'action' => 'managementGeneral'
 		);
 
 		$routes['admCursoGestao'] = array(
 			'route' => '/admGestaoCursos',
-			'controller' => 'AdmController',
-			'action' => 'gestao_curso'
+			'controller' => 'AdminManagementController',
+			'action' => 'managementCourse'
 		);
 
 		$routes['admDisciplinaGestao'] = array(
 			'route' => '/admGestaoDisciplinas',
-			'controller' => 'AdmController',
-			'action' => 'gestao_disciplina'
+			'controller' => 'AdminManagementController',
+			'action' => 'managementDiscipline'
 		);
 
 		$routes['admPeriodoLetivoGestao'] = array(
 			'route' => '/admGestaoPeriodosLetivos',
-			'controller' => 'AdmController',
-			'action' => 'gestao_periodosLetivos'
+			'controller' => 'AdminManagementController',
+			'action' => 'managementSchoolTerm'
 		);
 
 		$routes['admSalaGestao'] = array(
 			'route' => '/admGestaoSalas',
-			'controller' => 'AdmController',
-			'action' => 'gestao_salas'
+			'controller' => 'AdminManagementController',
+			'action' => 'managementRoom'
 		);
 
 		$routes['admTurmaGestao'] = array(
 			'route' => '/admGestaoTurmas',
-			'controller' => 'AdmController',
-			'action' => 'gestao_turmas'
+			'controller' => 'AdminManagementController',
+			'action' => 'managementClass'
 		);
 
 		
@@ -124,5 +124,3 @@ class Route extends Bootstrap {
 	}
 
 }
-
-?>

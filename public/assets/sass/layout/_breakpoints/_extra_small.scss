@@ -2,13 +2,13 @@
 
     body {
 
-        #painel-left{
+        #painel-left {
             z-index: 120000000;
         }
-
+    
         font-size: 2vh;
         width: 100%;
-
+    
         .panel-side {
             display: none;
         }
@@ -85,6 +85,10 @@
 
     #pagina {
 
+        .fa-times-circle{
+            margin-bottom: 10px;
+        }
+
         table {
             width: 700px;
         }
@@ -107,19 +111,19 @@
             font-size: 5vw;
         }
 
-        .container-pai {
+        .main-container {
             margin-top: 80px;
         }
 
-        .assistente-etapas-sessao {
+        .registration-session-in-stages {
 
-            .assistente-etapas p {
+            .registration-in-stages p {
                 font-size: 2.5vw;
             }
 
         }
 
-        .modal-perfil {
+        .modal-profile {
 
             .collapse-option {
 
@@ -140,40 +144,25 @@
                 font-size: 3vw;
             }
 
-            .horizontal-control-list {
-
-                background-color: $color-smooth-gray;
-                margin: 10px;
+            .horizontal-control-list{
                 display: flex;
-
-                .list-group-item {
-                    border: 0px;
-                    padding: 10px;
-                }
-
-                a {
-                    font-size: 2vw;
-                }
-
-                @include aria-expanded-false-and-true($color-blue, $color-white, $color-smooth-gray, $color-black, 5px);
-
             }
 
-            .container-accordion {
+            .accordion-container {
                 overflow: auto;
                 height: 520px;
-                width: 80vw;
+                width: 85vw;
                 margin: auto;
             }
 
             .modal-content {
-                width: 97%;
+                width: 100%;
                 margin: auto;
                 margin-top: 10px;
                 height: 100%;
                 overflow: auto;
 
-                #collapse-alunos,
+           /*      #collapse-alunos,
                 #collapse-professores,
                 #collapse-disciplinas {
 
@@ -201,32 +190,33 @@
                     .card {
                         font-size: 3vw;
                     }
-                }
+                } */
 
-                #collapse-perfil-aluno-opcoes-nota {
+                #student-profile-assessment {
 
                     table {
 
                         width: 500px;
 
                         td,
-                        th {
+                        th, input{
                             font-size: 2.5vw;
                         }
                     }
 
-                    .collapse-option {
+                    .collapse-options-container {
                         margin-top: 20px;
                         margin-bottom: 20px;
 
                         span {
                             padding: 10px;
+                            font-size: 2.5vw;
                         }
                     }
 
                 }
 
-                .controle-opcoes {
+                .side-collapse-options {
                     display: none;
                 }
 

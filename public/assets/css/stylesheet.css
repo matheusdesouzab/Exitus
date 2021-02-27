@@ -61,10 +61,10 @@ button {
   outline: none;
 }
 
-#pagina input:disabled,
-#pagina select:disabled {
-  border: none;
-  background-color: #ffffff;
+input:disabled,
+select:disabled {
+  background: #F4F6F6;
+  border: 1px solid #e4d9ff;
 }
 
 @font-face {
@@ -162,61 +162,61 @@ button {
   font-weight: 500;
 }
 
-#pagina #matriculaModal {
+#pagina #modal-registration {
   margin-top: 40px;
 }
-#pagina #matriculaModal .modal-content {
+#pagina #modal-registration .modal-content {
   border: none;
   background-color: #ffffff;
   border-radius: 10px;
 }
-#pagina #matriculaModal .modal-header {
+#pagina #modal-registration .modal-header {
   font-weight: bold;
 }
-#pagina #matriculaModal .modal-text {
+#pagina #modal-registration .modal-text {
   margin-top: 30px;
   text-align: center;
   font-weight: 500;
 }
-#pagina #matriculaModal .modal-aluno-matricular-sucesso .fa-check-circle {
+#pagina #modal-registration .modal-registration-success .fa-check-circle {
   margin-top: 30px;
   font-size: 100px;
   color: #28A745;
   justify-content: space-around;
 }
-#pagina #matriculaModal .modal-aluno-matricular-erro .fa-times-circle {
+#pagina #modal-registration .modal-registration-error .fa-times-circle {
   margin-top: 30px;
   font-size: 100px;
   color: #DC3545;
   justify-content: space-around;
 }
-#pagina .modal-perfil {
+#pagina .modal-profile {
   z-index: 1300;
 }
-#pagina .modal-perfil .modal-content {
+#pagina .modal-profile .modal-content {
   margin-left: -415px;
   width: 1350px;
   margin-top: -30px;
   height: 630px;
   background-color: #283339;
 }
-#pagina .modal-perfil .border-img-red {
+#pagina .modal-profile .border-img-red {
   border: 3px solid #DC3545;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-#pagina .modal-perfil .border-img-green {
+#pagina .modal-profile .border-img-green {
   border: 3px solid #28A745;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-#pagina .modal-perfil .border-img-blue {
+#pagina .modal-profile .border-img-blue {
   border: 3px solid #007BFF;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-#pagina .modal-perfil .border-img-golden {
+#pagina .modal-profile .border-img-golden {
   border: 3px solid #d4af37;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-#pagina .modal-perfil .modal-body > .row:nth-child(1) {
+#pagina .modal-profile .modal-body > .row:nth-child(1) {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #e5e5e5;
@@ -224,118 +224,122 @@ button {
   background-color: #F4F6F6;
   margin-top: -10px;
 }
-#pagina .modal-perfil h5 {
+#pagina .modal-profile input:disabled, #pagina .modal-profile select:disabled {
+  background: #F4F6F6;
+  border: 1px solid #e4d9ff;
+}
+#pagina .modal-profile h5 {
   font-size: 17px;
 }
-#pagina .modal-perfil a {
+#pagina .modal-profile a {
   text-decoration: none;
 }
-#pagina .modal-perfil .fa-edit,
-#pagina .modal-perfil .fa-check {
+#pagina .modal-profile .fa-edit,
+#pagina .modal-profile .fa-check {
   color: #506177;
 }
-#pagina .modal-perfil img {
+#pagina .modal-profile img {
   border-radius: 50%;
 }
-#pagina .modal-perfil .close:focus {
+#pagina .modal-profile .close:focus {
   outline: none;
   box-shadow: none;
 }
-#pagina .modal-perfil .side-collapse-options {
+#pagina .modal-profile .side-collapse-options {
   border-radius: 10px;
   border: 0;
   background: #506177;
 }
-#pagina .modal-perfil .side-collapse-options .list-group {
+#pagina .modal-profile .side-collapse-options .list-group {
   margin-top: 20px;
 }
-#pagina .modal-perfil .side-collapse-options .list-group-item {
+#pagina .modal-profile .side-collapse-options .list-group-item {
   border: none;
   background: transparent;
   font-weight: bold;
   margin-bottom: 5px;
 }
-#pagina .modal-perfil .side-collapse-options .list-group-item:hover {
+#pagina .modal-profile .side-collapse-options .list-group-item:hover {
   background: #ffffff;
   border-radius: 10px;
   color: #273469;
 }
-#pagina .modal-perfil .side-collapse-options .list-group-item:hover a {
+#pagina .modal-profile .side-collapse-options .list-group-item:hover a {
   color: #273469;
   font-weight: bold;
 }
-#pagina .modal-perfil .side-collapse-options [aria-expanded=true] {
+#pagina .modal-profile .side-collapse-options [aria-expanded=true] {
   background: #ffffff;
   border-radius: 10px;
   color: #273469;
 }
-#pagina .modal-perfil .side-collapse-options [aria-expanded=true] a {
+#pagina .modal-profile .side-collapse-options [aria-expanded=true] a {
   color: #273469;
   font-weight: bold;
 }
-#pagina .modal-perfil .side-collapse-options [aria-expanded=false] {
+#pagina .modal-profile .side-collapse-options [aria-expanded=false] {
   background: transparent;
   border-radius: 10px;
   color: #ffffff;
 }
-#pagina .modal-perfil .side-collapse-options [aria-expanded=false] a {
+#pagina .modal-profile .side-collapse-options [aria-expanded=false] a {
   color: #ffffff;
   font-weight: bold;
 }
-#pagina .modal-perfil .option-list {
+#pagina .modal-profile .option-list {
   display: flex;
   justify-content: flex-end;
 }
-#pagina .modal-perfil .horizontal-control-list {
+#pagina .modal-profile .horizontal-control-list {
   display: none;
 }
-#pagina .modal-perfil b {
+#pagina .modal-profile b {
   color: #506177;
 }
-#pagina .modal-perfil .input-group-prepend span {
+#pagina .modal-profile .input-group-prepend span {
   font-weight: bold;
   color: #09023B;
 }
-#pagina .modal-perfil .input-group-text {
+#pagina .modal-profile .input-group-text {
   background-color: transparent;
   border: none;
   font-weight: bold;
 }
-#pagina .modal-perfil .input-group {
+#pagina .modal-profile .input-group {
   padding-left: 0;
   margin-bottom: 13px;
 }
-#pagina .modal-perfil input:disabled {
+#pagina .modal-profile input:disabled {
   background-color: transparent;
   font-weight: bold;
   border: none;
   padding-left: 0px;
 }
-#pagina .modal-perfil img {
+#pagina .modal-profile img {
   display: flex;
   justify-content: center;
 }
-#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim {
+#pagina .modal-profile #student-profile-newsletter {
   text-transform: uppercase;
   font-size: 13px;
 }
-#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim h5 {
+#pagina .modal-profile #student-profile-newsletter h5 {
   text-transform: initial;
 }
-#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim .th-rowspan-2 div {
+#pagina .modal-profile #student-profile-newsletter .th-rowspan-2 div {
   margin-top: -50px;
 }
-#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim table {
+#pagina .modal-profile #student-profile-newsletter table {
   width: 1200px;
 }
-#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim b {
+#pagina .modal-profile #student-profile-newsletter b {
   font-weight: 700;
 }
-#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim td,
-#pagina .modal-perfil #collapse-perfil-aluno-opcoes-boletim th {
+#pagina .modal-profile #student-profile-newsletter td,
+#pagina .modal-profile #student-profile-newsletter th {
   font-size: 13px;
 }
-#pagina #disciplinaModal .modal-content {
+#pagina #modal-discipline .modal-content {
   border: none;
   background-color: #ffffff;
   border-radius: 10px;
@@ -426,28 +430,6 @@ button {
 #pagina .printer-icon:hover .fa-ban,
 #pagina .printer-icon:hover .fa-boxes,
 #pagina .printer-icon:hover .fa-plus-circle {
-  color: #ffffff;
-}
-#pagina .items-icon {
-  cursor: pointer;
-  color: #506177;
-  font-size: 15px;
-  border-radius: 10px;
-  background: #ffffff;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-#pagina .items-icon:hover {
-  color: #ffffff;
-  background-color: #28A745;
-}
-#pagina .items-icon:hover .fa-edit,
-#pagina .items-icon:hover .fa-print,
-#pagina .items-icon:hover .fa-check,
-#pagina .items-icon:hover .fa-ban,
-#pagina .items-icon:hover .fa-boxes,
-#pagina .items-icon:hover .fa-plus-circle {
   color: #ffffff;
 }
 #pagina .unregistered-unit-icon {
@@ -676,10 +658,35 @@ button {
   border: 5px solid #d4af37;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
-
-#aluno-lista #heading-busca-avancada .btn:focus {
-  outline: none;
-  box-shadow: none;
+#pagina .horizontal-control-list {
+  background-color: #e5e5e5;
+  margin: 10px;
+  display: none;
+}
+#pagina .horizontal-control-list .list-group-item {
+  border: 0px;
+  padding: 10px;
+}
+#pagina .horizontal-control-list a {
+  font-size: 2vw;
+}
+#pagina .horizontal-control-list [aria-expanded=true] {
+  background: #007BFF;
+  border-radius: 5px;
+  color: #ffffff;
+}
+#pagina .horizontal-control-list [aria-expanded=true] a {
+  color: #ffffff;
+  font-weight: bold;
+}
+#pagina .horizontal-control-list [aria-expanded=false] {
+  background: #e5e5e5;
+  border-radius: 5px;
+  color: #283339;
+}
+#pagina .horizontal-control-list [aria-expanded=false] a {
+  color: #283339;
+  font-weight: bold;
 }
 
 #employee-registration .registration-connection-line-in-stages {
@@ -724,11 +731,6 @@ button {
   background-color: #d4af37;
   font-weight: 500;
   color: white;
-}
-
-#course-management input:disabled {
-  background: #F4F6F6;
-  border: 1px solid #e4d9ff;
 }
 
 @media (max-width: 576px) {
@@ -792,6 +794,9 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
     display: none;
   }
 
+  #pagina .fa-times-circle {
+    margin-bottom: 10px;
+  }
   #pagina table {
     width: 700px;
   }
@@ -808,114 +813,206 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   #pagina h5 {
     font-size: 5vw;
   }
-  #pagina .container-pai {
+  #pagina .main-container {
     margin-top: 80px;
   }
-  #pagina .assistente-etapas-sessao .assistente-etapas p {
+  #pagina .registration-session-in-stages .registration-in-stages p {
     font-size: 2.5vw;
   }
-  #pagina .modal-perfil .collapse-option .fa-user-friends,
-#pagina .modal-perfil .collapse-option .fa-chalkboard-teacher,
-#pagina .modal-perfil .collapse-option .fa-boxes,
-#pagina .modal-perfil .collapse-option .fa-plus-circle {
+  #pagina .modal-profile .collapse-option .fa-user-friends,
+#pagina .modal-profile .collapse-option .fa-chalkboard-teacher,
+#pagina .modal-profile .collapse-option .fa-boxes,
+#pagina .modal-profile .collapse-option .fa-plus-circle {
     display: none;
   }
-  #pagina .modal-perfil h5 {
+  #pagina .modal-profile h5 {
     font-size: 4vw;
   }
-  #pagina .modal-perfil .input-group-text,
-#pagina .modal-perfil input {
+  #pagina .modal-profile .input-group-text,
+#pagina .modal-profile input {
     font-size: 3vw;
   }
-  #pagina .modal-perfil .horizontal-control-list {
-    background-color: #e5e5e5;
-    margin: 10px;
+  #pagina .modal-profile .horizontal-control-list {
     display: flex;
   }
-  #pagina .modal-perfil .horizontal-control-list .list-group-item {
-    border: 0px;
-    padding: 10px;
-  }
-  #pagina .modal-perfil .horizontal-control-list a {
-    font-size: 2vw;
-  }
-  #pagina .modal-perfil .horizontal-control-list [aria-expanded=true] {
-    background: #007BFF;
-    border-radius: 5px;
-    color: #ffffff;
-  }
-  #pagina .modal-perfil .horizontal-control-list [aria-expanded=true] a {
-    color: #ffffff;
-    font-weight: bold;
-  }
-  #pagina .modal-perfil .horizontal-control-list [aria-expanded=false] {
-    background: #e5e5e5;
-    border-radius: 5px;
-    color: #283339;
-  }
-  #pagina .modal-perfil .horizontal-control-list [aria-expanded=false] a {
-    color: #283339;
-    font-weight: bold;
-  }
-  #pagina .modal-perfil .container-accordion {
+  #pagina .modal-profile .accordion-container {
     overflow: auto;
     height: 520px;
-    width: 80vw;
+    width: 85vw;
     margin: auto;
   }
-  #pagina .modal-perfil .modal-content {
-    width: 97%;
+  #pagina .modal-profile .modal-content {
+    width: 100%;
     margin: auto;
     margin-top: 10px;
     height: 100%;
     overflow: auto;
+    /*      #collapse-alunos,
+         #collapse-professores,
+         #collapse-disciplinas {
+
+             table {
+                 width: 500px;
+
+                 img {
+                     width: 35px;
+                 }
+
+                 th,
+                 td {
+                     line-height: 35px;
+                     font-size: 2.5vw;
+                 }
+             }
+         }
+
+         #collapse-perfil-aluno-opcoes-dados {
+
+             img {
+                 margin: auto;
+             }
+
+             .card {
+                 font-size: 3vw;
+             }
+         } */
   }
-  #pagina .modal-perfil .modal-content #collapse-alunos table,
-#pagina .modal-perfil .modal-content #collapse-professores table,
-#pagina .modal-perfil .modal-content #collapse-disciplinas table {
+  #pagina .modal-profile .modal-content #student-profile-assessment table {
     width: 500px;
   }
-  #pagina .modal-perfil .modal-content #collapse-alunos table img,
-#pagina .modal-perfil .modal-content #collapse-professores table img,
-#pagina .modal-perfil .modal-content #collapse-disciplinas table img {
-    width: 35px;
-  }
-  #pagina .modal-perfil .modal-content #collapse-alunos table th,
-#pagina .modal-perfil .modal-content #collapse-alunos table td,
-#pagina .modal-perfil .modal-content #collapse-professores table th,
-#pagina .modal-perfil .modal-content #collapse-professores table td,
-#pagina .modal-perfil .modal-content #collapse-disciplinas table th,
-#pagina .modal-perfil .modal-content #collapse-disciplinas table td {
-    line-height: 35px;
+  #pagina .modal-profile .modal-content #student-profile-assessment table td,
+#pagina .modal-profile .modal-content #student-profile-assessment table th, #pagina .modal-profile .modal-content #student-profile-assessment table input {
     font-size: 2.5vw;
   }
-  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-dados img {
-    margin: auto;
-  }
-  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-dados .card {
-    font-size: 3vw;
-  }
-  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota table {
-    width: 500px;
-  }
-  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota table td,
-#pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota table th {
-    font-size: 2.5vw;
-  }
-  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota .collapse-option {
+  #pagina .modal-profile .modal-content #student-profile-assessment .collapse-options-container {
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  #pagina .modal-perfil .modal-content #collapse-perfil-aluno-opcoes-nota .collapse-option span {
+  #pagina .modal-profile .modal-content #student-profile-assessment .collapse-options-container span {
     padding: 10px;
+    font-size: 2.5vw;
   }
-  #pagina .modal-perfil .modal-content .controle-opcoes {
+  #pagina .modal-profile .modal-content .side-collapse-options {
     display: none;
   }
-  #pagina .modal-perfil .modal-content .option-list {
+  #pagina .modal-profile .modal-content .option-list {
     display: flex;
     justify-content: flex-end;
     margin: 15px 0px 15px 0px;
+  }
+}
+@media (max-width: 768px) and (min-width: 577px) {
+  body {
+    font-size: 2vh;
+    width: 100%;
+  }
+  body #painel-left {
+    z-index: 120000000;
+  }
+  body .panel-side {
+    display: none;
+  }
+  body .panel-side-xs {
+    display: block;
+  }
+  body .panel-side-xs #painel-left > .side-bar {
+    width: 40%;
+    margin-left: 190px;
+  }
+  body .panel-side-xs #painel-left > .side-bar li:nth-child(2) {
+    display: block;
+  }
+  body .panel-side-xs #painel-left > .side-bar .bars-xs {
+    color: #ffffff;
+  }
+  body .panel-side-xs #painel-left > .side-bar img {
+    width: 80%;
+  }
+  body .panel-side-xs #painel-left > .side-bar .fa-angle-down {
+    display: none;
+  }
+  body .panel-side-xs #painel-left > .side-bar h5 {
+    font-size: 2vw;
+  }
+  body .panel-side-xs #painel-left > .side-bar li,
+body .panel-side-xs #painel-left > .side-bar h5 {
+    margin-left: 2vw;
+    margin-top: 15px;
+  }
+  body .panel-side-xs #painel-left > .side-bar .link-collapse a,
+body .panel-side-xs #painel-left > .side-bar .collapse li a {
+    font-size: 2vw;
+    font-weight: 500;
+  }
+  body .panel-side-xs #painel-left > .side-bar .collapse li {
+    border-left: 5px solid #ffffff;
+    margin-top: 0px;
+  }
+  body #navbar-top #bars {
+    display: none;
+  }
+  body #navbar-top a.bars-xs {
+    display: block;
+  }
+  body #navbar-top .navbar-toggler {
+    display: none;
+  }
+  body #pagina table {
+    width: 700px;
+  }
+  body #pagina .modal-profile .horizontal-control-list {
+    display: flex;
+  }
+  body #pagina .modal-profile .collapse-options-container {
+    margin-top: 20px;
+  }
+  body #pagina .modal-profile .side-collapse-options {
+    display: none;
+  }
+  body #pagina .modal-profile .accordion-container {
+    overflow: auto;
+    height: 520px;
+    width: 70vw;
+    margin: auto;
+  }
+  body #pagina .modal-profile .modal-content {
+    width: 570px;
+    margin: auto;
+    margin-top: 10px;
+    margin-left: -2.2vw;
+    height: 100%;
+    overflow: auto;
+  }
+  body #pagina .modal-profile .option-list {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0px 15px 0px;
+  }
+}
+@media (max-width: 992px) and (min-width: 779px) {
+  body #painel-left {
+    z-index: 1200000000;
+  }
+  body #painel-left .side-bar {
+    width: 25%;
+  }
+  body #painel-left .side-bar li {
+    font-size: 1.5vw;
+  }
+  body #painel-left .side-bar .fa-angle-down {
+    display: none;
+  }
+  body .side-panel {
+    display: block;
+  }
+}
+@media (min-width: 1400px) {
+  body #navbar-top #bars {
+    display: block;
+    margin-left: 17vw;
+  }
+  body #navbar-top .navbar-toggler {
+    display: none;
   }
 }
 

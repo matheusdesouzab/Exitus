@@ -151,12 +151,12 @@
                 </div>
             </div>
 
-            <div class="modal modal-perfil fade" id="modal-employee-profile" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal modal-profile fade" id="modal-employee-profile" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content p-2">
-                        <div class="row" style="margin-left: -50px !important;">
+                        <div class="row">
                             <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
                                 </button></div>
                         </div>
 
@@ -166,7 +166,7 @@
 
                                 <div class="col-lg-9">
 
-                                    <div class="row accordion" id="accordion-perfil-aluno-opcoes">
+                                    <div class="row accordion" id="employee-profile-accordion">
 
                                         <div class="row">
 
@@ -174,7 +174,7 @@
 
                                                 <div class="row">
 
-                                                    <div class="col-lg-12 collapse show overflow-auto p-3 container-accordion" id="collapse-perfil-aluno-opcoes-dados" aria-labelledby="dados" data-parent="#accordion-perfil-aluno-opcoes" style="border-radius: 15px">
+                                                    <div class="col-lg-12 collapse show overflow-auto p-3 accordion-container" id="employee-profile-data" data-parent="#employee-profile-accordion">
 
 
                                                         <div class="row">
@@ -196,7 +196,7 @@
                                                                     <div class="col-lg-12 d-flex justify-content-end">
 
                                                                         <span class="mr-2 edit-data-icon"><i class="text-center fas fa-edit"></i></span>
-                                                                        <span class="mr-2 update-dados-icon"><i class="fas fa-check"></i></span>
+                                                                        <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
                                                                     </div>
 
@@ -375,17 +375,17 @@
 
 
 
-                                                    <div class="col-lg-12 collapse  overflow-auto" id="collapse-perfil-aluno-opcoes-nota" aria-labelledby="nota" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse  overflow-auto" id="scale-employee-profile" aria-labelledby="nota" data-parent="#employee-profile-accordion">
 
                                                     </div>
 
-                                                    <div class="col-lg-12 collapse overflow-auto" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 collapse overflow-auto" id="collapse-perfil-aluno-opcoes-boletim" aria-labelledby="boletim" data-parent="#employee-profile-accordion">
 
                                                        
                                                     </div>
 
 
-                                                    <div class="col-lg-12 border border-dark collapse overflow-auto" id="modalThree" aria-labelledby="mais" data-parent="#accordion-perfil-aluno-opcoes">
+                                                    <div class="col-lg-12 border border-dark collapse overflow-auto" id="modalThree" aria-labelledby="mais" data-parent="#employee-profile-accordion">
                                                         <h5>Mais</h5>
                                                     </div>
 
@@ -402,12 +402,12 @@
 
                                     <ul class="list-group text-center">
 
-                                        <li class="list-group-item border-0" data-target="#collapse-perfil-aluno-opcoes-dados" aria-expanded="true" id="dados" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
+                                        <li class="list-group-item border-0" data-target="#employee-profile-data" aria-expanded="true" data-toggle="collapse"><a class="" href="#"><i class="fas fa-portrait mr-2"></i> Dados</a></li>
 
-                                        <li class="list-group-item border-0" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#collapse-perfil-aluno-opcoes-nota"><a href="#"> <i class="far fa-list-alt mr-2"></i> Escala</a></li>
+                                        <li class="list-group-item border-0" data-toggle="collapse" aria-expanded="false" data-target="#scale-employee-profile"><a href="#"> <i class="far fa-list-alt mr-2"></i> Escala</a></li>
 
-                                        <li class="list-group-item border-0" id="mais" aria-expanded="false" data-toggle="collapse" data-target="#modalThree"><a href="#"><i class="fas fa-chart-line mr-2"></i> Análise </a></li>
-
+                                       <!--  <li class="list-group-item border-0" aria-expanded="false" data-toggle="collapse" data-target="#modalThree"><a href="#"><i class="fas fa-chart-line mr-2"></i> Análise </a></li>
+ -->
                                     </ul>
 
                                 </div>

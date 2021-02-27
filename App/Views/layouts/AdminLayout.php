@@ -3,7 +3,7 @@
 <?php
 $url = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/') + 1);
 $title = preg_split('/(?=[A-Z])/', $url);
-$title = $title[1].' '.$title[2];
+$title = $title[1] . ' ' . $title[2];
 ?>
 
 <html>
@@ -11,7 +11,7 @@ $title = $title[1].' '.$title[2];
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title><?=$title?></title>
+	<title><?= $title ?></title>
 
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,11 +23,11 @@ $title = $title[1].' '.$title[2];
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-2 col-sm-2 panel-side">
-				<?php require '../App/Views/adm/componentes/painelLeft.php' ?>
+			<div class="col-lg-2 col-md-3 col-sm-2 panel-side">
+				<?php require '../App/Views/admin/components/painelLeft.php' ?>
 			</div>
-			<div id="pagina" class="col-12 col-sm-10 side-pagina">
-				<?php require '../App/Views/adm/componentes/navbar.php' ?>
+			<div id="pagina" class="col-12 col-md-9 col-lg-10 col-sm-12 side-pagina">
+				<?php require '../App/Views/admin/components/navbar.php' ?>
 				<?= $this->content() ?>
 			</div>
 		</div>

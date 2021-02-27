@@ -53,7 +53,7 @@
     }
 
     .registration-connection-line-in-stages {
-        @include linha-conexao(70%);
+        @include connection-line-in-stages(70%);
         background-image: linear-gradient(to left, $color-smooth-gray 50%, $color-smooth-gray 50%);
     }
 
@@ -94,6 +94,25 @@
 
 
     @include all-edges-of-images(5px);
+
+    .horizontal-control-list {
+
+        background-color: $color-smooth-gray;
+        margin: 10px;
+        display: none;
+
+        .list-group-item {
+            border: 0px;
+            padding: 10px;
+        }
+
+        a {
+            font-size: 2vw;
+        }
+
+        @include aria-expanded-false-and-true($color-blue, $color-white, $color-smooth-gray, $color-black, 5px);
+
+    }
 
 
 

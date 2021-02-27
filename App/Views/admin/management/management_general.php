@@ -1,4 +1,4 @@
-<div id="turma-gestao">
+<div id="general-management">
 
     <div class="row main-container">
 

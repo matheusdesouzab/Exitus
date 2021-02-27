@@ -6,7 +6,9 @@ class App {
 
         let $sidebarLogo = $('#painel-left .logo img')
 
-        $("#navbar-top , .side-pagina").toggleClass('col-lg-11 col-lg-10')
+        $("#navbar-top").toggleClass('col-lg-11 col-lg-10').toggleClass('col-md-10 col-md-9')
+
+        $(".side-pagina").toggleClass('col-md-10 col-md-9').toggleClass('col-lg-11 col-lg-10')
 
         $('.panel-side').toggleClass('col-lg-1 col-lg-2')
 
@@ -65,4 +67,4 @@ $(".unidades input").on('keypress', e => $(e.target).mask('0,00'))
 
 $('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
 
-$("#modal-student-profile , #disciplinaModal , #modal-employee-profile , #perfilTurmaModal").modal('show')
+$("#modal-student-profile , #modal-discipline , #modal-employee-profile , #class-profile-modal").modal('show')

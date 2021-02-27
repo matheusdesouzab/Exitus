@@ -12,7 +12,7 @@
 
                 <div class="card col-lg-12 pt-4 p-3 accordion" id="employee-registration-accordion">
 
-                    <div class="registration-session-in-stages">
+                    <div class="registration-session-in-stages mx-auto">
                         <div class="registration-by-content-step">
                             <div class="registration-connection-line-in-stages"></div>
                             <div class="registration-in-stages">

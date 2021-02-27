@@ -16,12 +16,6 @@
         @include icon-card($color-dark-gray, $color-blue, $color-smooth-gray);
     }
 
-    .items-icon {
-        @include icon-card($color-dark-gray, $color-green, $color-white);
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
     .unregistered-unit-icon {
         color: #BDC3C7;
     }
