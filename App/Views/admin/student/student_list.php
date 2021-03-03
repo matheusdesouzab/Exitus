@@ -483,7 +483,7 @@
 
 
 
-                                                    <div class="col-lg-12 ollapse overflow-auto p-3 accordion-container" id="student-profile-assessment" data-parent="#student-profile-accordion">
+                                                    <div class="col-lg-12 collapse overflow-auto p-3 accordion-container" id="student-profile-assessment" data-parent="#student-profile-accordion">
 
                                                         <div class="col-lg-12 accordion" id="accordion-ratings">
 

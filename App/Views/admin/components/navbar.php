@@ -1,4 +1,4 @@
-<nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-xl-12 col-sm-12 col-md-9 ml-auto shadow-sm navbar-expand-sm">
+<nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-9 ml-auto shadow-sm navbar-expand-sm">
 	<a class="navbar-brand" id="bars" href="#"><i class="fas fa-bars"></i></a>
 	<a class="navbar-brand bars-xs"  href="#"><i class="fas fa-bars"></i></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

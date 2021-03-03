@@ -53,7 +53,7 @@
     }
 
     .registration-connection-line-in-stages {
-        @include connection-line-in-stages(70%);
+        @include connection-line-in-stages(71%);
         background-image: linear-gradient(to left, $color-smooth-gray 50%, $color-smooth-gray 50%);
     }
 

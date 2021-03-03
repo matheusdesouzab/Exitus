@@ -24,8 +24,8 @@
                                 <p>Endereço e outros</p>
                             </div>
                             <div class="registration-in-stages">
-                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#student-registration-course-and-class"><i class="fas fa-users"></i></a>
-                                <p>Curso e turma</p>
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#student-registration-course-and-class"><i class="fas fa-clipboard-check"></i></a>
+                                <p>Finalizando</p>
                             </div>
                         </div>
                     </div>
@@ -112,44 +112,43 @@
 
                                     <div class="form-row mt-3">
 
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
                                             <label for="inputCity">CEP:</label>
                                             <input type="text" id="cep" class="form-control is-valid" id="inputCity" maxlength="9" required>
                                         </div>
 
-                                        <div class="form-group col-md-3">
+                                        <div class="form-group col-md-5">
                                             <label for="inputCity">Munícipio:</label>
                                             <input type="text" id="municipio" class="form-control is-valid" id="inputCity" required>
                                         </div>
 
-                                        <div class="form-group col-md-3">
+                                        <div class="form-group col-md-4">
                                             <label for="inputCity">Bairro:</label>
                                             <input type="text" id="bairro" class="form-control is-valid" id="inputCity" placeholder="" required>
                                         </div>
 
-                                        <div class="form-group col-md-2">
-                                            <label for="inputCity">UF:</label>
-                                            <input type="text" id="uf" class="form-control is-valid" id="inputCity" required placeholder="Sigla" maxlength="2">
-                                        </div>
+                                       
 
                                     </div>
 
                                     <div class="form-row">
 
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-6">
                                             <label for="inputCity">Endereço:</label>
                                             <input type="text" id="endereco" class="form-control is-valid" id="inputCity" placeholder="" required>
                                         </div>
 
-                                        <div class="form-group col-md-4">
-                                            <label for="inputCity">Telefone 1:</label>
-                                            <input type="text" id="telefone1" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                        <div class="form-group col-md-2">
+                                            <label for="inputCity">UF:</label>
+                                            <input type="text" id="uf" class="form-control is-valid" maxlength="2" id="inputCity" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputCity">Telefone 2:</label>
-                                            <input type="text" id="telefone2" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                            <label for="inputCity">Contato:</label>
+                                            <input type="text" id="telefone1" class="form-control is-valid" id="inputCity" placeholder="" required>
                                         </div>
+
+                                      
 
                                     </div>
 
@@ -192,17 +191,9 @@
 
                                     <div class="form-row mt-3">
 
-                                        <div class="form-group col-md-3">
-                                            <label for="inputCity">Série:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option> </option>
-                                                <option>1° ano</option>
-                                                <option>2° ano</option>
-                                                <option>3° ano</option>
-                                            </select>
-                                        </div>
+                                    
 
-                                        <div class="form-group col-md-3">
+                                        <div class="form-group col-md-4">
                                             <label for="inputCity">Situação do Aluno:</label>
                                             <select id="inputState" class="form-control custom-select is-valid" required>
                                                 <option> </option>
@@ -212,11 +203,11 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-8">
                                             <label for="inputCity">Turma</label>
                                             <select id="inputState" class="form-control custom-select is-valid" required>
                                                 <option value=""></option>
-                                                <option>INFO-1M-A</option>
+                                                <option>1&deg; A - Técnico em Informática - Matutino - Sala: 03 - 2021</option>
                                                 <option>INFO-1M-B</option>
                                                 <option>INFO-2V-A</option>
                                                 <option>INFO-2V-B</option>
@@ -229,16 +220,9 @@
 
                                     <div class="form-row">
 
-                                        <div class="form-group col-md-4">
-                                            <label for="inputCity">Período Letivo</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option selected> </option>
-                                                <option>2020</option>
-                                                <option>2021</option>
-                                            </select>
-                                        </div>
+                                        
 
-                                        <div class="form-group col-md-8">
+                                        <div class="form-group col-md-12">
                                             <label for="">Situação da turma </label>
                                             <input type="text" class="form-control" disabled placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                                         </div>
