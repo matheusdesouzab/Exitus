@@ -34,12 +34,12 @@
 
                                         <div class="form-row">
 
-                                            <div class="form-group col-lg-4">
-                                                <label for="">Nome disciplina:</label>
+                                            <div class="form-group col-lg-8">
+                                                <label for="">Nome da disciplina:</label>
                                                 <input type="text" placeholder="Nome da disciplina ou sigla" class="form-control">
                                             </div>
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-4">
                                                 <label for="inputState">Modalidade:</label>
                                                 <select id="inputState" class="form-control custom-select" required>
                                                     <option>Técnico</option>
@@ -48,29 +48,13 @@
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-lg-3">
-                                                <label for="inputState">Curso:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Informática</option>
-                                                    <option>Ensino Médio</option>
-                                                    <option>Técnico</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group col-lg-2">
-                                                <label for="inputState">UE referente:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>1 e 2</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                </select>
-                                            </div>
+                                           
 
                                         </div>
 
                                     </form>
 
-                                    <hr class="col-10 mx-auto">
+                                    <hr class="col-11 mx-auto">
 
                                     <div class="table-responsive">
 
@@ -79,53 +63,53 @@
                                             <tr>
                                                 <th scope="col">Nome da disciplina</th>
                                                 <th scope="col">Sigla</th>
-                                                <th scope="col">Modalidade</th>
-                                                <th scope="col">Curso</th>
-                                                <th scope="col">UE referente</th>
+                                                <th scope="col">Modalidade da disciplina</th>
+                                                
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>Linguagem e Técnica de Programação</td>
                                                 <td>LTP</td>
-                                                <td>Técnico</td>
-                                                <td>Informática</td>
-                                                <td>1 e 2</td>
+                                                <td>Ensino Técnico</td>
+                                                
+                                                
                                             </tr>
                                             <tr>
                                                 <td>Linguagem e Técnica de Programação</td>
                                                 <td>LTP</td>
-                                                <td>Técnico</td>
-                                                <td>Informática</td>
-                                                <td>1 e 2</td>
+                                                <td>Ensino Técnico</td>
+                                                
+                                                
                                             </tr>
                                             <tr>
                                                 <td>Linguagem e Técnica de Programação</td>
                                                 <td>LTP</td>
-                                                <td>Técnico</td>
-                                                <td>Informática</td>
-                                                <td>1 e 2</td>
+                                                <td>Ensino Técnico</td>
+                                                
+                                                
                                             </tr>
                                             <tr>
                                                 <td>Linguagem e Técnica de Programação</td>
                                                 <td>LTP</td>
-                                                <td>Técnico</td>
-                                                <td>Informática</td>
-                                                <td>1 e 2</td>
+                                                <td>Ensino Técnico</td>
+                                                
+                                                
                                             </tr>
                                             <tr>
                                                 <td>Linguagem e Técnica de Programação</td>
                                                 <td>LTP</td>
-                                                <td>Técnico</td>
-                                                <td>Informática</td>
-                                                <td>1 e 2</td>
+                                                <td>Ensino Técnico</td>
+                                                
+                                                
                                             </tr>
                                             <tr>
                                                 <td>Linguagem e Técnica de Programação</td>
                                                 <td>LTP</td>
-                                                <td>Técnico</td>
-                                                <td>Informática</td>
-                                                <td>1 e 2</td>
+                                                <td>Ensino Técnico</td>
+                                                
+                                                
                                             </tr>
 
 
@@ -236,40 +220,24 @@
                                             <label for="">Sigla:</label>
                                             <input class="form-control" value="" type="text" name="" id="">
                                         </div>
-                                        <div class="form-group col-lg-2">
+                                        <div class="form-group col-lg-3">
                                                 <label for="inputState">Modalidade:</label>
                                                 <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Técnico</option>
+                                                    <option>Ensino Técnico</option>
                                                     <option>Ensino Médio</option>
                                                     <option>Técnico</option>
                                                 </select>
                                             </div>
-
-                                            <div class="form-group col-lg-2">
-                                                <label for="inputState">Curso:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Informática</option>
-                                                    <option>Ensino Médio</option>
-                                                    <option>Técnico</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group col-lg-2">
-                                                <label for="inputState">UE referente:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>1 e 2</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                </select>
-                                            </div>
-
-                                    </div>
-
-                                    <div class="row d-flex justify-content-end">
-                                        <div class="form-group col-lg-4">
+                                            <div class="form-group col-lg-3">
+                                        <label for="">&nbsp;</label>
                                             <a class="btn btn-success w-100 text-center" href="#">Adicionar nova disciplina</a>
                                         </div>
+
+                                           
+
                                     </div>
+
+                                    
 
                                 </form>
 

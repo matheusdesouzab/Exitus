@@ -103,7 +103,6 @@ select:disabled {
   font-size: 12px;
   border-radius: 15px;
   background-color: #007BFF;
-  z-index: 2;
   color: #ffffff;
 }
 
@@ -688,8 +687,28 @@ select:disabled {
   color: #283339;
   font-weight: bold;
 }
+#pagina .note-red {
+  background-color: #DC3545;
+  font-weight: 500;
+  color: white;
+}
+#pagina .note-green {
+  background-color: #28A745;
+  font-weight: 500;
+  color: white;
+}
+#pagina .note-blue {
+  background-color: #007BFF;
+  font-weight: 500;
+  color: white;
+}
+#pagina .note-golden {
+  background-color: #d4af37;
+  font-weight: 500;
+  color: white;
+}
 
-#employee-registration .registration-connection-line-in-stages {
+#teacher-registration .registration-connection-line-in-stages {
   height: 2px;
   background: #e5e5e5;
   margin: auto;
@@ -819,6 +838,14 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   #pagina .registration-session-in-stages .registration-in-stages p {
     font-size: 2.5vw;
   }
+  #pagina .collapse-options-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #pagina .collapse-options-container span {
+    padding: 10px;
+    font-size: 2.5vw;
+  }
   #pagina .modal-profile .collapse-option .fa-user-friends,
 #pagina .modal-profile .collapse-option .fa-chalkboard-teacher,
 #pagina .modal-profile .collapse-option .fa-boxes,
@@ -882,14 +909,6 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   }
   #pagina .modal-profile .modal-content #student-profile-assessment table td,
 #pagina .modal-profile .modal-content #student-profile-assessment table th, #pagina .modal-profile .modal-content #student-profile-assessment table input {
-    font-size: 2.5vw;
-  }
-  #pagina .modal-profile .modal-content #student-profile-assessment .collapse-options-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  #pagina .modal-profile .modal-content #student-profile-assessment .collapse-options-container span {
-    padding: 10px;
     font-size: 2.5vw;
   }
   #pagina .modal-profile .modal-content .side-collapse-options {

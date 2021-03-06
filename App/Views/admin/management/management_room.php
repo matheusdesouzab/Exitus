@@ -46,14 +46,11 @@
                                 </div>
 
                                 <div class="form-row mt-4 mb-2">
-                                    <div class="form-group col-lg-6">
+                                    <div class="form-group col-lg-12">
                                         <label for="">Numeração:</label>
                                         <input class="form-control" disabled value="1" type="text" name="" id="">
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label for="">Parvilhão:</label>
-                                        <input class="form-control" disabled value="Segundo" type="text" name="" id="">
-                                    </div>
+                                    
                                    
                                 </div>
 
@@ -79,10 +76,7 @@
                                         <label for="">Numeração:</label>
                                         <input class="form-control" disabled value="1" type="text" name="" id="">
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label for="">Parvilhão:</label>
-                                        <input class="form-control" disabled value="Segundo" type="text" name="" id="">
-                                    </div>
+                                    
                                    
                                 </div>
 
@@ -108,10 +102,7 @@
                                         <label for="">Numeração:</label>
                                         <input class="form-control" disabled value="1" type="text" name="" id="">
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label for="">Parvilhão:</label>
-                                        <input class="form-control" disabled value="Segundo" type="text" name="" id="">
-                                    </div>
+                                    
                                    
                                 </div>
 
@@ -137,10 +128,7 @@
                                         <label for="">Numeração:</label>
                                         <input class="form-control" disabled value="1" type="text" name="" id="">
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label for="">Parvilhão:</label>
-                                        <input class="form-control" disabled value="Segundo" type="text" name="" id="">
-                                    </div>
+                                    
                                    
                                 </div>
 
@@ -166,10 +154,7 @@
                                         <label for="">Numeração:</label>
                                         <input class="form-control" disabled value="1" type="text" name="" id="">
                                     </div>
-                                    <div class="form-group col-lg-6">
-                                        <label for="">Parvilhão:</label>
-                                        <input class="form-control" disabled value="Segundo" type="text" name="" id="">
-                                    </div>
+                                    
                                    
                                 </div>
 
@@ -190,20 +175,17 @@
                                         </div>
 
                                         <div class="form-row mt-4 mb-2">
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-4">
                                                 <label for="">Numero da sala:</label>
                                                 <input class="form-control" value="" type="text" name="" id="">
                                             </div>
-                                            <div class="form-group col-lg-4">
-                                                <label for="">Parvilhão:</label>
-                                                <input class="form-control" maxlength="4" value="" type="text" name="" id="">
-                                            </div>
+                                           
 
 
                                        
 
                                         
-                                            <div class="form-group col-lg-5">
+                                            <div class="form-group col-lg-4">
                                                 <label for="">&nbsp;</label><br>
                                                 <a class="btn btn-success w-75 text-center" href="#">Adicionar sala</a>
                                             </div>

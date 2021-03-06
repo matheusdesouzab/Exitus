@@ -123,6 +123,16 @@
 
         }
 
+        .collapse-options-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            span {
+                padding: 10px;
+                font-size: 2.5vw;
+            }
+        }
+
         .modal-profile {
 
             .collapse-option {
@@ -204,15 +214,7 @@
                         }
                     }
 
-                    .collapse-options-container {
-                        margin-top: 20px;
-                        margin-bottom: 20px;
-
-                        span {
-                            padding: 10px;
-                            font-size: 2.5vw;
-                        }
-                    }
+                    
 
                 }
 

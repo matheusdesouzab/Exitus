@@ -1,26 +1,26 @@
-<div id="employee-registration">
+<div id="teacher-registration">
 
     <div class="row main-container">
 
         <div class="col-lg-11 mx-auto">
 
             <div class="col-lg-12 mb-4">
-                <h5>Cadastra funcionário(a)</h5>
+                <h5>Cadastra professor(a)</h5>
             </div>
 
             <div class="col-lg-12">
 
-                <div class="card col-lg-12 pt-4 p-3 accordion" id="employee-registration-accordion">
+                <div class="card col-lg-12 pt-4 p-3 accordion" id="teacher-registration-accordion">
 
                     <div class="registration-session-in-stages mx-auto">
                         <div class="registration-by-content-step">
                             <div class="registration-connection-line-in-stages"></div>
                             <div class="registration-in-stages">
-                                <a type="button" class="btn round-button" data-toggle="collapse" data-target="#employee-registration-initial-data"><i class="fas fa-user-alt"></i></a>
+                                <a type="button" class="btn round-button" data-toggle="collapse" data-target="#teacher-registration-initial-data"><i class="fas fa-user-alt"></i></a>
                                 <p>Dados iniciais</p>
                             </div>
                             <div class="registration-in-stages">
-                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#employee-registration-address-and-contact"><i class="fas fa-home"></i></a>
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#teacher-registration-address-and-contact"><i class="fas fa-home"></i></a>
                                 <p>Endereço e contato</p>
                             </div>
 
@@ -30,7 +30,7 @@
                     <hr>
 
                     <form class="was-validated" role="form">
-                        <div class="row collapse show" id="employee-registration-initial-data" data-parent="#employee-registration-accordion">
+                        <div class="row collapse show" id="teacher-registration-initial-data" data-parent="#teacher-registration-accordion">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
                                     <div class="form-row mt-2">
@@ -77,21 +77,14 @@
 
                                     <div class="form-row mb-5">
 
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-9">
                                             <label for="">Foto do perfil:</label>
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input is-valid" id="customFileLangHTML" required>
                                                 <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do professor(a)</label>
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="inputState">Cargo:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option selected></option>
-                                                <option>Professor</option>
-                                                <option>Vígia</option>
-                                            </select>
-                                        </div>
+                                        
                                         <div class="form-group col-md-3">
                                             <label for="inputCity">Tipo sanguíneo:</label>
                                             <select id="inputState" class="form-control custom-select is-valid" required>
@@ -116,7 +109,7 @@
                             </div>
                         </div>
 
-                        <div class="row collapse" id="employee-registration-address-and-contact" data-parent="#employee-registration-accordion">
+                        <div class="row collapse" id="teacher-registration-address-and-contact" data-parent="#teacher-registration-accordion">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
 

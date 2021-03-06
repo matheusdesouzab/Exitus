@@ -114,6 +114,19 @@
 
     }
 
+    .note-red{
+        @include note-state($color-red);
+    }
+    .note-green{
+        @include note-state($color-green);
+    }
+    .note-blue{
+        @include note-state($color-blue);
+    }
+    .note-golden{
+        @include note-state($color-golden);
+    }
+
 
 
 }

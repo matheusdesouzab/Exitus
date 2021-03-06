@@ -31,11 +31,13 @@
                                 <div class="row">
                                     <div class="col-lg-12">
 
+                                    <?php foreach($this->view->listSchoolTerm as $idSchoolTerm => $SchoolTerm){ ?>                               
+
                                         <form class="card" action="">
 
                                             <div class="row d-flex align-items-center">
 
-                                                <div class="col-lg-8 font-weight-bold">Periodo letivo de 2021</div>
+                                                <div class="col-lg-8 font-weight-bold">Periodo letivo 2021</div>
 
                                                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
@@ -72,7 +74,7 @@
 
                                             <div class="row d-flex align-items-center">
 
-                                                <div class="col-lg-8 font-weight-bold">Periodo letivo de 2020</div>
+                                                <div class="col-lg-8 font-weight-bold">Periodo letivo 2021</div>
 
                                                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
@@ -87,7 +89,7 @@
                                             <div class="form-row mt-4 mb-2">
                                                 <div class="form-group col-lg-3">
                                                     <label for="">Periodo letivo:</label>
-                                                    <input class="form-control" disabled value="2020" type="text" name="" id="">
+                                                    <input class="form-control" disabled value="2021" type="text" name="" id="">
                                                 </div>
                                                 <div class="form-group col-lg-3">
                                                     <label for="">Data de início:</label>
@@ -99,49 +101,15 @@
                                                 </div>
                                                 <div class="form-group col-lg-3">
                                                     <label for="">Situação:</label>
-                                                    <input class="form-control" value="Finalizado" disabled value="" type="text" name="" id="">
+                                                    <input class="form-control" value="Em andamento" disabled value="" type="text" name="" id="">
                                                 </div>
 
                                             </div>
 
                                         </form>
-                                        <form class="card mt-3" action="">
 
-                                            <div class="row d-flex align-items-center">
-
-                                                <div class="col-lg-8 font-weight-bold">Periodo letivo de 2019</div>
-
-                                                <div class="col-lg-4 d-flex  justify-content-end mt-2">
-
-                                                <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                                                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                                                    <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-row mt-4 mb-2">
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Periodo letivo:</label>
-                                                    <input class="form-control" disabled value="2019" type="text" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Data de início:</label>
-                                                    <input class="form-control" value="" disabled value="" type="date" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Data de fim:</label>
-                                                    <input class="form-control" value="" disabled value="" type="date" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Situação:</label>
-                                                    <input class="form-control" value="Finalizado" disabled value="" type="text" name="" id="">
-                                                </div>
-
-                                            </div>
-
-                                        </form>
+                                        <?php } ?>
+                                       
 
 
 
@@ -175,9 +143,13 @@
                                                     <input class="form-control" value="" value="" type="date" name="" id="">
                                                 </div>
                                                 <div class="form-group col-lg-3">
-                                                    <label for="">Situação:</label>
-                                                    <input class="form-control" value="Finalizado" value="" type="text" name="" id="">
-                                                </div>
+                                                <label for="inputState">Situação:</label>
+                                                <select id="inputState" class="form-control custom-select" required>
+                                                    <option>Andamento</option>
+                                                    <option>Finalizado</option>
+                                                   
+                                                </select>
+                                            </div>
 
                                             </div>
 

@@ -4,7 +4,7 @@
 
         <div class="col-lg-11 mx-auto">
 
-            <h5 class="col-12 mb-4">Lista de funcionários(a)</h5>
+            <h5 class="col-12 mb-4">Lista de professores(a)</h5>
 
             <div class="col-lg-12">
 
@@ -14,21 +14,14 @@
 
                         <div class="form-row">
 
-                            <div class="form-group col-12 col-lg-5">
-                                <label for="">Funcionário:</label>
-                                <input class="form-control" type="text" name="" placeholder="Nome do funcionário ou CPF" id="">
+                            <div class="form-group col-12 col-lg-7">
+                                <label for="">Professor:</label>
+                                <input class="form-control" type="text" name="" placeholder="Nome do Professor ou CPF" id="">
                             </div>
 
-                            <div class="form-group col-12 col-lg-3">
-                                <label for="">Cargo:</label>
-                                <select class="form-control custom-select" name="" id="">
-                                    <option value="">Todos</option>
-                                    <option value="">Merendeira</option>
-                                    <option value="">Vigilante</option>
-                                </select>
-                            </div>
+                           
 
-                            <div class="form-group col-10 col-lg-3">
+                            <div class="form-group col-10 col-lg-4">
                                 <label for="">Sexo:</label>
                                 <select class="form-control custom-select" name="" id="">
                                     <option value="">Masculino</option>
@@ -78,11 +71,11 @@
 
                             <thead>
                                 <tr>
-                                    <th class="" colspan="2" scope="col">Nome do funcionário(a)</th>
+                                    <th class="" colspan="2" scope="col">Nome do professor(a)</th>
                                     <th scope="col">CPF</th>
-                                    <th scope="col">Cargo atual</th>
                                     <th scope="col">Idade</th>
                                     <th scope="col">Sexo</th>
+                                    <th scope="col">Total de turmas</th>
                                 </tr>
                             </thead>
 
@@ -92,54 +85,54 @@
                                     <td class="text-rigth"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
                                     <td class="text-left">Matheus de Souza Barbosa</td>
                                     <td>864.407.324-21</td>
-                                    <td>Vigilante</td>
                                     <td>30 anos</td>
                                     <td>Masculino</td>
+                                    <td>6</td>
                                 </tr>
                                
                                 <tr class="text-center">
                                     <td class="text-rigth"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
                                     <td class="text-left">Matheus de Souza Barbosa</td>
                                     <td>864.407.324-21</td>
-                                    <td>Vigilante</td>
                                     <td>30 anos</td>
                                     <td>Masculino</td>
+                                    <td>6</td>
                                 </tr>
                                
                                 <tr class="text-center">
                                     <td class="text-rigth"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
                                     <td class="text-left">Matheus de Souza Barbosa</td>
                                     <td>864.407.324-21</td>
-                                    <td>Vigilante</td>
                                     <td>30 anos</td>
                                     <td>Masculino</td>
+                                    <td>6</td>
                                 </tr>
                                
                                 <tr class="text-center">
                                     <td class="text-rigth"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
                                     <td class="text-left">Matheus de Souza Barbosa</td>
                                     <td>864.407.324-21</td>
-                                    <td>Vigilante</td>
                                     <td>30 anos</td>
                                     <td>Masculino</td>
+                                    <td>6</td>
                                 </tr>
                                
                                 <tr class="text-center">
                                     <td class="text-rigth"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
                                     <td class="text-left">Matheus de Souza Barbosa</td>
                                     <td>864.407.324-21</td>
-                                    <td>Vigilante</td>
                                     <td>30 anos</td>
                                     <td>Masculino</td>
+                                    <td>6</td>
                                 </tr>
                                
                                 <tr class="text-center">
                                     <td class="text-rigth"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
                                     <td class="text-left">Matheus de Souza Barbosa</td>
                                     <td>864.407.324-21</td>
-                                    <td>Vigilante</td>
                                     <td>30 anos</td>
                                     <td>Masculino</td>
+                                    <td>6</td>
                                 </tr>
                                
                                
@@ -316,14 +309,7 @@
 
                                                                             <hr>
 
-                                                                            <h5 class="mt-3 mb-3 ml-2">Cargo atual:</h5>
-
-                                                                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
-                                                                                <div class="input-group-prepend">
-                                                                                    <span class="input-group-text" id="addon-wrapping">Cargo atual:</span>
-                                                                                </div>
-                                                                                <input type="text" disabled class="form-control" value="Vigilante" aria-label="Username" aria-describedby="addon-wrapping">
-                                                                            </div>
+                                                                           
 
                                                                           
 
@@ -331,7 +317,7 @@
 
                                                                     </div>
 
-                                                                    <div class="col-lg-5">
+                                                                    <!-- <div class="col-lg-5">
 
                                                                         <div class="row p-3">
 
@@ -363,7 +349,7 @@
 
                                                                         </div>
 
-                                                                    </div>
+                                                                    </div> -->
 
                                                                 </div>
 

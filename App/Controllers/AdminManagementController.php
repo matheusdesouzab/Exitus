@@ -26,6 +26,10 @@ class AdminManagementController extends Action
 
     public function managementSchoolTerm()
     {
+        $SchoolTerm = Container::getModel('SchoolTerm');
+
+        $this->view->listSchoolTerm = $SchoolTerm->listSchoolTerm();
+
         $this->render('management_schoolTerm', 'AdminLayout');
     }
 

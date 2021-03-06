@@ -98,7 +98,7 @@
                                                     <td>35 alunos</td>
                                                     <td>40 vagas</td>
                                                     <td>
-                                                        <article class="btn nota-vermelha">4,8</article>
+                                                        <article class="btn note-red">4,8</article>
                                                     </td>
                                                 </tr>
 
@@ -107,7 +107,7 @@
                                                     <td>35 alunos</td>
                                                     <td>40 vagas</td>
                                                     <td>
-                                                        <article class="btn nota-verde">6,5</article>
+                                                        <article class="btn note-green">6,5</article>
                                                     </td>
                                                 </tr>
 
@@ -116,7 +116,7 @@
                                                     <td>35 alunos</td>
                                                     <td>40 vagas</td>
                                                     <td>
-                                                        <article class="btn nota-azul">8,5</article>
+                                                        <article class="btn note-blue">8,5</article>
                                                     </td>
                                                 </tr>
 
@@ -125,7 +125,7 @@
                                                     <td>35 alunos</td>
                                                     <td>40 vagas</td>
                                                     <td>
-                                                        <article class="btn nota-dourada">9,5</article>
+                                                        <article class="btn note-golden">9,5</article>
                                                     </td>
                                                 </tr>
 
@@ -134,7 +134,7 @@
                                                     <td>35 alunos</td>
                                                     <td>40 vagas</td>
                                                     <td>
-                                                        <article class="btn nota-azul">7,8</article>
+                                                        <article class="btn note-blue">7,8</article>
                                                     </td>
                                                 </tr>
 
@@ -435,40 +435,58 @@
                                                                                                                 <thead>
                                                                                                                     <tr>
                                                                                                                         <th scope="col">Sigla Disciplina</th>
-                                                                                                                        <th scope="col">Modalidade</th>
-                                                                                                                        <th scope="col">UE referente</th>
+                                                                                                                        <th scope="col">Modalidade da disciplina</th>
+                                                                                                                        
                                                                                                                         <th scope="col">Professor</th>
                                                                                                                     </tr>
                                                                                                                 </thead>
                                                                                                                 <tbody>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
-                                                                                                                        <td>Técnico</td>
-                                                                                                                        <td>1 e 2</td>
+                                                                                                                        <td>Ensino Técnico</td>
+                                                                                                                        
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
-                                                                                                                        <td>Técnico</td>
-                                                                                                                        <td>1 e 2</td>
+                                                                                                                        <td>Ensino Técnico</td>
+                                                                                                                        
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
-                                                                                                                        <td>Técnico</td>
-                                                                                                                        <td>1 e 2</td>
+                                                                                                                        <td>Ensino Técnico</td>
+                                                                                                                        
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
-                                                                                                                        <td>Técnico</td>
-                                                                                                                        <td>1 e 2</td>
+                                                                                                                        <td>Ensino Técnico</td>
+                                                                                                                        
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
-                                                                                                                        <td>Técnico</td>
-                                                                                                                        <td>1 e 2</td>
+                                                                                                                        <td>Ensino Técnico</td>
+                                                                                                                        
+                                                                                                                        <td>Jamilton Damasceno</td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td>LTP</td>
+                                                                                                                        <td>Ensino Técnico</td>
+                                                                                                                        
+                                                                                                                        <td>Jamilton Damasceno</td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td>LTP</td>
+                                                                                                                        <td>Ensino Técnico</td>
+                                                                                                                        
+                                                                                                                        <td>Jamilton Damasceno</td>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <td>LTP</td>
+                                                                                                                        <td>Ensino Técnico</td>
+                                                                                                                        
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
 

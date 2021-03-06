@@ -127,7 +127,7 @@
                                             <input type="text" id="bairro" class="form-control is-valid" id="inputCity" placeholder="" required>
                                         </div>
 
-                                       
+
 
                                     </div>
 
@@ -148,7 +148,7 @@
                                             <input type="text" id="telefone1" class="form-control is-valid" id="inputCity" placeholder="" required>
                                         </div>
 
-                                      
+
 
                                     </div>
 
@@ -189,49 +189,25 @@
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
 
-                                    <div class="form-row mt-3">
-
-                                    
-
-                                        <div class="form-group col-md-4">
-                                            <label for="inputCity">Situação do Aluno:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option> </option>
-                                                <option>Estudando</option>
-                                                <option>Reprovado</option>
-                                                <option>Aprovado</option>
-                                            </select>
-                                        </div>
+                                    <div class="form-row mt-3 mb-5">
 
                                         <div class="form-group col-md-8">
                                             <label for="inputCity">Turma</label>
                                             <select id="inputState" class="form-control custom-select is-valid" required>
                                                 <option value=""></option>
-                                                <option>1&deg; A - Técnico em Informática - Matutino - Sala: 03 - 2021</option>
+                                                <option>1&deg; A - Técnico em Informática - Matutino - Sala: 03</option>
                                                 <option>INFO-1M-B</option>
                                                 <option>INFO-2V-A</option>
                                                 <option>INFO-2V-B</option>
                                             </select>
                                         </div>
 
-
-
-                                    </div>
-
-                                    <div class="form-row">
-
-                                        
-
-                                        <div class="form-group col-md-12">
-                                            <label for="">Situação da turma </label>
-                                            <input type="text" class="form-control" disabled placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                        <div class="form-group col-md-4">
+                                            <label for="">&nbsp;</label>
+                                            <a id="matricularAluno" class="btn btn-success w-100" href="#">Cadastra aluno (a)</a>
                                         </div>
-                                    </div>
 
-                                    <div class="form-row">
-                                        <div class="form-group col-md-3 mt-3 mb-5 mx-auto">
-                                            <a id="matricularAluno" class="btn btn-success w-100" href="#">Finalizar cadastro</a>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>

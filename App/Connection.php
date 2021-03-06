@@ -8,7 +8,7 @@ class Connection {
 		try {
 
 			$conn = new \PDO(
-				"mysql:host=localhost;dbname=webgest2;charset=utf8",
+				"mysql:host=localhost;dbname=web_gest;charset=utf8",
 				"root",
 				"" 
 			);
@@ -16,9 +16,7 @@ class Connection {
 			return $conn;
 
 		} catch (\PDOException $e) {
-			//.. tratar de alguma forma ..//
+			echo ($e->getMessage());			
 		}
 	}
 }
-
-?>

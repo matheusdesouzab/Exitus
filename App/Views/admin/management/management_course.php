@@ -48,7 +48,7 @@
                                             </div>
 
                                             <div class="form-row mt-4 mb-2">
-                                                <div class="form-group col-lg-4">
+                                                <div class="form-group col-lg-7">
                                                     <label for="">Nome do curso:</label>
                                                     <input class="form-control" disabled value="Informática" type="text" name="" id="">
                                                 </div>
@@ -60,10 +60,7 @@
                                                     <label for="">Carga horária:</label>
                                                     <input class="form-control" disabled value="320 horas" type="text" name="" id="">
                                                 </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Vagas por turma:</label>
-                                                    <input class="form-control" disabled value="40" type="text" name="" id="">
-                                                </div>
+                                               
 
                                             </div>
 
@@ -85,7 +82,7 @@
                                             </div>
 
                                             <div class="form-row mt-4 mb-2">
-                                                <div class="form-group col-lg-4">
+                                                <div class="form-group col-lg-7">
                                                     <label for="">Nome do curso:</label>
                                                     <input class="form-control" disabled value="Informática" type="text" name="" id="">
                                                 </div>
@@ -97,10 +94,7 @@
                                                     <label for="">Carga horária:</label>
                                                     <input class="form-control" disabled value="320 horas" type="text" name="" id="">
                                                 </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Vagas por turma:</label>
-                                                    <input class="form-control" disabled value="40" type="text" name="" id="">
-                                                </div>
+                                                
 
                                             </div>
 
@@ -122,7 +116,7 @@
                                             </div>
 
                                             <div class="form-row mt-4 mb-2">
-                                                <div class="form-group col-lg-4">
+                                                <div class="form-group col-lg-7">
                                                     <label for="">Nome do curso:</label>
                                                     <input class="form-control" disabled value="Informática" type="text" name="" id="">
                                                 </div>
@@ -134,10 +128,7 @@
                                                     <label for="">Carga horária:</label>
                                                     <input class="form-control" disabled value="320 horas" type="text" name="" id="">
                                                 </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Vagas por turma:</label>
-                                                    <input class="form-control" disabled value="40" type="text" name="" id="">
-                                                </div>
+                                              
 
                                             </div>
 
@@ -173,18 +164,18 @@
                                                     <label for="">Carga horária:</label>
                                                     <input class="form-control" value="" type="text" name="" id="">
                                                 </div>
+
                                                 <div class="form-group col-lg-3">
-                                                    <label for="">Vagas por turma:</label>
-                                                    <input class="form-control" maxlength="2" value="" type="text" name="" id="">
+                                                <label for="">&nbsp;</label>
+                                                    <a class="btn btn-success w-100 text-center" href="#">Adicionar curso</a>
                                                 </div>
+                                            
+                                               
 
                                             </div>
 
-                                            <div class="form-row">
-                                                <div class="form-group col-lg-4">
-                                                    <a class="btn btn-success w-75 text-center" href="#">Adicionar curso</a>
-                                                </div>
-                                            </div>
+                                            
+                                               
 
                                         </form>
 

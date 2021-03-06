@@ -553,7 +553,8 @@
                                                                                         <th scope="col">UE</th>
                                                                                         <th scope="col">Disciplina</th>
                                                                                         <th scope="col">Data</th>
-                                                                                        <th scope="col">Valor</th>
+                                                                                        <th scope="col">Valor AV</th>
+                                                                                        <th scope="col">Nota AV</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
@@ -563,27 +564,30 @@
                                                                                         <td>Prova em dupla</td>
                                                                                         <td>1</td>
 
-                                                                                        <td>Matemática</td>
+                                                                                        <td>MATE</td>
                                                                                         <td>20/12/2001</td>
                                                                                         <td>4,0</td>
+                                                                                        <td>2,0</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>1</td>
                                                                                         <td>Prova em dupla</td>
                                                                                         <td>1</td>
 
-                                                                                        <td>Matemática</td>
+                                                                                        <td>MATE</td>
                                                                                         <td>20/12/2001</td>
                                                                                         <td>4,0</td>
+                                                                                        <td>2,0</td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>1</td>
                                                                                         <td>Prova em dupla</td>
                                                                                         <td>1</td>
 
-                                                                                        <td>Matemática</td>
+                                                                                        <td>MATE</td>
                                                                                         <td>20/12/2001</td>
                                                                                         <td>4,0</td>
+                                                                                        <td>2,0</td>
                                                                                     </tr>
 
                                                                                     <tr>
@@ -591,9 +595,10 @@
                                                                                         <td>Prova em dupla</td>
                                                                                         <td>1</td>
 
-                                                                                        <td>Matemática</td>
+                                                                                        <td>MATE</td>
                                                                                         <td>20/12/2001</td>
                                                                                         <td>4,0</td>
+                                                                                        <td>2,0</td>
                                                                                     </tr>
 
                                                                                 </tbody>
@@ -608,50 +613,31 @@
 
                                                                         <form class="col-lg-12" action="">
 
-                                                                            <div class="form-row mt-3">
+                                                                          
 
-                                                                                <div class="form-group col-lg-6">
-                                                                                    <label for="">Nome da avaliação:</label>
+                                                                            <div class="form-row mt-3 mb-3">
 
-                                                                                    <input class="form-control" type="text">
-
-                                                                                </div>
-
-                                                                                <div class="form-group col-lg-3">
-                                                                                    <label for="">Disciplina:</label>
+                                                                            <div class="form-group col-lg-7">
+                                                                                    <label for="">Avaliações disponiveis:</label>
 
                                                                                     <select id="inputState" class="form-control custom-select" required>
-                                                                                        <option>Ana Silva</option>
-                                                                                        <option>Meickson</option>
-                                                                                        <option>Tassio</option>
-                                                                                        <option>Carlos</option>
-                                                                                    </select>
-
-                                                                                </div>
-
-                                                                                <div class="form-group col-lg-3">
-                                                                                    <label for="">Unidade:</label>
-
-                                                                                    <select id="inputState" class="form-control custom-select" required>
-                                                                                        <option>Matemática</option>
+                                                                                        <option>Trabalho em grupo - Biologia - 4,0 - 1 Unidade</option>
                                                                                         <option>Biologia</option>
                                                                                         <option>Português</option>
                                                                                         <option>Filosofia</option>
                                                                                     </select>
 
                                                                                 </div>
+                                                                            <div class="form-group col-lg-1">
+                                                                                    <label for="">Nota:</label>
 
-                                                                            </div>
+                                                                                   <input class="form-control" type="text" maxlength="3">
 
-                                                                            <div class="form-row">
-                                                                                <div class="form-group col-lg-2">
-                                                                                    <label for="">Valor:</label>
-
-                                                                                    <input class="form-control" type="text">
                                                                                 </div>
-                                                                                <div class="form-group col-lg-3">
+                                                                            
+                                                                                <div class="form-group col-lg-4">
                                                                                     <label for="">&nbsp;</label>
-                                                                                    <a class="btn btn-success w-100" href="">Adicionar disciplina</a>
+                                                                                    <a class="btn btn-success w-100" href="">Adicionar nota da avaliação</a>
                                                                                 </div>
 
                                                                             </div>

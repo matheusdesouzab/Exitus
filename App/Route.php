@@ -8,15 +8,9 @@ class Route extends Bootstrap {
 
 	protected function initRoutes() {
 
-		// Home
-
-		$routes['home'] = array(
-			'route' => '/home',
-			'controller' => 'AdmController',
-			'action' => 'admHome'
-		);
 
 		// Student ( Aluno )
+
 
 		$routes['admCadastroAluno'] = array(
 			'route' => '/admAlunoCadastro',
@@ -29,22 +23,26 @@ class Route extends Bootstrap {
 			'controller' => 'AdminStudentController',
 			'action' => 'studentList'
 		);
+		
 
 		// Employee ( Funcionário )
 
-		$routes['admCadastroFuncionario'] = array(
-			'route' => '/admFuncionarioCadastro',
-			'controller' => 'AdminEmployeeController',
-			'action' => 'employeeRegistration'
+
+		$routes['admCadastroProfessor'] = array(
+			'route' => '/admProfessorCadastro',
+			'controller' => 'AdminTeacherController',
+			'action' => 'teacherRegistration'
 		);
 
-		$routes['admlistaFuncionario'] = array(
-			'route' => '/admFuncionarioLista',
-			'controller' => 'AdminEmployeeController',
-			'action' => 'employeeList'
+		$routes['admlistaProfessor'] = array(
+			'route' => '/admProfessorLista',
+			'controller' => 'AdminTeacherController',
+			'action' => 'teacherList'
 		);
+
 
 		// Management ( Gestão )
+
 
 		$routes['admGestaoGeral'] = array(
 			'route' => '/admGestaoGeral',
@@ -82,15 +80,6 @@ class Route extends Bootstrap {
 			'action' => 'managementClass'
 		);
 
-		
-
-
-
-
-
-
-
-
 
 
 		$routes['index'] = array(
@@ -104,20 +93,6 @@ class Route extends Bootstrap {
 			'controller' => 'AuthController',
 			'action' => 'autenticar'
 		);
-
-		
-
-		$routes['matricular'] = array(
-			'route' => '/matricular',
-			'controller' => 'AppController',
-			'action' => 'matricular'
-		);
-
-		$routes['verificarVaga'] = array(
-			'route' => '/verificarVaga',
-			'controller' => 'AppController',
-			'action' => 'verificarVaga'
-		);	
 	
 
 		$this->setRoutes($routes);
