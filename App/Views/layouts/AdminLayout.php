@@ -47,6 +47,6 @@ $title = $title[1] . ' ' . $title[2];
 
 <script src="/assets/js/estilo.js"></script>
 
-<script src="/assets/js/ajax.js"></script>
+<script src="/assets/js/request.js"></script>
 
 </html>

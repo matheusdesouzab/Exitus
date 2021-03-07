@@ -7,15 +7,15 @@
             <div class="col-lg-12 mb-3">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6">
-                        <h5>Gestão dos periodos letivos</h5>
+                        <h5>Gestão dos períodos letivos</h5>
                     </div>
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-terms" ><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Periodos</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-terms"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Períodos</span></a>
 
                         <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
-                        
+
 
                     </div>
                 </div>
@@ -26,162 +26,154 @@
                 <div class="row d-flex justify-content-between mb-3">
 
                     <div class="col-lg-12">
-                        
+
                         <div class="collapse show" id="list-terms" data-parent="#accordion-period">
-                                <div class="row">
-                                    <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
 
-                                    <?php foreach($this->view->listSchoolTerm as $idSchoolTerm => $SchoolTerm){ ?>                               
+                                    <?php foreach ($this->view->listSchoolTerm as $idSchoolTerm => $schoolTerm) { ?>
 
-                                        <form class="card" action="">
+                                        <form class="card mb-3" action="">
 
-                                            <div class="row d-flex align-items-center">
+                                            <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
 
-                                                <div class="col-lg-8 font-weight-bold">Periodo letivo 2021</div>
-
-                                                <div class="col-lg-4 d-flex justify-content-end mt-2">
-
-                                                <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                                                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                                                    <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-row mt-4 mb-2">
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Periodo letivo:</label>
-                                                    <input class="form-control" disabled value="2021" type="text" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Data de início:</label>
-                                                    <input class="form-control" value="" disabled value="" type="date" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Data de fim:</label>
-                                                    <input class="form-control" value="" disabled value="" type="date" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Situação:</label>
-                                                    <input class="form-control" value="Em andamento" disabled value="" type="text" name="" id="">
-                                                </div>
-
-                                            </div>
-
-                                        </form>
-                                        <form class="card mt-3" action="">
-
-                                            <div class="row d-flex align-items-center">
-
-                                                <div class="col-lg-8 font-weight-bold">Periodo letivo 2021</div>
+                                                <div class="col-lg-8 font-weight-bold">Ano letivo <?= $schoolTerm['school_year'] ?></div>
 
                                                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                                                <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                    <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
                                                     <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                                                    <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
+
 
                                                 </div>
 
                                             </div>
 
-                                            <div class="form-row mt-4 mb-2">
+                                            <div class="form-row col-lg-11 mx-auto mt-4 mb-2">
                                                 <div class="form-group col-lg-3">
-                                                    <label for="">Periodo letivo:</label>
-                                                    <input class="form-control" disabled value="2021" type="text" name="" id="">
+                                                    <label for="">Período letivo:</label>
+                                                    <input class="form-control" disabled value="<?= $schoolTerm['school_year'] ?>" type="text" name="" id="">
                                                 </div>
                                                 <div class="form-group col-lg-3">
                                                     <label for="">Data de início:</label>
-                                                    <input class="form-control" value="" disabled value="" type="date" name="" id="">
+                                                    <input class="form-control" disabled value="<?= $schoolTerm['start_date'] ?>" type="date" name="" id="">
                                                 </div>
                                                 <div class="form-group col-lg-3">
                                                     <label for="">Data de fim:</label>
-                                                    <input class="form-control" value="" disabled value="" type="date" name="" id="">
+                                                    <input class="form-control" disabled value="<?= $schoolTerm['end_date'] ?>" type="date" name="" id="">
                                                 </div>
                                                 <div class="form-group col-lg-3">
                                                     <label for="">Situação:</label>
-                                                    <input class="form-control" value="Em andamento" disabled value="" type="text" name="" id="">
+                                                    <input class="form-control" disabled value="<?= $schoolTerm['situation_school_term'] ?>" type="text" name="" id="">
                                                 </div>
 
                                             </div>
 
                                         </form>
 
-                                        <?php } ?>
-                                       
+
+                                    <?php } ?>
 
 
 
-                                    </div>
+
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="collapse" id="add-school-term" data-parent="#accordion-period">
+                        <div class="collapse" id="add-school-term" data-parent="#accordion-period">
 
-                                <div class="row">
+                            <div class="row">
 
-                                    <div class="col-lg-12">
+                                <div class="col-lg-12 card ">
 
-                                        <form class="card" action="">
+                                    <form id="addSchoolTerm" class="col-11 mx-auto mt-3 mb-3" action="" method="POST">
 
-                                            <div class="row mt-2">
-                                                <div class="font-weight-bold col-lg-12">Adicionar novo periodo:</div>
+                                        <div class="row mt-2">
+                                            <div class="font-weight-bold col-lg-12">Período letivo do ano de <?= $this->view->lastSchoolTerm[0]['school_year'] + 1 ?>:</div>
+                                        </div>
+
+                                        <div class="form-row mt-4 mb-2">
+
+                                            <input class="form-control" name="schoolYear" value="<?= $this->view->lastSchoolTerm[0]['school_year'] + 1 ?>" type="hidden">
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="">Data de início:</label>
+                                                <input name="startDate" class="form-control" value="" type="date" id="">
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="">Data de fim:</label>
+                                                <input name="endDate" class="form-control" value="" type="date" id="">
                                             </div>
 
-                                            <div class="form-row mt-4 mb-2">
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Periodo letivo:</label>
-                                                    <input class="form-control" value="2019" type="text" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Data de início:</label>
-                                                    <input class="form-control" value="" value="" type="date" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Data de fim:</label>
-                                                    <input class="form-control" value="" value="" type="date" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
+
+                                            <div class="form-group col-lg-3">
                                                 <label for="inputState">Situação:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Andamento</option>
-                                                    <option>Finalizado</option>
-                                                   
+                                                <select name="schoolTermSituation" id="inputState" class="form-control custom-select" required>
+
+                                                    <?php foreach ($this->view->listSchoolTermSituation as $key => $TermSituation) { ?>
+                                                        <option value="<?= $TermSituation['id_situacao_periodo_letivo'] ?>"><?= $TermSituation['situacao_periodo_letivo'] ?></option>
+                                                    <?php } ?>
+
                                                 </select>
                                             </div>
 
+                                            <div class="form-group col-lg-3">
+                                                <label for="">&nbsp;</label>
+                                                <a id="buttonAddSchoolTerm" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
                                             </div>
 
-                                            <div class="form-row">
-                                                <div class="form-group col-lg-5">
-                                                    <a class="btn btn-success w-75 text-center" href="#">Adicionar novo periodo</a>
+
+
+                                        </div>
+
+
+
+                                    </form>
+
+                                    <div class="modal fade" id="addSchoolTermModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <div class="modal-title font-weight-bold"></div>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                    </div>
+                                                    <div class="col-lg-12 mb-5 container-icon d-flex justify-content-center">
+
+                                                    </div>
+
+
                                                 </div>
                                             </div>
-
-                                        </form>
-
+                                        </div>
                                     </div>
+
                                 </div>
-
-
                             </div>
 
-                          
+
                         </div>
-                        </div>
+
+
                     </div>
-
-
                 </div>
-
-
-
             </div>
+
 
         </div>
 
+
+
     </div>
+
+</div>
+
+</div>
 
 
 </div>

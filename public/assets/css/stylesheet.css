@@ -161,29 +161,29 @@ select:disabled {
   font-weight: 500;
 }
 
-#pagina #modal-registration {
-  margin-top: 40px;
-}
-#pagina #modal-registration .modal-content {
-  border: none;
-  background-color: #ffffff;
-  border-radius: 10px;
-}
-#pagina #modal-registration .modal-header {
-  font-weight: bold;
-}
-#pagina #modal-registration .modal-text {
-  margin-top: 30px;
-  text-align: center;
-  font-weight: 500;
-}
-#pagina #modal-registration .modal-registration-success .fa-check-circle {
+#pagina .modal-registration-success .fa-check-circle {
   margin-top: 30px;
   font-size: 100px;
   color: #28A745;
   justify-content: space-around;
 }
-#pagina #modal-registration .modal-registration-error .fa-times-circle {
+#pagina .modal-add {
+  margin-top: 40px;
+}
+#pagina .modal-add .modal-content {
+  border: none;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+#pagina .modal-add .modal-header {
+  font-weight: bold;
+}
+#pagina .modal-add .modal-text {
+  margin-top: 30px;
+  text-align: center;
+  font-weight: 500;
+}
+#pagina .modal-add .modal-registration-error .fa-times-circle {
   margin-top: 30px;
   font-size: 100px;
   color: #DC3545;

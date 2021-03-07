@@ -1,6 +1,18 @@
 #pagina {
 
-    #modal-registration {
+
+
+    .modal-registration-success{
+
+        
+
+        .fa-check-circle {
+            @include icon-modal($color-green);
+        }
+
+    }
+
+    .modal-add {
 
         margin-top: 40px;
 
@@ -16,13 +28,7 @@
             font-weight: 500;
         }
 
-        .modal-registration-success{
-
-            .fa-check-circle {
-                @include icon-modal($color-green);
-            }
-
-        }
+        
 
         .modal-registration-error {
 

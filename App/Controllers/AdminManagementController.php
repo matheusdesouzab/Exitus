@@ -28,10 +28,28 @@ class AdminManagementController extends Action
     {
         $SchoolTerm = Container::getModel('SchoolTerm');
 
+        $this->view->listSchoolTermSituation = $SchoolTerm->listSchoolTermSituation();
+
+        $this->view->lastSchoolTerm = $SchoolTerm->lastSchoolTerm();
+
         $this->view->listSchoolTerm = $SchoolTerm->listSchoolTerm();
 
         $this->render('management_schoolTerm', 'AdminLayout');
     }
+
+    public function addSchoolTerm()
+    {
+
+        $schoolTerm = Container::getModel('SchoolTerm');
+
+        $schoolTerm->__set('schoolYear', $_POST['schoolYear']);
+        $schoolTerm->__set('startDate', $_POST['startDate']);
+        $schoolTerm->__set('endDate', $_POST['endDate']);
+        $schoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
+
+        $schoolTerm->addSchoolTerm();
+    }
+
 
     public function managementRoom()
     {
