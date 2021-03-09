@@ -1,4 +1,4 @@
-<div id="term-management">
+<div id="school-term-management">
 
     <div class="row main-container">
 
@@ -12,9 +12,9 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-terms"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Períodos</span></a>
+                        <a href="#" class="font-weight-bold" id="collapseListSchoolTerm" aria-expanded="true" data-toggle="collapse" data-target="#list-terms"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Períodos</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a href="#" class="collapsed font-weight-bold" id="collapseAddListSchoolTerm" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
 
                     </div>
@@ -29,54 +29,7 @@
 
                         <div class="collapse show" id="list-terms" data-parent="#accordion-period">
                             <div class="row">
-                                <div class="col-lg-12">
-
-                                    <?php foreach ($this->view->listSchoolTerm as $idSchoolTerm => $schoolTerm) { ?>
-
-                                        <form class="card mb-3" action="">
-
-                                            <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
-
-                                                <div class="col-lg-8 font-weight-bold">Ano letivo <?= $schoolTerm['school_year'] ?></div>
-
-                                                <div class="col-lg-4 d-flex justify-content-end mt-2">
-
-                                                    <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                                                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="form-row col-lg-11 mx-auto mt-4 mb-2">
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Período letivo:</label>
-                                                    <input class="form-control" disabled value="<?= $schoolTerm['school_year'] ?>" type="text" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Data de início:</label>
-                                                    <input class="form-control" disabled value="<?= $schoolTerm['start_date'] ?>" type="date" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Data de fim:</label>
-                                                    <input class="form-control" disabled value="<?= $schoolTerm['end_date'] ?>" type="date" name="" id="">
-                                                </div>
-                                                <div class="form-group col-lg-3">
-                                                    <label for="">Situação:</label>
-                                                    <input class="form-control" disabled value="<?= $schoolTerm['situation_school_term'] ?>" type="text" name="" id="">
-                                                </div>
-
-                                            </div>
-
-                                        </form>
-
-
-                                    <?php } ?>
-
-
-
-
+                                <div id="containerListSchoolTerm" class="col-lg-12">
                                 </div>
                             </div>
                         </div>
@@ -90,17 +43,18 @@
                                     <form id="addSchoolTerm" class="col-11 mx-auto mt-3 mb-3" action="" method="POST">
 
                                         <div class="row mt-2">
-                                            <div class="font-weight-bold col-lg-12">Período letivo do ano de <?= $this->view->lastSchoolTerm[0]['school_year'] + 1 ?>:</div>
+                                            <div class="font-weight-bold col-lg-12">Período letivo do ano de <span id="schoolYear"></span> :</div>
                                         </div>
 
                                         <div class="form-row mt-4 mb-2">
 
-                                            <input class="form-control" name="schoolYear" value="<?= $this->view->lastSchoolTerm[0]['school_year'] + 1 ?>" type="hidden">
+                                            <input class="form-control schoolYear" name="schoolYear" value="" type="hidden">
 
                                             <div class="form-group col-lg-3">
                                                 <label for="">Data de início:</label>
                                                 <input name="startDate" class="form-control" value="" type="date" id="">
                                             </div>
+
                                             <div class="form-group col-lg-3">
                                                 <label for="">Data de fim:</label>
                                                 <input name="endDate" class="form-control" value="" type="date" id="">
@@ -120,7 +74,7 @@
 
                                             <div class="form-group col-lg-3">
                                                 <label for="">&nbsp;</label>
-                                                <a id="buttonAddSchoolTerm" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
+                                                <a id="buttonAddSchoolTerm"  type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
                                             </div>
 
 

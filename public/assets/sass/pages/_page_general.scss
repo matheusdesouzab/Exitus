@@ -114,17 +114,49 @@
 
     }
 
-    .note-red{
+    .note-red {
         @include note-state($color-red);
     }
-    .note-green{
+
+    .note-green {
         @include note-state($color-green);
     }
-    .note-blue{
+
+    .note-blue {
         @include note-state($color-blue);
     }
-    .note-golden{
+
+    .note-golden {
         @include note-state($color-golden);
+    }
+
+    .school-term-active {
+        background-color: $color-dark-gray;
+        color: white;
+        opacity: 0.7;
+
+        .edit-data-icon {
+            @include icon-card($color-dark-gray, $color-blue, $color-white);
+            border: 2px solid $color-white;
+        }
+    
+        .update-data-icon {
+            @include icon-card($color-dark-gray, $color-green, $color-white);
+            border: 2px solid $color-white;
+        }
+
+        :disabled {
+            background-color: $color-white;
+        }
+
+        input{
+            font-weight: bold;
+            color: $color-dark-blue;
+        }
+
+        label {
+            color: $color-white;
+        }
     }
 
 

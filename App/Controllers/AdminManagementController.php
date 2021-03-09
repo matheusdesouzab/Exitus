@@ -32,9 +32,15 @@ class AdminManagementController extends Action
 
         $this->view->lastSchoolTerm = $SchoolTerm->lastSchoolTerm();
 
-        $this->view->listSchoolTerm = $SchoolTerm->listSchoolTerm();
-
         $this->render('management_schoolTerm', 'AdminLayout');
+    }
+
+    public function lastSchoolTerm()
+    {
+
+        $SchoolTerm = Container::getModel('SchoolTerm');
+
+        echo json_encode($SchoolTerm->lastSchoolTerm());
     }
 
     public function addSchoolTerm()
@@ -48,6 +54,14 @@ class AdminManagementController extends Action
         $schoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
 
         $schoolTerm->addSchoolTerm();
+    }
+
+    public function listSchoolTerm()
+    {
+
+        $schoolTerm = Container::getModel('SchoolTerm');
+
+        echo json_encode($schoolTerm->listSchoolTerm());
     }
 
 

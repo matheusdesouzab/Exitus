@@ -75,13 +75,13 @@ class SchoolTerm extends Model
     public function listSchoolTerm()
     {
 
-        $query = 'select periodo_letivo.ano_letivo as school_year , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) order by periodo_letivo.ano_letivo desc; ';
+        $query = 'select periodo_letivo.ano_letivo as school_year , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) order by periodo_letivo.ano_letivo desc; ';
 
         $stmt = $this->db->prepare($query);
 
         $stmt->execute();
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
     public function lastSchoolTerm()
