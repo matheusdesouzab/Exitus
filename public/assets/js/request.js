@@ -24,25 +24,81 @@ $(document).ready(function () {
         });
     }
 
+    function activateFields(id) {
+
+        $('form .form-control').prop('disabled', true)
+        $('#addSchoolTerm .form-control').prop('disabled', false)
+
+        $(`#form${id} .form-control`).prop('disabled', false)
+
+    }
+
+    function listSchoolTermSituation() {
+
+        $.ajax({
+            url: '/listSchoolTermSituation',
+            dataType: 'json',
+            type: 'GET',
+            success: data => {
+
+                let selectSituation = $('form select[name="schoolTermSituation"]')
+
+                $.each(data, function (i, order) {
+
+                    selectSituation.append(`<option value="${data[i].id_situation}">${data[i].situation}</option>`)
+
+                })
+
+            },
+            error: erro => {
+                console.log(erro.responseText)
+            }
+
+        })
+
+    }
+
+    // Atualizar dados do Período Letivo
+
+    function updateSchoolTerm(id) {
+
+        let form = $(`#form${id}`).serialize()
+
+        $.ajax({
+            url: '/updateSchoolTerm',
+            type: 'POST',
+            dataType: 'html',
+            data: form,
+            success: data => {
+                listSchoolTerm()
+            },
+            erro: erro => {
+                console.log('erro')
+
+            }
+
+        })
+    }
+
     function listSchoolTerm() {
 
         $('#containerListSchoolTerm').text(' ')
 
         $.ajax({
             url: '/listSchoolTerm',
-            dataType: 'JSON',
+            dataType: 'json',
             type: 'GET',
             success: data => {
 
-                let form = null
+                let container = $('#containerListSchoolTerm')
 
                 if (Object.keys(data).length > 0) {
 
                     $.each(data, function (i, order) {
 
-                        form = `
+                        container.append(`
 
-            <form class="card mb-3" action="">
+            <form id="form${data[i].id_school_year}" class="card mb-3" action="">
 
             <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
 
@@ -50,8 +106,8 @@ $(document).ready(function () {
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                    <span href="#" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                    <span href="#" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
 
                 </div>
@@ -60,41 +116,51 @@ $(document).ready(function () {
 
             <div class="form-row col-lg-11 mx-auto mt-4 mb-2">
 
+            <input class="form-control" name="idSchoolYear" value="${data[i].id_school_year}" type="hidden">
+
                 <div class="form-group col-lg-4">
                     <label for="">Data de início:</label>
-                    <input class="form-control" disabled value="${data[i].start_date}" type="date" name="" id="">
+                    <input class="form-control" disabled name="startDate" value="${data[i].start_date}" type="date"  id="">
                 </div>
                 <div class="form-group col-lg-4">
                     <label for="">Data de fim:</label>
-                    <input class="form-control" disabled value="${data[i].end_date}" type="date" name="" id="">
+                    <input class="form-control" disabled value="${data[i].end_date}" type="date" name="endDate" id="">
                 </div>
                 <div class="form-group col-lg-4">
                     <label for="">Situação:</label>
-                    <input class="form-control" disabled value="${data[i].situation_school_term}" type="text" name="" id="">
+                    <select name="schoolTermSituation" disabled id="inputState" class="form-control custom-select" name="schoolTermSituation"  required>
+                    <option value="${data[i].fk_id_situation_school_term}">${data[i].situation_school_term}</option>
+                    </select>
                 </div>
 
             </div>
 
-            </form> `
+            </form> `)
 
-                        $('#containerListSchoolTerm').append(form)
+                        $(`#form${data[i].id_school_year} .edit-data-icon`).on('click', () => activateFields(data[i].id_school_year))
+                        $(`#form${data[i].id_school_year} .update-data-icon`).on('click', () => updateSchoolTerm(data[i].id_school_year))
+
                     })
 
                 } else {
 
-                    form = '<h4 class="mt-3">Nenhum ano letivo adicionado</h4>'
-                    $('#containerListSchoolTerm').append(form)
+                    container.append('<h4 class="mt-3">Nenhum ano letivo adicionado</h4>')
 
                 }
 
+                listSchoolTermSituation()
+
             },
             error: error => {
-                console.log('Erro na requisição')
+
+                container.append('<h5 class="mt-3">Houve um erro na requisição, tente mais tarde</h5>')
+
             }
 
         })
 
     }
+
 
     function lastSchoolTerm() {
 
@@ -108,9 +174,10 @@ $(document).ready(function () {
 
                 let now = new Date()
 
-                console.log(data)
-
                 let schoolTerm = data.length == 0 ? now.getFullYear() : parseInt(data[0].school_year) + 1
+
+                $('#addSchoolTerm input[name="startDate"]').prop('value', `${schoolTerm}-02-01`)
+                $('#addSchoolTerm input[name="endDate"]').prop('value', `${schoolTerm}-12-01`)
 
                 $('#schoolYear').text(schoolTerm)
                 $('.schoolYear').val(schoolTerm)
@@ -121,6 +188,7 @@ $(document).ready(function () {
             }
         })
     }
+
 
 
     $('#buttonAddSchoolTerm').on('click', addSchoolTerm)

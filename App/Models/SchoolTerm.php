@@ -23,12 +23,18 @@ class SchoolTerm extends Model
         return $this->$att = $newValue;
     }
 
-    public function addSchoolTerm()
+    public function endSchoolTerm()
     {
+
         if ($this->__get('fk_id_school_term_situation') == 1) {
             $query = 'update periodo_letivo set fk_id_situacao_periodo_letivo = 2 where periodo_letivo.id_ano_letivo != 0';
             $stmt = $this->db->prepare($query)->execute();
         }
+    }
+
+    public function addSchoolTerm()
+    {
+        $this->endSchoolTerm();
 
         $query = "insert into periodo_letivo (ano_letivo,data_inicio,data_fim,fk_id_situacao_periodo_letivo) values (:schoolYear,:startDate,:endDate,:fk_id_school_term_situation);";
 
@@ -45,7 +51,7 @@ class SchoolTerm extends Model
     public function listSchoolTermSituation()
     {
 
-        $query = 'select situacao_periodo_letivo.id_situacao_periodo_letivo  , situacao_periodo_letivo.situacao_periodo_letivo from situacao_periodo_letivo;';
+        $query = 'select situacao_periodo_letivo.id_situacao_periodo_letivo as id_situation  , situacao_periodo_letivo.situacao_periodo_letivo as situation from situacao_periodo_letivo;';
 
         $stmt = $this->db->prepare($query);
 
@@ -57,13 +63,14 @@ class SchoolTerm extends Model
     public function updateSchoolTerm()
     {
 
+        $this->endSchoolTerm();
+
         $query = 'update periodo_letivo set 
-        ano_letivo = :schoolYear , data_inicio = :startDate , data_fim = :endDate , fk_id_situacao_periodo_letivo = fk_id_school_term_situation;
-        where id_ano_letivo = :idSchoolYear;';
+        data_inicio = :startDate , data_fim = :endDate , fk_id_situacao_periodo_letivo = :fk_id_school_term_situation
+        where periodo_letivo.id_ano_letivo = :idSchoolYear;';
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':schoolYear', $this->__get('schoolYear'));
         $stmt->bindValue(':startDate', $this->__get('startDate'));
         $stmt->bindValue(':endDate', $this->__get('endDate'));
         $stmt->bindValue(':fk_id_school_term_situation', $this->__get('fk_id_school_term_situation'));
@@ -72,10 +79,10 @@ class SchoolTerm extends Model
         $stmt->execute();
     }
 
-    public function listSchoolTerm()
+    public function listSchoolTerm($complement)
     {
 
-        $query = 'select periodo_letivo.ano_letivo as school_year , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) order by periodo_letivo.ano_letivo desc; ';
+        $query = "select periodo_letivo.id_ano_letivo as id_school_year , periodo_letivo.ano_letivo as school_year , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) $complement; ";
 
         $stmt = $this->db->prepare($query);
 
@@ -84,17 +91,6 @@ class SchoolTerm extends Model
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
-    public function lastSchoolTerm()
-    {
-
-        $query = 'select periodo_letivo.ano_letivo as school_year , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term from periodo_letivo  left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) order by periodo_letivo.ano_letivo desc limit 1;';
-
-        $stmt = $this->db->prepare($query);
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    }
 
     public function deleteSchoolTerm()
     {

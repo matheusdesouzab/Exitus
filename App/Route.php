@@ -100,6 +100,18 @@ class Route extends Bootstrap {
 			'action' => 'lastSchoolTerm'
 		);
 
+		$routes['listSchoolTermSituation'] = array(
+			'route' => '/listSchoolTermSituation',
+			'controller' => 'AdminManagementController',
+			'action' => 'listSchoolTermSituation'
+		);
+
+		$routes['updateSchoolTerm'] = array(
+			'route' => '/updateSchoolTerm',
+			'controller' => 'AdminManagementController',
+			'action' => 'updateSchoolTerm'
+		);
+
 
 
 

@@ -64,24 +64,15 @@
                                             <div class="form-group col-lg-3">
                                                 <label for="inputState">Situação:</label>
                                                 <select name="schoolTermSituation" id="inputState" class="form-control custom-select" required>
-
-                                                    <?php foreach ($this->view->listSchoolTermSituation as $key => $TermSituation) { ?>
-                                                        <option value="<?= $TermSituation['id_situacao_periodo_letivo'] ?>"><?= $TermSituation['situacao_periodo_letivo'] ?></option>
-                                                    <?php } ?>
-
                                                 </select>
                                             </div>
 
                                             <div class="form-group col-lg-3">
                                                 <label for="">&nbsp;</label>
-                                                <a id="buttonAddSchoolTerm"  type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
+                                                <a id="buttonAddSchoolTerm" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
                                             </div>
 
-
-
                                         </div>
-
-
 
                                     </form>
 
@@ -106,25 +97,14 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-
-
     </div>
-
 </div>
 
 </div>

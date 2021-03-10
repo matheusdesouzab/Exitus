@@ -28,10 +28,6 @@ class AdminManagementController extends Action
     {
         $SchoolTerm = Container::getModel('SchoolTerm');
 
-        $this->view->listSchoolTermSituation = $SchoolTerm->listSchoolTermSituation();
-
-        $this->view->lastSchoolTerm = $SchoolTerm->lastSchoolTerm();
-
         $this->render('management_schoolTerm', 'AdminLayout');
     }
 
@@ -40,28 +36,51 @@ class AdminManagementController extends Action
 
         $SchoolTerm = Container::getModel('SchoolTerm');
 
-        echo json_encode($SchoolTerm->lastSchoolTerm());
+        echo json_encode($SchoolTerm->listSchoolTerm('order by periodo_letivo.ano_letivo desc limit 1'));
+    }
+
+    public function listSchoolTermSituation()
+    {
+
+        $SchoolTerm = Container::getModel('SchoolTerm');
+        
+        echo json_encode($SchoolTerm->listSchoolTermSituation(' '));
     }
 
     public function addSchoolTerm()
     {
 
-        $schoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('SchoolTerm');
 
-        $schoolTerm->__set('schoolYear', $_POST['schoolYear']);
-        $schoolTerm->__set('startDate', $_POST['startDate']);
-        $schoolTerm->__set('endDate', $_POST['endDate']);
-        $schoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
+        $SchoolTerm->__set('schoolYear', $_POST['schoolYear']);
+        $SchoolTerm->__set('startDate', $_POST['startDate']);
+        $SchoolTerm->__set('endDate', $_POST['endDate']);
+        $SchoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
 
-        $schoolTerm->addSchoolTerm();
+        $SchoolTerm->addSchoolTerm();
     }
 
     public function listSchoolTerm()
     {
 
-        $schoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('SchoolTerm');
 
-        echo json_encode($schoolTerm->listSchoolTerm());
+        echo json_encode($SchoolTerm->listSchoolTerm('order by periodo_letivo.ano_letivo desc'));
+    }
+
+    public function updateSchoolTerm(){
+
+        $SchoolTerm = Container::getModel('SchoolTerm');
+
+        $SchoolTerm->__set('idSchoolYear', $_POST['idSchoolYear']);
+        $SchoolTerm->__set('startDate', $_POST['startDate']);
+        $SchoolTerm->__set('endDate', $_POST['endDate']);
+        $SchoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
+
+        $SchoolTerm->updateSchoolTerm();
+
+        $SchoolTerm->listSchoolTerm("where periodo_letivo.id_ano_letivo = ".$SchoolTerm->__get('idSchoolYear'));
+
     }
 
 
