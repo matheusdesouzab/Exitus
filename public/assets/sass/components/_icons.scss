@@ -6,10 +6,12 @@
 
     .update-data-icon {
         @include icon-card($color-dark-gray, $color-green, $color-smooth-gray);
+        pointer-events: none;
     }
 
     .delete-data-icon {
         @include icon-card($color-dark-gray, $color-red, $color-smooth-gray);
+        pointer-events: none;
     }
 
     .printer-icon {

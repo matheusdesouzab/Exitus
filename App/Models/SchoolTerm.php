@@ -82,7 +82,7 @@ class SchoolTerm extends Model
     public function listSchoolTerm($complement)
     {
 
-        $query = "select periodo_letivo.id_ano_letivo as id_school_year , periodo_letivo.ano_letivo as school_year , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) $complement; ";
+        $query = "select periodo_letivo.id_ano_letivo as id_school_year , periodo_letivo.ano_letivo as school_year , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) $complement ;";
 
         $stmt = $this->db->prepare($query);
 
@@ -98,6 +98,7 @@ class SchoolTerm extends Model
         $query = 'delete from periodo_letivo where id_ano_letivo = :idSchoolYear;';
 
         $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':idSchoolYear', $this->__get('idSchoolYear'));
 
         $stmt->execute();
     }

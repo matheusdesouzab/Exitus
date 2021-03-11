@@ -1,4 +1,4 @@
-<div id="room-management">
+<div id="room">
 
     <div class="row main-container">
 

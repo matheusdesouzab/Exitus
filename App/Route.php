@@ -4,9 +4,11 @@ namespace App;
 
 use MF\Init\Bootstrap;
 
-class Route extends Bootstrap {
+class Route extends Bootstrap
+{
 
-	protected function initRoutes() {
+	protected function initRoutes()
+	{
 
 
 		// Student ( Aluno )
@@ -23,7 +25,7 @@ class Route extends Bootstrap {
 			'controller' => 'AdminStudentController',
 			'action' => 'studentList'
 		);
-		
+
 
 		// Employee ( Funcionário )
 
@@ -62,12 +64,6 @@ class Route extends Bootstrap {
 			'action' => 'managementDiscipline'
 		);
 
-		$routes['admPeriodoLetivoGestao'] = array(
-			'route' => '/admGestaoPeriodosLetivos',
-			'controller' => 'AdminManagementController',
-			'action' => 'managementSchoolTerm'
-		);
-
 		$routes['admSalaGestao'] = array(
 			'route' => '/admGestaoSalas',
 			'controller' => 'AdminManagementController',
@@ -81,7 +77,15 @@ class Route extends Bootstrap {
 		);
 
 
-		
+		// School Term ( Período letivo )
+
+
+		$routes['admPeriodoLetivoGestao'] = array(
+			'route' => '/admGestaoPeriodosLetivos',
+			'controller' => 'AdminManagementController',
+			'action' => 'managementSchoolTerm'
+		);
+
 		$routes['addSchoolTerm'] = array(
 			'route' => '/addSchoolTerm',
 			'controller' => 'AdminManagementController',
@@ -92,6 +96,18 @@ class Route extends Bootstrap {
 			'route' => '/listSchoolTerm',
 			'controller' => 'AdminManagementController',
 			'action' => 'listSchoolTerm'
+		);
+
+		$routes['updateSchoolTerm'] = array(
+			'route' => '/updateSchoolTerm',
+			'controller' => 'AdminManagementController',
+			'action' => 'updateSchoolTerm'
+		);
+
+		$routes['deleteSchoolTerm'] = array(
+			'route' => '/deleteSchoolTerm',
+			'controller' => 'AdminManagementController',
+			'action' => 'deleteSchoolTerm'
 		);
 
 		$routes['lastSchoolTerm'] = array(
@@ -106,11 +122,7 @@ class Route extends Bootstrap {
 			'action' => 'listSchoolTermSituation'
 		);
 
-		$routes['updateSchoolTerm'] = array(
-			'route' => '/updateSchoolTerm',
-			'controller' => 'AdminManagementController',
-			'action' => 'updateSchoolTerm'
-		);
+
 
 
 
@@ -148,9 +160,8 @@ class Route extends Bootstrap {
 			'controller' => 'AuthController',
 			'action' => 'autenticar'
 		);
-	
+
 
 		$this->setRoutes($routes);
 	}
-
 }

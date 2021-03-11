@@ -378,6 +378,7 @@ select:disabled {
   border-radius: 10px;
   background: #e5e5e5;
   padding: 10px;
+  pointer-events: none;
 }
 #pagina .update-data-icon:hover {
   color: #ffffff;
@@ -398,6 +399,7 @@ select:disabled {
   border-radius: 10px;
   background: #e5e5e5;
   padding: 10px;
+  pointer-events: none;
 }
 #pagina .delete-data-icon:hover {
   color: #ffffff;
@@ -763,6 +765,28 @@ select:disabled {
 }
 #pagina .school-term-active label {
   color: #ffffff;
+}
+#pagina .gif-loading {
+  justify-content: center;
+  display: flex;
+}
+#pagina .gif-loading img {
+  margin: auto;
+  height: 200px;
+  width: 200px;
+}
+#pagina .toast {
+  border-radius: 15px;
+  border: none;
+  background-color: transparent !important;
+  box-shadow: none;
+}
+#pagina .toast .fa-times {
+  font-size: 15px;
+  padding: 3px;
+}
+#pagina .toast .toast-header {
+  border-radius: 15px;
 }
 
 #teacher-registration .registration-connection-line-in-stages {
