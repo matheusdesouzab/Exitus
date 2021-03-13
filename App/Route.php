@@ -64,12 +64,6 @@ class Route extends Bootstrap
 			'action' => 'managementDiscipline'
 		);
 
-		$routes['admSalaGestao'] = array(
-			'route' => '/admGestaoSalas',
-			'controller' => 'AdminManagementController',
-			'action' => 'managementRoom'
-		);
-
 		$routes['admTurmaGestao'] = array(
 			'route' => '/admGestaoTurmas',
 			'controller' => 'AdminManagementController',
@@ -83,7 +77,7 @@ class Route extends Bootstrap
 		$routes['admPeriodoLetivoGestao'] = array(
 			'route' => '/admGestaoPeriodosLetivos',
 			'controller' => 'AdminManagementController',
-			'action' => 'managementSchoolTerm'
+			'action' => 'SchoolTerm'
 		);
 
 		$routes['addSchoolTerm'] = array(
@@ -110,16 +104,48 @@ class Route extends Bootstrap
 			'action' => 'deleteSchoolTerm'
 		);
 
-		$routes['lastSchoolTerm'] = array(
-			'route' => '/lastSchoolTerm',
-			'controller' => 'AdminManagementController',
-			'action' => 'lastSchoolTerm'
-		);
-
 		$routes['listSchoolTermSituation'] = array(
 			'route' => '/listSchoolTermSituation',
 			'controller' => 'AdminManagementController',
 			'action' => 'listSchoolTermSituation'
+		);
+
+		$routes['availableSchoolTerm'] = array(
+			'route' => '/availableSchoolTerm',
+			'controller' => 'AdminManagementController',
+			'action' => 'availableSchoolTerm'
+		);
+
+		// Class Room ( Sala de aula )
+
+		$routes['admSalaGestao'] = array(
+			'route' => '/admGestaoSalas',
+			'controller' => 'AdminManagementController',
+			'action' => 'ClassRoom'
+		);
+
+		$routes['addClassRoom'] = array(
+			'route' => '/addClassRoom',
+			'controller' => 'AdminManagementController',
+			'action' => 'addClassRoom'
+		);
+
+		$routes['listClassRoom'] = array(
+			'route' => '/listClassRoom',
+			'controller' => 'AdminManagementController',
+			'action' => 'listClassRoom'
+		);
+
+		$routes['listAvailableClassrooms'] = array(
+			'route' => '/listAvailableClassrooms',
+			'controller' => 'AdminManagementController',
+			'action' => 'listAvailableClassrooms'
+		);
+
+		$routes['deleteClassRoom'] = array(
+			'route' => '/deleteClassRoom',
+			'controller' => 'AdminManagementController',
+			'action' => 'deleteClassRoom'
 		);
 
 

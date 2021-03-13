@@ -14,27 +14,33 @@ class AdminManagementController extends Action
         $this->render('management_general', 'AdminLayout');
     }
 
-    public function managementSchoolTerm()
+
+    // School Term
+
+
+    public function SchoolTerm() // Carrega página 
     {
         $SchoolTerm = Container::getModel('SchoolTerm');
 
         $this->render('management_schoolTerm', 'AdminLayout');
     }
 
-    public function addSchoolTerm()
+
+    public function addSchoolTerm() // Adicionar período letivo 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
 
-        $SchoolTerm->__set('schoolYear', $_POST['schoolYear']);
         $SchoolTerm->__set('startDate', $_POST['startDate']);
         $SchoolTerm->__set('endDate', $_POST['endDate']);
         $SchoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
+        $SchoolTerm->__set('fk_id_school_year', $_POST['schoolYear']);
 
         $SchoolTerm->addSchoolTerm();
     }
 
-    public function updateSchoolTerm()
+
+    public function updateSchoolTerm() // Atualizar período letivo 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -43,19 +49,20 @@ class AdminManagementController extends Action
         $SchoolTerm->__set('startDate', $_POST['startDate']);
         $SchoolTerm->__set('endDate', $_POST['endDate']);
         $SchoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
+        $SchoolTerm->__set('fk_id_school_year', $_POST['schoolYear']);
 
         $SchoolTerm->updateSchoolTerm();
     }
 
-    public function listSchoolTerm()
+    public function listSchoolTerm() // Lista dos períodos letivos 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
 
-        echo json_encode($SchoolTerm->listSchoolTerm('order by periodo_letivo.ano_letivo desc'));
+        echo json_encode($SchoolTerm->listSchoolTerm('order by periodo_disponivel.ano_letivo desc'));
     }
 
-    public function deleteSchoolTerm()
+    public function deleteSchoolTerm() // Apagar período letivo
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -65,21 +72,63 @@ class AdminManagementController extends Action
         $SchoolTerm->deleteSchoolTerm();
     }
 
-    public function lastSchoolTerm()
-    {
-
-        $SchoolTerm = Container::getModel('SchoolTerm');
-
-        echo json_encode($SchoolTerm->listSchoolTerm('order by periodo_letivo.ano_letivo desc limit 1'));
-    }
-
-    public function listSchoolTermSituation()
+    public function listSchoolTermSituation() // Lista das situações dos períodos letivos
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
 
         echo json_encode($SchoolTerm->listSchoolTermSituation(''));
     }
+
+    public function availableSchoolTerm() // Listas dos períodos letivos
+    {
+
+        $SchoolTerm = Container::getModel('SchoolTerm');
+
+        echo json_encode([$SchoolTerm->availableSchoolTerm(), $SchoolTerm->addedSchoolTerms()]);
+    }
+
+
+    // Class Room ( Sala de Aula )
+
+
+    public function ClassRoom()
+    {
+        $this->render('management_classRoom', 'AdminLayout');
+    }
+
+    public function addClassRoom()
+    {
+        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom->__set('fk_id_class_room_number', $_POST['classroomNumber']);
+        $ClassRoom->addClassRoom();
+
+    }
+
+    public function listAvailableClassrooms()
+    {
+        $ClassRoom = Container::getModel('ClassRoom');
+        echo json_encode([$ClassRoom->listAvailableClassrooms(), $ClassRoom->addedClassrooms()]);
+        
+    }
+
+    public function listClassRoom(){
+
+        $ClassRoom = Container::getModel('ClassRoom');
+        echo json_encode($ClassRoom->listClassroom());
+
+    }
+
+    public function deleteClassRoom(){
+
+        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom->__set('idClassRoom', $_POST['idClassRoom']);
+        $ClassRoom->deleteClassroom();
+
+    }
+
+
+
 
     public function managementCourse()
     {
@@ -89,11 +138,6 @@ class AdminManagementController extends Action
     public function managementDiscipline()
     {
         $this->render('management_discipline', 'AdminLayout');
-    }
-
-    public function managementRoom()
-    {
-        $this->render('management_room', 'AdminLayout');
     }
 
     public function managementClass()

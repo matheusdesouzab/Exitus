@@ -41,12 +41,15 @@
                                     <form id="addSchoolTerm" class="col-11 mx-auto mt-3 mb-3" action="" method="POST">
 
                                         <div class="row mt-2">
-                                            <div class="font-weight-bold col-lg-12">Período letivo do ano de <span schoolYear></span> :</div>
+                                            <div class="font-weight-bold col-lg-12">Adicionar novo período letivo:</div>
                                         </div>
 
                                         <div class="form-row mt-4 mb-2">
 
-                                            <input class="form-control" name="schoolYear" value="" type="hidden">
+                                            <div class="form-group col-lg-2">
+                                                <label for="inputState">Ano:</label>
+                                                <select name="schoolYear" id="inputState" class="form-control custom-select" required></select>
+                                            </div>
 
                                             <div class="form-group col-lg-3">
                                                 <label for="">Data de início:</label>
@@ -59,12 +62,12 @@
                                             </div>
 
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-2">
                                                 <label for="inputState">Situação:</label>
                                                 <select name="schoolTermSituation" id="inputState" class="form-control custom-select" required></select>
                                             </div>
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-2">
                                                 <label for="">&nbsp;</label>
                                                 <a id="buttonAddSchoolTerm" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
                                             </div>

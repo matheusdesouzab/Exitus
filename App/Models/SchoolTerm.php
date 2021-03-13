@@ -8,10 +8,10 @@ class SchoolTerm extends Model
 {
 
     private $idSchoolYear;
-    private $schoolYear;
     private $startDate;
     private $endDate;
     private $fk_id_school_term_situation;
+    private $fk_id_school_year;
 
     public function __get($att)
     {
@@ -36,14 +36,14 @@ class SchoolTerm extends Model
     {
         $this->endSchoolTerm();
 
-        $query = "insert into periodo_letivo (ano_letivo,data_inicio,data_fim,fk_id_situacao_periodo_letivo) values (:schoolYear,:startDate,:endDate,:fk_id_school_term_situation);";
+        $query = "insert into periodo_letivo (data_inicio,data_fim,fk_id_situacao_periodo_letivo,fk_id_ano_letivo) values (:startDate,:endDate,:fk_id_school_term_situation,:fk_id_school_year);";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':schoolYear', $this->__get('schoolYear'));
         $stmt->bindValue(':startDate', $this->__get('startDate'));
         $stmt->bindValue(':endDate', $this->__get('endDate'));
         $stmt->bindValue(':fk_id_school_term_situation', $this->__get('fk_id_school_term_situation'));
+        $stmt->bindValue(':fk_id_school_year', $this->__get('fk_id_school_year'));
 
         $stmt->execute();
     }
@@ -82,7 +82,7 @@ class SchoolTerm extends Model
     public function listSchoolTerm($complement)
     {
 
-        $query = "select periodo_letivo.id_ano_letivo as id_school_year , periodo_letivo.ano_letivo as school_year , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) $complement ;";
+        $query = "select periodo_letivo.id_ano_letivo as id_school_year  , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term , periodo_disponivel.ano_letivo from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) left join periodo_disponivel on(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) $complement ;";
 
         $stmt = $this->db->prepare($query);
 
@@ -101,5 +101,29 @@ class SchoolTerm extends Model
         $stmt->bindValue(':idSchoolYear', $this->__get('idSchoolYear'));
 
         $stmt->execute();
+    }
+
+    public function availableSchoolTerm()
+    {
+
+        $query = 'select periodo_disponivel.id_periodo_disponivel as id_available_term , periodo_disponivel.ano_letivo as school_year from periodo_disponivel left join periodo_letivo on(periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo)';
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+    public function addedSchoolTerms()
+    {
+
+        $query = 'select periodo_disponivel.ano_letivo from periodo_disponivel left join periodo_letivo on(periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo) where periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo';
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 }

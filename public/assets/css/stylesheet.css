@@ -413,6 +413,9 @@ select:disabled {
 #pagina .delete-data-icon:hover .fa-plus-circle {
   color: #ffffff;
 }
+#pagina #classRoom .delete-data-icon {
+  pointer-events: auto;
+}
 #pagina .printer-icon {
   cursor: pointer;
   color: #506177;
