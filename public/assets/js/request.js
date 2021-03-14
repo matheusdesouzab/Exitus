@@ -12,9 +12,9 @@ $(document).ready(function () {
 
     }
 
-    function addElement(formId, route, Datatoast) {
+    function addElement(id, route, Datatoast) {
 
-        let form = $(formId).serialize()
+        let form = $(id).serialize()
 
         $.ajax({
             url: route,
@@ -52,29 +52,6 @@ $(document).ready(function () {
         })
     }
 
-    function listElementSituations(route, selectName , optionValue) {
-
-        $(`form select[name="${selectName}"]`).text('')
-
-        $.ajax({
-            url: route,
-            dataType: 'json',
-            type: 'GET',
-            success: data => {
-
-                let selectSituation = $(`form select[name="${selectName}"]`)
-
-                $.each(data, i => selectSituation.append(`<option value="${optionValue}">${data[i].situation}</option>`))
-
-            },
-
-            error: erro => console.log(erro.responseText)
-
-        })
-
-    }
-
-
     function editSchoolTerm(id) {
 
         $('form .form-control').prop('disabled', true)
@@ -87,64 +64,40 @@ $(document).ready(function () {
 
     }
 
-    function availableClassRoom() {
 
-        $('form select[name="classroomNumber"]').text(' ')
+    function availableElement(nameSelect, route, situation) {
+
+        let selectSituation = $(`form select[name="${nameSelect}"]`)
+
+        selectSituation.text(' ')
 
         $.ajax({
-            url: '/listAvailableClassrooms',
+            url: route,
             dataType: 'json',
             type: 'GET',
             success: data => {
 
-                let selectRoom = $('form select[name="classroomNumber"]')
-                let availableRoom = []
+                if (situation == 'TwoArray') {
 
-                $.each(data[1], i => availableRoom.push(data[1][i].add_classroom_number))
+                    let availablePeriods = []
 
-                $.each(data[0], i => {
+                    $.each(data[1], i => availablePeriods.push(data[1][i].added_option_value))
 
-                    if (availableRoom.indexOf(data[0][i].number_classroom) == -1) {
+                    $.each(data[0], i => {
 
-                        selectRoom.append(`<option value="${data[0][i].id_number_classroom}">${data[0][i].number_classroom}</option>`)
+                        if (availablePeriods.indexOf(data[0][i].option_value) == -1) {
 
-                    }
+                            selectSituation.append(`<option value="${data[0][i].option_value}">${data[0][i].option_text}</option>`)
 
-                })
+                        }
 
-            },
+                    })
 
-            error: erro => console.log(erro)
+                } else {
 
-        })
-    }
+                    $.each(data, i => selectSituation.append(`<option value="${data[i].id_situation}">${data[i].situation}</option>`))
 
-
-
-    function availableSchoolTerm() {
-
-        $('form select[name="schoolYear"]').text(' ')
-
-        $.ajax({
-            url: '/availableSchoolTerm',
-            dataType: 'json',
-            type: 'GET',
-            success: data => {
-
-                let selectSituation = $('form select[name="schoolYear"]')
-                let availablePeriods = []
-
-                $.each(data[1], i => availablePeriods.push(data[1][i].ano_letivo))
-
-                $.each(data[0], i => {
-
-                    if (availablePeriods.indexOf(data[0][i].school_year) == -1) {
-
-                        selectSituation.append(`<option value="${data[0][i].id_available_term}">${data[0][i].school_year}</option>`)
-
-                    }
-
-                })
+                }
 
             },
 
@@ -175,9 +128,6 @@ $(document).ready(function () {
 
         })
     }
-
-
-
 
     function listSchoolTerm() {
 
@@ -259,9 +209,8 @@ $(document).ready(function () {
 
                 }
 
-                listElementSituations('/listSchoolTermSituation', 'schoolTermSituation');
-                availableSchoolTerm()
-                automaticDate()
+                availableElement('schoolYear', '/availableSchoolTerm', 'TwoArray')
+                availableElement('schoolTermSituation', '/listSchoolTermSituation', 'OneArray')
 
             },
 
@@ -287,8 +236,6 @@ $(document).ready(function () {
             dataType: 'json',
             type: 'GET',
             success: data => {
-
-                console.log(data)
 
                 $('.gif-loading').remove()
 
@@ -326,14 +273,13 @@ $(document).ready(function () {
                     container.append('<h4 class="mt-3">Nenhuma sala adicionada</h4>')
                 }
 
-                availableClassRoom()
+                availableElement('classroomNumber', '/listAvailableClassrooms', 'TwoArray')
 
             },
             error: erro => console.log(erro)
 
         })
     }
-
 
 
     function automaticDate() {
@@ -346,10 +292,10 @@ $(document).ready(function () {
 
 
     $('#buttonAddSchoolTerm')
-        .on('click', () => [addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado'), availableSchoolTerm()])
+        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado'), availableElement('schoolYear', '/availableSchoolTerm', 'TwoArray')])
 
     $('#buttonAddClassRoom')
-        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada'), availableClassRoom()])
+        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada'), availableElement('classroomNumber', '/listAvailableClassrooms', 'TwoArray')])
 
 
     $('#schoolTerm').on('load', listSchoolTerm())
@@ -359,8 +305,6 @@ $(document).ready(function () {
     $('#collapseListSchoolTerm').on('click', listSchoolTerm)
 
     $('#collapseListClassRoom').on('click', listClassRoom)
-
-    $('#collapseAddListSchoolTerm').on('click', availableSchoolTerm)
 
     $('#addSchoolTerm select[name="schoolYear"]').on('blur', automaticDate)
 

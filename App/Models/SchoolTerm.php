@@ -106,7 +106,7 @@ class SchoolTerm extends Model
     public function availableSchoolTerm()
     {
 
-        $query = 'select periodo_disponivel.id_periodo_disponivel as id_available_term , periodo_disponivel.ano_letivo as school_year from periodo_disponivel left join periodo_letivo on(periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo)';
+        $query = 'select periodo_disponivel.id_periodo_disponivel as option_value , periodo_disponivel.ano_letivo as option_text from periodo_disponivel left join periodo_letivo on(periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo)';
 
         $stmt = $this->db->prepare($query);
 
@@ -118,7 +118,7 @@ class SchoolTerm extends Model
     public function addedSchoolTerms()
     {
 
-        $query = 'select periodo_disponivel.ano_letivo from periodo_disponivel left join periodo_letivo on(periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo) where periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo';
+        $query = 'select periodo_disponivel.id_periodo_disponivel as added_option_value from periodo_disponivel left join periodo_letivo on(periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo) where periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo';
 
         $stmt = $this->db->prepare($query);
 

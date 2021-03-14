@@ -54,7 +54,7 @@ class ClassRoom extends Model
 
     public function listAvailableClassrooms(){
 
-        $query = 'select numero_sala_aula.id_numero_sala_aula as id_number_classroom , numero_sala_aula.numero_sala_aula as number_classroom from numero_sala_aula';
+        $query = 'select numero_sala_aula.id_numero_sala_aula as option_value , numero_sala_aula.numero_sala_aula as option_text from numero_sala_aula';
 
         $stmt = $this->db->prepare($query);
         
@@ -66,7 +66,7 @@ class ClassRoom extends Model
 
     public function addedClassrooms(){
 
-        $query = 'select numero_sala_aula.numero_sala_aula as add_classroom_number from numero_sala_aula left join sala on(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) where numero_sala_aula.numero_sala_aula =  sala.fk_id_numero_sala; ';
+        $query = 'select numero_sala_aula.id_numero_sala_aula as added_option_value from numero_sala_aula left join sala on(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) where numero_sala_aula.numero_sala_aula =  sala.fk_id_numero_sala; ';
 
         $stmt = $this->db->prepare($query);
         
