@@ -8,7 +8,7 @@ class ClassRoom extends Model
 {
 
     public $idClassRoom;
-    public $fk_id_class_room_number;
+    public $fk_id_classroom_number;
 
     public function __get($att)
     {
@@ -23,9 +23,9 @@ class ClassRoom extends Model
     public function addClassRoom()
     {
 
-        $query = 'insert into sala(fk_id_numero_sala) values (:fk_id_class_room_number);';
+        $query = 'insert into sala(fk_id_numero_sala) values (:fk_id_classroom_number);';
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':fk_id_class_room_number', $this->__get('fk_id_class_room_number'));
+        $stmt->bindValue(':fk_id_classroom_number', $this->__get('fk_id_classroom_number'));
 
         $stmt->execute();
     }
@@ -52,21 +52,10 @@ class ClassRoom extends Model
         $stmt->execute();
     }
 
-    public function listAvailableClassrooms(){
 
-        $query = 'select numero_sala_aula.id_numero_sala_aula as option_value , numero_sala_aula.numero_sala_aula as option_text from numero_sala_aula';
+    public function availableClassroom(){
 
-        $stmt = $this->db->prepare($query);
-        
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
-
-    }
-
-    public function addedClassrooms(){
-
-        $query = 'select numero_sala_aula.id_numero_sala_aula as added_option_value from numero_sala_aula left join sala on(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) where numero_sala_aula.numero_sala_aula =  sala.fk_id_numero_sala; ';
+        $query = 'select numero_sala_aula.id_numero_sala_aula as option_value , numero_sala_aula.numero_sala_aula as option_text from numero_sala_aula left join sala on(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) where sala.fk_id_numero_sala is null; ';
 
         $stmt = $this->db->prepare($query);
         

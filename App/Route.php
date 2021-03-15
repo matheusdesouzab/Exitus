@@ -136,10 +136,10 @@ class Route extends Bootstrap
 			'action' => 'listClassRoom'
 		);
 
-		$routes['listAvailableClassrooms'] = array(
-			'route' => '/listAvailableClassrooms',
+		$routes['availableClassroom'] = array(
+			'route' => '/availableClassroom',
 			'controller' => 'AdminManagementController',
-			'action' => 'listAvailableClassrooms'
+			'action' => 'availableClassroom'
 		);
 
 		$routes['deleteClassRoom'] = array(

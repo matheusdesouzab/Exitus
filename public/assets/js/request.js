@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     }
 
-    function addElement(id, route, Datatoast) {
+    function addElement(id, route, datatoast) {
 
         let form = $(id).serialize()
 
@@ -23,7 +23,7 @@ $(document).ready(function () {
             data: form,
             success: data => {
 
-                toastData(Datatoast, 'bg-success')
+                toastData(datatoast, 'bg-success')
 
             },
 
@@ -65,7 +65,7 @@ $(document).ready(function () {
     }
 
 
-    function availableElement(nameSelect, route, situation) {
+    function availableElement(nameSelect, route) {
 
         let selectSituation = $(`form select[name="${nameSelect}"]`)
 
@@ -77,27 +77,9 @@ $(document).ready(function () {
             type: 'GET',
             success: data => {
 
-                if (situation == 'TwoArray') {
+                console.log(data)
 
-                    let availablePeriods = []
-
-                    $.each(data[1], i => availablePeriods.push(data[1][i].added_option_value))
-
-                    $.each(data[0], i => {
-
-                        if (availablePeriods.indexOf(data[0][i].option_value) == -1) {
-
-                            selectSituation.append(`<option value="${data[0][i].option_value}">${data[0][i].option_text}</option>`)
-
-                        }
-
-                    })
-
-                } else {
-
-                    $.each(data, i => selectSituation.append(`<option value="${data[i].id_situation}">${data[i].situation}</option>`))
-
-                }
+                $.each(data, i => selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
 
             },
 
@@ -129,6 +111,14 @@ $(document).ready(function () {
         })
     }
 
+    function automaticDate() {
+
+        let schoolYear = $('#addSchoolTerm select[name="schoolYear"]').find(":selected").text()
+
+        $('#addSchoolTerm input[name="startDate"]').prop('value', `${schoolYear}-02-01`)
+        $('#addSchoolTerm input[name="endDate"]').prop('value', `${schoolYear}-12-01`)
+    }
+
     function listSchoolTerm() {
 
         let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
@@ -148,7 +138,7 @@ $(document).ready(function () {
 
                     $.each(data, i => {
 
-                        let idSchoolYear = data[i].id_school_year
+                        let idSchoolTerm = data[i].id_school_term
                         let startDate = data[i].start_date
                         let endDate = data[i].end_date
                         let idSituation = data[i].fk_id_situation_school_term
@@ -176,7 +166,7 @@ $(document).ready(function () {
 
             <div class="form-row col-lg-11 mx-auto mt-4 mb-2">
 
-            <input class="form-control" name="idSchoolYear" value="${idSchoolYear}" type="hidden">
+            <input class="form-control" name="idSchoolTerm" value="${idSchoolTerm}" type="hidden">
 
                 <div class="form-group col-lg-4">
                     <label for="">Data de início:</label>
@@ -209,8 +199,8 @@ $(document).ready(function () {
 
                 }
 
-                availableElement('schoolYear', '/availableSchoolTerm', 'TwoArray')
-                availableElement('schoolTermSituation', '/listSchoolTermSituation', 'OneArray')
+                availableElement('schoolYear', '/availableSchoolTerm')
+                availableElement('schoolTermSituation', '/listSchoolTermSituation')
 
             },
 
@@ -273,7 +263,7 @@ $(document).ready(function () {
                     container.append('<h4 class="mt-3">Nenhuma sala adicionada</h4>')
                 }
 
-                availableElement('classroomNumber', '/listAvailableClassrooms', 'TwoArray')
+                availableElement('classroomNumber', '/availableClassroom')
 
             },
             error: erro => console.log(erro)
@@ -282,20 +272,17 @@ $(document).ready(function () {
     }
 
 
-    function automaticDate() {
-
-        let schoolYear = $('#addSchoolTerm select[name="schoolYear"]').find(":selected").text()
-
-        $('#addSchoolTerm input[name="startDate"]').prop('value', `${schoolYear}-02-01`)
-        $('#addSchoolTerm input[name="endDate"]').prop('value', `${schoolYear}-12-01`)
-    }
 
 
     $('#buttonAddSchoolTerm')
-        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado'), availableElement('schoolYear', '/availableSchoolTerm', 'TwoArray')])
+        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado'),
+            availableElement('schoolYear', '/availableSchoolTerm')
+        ])
 
     $('#buttonAddClassRoom')
-        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada'), availableElement('classroomNumber', '/listAvailableClassrooms', 'TwoArray')])
+        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada'),
+            availableElement('classroomNumber', '/availableClassroom')
+        ])
 
 
     $('#schoolTerm').on('load', listSchoolTerm())
@@ -303,6 +290,8 @@ $(document).ready(function () {
     $('#classRoom').on('load', listClassRoom())
 
     $('#collapseListSchoolTerm').on('click', listSchoolTerm)
+
+    $('#collapseAddSchoolTerm').on('click', availableElement('schoolYear', '/availableSchoolTerm'))
 
     $('#collapseListClassRoom').on('click', listClassRoom)
 

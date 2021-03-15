@@ -45,7 +45,7 @@ class AdminManagementController extends Action
 
         $SchoolTerm = Container::getModel('SchoolTerm');
 
-        $SchoolTerm->__set('idSchoolYear', $_POST['idSchoolYear']);
+        $SchoolTerm->__set('idSchoolTerm', $_POST['idSchoolTerm']);
         $SchoolTerm->__set('startDate', $_POST['startDate']);
         $SchoolTerm->__set('endDate', $_POST['endDate']);
         $SchoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
@@ -67,7 +67,7 @@ class AdminManagementController extends Action
 
         $SchoolTerm = Container::getModel('SchoolTerm');
 
-        $SchoolTerm->__set('idSchoolYear', $_POST['idSchoolYear']);
+        $SchoolTerm->__set('idSchoolTerm', $_POST['idSchoolTerm']);
 
         $SchoolTerm->deleteSchoolTerm();
     }
@@ -85,7 +85,7 @@ class AdminManagementController extends Action
 
         $SchoolTerm = Container::getModel('SchoolTerm');
 
-        echo json_encode([$SchoolTerm->availableSchoolTerm(), $SchoolTerm->addedSchoolTerms()]);
+        echo json_encode($SchoolTerm->availableSchoolTerm());
     }
 
 
@@ -100,15 +100,15 @@ class AdminManagementController extends Action
     public function addClassRoom()
     {
         $ClassRoom = Container::getModel('ClassRoom');
-        $ClassRoom->__set('fk_id_class_room_number', $_POST['classroomNumber']);
+        $ClassRoom->__set('fk_id_classroom_number', $_POST['classroomNumber']);
         $ClassRoom->addClassRoom();
 
     }
 
-    public function listAvailableClassrooms()
+    public function availableClassroom()
     {
         $ClassRoom = Container::getModel('ClassRoom');
-        echo json_encode([$ClassRoom->listAvailableClassrooms(), $ClassRoom->addedClassrooms()]);
+        echo json_encode($ClassRoom->availableClassroom());
         
     }
 
