@@ -18,7 +18,7 @@ class AdminManagementController extends Action
     // School Term
 
 
-    public function SchoolTerm() // Carrega página 
+    public function SchoolTerm() 
     {
         $SchoolTerm = Container::getModel('SchoolTerm');
 
@@ -26,7 +26,7 @@ class AdminManagementController extends Action
     }
 
 
-    public function addSchoolTerm() // Adicionar período letivo 
+    public function addSchoolTerm() 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -40,7 +40,7 @@ class AdminManagementController extends Action
     }
 
 
-    public function updateSchoolTerm() // Atualizar período letivo 
+    public function updateSchoolTerm() 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -54,7 +54,8 @@ class AdminManagementController extends Action
         $SchoolTerm->updateSchoolTerm();
     }
 
-    public function listSchoolTerm() // Lista dos períodos letivos 
+
+    public function listSchoolTerm() 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -62,7 +63,8 @@ class AdminManagementController extends Action
         echo json_encode($SchoolTerm->listSchoolTerm('order by periodo_disponivel.ano_letivo desc'));
     }
 
-    public function deleteSchoolTerm() // Apagar período letivo
+
+    public function deleteSchoolTerm() 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -72,7 +74,8 @@ class AdminManagementController extends Action
         $SchoolTerm->deleteSchoolTerm();
     }
 
-    public function listSchoolTermSituation() // Lista das situações dos períodos letivos
+
+    public function listSchoolTermSituation() 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -80,7 +83,8 @@ class AdminManagementController extends Action
         echo json_encode($SchoolTerm->listSchoolTermSituation(''));
     }
 
-    public function availableSchoolTerm() // Listas dos períodos letivos
+
+    public function availableSchoolTerm() 
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -97,37 +101,40 @@ class AdminManagementController extends Action
         $this->render('management_classRoom', 'AdminLayout');
     }
 
+
     public function addClassRoom()
     {
         $ClassRoom = Container::getModel('ClassRoom');
         $ClassRoom->__set('fk_id_classroom_number', $_POST['classroomNumber']);
         $ClassRoom->addClassRoom();
-
     }
+
 
     public function availableClassroom()
     {
         $ClassRoom = Container::getModel('ClassRoom');
         echo json_encode($ClassRoom->availableClassroom());
-        
     }
 
-    public function listClassRoom(){
+
+    public function listClassRoom()
+    {
 
         $ClassRoom = Container::getModel('ClassRoom');
         echo json_encode($ClassRoom->listClassroom());
-
     }
 
-    public function deleteClassRoom(){
+
+    public function deleteClassRoom()
+    {
 
         $ClassRoom = Container::getModel('ClassRoom');
         $ClassRoom->__set('idClassRoom', $_POST['idClassRoom']);
         $ClassRoom->deleteClassroom();
-
     }
 
 
+    // Course
 
 
     public function managementCourse()
@@ -135,10 +142,65 @@ class AdminManagementController extends Action
         $this->render('management_course', 'AdminLayout');
     }
 
+
+    public function addCourse()
+    {
+
+        $Course = Container::getModel('Course');
+        $Course->__set('course', $_POST['course']);
+        $Course->__set('acronym', $_POST['acronym']);
+
+        $Course->addCourse();
+    }
+
+
+    public function listCourse()
+    {
+        $Course = Container::getModel('Course');
+        echo json_encode($Course->listCourse());
+    }
+
+
+    public function updateCourse()
+    {
+
+        $Course = Container::getModel('Course');
+
+        $Course->__set('idCourse', $_POST['idCourse']);
+        $Course->__set('course', $_POST['course']);
+        $Course->__set('acronym', $_POST['acronym']);
+
+        $Course->updateCourse();
+    }
+    
+
+    public function deleteCourse()
+    {
+
+        $Course = Container::getModel('Course');
+        $Course->__set('idCourse', $_POST['idCourse']);
+        $Course->deleteCourse();
+    }
+
+
+    // Discipline
+
+
     public function managementDiscipline()
     {
         $this->render('management_discipline', 'AdminLayout');
     }
+
+
+
+
+
+
+
+
+
+
+
 
     public function managementClass()
     {

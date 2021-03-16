@@ -8,20 +8,20 @@
 
         <h5>GESTÃO</h5>
 
-        <li class="link-collapse"><a href="/admGestaoGeral"><i class="fab fa-buffer mr-2"></i><span> Gestão geral</span></a></li>
+        <li class="link-collapse"><a href='/admGestaoGeral'><i class="fab fa-buffer mr-2"></i><span> Gestão geral</span></a></li>
 
         <li data-toggle="collapse" href="#alunos" role="button" aria-expanded="false" aria-controls="alunos" class="active link-collapse"><a><i class="fas fa-users mr-2"></i> <span class="mr-5">Alunos</span><i class="fas fa-angle-down ml-5"></i></a></li>
 
         <div class="collapse" id="alunos">
-            <li><a href="/admAlunoCadastro"><span>Cadastra aluno</span></a></li>
-            <li><a href="/admAlunoLista"><span>Lista de alunos</span></a></li>
+            <li><a href='/admAlunoCadastro'><span>Cadastra aluno</span></a></li>
+            <li><a href='/admAlunoLista'><span>Lista de alunos</span></a></li>
         </div>
 
         <li data-toggle="collapse" href="#professores" role="button" aria-expanded="false" aria-controls="professores" class="active link-collapse"><a><i class="fas fa-id-card-alt mr-2"></i> <span class="mr-3">Professores</span> <i class="fas fa-angle-down" style="margin-left: 52px;"></i></a></li>
 
         <div class="collapse" id="professores">
-            <li><a href="/admProfessorCadastro"><span>Cadastra professor(a)</span></a></li>
-            <li><a href="/admProfessorLista"><span>Lista professor</span></a></li>
+            <li><a href='/admProfessorCadastro'><span>Cadastra professor(a)</span></a></li>
+            <li><a href='/admListaCadastro'><span>Lista professor</span></a></li>
         </div>
 
         <li class="link-collapse"><a href=""><i class="fas fa-chart-pie mr-2"></i> <span>Análise de Dados</span></a></li>

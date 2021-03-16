@@ -45,8 +45,9 @@ $title = $title[1] . ' ' . $title[2];
 
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
+<script src="/assets/js/request.js"></script>
+
 <script src="/assets/js/estilo.js"></script>
 
-<script src="/assets/js/request.js"></script>
 
 </html>

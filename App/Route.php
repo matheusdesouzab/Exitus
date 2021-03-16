@@ -52,12 +52,6 @@ class Route extends Bootstrap
 			'action' => 'managementGeneral'
 		);
 
-		$routes['admCursoGestao'] = array(
-			'route' => '/admGestaoCursos',
-			'controller' => 'AdminManagementController',
-			'action' => 'managementCourse'
-		);
-
 		$routes['admDisciplinaGestao'] = array(
 			'route' => '/admGestaoDisciplinas',
 			'controller' => 'AdminManagementController',
@@ -147,6 +141,42 @@ class Route extends Bootstrap
 			'controller' => 'AdminManagementController',
 			'action' => 'deleteClassRoom'
 		);
+
+		// Course
+
+		$routes['admCursoGestao'] = array(
+			'route' => '/admGestaoCursos',
+			'controller' => 'AdminManagementController',
+			'action' => 'managementCourse'
+		);
+
+		$routes['admAddCourse'] = array(
+			'route' => '/addCourse',
+			'controller' => 'AdminManagementController',
+			'action' => 'addCourse'
+		);
+
+		$routes['admListCourse'] = array(
+			'route' => '/listCourse',
+			'controller' => 'AdminManagementController',
+			'action' => 'listCourse'
+		);
+
+		$routes['admUpdateCourse'] = array(
+			'route' => '/updateCourse',
+			'controller' => 'AdminManagementController',
+			'action' => 'updateCourse'
+		);
+
+		$routes['admDeleteCourse'] = array(
+			'route' => '/deleteCourse',
+			'controller' => 'AdminManagementController',
+			'action' => 'deleteCourse'
+		);
+
+
+
+
 
 
 

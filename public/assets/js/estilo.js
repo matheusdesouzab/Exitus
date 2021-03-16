@@ -1,8 +1,8 @@
-class App {
+
 
     // Mudança randômica entre side-bar normal e side-bar-responsive
 
-    sideState() {
+    function sideState() {
 
         let $sidebarLogo = $('#painel-left .logo img')
 
@@ -20,7 +20,7 @@ class App {
 
     // Preenchimento automático do endereço do aluno
 
-    getCep() {
+    function getCep() {
 
         let cep = $('#cep').val()
 
@@ -42,29 +42,50 @@ class App {
             }
         })
     }
-}
 
-let app = new App()
+        
 
-$("#cep").on('blur', (app.getCep))
 
-$("#bars").on("click", (app.sideState))
+    /* function renderPage(route,e){
 
-$("#matricularAluno").on('click', e => {
-    e.target.preventDefault
-    app.matricularAluno()
+        let content = $('html')
+        let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
+        content.append($gifImg)
 
-})
+        $.ajax({
+            url: route,
+            dataType: 'html',
+            type: 'GET',
+            success: data => {
+
+                content.text(' ').append(data)
+
+                window.history.pushState({}, '', route)
+                
+            },
+            erro: error => console.lof(error)
+        })
+
+    }
+ */
+
+
+
+$('cep').on('blur', getCep)
+
+$("#bars").on("click", sideState)
+
+$('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
+
+$("#modal-student-profile , #class-profile-modal").modal('show')
 
 
 //Formatação de campos com Jquey Mask 
 
-$("#cpf").on('keypress', e => $(e.target).mask('000.000.000-00'))
+$('cpf').on('keypress', e => $(e.target).mask('000.000.000-00'))
 
-$("#telefone1 , #telefone2").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
+$("telefone").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
 
 $(".unidades input").on('keypress', e => $(e.target).mask('0,00'))
 
-$('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
 
-$("#modal-student-profile   , #class-profile-modal").modal('show')
