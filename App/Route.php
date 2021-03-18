@@ -52,11 +52,7 @@ class Route extends Bootstrap
 			'action' => 'managementGeneral'
 		);
 
-		$routes['admDisciplinaGestao'] = array(
-			'route' => '/admGestaoDisciplinas',
-			'controller' => 'AdminManagementController',
-			'action' => 'managementDiscipline'
-		);
+		
 
 		$routes['admTurmaGestao'] = array(
 			'route' => '/admGestaoTurmas',
@@ -173,6 +169,53 @@ class Route extends Bootstrap
 			'controller' => 'AdminManagementController',
 			'action' => 'deleteCourse'
 		);
+
+		// Discipline ( Disciplina )
+
+		$routes['admDisciplinaGestao'] = array(
+			'route' => '/admGestaoDisciplinas',
+			'controller' => 'AdminManagementController',
+			'action' => 'managementDiscipline'
+		);
+
+		$routes['admAddDiscipline'] = array(
+			'route' => '/addDiscipline',
+			'controller' => 'AdminManagementController',
+			'action' => 'addDiscipline'
+		);
+
+		$routes['admListDiscipline'] = array(
+			'route' => '/listDiscipline',
+			'controller' => 'AdminManagementController',
+			'action' => 'listDiscipline'
+		);
+
+		$routes['admUpdateDiscipline'] = array(
+			'route' => '/updateDiscipline',
+			'controller' => 'AdminManagementController',
+			'action' => 'updateDiscipline'
+		);
+
+		$routes['admDeleteDiscipline'] = array(
+			'route' => '/deleteDiscipline',
+			'controller' => 'AdminManagementController',
+			'action' => 'deleteDiscipline'
+		);
+
+		$routes['admlistDisciplineModality'] = array(
+			'route' => '/listDisciplineModality',
+			'controller' => 'AdminManagementController',
+			'action' => 'listDisciplineModality'
+		);
+
+		$routes['admSeekDiscipline'] = array(
+			'route' => '/seekDiscipline',
+			'controller' => 'AdminManagementController',
+			'action' => 'seekDiscipline'
+		);
+
+
+
 
 
 

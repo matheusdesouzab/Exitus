@@ -51,7 +51,7 @@
                                             </div>
                                             <div class="form-group col-lg-2">
                                                 <label for="">Sigla:</label>
-                                                <input class="form-control is-valid" maxlength="4" value="" type="text" name="acronym" id="" required>
+                                                <input class="form-control is-valid" onkeyup="this.value = this.value.toUpperCase()" maxlength="4" value="" type="text" name="acronym" id="" required>
                                             </div>
 
 

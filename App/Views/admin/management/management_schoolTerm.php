@@ -64,7 +64,7 @@
 
                                             <div class="form-group col-lg-2">
                                                 <label for="inputState">Situação:</label>
-                                                <select name="schoolTermSituation" id="inputState" class="form-control custom-select" required></select>
+                                                <select name="schoolTermSituationAdd" id="inputState" class="form-control custom-select" required></select>
                                             </div>
 
                                             <div class="form-group col-lg-2">

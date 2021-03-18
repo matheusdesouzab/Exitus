@@ -7,21 +7,11 @@ use MF\Model\Model;
 class SchoolTerm extends Model
 {
 
-    private $idSchoolTerm;
-    private $startDate;
-    private $endDate;
-    private $fk_id_school_term_situation;
-    private $fk_id_school_year;
-
-    public function __get($att)
-    {
-        return $this->$att;
-    }
-
-    public function __set($att, $newValue)
-    {
-        return $this->$att = $newValue;
-    }
+    protected $idSchoolTerm;
+    protected $startDate;
+    protected $endDate;
+    protected $fk_id_school_term_situation;
+    protected $fk_id_school_year;
 
     public function endSchoolTerm()
     {
@@ -36,7 +26,7 @@ class SchoolTerm extends Model
     {
         $this->endSchoolTerm();
 
-        $query = "insert into periodo_letivo (data_inicio,data_fim,fk_id_situacao_periodo_letivo,fk_id_ano_letivo) values (:startDate,:endDate,:fk_id_school_term_situation,:fk_id_school_year);";
+        $query = "insert into periodo_letivo (data_inicio,data_fim,fk_id_situacao_periodo_letivo,fk_id_ano_letivo) values (:startDate,:endDate,:fk_id_school_term_situation,:fk_id_school_year)";
 
         $stmt = $this->db->prepare($query);
 
@@ -45,7 +35,8 @@ class SchoolTerm extends Model
         $stmt->bindValue(':fk_id_school_term_situation', $this->__get('fk_id_school_term_situation'));
         $stmt->bindValue(':fk_id_school_year', $this->__get('fk_id_school_year'));
 
-        $stmt->execute();
+
+        $stmt->execute(); 
     }
 
     public function listSchoolTermSituation()
@@ -53,11 +44,7 @@ class SchoolTerm extends Model
 
         $query = 'select situacao_periodo_letivo.id_situacao_periodo_letivo as option_value  , situacao_periodo_letivo.situacao_periodo_letivo as option_text from situacao_periodo_letivo;';
 
-        $stmt = $this->db->prepare($query);
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $this->speedingUp($query);
     }
 
     public function updateSchoolTerm()
@@ -75,20 +62,17 @@ class SchoolTerm extends Model
         $stmt->bindValue(':endDate', $this->__get('endDate'));
         $stmt->bindValue(':fk_id_school_term_situation', $this->__get('fk_id_school_term_situation'));
         $stmt->bindValue(':idSchoolTerm', $this->__get('idSchoolTerm'));
+        
 
         $stmt->execute();
     }
 
-    public function listSchoolTerm($complement)
+    public function listSchoolTerm()
     {
 
-        $query = "select periodo_letivo.id_ano_letivo as id_school_term  , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term , periodo_disponivel.ano_letivo from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) left join periodo_disponivel on(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) $complement ;";
+        $query = "select periodo_letivo.id_ano_letivo as id_school_term  , periodo_letivo.data_inicio as start_date  , periodo_letivo.data_fim as end_date , situacao_periodo_letivo.situacao_periodo_letivo as situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo as fk_id_situation_school_term , periodo_disponivel.ano_letivo from periodo_letivo left join situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) left join periodo_disponivel on(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) order by periodo_disponivel.ano_letivo desc ;";
 
-        $stmt = $this->db->prepare($query);
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $this->speedingUp($query);
     }
 
     public function availableSchoolTerm()
@@ -96,11 +80,7 @@ class SchoolTerm extends Model
 
         $query = 'select periodo_disponivel.id_periodo_disponivel as option_value , periodo_disponivel.ano_letivo as option_text from periodo_disponivel left join periodo_letivo on(periodo_disponivel.id_periodo_disponivel = periodo_letivo.fk_id_ano_letivo) where periodo_letivo.fk_id_ano_letivo is null';
 
-        $stmt = $this->db->prepare($query);
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $this->speedingUp($query);
     }
 
     public function deleteSchoolTerm()
@@ -113,6 +93,4 @@ class SchoolTerm extends Model
 
         $stmt->execute();
     }
-
-    
 }

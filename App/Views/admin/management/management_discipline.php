@@ -1,4 +1,4 @@
-<div id="discipline-management">
+<div id="discipline">
 
     <div class="row main-container">
 
@@ -12,10 +12,9 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-subjects"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
+                        <a class="font-weight-bold" id="collapseListDiscipline" aria-expanded="true" data-toggle="collapse" data-target="#list-subjects"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 
                         <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
-
 
                     </div>
                 </div>
@@ -28,27 +27,23 @@
                     <div class="col-lg-11 mx-auto">
                         <div class="collapse show card mt-3" id="list-subjects" data-parent="#discipline-accordion">
                             <div class="row">
-                                <div class="col-lg-11 mx-auto">
+                                <div class="col-md-11 mx-auto">
 
-                                    <form class="mb-3 mt-3 text-dark" action="">
+                                    <form class="mb-3 mt-3 text-dark" id="seekDiscipline" action="">
 
                                         <div class="form-row">
 
                                             <div class="form-group col-lg-8">
                                                 <label for="">Nome da disciplina:</label>
-                                                <input type="text" placeholder="Nome da disciplina ou sigla" class="form-control">
+                                                <input type="text" name="seekName" value="" placeholder="Nome da disciplina ou sigla" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-4">
                                                 <label for="inputState">Modalidade:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Técnico</option>
-                                                    <option>Ensino Médio</option>
-                                                    <option>Técnico</option>
+                                                <select id="inputState" name="seekModality" class="form-control custom-select" required>
+                                                 <option value="0">Todos</option>                                                
                                                 </select>
                                             </div>
-
-                                           
 
                                         </div>
 
@@ -58,66 +53,19 @@
 
                                     <div class="table-responsive">
 
-                                    <table class="table table-borderless table-hover">
-                                        <thead> 
-                                            <tr>
-                                                <th scope="col">Nome da disciplina</th>
-                                                <th scope="col">Sigla</th>
-                                                <th scope="col">Modalidade da disciplina</th>
-                                                
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Linguagem e Técnica de Programação</td>
-                                                <td>LTP</td>
-                                                <td>Ensino Técnico</td>
-                                                
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Linguagem e Técnica de Programação</td>
-                                                <td>LTP</td>
-                                                <td>Ensino Técnico</td>
-                                                
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Linguagem e Técnica de Programação</td>
-                                                <td>LTP</td>
-                                                <td>Ensino Técnico</td>
-                                                
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Linguagem e Técnica de Programação</td>
-                                                <td>LTP</td>
-                                                <td>Ensino Técnico</td>
-                                                
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Linguagem e Técnica de Programação</td>
-                                                <td>LTP</td>
-                                                <td>Ensino Técnico</td>
-                                                
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Linguagem e Técnica de Programação</td>
-                                                <td>LTP</td>
-                                                <td>Ensino Técnico</td>
-                                                
-                                                
-                                            </tr>
-
-
-                                        </tbody>
-                                    </table>
+                                        <table class="table table-borderless table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Nome da disciplina</th>
+                                                    <th scope="col">Sigla</th>
+                                                    <th scope="col">Modalidade da disciplina</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody containerListDiscipline></tbody>
+                                        </table>
                                     </div>
 
-                                    <div class="modal fade" id="modal-discipline" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal fade" id="modalDiscipline" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg mt-5">
                                             <div class="modal-content">
                                                 <div class="modal-header font-weight-bold">
@@ -126,9 +74,9 @@
                                                             <div class="col-lg-6 mt-2">Linguagem e Técnica de Programação</div>
                                                             <div class="col-lg-6 d-flex justify-content-end">
 
-                                                            <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                                                    <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                                                    <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
+                                                                <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                                <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                                <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
                                                             </div>
                                                         </div>
@@ -187,80 +135,55 @@
 
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
                         </div>
 
 
-                    
-                    <div class="collapse" id="add-discipline" data-parent="#discipline-accordion">
+                        <div class="collapse" id="add-discipline" data-parent="#discipline-accordion">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-lg-12 mx-auto">
+                                <div class="col-lg-12 mx-auto">
 
-                                <form class="card mt-3" action="">
+                                    <form id="addDiscipline" class="card mt-3 was-validated" action="">
 
-                                    <div class="row mt-2">
-                                        <div class="font-weight-bold col-lg-12">Adicionar nova disciplina:</div>
-                                    </div>
-
-                                    <div class="form-row mt-4 mb-2">
-                                        <div class="form-group col-lg-4">
-                                            <label for="">Nome da disciplina:</label>
-                                            <input class="form-control" value="" type="text" name="" id="">
+                                        <div class="form-row mt-2 col-lg-11 mx-auto">
+                                            <div class="font-weight-bold col-lg-12">Adicionar nova disciplina:</div>
                                         </div>
-                                        <div class="form-group col-lg-2">
-                                            <label for="">Sigla:</label>
-                                            <input class="form-control" value="" type="text" name="" id="">
-                                        </div>
-                                        <div class="form-group col-lg-3">
-                                                <label for="inputState">Modalidade:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Ensino Técnico</option>
-                                                    <option>Ensino Médio</option>
-                                                    <option>Técnico</option>
-                                                </select>
+
+                                        <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
+                                            <div class="form-group col-lg-4">
+                                                <label for="">Nome da disciplina:</label>
+                                                <input class="form-control is-valid" value="" type="text" name="discipline" id="" required>
+                                            </div>
+                                            <div class="form-group col-lg-2">
+                                                <label for="">Sigla:</label>
+                                                <input class="form-control is-valid" onkeyup="this.value = this.value.toUpperCase()" maxlength="5" value="" type="text" name="acronym" id="" required>
                                             </div>
                                             <div class="form-group col-lg-3">
-                                        <label for="">&nbsp;</label>
-                                            <a class="btn btn-success w-100 text-center" href="#">Adicionar nova disciplina</a>
+                                                <label for="inputState">Modalidade:</label>
+                                                <select id="inputState" name="modality" class="form-control custom-select is-valid" required></select>
+                                            </div>
+                                            <div class="form-group col-lg-3">
+                                                <label for="">&nbsp;</label>
+                                                <a id="buttonAddDiscipline" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
+                                            </div>
+
                                         </div>
 
-                                           
+                                    </form>
 
-                                    </div>
-
-                                    
-
-                                </form>
-
+                                </div>
                             </div>
                         </div>
-
-
-
-                    </div>
-                    <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                        Dados
-
                     </div>
                 </div>
             </div>
         </div>
-
-
-
     </div>
-
-</div>
-
 </div>
 
 

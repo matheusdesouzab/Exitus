@@ -7,18 +7,9 @@ use MF\Model\Model;
 class ClassRoom extends Model
 {
 
-    public $idClassRoom;
-    public $fk_id_classroom_number;
-
-    public function __get($att)
-    {
-        return $this->$att;
-    }
-
-    public function __set($att, $newValue)
-    {
-        return $this->$att = $newValue;
-    }
+    protected $idClassRoom;
+    protected $fk_id_classroom_number;
+    
 
     public function addClassRoom()
     {
@@ -34,12 +25,8 @@ class ClassRoom extends Model
     {
 
         $query = 'select sala.id_sala as id_room , numero_sala_aula.numero_sala_aula as classroom_number from sala left join numero_sala_aula on(sala.fk_id_numero_sala = numero_sala_aula);';
-        
-        $stmt = $this->db->prepare($query);
 
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $this->speedingUp($query);
     }
 
     public function deleteClassRoom()
@@ -53,14 +40,11 @@ class ClassRoom extends Model
     }
 
 
-    public function availableClassroom(){
+    public function availableClassroom()
+    {
 
         $query = 'select numero_sala_aula.id_numero_sala_aula as option_value , numero_sala_aula.numero_sala_aula as option_text from numero_sala_aula left join sala on(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) where sala.fk_id_numero_sala is null; ';
 
-        $stmt = $this->db->prepare($query);
-        
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $this->speedingUp($query);
     }
 }

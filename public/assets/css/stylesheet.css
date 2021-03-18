@@ -350,9 +350,6 @@ select:disabled {
 #pagina .was-validated .form-control:invalid {
   border: 2px solid #F2DCD6;
 }
-#pagina .was-validated input[name=acronym] {
-  text-transform: uppercase;
-}
 
 #pagina .edit-data-icon {
   cursor: pointer;

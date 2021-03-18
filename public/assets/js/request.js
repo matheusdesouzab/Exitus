@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     }
 
-    function addElement(formId, route, datatoast) {
+    function addElement(formId, route, datatoast, clear_field) {
 
         let form = $(formId).serialize()
 
@@ -25,8 +25,9 @@ $(document).ready(function () {
                 data: form,
                 success: data => {
 
+                    clear_field == 'clean' ? $(`${formId} input`).val('') : ''
+
                     toastData(datatoast, 'bg-success')
-                    $(`${formId} .form-control`).val('')
 
                 },
 
@@ -77,7 +78,7 @@ $(document).ready(function () {
 
         let selectSituation = $(`form select[name="${nameSelect}"]`)
 
-        selectSituation == 'schoolTermSituation' ? '' : selectSituation.text()
+        if ((nameSelect == 'classroomNumber' || nameSelect == 'schoolYear')) selectSituation.empty()
 
         $.ajax({
             url: route,
@@ -164,7 +165,6 @@ $(document).ready(function () {
                     <span href="#" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
                     <span href="#" class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
-
                 </div>
 
             </div>
@@ -193,8 +193,8 @@ $(document).ready(function () {
             </form> `)
 
                         $(`#form${idSchoolTerm} .edit-data-icon`).on('click', () => editElement(idSchoolTerm))
-                        $(`#form${idSchoolTerm} .update-data-icon`).on('click', () => updateElement(idSchoolTerm, '/updateElement', 'Periodo letivo adicionado'))
-                        $(`#form${idSchoolTerm} .delete-data-icon`).on('click', () => [deleteElement(idSchoolTerm, '/deleteElement', 'Periodo letivo deletado'), listSchoolTerm()])
+                        $(`#form${idSchoolTerm} .update-data-icon`).on('click', () => [updateElement(idSchoolTerm, '/updateSchoolTerm', 'Periodo letivo adicionado'), listSchoolTerm()])
+                        $(`#form${idSchoolTerm} .delete-data-icon`).on('click', () => [deleteElement(idSchoolTerm, '/deleteSchoolTerm', 'Periodo letivo deletado'), listSchoolTerm()])
 
                     })
 
@@ -203,6 +203,7 @@ $(document).ready(function () {
                     container.append('<h4 class="mt-3">Nenhum ano letivo adicionado</h4>')
 
                 }
+
 
                 availableElement('schoolYear', '/availableSchoolTerm')
                 availableElement('schoolTermSituation', '/listSchoolTermSituation')
@@ -268,7 +269,6 @@ $(document).ready(function () {
                     container.append('<h4 class="mt-3">Nenhuma sala adicionada</h4>')
                 }
 
-                availableElement('classroomNumber', '/availableClassroom')
 
             },
             error: erro => console.log(erro)
@@ -322,7 +322,7 @@ $(document).ready(function () {
                                             </div>
                                             <div class="form-group col-lg-3">
                                                 <label for="">Sigla:</label>
-                                                <input class="form-control" disabled value="${data[i].acronym}" type="text" name="acronym" id="">
+                                                <input class="form-control" disabled onkeyup="this.value = this.value.toUpperCase()" value="${data[i].acronym}" type="text" name="acronym" id="">
                                             </div>
 
 
@@ -334,8 +334,6 @@ $(document).ready(function () {
                         $(`#form${data[i].id_course} .edit-data-icon`).on('click', () => editElement(data[i].id_course))
                         $(`#form${data[i].id_course} .update-data-icon`).on('click', () => [updateElement(data[i].id_course, '/updateCourse', 'Curso adicionado'), listCourse()])
                         $(`#form${data[i].id_course} .delete-data-icon`).on('click', () => [deleteElement(data[i].id_course, '/deleteCourse', 'Curso deletado'), listCourse()])
-
-
 
                     })
 
@@ -350,6 +348,78 @@ $(document).ready(function () {
         })
     }
 
+    function listDiscipline() {
+
+        let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
+        let container = $('[containerListDiscipline]')
+
+        container.text('').append($gifImg)
+
+        $.ajax({
+            url: '/listDiscipline',
+            dataType: 'json',
+            type: 'GET',
+            success: data => {
+
+                $('.gif-loading').remove()
+
+                if (Object.keys(data).length > 0) {
+
+                    $.each(data, i => {
+                        container.append(`<tr id="disciplina${data[i].id_discipline}"><td>${data[i].discipline}</td><td>${data[i].acronym}</td><td>${data[i].discipline_modality}</td></tr>`)
+                    })
+
+                } else {
+
+                }
+
+            }
+        })
+    }
+
+    function seekDiscipline() {
+
+        $('input[name = "seekName"]').val() === '' ? $('input[name = "seekName"]').val(' ') : ''
+
+        let formData = $('#seekDiscipline').serialize()
+
+        let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
+        let container = $('[containerListDiscipline]')
+
+        container.text('').append($gifImg)
+
+        $.ajax({
+            url: '/seekDiscipline',
+            dataType: 'json',
+            type: 'GET',
+            data: formData,
+            success: data => {
+
+                console.log(data)
+
+                $('.gif-loading').remove()
+
+                if (Object.keys(data).length > 0) {
+
+                    $.each(data, i => {
+                        container.append(`<tr id="disciplina${data[i].id_discipline}"><td>${data[i].discipline}</td><td>${data[i].acronym}</td><td>${data[i].discipline_modality}</td></tr>`)
+                    })
+
+                } else {
+
+                }
+
+            },
+            error: erro => console.log(erro.responseText)
+        })
+    }
+
+    /* function showModal() {
+        //let id = formId.replace(/[^a-zA-Z ]/g)
+        $('#modalDiscipline').modal('show')
+    } */
+
+    $('#disciplina6').on('click', console.log('x'))
 
 
 
@@ -359,32 +429,62 @@ $(document).ready(function () {
 
 
 
-
+    // Add Element
 
 
     $('#buttonAddSchoolTerm')
-        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado'),
+        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado', 'dont_clean'),
             availableElement('schoolYear', '/availableSchoolTerm')
         ])
 
     $('#buttonAddClassRoom')
-        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada'),
+        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada', 'dont_clean'),
             availableElement('classroomNumber', '/availableClassroom')
         ])
 
     $('#buttonAddCourse')
-        .on('click', () => addElement('#addCourse', '/addCourse', 'Curso adicionado'))
+        .on('click', () => addElement('#addCourse', '/addCourse', 'Curso adicionado', 'clean'))
+
+    $('#buttonAddDiscipline')
+        .on('click', () => addElement('#addDiscipline', '/addDiscipline', 'Disciplina adicionada', 'clean'))
 
 
-    $('#schoolTerm').on('load', listSchoolTerm()), $('#classRoom').on('load', listClassRoom()), $('#course').on('load', listCourse())
+    // Load Element
+
+
+    $('#schoolTerm').on('load', [listSchoolTerm(), availableElement('schoolTermSituationAdd', '/listSchoolTermSituation')])
+
+    $('#classRoom').on('load', listClassRoom())
+
+    $('#course').on('load', listCourse())
+
+    $('#discipline').on('load', [listDiscipline(), availableElement('modality', '/listDisciplineModality'), availableElement('seekModality', '/listDisciplineModality')])
+
+
+    // Collapse list
+
 
     $('#collapseListSchoolTerm').on('click', listSchoolTerm)
     $('#collapseListClassRoom').on('click', listClassRoom)
     $('#collapseListCourse').on('click', listCourse)
+    $('#collapseListDiscipline').on('click', listDiscipline)
 
-    $('#collapseAddSchoolTerm').on('click', availableElement('schoolYear', '/availableSchoolTerm'))
 
-    $('#addSchoolTerm select[name="schoolYear"]').on('blur', automaticDate)
+    // Collapse add
+
+
+    $('#collapseAddClassRoom').on('click', availableElement('classroomNumber', '/availableClassroom'))
+    $('input[name = "seekName"]').on('keyup', seekDiscipline)
+    $('select[name = "seekModality"]').change(seekDiscipline)
+
+
+
+
+
+
+
+
+
 
 
 })

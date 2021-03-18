@@ -6,19 +6,10 @@ use MF\Model\Model;
 
 class Course extends Model
 {
-    private $idCourse;
-    private $course;
-    private $acronym;
-
-    public function __get($att)
-    {
-        return $this->$att;
-    }
-
-    public function __set($att, $newValue)
-    {
-        return $this->$att = $newValue;
-    }
+    protected $idCourse;
+    protected $course;
+    protected $acronym;
+    
 
     public function addCourse()
     {
@@ -36,11 +27,7 @@ class Course extends Model
 
         $query = 'select curso.id_curso as id_course , curso.nome_curso as course , curso.sigla as acronym from curso;';
 
-        $stmt = $this->db->prepare($query);
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $this->speedingUp($query);
     }
 
     public function deleteCourse()
