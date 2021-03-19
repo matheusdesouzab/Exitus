@@ -41,7 +41,7 @@
                                             <div class="form-group col-lg-4">
                                                 <label for="inputState">Modalidade:</label>
                                                 <select id="inputState" name="seekModality" class="form-control custom-select" required>
-                                                 <option value="0">Todos</option>                                                
+                                                    <option value="0">Todos</option>
                                                 </select>
                                             </div>
 
@@ -68,61 +68,12 @@
                                     <div class="modal fade" id="modalDiscipline" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg mt-5">
                                             <div class="modal-content">
-                                                <div class="modal-header font-weight-bold">
-                                                    <div class="col-lg-11 mx-auto">
-                                                        <div class="row">
-                                                            <div class="col-lg-6 mt-2">Linguagem e Técnica de Programação</div>
-                                                            <div class="col-lg-6 d-flex justify-content-end">
-
-                                                                <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                                                                <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                                                                <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                
 
                                                 <div class="modal-body">
-                                                    <div class="row">
-                                                        <form class="col-lg-11 mx-auto mb-4" action="">
+                                                    <div containerModal class="row">
+                                                       
 
-                                                            <div class="form-row mb-2">
-                                                                <div class="form-group col-lg-7">
-                                                                    <label for="">Nome da disciplina:</label>
-                                                                    <input class="form-control" disabled value="Linguagem e Técnica de Programação" type="text" name="" id="">
-                                                                </div>
-                                                                <div class="form-group col-lg-2">
-                                                                    <label for="">Sigla:</label>
-                                                                    <input class="form-control" disabled value="LTP" type="text" name="" id="">
-                                                                </div>
-                                                                <div class="form-group col-lg-3">
-                                                                    <label for="inputState">Modalidade:</label>
-                                                                    <select disabled id="inputState" class="form-control custom-select " required>
-                                                                        <option>Técnico</option>
-                                                                        <option>Ensino Médio</option>
-                                                                        <option>Técnico</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-row">
-                                                                <div class="form-group col-lg-5">
-                                                                    <label for="inputState">Curso:</label>
-                                                                    <select disabled id="inputState" class="form-control custom-select " required>
-                                                                        <option>Informática</option>
-                                                                        <option>Ensino Médio</option>
-                                                                        <option>Técnico</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="form-group col-lg-3">
-                                                                    <label for="inputState">UE referente:</label>
-                                                                    <select disabled id="inputState" class="form-control custom-select " required>
-                                                                        <option>1 e 2</option>
-                                                                        <option>1</option>
-                                                                        <option>2</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
                                                     </div>
 
                                                     </form>
@@ -175,7 +126,6 @@
                                         </div>
 
                                     </form>
-
                                 </div>
                             </div>
                         </div>

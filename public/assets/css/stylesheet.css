@@ -770,13 +770,11 @@ select:disabled {
   color: #ffffff;
 }
 #pagina .gif-loading {
-  justify-content: center;
-  display: flex;
+  border: 2px solid red;
 }
 #pagina .gif-loading img {
-  margin: auto;
-  height: 200px;
-  width: 200px;
+  border: 2px solid red;
+  width: 2vw;
 }
 #pagina .toast {
   border-radius: 15px;

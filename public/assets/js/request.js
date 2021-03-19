@@ -1,10 +1,15 @@
 $(document).ready(function () {
 
-    function toastData(text, backgroundColor) {
 
-        $('.update-time').text(text)
+    const gifImg = ('<div class="gif-loading d-flex justify-content-center mt-5 col-lg-12"><img class="" src="assets/img/image.gif"></div>')
+    let timeout = null;
 
-        $('.toast-header').removeClass('bg-success bg-danger bg-primary').addClass(backgroundColor)
+
+    function showToast(description, background) {
+
+        $('.toast-data').text(description)
+
+        $('.toast-header').removeClass('bg-success bg-danger bg-primary').addClass(background)
 
         $('#toastContainer').toast({
             'delay': 3000
@@ -12,73 +17,63 @@ $(document).ready(function () {
 
     }
 
-    function addElement(formId, route, datatoast, clear_field) {
 
-        let form = $(formId).serialize()
+    function addElement(form, route, toastDescription, clean = true) {
 
-        if ($(`${formId} .form-control`).val() != '') {
+        let $formData = $(form).serialize()
+
+        if ($(`${form} .form-control`).val() != '') {
 
             $.ajax({
                 url: route,
                 dataType: 'html',
                 type: 'POST',
-                data: form,
+                data: $formData,
                 success: data => {
 
-                    clear_field == 'clean' ? $(`${formId} input`).val('') : ''
+                    clean ? $(`${form} input`).val('') : ''
 
-                    toastData(datatoast, 'bg-success')
+                    showToast(toastDescription, 'bg-success')
 
                 },
 
-                error: error => console.log(error)
+                error: error => showToast('Houve um erro na requisição', 'bg-info')
 
             })
 
         } else {
 
-            toastData('Preencha todos os campos', 'bg-danger')
+            showToast('Preencha todos os campos', 'bg-danger')
         }
     }
 
-    function deleteElement(id, route, Datatoast) {
 
-        let form = $(`#form${id}`).serialize()
+    function deleteElement(form, route, dataToast) {
+
+        let $formData = $(`${form}`).serialize()
 
         $.ajax({
             url: route,
             type: 'POST',
             dataType: 'html',
-            data: form,
+            data: $formData,
             success: data => {
 
-                toastData(Datatoast, 'bg-danger')
+                showToast(dataToast, 'bg-danger')
 
             },
 
-            erro: erro => console.log('erro')
+            error: erro => showToast('Houve um erro na requisição', 'bg-info')
 
         })
     }
 
-    function editElement(id) {
 
-        $('form .form-control').prop('disabled', true)
-        $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
+    function availableElement(nameSelect, route, form = 'form') {
 
-        $('#addSchoolTerm .form-control, #addCourse .form-control').prop('disabled', false)
+        let $selectSituation = $(`${form} select[name="${nameSelect}"]`)
 
-        $(`#form${id} .form-control`).prop('disabled', false)
-        $(`#form${id} .update-data-icon, #form${id} .delete-data-icon`).css("pointer-events", "auto")
-
-    }
-
-
-    function availableElement(nameSelect, route) {
-
-        let selectSituation = $(`form select[name="${nameSelect}"]`)
-
-        if ((nameSelect == 'classroomNumber' || nameSelect == 'schoolYear')) selectSituation.empty()
+        if ((nameSelect == 'classroomNumber' || nameSelect == 'schoolYear')) $selectSituation.empty()
 
         $.ajax({
             url: route,
@@ -86,51 +81,65 @@ $(document).ready(function () {
             type: 'GET',
             success: data => {
 
-                $.each(data, i => selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
+                $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
 
             },
 
-            error: erro => console.log(erro)
+            error: erro => showToast('Houve um erro nas requisições', 'bg-info')
 
         })
 
     }
 
 
-    function updateElement(id, route, dataToast) {
+    function updateElement(form, route, dataToast) {
 
-        let form = $(`#form${id}`).serialize()
+        let $formData = $(`${form}`).serialize()
 
         $.ajax({
             url: route,
             type: 'POST',
             dataType: 'html',
-            data: form,
+            data: $formData,
             success: data => {
 
-                toastData(dataToast, 'bg-primary')
+                showToast(dataToast, 'bg-primary')
 
             },
 
-            erro: erro => console.log('erro')
+            error: erro => showToast('Houve um erro na requisição', 'bg-info')
 
         })
     }
 
+
     function automaticDate() {
 
-        let schoolYear = $('#addSchoolTerm select[name="schoolYear"]').find(":selected").text()
+        let $schoolYear = $('#addSchoolTerm select[name="schoolYear"]').find(":selected").text()
 
-        $('#addSchoolTerm input[name="startDate"]').prop('value', `${schoolYear}-02-01`)
-        $('#addSchoolTerm input[name="endDate"]').prop('value', `${schoolYear}-12-01`)
+        $('#addSchoolTerm input[name="startDate"]').prop('value', `${$schoolYear}-02-01`)
+        $('#addSchoolTerm input[name="endDate"]').prop('value', `${$schoolYear}-12-01`)
     }
+
+
+    function editElement(form) {
+
+        $('form .form-control').prop('disabled', true)
+        $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
+
+        $('#addSchoolTerm .form-control, #addCourse .form-control, #seekDiscipline .form-control, #addDiscipline .form-control').prop('disabled', false)
+
+        $(`${form} .form-control`).prop('disabled', false)
+        $(`${form} .update-data-icon, ${form} .delete-data-icon`).css("pointer-events", "auto")
+
+    }
+
 
     function listSchoolTerm() {
 
-        let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
-        let container = $('[containerListSchoolTerm]')
+        let $container = $('[containerListSchoolTerm]')
 
-        container.text('').append($gifImg)
+        $container.text('').append(gifImg)
 
         $.ajax({
             url: '/listSchoolTerm',
@@ -150,10 +159,11 @@ $(document).ready(function () {
                         let idSituation = data[i].fk_id_situation_school_term
                         let situationSchoolTerm = data[i].situation_school_term
                         let schoolYear = data[i].ano_letivo
+                        let formId = `#formSchoolTerm${idSchoolTerm}`
 
-                        container.append(`
+                        $container.append(`
 
-            <form id="form${idSchoolTerm}" class="card mb-3" action="">
+            <form id="formSchoolTerm${idSchoolTerm}" class="card mb-3" action="">
 
             <div class="form-row col-lg-11 mx-auto d-flex align-items-center"> 
 
@@ -192,40 +202,41 @@ $(document).ready(function () {
 
             </form> `)
 
-                        $(`#form${idSchoolTerm} .edit-data-icon`).on('click', () => editElement(idSchoolTerm))
-                        $(`#form${idSchoolTerm} .update-data-icon`).on('click', () => [updateElement(idSchoolTerm, '/updateSchoolTerm', 'Periodo letivo adicionado'), listSchoolTerm()])
-                        $(`#form${idSchoolTerm} .delete-data-icon`).on('click', () => [deleteElement(idSchoolTerm, '/deleteSchoolTerm', 'Periodo letivo deletado'), listSchoolTerm()])
+                        $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
+
+                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/updateSchoolTerm', 'Periodo letivo adicionado'),
+                            listSchoolTerm()
+                        ])
+
+                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/deleteSchoolTerm', 'Periodo letivo deletado'),
+                            listSchoolTerm()
+                        ])
 
                     })
 
                 } else {
 
-                    container.append('<h4 class="mt-3">Nenhum ano letivo adicionado</h4>')
+                    $container.append('<h4 class="mt-3">Nenhum ano letivo adicionado</h4>')
 
                 }
-
 
                 availableElement('schoolYear', '/availableSchoolTerm')
                 availableElement('schoolTermSituation', '/listSchoolTermSituation')
 
             },
 
-            error: error => {
-
-                container.append('<h5 class="mt-3">Houve um erro na requisição, tente mais tarde</h5>')
-
-            }
+            error: error => container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
 
         })
 
     }
 
+
     function listClassRoom() {
 
-        let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
-        let container = $('[containerListClassRoom]')
+        let $container = $('[containerListClassRoom]')
 
-        container.text('').append($gifImg)
+        $container.text('').append(gifImg)
 
         $.ajax({
             url: '/listClassRoom',
@@ -239,9 +250,11 @@ $(document).ready(function () {
 
                     $.each(data, i => {
 
-                        container.append(`
+                        let formId = `#formClassRoom${data[i].id_room}`
 
-                        <form id="form${data[i].id_room}" class="mt-3 card" action="">
+                        $container.append(`
+
+                        <form id="formClassRoom${data[i].id_room}" class="mt-3 card" action="">
                       
                                <input type="hidden" value="${data[i].id_room}" name="idClassRoom">
 
@@ -261,27 +274,25 @@ $(document).ready(function () {
                         
                         `)
 
-                        $(`#form${data[i].id_room} .delete-data-icon`).on('click', () => [deleteElement(data[i].id_room, '/deleteClassRoom', 'Sala de aula deletada'), listClassRoom()])
+                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/deleteClassRoom', 'Sala de aula deletada'), listClassRoom()])
 
                     })
 
                 } else {
-                    container.append('<h4 class="mt-3">Nenhuma sala adicionada</h4>')
+                    $container.append('<h4 class="mt-3">Nenhuma sala adicionada</h4>')
                 }
-
-
             },
-            error: erro => console.log(erro)
 
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
         })
     }
 
+
     function listCourse() {
 
-        let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
-        let container = $('[containerListCourse]')
+        let $container = $('[containerListCourse]')
 
-        container.text('').append($gifImg)
+        $container.text('').append(gifImg)
 
         $.ajax({
             url: '/listCourse',
@@ -295,9 +306,11 @@ $(document).ready(function () {
 
                     $.each(data, i => {
 
-                        container.append(`
+                        let formId = `#formCourse${data[i].id_course}`
 
-                        <form id="form${data[i].id_course}" class="card mt-3" action="">
+                        $container.append(`
+
+                        <form id="formCourse${data[i].id_course}" class="card mt-3" action="">
 
                             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
@@ -331,29 +344,30 @@ $(document).ready(function () {
                                     </form>
                         `)
 
-                        $(`#form${data[i].id_course} .edit-data-icon`).on('click', () => editElement(data[i].id_course))
-                        $(`#form${data[i].id_course} .update-data-icon`).on('click', () => [updateElement(data[i].id_course, '/updateCourse', 'Curso adicionado'), listCourse()])
-                        $(`#form${data[i].id_course} .delete-data-icon`).on('click', () => [deleteElement(data[i].id_course, '/deleteCourse', 'Curso deletado'), listCourse()])
+                        $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
+                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/updateCourse', 'Curso adicionado'), listCourse()])
+                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/deleteCourse', 'Curso deletado'), listCourse()])
 
                     })
 
                 } else {
 
-                    container.append('<h4 class="mt-3">Nenhum curso adicionado</h4>')
+                    $container.append('<h4 class="mt-3">Nenhum curso adicionado</h4>')
 
                 }
 
             },
-            erro: erro => console.log(erro)
+
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
         })
     }
 
+
     function listDiscipline() {
 
-        let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
-        let container = $('[containerListDiscipline]')
+        let $container = $('[containerListDiscipline]')
 
-        container.text('').append($gifImg)
+        $container.text('').append(gifImg)
 
         $.ajax({
             url: '/listDiscipline',
@@ -366,27 +380,31 @@ $(document).ready(function () {
                 if (Object.keys(data).length > 0) {
 
                     $.each(data, i => {
-                        container.append(`<tr id="disciplina${data[i].id_discipline}"><td>${data[i].discipline}</td><td>${data[i].acronym}</td><td>${data[i].discipline_modality}</td></tr>`)
+                        $container.append(`<tr id="disciplina${data[i].id_discipline}"><td>${data[i].discipline}</td><td>${data[i].acronym}</td><td>${data[i].discipline_modality}</td></tr>`)
                     })
 
                 } else {
 
+                    $container.append('<h4 class="mt-3">Nenhuma disciplina adicionada</h4>')
+
                 }
 
-            }
+            },
+
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
         })
     }
 
+
     function seekDiscipline() {
 
-        $('input[name = "seekName"]').val() === '' ? $('input[name = "seekName"]').val(' ') : ''
+        $('input[name = "seekName"]').val() == '' ? $('input[name = "seekName"]').val(' ') : ''
 
         let formData = $('#seekDiscipline').serialize()
 
-        let $gifImg = ('<div class="gif-loading col-lg-10 mx-auto mt-5"><img class="" src="assets/img/image.gif"></div>')
-        let container = $('[containerListDiscipline]')
+        let $container = $('tbody[containerListDiscipline]')
 
-        container.text('').append($gifImg)
+        $container.text(' ').append(gifImg)
 
         $.ajax({
             url: '/seekDiscipline',
@@ -395,58 +413,118 @@ $(document).ready(function () {
             data: formData,
             success: data => {
 
-                console.log(data)
-
-                $('.gif-loading').remove()
+                //$('.gif-loading').remove()
 
                 if (Object.keys(data).length > 0) {
 
                     $.each(data, i => {
-                        container.append(`<tr id="disciplina${data[i].id_discipline}"><td>${data[i].discipline}</td><td>${data[i].acronym}</td><td>${data[i].discipline_modality}</td></tr>`)
+                        $container.append(`<tr id="disciplina${data[i].id_discipline}"><td>${data[i].discipline}</td><td>${data[i].acronym}</td><td>${data[i].discipline_modality}</td></tr>`)
                     })
 
                 } else {
 
+                    $container.append('<h4 class="mt-3">Nenhuma disciplina encrontada</h4>')
                 }
 
             },
-            error: erro => console.log(erro.responseText)
+            
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
         })
     }
 
-    /* function showModal() {
-        //let id = formId.replace(/[^a-zA-Z ]/g)
-        $('#modalDiscipline').modal('show')
-    } */
+    function showModal(formId) {
 
-    $('#disciplina6').on('click', console.log('x'))
+        let id = formId.replace(/[^0-9]/g, '')
+
+        let $container = $('[containerModal]')
+
+        $.ajax({
+            url: '/disciplineData',
+            dataType: 'json',
+            type: 'GET',
+            data: {
+                idDiscipline: id
+            },
+            success: data => {
+
+                let formModal = `#formModal${data[0].id_discipline}`
+
+                $container.text('').append(`
+
+                <form id="formModal${data[0].id_discipline}" class="col-lg-11 mx-auto mb-4" action="">
+
+                <div class="col-lg-12">
+                <div class="row modal-header">
+                    <div discipline class="col-lg-6 mt-2 font-weight-bold"></div>
+                    <div class="col-lg-6 d-flex justify-content-end">
+
+                        <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                        <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                        <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
+
+                    </div>
+                </div>              
+               
+
+                <div class="form-row mb-2 mt-3">
+                <input type="hidden" name="idDiscipline" value="${data[0].id_discipline}">
+                    <div class="form-group col-lg-7">
+                        <label for="">Nome da disciplina:</label>
+                        <input class="form-control" disabled value="${data[0].discipline}" type="text" name="discipline" id="">
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <label for="">Sigla:</label>
+                        <input class="form-control" disabled value="${data[0].acronym}" type="text" name="acronym" id="">
+                    </div>
+                    <div class="form-group col-lg-3">
+                        <label for="inputState">Modalidade:</label>
+                        <select disabled id="inputState" name="modality" class="form-control custom-select " required>
+                        </select>
+                    </div>
+                </div></form>`)
 
 
+                $('#modalDiscipline').modal("hide")
 
+                $('[discipline]').text(data[0].discipline)
 
+                $(`${formModal} select[name="modality"]`).append(`<option value="${data[0].id_modality}">${data[0].discipline_modality}</option>`)
 
+                $(`${formModal} .edit-data-icon`).on('click', () => editElement(`${formModal}`))
+                $(`${formModal} .delete-data-icon`).on('click', () => [deleteElement(`${formModal}`, '/deleteDiscipline', 'Disciplina deletada')])
+                $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/updateDiscipline', 'Disciplina atualizada'), listDiscipline(), showModal(`${formModal}`)])
 
+                availableElement(`modality`, '/listDisciplineModality', `${formModal}`)
 
+                $('#modalDiscipline').modal("show")
+
+            },
+
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
+
+        })
+
+    }
 
 
     // Add Element
 
 
     $('#buttonAddSchoolTerm')
-        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado', 'dont_clean'),
+        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado', false),
             availableElement('schoolYear', '/availableSchoolTerm')
         ])
 
     $('#buttonAddClassRoom')
-        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada', 'dont_clean'),
+        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada', false),
             availableElement('classroomNumber', '/availableClassroom')
         ])
 
     $('#buttonAddCourse')
-        .on('click', () => addElement('#addCourse', '/addCourse', 'Curso adicionado', 'clean'))
+        .on('click', () => addElement('#addCourse', '/addCourse', 'Curso adicionado'))
 
     $('#buttonAddDiscipline')
-        .on('click', () => addElement('#addDiscipline', '/addDiscipline', 'Disciplina adicionada', 'clean'))
+        .on('click', () => addElement('#addDiscipline', '/addDiscipline', 'Disciplina adicionada'))
 
 
     // Load Element
@@ -474,8 +552,24 @@ $(document).ready(function () {
 
 
     $('#collapseAddClassRoom').on('click', availableElement('classroomNumber', '/availableClassroom'))
-    $('input[name = "seekName"]').on('keyup', seekDiscipline)
-    $('select[name = "seekModality"]').change(seekDiscipline)
+    //$('input[name="seekName"]').on('keyup', seekDiscipline)
+    $('select[name="seekModality"]').change(seekDiscipline)
+
+
+    // All
+
+    $('input[name="seekName"]').keyup(function (e) {
+
+        if (timeout) clearTimeout(timeout);
+
+        timeout = setTimeout(() => seekDiscipline(), 1500)
+
+    });
+
+    $(document).on('click', '#discipline tr', function () {
+        showModal(this.id)
+    });
+
 
 
 

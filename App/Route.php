@@ -214,6 +214,12 @@ class Route extends Bootstrap
 			'action' => 'seekDiscipline'
 		);
 
+		$routes['admDisciplineData'] = array(
+			'route' => '/disciplineData',
+			'controller' => 'AdminManagementController',
+			'action' => 'disciplineData'
+		);
+
 
 
 

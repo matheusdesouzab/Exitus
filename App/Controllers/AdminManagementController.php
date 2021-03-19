@@ -221,6 +221,8 @@ class AdminManagementController extends Action
             'fk_id_modality' => $_POST['modality']
         ];
 
+        print_r($_POST);
+
         $Discipline->setAll($data)->updateDiscipline();
     }
 
@@ -228,7 +230,7 @@ class AdminManagementController extends Action
     public function seekDiscipline()
     {
         $Discipline = Container::getModel('Discipline');
-        
+
         $data = [
             'discipline' => $_GET['seekName'],
             'fk_id_modality' => $_GET['seekModality']
@@ -237,6 +239,14 @@ class AdminManagementController extends Action
         $data = $Discipline->setAll($data)->seekDiscipline();
 
         echo json_encode($data);
+    }
+
+
+    public function disciplineData()
+    {
+        $Discipline = Container::getModel('Discipline');
+        $Discipline->idDiscipline = $_GET['idDiscipline'];
+        echo json_encode($Discipline->disciplineData());
     }
 
 

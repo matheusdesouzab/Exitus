@@ -5,7 +5,7 @@
 	<div aria-live="polite" class="col-lg-8" aria-atomic="true">
 		<div class="toast" id="toastContainer">
 			<div class="toast-header text-white">
-				<strong class="text-center mx-auto update-time"></strong>
+				<strong class="text-center mx-auto toast-data"></strong>
 			</div>
 		</div>
 	</div>
