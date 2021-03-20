@@ -1,4 +1,4 @@
-<div id="schoolTerm">
+<section id="schoolTerm">
 
     <div class="row main-container">
 
@@ -38,7 +38,7 @@
 
                                 <div class="col-lg-12 card ">
 
-                                    <form id="addSchoolTerm" class="col-11 mx-auto mt-3 mb-3" action="" method="POST">
+                                    <form id="addSchoolTerm" class="col-11 mx-auto mt-3 mb-3">
 
                                         <div class="row mt-2">
                                             <div class="font-weight-bold col-lg-12">Adicionar novo período letivo:</div>
@@ -47,28 +47,28 @@
                                         <div class="form-row mt-4 mb-2">
 
                                             <div class="form-group col-lg-2">
-                                                <label for="inputState">Ano:</label>
-                                                <select name="schoolYear" id="inputState" class="form-control custom-select" required></select>
+                                                <label for="schoolYear">Ano:</label>
+                                                <select name="schoolYear" id="schoolYear" class="form-control custom-select" required></select>
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="">Data de início:</label>
-                                                <input name="startDate" class="form-control" value="" type="date" id="">
+                                                <label for="startDate">Data de início:</label>
+                                                <input name="startDate" class="form-control" value="" type="date" id="startDate">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                <label for="">Data de fim:</label>
-                                                <input name="endDate" class="form-control" value="" type="date" id="">
+                                                <label for="endDate">Data de fim:</label>
+                                                <input name="endDate" class="form-control" value="" type="date" id="endDate">
                                             </div>
 
 
                                             <div class="form-group col-lg-2">
-                                                <label for="inputState">Situação:</label>
-                                                <select name="schoolTermSituationAdd" id="inputState" class="form-control custom-select" required></select>
+                                                <label for="schoolTermSituationAdd">Situação:</label>
+                                                <select name="schoolTermSituationAdd" id="schoolTermSituationAdd" class="form-control custom-select" required></select>
                                             </div>
 
                                             <div class="form-group col-lg-2">
-                                                <label for="">&nbsp;</label>
+                                                <label>&nbsp;</label>
                                                 <a id="buttonAddSchoolTerm" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
                                             </div>
 
@@ -82,4 +82,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

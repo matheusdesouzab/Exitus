@@ -1,10 +1,10 @@
-<div id="course">
+<section id="course">
 
     <div class="row main-container">
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-course">
 
-            <div class="col-lg-12">
+            <div class="col-lg-12 mb-3">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6">
                         <h5>Gestão dos Cursos</h5>
@@ -46,20 +46,19 @@
 
                                         <div class="form-row mt-4 mb-2 form-row col-lg-11 mx-auto">
                                             <div class="form-group col-lg-7">
-                                                <label for="">Nome do curso:</label>
-                                                <input class="form-control is-valid" value="" type="text" name="course" id="" required>
-                                            </div>
-                                            <div class="form-group col-lg-2">
-                                                <label for="">Sigla:</label>
-                                                <input class="form-control is-valid" onkeyup="this.value = this.value.toUpperCase()" maxlength="4" value="" type="text" name="acronym" id="" required>
+                                                <label for="courseName">Nome do curso:</label>
+                                                <input class="form-control is-valid" value="" type="text" name="course" id="courseName" required>
                                             </div>
 
+                                            <div class="form-group col-lg-2">
+                                                <label for="acronym">Sigla:</label>
+                                                <input class="form-control is-valid" maxlength="4" value="" type="text" name="acronym" id="acronym" required>
+                                            </div>
 
                                             <div class="form-group col-lg-3">
                                                 <label for="">&nbsp;</label>
                                                 <a id="buttonAddCourse" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar curso</a>
                                             </div>
-
 
                                         </div>
                                     </form>
@@ -71,4 +70,5 @@
             </div>
         </div>
     </div>
-</div>
+
+</section>

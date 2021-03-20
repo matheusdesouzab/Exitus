@@ -769,12 +769,8 @@ select:disabled {
 #pagina .school-term-active label {
   color: #ffffff;
 }
-#pagina .gif-loading {
-  border: 2px solid red;
-}
 #pagina .gif-loading img {
-  border: 2px solid red;
-  width: 2vw;
+  width: 20%;
 }
 #pagina .toast {
   border-radius: 15px;

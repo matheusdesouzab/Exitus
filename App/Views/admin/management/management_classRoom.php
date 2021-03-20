@@ -1,4 +1,4 @@
-<div id="classRoom">
+<section id="classRoom">
 
     <div class="row main-container">
 
@@ -15,7 +15,6 @@
                         <a class="font-weight-bold" id="collapseListClassRoom" aria-expanded="true" data-toggle="collapse" data-target="#list-rooms"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Salas</span></a>
 
                         <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-rooms"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
-
 
                     </div>
                 </div>
@@ -41,11 +40,14 @@
 
                                     <form id="addClassRoom" class="col-lg-11 mx-auto mt-3" action="">
 
-                                        <div class="form-row mb-2">
+                                        <div class="row mt-2">
+                                            <div class="font-weight-bold col-lg-12">Adicionar nova sala:</div>
+                                        </div>
+
+                                        <div class="form-row mb-2 mt-4">
                                             <div class="form-group col-lg-8">
-                                                <label for="">Numero da sala:</label>
-                                                <select name="classroomNumber" class="form-control custom-select" required>
-                                                </select>
+                                                <label for="classroomNumber">Numero da sala:</label>
+                                                <select name="classroomNumber" class="form-control custom-select" id="classroomNumber" required></select>
                                             </div>
 
                                             <div class="form-group col-lg-4">
@@ -71,4 +73,4 @@
 
     </div>
 
-</div>
+</section>

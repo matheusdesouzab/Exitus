@@ -310,7 +310,7 @@ $(document).ready(function () {
 
                         $container.append(`
 
-                        <form id="formCourse${data[i].id_course}" class="card mt-3" action="">
+                        <form id="formCourse${data[i].id_course}" class="card mb-4" action="">
 
                             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
@@ -367,7 +367,7 @@ $(document).ready(function () {
 
         let $container = $('[containerListDiscipline]')
 
-        $container.text('').append(gifImg)
+        $container.text('')
 
         $.ajax({
             url: '/listDiscipline',
@@ -375,7 +375,7 @@ $(document).ready(function () {
             type: 'GET',
             success: data => {
 
-                $('.gif-loading').remove()
+                //$('.gif-loading').remove()
 
                 if (Object.keys(data).length > 0) {
 
@@ -398,13 +398,13 @@ $(document).ready(function () {
 
     function seekDiscipline() {
 
-        $('input[name = "seekName"]').val() == '' ? $('input[name = "seekName"]').val(' ') : ''
+        //$('input[name = "seekName"]').val() == '' ? $('input[name = "seekName"]').val(' ') : ''
 
         let formData = $('#seekDiscipline').serialize()
 
         let $container = $('tbody[containerListDiscipline]')
 
-        $container.text(' ').append(gifImg)
+        $container.text(' ')
 
         $.ajax({
             url: '/seekDiscipline',
@@ -454,7 +454,7 @@ $(document).ready(function () {
                 <form id="formModal${data[0].id_discipline}" class="col-lg-11 mx-auto mb-4" action="">
 
                 <div class="col-lg-12">
-                <div class="row modal-header">
+                <div class="form-row modal-header">
                     <div discipline class="col-lg-6 mt-2 font-weight-bold"></div>
                     <div class="col-lg-6 d-flex justify-content-end">
 
@@ -474,14 +474,22 @@ $(document).ready(function () {
                     </div>
                     <div class="form-group col-lg-2">
                         <label for="">Sigla:</label>
-                        <input class="form-control" disabled value="${data[0].acronym}" type="text" name="acronym" id="">
+                        <input class="form-control"  onkeyup="this.value = this.value.toUpperCase()" maxlength="4" disabled value="${data[0].acronym}" type="text" name="acronym" id="">
                     </div>
                     <div class="form-group col-lg-3">
                         <label for="inputState">Modalidade:</label>
                         <select disabled id="inputState" name="modality" class="form-control custom-select " required>
                         </select>
                     </div>
-                </div></form>`)
+                </div>
+
+                <div class="form-row d-flex justify-content-end modal-links-alternativos mt-3 mb-3">
+
+                <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
+
+            </div>
+                
+                </form>`)
 
 
                 $('#modalDiscipline').modal("hide")
@@ -491,8 +499,8 @@ $(document).ready(function () {
                 $(`${formModal} select[name="modality"]`).append(`<option value="${data[0].id_modality}">${data[0].discipline_modality}</option>`)
 
                 $(`${formModal} .edit-data-icon`).on('click', () => editElement(`${formModal}`))
-                $(`${formModal} .delete-data-icon`).on('click', () => [deleteElement(`${formModal}`, '/deleteDiscipline', 'Disciplina deletada')])
-                $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/updateDiscipline', 'Disciplina atualizada'), listDiscipline(), showModal(`${formModal}`)])
+                $(`${formModal} .delete-data-icon`).on('click', () => [deleteElement(`${formModal}`, '/deleteDiscipline', 'Disciplina deletada')], listDiscipline())
+                $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/updateDiscipline', 'Disciplina atualizada'), listDiscipline, showModal(`${formModal}`)])
 
                 availableElement(`modality`, '/listDisciplineModality', `${formModal}`)
 
@@ -542,21 +550,22 @@ $(document).ready(function () {
     // Collapse list
 
 
-    $('#collapseListSchoolTerm').on('click', listSchoolTerm)
-    $('#collapseListClassRoom').on('click', listClassRoom)
-    $('#collapseListCourse').on('click', listCourse)
-    $('#collapseListDiscipline').on('click', listDiscipline)
+    let elements = ['SchoolTerm', 'ClassRoom', 'Course', 'Discipline']
+
+    $.each(elements, i => $(`#collapseList${elements[i]}`).on('click', eval(`list${elements[i]}`)))
 
 
     // Collapse add
 
 
     $('#collapseAddClassRoom').on('click', availableElement('classroomNumber', '/availableClassroom'))
-    //$('input[name="seekName"]').on('keyup', seekDiscipline)
+
     $('select[name="seekModality"]').change(seekDiscipline)
 
 
     // All
+
+    $('input[name="acronym"]').on('keyup', e => e.target.value = e.target.value.toUpperCase()) 
 
     $('input[name="seekName"]').keyup(function (e) {
 

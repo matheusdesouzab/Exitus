@@ -1,4 +1,4 @@
-<div id="discipline">
+<section id="discipline">
 
     <div class="row main-container">
 
@@ -34,14 +34,14 @@
                                         <div class="form-row">
 
                                             <div class="form-group col-lg-8">
-                                                <label for="">Nome da disciplina:</label>
-                                                <input type="text" name="seekName" value="" placeholder="Nome da disciplina ou sigla" class="form-control">
+                                                <label for="seekName">Nome da disciplina:</label>
+                                                <input type="text" name="seekName" value="" id="seekName" placeholder="Nome da disciplina" class="form-control">
                                             </div>
 
                                             <div class="form-group col-lg-4">
-                                                <label for="inputState">Modalidade:</label>
-                                                <select id="inputState" name="seekModality" class="form-control custom-select" required>
-                                                    <option value="0">Todos</option>
+                                                <label for="seekModality">Modalidade:</label>
+                                                <select name="seekModality" id="seekModality" class="form-control custom-select" required>
+                                                    <option value="0">Todas</option>
                                                 </select>
                                             </div>
 
@@ -53,7 +53,7 @@
 
                                     <div class="table-responsive">
 
-                                        <table class="table table-borderless table-hover">
+                                        <table class="table table-hover table-borderless">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nome da disciplina</th>
@@ -68,22 +68,9 @@
                                     <div class="modal fade" id="modalDiscipline" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg mt-5">
                                             <div class="modal-content">
-                                                
 
                                                 <div class="modal-body">
-                                                    <div containerModal class="row">
-                                                       
-
-                                                    </div>
-
-                                                    </form>
-
-                                                    <div class="col-lg-12 modal-links-alternativos mt-2 d-flex justify-content-end mb-4">
-
-                                                        <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
-
-                                                    </div>
-
+                                                    <div containerModal class="row"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,18 +93,22 @@
                                         </div>
 
                                         <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
+                                        
                                             <div class="form-group col-lg-4">
                                                 <label for="">Nome da disciplina:</label>
                                                 <input class="form-control is-valid" value="" type="text" name="discipline" id="" required>
                                             </div>
+
                                             <div class="form-group col-lg-2">
                                                 <label for="">Sigla:</label>
-                                                <input class="form-control is-valid" onkeyup="this.value = this.value.toUpperCase()" maxlength="5" value="" type="text" name="acronym" id="" required>
+                                                <input class="form-control is-valid" maxlength="4" value="" type="text" name="acronym" id="" required>
                                             </div>
+
                                             <div class="form-group col-lg-3">
                                                 <label for="inputState">Modalidade:</label>
                                                 <select id="inputState" name="modality" class="form-control custom-select is-valid" required></select>
                                             </div>
+
                                             <div class="form-group col-lg-3">
                                                 <label for="">&nbsp;</label>
                                                 <a id="buttonAddDiscipline" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
@@ -137,4 +128,4 @@
 </div>
 
 
-</div>
+</section>

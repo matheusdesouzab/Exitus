@@ -77,12 +77,11 @@ class Discipline extends Model
 
         $this->__get('fk_id_modality') == 0 ? $operation = '<>' : $operation = '=';
 
-        $query = "select disciplina.id_disciplina as id_discipline , disciplina.nome_disciplina as discipline , modalidade_disciplina.modalidade_disciplina as discipline_modality , disciplina.sigla_disciplina as acronym from disciplina left join modalidade_disciplina on(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina) where disciplina.nome_disciplina like :discipline or disciplina.sigla_disciplina like :acronym or disciplina.fk_id_modalidade_disciplina $operation :fk_id_modality";
+        $query = "select disciplina.id_disciplina as id_discipline , disciplina.nome_disciplina as discipline , modalidade_disciplina.modalidade_disciplina as discipline_modality , disciplina.sigla_disciplina as acronym from disciplina left join modalidade_disciplina on(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina) where disciplina.nome_disciplina like :discipline and disciplina.fk_id_modalidade_disciplina $operation :fk_id_modality";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':discipline', "%" . $this->__get('discipline') . "%", \PDO::PARAM_STR);
-        $stmt->bindValue(':acronym', "%" . $this->__get('discipline') . "%", \PDO::PARAM_STR);
         $stmt->bindValue(':fk_id_modality', $this->__get('fk_id_modality'));
 
         $stmt->execute();
