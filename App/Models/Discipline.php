@@ -13,7 +13,7 @@ class Discipline extends Model
     protected $fk_id_modality;
 
 
-    public function addDiscipline()
+    public function insertDiscipline()
     {
 
         $query = "insert into disciplina (nome_disciplina,sigla_disciplina,fk_id_modalidade_disciplina) values (:discipline,:acronym,:fk_id_modality);";

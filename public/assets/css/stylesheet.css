@@ -413,9 +413,6 @@ select:disabled {
 #pagina .delete-data-icon:hover .fa-plus-circle {
   color: #ffffff;
 }
-#pagina #classRoom .delete-data-icon {
-  pointer-events: auto;
-}
 #pagina .printer-icon {
   cursor: pointer;
   color: #506177;
@@ -799,32 +796,32 @@ select:disabled {
   margin-left: 21%;
 }
 
-#gestao-turmas img {
+#class img {
   width: 50px;
 }
-#gestao-turmas .modal table td {
+#class .modal table td {
   line-height: 50px;
 }
-#gestao-turmas table td {
+#class table td {
   justify-content: center;
   line-height: 35px;
 }
-#gestao-turmas table .nota-vermelha {
+#class table .nota-vermelha {
   background-color: #DC3545;
   font-weight: 500;
   color: white;
 }
-#gestao-turmas table .nota-verde {
+#class table .nota-verde {
   background-color: #28A745;
   font-weight: 500;
   color: white;
 }
-#gestao-turmas table .nota-azul {
+#class table .nota-azul {
   background-color: #007BFF;
   font-weight: 500;
   color: white;
 }
-#gestao-turmas table .nota-dourada {
+#class table .nota-dourada {
   background-color: #d4af37;
   font-weight: 500;
   color: white;

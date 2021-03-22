@@ -1,4 +1,4 @@
-<div id="class-management">
+<div id="class">
 
     <div class="row main-container">
 

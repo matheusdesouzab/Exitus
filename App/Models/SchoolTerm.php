@@ -22,7 +22,7 @@ class SchoolTerm extends Model
         }
     }
 
-    public function addSchoolTerm()
+    public function insertSchoolTerm()
     {
         $this->endSchoolTerm();
 

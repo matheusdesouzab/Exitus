@@ -13,11 +13,7 @@
         @include icon-card($color-dark-gray, $color-red, $color-smooth-gray);
         pointer-events: none;
     }
-
-    #classRoom .delete-data-icon{
-        pointer-events:auto;
-    }
-
+    
     .printer-icon {
         @include icon-card($color-dark-gray, $color-blue, $color-smooth-gray);
     }

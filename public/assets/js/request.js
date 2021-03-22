@@ -22,6 +22,8 @@ $(document).ready(function () {
 
         let $formData = $(form).serialize()
 
+        console.log($formData)
+
         if ($(`${form} .form-control`).val() != '') {
 
             $.ajax({
@@ -96,6 +98,8 @@ $(document).ready(function () {
 
         let $formData = $(`${form}`).serialize()
 
+        console.log($formData)
+
         $.ajax({
             url: route,
             type: 'POST',
@@ -127,7 +131,7 @@ $(document).ready(function () {
         $('form .form-control').prop('disabled', true)
         $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
 
-        $('#addSchoolTerm .form-control, #addCourse .form-control, #seekDiscipline .form-control, #addDiscipline .form-control').prop('disabled', false)
+        $('#addSchoolTerm .form-control, #addCourse .form-control, #seekDiscipline .form-control, #addDiscipline .form-control, #addClassRoom .form-control').prop('disabled', false)
 
         $(`${form} .form-control`).prop('disabled', false)
         $(`${form} .update-data-icon, ${form} .delete-data-icon`).css("pointer-events", "auto")
@@ -254,31 +258,48 @@ $(document).ready(function () {
 
                         $container.append(`
 
-                        <form id="formClassRoom${data[i].id_room}" class="mt-3 card" action="">
-                      
-                               <input type="hidden" value="${data[i].id_room}" name="idClassRoom">
+                        <form id="formClassRoom${data[i].id_room}" class="card mb-4" action="">
 
-                                <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
+                            <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
-                                    <div class="col-lg-8 font-weight-bold">Sala de aula número: ${data[i].classroom_number}</div>
+                            <input type="hidden" name="idClassRoom" value="${data[i].id_room}">
 
-                                    <div class="col-lg-4 d-flex justify-content-end">
+                                <div class="col-lg-8 font-weight-bold">
+                                Sala de aula número  ${data[i].classroom_number}</div>
 
-                                        <span class="mr-2 delete-data-icon d-flex align-items-center"><i class="fas fa-ban"></i></span>
+                                    <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                                    </div>
+                                        <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                        <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                        <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
-                                </div>
+                                        </div>
 
-                            </form>
+                                        </div>
+
+                                        <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
+                                            
+                                            <div class="form-group col-lg-12">
+                                                <label for="">Capacidade de alunos:</label>
+                                                <input class="form-control" disabled value="${data[i].student_capacity}" type="text" name="studentCapacity" id="">
+                                            </div>
+
+
+                                        </div>
+
+                                    </form>                     
                         
                         `)
 
+                        $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
+                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/updateClassRoom', 'Sala de aula adicionada'), listClassRoom()])
                         $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/deleteClassRoom', 'Sala de aula deletada'), listClassRoom()])
 
                     })
 
                 } else {
+
+                    $('.gif-loading').remove()
                     $container.append('<h4 class="mt-3">Nenhuma sala adicionada</h4>')
                 }
             },
@@ -519,20 +540,20 @@ $(document).ready(function () {
 
 
     $('#buttonAddSchoolTerm')
-        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/addSchoolTerm', 'Período letivo adicionado', false),
+        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/insertSchoolTerm', 'Período letivo adicionado', false),
             availableElement('schoolYear', '/availableSchoolTerm')
         ])
 
     $('#buttonAddClassRoom')
-        .on('click', () => [addElement('#addClassRoom', '/addClassRoom', 'Sala de aula adicionada', false),
+        .on('click', () => [addElement('#addClassRoom', '/insertClassRoom', 'Sala de aula adicionada'),
             availableElement('classroomNumber', '/availableClassroom')
         ])
 
     $('#buttonAddCourse')
-        .on('click', () => addElement('#addCourse', '/addCourse', 'Curso adicionado'))
+        .on('click', () => addElement('#addCourse', '/insertCourse', 'Curso adicionado'))
 
     $('#buttonAddDiscipline')
-        .on('click', () => addElement('#addDiscipline', '/addDiscipline', 'Disciplina adicionada'))
+        .on('click', () => addElement('#addDiscipline', '/insertDiscipline', 'Disciplina adicionada'))
 
 
     // Load Element
@@ -558,7 +579,7 @@ $(document).ready(function () {
     // Collapse add
 
 
-    $('#collapseAddClassRoom').on('click', availableElement('classroomNumber', '/availableClassroom'))
+    $('#collapseAddClassRoom').on('click', () => availableElement('classroomNumber', '/availableClassroom'))
 
     $('select[name="seekModality"]').change(seekDiscipline)
 

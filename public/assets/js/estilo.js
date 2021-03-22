@@ -77,7 +77,7 @@ $("#bars").on("click", sideState)
 
 $('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
 
-$("#modal-student-profile , #class-profile-modal").modal('show')
+//$("#modal-student-profile , #class-profile-modal").modal('show')
 
 
 //Formatação de campos com Jquey Mask 

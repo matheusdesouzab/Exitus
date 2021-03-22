@@ -11,7 +11,7 @@ class Course extends Model
     protected $acronym;
     
 
-    public function addCourse()
+    public function insertCourse()
     {
 
         $query = 'insert into curso(nome_curso,sigla) values (:course,:acronym);';

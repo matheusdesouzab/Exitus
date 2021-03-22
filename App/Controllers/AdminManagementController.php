@@ -24,7 +24,7 @@ class AdminManagementController extends Action
     }
 
 
-    public function addSchoolTerm()
+    public function insertSchoolTerm()
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
@@ -36,7 +36,7 @@ class AdminManagementController extends Action
             'fk_id_school_year' => $_POST['schoolYear'],
         ];
 
-        $SchoolTerm->setAll($data)->addSchoolTerm();
+        $SchoolTerm->setAll($data)->insertSchoolTerm();
     }
 
 
@@ -104,11 +104,19 @@ class AdminManagementController extends Action
     }
 
 
-    public function addClassRoom()
+    public function insertClassRoom()
     {
         $ClassRoom = Container::getModel('ClassRoom');
-        $ClassRoom->fk_id_classroom_number = $_POST['classroomNumber'];
-        $ClassRoom->addClassRoom();
+        $data = ['studentCapacity' => $_POST['studentCapacity'] , 'fk_id_classroom_number' => $_POST['classroomNumber']]; 
+        $ClassRoom->setAll($data)->insertClassRoom();
+    }
+
+
+    public function updateClassRoom()
+    {
+        $ClassRoom = Container::getModel('ClassRoom');
+        $data = ['studentCapacity' => $_POST['studentCapacity'] , 'idClassRoom' => $_POST['idClassRoom']]; 
+        $ClassRoom->setAll($data)->updateClassRoom();
     }
 
 
@@ -132,7 +140,7 @@ class AdminManagementController extends Action
 
         $ClassRoom = Container::getModel('ClassRoom');
         $ClassRoom->idClassRoom = $_POST['idClassRoom'];
-        $ClassRoom->deleteClassroom();
+        $ClassRoom->deleteClassRoom();
     }
 
 
@@ -145,12 +153,12 @@ class AdminManagementController extends Action
     }
 
 
-    public function addCourse()
+    public function insertCourse()
     {
 
         $Course = Container::getModel('Course');
         $data = ['course' => $_POST['course'], 'acronym' => $_POST['acronym']];
-        $Course->setAll($data)->addCourse();
+        $Course->setAll($data)->insertCourse();
     }
 
 
@@ -188,11 +196,11 @@ class AdminManagementController extends Action
     }
 
 
-    public function addDiscipline()
+    public function insertDiscipline()
     {
         $Discipline = Container::getModel('Discipline');
         $data = ['discipline' => $_POST['discipline'], 'acronym' => $_POST['acronym'], 'fk_id_modality' => $_POST['modality']];
-        $Discipline->setAll($data)->addDiscipline();
+        $Discipline->setAll($data)->insertDiscipline();
     }
 
 
