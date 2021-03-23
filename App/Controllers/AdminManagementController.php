@@ -107,7 +107,7 @@ class AdminManagementController extends Action
     public function insertClassRoom()
     {
         $ClassRoom = Container::getModel('ClassRoom');
-        $data = ['studentCapacity' => $_POST['studentCapacity'] , 'fk_id_classroom_number' => $_POST['classroomNumber']]; 
+        $data = ['studentCapacity' => $_POST['studentCapacity'], 'fk_id_classroom_number' => $_POST['classroomNumber']];
         $ClassRoom->setAll($data)->insertClassRoom();
     }
 
@@ -115,7 +115,7 @@ class AdminManagementController extends Action
     public function updateClassRoom()
     {
         $ClassRoom = Container::getModel('ClassRoom');
-        $data = ['studentCapacity' => $_POST['studentCapacity'] , 'idClassRoom' => $_POST['idClassRoom']]; 
+        $data = ['studentCapacity' => $_POST['studentCapacity'], 'idClassRoom' => $_POST['idClassRoom']];
         $ClassRoom->setAll($data)->updateClassRoom();
     }
 
@@ -229,8 +229,6 @@ class AdminManagementController extends Action
             'fk_id_modality' => $_POST['modality']
         ];
 
-        print_r($_POST);
-
         $Discipline->setAll($data)->updateDiscipline();
     }
 
@@ -266,21 +264,24 @@ class AdminManagementController extends Action
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
+    // Class
 
 
     public function managementClass()
     {
         $this->render('management_class', 'AdminLayout');
+    }
+
+
+    public function insertClass()
+    {
+        $Class = Container::getModel('Class');
+
+        $data = [
+            'fk_id_classroom' => $_POST['fk_id_classroom'],
+            'fk_id_school_term' => $_POST['fk_id_school_term'],
+            'fk_id_course' => $_POST['fk_id_course'],
+            'fk_id_shift' => $_POST['fk_id_shift'],
+        ];
     }
 }

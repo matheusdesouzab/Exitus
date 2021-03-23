@@ -10,12 +10,12 @@ class ClassRoom extends Model
     protected $idClassRoom;
     protected $studentCapacity;
     protected $fk_id_classroom_number;
-    
+
 
     public function insertClassRoom()
     {
 
-        $query = 'insert into sala(fk_id_numero_sala,capacidade) values (:fk_id_classroom_number,:studentCapacity);';
+        $query = 'INSERT INTO sala(fk_id_numero_sala,capacidade) VALUES (:fk_id_classroom_number,:studentCapacity);';
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':fk_id_classroom_number', $this->__get('fk_id_classroom_number'));
         $stmt->bindValue(':studentCapacity', $this->__get('studentCapacity'));
@@ -26,14 +26,15 @@ class ClassRoom extends Model
     public function listClassRoom()
     {
 
-        $query = 'select sala.id_sala as id_room , numero_sala_aula.numero_sala_aula as classroom_number , sala.capacidade as student_capacity from sala left join numero_sala_aula on(sala.fk_id_numero_sala = numero_sala_aula);';
-
-        return $this->speedingUp($query);
+        return $this->speedingUp(
+            "SELECT sala.id_sala AS id_room , numero_sala_aula.numero_sala_aula AS classroom_number , sala.capacidade AS student_capacity FROM sala LEFT JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula)"
+        );
     }
 
-    public function updateClassRoom(){
+    public function updateClassRoom()
+    {
 
-        $query = 'update sala set capacidade = :studentCapacity where id_sala = :idClassRoom';
+        $query = 'UPDATE sala SET capacidade = :studentCapacity WHERE id_sala = :idClassRoom';
 
         $stmt = $this->db->prepare($query);
 
@@ -41,13 +42,12 @@ class ClassRoom extends Model
         $stmt->bindValue(':idClassRoom', $this->__get('idClassRoom'));
 
         $stmt->execute();
-
     }
 
     public function deleteClassRoom()
     {
 
-        $query = 'delete from sala where sala.id_sala = :idClassRoom';
+        $query = 'DELETE FROM sala WHERE sala.id_sala = :idClassRoom';
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':idClassRoom', $this->__get('idClassRoom'));
 
@@ -58,8 +58,8 @@ class ClassRoom extends Model
     public function availableClassroom()
     {
 
-        $query = 'select numero_sala_aula.id_numero_sala_aula as option_value , numero_sala_aula.numero_sala_aula as option_text from numero_sala_aula left join sala on(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) where sala.fk_id_numero_sala is null; ';
-
-        return $this->speedingUp($query);
+        return $this->speedingUp(
+            "SELECT numero_sala_aula.id_numero_sala_aula AS option_value , numero_sala_aula.numero_sala_aula AS option_text FROM numero_sala_aula LEFT JOIN sala ON(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) WHERE sala.fk_id_numero_sala IS NULL;"
+        );
     }
 }

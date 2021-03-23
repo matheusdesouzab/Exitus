@@ -16,7 +16,7 @@ class Discipline extends Model
     public function insertDiscipline()
     {
 
-        $query = "insert into disciplina (nome_disciplina,sigla_disciplina,fk_id_modalidade_disciplina) values (:discipline,:acronym,:fk_id_modality);";
+        $query = "INSERT INTO disciplina (nome_disciplina,sigla_disciplina,fk_id_modalidade_disciplina) VALUES (:discipline,:acronym,:fk_id_modality);";
 
         $stmt = $this->db->prepare($query);
 
@@ -30,15 +30,15 @@ class Discipline extends Model
     public function listDiscipline()
     {
 
-        $query = 'select disciplina.id_disciplina as id_discipline  , disciplina.nome_disciplina as discipline , modalidade_disciplina.modalidade_disciplina as discipline_modality , disciplina.sigla_disciplina as acronym  from disciplina left join modalidade_disciplina on(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina);';
-
-        return $this->speedingUp($query);
+        return $this->speedingUp(
+            "SELECT disciplina.id_disciplina AS id_discipline , disciplina.nome_disciplina AS discipline , modalidade_disciplina.modalidade_disciplina AS discipline_modality , disciplina.sigla_disciplina AS acronym FROM disciplina LEFT JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina);"
+        );
     }
 
     public function disciplineData()
     {
 
-        $query = 'select disciplina.id_disciplina as id_discipline  , disciplina.nome_disciplina as discipline , modalidade_disciplina.modalidade_disciplina as discipline_modality , disciplina.fk_id_modalidade_disciplina as id_modality , disciplina.sigla_disciplina as acronym   from disciplina left join modalidade_disciplina on(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina) where disciplina.id_disciplina = :idDiscipline;';
+        $query = 'SELECT disciplina.id_disciplina AS id_discipline  , disciplina.nome_disciplina AS discipline , modalidade_disciplina.modalidade_disciplina AS discipline_modality , disciplina.fk_id_modalidade_disciplina AS id_modality , disciplina.sigla_disciplina AS acronym  FROM disciplina LEFT JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina) WHERE disciplina.id_disciplina = :idDiscipline;';
 
         $stmt = $this->db->prepare($query);
 
@@ -52,15 +52,15 @@ class Discipline extends Model
     public function listDisciplineModality()
     {
 
-        $query = "select modalidade_disciplina.id_modalidade_disciplina as option_value , modalidade_disciplina.modalidade_disciplina as option_text from modalidade_disciplina;";
-
-        return $this->speedingUp($query);
+        return $this->speedingUp(
+            "SELECT modalidade_disciplina.id_modalidade_disciplina AS option_value , modalidade_disciplina.modalidade_disciplina AS option_text FROM modalidade_disciplina;"
+        );
     }
 
     public function updateDiscipline()
     {
 
-        $query = 'update disciplina set nome_disciplina = :discipline , sigla_disciplina = :acronym , fk_id_modalidade_disciplina = :fk_id_modality where disciplina.id_disciplina = :idDiscipline;';
+        $query = 'UPDATE disciplina SET nome_disciplina = :discipline , sigla_disciplina = :acronym , fk_id_modalidade_disciplina = :fk_id_modality WHERE disciplina.id_disciplina = :idDiscipline;';
 
         $stmt = $this->db->prepare($query);
 
@@ -77,7 +77,7 @@ class Discipline extends Model
 
         $this->__get('fk_id_modality') == 0 ? $operation = '<>' : $operation = '=';
 
-        $query = "select disciplina.id_disciplina as id_discipline , disciplina.nome_disciplina as discipline , modalidade_disciplina.modalidade_disciplina as discipline_modality , disciplina.sigla_disciplina as acronym from disciplina left join modalidade_disciplina on(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina) where disciplina.nome_disciplina like :discipline and disciplina.fk_id_modalidade_disciplina $operation :fk_id_modality";
+        $query = "SELECT disciplina.id_disciplina AS id_discipline , disciplina.nome_disciplina AS discipline , modalidade_disciplina.modalidade_disciplina AS discipline_modality , disciplina.sigla_disciplina AS acronym FROM disciplina LEFT JOIN modalidade_disciplina on(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina) WHERE disciplina.nome_disciplina LIKE :discipline AND disciplina.fk_id_modalidade_disciplina $operation :fk_id_modality";
 
         $stmt = $this->db->prepare($query);
 
@@ -92,7 +92,7 @@ class Discipline extends Model
     public function deleteDiscipline()
     {
 
-        $query = 'delete from disciplina where disciplina.id_disciplina = :idDiscipline';
+        $query = 'DELETE FROM disciplina WHERE disciplina.id_disciplina = :idDiscipline';
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':idDiscipline', $this->__get('idDiscipline'));
 

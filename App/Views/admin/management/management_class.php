@@ -399,7 +399,7 @@
 
                                                                             </div>
 
-                                                                            <div class="col-lg-12 collapse accordion-container overflow-auto" id="class-profile-discipline"  data-parent="#class-profile-accordion">
+                                                                            <div class="col-lg-12 collapse accordion-container overflow-auto" id="class-profile-discipline" data-parent="#class-profile-accordion">
 
                                                                                 <div class="col-lg-12  accordion" id="class-discipline-accordion">
 
@@ -436,7 +436,7 @@
                                                                                                                     <tr>
                                                                                                                         <th scope="col">Sigla Disciplina</th>
                                                                                                                         <th scope="col">Modalidade da disciplina</th>
-                                                                                                                        
+
                                                                                                                         <th scope="col">Professor</th>
                                                                                                                     </tr>
                                                                                                                 </thead>
@@ -444,49 +444,49 @@
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
                                                                                                                         <td>Ensino Técnico</td>
-                                                                                                                        
+
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
                                                                                                                         <td>Ensino Técnico</td>
-                                                                                                                        
+
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
                                                                                                                         <td>Ensino Técnico</td>
-                                                                                                                        
+
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
                                                                                                                         <td>Ensino Técnico</td>
-                                                                                                                        
+
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
                                                                                                                         <td>Ensino Técnico</td>
-                                                                                                                        
+
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
                                                                                                                         <td>Ensino Técnico</td>
-                                                                                                                        
+
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
                                                                                                                         <td>Ensino Técnico</td>
-                                                                                                                        
+
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
                                                                                                                     <tr>
                                                                                                                         <td>LTP</td>
                                                                                                                         <td>Ensino Técnico</td>
-                                                                                                                        
+
                                                                                                                         <td>Jamilton Damasceno</td>
                                                                                                                     </tr>
 
@@ -571,7 +571,7 @@
                                                                                                 <h5>Avaliações da turma</h5>
                                                                                             </div>
 
-                                                                                          
+
 
 
                                                                                             <div class="col-lg-6 col-12 collapse-options-container">
@@ -783,48 +783,64 @@
 
                             <div class="row">
 
-                                <div class="col-lg-12 mx-auto">
+                                <div class="col-lg-12 card">
 
-                                    <form class="card" action="">
+                                    <form class="col-lg-11 mx-auto mt-3 was-validation" id="addClass" action="">
 
                                         <div class="row mt-2">
-                                            <div class="font-weight-bold col-lg-12">Adicionar nova disciplina:</div>
+                                            <div class="font-weight-bold col-lg-12">Adicionar nova turma:</div>
                                         </div>
 
                                         <div class="form-row mt-4 mb-2">
-                                            <div class="form-group col-lg-4">
-                                                <label for="">Nome da disciplina:</label>
-                                                <input class="form-control" value="" type="text" name="" id="">
-                                            </div>
+
                                             <div class="form-group col-lg-3">
-                                                <label for="">Sigla:</label>
-                                                <input class="form-control" value="" type="text" name="" id="">
-                                            </div>
-                                            <div class="form-group col-lg-3">
-                                                <label for="inputState">Modalidade:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Técnico</option>
-                                                    <option>Ensino Médio</option>
-                                                    <option>Técnico</option>
+                                                <label for="series">Série:</label>
+                                                <select id="series" name="series" class="form-control custom-select is-valid" required>
+                                                    <option value="">1 ano</option>
                                                 </select>
                                             </div>
 
-
-
                                             <div class="form-group col-lg-2">
-                                                <label for="inputState">UE referente:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>1 e 2</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
+                                                <label for="ballot">Cédula:</label>
+                                                <select id="ballot" name="ballot" class="form-control custom-select is-valid" required>
+                                                    <option value="">A</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-4">
+                                                <label for="course">Curso:</label>
+                                                <select id="course" name="course" class="form-control custom-select is-valid" required>
+                                                    <option value="">Informática</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="shift">Turno:</label>
+                                                <select id="shift" name="shift" class="form-control custom-select is-valid" required>
+                                                    <option value="">Matutino</option>
                                                 </select>
                                             </div>
 
                                         </div>
 
-                                        <div class="row d-flex justify-content-end">
-                                            <div class="form-group col-lg-4">
-                                                <a class="btn btn-success w-100 text-center" href="#">Adicionar nova disciplina</a>
+                                        <div class="form-row">
+                                            <div class="form-group col-lg-3">
+                                                <label for="schoolTerm">Ano letivo:</label>
+                                                <select id="schoolTerm" name="schoolTerm" class="form-control custom-select is-valid" required>
+                                                    <option value="">2021</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="classRoom">Sala:</label>
+                                                <select id="classRoom" name="classRoom" class="form-control custom-select is-valid" required>
+                                                    <option value="">12</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group ml-auto col-lg-4">
+                                                <label for="">&nbsp;</label>
+                                                <a class="btn btn-success w-100 text-center" href="#">Adicionar nova turma</a>
                                             </div>
                                         </div>
 

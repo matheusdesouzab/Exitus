@@ -9,12 +9,12 @@ class Course extends Model
     protected $idCourse;
     protected $course;
     protected $acronym;
-    
+
 
     public function insertCourse()
     {
 
-        $query = 'insert into curso(nome_curso,sigla) values (:course,:acronym);';
+        $query = 'INSERT INTO curso(nome_curso,sigla) VALUES (:course,:acronym);';
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':course', $this->__get('course'));
         $stmt->bindValue(':acronym', $this->__get('acronym'));
@@ -25,15 +25,15 @@ class Course extends Model
     public function listCourse()
     {
 
-        $query = 'select curso.id_curso as id_course , curso.nome_curso as course , curso.sigla as acronym from curso;';
-
-        return $this->speedingUp($query);
+        return $this->speedingUp(
+            "SELECT curso.id_curso AS id_course , curso.nome_curso AS course , curso.sigla AS acronym FROM curso;"
+        );
     }
 
     public function deleteCourse()
     {
 
-        $query = 'delete from curso where curso.id_curso = :idCourse';
+        $query = 'DELETE FROM curso WHERE curso.id_curso = :idCourse';
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':idCourse', $this->__get('idCourse'));
 
@@ -43,7 +43,7 @@ class Course extends Model
     public function updateCourse()
     {
 
-        $query = 'update curso set nome_curso = :course , sigla = :acronym where curso.id_curso = :idCourse;';
+        $query = 'UPDATE curso SET nome_curso = :course , sigla = :acronym WHERE curso.id_curso = :idCourse;';
 
         $stmt = $this->db->prepare($query);
 
@@ -52,5 +52,13 @@ class Course extends Model
         $stmt->bindValue(':idCourse', $this->__get('idCourse'));
 
         $stmt->execute();
+    }
+
+    public function availableCourse()
+    {
+
+        return $this->speedingUp(
+            "SELECT curso.id_curso AS option_value , curso.nome_curso AS option_text FROM curso"
+        );
     }
 }

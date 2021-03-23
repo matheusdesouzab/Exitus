@@ -39,45 +39,13 @@ abstract class Model
 		}
 	}
 
-	protected function get($method)
-	{
-		$property = lcfirst(substr($method, 3));
-		if (method_exists($this, $method)) {
-			return call_user_func_array(array($this, $method), array());
-		} else if (property_exists($this, $property)) {
-			return $this->{$property};
-		} else {
-			throw new \InvalidArgumentException("Property {$property} not exists!");
-		}
-	}
-
 	public function setAll(array $data)
 	{
 		foreach ($data as $k => $v)
 			$this->set($k, $v);
 		return $this;
 	}
-
-	public function toArray()
-	{
-		$array = [];
-
-		foreach ($this as $k => &$v)
-			$array[$k] = $v;
-
-		return $array;
-	}
-
-	/* public function bindValue($array,$stmt)
-	{
-
-		foreach ($array as $key => $value) {
-
-			$stmt->bindValue(":$value[$key]", $this->__get("$value[$key]"));
-		}
-
-		$stmt->execute();
-	} */
+	
 
 	public function speedingUp($query)
 	{

@@ -520,8 +520,10 @@ $(document).ready(function () {
                 $(`${formModal} select[name="modality"]`).append(`<option value="${data[0].id_modality}">${data[0].discipline_modality}</option>`)
 
                 $(`${formModal} .edit-data-icon`).on('click', () => editElement(`${formModal}`))
-                $(`${formModal} .delete-data-icon`).on('click', () => [deleteElement(`${formModal}`, '/deleteDiscipline', 'Disciplina deletada')], listDiscipline())
-                $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/updateDiscipline', 'Disciplina atualizada'), listDiscipline, showModal(`${formModal}`)])
+
+                $(`${formModal} .delete-data-icon`).on('click', () => [deleteElement(`${formModal}`, '/deleteDiscipline', 'Disciplina deletada'), listDiscipline(), showModal(`${formModal}`)])
+
+                $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/updateDiscipline', 'Disciplina atualizada'), listDiscipline(), showModal(`${formModal}`)])
 
                 availableElement(`modality`, '/listDisciplineModality', `${formModal}`)
 

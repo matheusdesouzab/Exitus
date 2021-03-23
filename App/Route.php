@@ -172,7 +172,9 @@ class Route extends Bootstrap
 			'action' => 'deleteCourse'
 		);
 
+
 		// Discipline ( Disciplina )
+		
 
 		$routes['admDisciplinaGestao'] = array(
 			'route' => '/admGestaoDisciplinas',
@@ -222,10 +224,12 @@ class Route extends Bootstrap
 			'action' => 'disciplineData'
 		);
 
+
 		// Class ( Turma )
 
+		
 		$routes['admGestaoTurma'] = array(
-			'route' => '/admGestaoTurma',
+			'route' => '/admGestaoTurmas',
 			'controller' => 'AdminManagementController',
 			'action' => 'ManagementClass'
 		);
@@ -260,25 +264,41 @@ class Route extends Bootstrap
 			'action' => 'listClass'
 		);
 
+		$routes['admAvailableShift'] = array(
+			'route' => '/availableShift',
+			'controller' => 'AdminManagementController',
+			'action' => 'availableShift'
+		);
 
+		$routes['admAvailableBallot'] = array(
+			'route' => '/availableBallot',
+			'controller' => 'AdminManagementController',
+			'action' => 'availableBallot'
+		);
 
+		$routes['admAvailableSeries'] = array(
+			'route' => '/availableSeries',
+			'controller' => 'AdminManagementController',
+			'action' => 'availableSeries'
+		);
 
+		$routes['admActiveSchoolTerm'] = array(
+			'route' => '/activeSchoolTerm',
+			'controller' => 'AdminManagementController',
+			'action' => 'activeSchoolTerm'
+		);
 
+		$routes['admAvailableCourse'] = array(
+			'route' => '/availableCourse',
+			'controller' => 'AdminManagementController',
+			'action' => 'availableCourse'
+		);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		$routes['admAvailableClassRoom'] = array(
+			'route' => '/availableClassRoom',
+			'controller' => 'AdminManagementController',
+			'action' => 'availableClassRoom'
+		);
 
 
 
