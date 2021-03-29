@@ -282,22 +282,28 @@ class Route extends Bootstrap
 			'action' => 'availableSeries'
 		);
 
-		$routes['admActiveSchoolTerm'] = array(
-			'route' => '/activeSchoolTerm',
-			'controller' => 'AdminManagementController',
-			'action' => 'activeSchoolTerm'
-		);
-
 		$routes['admAvailableCourse'] = array(
 			'route' => '/availableCourse',
 			'controller' => 'AdminManagementController',
 			'action' => 'availableCourse'
 		);
 
-		$routes['admAvailableClassRoom'] = array(
-			'route' => '/availableClassRoom',
+		$routes['admActiveSchoolTerm'] = array(
+			'route' => '/activeSchoolTerm',
 			'controller' => 'AdminManagementController',
-			'action' => 'availableClassRoom'
+			'action' => 'activeSchoolTerm'
+		);
+
+		$routes['admActiveClassRoom'] = array(
+			'route' => '/activeClassRoom',
+			'controller' => 'AdminManagementController',
+			'action' => 'activeClassRoom'
+		);
+
+		$routes['admCheckClass'] = array(
+			'route' => '/checkClass',
+			'controller' => 'AdminManagementController',
+			'action' => 'checkClass'
 		);
 
 
@@ -306,30 +312,6 @@ class Route extends Bootstrap
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-		$routes['index'] = array(
-			'route' => '/',
-			'controller' => 'IndexController',
-			'action' => 'index'
-		);
-
-		$routes['autenticar'] = array(
-			'route' => '/autenticar',
-			'controller' => 'AuthController',
-			'action' => 'autenticar'
-		);
 
 
 		$this->setRoutes($routes);

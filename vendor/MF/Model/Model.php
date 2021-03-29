@@ -26,6 +26,7 @@ abstract class Model
 	{
 		return $this->get($method);
 	}
+	
 
 	protected function set($property, $value)
 	{
@@ -38,6 +39,7 @@ abstract class Model
 			throw new \InvalidArgumentException("Property {$property} not exists!");
 		}
 	}
+
 
 	public function setAll(array $data)
 	{

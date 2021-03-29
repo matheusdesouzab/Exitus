@@ -101,12 +101,12 @@
 
                                             <div class="form-group col-lg-2">
                                                 <label for="">Sigla:</label>
-                                                <input class="form-control is-valid" maxlength="4" value="" type="text" name="acronym" id="" required>
+                                                <input class="form-control is-valid" maxlength="10" value="" type="text" name="acronym" id="" required>
                                             </div>
 
                                             <div class="form-group col-lg-3">
                                                 <label for="inputState">Modalidade:</label>
-                                                <select id="inputState" name="modality" class="form-control custom-select is-valid" required></select>
+                                                <select id="inputState" name="modalityAdd" class="form-control custom-select is-valid" required></select>
                                             </div>
 
                                             <div class="form-group col-lg-3">

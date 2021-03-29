@@ -1,9 +1,7 @@
 $(document).ready(function () {
 
-
     const gifImg = ('<div class="gif-loading d-flex justify-content-center mt-5 col-lg-12"><img class="" src="assets/img/image.gif"></div>')
     let timeout = null;
-
 
     function showToast(description, background) {
 
@@ -39,7 +37,7 @@ $(document).ready(function () {
 
                 },
 
-                error: error => showToast('Houve um erro na requisição', 'bg-info')
+                error: error => console.log(error)
 
             })
 
@@ -71,23 +69,27 @@ $(document).ready(function () {
     }
 
 
-    function availableElement(nameSelect, route, form = 'form') {
+    function availableElement(dataMatrix) {
 
-        let $selectSituation = $(`${form} select[name="${nameSelect}"]`)
+        $.each(dataMatrix, i => {
 
-        if ((nameSelect == 'classroomNumber' || nameSelect == 'schoolYear')) $selectSituation.empty()
+            let $selectSituation = $(`form select[name="${dataMatrix[i][0]}"]`)
 
-        $.ajax({
-            url: route,
-            dataType: 'json',
-            type: 'GET',
-            success: data => {
+            if ((dataMatrix[i][0] == 'classroomNumber' || dataMatrix[i][0] == 'schoolYear' || dataMatrix[i][0] == 'modalityAdd')) $selectSituation.empty()
 
-                $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
+            $.ajax({
+                url: dataMatrix[i][1],
+                dataType: 'json',
+                type: 'GET',
+                success: data => {
 
-            },
+                    $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
 
-            error: erro => showToast('Houve um erro nas requisições', 'bg-info')
+                },
+
+                error: erro => console.log(erro)
+
+            })
 
         })
 
@@ -224,12 +226,15 @@ $(document).ready(function () {
 
                 }
 
-                availableElement('schoolYear', '/availableSchoolTerm')
-                availableElement('schoolTermSituation', '/listSchoolTermSituation')
+
+                availableElement([
+                    ['schoolYear', '/availableSchoolTerm'],
+                    ['schoolTermSituation', '/listSchoolTermSituation']
+                ])
 
             },
 
-            error: error => container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
+            error: error => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
 
         })
 
@@ -448,7 +453,7 @@ $(document).ready(function () {
                 }
 
             },
-            
+
             error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
         })
     }
@@ -525,7 +530,9 @@ $(document).ready(function () {
 
                 $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/updateDiscipline', 'Disciplina atualizada'), listDiscipline(), showModal(`${formModal}`)])
 
-                availableElement(`modality`, '/listDisciplineModality', `${formModal}`)
+                availableElement([
+                    [`modality`, '/listDisciplineModality']
+                ])
 
                 $('#modalDiscipline').modal("show")
 
@@ -538,36 +545,87 @@ $(document).ready(function () {
     }
 
 
-    // Add Element
+    function checkClass() {
 
+        let dados = $('#addClass').serialize()
+
+        $.ajax({
+            url: '/checkClass',
+            data: dados,
+            type: 'GET',
+            success: data => {
+
+                let situation = data.replace(/[^\d]+/g, '')
+
+                situation == 00 ? $('#buttonAddClass').removeClass('disabled') : $('#buttonAddClass').addClass('disabled')
+
+            },
+            error: erro => console.log(erro)
+        })
+    }
+
+    $('#addClass .form-control').change(checkClass)
+   
+
+    $('#checkClass').on('click', () => checkClass())
 
     $('#buttonAddSchoolTerm')
         .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/insertSchoolTerm', 'Período letivo adicionado', false),
-            availableElement('schoolYear', '/availableSchoolTerm')
+            availableElement([
+                ['schoolYear', '/availableSchoolTerm']
+            ])
         ])
+
 
     $('#buttonAddClassRoom')
         .on('click', () => [addElement('#addClassRoom', '/insertClassRoom', 'Sala de aula adicionada'),
-            availableElement('classroomNumber', '/availableClassroom')
+            availableElement([
+                ['classroomNumber', '/availableClassroom']
+            ])
         ])
+
 
     $('#buttonAddCourse')
         .on('click', () => addElement('#addCourse', '/insertCourse', 'Curso adicionado'))
 
+
     $('#buttonAddDiscipline')
         .on('click', () => addElement('#addDiscipline', '/insertDiscipline', 'Disciplina adicionada'))
 
+    $('#buttonAddClass')
+        .on('click', () => addElement('#addClass', '/insertClass', 'Turma adicionada'))
 
     // Load Element
 
 
-    $('#schoolTerm').on('load', [listSchoolTerm(), availableElement('schoolTermSituationAdd', '/listSchoolTermSituation')])
+    $('#schoolTerm').on('load',
+        [listSchoolTerm(), availableElement([
+            ['schoolYear', '/availableSchoolTerm'],
+            ['schoolTermSituationAdd', '/listSchoolTermSituation']
+        ])]
+    )
+
+
+    $('#discipline').on('load',
+        [listDiscipline(), availableElement([
+            ['modalityAdd', '/listDisciplineModality'],
+            ['seekModality', '/listDisciplineModality']
+        ])])
+
+
+    $('#class').on('load', availableElement([
+        ['shift', '/availableShift'],
+        ['ballot', '/availableBallot'],
+        ['series', '/availableSeries'],
+        ['course', '/availableCourse'],
+        ['classRoom', '/activeClassRoom'],
+        ['schoolTerm', '/activeSchoolTerm']
+    ]))
+
 
     $('#classRoom').on('load', listClassRoom())
 
     $('#course').on('load', listCourse())
-
-    $('#discipline').on('load', [listDiscipline(), availableElement('modality', '/listDisciplineModality'), availableElement('seekModality', '/listDisciplineModality')])
 
 
     // Collapse list
@@ -581,14 +639,17 @@ $(document).ready(function () {
     // Collapse add
 
 
-    $('#collapseAddClassRoom').on('click', () => availableElement('classroomNumber', '/availableClassroom'))
+    $('#collapseAddClassRoom').on('click', () => availableElement([
+        ['classroomNumber', '/availableClassroom']
+    ]))
+
 
     $('select[name="seekModality"]').change(seekDiscipline)
 
 
     // All
 
-    $('input[name="acronym"]').on('keyup', e => e.target.value = e.target.value.toUpperCase()) 
+    $('input[name="acronym"]').on('keyup', e => e.target.value = e.target.value.toUpperCase())
 
     $('input[name="seekName"]').keyup(function (e) {
 
@@ -600,9 +661,7 @@ $(document).ready(function () {
 
     $(document).on('click', '#discipline tr', function () {
         showModal(this.id)
-    });
-
-
+    })
 
 
 

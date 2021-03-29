@@ -785,62 +785,56 @@
 
                                 <div class="col-lg-12 card">
 
-                                    <form class="col-lg-11 mx-auto mt-3 was-validation" id="addClass" action="">
+                                    <form class="col-lg-11 mx-auto mt-3" id="addClass" action="">
 
-                                        <div class="row mt-2">
-                                            <div class="font-weight-bold col-lg-12">Adicionar nova turma:</div>
+                                        <div class="form-row mt-2 d-flex justify-content-between">
+                                            <div class="font-weight-bold col-11">Adicionar nova turma:</div>
                                         </div>
 
                                         <div class="form-row mt-4 mb-2">
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-lg-2">
                                                 <label for="series">Série:</label>
-                                                <select id="series" name="series" class="form-control custom-select is-valid" required>
-                                                    <option value="">1 ano</option>
+                                                <select id="series" name="series" class="form-control custom-select">
                                                 </select>
                                             </div>
 
                                             <div class="form-group col-lg-2">
                                                 <label for="ballot">Cédula:</label>
-                                                <select id="ballot" name="ballot" class="form-control custom-select is-valid" required>
-                                                    <option value="">A</option>
+                                                <select id="ballot" name="ballot" class="form-control custom-select">
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-lg-4">
+                                            <div class="form-group col-lg-5">
                                                 <label for="course">Curso:</label>
-                                                <select id="course" name="course" class="form-control custom-select is-valid" required>
-                                                    <option value="">Informática</option>
+                                                <select id="course" name="course" class="form-control custom-select">
                                                 </select>
                                             </div>
 
                                             <div class="form-group col-lg-3">
                                                 <label for="shift">Turno:</label>
-                                                <select id="shift" name="shift" class="form-control custom-select is-valid" required>
-                                                    <option value="">Matutino</option>
+                                                <select id="shift" name="shift" class="form-control custom-select">
                                                 </select>
                                             </div>
 
                                         </div>
 
                                         <div class="form-row">
-                                            <div class="form-group col-lg-3">
-                                                <label for="schoolTerm">Ano letivo:</label>
-                                                <select id="schoolTerm" name="schoolTerm" class="form-control custom-select is-valid" required>
-                                                    <option value="">2021</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group col-lg-3">
+                                        <div class="form-group col-lg-2">
                                                 <label for="classRoom">Sala:</label>
-                                                <select id="classRoom" name="classRoom" class="form-control custom-select is-valid" required>
-                                                    <option value="">12</option>
+                                                <select id="classRoom" name="classRoom" class="form-control custom-select">
                                                 </select>
                                             </div>
+                                            <div class="form-group col-lg-2">
+                                                <label for="schoolTerm">Ano letivo:</label>
+                                                <select id="schoolTerm" name="schoolTerm" class="form-control custom-select">
+                                                </select>
+                                            </div>
+                                            
 
                                             <div class="form-group ml-auto col-lg-4">
                                                 <label for="">&nbsp;</label>
-                                                <a class="btn btn-success w-100 text-center" href="#">Adicionar nova turma</a>
+                                                <a id="buttonAddClass" class="btn btn-success w-100 text-center disabled" href="#">Adicionar nova turma</a>
                                             </div>
                                         </div>
 

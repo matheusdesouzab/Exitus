@@ -86,7 +86,7 @@ class SchoolTerm extends Model
     {
 
         return $this->speedingUp(
-            "SELECT periodo_letivo.id_ano_letivo , periodo_disponivel.ano_letivo FROM periodo_letivo LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
+            "SELECT periodo_letivo.id_ano_letivo AS option_value , periodo_disponivel.ano_letivo AS option_text FROM periodo_letivo LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
         );
     }
 
