@@ -326,6 +326,7 @@ class AdminManagementController extends Action
         echo json_encode($Classe->availableSeries());
     }
 
+
     public function checkClass()
     {
         $Classe = Container::getModel('Classe');
@@ -338,5 +339,12 @@ class AdminManagementController extends Action
         ];
 
         echo json_encode($Classe->setAll($data)->checkClass());
+    }
+
+
+    public function listClass()
+    {
+        $Classe = Container::getModel('Classe');
+        echo json_encode($Classe->listClass());
     }
 }

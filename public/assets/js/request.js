@@ -401,8 +401,6 @@ $(document).ready(function () {
             type: 'GET',
             success: data => {
 
-                //$('.gif-loading').remove()
-
                 if (Object.keys(data).length > 0) {
 
                     $.each(data, i => {
@@ -418,6 +416,36 @@ $(document).ready(function () {
             },
 
             error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
+        })
+    }
+
+
+    function listClass(){
+
+        let $container = $('[containerListClass]')
+
+        $.ajax({
+            url: '/listClass',
+            dataType: 'json',
+            type: 'GET',
+            success: data => {
+
+                if (Object.keys(data).length > 0) {
+
+                    $.each(data, i => {
+
+                        let shift = data[i].shift.substr(0, 1)
+
+                        $container.append(`<tr id="turma${data[i].id_class}"><td>${data[i].course} - ${data[i].series_acronym}${shift} - ${data[i].ballot}</td></tr>`)
+                    })
+
+                } else {
+
+                    $container.append('<h4 class="mt-3">Nenhuma disciplina encrontada</h4>')
+                }
+               
+            },
+            error: erro => console.log(erro)
         })
     }
 
@@ -555,14 +583,19 @@ $(document).ready(function () {
             type: 'GET',
             success: data => {
 
+                console.log(data)
+
                 let situation = data.replace(/[^\d]+/g, '')
 
-                situation == 00 ? $('#buttonAddClass').removeClass('disabled') : $('#buttonAddClass').addClass('disabled')
+                situation == 00 ? $('#buttonAddClass').removeClass('disabled') : '' 
+                situation == 10 ? [$('#buttonAddClass').addClass('disabled'), showToast('Sala e turno já adicionados', 'bg-info') ] : ''
+                situation == 01 ? [$('#buttonAddClass').addClass('disabled'), showToast('Série e cédula já adicionadas', 'bg-info') ] : ''
 
             },
             error: erro => console.log(erro)
         })
     }
+
 
     $('#addClass .form-control').change(checkClass)
    
@@ -593,7 +626,7 @@ $(document).ready(function () {
         .on('click', () => addElement('#addDiscipline', '/insertDiscipline', 'Disciplina adicionada'))
 
     $('#buttonAddClass')
-        .on('click', () => addElement('#addClass', '/insertClass', 'Turma adicionada'))
+        .on('click', () => [checkClass, addElement('#addClass', '/insertClass', 'Turma adicionada')])
 
     // Load Element
 
@@ -626,6 +659,8 @@ $(document).ready(function () {
     $('#classRoom').on('load', listClassRoom())
 
     $('#course').on('load', listCourse())
+
+    $('#class').on('load', listClass())
 
 
     // Collapse list

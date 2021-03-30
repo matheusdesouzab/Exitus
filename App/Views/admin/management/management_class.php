@@ -83,62 +83,18 @@
 
 
                                         <table class="table table-borderless table-hover">
+
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Nome da turma</th>
                                                     <th scope="col">Total de alunos</th>
-                                                    <th scope="col">Vagas da turma</th>
+                                                    <th scope="col">Período letivo</th>
                                                     <th scope="col">Média da turma</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
 
-                                                <tr>
-                                                    <td>Informática 1 ano A Matutino</td>
-                                                    <td>35 alunos</td>
-                                                    <td>40 vagas</td>
-                                                    <td>
-                                                        <article class="btn note-red">4,8</article>
-                                                    </td>
-                                                </tr>
+                                            <tbody containerListClass></tbody>
 
-                                                <tr>
-                                                    <td>Informática 1 ano A Matutino</td>
-                                                    <td>35 alunos</td>
-                                                    <td>40 vagas</td>
-                                                    <td>
-                                                        <article class="btn note-green">6,5</article>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Informática 1 ano A Matutino</td>
-                                                    <td>35 alunos</td>
-                                                    <td>40 vagas</td>
-                                                    <td>
-                                                        <article class="btn note-blue">8,5</article>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Informática 1 ano A Matutino</td>
-                                                    <td>35 alunos</td>
-                                                    <td>40 vagas</td>
-                                                    <td>
-                                                        <article class="btn note-golden">9,5</article>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Informática 1 ano A Matutino</td>
-                                                    <td>35 alunos</td>
-                                                    <td>40 vagas</td>
-                                                    <td>
-                                                        <article class="btn note-blue">7,8</article>
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
                                         </table>
                                     </div>
 
