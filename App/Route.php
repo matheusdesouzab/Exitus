@@ -306,6 +306,12 @@ class Route extends Bootstrap
 			'action' => 'checkClass'
 		);
 
+		$routes['admseekClass'] = array(
+			'route' => '/seekClass',
+			'controller' => 'AdminManagementController',
+			'action' => 'seekClass'
+		);
+
 
 
 

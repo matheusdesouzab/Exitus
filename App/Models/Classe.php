@@ -98,6 +98,15 @@ class Classe extends Model
         ];
     }
 
+
+    public function seekClass()
+    {
+
+        
+
+    }
+
+
     public function listClass()
     {
         return $this->speedingUp(

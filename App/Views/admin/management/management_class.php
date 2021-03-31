@@ -12,7 +12,7 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#class-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" id="collapseListClass" data-target="#class-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span></a>
 
                         <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-class"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
@@ -34,43 +34,19 @@
 
                                         <div class="form-row mt-3">
 
-                                            <div class="form-group col-lg-3">
-                                                <label for="inputState">Turmas:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>INFO-1M-A</option>
-                                                    <option>INFO-1M-B</option>
-                                                    <option>INFO-1M-C</option>
-                                                </select>
+                                            <div class="form-group col-lg-4">
+                                                <label for="course">Curso</label>
+                                                <select id="course" name="course" class="form-control custom-select"></select>
                                             </div>
 
-                                            <div class="form-group col-lg-3">
-                                                <label for="inputState">Curso</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option value="">Todos</option>
-                                                    <option>INFO</option>
-                                                    <option>ELET</option>
-                                                    <option>SEGU</option>
-                                                </select>
+                                            <div class="form-group col-lg-4">
+                                                <label for="series">Série:</label>
+                                                <select id="series" name="series" class="form-control custom-select"></select>
                                             </div>
 
-                                            <div class="form-group col-lg-3">
-                                                <label for="inputState">Série:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Todas</option>
-                                                    <option>1 ano</option>
-                                                    <option>2 ano</option>
-                                                    <option>3 ano</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group col-lg-3">
-                                                <label for="inputState">Turno</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option value="">Todos</option>
-                                                    <option>Matutino</option>
-                                                    <option>Vespertino</option>
-                                                    <option>Noturno</option>
-                                                </select>
+                                            <div class="form-group col-lg-4">
+                                                <label for="shift">Turno</label>
+                                                <select id="shift" name="shift" class="form-control custom-select"></select>
                                             </div>
 
                                         </div>

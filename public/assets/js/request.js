@@ -420,9 +420,11 @@ $(document).ready(function () {
     }
 
 
-    function listClass(){
+    function listClass() {
 
         let $container = $('[containerListClass]')
+
+        $container.text('')
 
         $.ajax({
             url: '/listClass',
@@ -436,14 +438,19 @@ $(document).ready(function () {
 
                         let shift = data[i].shift.substr(0, 1)
 
-                        $container.append(`<tr id="turma${data[i].id_class}"><td>${data[i].course} - ${data[i].series_acronym}${shift} - ${data[i].ballot}</td></tr>`)
+                        $container.append(`<tr id="turma${data[i].id_class}">
+                        <td>${data[i].course} - ${data[i].series_acronym}${shift} - ${data[i].ballot}</td>
+                        <td>0</td>
+                        <td>${data[i].school_term}</td>
+                        <td>0.0</td>
+                        </tr>`)
                     })
 
                 } else {
 
-                    $container.append('<h4 class="mt-3">Nenhuma disciplina encrontada</h4>')
+                    $container.append('<h4 class="mt-3">Nenhuma turma encrontada</h4>')
                 }
-               
+
             },
             error: erro => console.log(erro)
         })
@@ -451,8 +458,6 @@ $(document).ready(function () {
 
 
     function seekDiscipline() {
-
-        //$('input[name = "seekName"]').val() == '' ? $('input[name = "seekName"]').val(' ') : ''
 
         let formData = $('#seekDiscipline').serialize()
 
@@ -466,8 +471,6 @@ $(document).ready(function () {
             type: 'GET',
             data: formData,
             success: data => {
-
-                //$('.gif-loading').remove()
 
                 if (Object.keys(data).length > 0) {
 
@@ -587,9 +590,9 @@ $(document).ready(function () {
 
                 let situation = data.replace(/[^\d]+/g, '')
 
-                situation == 00 ? $('#buttonAddClass').removeClass('disabled') : '' 
-                situation == 10 ? [$('#buttonAddClass').addClass('disabled'), showToast('Sala e turno já adicionados', 'bg-info') ] : ''
-                situation == 01 ? [$('#buttonAddClass').addClass('disabled'), showToast('Série e cédula já adicionadas', 'bg-info') ] : ''
+                situation == 00 ? $('#buttonAddClass').removeClass('disabled') : ''
+                situation >= 10 ? [$('#buttonAddClass').addClass('disabled'), showToast('Sala e turno já adicionados', 'bg-info')] : ''
+                situation == 01 ? [$('#buttonAddClass').addClass('disabled'), showToast('Série e cédula já adicionadas', 'bg-info')] : ''
 
             },
             error: erro => console.log(erro)
@@ -597,10 +600,10 @@ $(document).ready(function () {
     }
 
 
-    $('#addClass .form-control').change(checkClass)
-   
 
-    $('#checkClass').on('click', () => checkClass())
+
+    // Grupo de butões para adicionar elementos
+  
 
     $('#buttonAddSchoolTerm')
         .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/insertSchoolTerm', 'Período letivo adicionado', false),
@@ -625,8 +628,10 @@ $(document).ready(function () {
     $('#buttonAddDiscipline')
         .on('click', () => addElement('#addDiscipline', '/insertDiscipline', 'Disciplina adicionada'))
 
+
     $('#buttonAddClass')
-        .on('click', () => [checkClass, addElement('#addClass', '/insertClass', 'Turma adicionada')])
+        .on('click', () => [addElement('#addClass', '/insertClass', 'Turma adicionada'), checkClass()])
+
 
     // Load Element
 
@@ -658,7 +663,9 @@ $(document).ready(function () {
 
     $('#classRoom').on('load', listClassRoom())
 
+
     $('#course').on('load', listCourse())
+
 
     $('#class').on('load', listClass())
 
@@ -666,7 +673,7 @@ $(document).ready(function () {
     // Collapse list
 
 
-    let elements = ['SchoolTerm', 'ClassRoom', 'Course', 'Discipline']
+    let elements = ['SchoolTerm', 'ClassRoom', 'Course', 'Discipline', 'Class']
 
     $.each(elements, i => $(`#collapseList${elements[i]}`).on('click', eval(`list${elements[i]}`)))
 
@@ -679,12 +686,20 @@ $(document).ready(function () {
     ]))
 
 
+    // All
+
+
     $('select[name="seekModality"]').change(seekDiscipline)
 
 
-    // All
+    $('#addClass .form-control').change(checkClass)
+
+
+    $('#checkClass').on('click', () => checkClass())
+
 
     $('input[name="acronym"]').on('keyup', e => e.target.value = e.target.value.toUpperCase())
+
 
     $('input[name="seekName"]').keyup(function (e) {
 
@@ -693,6 +708,7 @@ $(document).ready(function () {
         timeout = setTimeout(() => seekDiscipline(), 1500)
 
     });
+
 
     $(document).on('click', '#discipline tr', function () {
         showModal(this.id)

@@ -347,4 +347,10 @@ class AdminManagementController extends Action
         $Classe = Container::getModel('Classe');
         echo json_encode($Classe->listClass());
     }
+
+
+    public function seekClass()
+    {
+        //......
+    }
 }
