@@ -75,7 +75,7 @@ $(document).ready(function () {
 
             let $selectSituation = $(`form select[name="${dataMatrix[i][0]}"]`)
 
-            if ((dataMatrix[i][0] == 'classroomNumber' || dataMatrix[i][0] == 'schoolYear' || dataMatrix[i][0] == 'modalityAdd')) $selectSituation.empty()
+            if ((dataMatrix[i][0] == 'classroomNumber' || dataMatrix[i][0] == 'schoolYear' || dataMatrix[i][0] == 'modalityAdd' || dataMatrix[i][0] == 'schoolTermSituationAdd')) $selectSituation.empty()
 
             $.ajax({
                 url: dataMatrix[i][1],
@@ -148,7 +148,7 @@ $(document).ready(function () {
         $container.text('').append(gifImg)
 
         $.ajax({
-            url: '/listSchoolTerm',
+            url: '/admin/gestao/periodo-letivo/lista',
             dataType: 'json',
             type: 'GET',
             success: data => {
@@ -210,11 +210,11 @@ $(document).ready(function () {
 
                         $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
 
-                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/updateSchoolTerm', 'Periodo letivo adicionado'),
+                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/admin/gestao/periodo-letivo/atualizar', 'Periodo letivo adicionado'),
                             listSchoolTerm()
                         ])
 
-                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/deleteSchoolTerm', 'Periodo letivo deletado'),
+                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/admin/gestao/periodo-letivo/deletar', 'Periodo letivo deletado'),
                             listSchoolTerm()
                         ])
 
@@ -228,8 +228,9 @@ $(document).ready(function () {
 
 
                 availableElement([
-                    ['schoolYear', '/availableSchoolTerm'],
-                    ['schoolTermSituation', '/listSchoolTermSituation']
+                    ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
+                    ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
+                    ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
                 ])
 
             },
@@ -248,7 +249,7 @@ $(document).ready(function () {
         $container.text('').append(gifImg)
 
         $.ajax({
-            url: '/listClassRoom',
+            url: '/admin/gestao/sala/lista',
             dataType: 'json',
             type: 'GET',
             success: data => {
@@ -297,8 +298,8 @@ $(document).ready(function () {
                         `)
 
                         $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
-                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/updateClassRoom', 'Sala de aula adicionada'), listClassRoom()])
-                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/deleteClassRoom', 'Sala de aula deletada'), listClassRoom()])
+                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/admin/gestao/sala/atualizar', 'Sala de aula adicionada'), listClassRoom()])
+                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/admin/gestao/sala/deletar', 'Sala de aula deletada'), listClassRoom()])
 
                     })
 
@@ -321,7 +322,7 @@ $(document).ready(function () {
         $container.text('').append(gifImg)
 
         $.ajax({
-            url: '/listCourse',
+            url: '/admin/gestao/curso/lista',
             dataType: 'json',
             type: 'GET',
             success: data => {
@@ -371,8 +372,10 @@ $(document).ready(function () {
                         `)
 
                         $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
-                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/updateCourse', 'Curso adicionado'), listCourse()])
-                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/deleteCourse', 'Curso deletado'), listCourse()])
+
+                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/admin/gestao/curso/atualizar', 'Curso adicionado'), listCourse()])
+
+                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/admin/gestao/curso/deletar', 'Curso deletado'), listCourse()])
 
                     })
 
@@ -396,7 +399,7 @@ $(document).ready(function () {
         $container.text('')
 
         $.ajax({
-            url: '/listDiscipline',
+            url: '/admin/gestao/disciplina/lista',
             dataType: 'json',
             type: 'GET',
             success: data => {
@@ -427,7 +430,7 @@ $(document).ready(function () {
         $container.text('')
 
         $.ajax({
-            url: '/listClass',
+            url: '/admin/gestao/turma/lista',
             dataType: 'json',
             type: 'GET',
             success: data => {
@@ -438,12 +441,14 @@ $(document).ready(function () {
 
                         let shift = data[i].shift.substr(0, 1)
 
-                        $container.append(`<tr id="turma${data[i].id_class}">
-                        <td>${data[i].course} - ${data[i].series_acronym}${shift} - ${data[i].ballot}</td>
-                        <td>0</td>
-                        <td>${data[i].school_term}</td>
-                        <td>0.0</td>
-                        </tr>`)
+                        $container.append(
+                            `<tr id="turma${data[i].id_class}">
+                                 <td>${data[i].course} - ${data[i].series_acronym}${shift} - ${data[i].ballot}</td>
+                                 <td>0</td>
+                                 <td>${data[i].school_term}</td>
+                                <td>0.0</td>
+                            </tr>`
+                        )
                     })
 
                 } else {
@@ -466,7 +471,7 @@ $(document).ready(function () {
         $container.text(' ')
 
         $.ajax({
-            url: '/seekDiscipline',
+            url: '/admin/gestao/disciplina/buscar',
             dataType: 'json',
             type: 'GET',
             data: formData,
@@ -496,7 +501,7 @@ $(document).ready(function () {
         let $container = $('[containerModal]')
 
         $.ajax({
-            url: '/disciplineData',
+            url: '/admin/gestao/disciplina/dados',
             dataType: 'json',
             type: 'GET',
             data: {
@@ -557,12 +562,12 @@ $(document).ready(function () {
 
                 $(`${formModal} .edit-data-icon`).on('click', () => editElement(`${formModal}`))
 
-                $(`${formModal} .delete-data-icon`).on('click', () => [deleteElement(`${formModal}`, '/deleteDiscipline', 'Disciplina deletada'), listDiscipline(), showModal(`${formModal}`)])
+                $(`${formModal} .delete-data-icon`).on('click', () => [deleteElement(`${formModal}`, '/admin/gestao/disciplina/deletar', 'Disciplina deletada'), listDiscipline(), showModal(`${formModal}`)])
 
-                $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/updateDiscipline', 'Disciplina atualizada'), listDiscipline(), showModal(`${formModal}`)])
+                $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/admin/gestao/disciplina/atualizar', 'Disciplina atualizada'), listDiscipline(), showModal(`${formModal}`)])
 
                 availableElement([
-                    [`modality`, '/listDisciplineModality']
+                    [`modality`, '/admin/gestao/disciplina/lista-modalidades']
                 ])
 
                 $('#modalDiscipline').modal("show")
@@ -581,7 +586,7 @@ $(document).ready(function () {
         let dados = $('#addClass').serialize()
 
         $.ajax({
-            url: '/checkClass',
+            url: '/admin/gestao/turma/verificar-dados',
             data: dados,
             type: 'GET',
             success: data => {
@@ -603,61 +608,56 @@ $(document).ready(function () {
 
 
     // Grupo de butões para adicionar elementos
-  
+
 
     $('#buttonAddSchoolTerm')
-        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/insertSchoolTerm', 'Período letivo adicionado', false),
+        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/admin/gestao/periodo-letivo/inserir', 'Período letivo adicionado', false),
             availableElement([
-                ['schoolYear', '/availableSchoolTerm']
+                ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis']
             ])
         ])
 
 
     $('#buttonAddClassRoom')
-        .on('click', () => [addElement('#addClassRoom', '/insertClassRoom', 'Sala de aula adicionada'),
+        .on('click', () => [addElement('#addClassRoom', '/admin/gestao/sala/inserir', 'Sala de aula adicionada'),
             availableElement([
-                ['classroomNumber', '/availableClassroom']
+                ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
             ])
         ])
 
 
     $('#buttonAddCourse')
-        .on('click', () => addElement('#addCourse', '/insertCourse', 'Curso adicionado'))
+        .on('click', () => addElement('#addCourse', '/admin/gestao/curso/inserir', 'Curso adicionado'))
 
 
     $('#buttonAddDiscipline')
-        .on('click', () => addElement('#addDiscipline', '/insertDiscipline', 'Disciplina adicionada'))
+        .on('click', () => addElement('#addDiscipline', '/admin/gestao/disciplina/inserir', 'Disciplina adicionada'))
 
 
     $('#buttonAddClass')
-        .on('click', () => [addElement('#addClass', '/insertClass', 'Turma adicionada'), checkClass()])
+        .on('click', () => [addElement('#addClass', '/admin/gestao/turma/inserir', 'Turma adicionada'), checkClass()])
 
 
     // Load Element
 
 
-    $('#schoolTerm').on('load',
-        [listSchoolTerm(), availableElement([
-            ['schoolYear', '/availableSchoolTerm'],
-            ['schoolTermSituationAdd', '/listSchoolTermSituation']
-        ])]
-    )
+    $('#schoolTerm').on('load', listSchoolTerm())
 
 
     $('#discipline').on('load',
         [listDiscipline(), availableElement([
-            ['modalityAdd', '/listDisciplineModality'],
-            ['seekModality', '/listDisciplineModality']
+            ['modalityAdd', '/admin/gestao/disciplina/lista-modalidades'],
+            ['seekModality', '/admin/gestao/disciplina/lista-modalidades']
         ])])
 
 
     $('#class').on('load', availableElement([
-        ['shift', '/availableShift'],
-        ['ballot', '/availableBallot'],
-        ['series', '/availableSeries'],
-        ['course', '/availableCourse'],
-        ['classRoom', '/activeClassRoom'],
-        ['schoolTerm', '/activeSchoolTerm']
+        ['shift', '/admin/gestao/turma/lista-turnos'],
+        ['ballot', '/admin/gestao/turma/lista-cedulas'],
+        ['series', '/admin/gestao/turma/lista-series'],
+        ['course', '/admin/gestao/turma/lista-cursos'],
+        ['classRoom', '/admin/gestao/turma/lista-salas'],
+        ['schoolTerm', '/admin/gestao/periodo-letivo/ativado']
     ]))
 
 
@@ -682,7 +682,7 @@ $(document).ready(function () {
 
 
     $('#collapseAddClassRoom').on('click', () => availableElement([
-        ['classroomNumber', '/availableClassroom']
+        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
     ]))
 
 

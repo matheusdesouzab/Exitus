@@ -336,6 +336,7 @@ class AdminManagementController extends Action
             'fk_id_shift' => $_GET['shift'],
             'fk_id_series' => $_GET['series'],
             'fk_id_ballot' => $_GET['ballot'],
+            'fk_id_course' => $_GET['course'],
         ];
 
         echo json_encode($Classe->setAll($data)->checkClass());
@@ -351,6 +352,14 @@ class AdminManagementController extends Action
 
     public function seekClass()
     {
-        //......
+        $Classe = Container::getModel('Classe');
+
+        $data = [
+            'fk_id_shift' => $_GET['shift'],
+            'fk_id_series' => $_GET['series'],
+            'fk_id_course' => $_GET['course'],
+        ];
+
+        echo json_encode($Classe->setAll($data)->seekClass());
     }
 }

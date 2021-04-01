@@ -1,9 +1,13 @@
 <?php session_start(); ?>
 
 <?php
-$url = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/') + 1);
+
+/* $url = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/') + 1);
+
 $title = preg_split('/(?=[A-Z])/', $url);
-$title = $title[1] . ' ' . $title[2];
+
+$title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
+
 ?>
 
 <html>
@@ -11,7 +15,7 @@ $title = $title[1] . ' ' . $title[2];
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title><?= $title ?></title>
+	<title> Web Gest </title>
 
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
