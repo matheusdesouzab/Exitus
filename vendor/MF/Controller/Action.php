@@ -11,6 +11,7 @@ abstract class Action {
 	}
 
 	protected function render($view, $layout) {
+
 		$this->view->page = $view;
 
 		if(file_exists("../App/Views/layouts/".$layout.".php")) {
@@ -29,7 +30,7 @@ abstract class Action {
 		$pastaPrincipal = lcfirst($caminhoAbsoluto[1]);
 		$pastaSecundaria = lcfirst($caminhoAbsoluto[2]);
 
-		require_once "../App/Views/".$pastaPrincipal."/".$pastaSecundaria."/".$this->view->page.".php";
+		require_once "../App/Views/".$pastaPrincipal."/".$pastaSecundaria."/".$this->view->page.'.php';
 	}
 }
 

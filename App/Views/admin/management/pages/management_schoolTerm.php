@@ -1,10 +1,18 @@
 <section id="schoolTerm">
 
-    <div class="row main-container">
+    <div class="row main-container ">
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-school-term">
 
-            <div class="col-lg-12 mb-3">
+            <!-- <nav aria-label="breadcrumb" class="col-lg-12">
+                <ol class="breadcrumb bg-white mb-3 font-weight-bold">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/admin/gestao">Gestão</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Periodo Letivo</li>
+                </ol>
+            </nav> -->
+
+            <div class="col-lg-12 mb-3 mt-3">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6">
                         <h5>Gestão dos períodos letivos</h5>

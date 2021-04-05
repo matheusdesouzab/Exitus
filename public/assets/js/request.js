@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-    const gifImg = ('<div class="gif-loading d-flex justify-content-center mt-5 col-lg-12"><img class="" src="assets/img/image.gif"></div>')
-    let timeout = null;
+    let timeout = null
 
     function showToast(description, background) {
 
@@ -57,14 +56,8 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'html',
             data: $formData,
-            success: data => {
-
-                showToast(dataToast, 'bg-danger')
-
-            },
-
+            success: data => showToast(dataToast, 'bg-danger'),
             error: erro => showToast('Houve um erro na requisição', 'bg-info')
-
         })
     }
 
@@ -100,19 +93,14 @@ $(document).ready(function () {
 
         let $formData = $(`${form}`).serialize()
 
-        console.log($formData)
+        console.log([$formData])
 
         $.ajax({
             url: route,
             type: 'POST',
             dataType: 'html',
             data: $formData,
-            success: data => {
-
-                showToast(dataToast, 'bg-primary')
-
-            },
-
+            success: data => showToast(dataToast, 'bg-primary'),
             error: erro => showToast('Houve um erro na requisição', 'bg-info')
 
         })
@@ -133,7 +121,7 @@ $(document).ready(function () {
         $('form .form-control').prop('disabled', true)
         $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
 
-        $('#addSchoolTerm .form-control, #addCourse .form-control, #seekDiscipline .form-control, #addDiscipline .form-control, #addClassRoom .form-control').prop('disabled', false)
+        $('#addSchoolTerm .form-control, #addCourse .form-control, #seekElement .form-control, #addDiscipline .form-control, #addClassRoom .form-control').prop('disabled', false)
 
         $(`${form} .form-control`).prop('disabled', false)
         $(`${form} .update-data-icon, ${form} .delete-data-icon`).css("pointer-events", "auto")
@@ -141,358 +129,38 @@ $(document).ready(function () {
     }
 
 
-    function listSchoolTerm() {
+    function listElement(container, route) {
 
-        let $container = $('[containerListSchoolTerm]')
-
-        $container.text('').append(gifImg)
-
-        $.ajax({
-            url: '/admin/gestao/periodo-letivo/lista',
-            dataType: 'json',
-            type: 'GET',
-            success: data => {
-
-                $('.gif-loading').remove()
-
-                if (Object.keys(data).length > 0) {
-
-                    $.each(data, i => {
-
-                        let idSchoolTerm = data[i].id_school_term
-                        let startDate = data[i].start_date
-                        let endDate = data[i].end_date
-                        let idSituation = data[i].fk_id_situation_school_term
-                        let situationSchoolTerm = data[i].situation_school_term
-                        let schoolYear = data[i].ano_letivo
-                        let formId = `#formSchoolTerm${idSchoolTerm}`
-
-                        $container.append(`
-
-            <form id="formSchoolTerm${idSchoolTerm}" class="card mb-3" action="">
-
-            <div class="form-row col-lg-11 mx-auto d-flex align-items-center"> 
-
-                <div class="col-lg-8 font-weight-bold">Ano letivo ${schoolYear}</div>
-
-                <div class="col-lg-4 d-flex justify-content-end mt-2">
-
-                    <span href="#" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                    <span href="#" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                    <span href="#" class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
-
-                </div>
-
-            </div>
-
-            <div class="form-row col-lg-11 mx-auto mt-4 mb-2">
-
-            <input class="form-control" name="idSchoolTerm" value="${idSchoolTerm}" type="hidden">
-
-                <div class="form-group col-lg-4">
-                    <label for="">Data de início:</label>
-                    <input class="form-control" disabled name="startDate" value="${startDate}" type="date"  id="">
-                </div>
-                <div class="form-group col-lg-4">
-                    <label for="">Data de fim:</label>
-                    <input class="form-control" disabled value="${endDate}" type="date" name="endDate" id="">
-                </div>
-                <div class="form-group col-lg-4">
-                    <label for="">Situação:</label>
-                    <select name="schoolTermSituation" disabled id="inputState" class="form-control custom-select" name="schoolTermSituation"  required>
-                    <option value="${idSituation}">${situationSchoolTerm}</option>
-                    </select>
-                </div>
-
-            </div>
-
-            </form> `)
-
-                        $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
-
-                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/admin/gestao/periodo-letivo/atualizar', 'Periodo letivo adicionado'),
-                            listSchoolTerm()
-                        ])
-
-                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/admin/gestao/periodo-letivo/deletar', 'Periodo letivo deletado'),
-                            listSchoolTerm()
-                        ])
-
-                    })
-
-                } else {
-
-                    $container.append('<h4 class="mt-3">Nenhum ano letivo adicionado</h4>')
-
-                }
-
-
-                availableElement([
-                    ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
-                    ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
-                    ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
-                ])
-
-            },
-
-            error: error => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
-
-        })
-
-    }
-
-
-    function listClassRoom() {
-
-        let $container = $('[containerListClassRoom]')
-
-        $container.text('').append(gifImg)
-
-        $.ajax({
-            url: '/admin/gestao/sala/lista',
-            dataType: 'json',
-            type: 'GET',
-            success: data => {
-
-                $('.gif-loading').remove()
-
-                if (Object.keys(data).length > 0) {
-
-                    $.each(data, i => {
-
-                        let formId = `#formClassRoom${data[i].id_room}`
-
-                        $container.append(`
-
-                        <form id="formClassRoom${data[i].id_room}" class="card mb-4" action="">
-
-                            <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
-
-                            <input type="hidden" name="idClassRoom" value="${data[i].id_room}">
-
-                                <div class="col-lg-8 font-weight-bold">
-                                Sala de aula número  ${data[i].classroom_number}</div>
-
-                                    <div class="col-lg-4 d-flex justify-content-end mt-2">
-
-                                        <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                                        <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                                        <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
-
-                                        </div>
-
-                                        </div>
-
-                                        <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
-                                            
-                                            <div class="form-group col-lg-12">
-                                                <label for="">Capacidade de alunos:</label>
-                                                <input class="form-control" disabled value="${data[i].student_capacity}" type="text" name="studentCapacity" id="">
-                                            </div>
-
-
-                                        </div>
-
-                                    </form>                     
-                        
-                        `)
-
-                        $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
-                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/admin/gestao/sala/atualizar', 'Sala de aula adicionada'), listClassRoom()])
-                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/admin/gestao/sala/deletar', 'Sala de aula deletada'), listClassRoom()])
-
-                    })
-
-                } else {
-
-                    $('.gif-loading').remove()
-                    $container.append('<h4 class="mt-3">Nenhuma sala adicionada</h4>')
-                }
-            },
-
-            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
-        })
-    }
-
-
-    function listCourse() {
-
-        let $container = $('[containerListCourse]')
-
-        $container.text('').append(gifImg)
-
-        $.ajax({
-            url: '/admin/gestao/curso/lista',
-            dataType: 'json',
-            type: 'GET',
-            success: data => {
-
-                $('.gif-loading').remove()
-
-                if (Object.keys(data).length > 0) {
-
-                    $.each(data, i => {
-
-                        let formId = `#formCourse${data[i].id_course}`
-
-                        $container.append(`
-
-                        <form id="formCourse${data[i].id_course}" class="card mb-4" action="">
-
-                            <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
-
-                            <input type="hidden" name="idCourse" value="${data[i].id_course}">
-
-                                <div class="col-lg-8 font-weight-bold">Curso Técnico de ${data[i].course}</div>
-
-                                    <div class="col-lg-4 d-flex justify-content-end mt-2">
-
-                                        <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                                        <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                                        <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
-
-                                        </div>
-
-                                        </div>
-
-                                        <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
-                                            <div class="form-group col-lg-9">
-                                                <label for="">Nome do curso:</label>
-                                                <input class="form-control" disabled value="${data[i].course}" type="text" name="course" id="">
-                                            </div>
-                                            <div class="form-group col-lg-3">
-                                                <label for="">Sigla:</label>
-                                                <input class="form-control" disabled onkeyup="this.value = this.value.toUpperCase()" value="${data[i].acronym}" type="text" name="acronym" id="">
-                                            </div>
-
-
-                                        </div>
-
-                                    </form>
-                        `)
-
-                        $(`${formId} .edit-data-icon`).on('click', () => editElement(`${formId}`))
-
-                        $(`${formId} .update-data-icon`).on('click', () => [updateElement(`${formId}`, '/admin/gestao/curso/atualizar', 'Curso adicionado'), listCourse()])
-
-                        $(`${formId} .delete-data-icon`).on('click', () => [deleteElement(`${formId}`, '/admin/gestao/curso/deletar', 'Curso deletado'), listCourse()])
-
-                    })
-
-                } else {
-
-                    $container.append('<h4 class="mt-3">Nenhum curso adicionado</h4>')
-
-                }
-
-            },
-
-            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
-        })
-    }
-
-
-    function listDiscipline() {
-
-        let $container = $('[containerListDiscipline]')
+        let $container = $(`[${container}]`)
 
         $container.text('')
 
         $.ajax({
-            url: '/admin/gestao/disciplina/lista',
-            dataType: 'json',
+            url: route,
             type: 'GET',
-            success: data => {
-
-                if (Object.keys(data).length > 0) {
-
-                    $.each(data, i => {
-                        $container.append(`<tr id="disciplina${data[i].id_discipline}"><td>${data[i].discipline}</td><td>${data[i].acronym}</td><td>${data[i].discipline_modality}</td></tr>`)
-                    })
-
-                } else {
-
-                    $container.append('<h4 class="mt-3">Nenhuma disciplina adicionada</h4>')
-
-                }
-
-            },
-
-            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
+            success: data => $container.append(data),
+            error: erro => console.log(erro.responseText)
         })
     }
 
 
-    function listClass() {
+    function seekElement(form, container, route) {
 
-        let $container = $('[containerListClass]')
+        let formData = $(form).serialize()
+
+        let $container = $(`[${container}]`)
 
         $container.text('')
 
         $.ajax({
-            url: '/admin/gestao/turma/lista',
-            dataType: 'json',
-            type: 'GET',
-            success: data => {
-
-                if (Object.keys(data).length > 0) {
-
-                    $.each(data, i => {
-
-                        let shift = data[i].shift.substr(0, 1)
-
-                        $container.append(
-                            `<tr id="turma${data[i].id_class}">
-                                 <td>${data[i].course} - ${data[i].series_acronym}${shift} - ${data[i].ballot}</td>
-                                 <td>0</td>
-                                 <td>${data[i].school_term}</td>
-                                <td>0.0</td>
-                            </tr>`
-                        )
-                    })
-
-                } else {
-
-                    $container.append('<h4 class="mt-3">Nenhuma turma encrontada</h4>')
-                }
-
-            },
-            error: erro => console.log(erro)
-        })
-    }
-
-
-    function seekDiscipline() {
-
-        let formData = $('#seekDiscipline').serialize()
-
-        let $container = $('tbody[containerListDiscipline]')
-
-        $container.text(' ')
-
-        $.ajax({
-            url: '/admin/gestao/disciplina/buscar',
-            dataType: 'json',
+            url: route,
             type: 'GET',
             data: formData,
-            success: data => {
-
-                if (Object.keys(data).length > 0) {
-
-                    $.each(data, i => {
-                        $container.append(`<tr id="disciplina${data[i].id_discipline}"><td>${data[i].discipline}</td><td>${data[i].acronym}</td><td>${data[i].discipline_modality}</td></tr>`)
-                    })
-
-                } else {
-
-                    $container.append('<h4 class="mt-3">Nenhuma disciplina encrontada</h4>')
-                }
-
-            },
-
-            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
+            success: data => $container.append(data),
+            error: erro => console.log(erro.responseText)
         })
     }
+
 
     function showModal(formId) {
 
@@ -583,26 +251,59 @@ $(document).ready(function () {
 
     function checkClass() {
 
-        let dados = $('#addClass').serialize()
+        let dados = $('#addClass')
 
         $.ajax({
             url: '/admin/gestao/turma/verificar-dados',
-            data: dados,
+            data: dados.serialize(),
             type: 'GET',
             success: data => {
 
-                console.log(data)
-
                 let situation = data.replace(/[^\d]+/g, '')
 
-                situation == 00 ? $('#buttonAddClass').removeClass('disabled') : ''
-                situation >= 10 ? [$('#buttonAddClass').addClass('disabled'), showToast('Sala e turno já adicionados', 'bg-info')] : ''
-                situation == 01 ? [$('#buttonAddClass').addClass('disabled'), showToast('Série e cédula já adicionadas', 'bg-info')] : ''
+                situation == 00 ? [$('#buttonAddClass').removeClass('disabled'),
+                    $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid'),
+                    $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+                ] : ''
+
+                situation >= 10 ? [
+                    $('#buttonAddClass').addClass('disabled'),
+                    showToast('Sala e turno já adicionados', 'bg-info'),
+                    $('#addClass #classRoom , #addClass #shift ').addClass('is-invalid'),
+                    $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+                ] : ''
+
+                situation == 01 ? [
+                    $('#buttonAddClass').addClass('disabled'),
+                    showToast('Série e cédula já adicionadas', 'bg-info'),
+                    $('#addClass #ballot , #addClass #series ').addClass('is-invalid'),
+                    $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
+                ] : ''
 
             },
             error: erro => console.log(erro)
         })
     }
+
+
+    $(document).on('click', '.edit-data-icon', function () {
+        editElement($(this).attr('idElement'))
+    })
+
+
+    $(document).on('click', '.update-data-icon', function () {
+
+        updateElement($(this).attr('idElement'), $(this).attr('routeUpdate'), $(this).attr('toastData'))
+
+        listElement($(this).attr('container'), $(this).attr('routeList'))
+    })
+
+    $(document).on('click', '.delete-data-icon', function () {
+
+        deleteElement($(this).attr('idElement'), $(this).attr('routeDelete'), $(this).attr('toastData'))
+
+        listElement($(this).attr('container'), $(this).attr('routeList'))
+    })
 
 
 
@@ -641,41 +342,41 @@ $(document).ready(function () {
     // Load Element
 
 
-    $('#schoolTerm').on('load', listSchoolTerm())
 
 
-    $('#discipline').on('load',
-        [listDiscipline(), availableElement([
-            ['modalityAdd', '/admin/gestao/disciplina/lista-modalidades'],
-            ['seekModality', '/admin/gestao/disciplina/lista-modalidades']
-        ])])
-
-
-    $('#class').on('load', availableElement([
+    $('#class').on('load', [availableElement([
         ['shift', '/admin/gestao/turma/lista-turnos'],
         ['ballot', '/admin/gestao/turma/lista-cedulas'],
         ['series', '/admin/gestao/turma/lista-series'],
         ['course', '/admin/gestao/turma/lista-cursos'],
         ['classRoom', '/admin/gestao/turma/lista-salas'],
         ['schoolTerm', '/admin/gestao/periodo-letivo/ativado']
-    ]))
+    ]), listElement('containerListClass', '/admin/gestao/turma/lista')])
 
 
-    $('#classRoom').on('load', listClassRoom())
+    $('#classRoom').on(document, 'load', [
+        listElement('containerListClassRoom', '/admin/gestao/sala/lista'),
+        availableElement([
+            ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
+        ])
+    ])
 
 
-    $('#course').on('load', listCourse())
+    $('#schoolTerm').on(document, 'load', [listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'), availableElement([
+        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
+        ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
+        ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
+    ])])
 
 
-    $('#class').on('load', listClass())
+    $('#course').on('load', listElement('containerListCourse', '/admin/gestao/curso/lista'))
 
+    $('#discipline').on('load',
+        [listElement('containerListDiscipline', '/admin/gestao/disciplina/lista'), availableElement([
+            ['modalityAdd', '/admin/gestao/disciplina/lista-modalidades'],
+            ['seekModality', '/admin/gestao/disciplina/lista-modalidades']
+        ])])
 
-    // Collapse list
-
-
-    let elements = ['SchoolTerm', 'ClassRoom', 'Course', 'Discipline', 'Class']
-
-    $.each(elements, i => $(`#collapseList${elements[i]}`).on('click', eval(`list${elements[i]}`)))
 
 
     // Collapse add
@@ -689,7 +390,9 @@ $(document).ready(function () {
     // All
 
 
-    $('select[name="seekModality"]').change(seekDiscipline)
+    $('select[name="seekModality"]').change(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'))
+
+    $('#seekClass .custom-select').change(() => seekElement('#seekClass', 'containerListClass', '/admin/gestao/turma/buscar'))
 
 
     $('#addClass .form-control').change(checkClass)
@@ -705,7 +408,7 @@ $(document).ready(function () {
 
         if (timeout) clearTimeout(timeout);
 
-        timeout = setTimeout(() => seekDiscipline(), 1500)
+        timeout = setTimeout(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'), 1500)
 
     });
 
@@ -714,10 +417,7 @@ $(document).ready(function () {
         showModal(this.id)
     })
 
-
-
-
-
+    $(document).on('click','#collapseListSchoolTerm', listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
 
 
 

@@ -30,23 +30,23 @@
                             <div class="row">
                                 <div class="col-lg-11 mx-auto">
 
-                                    <form class="mt-3 mb-3  text-dark" action="">
+                                    <form id="seekClass" class="mt-3 mb-3 text-dark" action="">
 
                                         <div class="form-row mt-3">
 
                                             <div class="form-group col-lg-4">
                                                 <label for="course">Curso</label>
-                                                <select id="course" name="course" class="form-control custom-select"></select>
+                                                <select id="course" name="course" class="form-control custom-select"><option value="0">Todos</option></select>
                                             </div>
 
                                             <div class="form-group col-lg-4">
                                                 <label for="series">Série:</label>
-                                                <select id="series" name="series" class="form-control custom-select"></select>
+                                                <select id="series" name="series" class="form-control custom-select"><option value="0">Todos</option></select>
                                             </div>
 
                                             <div class="form-group col-lg-4">
                                                 <label for="shift">Turno</label>
-                                                <select id="shift" name="shift" class="form-control custom-select"></select>
+                                                <select id="shift" name="shift" class="form-control custom-select"><option value="0">Todos</option></select>
                                             </div>
 
                                         </div>
@@ -754,7 +754,7 @@
                                         <div class="form-row">
                                         <div class="form-group col-lg-2">
                                                 <label for="classRoom">Sala:</label>
-                                                <select id="classRoom" name="classRoom" class="form-control custom-select">
+                                                <select id="classRoom" name="classRoom" class="form-control custom-select" required>
                                                 </select>
                                             </div>
                                             <div class="form-group col-lg-2">

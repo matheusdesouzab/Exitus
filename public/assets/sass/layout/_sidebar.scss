@@ -53,13 +53,15 @@
         
 
         .logo {
-            @include side-bar-logo(100px, 0px, 20px auto);
+            @include side-bar-logo(90px, 0px, 20px auto);
         }
     }
 
     .side-bar-responsivo {
 
-        @include side-bar(180px);
+        display: none;
+
+        /* @include side-bar(180px);
 
         .link-collapse span,
         .fa-angle-down {
@@ -95,7 +97,7 @@
             li {
                 border-left: 0px;
             }
-        }
+        } */
     }
 
 }

@@ -16,7 +16,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Períodos Letivos</h5>
                             <p class="card-text">Defina o período letivo atual do cólegio.</p>
-                            <a href='/admin/gestao/periodo-letivo' target="_blank" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
+                            <a href='/admin/gestao/periodo-letivo' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>
 
@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Salas</h5>
                             <p class="card-text">Crie as salas onde serão realizadas as aulas.</p>
-                            <a href='/admin/gestao/sala' target="_blank" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
+                            <a href='/admin/gestao/sala' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>
 
@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Cursos</h5>
                             <p class="card-text">Defina os cursos que serão ofertados para os alunos.</p>
-                            <a href='/admin/gestao/curso' target="_blank" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
+                            <a href='/admin/gestao/curso' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>
 
@@ -44,7 +44,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Disciplinas</h5>
                             <p class="card-text">Defina as disciplinas que serão ensinadas no cólegio.</p>
-                            <a href='/admin/gestao/disciplina' target="_blank" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
+                            <a href='/admin/gestao/disciplina' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>
 
@@ -52,7 +52,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Turmas</h5>
                             <p class="card-text">Adicione uma nova turma ou edite alguma já existente.</p>
-                            <a href='/admin/gestao/turma' target="_blank" class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
+                            <a href='/admin/gestao/turma' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>
                 </div>

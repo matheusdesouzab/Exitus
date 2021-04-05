@@ -51,19 +51,26 @@ class SchoolTerm extends Model
 
         $this->endSchoolTerm();
 
-        $query = 'UPDATE periodo_letivo SET 
-        data_inicio = :startDate , data_fim = :endDate , fk_id_situacao_periodo_letivo = :fk_id_school_term_situation
-        WHERE periodo_letivo.id_ano_letivo = :idSchoolTerm;';
+        $idSchoolTerm = $this->activeSchoolTerm();
+
+        $situation = null;
+
+        $idSchoolTerm[0]->option_value ==  $this->__get('idSchoolTerm') ?
+        $situation = 1 : $situation = $this->__get('fk_id_school_term_situation');
+
+        $query = "UPDATE periodo_letivo SET 
+        data_inicio = :startDate , data_fim = :endDate , fk_id_situacao_periodo_letivo = $situation
+        WHERE periodo_letivo.id_ano_letivo = :idSchoolTerm;";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':startDate', $this->__get('startDate'));
         $stmt->bindValue(':endDate', $this->__get('endDate'));
-        $stmt->bindValue(':fk_id_school_term_situation', $this->__get('fk_id_school_term_situation'));
         $stmt->bindValue(':idSchoolTerm', $this->__get('idSchoolTerm'));
 
 
-        $stmt->execute();
+        $stmt->execute(); 
+
     }
 
     public function listSchoolTerm()

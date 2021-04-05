@@ -11,7 +11,15 @@ class AdminManagementController extends Action
 
     public function managementGeneral()
     {
-        $this->render('management_general', 'AdminLayout');
+        $this->render('/pages/management_general', 'AdminLayout');
+    }
+
+
+    public function formClassRoom()
+    {
+        $ClassRoom = Container::getModel('ClassRoom');
+        $this->view->listClassRoom = $ClassRoom->listClassRoom();
+        $this->render('formClassRoom', 'SimpleLayout');
     }
 
 
@@ -20,7 +28,7 @@ class AdminManagementController extends Action
 
     public function SchoolTerm()
     {
-        $this->render('management_schoolTerm', 'AdminLayout');
+        $this->render('/pages/management_schoolTerm', 'AdminLayout');
     }
 
 
@@ -51,9 +59,10 @@ class AdminManagementController extends Action
             'endDate' => $_POST['endDate'],
             'fk_id_school_term_situation' => $_POST['schoolTermSituation'],
             'fk_id_school_year' => $_POST['schoolYear'],
-        ];
+        ]; 
 
-        $SchoolTerm->setAll($data)->updateSchoolTerm();
+        $SchoolTerm->setAll($data)->updateSchoolTerm(); 
+
     }
 
 
@@ -61,7 +70,9 @@ class AdminManagementController extends Action
     {
 
         $SchoolTerm = Container::getModel('SchoolTerm');
-        echo json_encode($SchoolTerm->listSchoolTerm());
+        $this->view->listSchoolTerm = $SchoolTerm->listSchoolTerm();
+        $this->view->listSchoolTermSituation = $SchoolTerm->listSchoolTermSituation();
+        $this->render('/listElement/formSchoolTerm', 'SimpleLayout');
     }
 
 
@@ -102,7 +113,7 @@ class AdminManagementController extends Action
 
     public function ClassRoom()
     {
-        $this->render('management_classRoom', 'AdminLayout');
+        $this->render('/pages/management_classRoom', 'AdminLayout');
     }
 
 
@@ -133,7 +144,8 @@ class AdminManagementController extends Action
     {
 
         $ClassRoom = Container::getModel('ClassRoom');
-        echo json_encode($ClassRoom->listClassroom());
+        $this->view->listClassRoom = $ClassRoom->listClassRoom();
+        $this->render('/listElement/formClassRoom', 'SimpleLayout');
     }
 
 
@@ -153,12 +165,13 @@ class AdminManagementController extends Action
     }
 
 
+
     // Course
 
 
     public function managementCourse()
     {
-        $this->render('management_course', 'AdminLayout');
+        $this->render('/pages/management_course', 'AdminLayout');
     }
 
 
@@ -174,7 +187,8 @@ class AdminManagementController extends Action
     public function listCourse()
     {
         $Course = Container::getModel('Course');
-        echo json_encode($Course->listCourse());
+        $this->view->listCourse = $Course->listCourse();
+        $this->render('/listElement/formCourse', 'SimpleLayout');
     }
 
 
@@ -208,7 +222,7 @@ class AdminManagementController extends Action
 
     public function managementDiscipline()
     {
-        $this->render('management_discipline', 'AdminLayout');
+        $this->render('/pages/management_discipline', 'AdminLayout');
     }
 
 
@@ -230,7 +244,8 @@ class AdminManagementController extends Action
     public function listDiscipline()
     {
         $Discipline = Container::getModel('Discipline');
-        echo json_encode($Discipline->listDiscipline());
+        $this->view->listDiscipline = $Discipline->listDiscipline();
+        $this->render('/listElement/trDiscipline', 'SimpleLayout');
     }
 
 
@@ -258,9 +273,12 @@ class AdminManagementController extends Action
             'fk_id_modality' => $_GET['seekModality']
         ];
 
-        $data = $Discipline->setAll($data)->seekDiscipline();
+        $Discipline->setAll($data);
 
-        echo json_encode($data);
+        $this->view->listDiscipline = $Discipline->seekDiscipline();
+        
+        $this->render('/listElement/trDiscipline', 'SimpleLayout');
+
     }
 
 
@@ -285,7 +303,7 @@ class AdminManagementController extends Action
 
     public function managementClass()
     {
-        $this->render('management_class', 'AdminLayout');
+        $this->render('/pages/management_class', 'AdminLayout');
     }
 
 
@@ -346,7 +364,8 @@ class AdminManagementController extends Action
     public function listClass()
     {
         $Classe = Container::getModel('Classe');
-        echo json_encode($Classe->listClass());
+        $this->view->listClass = $Classe->listClass();
+        $this->render('/listElement/trClass', 'SimpleLayout');
     }
 
 
@@ -360,6 +379,10 @@ class AdminManagementController extends Action
             'fk_id_course' => $_GET['course'],
         ];
 
-        echo json_encode($Classe->setAll($data)->seekClass());
+        $Classe->setAll($data);
+
+        $this->view->listClass = $Classe->seekClass();
+        
+        $this->render('/listElement/trClass', 'SimpleLayout');
     }
 }

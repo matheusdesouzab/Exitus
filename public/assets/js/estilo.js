@@ -6,9 +6,9 @@
 
         let $sidebarLogo = $('#painel-left .logo img')
 
-        $("#navbar-top").toggleClass('col-lg-11 col-lg-10').toggleClass('col-md-10 col-md-9')
+        $("#navbar-top").toggleClass('col-lg-12 col-lg-10').toggleClass('col-md-10 col-md-9')
 
-        $(".side-pagina").toggleClass('col-md-10 col-md-9').toggleClass('col-lg-11 col-lg-10')
+        $(".side-pagina").toggleClass('col-md-10 col-md-9').toggleClass('col-lg-12 col-lg-10')
 
         $('.panel-side').toggleClass('col-lg-1 col-lg-2')
 
