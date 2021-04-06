@@ -93,8 +93,6 @@ $(document).ready(function () {
 
         let $formData = $(`${form}`).serialize()
 
-        console.log([$formData])
-
         $.ajax({
             url: route,
             type: 'POST',
@@ -121,7 +119,7 @@ $(document).ready(function () {
         $('form .form-control').prop('disabled', true)
         $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
 
-        $('#addSchoolTerm .form-control, #addCourse .form-control, #seekElement .form-control, #addDiscipline .form-control, #addClassRoom .form-control').prop('disabled', false)
+        $('#addSchoolTerm .form-control, #addCourse .form-control, #seekDiscipline .form-control, #addDiscipline .form-control, #addClassRoom .form-control').prop('disabled', false)
 
         $(`${form} .form-control`).prop('disabled', false)
         $(`${form} .update-data-icon, ${form} .delete-data-icon`).css("pointer-events", "auto")
@@ -133,13 +131,20 @@ $(document).ready(function () {
 
         let $container = $(`[${container}]`)
 
-        $container.text('')
+        let loading = '<div class="d-flex justify-content-center loading"><div class="spinner-grow text-primary" role="status"></div></div>'
+
+        $container.text('').append(loading)
 
         $.ajax({
             url: route,
             type: 'GET',
-            success: data => $container.append(data),
-            error: erro => console.log(erro.responseText)
+            success: data => {
+
+                $('.loading').remove()
+                $container.append(data)
+
+            },
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
         })
     }
 
@@ -162,83 +167,25 @@ $(document).ready(function () {
     }
 
 
-    function showModal(formId) {
+    function showModal(formId, route, container, modal) {
 
         let id = formId.replace(/[^0-9]/g, '')
 
-        let $container = $('[containerModal]')
+        let $container = $(`[${container}]`)
+
+        $container.text('')
 
         $.ajax({
-            url: '/admin/gestao/disciplina/dados',
-            dataType: 'json',
+            url: route,
             type: 'GET',
             data: {
                 idDiscipline: id
             },
             success: data => {
 
-                let formModal = `#formModal${data[0].id_discipline}`
+                $container.append(data)
 
-                $container.text('').append(`
-
-                <form id="formModal${data[0].id_discipline}" class="col-lg-11 mx-auto mb-4" action="">
-
-                <div class="col-lg-12">
-                <div class="form-row modal-header">
-                    <div discipline class="col-lg-6 mt-2 font-weight-bold"></div>
-                    <div class="col-lg-6 d-flex justify-content-end">
-
-                        <span class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                        <span class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                        <span class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
-
-                    </div>
-                </div>              
-               
-
-                <div class="form-row mb-2 mt-3">
-                <input type="hidden" name="idDiscipline" value="${data[0].id_discipline}">
-                    <div class="form-group col-lg-7">
-                        <label for="">Nome da disciplina:</label>
-                        <input class="form-control" disabled value="${data[0].discipline}" type="text" name="discipline" id="">
-                    </div>
-                    <div class="form-group col-lg-2">
-                        <label for="">Sigla:</label>
-                        <input class="form-control"  onkeyup="this.value = this.value.toUpperCase()" maxlength="4" disabled value="${data[0].acronym}" type="text" name="acronym" id="">
-                    </div>
-                    <div class="form-group col-lg-3">
-                        <label for="inputState">Modalidade:</label>
-                        <select disabled id="inputState" name="modality" class="form-control custom-select " required>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row d-flex justify-content-end modal-links-alternativos mt-3 mb-3">
-
-                <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
-
-            </div>
-                
-                </form>`)
-
-
-                $('#modalDiscipline').modal("hide")
-
-                $('[discipline]').text(data[0].discipline)
-
-                $(`${formModal} select[name="modality"]`).append(`<option value="${data[0].id_modality}">${data[0].discipline_modality}</option>`)
-
-                $(`${formModal} .edit-data-icon`).on('click', () => editElement(`${formModal}`))
-
-                $(`${formModal} .delete-data-icon`).on('click', () => [deleteElement(`${formModal}`, '/admin/gestao/disciplina/deletar', 'Disciplina deletada'), listDiscipline(), showModal(`${formModal}`)])
-
-                $(`${formModal} .update-data-icon`).on('click', () => [updateElement(`${formModal}`, '/admin/gestao/disciplina/atualizar', 'Disciplina atualizada'), listDiscipline(), showModal(`${formModal}`)])
-
-                availableElement([
-                    [`modality`, '/admin/gestao/disciplina/lista-modalidades']
-                ])
-
-                $('#modalDiscipline').modal("show")
+                $(modal).modal("show")
 
             },
 
@@ -286,37 +233,75 @@ $(document).ready(function () {
     }
 
 
-    $(document).on('click', '.edit-data-icon', function () {
-        editElement($(this).attr('idElement'))
-    })
+
+    // School Term
 
 
-    $(document).on('click', '.update-data-icon', function () {
-
-        updateElement($(this).attr('idElement'), $(this).attr('routeUpdate'), $(this).attr('toastData'))
-
-        listElement($(this).attr('container'), $(this).attr('routeList'))
-    })
-
-    $(document).on('click', '.delete-data-icon', function () {
-
-        deleteElement($(this).attr('idElement'), $(this).attr('routeDelete'), $(this).attr('toastData'))
-
-        listElement($(this).attr('container'), $(this).attr('routeList'))
-    })
+    //? Load list school term and group available element
 
 
+    $('#schoolTerm').on('load', [listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'), availableElement([
+        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
+        ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
+        ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
+    ])])
 
 
-    // Grupo de butões para adicionar elementos
+    //? List school term using collapse
 
 
-    $('#buttonAddSchoolTerm')
-        .on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/admin/gestao/periodo-letivo/inserir', 'Período letivo adicionado', false),
-            availableElement([
-                ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis']
-            ])
+    $('#collapseListSchoolTerm').on('click', () => listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
+
+
+    //? Group of elements available using collapse
+
+
+    $('#collapseAddSchoolTerm').on('click', () => availableElement([
+        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
+        ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
+        ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
+    ]))
+
+
+    //? Button to add school year
+
+
+    $('#buttonAddSchoolTerm').on('click', () => [automaticDate(), addElement('#addSchoolTerm', '/admin/gestao/periodo-letivo/inserir', 'Período letivo adicionado', false),
+        availableElement([
+            ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis']
         ])
+    ])
+
+
+    // ClassRoom
+
+
+    //? Load list classroom and group available element
+
+
+    $('#classRoom').on('load', [
+        listElement('containerListClassRoom', '/admin/gestao/sala/lista'),
+        availableElement([
+            ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
+        ])
+    ])
+
+
+    //? List classroom using collapse
+
+
+    $('#collapseListClassRoom').on('click', () => listElement('containerListClassRoom', '/admin/gestao/sala/lista'))
+
+
+    //? Group of elements available using collapse
+
+
+    $('#collapseAddClassRoom').on('click', availableElement([
+        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
+    ]))
+
+
+    //? Button to add classroom
 
 
     $('#buttonAddClassRoom')
@@ -327,21 +312,88 @@ $(document).ready(function () {
         ])
 
 
+    // Course
+
+
+    //? Load list school term and group available element
+
+
+    $('#course').on('load', listElement('containerListCourse', '/admin/gestao/curso/lista'))
+
+
+    //? List classroom using collapse
+
+
+    $('#collapseListCourse').on('click', () => listElement('containerListCourse', '/admin/gestao/curso/lista'))
+
+
+    //? Button to add Course
+
+
     $('#buttonAddCourse')
         .on('click', () => addElement('#addCourse', '/admin/gestao/curso/inserir', 'Curso adicionado'))
+
+
+    // Discipline
+
+
+    //? Load list element and group element available
+
+
+    $('#discipline').on('load',
+        [listElement('containerListDiscipline', '/admin/gestao/disciplina/lista'), availableElement([
+            ['modalityAdd', '/admin/gestao/disciplina/lista-modalidades'],
+            ['seekModality', '/admin/gestao/disciplina/lista-modalidades']
+        ])])
+
+
+    //? List classroom using collapse
+
+
+    $('#collapseListDiscipline').on('click', () => listElement('containerListDiscipline', '/admin/gestao/disciplina/lista'))
+
+
+    //? Seek discipline
+
+
+    $('select[name="seekModality"]').change(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'))
+
+
+    $('input[name="seekName"]').keyup(function (e) {
+
+        if (timeout) clearTimeout(timeout);
+
+        timeout = setTimeout(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'), 1500)
+
+    })
+
+
+    //? Show modal
+
+
+    $(document).on('click', '#discipline tr', function () {
+        showModal(this.id, '/admin/gestao/disciplina/dados', 'containerModal', '#modalDiscipline')
+    })
+
+
+    //? Upper Case
+
+
+    $('input[name="acronym"]').on('keyup', e => e.target.value = e.target.value.toUpperCase())
+
+
+    //? Button add discipline
 
 
     $('#buttonAddDiscipline')
         .on('click', () => addElement('#addDiscipline', '/admin/gestao/disciplina/inserir', 'Disciplina adicionada'))
 
 
-    $('#buttonAddClass')
-        .on('click', () => [addElement('#addClass', '/admin/gestao/turma/inserir', 'Turma adicionada'), checkClass()])
+
+    // Class
 
 
-    // Load Element
-
-
+    //? Load list class and group available elements
 
 
     $('#class').on('load', [availableElement([
@@ -354,72 +406,65 @@ $(document).ready(function () {
     ]), listElement('containerListClass', '/admin/gestao/turma/lista')])
 
 
-    $('#classRoom').on(document, 'load', [
-        listElement('containerListClassRoom', '/admin/gestao/sala/lista'),
-        availableElement([
-            ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
-        ])
-    ])
+    //? Button add class
 
 
-    $('#schoolTerm').on(document, 'load', [listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'), availableElement([
-        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
-        ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
-        ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
-    ])])
+    $('#buttonAddClass')
+        .on('click', () => [addElement('#addClass', '/admin/gestao/turma/inserir', 'Turma adicionada'), checkClass()])
 
 
-    $('#course').on('load', listElement('containerListCourse', '/admin/gestao/curso/lista'))
-
-    $('#discipline').on('load',
-        [listElement('containerListDiscipline', '/admin/gestao/disciplina/lista'), availableElement([
-            ['modalityAdd', '/admin/gestao/disciplina/lista-modalidades'],
-            ['seekModality', '/admin/gestao/disciplina/lista-modalidades']
-        ])])
+    //? List class using collapse
 
 
-
-    // Collapse add
-
-
-    $('#collapseAddClassRoom').on('click', () => availableElement([
-        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
-    ]))
+    $('#collapseListClass').on('click', () => listElement('containerListClass', '/admin/gestao/turma/lista'))
 
 
-    // All
+    //? Seek class
 
-
-    $('select[name="seekModality"]').change(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'))
 
     $('#seekClass .custom-select').change(() => seekElement('#seekClass', 'containerListClass', '/admin/gestao/turma/buscar'))
+
+
+    //? Check class
 
 
     $('#addClass .form-control').change(checkClass)
 
 
-    $('#checkClass').on('click', () => checkClass())
+    //---------------------------------------------------------------------------------------------------------------------------------
 
 
-    $('input[name="acronym"]').on('keyup', e => e.target.value = e.target.value.toUpperCase())
+    // Edit , update and delete
 
 
-    $('input[name="seekName"]').keyup(function (e) {
-
-        if (timeout) clearTimeout(timeout);
-
-        timeout = setTimeout(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'), 1500)
-
-    });
+    //? Edit element
 
 
-    $(document).on('click', '#discipline tr', function () {
-        showModal(this.id)
+    $(document).on('click', '.edit-data-icon', function () {
+        editElement($(this).attr('idElement'))
     })
 
-    $(document).on('click','#collapseListSchoolTerm', listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
+
+    //? Update element
 
 
+    $(document).on('click', '.update-data-icon', function () {
+
+        updateElement($(this).attr('idElement'), $(this).attr('routeUpdate'), $(this).attr('toastData'))
+
+        listElement($(this).attr('container'), $(this).attr('routeList'))
+    })
+
+
+    //? Delete element
+
+
+    $(document).on('click', '.delete-data-icon', function () {
+
+        deleteElement($(this).attr('idElement'), $(this).attr('routeDelete'), $(this).attr('toastData'))
+
+        listElement($(this).attr('container'), $(this).attr('routeList'))
+    })
 
 
 

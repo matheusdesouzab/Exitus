@@ -93,7 +93,7 @@
                                         </div>
 
                                         <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
-                                        
+
                                             <div class="form-group col-lg-4">
                                                 <label for="">Nome da disciplina:</label>
                                                 <input class="form-control is-valid" value="" type="text" name="discipline" id="" required>
@@ -125,7 +125,7 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 
 
 </section>

@@ -11,9 +11,11 @@
 
             <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                <span name="#formClassRoom<?= $classRoom->id_room ?>" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
-                <span name="#formClassRoom<?= $classRoom->id_room ?>" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
-                <span name="#formClassRoom<?= $classRoom->id_room ?>" class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
+                <span idElement="#formClassRoom<?= $classRoom->id_room ?>" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+
+                <span idElement="#formClassRoom<?= $classRoom->id_room ?>" routeUpdate="/admin/gestao/sala/atualizar" toastData="Sala Atualizada" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+
+                <span idElement="#formClassRoom<?= $classRoom->id_room ?>" routeDelete="/admin/gestao/sala/deletar" toastData="Periodo Letivo Atualizado" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
             </div>
 

@@ -56,7 +56,7 @@ class SchoolTerm extends Model
         $situation = null;
 
         $idSchoolTerm[0]->option_value ==  $this->__get('idSchoolTerm') ?
-        $situation = 1 : $situation = $this->__get('fk_id_school_term_situation');
+            $situation = 1 : $situation = $this->__get('fk_id_school_term_situation');
 
         $query = "UPDATE periodo_letivo SET 
         data_inicio = :startDate , data_fim = :endDate , fk_id_situacao_periodo_letivo = $situation
@@ -69,8 +69,7 @@ class SchoolTerm extends Model
         $stmt->bindValue(':idSchoolTerm', $this->__get('idSchoolTerm'));
 
 
-        $stmt->execute(); 
-
+        $stmt->execute();
     }
 
     public function listSchoolTerm()
@@ -99,11 +98,15 @@ class SchoolTerm extends Model
 
     public function deleteSchoolTerm()
     {
+        $activeSchoolTerm = $this->activeSchoolTerm();
 
-        $query = 'DELETE FROM periodo_letivo WHERE id_ano_letivo = :idSchoolTerm;';
+        $newId = null;
+
+        $activeSchoolTerm[0]->option_value ==  $this->__get('idSchoolTerm') ? $newId = 0 : $newId = $this->__get('idSchoolTerm');
+
+        $query = "DELETE FROM periodo_letivo WHERE id_ano_letivo = $newId";
 
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':idSchoolTerm', $this->__get('idSchoolTerm'));
 
         $stmt->execute();
     }
