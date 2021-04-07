@@ -82,15 +82,22 @@ class Classe extends Model
 
     public function checkClass()
     {
-        $stmt = $this->db->prepare("SELECT * FROM turma WHERE turma.fk_id_sala = :fk_id_classroom and turma.fk_id_turno = :fk_id_shift;");
+
+        $stmt = $this->db->prepare("SELECT * FROM turma WHERE turma.fk_id_sala = :fk_id_classroom AND turma.fk_id_turno = :fk_id_shift AND turma.fk_id_periodo_letivo = :fk_id_school_term;");
+
         $stmt->bindValue(':fk_id_classroom', $this->__get('fk_id_classroom'));
         $stmt->bindValue(':fk_id_shift', $this->__get('fk_id_shift'));
+        $stmt->bindValue(':fk_id_school_term', $this->__get('fk_id_school_term'));
+
         $stmt->execute();
 
-        $stmt2 = $this->db->prepare("SELECT * FROM turma WHERE turma.fk_id_serie = :fk_id_series and turma.fk_id_cedula = :fk_id_ballot and turma.fk_id_curso = :fk_id_course;");
+        $stmt2 = $this->db->prepare("SELECT * FROM turma WHERE turma.fk_id_serie = :fk_id_series AND turma.fk_id_cedula = :fk_id_ballot AND turma.fk_id_curso = :fk_id_course AND turma.fk_id_periodo_letivo = :fk_id_school_term;");
+
         $stmt2->bindValue(':fk_id_series', $this->__get('fk_id_series'));
         $stmt2->bindValue(':fk_id_ballot', $this->__get('fk_id_ballot'));
         $stmt2->bindValue(':fk_id_course', $this->__get('fk_id_course'));
+        $stmt2->bindValue(':fk_id_school_term', $this->__get('fk_id_school_term'));
+
         $stmt2->execute();
 
         return $situation = [
@@ -102,7 +109,7 @@ class Classe extends Model
 
     public function seekClass()
     {
-        
+
         $shiftOperation = $this->__get('fk_id_shift') == 0 ? '<>' : '=';
         $courseOperation = $this->__get('fk_id_course') == 0 ? '<>' : '=';
         $seriesOperation = $this->__get('fk_id_series') == 0 ? '<>' : '=';

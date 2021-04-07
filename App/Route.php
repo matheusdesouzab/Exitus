@@ -15,7 +15,7 @@ class Route extends Bootstrap
 
 
 		$routes['admCadastroAluno'] = array(
-			'route' => '/admAlunoCadastro',
+			'route' => '/admin/aluno/cadastro',
 			'controller' => 'AdminStudentController',
 			'action' => 'studentRegistration'
 		);
@@ -51,12 +51,6 @@ class Route extends Bootstrap
 			'controller' => 'AdminManagementController',
 			'action' => 'managementGeneral'
 		);
-
-/* 		$routes['formClassRoom'] = array(
-			'route' => '/admin/gestao/sala/form-classroom',
-			'controller' => 'AdminManagementController',
-			'action' => 'formClassRoom'
-		); */
 
 
 		// School Term ( Período letivo )

@@ -4,10 +4,10 @@
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-course">
 
-            <div class="col-lg-12 mb-3">
+            <div class="col-lg-12 mb-3 mt-3">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6">
-                        <h5>Gestão dos Cursos</h5>
+                        <h5>Gestão dos cursos</h5>
                     </div>
 
                     <div class="col-lg-6 collapse-options-container">
@@ -27,6 +27,7 @@
                     <div class="col-lg-12">
 
                         <div class="collapse show" id="list-courses" data-parent="#accordion-course">
+
                             <div class="row">
                                 <div containerListCourse class="col-lg-12"></div>
                             </div>

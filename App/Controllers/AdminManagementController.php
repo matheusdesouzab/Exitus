@@ -358,6 +358,7 @@ class AdminManagementController extends Action
             'fk_id_series' => $_GET['series'],
             'fk_id_ballot' => $_GET['ballot'],
             'fk_id_course' => $_GET['course'],
+            'fk_id_school_term' => $_GET['schoolTerm'],
         ];
 
         echo json_encode($Classe->setAll($data)->checkClass());

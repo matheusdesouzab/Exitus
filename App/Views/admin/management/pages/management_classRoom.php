@@ -4,7 +4,7 @@
 
         <div class="col-lg-11 mx-auto accordion" id="room-accordion">
 
-            <div class="col-lg-12 mb-3">
+            <div class="col-lg-12 mb-3 mt-3">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6">
                         <h5>Gestão das salas</h5>
@@ -27,8 +27,9 @@
                     <div class="col-lg-12">
 
                         <div class="collapse show" id="list-rooms" data-parent="#room-accordion">
-
-                            <div class="col-lg-12" containerListClassRoom></div>
+                            <div class="row">
+                                <div class="col-lg-12" containerListClassRoom></div>
+                            </div>
 
                         </div>
 
@@ -50,10 +51,10 @@
                                                 <select name="classroomNumber" class="form-control custom-select is-valid" id="classroomNumber" required></select>
                                             </div>
 
-                                    
+
                                             <div class="form-group col-lg-4">
                                                 <label for="studentCapacity">Capacidade de alunos:</label>
-                                               <input class="form-control is-valid" value="" type="text" name="studentCapacity" id="studentCapacity" required>
+                                                <input class="form-control is-valid" value="" type="text" name="studentCapacity" id="studentCapacity" required>
                                             </div>
 
                                             <div class="form-group col-lg-4">

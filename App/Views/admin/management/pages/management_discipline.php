@@ -4,7 +4,7 @@
 
         <div class="col-lg-12 accordion" id="discipline-accordion">
 
-            <div class="col-lg-11 mx-auto">
+            <div class="col-lg-11 mx-auto mt-3">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6">
                         <h5>Gestão das disciplinas</h5>

@@ -51,7 +51,9 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 <script src="/assets/js/request.js"></script>
 
-<script src="/assets/js/estilo.js"></script>
+<script src="/assets/js/style.js"></script>
+
+<script src="/assets/js/main.js"></script>
 
 
 </html>

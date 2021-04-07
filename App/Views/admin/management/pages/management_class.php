@@ -4,7 +4,7 @@
 
         <div class="col-lg-12 accordion" id="class-accordion">
 
-            <div class="col-lg-11 mx-auto mb-4">
+            <div class="col-lg-11 mx-auto mb-4 mt-3">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6">
                         <h5>Gestão das turmas</h5>
