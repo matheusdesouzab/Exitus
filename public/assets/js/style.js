@@ -20,24 +20,22 @@ function sideState() {
 
 function getLocation() {
 
-    let cep = $('#cep').val()
+    let zipCode = $('#zipCode').val()
 
     $.ajax({
         type: 'GET',
-        url: `https://viacep.com.br/ws/${cep}/json/unicode/`,
+        url: `https://viacep.com.br/ws/${zipCode}/json/unicode/`,
         dataType: 'json',
-        success: cepDados => {
+        success: data => {
 
-            $('#endereco').val(cepDados.logradouro)
-            $('#bairro').val(cepDados.bairro)
-            $('#municipio').val(cepDados.localidade)
-            $('#uf').val(cepDados.uf)
-            $('#cep').val(cepDados.cep)
+            $('#address').val(data.logradouro)
+            $('#district').val(data.bairro)
+            $('#county').val(data.localidade)
+            $('#uf').val(data.uf)
+            $('#zipCode').val(data.cep)
 
         },
-        error: erro => {
-            console.log(`Ocorreu um erro na busca do cep, código de erro = ${erro.status}`)
-        }
+        error: erro => showToast('CEP inválido','bg-danger') 
     })
 }
 

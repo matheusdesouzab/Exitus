@@ -1,4 +1,4 @@
-<div id="student-registration">
+<section id="student-registration">
 
     <div class="row main-container">
 
@@ -32,29 +32,25 @@
 
                     <hr class="col-lg-11 mx-auto">
 
-                    <form class="was-validated" role="form">
+                    <form class="was-validated" id="addStudent" role="form" enctype="multipart/form-data" method="POST" action="/admin/aluno/cadastro/inserir">
                         <div class="row collapse show" id="student-registration-initial-data" data-parent="#student-record-accordion">
                             <div class="col-lg-10 mt-2 mx-auto">
                                 <div class="col-md-12">
                                     <div class="form-row mt-1">
 
                                         <div class="form-group col-md-5">
-                                            <label for="inputEmail4">Nome Completo:</label>
-                                            <input type="text" class="form-control is-valid" id="inputEmail4" placeholder="" maxlength="120" required>
+                                            <label for="name">Nome Completo:</label>
+                                            <input type="text" class="form-control is-valid" id="name" name="name" placeholder="" maxlength="120">
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputPassword4">CPF:</label>
-                                            <input type="text" id="cpf" class="form-control is-valid" placeholder="Somente números" maxlength="14" required>
+                                            <label for="cpf">CPF:</label>
+                                            <input type="text" id="cpf" name="cpf" class="form-control is-valid" placeholder="Somente números" maxlength="14">
                                         </div>
 
                                         <div class="form-group col-md-3">
-                                            <label for="inputState">Sexo:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option selected></option>
-                                                <option>Masculino</option>
-                                                <option>Feminino</option>
-                                            </select>
+                                            <label for="sex">Sexo:</label>
+                                            <select id="sex" name="sex" class="form-control custom-select is-valid"></select>
                                         </div>
 
                                     </div>
@@ -62,18 +58,18 @@
                                     <div class="form-row">
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputAddress">Data Nascimento:</label>
-                                            <input type="date" class="form-control is-valid" id="inputAddress" placeholder="" required>
+                                            <label for="birthDate">Data Nascimento:</label>
+                                            <input name="birthDate" type="date" class="form-control is-valid" id="birthDate" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputAddress2">Naturalidade:</label>
-                                            <input type="text" class="form-control is-valid" id="inputAddress2" placeholder="" required>
+                                            <label for="naturalness">Naturalidade:</label>
+                                            <input name="naturalness" type="text" class="form-control is-valid" id="naturalness" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputAddress2">Nacionalidade:</label>
-                                            <input type="text" class="form-control is-valid" id="inputAddress2" placeholder="" required>
+                                            <label for="nationality">Nacionalidade:</label>
+                                            <input type="text" name="nationality" class="form-control is-valid" id="nationality" placeholder="">
                                         </div>
 
                                     </div>
@@ -81,21 +77,18 @@
                                     <div class="form-row mb-4">
 
                                         <div class="form-group col-md-5">
-                                            <label for="inputCity">Nome da Mãe:</label>
-                                            <input type="text" class="form-control is-valid" id="inputCity" maxlength="120" required>
+                                            <label for="motherName">Nome da Mãe:</label>
+                                            <input type="text" class="form-control is-valid" name="motherName" id="motherName" maxlength="120">
                                         </div>
 
                                         <div class="form-group col-md-5">
-                                            <label for="inputCity">Nome do Pai:</label>
-                                            <input type="text" class="form-control is-valid" id="inputCity" maxlength="120" required>
+                                            <label for="fatherName">Nome do Pai:</label>
+                                            <input type="text" class="form-control is-valid" name="fatherName" id="fatherName" maxlength="120">
                                         </div>
 
                                         <div class="form-group col-md-2">
-                                            <label for="inputCity">PcD:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option>Não</option>
-                                                <option>Sim</option>
-                                            </select>
+                                            <label for="pcd">PcD:</label>
+                                            <select id="pcd" name="pcd" class="form-control custom-select is-valid"></select>
                                         </div>
 
                                     </div>
@@ -113,18 +106,18 @@
                                     <div class="form-row mt-3">
 
                                         <div class="form-group col-md-3">
-                                            <label for="inputCity">CEP:</label>
-                                            <input type="text" id="cep" class="form-control is-valid" id="inputCity" maxlength="9" required>
+                                            <label for="zipCode">CEP:</label>
+                                            <input type="text" id="zipCode" class="form-control is-valid" name="zipCode" maxlength="9">
                                         </div>
 
                                         <div class="form-group col-md-5">
-                                            <label for="inputCity">Munícipio:</label>
-                                            <input type="text" id="municipio" class="form-control is-valid" id="inputCity" required>
+                                            <label for="county">Munícipio:</label>
+                                            <input type="text" id="county" class="form-control is-valid" name="county">
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputCity">Bairro:</label>
-                                            <input type="text" id="bairro" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                            <label for="district">Bairro:</label>
+                                            <input type="text" id="district" class="form-control is-valid" name="district" placeholder="">
                                         </div>
 
 
@@ -134,18 +127,18 @@
                                     <div class="form-row">
 
                                         <div class="form-group col-md-6">
-                                            <label for="inputCity">Endereço:</label>
-                                            <input type="text" id="endereco" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                            <label for="address">Endereço:</label>
+                                            <input type="text" id="address" class="form-control is-valid" name="address" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-2">
-                                            <label for="inputCity">UF:</label>
-                                            <input type="text" id="uf" class="form-control is-valid" maxlength="2" id="inputCity" placeholder="" required>
+                                            <label for="uf">UF:</label>
+                                            <input type="text" id="uf" class="form-control is-valid" maxlength="2" name="uf" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputCity">Contato:</label>
-                                            <input type="text" id="telefone1" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                            <label for="telephone">Contato:</label>
+                                            <input type="text" id="telephone" class="form-control is-valid" name="telephoneNumber" placeholder="">
                                         </div>
 
 
@@ -155,25 +148,17 @@
                                     <div class="form-row mb-3">
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputCity">Tipo sanguíneo:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option value=""></option>
-                                                <option>A+</option>
-                                                <option>A-</option>
-                                                <option>B+</option>
-                                                <option>B-</option>
-                                                <option>AB+</option>
-                                                <option>AB-</option>
-                                                <option>O+</option>
-                                                <option>O-</option>
+                                            <label for="bloodType">Tipo sanguíneo:</label>
+                                            <select id="bloodType" name="bloodType" class="form-control custom-select is-valid">
                                             </select>
                                         </div>
+                                        
 
                                         <div class="form-group col-md-8">
                                             <label for="">&nbsp;</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="customFileLangHTML" required>
-                                                <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do aluno(a)</label>
+                                                <input type="file" class="custom-file-input" name="profilePhoto" id="profilePhoto">
+                                                <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo"></label>
                                             </div>
                                         </div>
 
@@ -192,19 +177,13 @@
                                     <div class="form-row mt-3 mb-5">
 
                                         <div class="form-group col-md-8">
-                                            <label for="inputCity">Turma</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option value=""></option>
-                                                <option>1&deg; A - Técnico em Informática - Matutino - Sala: 03</option>
-                                                <option>INFO-1M-B</option>
-                                                <option>INFO-2V-A</option>
-                                                <option>INFO-2V-B</option>
-                                            </select>
+                                            <label for="class">Turma</label>
+                                            <select id="class" name="class" class="form-control custom-select is-valid"></select>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="">&nbsp;</label>
-                                            <a id="matricularAluno" class="btn btn-success w-100" href="#">Cadastra aluno (a)</a>
+                                            <button id="buttonAddStudent" class="btn btn-success w-100">Cadastra aluno (a)</button>
                                         </div>
 
 
@@ -249,6 +228,4 @@
         </div>
     </div>
 
-</div>
-
-</div>
+</section>

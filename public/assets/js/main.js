@@ -1,4 +1,3 @@
-
 // * Management
 
 
@@ -238,22 +237,57 @@ $(document).on('click', '.delete-data-icon', function () {
 //************************************************************************** */
 
 
-//* Student and teacher
+//* Student 
+
+
+//? Load group of element available
+
+
+$('#student').on('load', availableElement([
+    ['sex', '/admin/sexoDisponiveis'],
+    ['pcd', '/admin/pcd'],
+    ['bloodType', '/admin/tipoSanguineo']
+]))
+
+
+$("#buttonAddStudent").click(function () {
+
+    var formData = new FormData(this)
+
+    $.ajax({
+        url: '/admin/aluno/cadastro/inserir',
+        type: 'POST',
+        data: formData,
+        success: function (data) {
+            console.log(data)
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+    });
+
+})
+
+
+//? Button add student
+
+
+//$('#buttonAddStudent').on('click', () => addElement('#addStudent', '/admin/aluno/cadastro/inserir', 'Aluno cadastrado'))
 
 
 //? Masks
 
 
-$('cpf').on('keypress', e => $(e.target).mask('000.000.000-00'))
+$('#cpf').on('keypress', e => $(e.target).mask('000.000.000-00'))
 
 
-$("telephone").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
+$("#telephone").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
 
 
 //? Automatic cep
 
 
-$('zipCode').on('blur', getLocation)
+$('#zipCode').on('blur', getLocation)
 
 
 //************************************************************************** */

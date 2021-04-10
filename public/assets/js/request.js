@@ -5,8 +5,6 @@ function addElement(form, route, toastDescription, clean = true) {
 
     let $formData = $(form).serialize()
 
-    console.log($formData)
-
     if ($(`${form} .form-control`).val() != '') {
 
         $.ajax({
@@ -15,6 +13,8 @@ function addElement(form, route, toastDescription, clean = true) {
             type: 'POST',
             data: $formData,
             success: data => {
+
+                console.log(data)
 
                 clean ? $(`${form} input`).val('') : ''
 
@@ -29,7 +29,7 @@ function addElement(form, route, toastDescription, clean = true) {
     } else {
 
         showToast('Preencha todos os campos', 'bg-danger')
-    }
+    } 
 }
 
 

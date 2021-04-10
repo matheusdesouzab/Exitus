@@ -10,7 +10,7 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 ?>
 
-<html>
+<html lang="pt">
 
 <head>
 	<meta charset="utf-8">

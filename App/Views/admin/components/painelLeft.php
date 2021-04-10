@@ -12,7 +12,7 @@
             </a>
         </li>
 
-        
+
 
         <li class="link-collapse">
             <a href="/home"><i class="fas fa-globe mr-2"></i> <span>Visão Geral</span>
@@ -28,8 +28,8 @@
         <li data-toggle="collapse" href="#alunos" role="button" aria-expanded="false" aria-controls="alunos" class="active link-collapse"><a><i class="fas fa-users mr-2"></i> <span class="mr-5">Alunos</span><i class="fas fa-angle-right ml-5"></i></a></li>
 
         <div class="collapse" id="alunos">
-            <li><a href='/admin/AlunoCadastro'><span>Cadastra aluno</span></a></li>
-            <li><a href='/admin/AlunoLista'><span>Lista de alunos</span></a></li>
+            <li><a href='/admin/aluno/cadastro'><span>Cadastra aluno</span></a></li>
+            <li><a href='/admin/aluno/lista'><span>Lista de alunos</span></a></li>
         </div>
 
         <li data-toggle="collapse" href="#professores" role="button" aria-expanded="false" aria-controls="professores" class="active link-collapse"><a><i class="fas fa-id-card-alt mr-2"></i> <span class="mr-3">Professores</span> <i class="fas fa-angle-right" style="margin-left: 52px;"></i></a></li>

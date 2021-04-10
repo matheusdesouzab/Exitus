@@ -20,10 +20,34 @@ class Route extends Bootstrap
 			'action' => 'studentRegistration'
 		);
 
+		$routes['adminInsertStudent'] = array(
+			'route' => '/admin/aluno/cadastro/inserir',
+			'controller' => 'AdminStudentController',
+			'action' => 'insertStudent'
+		);
+
 		$routes['admListaAlunos'] = array(
 			'route' => '/admAlunoLista',
 			'controller' => 'AdminStudentController',
 			'action' => 'studentList'
+		);
+
+		$routes['availableSex'] = array(
+			'route' => '/admin/sexoDisponiveis',
+			'controller' => 'AdminStudentController',
+			'action' => 'availableSex'
+		);
+
+		$routes['pcd'] = array(
+			'route' => '/admin/pcd',
+			'controller' => 'AdminStudentController',
+			'action' => 'pcd'
+		);
+
+		$routes['tipoSanguineo'] = array(
+			'route' => '/admin/tipoSanguineo',
+			'controller' => 'AdminStudentController',
+			'action' => 'bloodType'
 		);
 
 
@@ -310,6 +334,12 @@ class Route extends Bootstrap
 			'route' => '/admin/gestao/turma/buscar',
 			'controller' => 'AdminManagementController',
 			'action' => 'seekClass'
+		);
+
+		$routes['admAvailableListClass'] = array(
+			'route' => '/admin/gestao/turma/turmas-disponiveis',
+			'controller' => 'AdminManagementController',
+			'action' => 'availableListClass'
 		);
 
 
