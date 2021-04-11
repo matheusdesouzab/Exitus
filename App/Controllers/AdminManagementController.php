@@ -389,4 +389,7 @@ class AdminManagementController extends Action
 
         $this->render('/listElement/listClass', 'SimpleLayout');
     }
+
+
+   
 }

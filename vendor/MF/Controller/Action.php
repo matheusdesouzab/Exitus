@@ -23,14 +23,14 @@ abstract class Action {
 
 	protected function content() {
 		
-		$classAtual = explode('\\',get_class($this));
+		$class = explode('\\',get_class($this));
 
-		$caminhoAbsoluto = preg_split('/(?=[A-Z])/', $classAtual[2]);
+		$control = preg_split('/(?=[A-Z])/', $class[2]);
 
-		$pastaPrincipal = lcfirst($caminhoAbsoluto[1]);
-		$pastaSecundaria = lcfirst($caminhoAbsoluto[2]);
+		$directory = lcfirst($control[1]);
+		$subDirectory = lcfirst($control[2]);
 
-		require_once "../App/Views/".$pastaPrincipal."/".$pastaSecundaria."/".$this->view->page.'.php';
+		require_once "../App/Views/".$directory."/".$subDirectory."/".$this->view->page.'.php'; 
 	}
 }
 

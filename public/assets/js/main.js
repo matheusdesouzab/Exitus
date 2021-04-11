@@ -7,11 +7,13 @@
 //? Load list school term and group available element
 
 
-$('#schoolTerm').on('load', [listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'), availableElement([
-    ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
-    ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
-    ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
-])])
+$('#schoolTerm').ready(function () {
+    listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'), availableElement([
+        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
+        ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
+        ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
+    ])
+})
 
 
 //? List school term using collapse
@@ -46,12 +48,13 @@ $('#buttonAddSchoolTerm').on('click', () => [automaticDate(), addElement('#addSc
 //? Load list classroom and group available element
 
 
-$('#classRoom').on('load', [
-    listElement('containerListClassRoom', '/admin/gestao/sala/lista'),
-    availableElement([
-        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
-    ])
-])
+$('#classRoom').ready(function () {
+    [listElement('containerListClassRoom', '/admin/gestao/sala/lista'),
+        availableElement([
+            ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
+        ])
+    ]
+})
 
 
 //? List classroom using collapse
@@ -64,7 +67,7 @@ $('#collapseListClassRoom').on('click', () => listElement('containerListClassRoo
 
 
 $('#collapseAddClassRoom').on('click', availableElement([
-    ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis']
+    ['classroomNumberAdd', '/admin/gestao/sala/lista-numeros-disponiveis']
 ]))
 
 
@@ -85,7 +88,9 @@ $('#buttonAddClassRoom')
 //? Load list school term and group available element
 
 
-$('#course').on('load', listElement('containerListCourse', '/admin/gestao/curso/lista'))
+$('#course').ready(function () {
+    listElement('containerListCourse', '/admin/gestao/curso/lista')
+})
 
 
 //? List classroom using collapse
@@ -107,11 +112,12 @@ $('#buttonAddCourse')
 //? Load list element and group element available
 
 
-$('#discipline').on('load',
+$('#discipline').ready(function () {
     [listElement('containerListDiscipline', '/admin/gestao/disciplina/lista'), availableElement([
         ['modalityAdd', '/admin/gestao/disciplina/lista-modalidades'],
         ['seekModality', '/admin/gestao/disciplina/lista-modalidades']
-    ])])
+    ])]
+})
 
 
 //? List classroom using collapse
@@ -163,14 +169,16 @@ $('#buttonAddDiscipline')
 //? Load list class and group available elements
 
 
-$('#class').on('load', [availableElement([
-    ['shift', '/admin/gestao/turma/lista-turnos'],
-    ['ballot', '/admin/gestao/turma/lista-cedulas'],
-    ['series', '/admin/gestao/turma/lista-series'],
-    ['course', '/admin/gestao/turma/lista-cursos'],
-    ['classRoom', '/admin/gestao/turma/lista-salas'],
-    ['schoolTerm', '/admin/gestao/periodo-letivo/ativado']
-]), listElement('containerListClass', '/admin/gestao/turma/lista')])
+$('#class').ready(function () {
+    [availableElement([
+        ['shift', '/admin/gestao/turma/lista-turnos'],
+        ['ballot', '/admin/gestao/turma/lista-cedulas'],
+        ['series', '/admin/gestao/turma/lista-series'],
+        ['course', '/admin/gestao/turma/lista-cursos'],
+        ['classRoom', '/admin/gestao/turma/lista-salas'],
+        ['schoolTerm', '/admin/gestao/periodo-letivo/ativado']
+    ]), listElement('containerListClass', '/admin/gestao/turma/lista')]
+})
 
 
 //? Button add class
@@ -243,36 +251,33 @@ $(document).on('click', '.delete-data-icon', function () {
 //? Load group of element available
 
 
-$('#student').on('load', availableElement([
-    ['sex', '/admin/sexoDisponiveis'],
-    ['pcd', '/admin/pcd'],
-    ['bloodType', '/admin/tipoSanguineo']
-]))
-
-
-$("#buttonAddStudent").click(function () {
-
-    var formData = new FormData(this)
-
-    $.ajax({
-        url: '/admin/aluno/cadastro/inserir',
-        type: 'POST',
-        data: formData,
-        success: function (data) {
-            console.log(data)
-        },
-        cache: false,
-        contentType: false,
-        processData: false,
-    });
-
+$('#student').ready(function () {
+    [availableElement([
+        ['sex', '/dados-gerais/lista-sexo'],
+        ['pcd', '/dados-gerais/lista-pcd'],
+        ['bloodType', '/dados-gerais/lista-tipo-sanguineo']
+    ]), listElement('class4', '/admin/gestao/turma/lista-turmas-disponiveis')]
 })
 
 
 //? Button add student
 
 
-//$('#buttonAddStudent').on('click', () => addElement('#addStudent', '/admin/aluno/cadastro/inserir', 'Aluno cadastrado'))
+$("#buttonAddStudent").click(function () {
+
+    let formData = new FormData(this)
+
+    $.ajax({
+        url: '/admin/aluno/cadastro/inserir',
+        type: 'POST',
+        data: formData,
+        success: data => console.log(data),
+        cache: false,
+        contentType: false,
+        processData: false,
+    });
+
+})
 
 
 //? Masks

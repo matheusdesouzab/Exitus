@@ -66,7 +66,7 @@ function availableElement(dataMatrix) {
 
             },
 
-            error: erro => console.log(erro)
+            error: erro => console.log(erro.responseText)
 
         })
 

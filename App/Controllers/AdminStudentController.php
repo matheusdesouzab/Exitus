@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Student;
+use App\Models\Classe;
 use MF\Controller\Action;
 use MF\Model\Container;
 
@@ -13,6 +14,13 @@ class AdminStudentController extends Action
     {
 
         $this->render('student_registration', 'AdminLayout');
+    }
+
+
+    function format($value)
+    {
+        $value = preg_replace('/[^0-9]/', '', $value);
+        return $value;
     }
 
 
@@ -37,8 +45,17 @@ class AdminStudentController extends Action
     }
 
 
+    public function availableListClass()
+    {
+        $Classe = Container::getModel('Classe');
+        $this->view->listClass = $Classe->availableListClass();
+        $this->render('/listElement/listClass', 'SimpleLayout');
+    }
+
+
     public function insertStudent()
     {
+
         $Student = Container::getModel('Student');
 
         $dir = '../App/Views/admin/student/profilePhoto/';
@@ -47,18 +64,24 @@ class AdminStudentController extends Action
 
             date_default_timezone_set("Brazil/East");
 
-            $ext = strtolower(substr($_FILES['profilePhoto']['name'], -4));
-            $new_name = date("Y.m.d-H.i.s") . $ext;
+            $ext = pathinfo($_FILES['profilePhoto']['name'], PATHINFO_EXTENSION);
+            $new_name = date("Y.m.d-H.i.s") .'.'. $ext;
 
             move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $dir . $new_name);
 
             $Student->profilePhoto = $new_name;
+
         }
+
+        $cpf = $this->format($_POST['cpf']);
+        $telefone = $this->format($_POST['telephoneNumber']);
+
+        
 
         $data = [
 
             'name' => $_POST['name'],
-            'cpf' => $_POST['cpf'],
+            'cpf' => $cpf,
             'birthDate' => $_POST['birthDate'],
             'naturalness' => $_POST['naturalness'],
             'nationality' => $_POST['nationality'],
@@ -66,10 +89,10 @@ class AdminStudentController extends Action
             'fatherName' => $_POST['fatherName'],
 
             'fk_id_sex' => $_POST['sex'],
-            'fk_id_blood_type' => $_POST['boodType'],
+            'fk_id_blood_type' => $_POST['bloodType'],
             'fk_id_pcd' => $_POST['pcd'],
 
-            'telephoneNumber' => $_POST['telephoneNumber'],
+            'telephoneNumber' => $telefone,
             'zipCode' => $_POST['zipCode'],
             'district' => $_POST['district'],
             'address' => $_POST['address'],
@@ -87,6 +110,4 @@ class AdminStudentController extends Action
 
         echo '</pre>';
     }
-
-
 }

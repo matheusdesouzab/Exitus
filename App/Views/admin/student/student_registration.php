@@ -149,8 +149,7 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="bloodType">Tipo sanguíneo:</label>
-                                            <select id="bloodType" name="bloodType" class="form-control custom-select is-valid">
-                                            </select>
+                                            <select id="bloodType" name="bloodType" class="form-control custom-select is-valid"></select>
                                         </div>
                                         
 
@@ -178,7 +177,7 @@
 
                                         <div class="form-group col-md-8">
                                             <label for="class">Turma</label>
-                                            <select id="class" name="class" class="form-control custom-select is-valid"></select>
+                                            <select id="class" class4 name="class" class="form-control custom-select is-valid"></select>
                                         </div>
 
                                         <div class="form-group col-md-4">
