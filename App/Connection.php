@@ -16,6 +16,7 @@ class Connection
 			);
 
 			return $conn;
+			
 		} catch (\PDOException $e) {
 			echo ($e->getMessage());
 		}

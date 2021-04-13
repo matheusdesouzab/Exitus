@@ -13,6 +13,7 @@ class SchoolTerm extends Model
     protected $fk_id_school_term_situation;
     protected $fk_id_school_year;
 
+
     public function endSchoolTerm()
     {
 
@@ -21,6 +22,7 @@ class SchoolTerm extends Model
             $stmt = $this->db->prepare($query)->execute();
         }
     }
+
 
     public function insertSchoolTerm()
     {
@@ -38,6 +40,7 @@ class SchoolTerm extends Model
         $stmt->execute();
     }
 
+
     public function listSchoolTermSituation()
     {
 
@@ -45,6 +48,7 @@ class SchoolTerm extends Model
             "SELECT situacao_periodo_letivo.id_situacao_periodo_letivo AS option_value  , situacao_periodo_letivo.situacao_periodo_letivo AS option_text FROM situacao_periodo_letivo"
         );
     }
+
 
     public function updateSchoolTerm()
     {
@@ -72,6 +76,7 @@ class SchoolTerm extends Model
         $stmt->execute();
     }
 
+
     public function listSchoolTerm()
     {
 
@@ -79,6 +84,7 @@ class SchoolTerm extends Model
             "SELECT periodo_letivo.id_ano_letivo AS id_school_term  , periodo_letivo.data_inicio AS start_date  , periodo_letivo.data_fim AS end_date , situacao_periodo_letivo.situacao_periodo_letivo AS situation_school_term , situacao_periodo_letivo.id_situacao_periodo_letivo AS fk_id_situation_school_term , periodo_disponivel.ano_letivo FROM periodo_letivo LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) ORDER BY periodo_disponivel.ano_letivo DESC ;"
         );
     }
+
 
     public function availableSchoolTerm()
     {
@@ -88,6 +94,7 @@ class SchoolTerm extends Model
         );
     }
 
+
     public function activeSchoolTerm()
     {
 
@@ -95,6 +102,7 @@ class SchoolTerm extends Model
             "SELECT periodo_letivo.id_ano_letivo AS option_value , periodo_disponivel.ano_letivo AS option_text FROM periodo_letivo LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
         );
     }
+    
 
     public function deleteSchoolTerm()
     {

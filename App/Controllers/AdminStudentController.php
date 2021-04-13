@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Student;
 use App\Models\Classe;
+use App\Models\StudentEnrollment;
 use MF\Controller\Action;
 use MF\Model\Container;
 
@@ -14,13 +15,6 @@ class AdminStudentController extends Action
     {
 
         $this->render('student_registration', 'AdminLayout');
-    }
-
-
-    function format($value)
-    {
-        $value = preg_replace('/[^0-9]/', '', $value);
-        return $value;
     }
 
 
@@ -58,25 +52,13 @@ class AdminStudentController extends Action
 
         $Student = Container::getModel('Student');
 
-        $dir = '../App/Views/admin/student/profilePhoto/';
+        $Enrollment = Container::getModel('StudentEnrollment');
 
-        if (isset($_FILES['profilePhoto'])) {
-
-            date_default_timezone_set("Brazil/East");
-
-            $ext = pathinfo($_FILES['profilePhoto']['name'], PATHINFO_EXTENSION);
-            $new_name = date("Y.m.d-H.i.s") .'.'. $ext;
-
-            move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $dir . $new_name);
-
-            $Student->profilePhoto = $new_name;
-
-        }
+        $this->processImage($Student, '/admin/aluno/cadastro?erro=imagem');
 
         $cpf = $this->format($_POST['cpf']);
-        $telefone = $this->format($_POST['telephoneNumber']);
 
-        
+        $telephone = $this->format($_POST['telephoneNumber']);
 
         $data = [
 
@@ -92,22 +74,21 @@ class AdminStudentController extends Action
             'fk_id_blood_type' => $_POST['bloodType'],
             'fk_id_pcd' => $_POST['pcd'],
 
-            'telephoneNumber' => $telefone,
+            'telephoneNumber' => $telephone,
             'zipCode' => $_POST['zipCode'],
             'district' => $_POST['district'],
             'address' => $_POST['address'],
             'uf' => $_POST['uf'],
             'county' => $_POST['county'],
-            'fk_id_class' => $_POST['class'],
 
         ];
 
         $Student->setAll($data);
 
-        echo '<pre>';
 
-        print_r($Student);
+        //$this->render('student_registration', 'AdminLayout');
 
-        echo '</pre>';
+
+
     }
 }

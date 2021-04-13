@@ -14,8 +14,6 @@ function addElement(form, route, toastDescription, clean = true) {
             data: $formData,
             success: data => {
 
-                console.log(data)
-
                 clean ? $(`${form} input`).val('') : ''
 
                 showToast(toastDescription, 'bg-success')
