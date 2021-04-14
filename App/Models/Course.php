@@ -11,7 +11,7 @@ class Course extends Model
     protected $acronym;
 
 
-    public function insertCourse()
+    public function insert()
     {
 
         $query = 'INSERT INTO curso(nome_curso,sigla) VALUES (:course,:acronym);';
@@ -22,7 +22,7 @@ class Course extends Model
         $stmt->execute();
     }
 
-    public function listCourse()
+    public function list()
     {
 
         return $this->speedingUp(
@@ -30,7 +30,7 @@ class Course extends Model
         );
     }
 
-    public function deleteCourse()
+    public function delete()
     {
 
         $query = 'DELETE FROM curso WHERE curso.id_curso = :idCourse';
@@ -40,7 +40,7 @@ class Course extends Model
         $stmt->execute();
     }
 
-    public function updateCourse()
+    public function update()
     {
 
         $query = 'UPDATE curso SET nome_curso = :course , sigla = :acronym WHERE curso.id_curso = :idCourse;';

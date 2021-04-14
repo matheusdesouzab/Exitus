@@ -7,30 +7,41 @@ abstract class Model
 
 	protected $db;
 
+	abstract public function insert(); // Create
+	abstract public function list();   // Read
+	abstract public function update(); // Update
+	abstract public function delete(); // Delete
+	
+
+
 	public function __construct(\PDO $db)
 	{
 		$this->db = $db;
 	}
+
 
 	public function __get($att)
 	{
 		return $this->$att;
 	}
 
+
 	public function __set($att, $newValue)
 	{
 		return $this->$att = $newValue;
 	}
 
+
 	public function __call($method, $value)
 	{
 		return $this->get($method);
 	}
-	
+
 
 	protected function set($property, $value)
 	{
 		$methodName = "set" . ucfirst($property);
+
 		if (method_exists($this, $methodName)) {
 			call_user_func_array(array($this, $methodName), array($value));
 		} else if (property_exists($this, $property)) {
@@ -45,9 +56,10 @@ abstract class Model
 	{
 		foreach ($data as $k => $v)
 			$this->set($k, $v);
-		return $this;
+			return $this;
+		
 	}
-	
+
 
 	public function speedingUp($query)
 	{
@@ -59,6 +71,3 @@ abstract class Model
 		return $stmt->fetchAll(\PDO::FETCH_OBJ);
 	}
 }
-
-
-

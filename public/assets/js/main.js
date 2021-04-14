@@ -255,7 +255,8 @@ $('#student').ready(function () {
     [availableElement([
         ['sex', '/dados-gerais/lista-sexo'],
         ['pcd', '/dados-gerais/lista-pcd'],
-        ['bloodType', '/dados-gerais/lista-tipo-sanguineo']
+        ['bloodType', '/dados-gerais/lista-tipo-sanguineo'],
+        ['schoolTerm', '/admin/gestao/periodo-letivo/ativado']
     ]), listElement('class4', '/admin/gestao/turma/lista-turmas-disponiveis')]
 })
 

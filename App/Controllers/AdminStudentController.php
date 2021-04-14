@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Student;
 use App\Models\Classe;
 use App\Models\StudentEnrollment;
+use App\Models\Address;
 use MF\Controller\Action;
 use MF\Model\Container;
 
@@ -51,44 +52,51 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student');
-
         $Enrollment = Container::getModel('StudentEnrollment');
+        $Address = Container::getModel('Address');
 
-        $this->processImage($Student, '/admin/aluno/cadastro?erro=imagem');
+        //$this->processImage($Student, '/admin/aluno/cadastro?erro=imagem');
 
-        $cpf = $this->format($_POST['cpf']);
+        $addressData = [
 
-        $telephone = $this->format($_POST['telephoneNumber']);
+            'zipCode' => $this->format($_POST['zipCode']),
+            'district' => $_POST['district'],
+            'address' => $_POST['address'],
+            'uf' => $_POST['uf'],
+            'county' => $_POST['county']
 
-        $data = [
+        ];
+
+        $Address->setAll($addressData);
+
+
+        $studentData = [
 
             'name' => $_POST['name'],
-            'cpf' => $cpf,
+            'cpf' =>  $this->format($_POST['cpf']),
+            'telephoneNumber' => $this->format($_POST['telephoneNumber']),
             'birthDate' => $_POST['birthDate'],
             'naturalness' => $_POST['naturalness'],
             'nationality' => $_POST['nationality'],
             'motherName' => $_POST['motherName'],
             'fatherName' => $_POST['fatherName'],
-
             'fk_id_sex' => $_POST['sex'],
             'fk_id_blood_type' => $_POST['bloodType'],
             'fk_id_pcd' => $_POST['pcd'],
-
-            'telephoneNumber' => $telephone,
-            'zipCode' => $_POST['zipCode'],
-            'district' => $_POST['district'],
-            'address' => $_POST['address'],
-            'uf' => $_POST['uf'],
-            'county' => $_POST['county'],
-
+            'fk_id_address' => $Address->insert()
         ];
 
-        $Student->setAll($data);
+        $Student->setAll($studentData);
 
 
-        //$this->render('student_registration', 'AdminLayout');
+        $enrollmentData = [
 
+            'fk_student_situation' => 1,
+            'fk_id_student' => $Student->insert(),
+            'fk_id_class' => $_POST['class'],
+            'fk_id_school_term' => $_POST['schoolTerm']
+        ];
 
-
+        $Enrollment->setAll($enrollmentData)->insert(); 
     }
 }

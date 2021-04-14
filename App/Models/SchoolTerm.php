@@ -24,11 +24,13 @@ class SchoolTerm extends Model
     }
 
 
-    public function insertSchoolTerm()
+    public function insert()
     {
+
         $this->endSchoolTerm();
 
-        $query = "INSERT INTO periodo_letivo (data_inicio,data_fim,fk_id_situacao_periodo_letivo,fk_id_ano_letivo) VALUES (:startDate,:endDate,:fk_id_school_term_situation,:fk_id_school_year)";
+        $query = "INSERT INTO periodo_letivo (data_inicio,data_fim,fk_id_situacao_periodo_letivo,fk_id_ano_letivo) 
+        VALUES (:startDate,:endDate,:fk_id_school_term_situation,:fk_id_school_year)";
 
         $stmt = $this->db->prepare($query);
 
@@ -50,7 +52,7 @@ class SchoolTerm extends Model
     }
 
 
-    public function updateSchoolTerm()
+    public function update()
     {
 
         $this->endSchoolTerm();
@@ -59,8 +61,7 @@ class SchoolTerm extends Model
 
         $situation = null;
 
-        $idSchoolTerm[0]->option_value ==  $this->__get('idSchoolTerm') ?
-            $situation = 1 : $situation = $this->__get('fk_id_school_term_situation');
+        $idSchoolTerm[0]->option_value ==  $this->__get('idSchoolTerm') ? $situation = 1 : $situation = $this->__get('fk_id_school_term_situation');
 
         $query = "UPDATE periodo_letivo SET 
         data_inicio = :startDate , data_fim = :endDate , fk_id_situacao_periodo_letivo = $situation
@@ -77,7 +78,23 @@ class SchoolTerm extends Model
     }
 
 
-    public function listSchoolTerm()
+    public function delete()
+    {
+        $activeSchoolTerm = $this->activeSchoolTerm();
+
+        $newId = null;
+
+        $activeSchoolTerm[0]->option_value ==  $this->__get('idSchoolTerm') ? $newId = 0 : $newId = $this->__get('idSchoolTerm');
+
+        $query = "DELETE FROM periodo_letivo WHERE id_ano_letivo = $newId";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->execute();
+    }
+
+
+    public function list()
     {
 
         return $this->speedingUp(
@@ -101,21 +118,5 @@ class SchoolTerm extends Model
         return $this->speedingUp(
             "SELECT periodo_letivo.id_ano_letivo AS option_value , periodo_disponivel.ano_letivo AS option_text FROM periodo_letivo LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
         );
-    }
-    
-
-    public function deleteSchoolTerm()
-    {
-        $activeSchoolTerm = $this->activeSchoolTerm();
-
-        $newId = null;
-
-        $activeSchoolTerm[0]->option_value ==  $this->__get('idSchoolTerm') ? $newId = 0 : $newId = $this->__get('idSchoolTerm');
-
-        $query = "DELETE FROM periodo_letivo WHERE id_ano_letivo = $newId";
-
-        $stmt = $this->db->prepare($query);
-
-        $stmt->execute();
     }
 }

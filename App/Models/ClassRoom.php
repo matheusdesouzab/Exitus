@@ -12,7 +12,7 @@ class ClassRoom extends Model
     protected $fk_id_classroom_number;
 
 
-    public function insertClassRoom()
+    public function insert()
     {
 
         $query = 'INSERT INTO sala(fk_id_numero_sala,capacidade_alunos) VALUES (:fk_id_classroom_number,:studentCapacity);';
@@ -23,7 +23,7 @@ class ClassRoom extends Model
         $stmt->execute();
     }
 
-    public function listClassRoom()
+    public function list()
     {
 
         return $this->speedingUp(
@@ -31,7 +31,7 @@ class ClassRoom extends Model
         );
     }
 
-    public function updateClassRoom()
+    public function update()
     {
 
         $query = 'UPDATE sala SET capacidade_alunos = :studentCapacity WHERE id_sala = :idClassRoom';
@@ -44,7 +44,7 @@ class ClassRoom extends Model
         $stmt->execute();
     }
 
-    public function deleteClassRoom()
+    public function delete()
     {
 
         $query = 'DELETE FROM sala WHERE sala.id_sala = :idClassRoom';

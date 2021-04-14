@@ -6,6 +6,7 @@ use MF\Model\Model;
 
 abstract class People extends Model
 {
+
     protected $id;
     protected $name;
     protected $cpf;
@@ -16,18 +17,13 @@ abstract class People extends Model
     protected $fk_id_sex;
     protected $fk_id_blood_type;
     protected $fk_id_pcd;
+    protected $fk_id_address;
 
     protected $idTelephone;
     protected $telephoneNumber;
     protected $fk_id_telephone;
 
-    protected $idAddress;
-    protected $zipCode;
-    protected $district;
-    protected $address;
-    protected $uf;
-    protected $county;
-    protected $fk_id_address;
+    
 
 
     public function availableSex()
@@ -42,6 +38,7 @@ abstract class People extends Model
 
         return $this->speedingUp('SELECT pcd.id_pcd as option_value , pcd.pcd as option_text FROM pcd;');
     }
+    
 
     public function bloodType()
     {

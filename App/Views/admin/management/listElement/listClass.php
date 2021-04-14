@@ -17,7 +17,7 @@ if (count($this->view->listClass) >= 1) {
 } else { ?>
 
     <tr class="mt-4">
-        <td colspan="3">Nenhuma turma adicionada</td>
+        <td colspan="4">Nenhuma turma adicionada</td>
     </tr>
 
 

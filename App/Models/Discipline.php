@@ -13,7 +13,7 @@ class Discipline extends Model
     protected $fk_id_modality;
 
 
-    public function insertDiscipline()
+    public function insert()
     {
 
         $query = "INSERT INTO disciplina (nome_disciplina,sigla_disciplina,fk_id_modalidade_disciplina) VALUES (:discipline,:acronym,:fk_id_modality);";
@@ -27,7 +27,7 @@ class Discipline extends Model
         $stmt->execute();
     }
 
-    public function listDiscipline()
+    public function list()
     {
 
         return $this->speedingUp(
@@ -57,7 +57,7 @@ class Discipline extends Model
         );
     }
 
-    public function updateDiscipline()
+    public function update()
     {
 
         $query = 'UPDATE disciplina SET nome_disciplina = :discipline , sigla_disciplina = :acronym , fk_id_modalidade_disciplina = :fk_id_modality WHERE disciplina.id_disciplina = :idDiscipline;';
@@ -89,7 +89,7 @@ class Discipline extends Model
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
-    public function deleteDiscipline()
+    public function delete()
     {
 
         $query = 'DELETE FROM disciplina WHERE disciplina.id_disciplina = :idDiscipline';

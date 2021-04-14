@@ -11,12 +11,11 @@ class Student extends People
     protected $motherName;
 
 
-    public function insertStudent()
+    public function insert()
     {
 
-        $query = "INSERT INTO aluno 
-        (nome_aluno,cpf_aluno,data_nascimento_aluno,naturalidade_aluno,foto_perfil_aluno,nacionalidade_aluno,nome_mae,nome_pai,fk_id_sexo_aluno,fk_id_tipo_sanguineo_aluno,fk_id_aluno_pcd) VALUES
-        (:studentName,:cpf,:birthDate,:naturalness,:profilePhoto,:nationality,:motherName,:fatherName,:fk_id_sex,:fk_id_blood_type,:fk_id_pcd);";
+        $query = "INSERT INTO aluno (nome_aluno,cpf_aluno,data_nascimento_aluno,naturalidade_aluno,foto_perfil_aluno,nacionalidade_aluno,nome_mae,nome_pai,fk_id_sexo_aluno,fk_id_tipo_sanguineo_aluno,fk_id_aluno_pcd,fk_id_endereco_aluno) 
+        VALUES (:studentName,:cpf,:birthDate,:naturalness,:profilePhoto,:nationality,:motherName,:fatherName,:fk_id_sex,:fk_id_blood_type,:fk_id_pcd,:fk_id_address);";
 
         $stmt = $this->db->prepare($query);
 
@@ -31,9 +30,25 @@ class Student extends People
         $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
         $stmt->bindValue(':fk_blood_type', $this->__get('fk_blood_type'));
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
+        $stmt->bindValue(':fk_id_address', $this->__get('fk_id_address'));
 
         $stmt->execute();
 
         return $this->db->lastInsertId();
+    }
+
+
+    public function delete(){
+        //delete
+    }
+
+
+    public function update(){
+        //update
+    }
+
+
+    public function list(){
+        //list
     }
 }
