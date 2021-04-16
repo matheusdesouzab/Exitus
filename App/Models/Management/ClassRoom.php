@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Management;
 
 use MF\Model\Model;
 

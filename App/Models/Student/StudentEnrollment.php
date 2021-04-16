@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Student;
 
-use App\Models\Student;
+use MF\Model\Model;
 
-class StudentEnrollment extends Student
+class StudentEnrollment extends Model
 {
 
     protected $fk_student_situation;
@@ -13,7 +13,7 @@ class StudentEnrollment extends Student
     protected $fk_id_student;
 
 
-    public function insertEnrollment()
+    public function insert()
     {
 
         $query = "INSERT INTO matricula (fk_id_aluno,fk_id_turma_matricula,fk_id_situacao_aluno,fk_id_periodo_letivo_matricula) VALUES 
@@ -27,5 +27,22 @@ class StudentEnrollment extends Student
         $stmt->bindValue(':fk_id_school_term', $this->__get('fk_id_school_term'));
 
         $stmt->execute();
+    }
+
+    public function delete()
+    {
+        //
+    }
+
+
+    public function list()
+    {
+        //
+    }
+
+
+    public function update()
+    {
+        //
     }
 }

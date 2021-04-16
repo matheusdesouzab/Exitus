@@ -40,12 +40,12 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="name">Nome Completo:</label>
-                                            <input type="text" class="form-control is-valid" id="name" name="name" placeholder="" maxlength="120" required>
+                                            <input type="text" class="form-control is-valid" id="name" name="name" placeholder="" maxlength="120">
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="cpf">CPF:</label>
-                                            <input type="text" id="cpf" name="cpf" class="form-control is-valid" placeholder="Somente números" maxlength="14" required>
+                                            <input type="text" id="cpf" minlength="14" name="cpf" class="form-control is-valid" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-3">
@@ -59,17 +59,17 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="birthDate">Data Nascimento:</label>
-                                            <input name="birthDate" type="date" max="2006-01-31" min="1940-01-31" class="form-control is-valid" id="birthDate" placeholder="" required>
+                                            <input name="birthDate" type="date" max="2006-01-31" min="1940-01-31" class="form-control is-valid" id="birthDate" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="naturalness">Naturalidade:</label>
-                                            <input name="naturalness" type="text" class="form-control is-valid" id="naturalness" placeholder="" required>
+                                            <input name="naturalness" type="text" class="form-control is-valid" id="naturalness" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="nationality">Nacionalidade:</label>
-                                            <input type="text" name="nationality" class="form-control is-valid" id="nationality" placeholder="" required>
+                                            <input type="text" name="nationality" class="form-control is-valid" id="nationality" placeholder="">
                                         </div>
 
                                     </div>
@@ -78,12 +78,12 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="motherName">Nome da Mãe:</label>
-                                            <input type="text" class="form-control is-valid" name="motherName" id="motherName" maxlength="120" required>
+                                            <input type="text" class="form-control is-valid" name="motherName" id="motherName" maxlength="120">
                                         </div>
 
                                         <div class="form-group col-md-5">
                                             <label for="fatherName">Nome do Pai:</label>
-                                            <input type="text" class="form-control is-valid" name="fatherName" id="fatherName" maxlength="120" required>
+                                            <input type="text" class="form-control is-valid" name="fatherName" id="fatherName" maxlength="120">
                                         </div>
 
                                         <div class="form-group col-md-2">
@@ -107,17 +107,17 @@
 
                                         <div class="form-group col-md-3">
                                             <label for="zipCode">CEP:</label>
-                                            <input type="text" id="zipCode" class="form-control is-valid" name="zipCode" maxlength="9" required>
+                                            <input type="text" id="zipCode" class="form-control is-valid" name="zipCode" minlength="8">
                                         </div>
 
                                         <div class="form-group col-md-5">
                                             <label for="county">Munícipio:</label>
-                                            <input type="text" id="county" class="form-control is-valid" name="county" required>
+                                            <input type="text" id="county" class="form-control is-valid" name="county">
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="district">Bairro:</label>
-                                            <input type="text" id="district" class="form-control is-valid" name="district" placeholder="" required>
+                                            <input type="text" id="district" class="form-control is-valid" name="district" placeholder="">
                                         </div>
 
 
@@ -128,17 +128,17 @@
 
                                         <div class="form-group col-md-6">
                                             <label for="address">Endereço:</label>
-                                            <input type="text" id="address" class="form-control is-valid" name="address" placeholder="" required>
+                                            <input type="text" id="address" class="form-control is-valid" name="address" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="uf">UF:</label>
-                                            <input type="text" id="uf" class="form-control is-valid" maxlength="2" name="uf" placeholder="" required>
+                                            <input type="text" id="uf" class="form-control is-valid" maxlength="2" name="uf" placeholder="">
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="telephone">Contato:</label>
-                                            <input type="text" id="telephone" class="form-control is-valid" name="telephoneNumber" placeholder="" required>
+                                            <input type="tel" id="telephone" class="form-control is-valid" name="telephoneNumber" placeholder="">
                                         </div>
 
 

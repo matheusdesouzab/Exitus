@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Student;
 
-use MF\Model\People;
+use App\Models\People\People;
 
 class Student extends People
 {
@@ -14,8 +14,8 @@ class Student extends People
     public function insert()
     {
 
-        $query = "INSERT INTO aluno (nome_aluno,cpf_aluno,data_nascimento_aluno,naturalidade_aluno,foto_perfil_aluno,nacionalidade_aluno,nome_mae,nome_pai,fk_id_sexo_aluno,fk_id_tipo_sanguineo_aluno,fk_id_aluno_pcd,fk_id_endereco_aluno) 
-        VALUES (:studentName,:cpf,:birthDate,:naturalness,:profilePhoto,:nationality,:motherName,:fatherName,:fk_id_sex,:fk_id_blood_type,:fk_id_pcd,:fk_id_address);";
+        $query = "INSERT INTO aluno (nome_aluno,cpf_aluno,data_nascimento_aluno,naturalidade_aluno,foto_perfil_aluno,nacionalidade_aluno,nome_mae,nome_pai,fk_id_sexo_aluno,fk_id_tipo_sanguineo_aluno,fk_id_aluno_pcd,fk_id_endereco_aluno,fk_id_telefone_aluno) 
+        VALUES (:studentName,:cpf,:birthDate,:naturalness,:profilePhoto,:nationality,:motherName,:fatherName,:fk_id_sex,:fk_id_blood_type,:fk_id_pcd,:fk_id_address,:fk_id_telephone);";
 
         $stmt = $this->db->prepare($query);
 
@@ -28,9 +28,10 @@ class Student extends People
         $stmt->bindValue(':motherName', $this->__get('motherName'));
         $stmt->bindValue(':fatherName', $this->__get('fatherName'));
         $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
-        $stmt->bindValue(':fk_blood_type', $this->__get('fk_blood_type'));
+        $stmt->bindValue(':fk_id_blood_type', $this->__get('fk_id_blood_type'));
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
         $stmt->bindValue(':fk_id_address', $this->__get('fk_id_address'));
+        $stmt->bindValue(':fk_id_telephone', $this->__get('fk_id_telephone'));
 
         $stmt->execute();
 

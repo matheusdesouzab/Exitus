@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\SchoolTerm;
+use App\Models\Management\SchoolTerm;
 use MF\Controller\Action;
 use MF\Model\Container;
 
@@ -17,7 +17,7 @@ class AdminManagementController extends Action
 
     public function formClassRoom()
     {
-        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
         $this->view->listClassRoom = $ClassRoom->listClassRoom();
         $this->render('formClassRoom', 'SimpleLayout');
     }
@@ -35,7 +35,7 @@ class AdminManagementController extends Action
     public function insertSchoolTerm()
     {
 
-        $SchoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
 
         $data = [
             'startDate' => $_POST['startDate'],
@@ -51,7 +51,7 @@ class AdminManagementController extends Action
     public function updateSchoolTerm()
     {
 
-        $SchoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
 
         $data = [
             'idSchoolTerm' => $_POST['idSchoolTerm'],
@@ -68,7 +68,7 @@ class AdminManagementController extends Action
     public function listSchoolTerm()
     {
 
-        $SchoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
         $this->view->listSchoolTerm = $SchoolTerm->list();
         $this->view->listSchoolTermSituation = $SchoolTerm->listSchoolTermSituation();
         $this->render('/listElement/listSchoolTerm', 'SimpleLayout');
@@ -78,7 +78,7 @@ class AdminManagementController extends Action
     public function deleteSchoolTerm()
     {
 
-        $SchoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
         $SchoolTerm->idSchoolTerm = $_POST['idSchoolTerm'];
         $SchoolTerm->delete();
     }
@@ -87,7 +87,7 @@ class AdminManagementController extends Action
     public function listSchoolTermSituation()
     {
 
-        $SchoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
         echo json_encode($SchoolTerm->listSchoolTermSituation());
     }
 
@@ -95,14 +95,14 @@ class AdminManagementController extends Action
     public function availableSchoolTerm()
     {
 
-        $SchoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
         echo json_encode($SchoolTerm->availableSchoolTerm());
     }
 
 
     public function activeSchoolTerm()
     {
-        $SchoolTerm = Container::getModel('SchoolTerm');
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
         echo json_encode($SchoolTerm->activeSchoolTerm());
     }
 
@@ -118,7 +118,7 @@ class AdminManagementController extends Action
 
     public function insertClassRoom()
     {
-        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
         $data = ['studentCapacity' => $_POST['studentCapacity'], 'fk_id_classroom_number' => $_POST['classroomNumber']];
         $ClassRoom->setAll($data)->insert();
     }
@@ -126,7 +126,7 @@ class AdminManagementController extends Action
 
     public function updateClassRoom()
     {
-        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
         $data = ['studentCapacity' => $_POST['studentCapacity'], 'idClassRoom' => $_POST['idClassRoom']];
         $ClassRoom->setAll($data)->update();
     }
@@ -134,7 +134,7 @@ class AdminManagementController extends Action
 
     public function availableClassroom()
     {
-        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
         echo json_encode($ClassRoom->availableClassroom());
     }
 
@@ -142,7 +142,7 @@ class AdminManagementController extends Action
     public function listClassRoom()
     {
 
-        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
         $this->view->listClassRoom = $ClassRoom->list();
         $this->render('/listElement/listClassRoom', 'SimpleLayout');
     }
@@ -151,7 +151,7 @@ class AdminManagementController extends Action
     public function deleteClassRoom()
     {
 
-        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
         $ClassRoom->idClassRoom = $_POST['idClassRoom'];
         $ClassRoom->delete();
     }
@@ -159,7 +159,7 @@ class AdminManagementController extends Action
 
     public function activeClassRoom()
     {
-        $ClassRoom = Container::getModel('ClassRoom');
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
         echo json_encode($ClassRoom->activeClassRoom());
     }
 
@@ -177,7 +177,7 @@ class AdminManagementController extends Action
     public function insertCourse()
     {
 
-        $Course = Container::getModel('Course');
+        $Course = Container::getModel('Management\\Course');
         $data = ['course' => $_POST['course'], 'acronym' => $_POST['acronym']];
         $Course->setAll($data)->insert();
     }
@@ -185,7 +185,7 @@ class AdminManagementController extends Action
 
     public function listCourse()
     {
-        $Course = Container::getModel('Course');
+        $Course = Container::getModel('Management\\Course');
         $this->view->listCourse = $Course->list();
         $this->render('/listElement/listCourse', 'SimpleLayout');
     }
@@ -194,7 +194,7 @@ class AdminManagementController extends Action
     public function updateCourse()
     {
 
-        $Course = Container::getModel('Course');
+        $Course = Container::getModel('Management\\Course');
         $data = ['idCourse' => $_POST['idCourse'], 'course' => $_POST['course'], 'acronym' => $_POST['acronym']];
         $Course->setAll($data)->update();
     }
@@ -202,7 +202,7 @@ class AdminManagementController extends Action
 
     public function availableCourse()
     {
-        $Course = Container::getModel('Course');
+        $Course = Container::getModel('Management\\Course');
         echo json_encode($Course->availableCourse());
     }
 
@@ -210,7 +210,7 @@ class AdminManagementController extends Action
     public function deleteCourse()
     {
 
-        $Course = Container::getModel('Course');
+        $Course = Container::getModel('Management\\Course');
         $Course->idCourse = $_POST['idCourse'];
         $Course->delete();
     }
@@ -227,7 +227,7 @@ class AdminManagementController extends Action
 
     public function insertDiscipline()
     {
-        $Discipline = Container::getModel('Discipline');
+        $Discipline = Container::getModel('Management\\Discipline');
         $data = ['discipline' => $_POST['discipline'], 'acronym' => $_POST['acronym'], 'fk_id_modality' => $_POST['modalityAdd']];
         $Discipline->setAll($data)->insert();
     }
@@ -235,14 +235,14 @@ class AdminManagementController extends Action
 
     public function listDisciplineModality()
     {
-        $Discipline = Container::getModel('Discipline');
+        $Discipline = Container::getModel('Management\\Discipline');
         echo json_encode($Discipline->listDisciplineModality());
     }
 
 
     public function listDiscipline()
     {
-        $Discipline = Container::getModel('Discipline');
+        $Discipline = Container::getModel('Management\\Discipline');
         $this->view->listDiscipline = $Discipline->list();
         $this->render('/listElement/listDiscipline', 'SimpleLayout');
     }
@@ -250,7 +250,7 @@ class AdminManagementController extends Action
 
     public function updateDiscipline()
     {
-        $Discipline = Container::getModel('Discipline');
+        $Discipline = Container::getModel('Management\\Discipline');
 
         $data = [
             'idDiscipline' => $_POST['idDiscipline'],
@@ -265,7 +265,7 @@ class AdminManagementController extends Action
 
     public function seekDiscipline()
     {
-        $Discipline = Container::getModel('Discipline');
+        $Discipline = Container::getModel('Management\\Discipline');
 
         $data = [
             'discipline' => $_GET['seekName'],
@@ -282,7 +282,7 @@ class AdminManagementController extends Action
 
     public function disciplineData()
     {
-        $Discipline = Container::getModel('Discipline');
+        $Discipline = Container::getModel('Management\\Discipline');
         $Discipline->idDiscipline = $_GET['idDiscipline'];
 
         $this->view->discipline = $Discipline->disciplineData();
@@ -294,7 +294,7 @@ class AdminManagementController extends Action
 
     public function deleteDiscipline()
     {
-        $Discipline = Container::getModel('Discipline');
+        $Discipline = Container::getModel('Management\\Discipline');
         $Discipline->idDiscipline = $_POST['idDiscipline'];
         $Discipline->delete();
     }
@@ -311,7 +311,7 @@ class AdminManagementController extends Action
 
     public function insertClass()
     {
-        $Class = Container::getModel('Classe');
+        $Class = Container::getModel('Management\\Classe');
 
         $data = [
             'fk_id_ballot' => $_POST['ballot'],
@@ -328,28 +328,28 @@ class AdminManagementController extends Action
 
     public function availableShift()
     {
-        $Classe = Container::getModel('Classe');
+        $Classe = Container::getModel('Management\\Classe');
         echo json_encode($Classe->availableShift());
     }
 
 
     public function availableBallot()
     {
-        $Classe = Container::getModel('Classe');
+        $Classe = Container::getModel('Management\\Classe');
         echo json_encode($Classe->availableBallot());
     }
 
 
     public function availableSeries()
     {
-        $Classe = Container::getModel('Classe');
+        $Classe = Container::getModel('Management\\Classe');
         echo json_encode($Classe->availableSeries());
     }
 
 
     public function checkClass()
     {
-        $Classe = Container::getModel('Classe');
+        $Classe = Container::getModel('Management\\Classe');
 
         $data = [
             'fk_id_classroom' => $_GET['classRoom'],
@@ -366,7 +366,7 @@ class AdminManagementController extends Action
 
     public function listClass()
     {
-        $Classe = Container::getModel('Classe');
+        $Classe = Container::getModel('Management\\Classe');
         $this->view->listClass = $Classe->list();
         $this->render('/listElement/listClass', 'SimpleLayout');
     }
@@ -374,7 +374,7 @@ class AdminManagementController extends Action
 
     public function seekClass()
     {
-        $Classe = Container::getModel('Classe');
+        $Classe = Container::getModel('Management\\Classe');
 
         $data = [
             'fk_id_shift' => $_GET['shift'],

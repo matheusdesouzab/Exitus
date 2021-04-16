@@ -1,6 +1,6 @@
 <?php
 
-namespace MF\Model;
+namespace App\Models\People;
 
 use MF\Model\Model;
 
@@ -18,12 +18,7 @@ abstract class People extends Model
     protected $fk_id_blood_type;
     protected $fk_id_pcd;
     protected $fk_id_address;
-
-    protected $idTelephone;
-    protected $telephoneNumber;
     protected $fk_id_telephone;
-
-    
 
 
     public function availableSex()
