@@ -7,13 +7,25 @@ use MF\Model\Model;
 class Classe extends Model
 {
 
-    protected $idClass;
-    protected $fk_id_shift;
-    protected $fk_id_classroom;
-    protected $fk_id_course;
-    protected $fk_id_school_term;
-    protected $fk_id_ballot;
-    protected $fk_id_series;
+    private $idClass;
+    private $fk_id_shift;
+    private $fk_id_classroom;
+    private $fk_id_course;
+    private $fk_id_school_term;
+    private $fk_id_ballot;
+    private $fk_id_series;
+
+
+    public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
 
 
     public function insert()

@@ -7,11 +7,23 @@ use MF\Model\Model;
 class SchoolTerm extends Model
 {
 
-    protected $idSchoolTerm;
-    protected $startDate;
-    protected $endDate;
-    protected $fk_id_school_term_situation;
-    protected $fk_id_school_year;
+    private $idSchoolTerm;
+    private $startDate;
+    private $endDate;
+    private $fk_id_school_term_situation;
+    private $fk_id_school_year;
+    
+
+    public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
 
 
     public function endSchoolTerm()

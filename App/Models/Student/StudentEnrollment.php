@@ -7,10 +7,22 @@ use MF\Model\Model;
 class StudentEnrollment extends Model
 {
 
-    protected $fk_student_situation;
-    protected $fk_id_class;
-    protected $fk_id_school_term;
-    protected $fk_id_student;
+    private $fk_student_situation;
+    private $fk_id_class;
+    private $fk_id_school_term;
+    private $fk_id_student;
+
+
+    public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
 
 
     public function insert()

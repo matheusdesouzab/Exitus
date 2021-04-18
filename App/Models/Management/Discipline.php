@@ -7,10 +7,22 @@ use MF\Model\Model;
 class Discipline extends Model
 {
 
-    protected $idDiscipline;
-    protected $discipline;
-    protected $acronym;
-    protected $fk_id_modality;
+    private $idDiscipline;
+    private $discipline;
+    private $acronym;
+    private $fk_id_modality;
+
+
+    public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
 
 
     public function insert()

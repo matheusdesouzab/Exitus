@@ -25,6 +25,12 @@ class Route extends Bootstrap
 			'action' => 'insertStudent'
 		);
 
+		$routes['adminListStudent'] = array(
+			'route' => '/admin/aluno/lista',
+			'controller' => 'AdminStudentController',
+			'action' => 'listStudent'
+		);
+
 		$routes['adminListaAlunos'] = array(
 			'route' => '/admAlunoLista',
 			'controller' => 'AdminStudentController',

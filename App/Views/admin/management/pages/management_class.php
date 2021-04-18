@@ -776,10 +776,7 @@
                             </div>
 
                         </div>
-                        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-                            Dados
-
-                        </div>
+                    
                     </div>
                 </div>
             </div>

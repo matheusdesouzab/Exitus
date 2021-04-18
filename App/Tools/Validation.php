@@ -16,7 +16,13 @@ class Validation
 	}
 
 
-	public function imageValidation($model, $dir, $errorParameter)
+	public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function image($model, $dir, $errorParameter)
 	{
 
 		if (isset($_FILES['profilePhoto']['name']) && $_FILES['profilePhoto']['error'] == 0) {
@@ -31,17 +37,18 @@ class Validation
 
 				move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $dir . $new_name);
 
-				$model->profilePhoto = $new_name;
+				$model->__set('profilePhoto', $new_name);
+
 			} else {
 
-				array_push($error, $errorParameter);
+				array_push($this->error, $errorParameter);
 			}
 		}
 	}
 
 
 
-	function cpfValidation($cpf)
+	function cpf($cpf, $model)
 	{
 
 		$cpfSituation = false;
@@ -67,6 +74,23 @@ class Validation
 			$cpfSituation = false;
 		}
 
-		return $cpfSituation == true ? $newCpf : array_push($error,'cpf=erro');
+		$cpfSituation ?: array_push($this->error, 'cpf=formato-invalido');
+
+		$model->__set('cpf', $newCpf);
+	}
+
+
+	public function basic($model, $value, $size, $att, $errorParameter)
+	{
+
+		$situation = false;
+
+		$newValue = preg_replace('/[^0-9]/', '', $value);
+
+		strlen($newValue) == $size ? $situation = true : $situation = false;
+
+		$situation ?: array_push($this->error, $errorParameter);
+
+		$model->__set($att, $newValue);
 	}
 }

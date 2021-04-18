@@ -107,7 +107,7 @@
 
                                         <div class="form-group col-md-3">
                                             <label for="zipCode">CEP:</label>
-                                            <input type="text" id="zipCode" class="form-control is-valid" name="zipCode" minlength="8">
+                                            <input type="text" id="zipCode" class="form-control is-valid" name="zipCode" minlength="9">
                                         </div>
 
                                         <div class="form-group col-md-5">

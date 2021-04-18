@@ -52,7 +52,7 @@ function availableElement(dataMatrix) {
 
         let $selectSituation = $(`form select[name="${dataMatrix[i][0]}"]`)
 
-        if ((dataMatrix[i][0] == 'classroomNumber' || dataMatrix[i][0] == 'schoolYear' || dataMatrix[i][0] == 'modalityAdd' || dataMatrix[i][0] == 'schoolTermSituationAdd')) $selectSituation.empty()
+        if ((dataMatrix[i][0] == 'classroomNumber' || dataMatrix[i][0] == 'schoolYear' || dataMatrix[i][0] == 'modalityAdd' || dataMatrix[i][0] == 'schoolTermSituationAdd' || dataMatrix[i][0] == 'schoolTerm')) $selectSituation.empty()
 
         $.ajax({
             url: dataMatrix[i][1],

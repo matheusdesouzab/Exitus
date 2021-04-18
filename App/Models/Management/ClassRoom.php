@@ -7,9 +7,21 @@ use MF\Model\Model;
 class ClassRoom extends Model
 {
 
-    protected $idClassRoom;
-    protected $studentCapacity;
-    protected $fk_id_classroom_number;
+    private $idClassRoom;
+    private $studentCapacity;
+    private $fk_id_classroom_number;
+
+
+    public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
 
 
     public function insert()

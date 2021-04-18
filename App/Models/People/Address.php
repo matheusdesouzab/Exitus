@@ -7,25 +7,37 @@ use MF\Model\Model;
 class Address extends Model
 {
 
-    protected $idAddress;
-    protected $zipCode;
-    protected $district;
-    protected $address;
-    protected $uf;
-    protected $county;
+    private $idAddress;
+    private $zipCode;
+    private $district;
+    private $address;
+    private $uf;
+    private $county;
+
+
+    public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
 
 
     public function insert()
     {
 
-        $query = "INSERT INTO endereco (cep,bairro,endereco,uf,municipio) VALUES (1,2,3,4,5);";
+        $query = "INSERT INTO endereco (cep,bairro,endereco,uf,municipio) VALUES (:zipCode,:district,:addresss,:uf,:county);";
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(1, $this->__get('zipCode'));
-        $stmt->bindValue(2, $this->__get('district'));
-        $stmt->bindValue(3, $this->__get('address'));
-        $stmt->bindValue(4, $this->__get('uf'));
-        $stmt->bindValue(5, $this->__get('county'));
+        $stmt->bindValue(':zipCode', $this->__get('zipCode'));
+        $stmt->bindValue(':district', $this->__get('district'));
+        $stmt->bindValue(':addresss', $this->__get('address'));
+        $stmt->bindValue(':uf', $this->__get('uf'));
+        $stmt->bindValue(':county', $this->__get('county'));
 
         $stmt->execute();
 

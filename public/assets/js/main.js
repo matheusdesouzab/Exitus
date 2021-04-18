@@ -255,8 +255,7 @@ $('#student').ready(function () {
     [availableElement([
         ['sex', '/dados-gerais/lista-sexo'],
         ['pcd', '/dados-gerais/lista-pcd'],
-        ['bloodType', '/dados-gerais/lista-tipo-sanguineo'],
-        ['schoolTerm', '/admin/gestao/periodo-letivo/ativado']
+        ['bloodType', '/dados-gerais/lista-tipo-sanguineo']
     ]), listElement('class4', '/admin/gestao/turma/lista-turmas-disponiveis')]
 })
 
@@ -285,6 +284,9 @@ $("#buttonAddStudent").click(function () {
 
 
 $('#cpf').on('keypress', e => $(e.target).mask('000.000.000-00'))
+
+
+$('#zipCode').on('keypress', e => $(e.target).mask('00000-000'))
 
 
 $("#telephone").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))

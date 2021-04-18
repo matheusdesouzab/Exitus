@@ -32,7 +32,7 @@ if (count($this->view->listCourse) >= 1) {
                 </div>
                 <div class="form-group col-lg-3">
                     <label for="">Sigla:</label>
-                    <input class="form-control" disabled onkeyup="this.value = this.value.toUpperCase()" value="<?= $course->acronym ?>" type="text" name="acronym" id="">
+                    <input class="form-control" maxlength="4" disabled onkeyup="this.value = this.value.toUpperCase()" value="<?= $course->acronym ?>" type="text" name="acronym" id="">
                 </div>
 
 

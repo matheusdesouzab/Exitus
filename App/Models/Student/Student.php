@@ -7,8 +7,20 @@ use App\Models\People\People;
 class Student extends People
 {
 
-    protected $fatherName;
-    protected $motherName;
+    private $fatherName;
+    private $motherName;
+
+
+    public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
 
 
     public function insert()

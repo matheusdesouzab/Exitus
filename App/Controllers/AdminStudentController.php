@@ -11,6 +11,7 @@ use App\Tools\Validation;
 use MF\Controller\Action;
 use MF\Model\Container;
 
+
 class AdminStudentController extends Action
 {
 
@@ -20,9 +21,16 @@ class AdminStudentController extends Action
         $this->render('student_registration', 'AdminLayout');
     }
 
+    public function listStudent()
+    {
+
+        $this->render('student_list', 'AdminLayout');
+    }
+
 
     public function availableSex()
     {
+
         $Student = Container::getModel('Student\\Student');
         echo json_encode($Student->availableSex());
     }
@@ -30,6 +38,7 @@ class AdminStudentController extends Action
 
     public function pcd()
     {
+
         $Student = Container::getModel('Student\\Student');
         echo json_encode($Student->pcd());
     }
@@ -37,6 +46,7 @@ class AdminStudentController extends Action
 
     public function bloodType()
     {
+
         $Student = Container::getModel('Student\\Student');
         echo json_encode($Student->bloodType());
     }
@@ -44,6 +54,7 @@ class AdminStudentController extends Action
 
     public function availableListClass()
     {
+
         $Classe = Container::getModel('Management\\Classe');
         $this->view->listClass = $Classe->availableListClass();
         $this->render('/listElement/listClass', 'SimpleLayout');
@@ -53,71 +64,52 @@ class AdminStudentController extends Action
     public function insertStudent()
     {
 
-        $Address = Container::getModel('People\\Address');
+        $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Student = Container::getModel('Student\\Student');
         $Enrollment = Container::getModel('Student\\StudentEnrollment');
         $Validation = new Validation('/admin/aluno/cadastro');
 
-        echo $Validation->cpfValidation($_POST['cpf']);
-
-   
-
-        //$Validation->imageValidation($Student, '../App/Views/admin/student/profilePhoto/' , '/admin/aluno/cadastro?erro=imagem');
-
-
-        /* $addressData = [
-            'zipCode' => $this->format($_POST['zipCode']),
-            'district' => $_POST['district'],
-            'address' => $_POST['address'],
-            'uf' => $_POST['uf'],
-            'county' => $_POST['county']
-        ];
+        $Validation->cpf($_POST['cpf'], $Student);
+        $Validation->basic($Address, $_POST['zipCode'], 8, 'zipCode', 'cep=formato-invalido');
+        $Validation->basic($Telephone, $_POST['telephoneNumber'], 11, 'telephoneNumber', 'telefone=formato-invalido');
+        $Validation->image($Student, '../App/Views/admin/student/profilePhoto/', 'imagem=formato-invalido');
 
 
-        $Address->setAll($addressData);
+        if (count($Validation->__get('error')) == 0) {
 
 
-        $telephoneData = [
-            'telephoneNumber' => $this->format($_POST['telephoneNumber'])
-        ];
+            $Address->__set('district', $_POST['district']);
+            $Address->__set('address', $_POST['address']);
+            $Address->__set('uf', $_POST['uf']);
+            $Address->__set('county', $_POST['county']);
 
 
-        $Telephone->setAll($telephoneData);
+            $Student->__set('name', $_POST['name']);
+            $Student->__set('birthDate', $_POST['birthDate']);
+            $Student->__set('naturalness', $_POST['naturalness']);
+            $Student->__set('nationality', $_POST['nationality']);
+            $Student->__set('motherName', $_POST['motherName']);
+            $Student->__set('fatherName', $_POST['fatherName']);
+            $Student->__set('fk_id_sex', $_POST['sex']);
+            $Student->__set('fk_id_blood_type', $_POST['bloodType']);
+            $Student->__set('fk_id_pcd', $_POST['pcd']);
+            $Student->__set('fk_id_telephone', $Telephone->insert());
+            $Student->__set('fk_id_address', $Address->insert());
 
 
-        $studentData = [
-            'name' => $_POST['name'],
-            'cpf' =>  $this->format($_POST['cpf']),
-            'birthDate' => $_POST['birthDate'],
-            'naturalness' => $_POST['naturalness'],
-            'nationality' => $_POST['nationality'],
-            'motherName' => $_POST['motherName'],
-            'fatherName' => $_POST['fatherName'],
-            'fk_id_sex' => $_POST['sex'],
-            'fk_id_blood_type' => $_POST['bloodType'],
-            'fk_id_pcd' => $_POST['pcd'],
-            'fk_id_telephone' => $Telephone->insert(),
-            'fk_id_address' => $Address->insert()
-        ];
+            $Enrollment->__set('fk_student_situation', 1);
+            $Enrollment->__set('fk_id_student', $Student->insert());
+            $Enrollment->__set('fk_id_class', $_POST['class']);
+            $Enrollment->__set('fk_id_school_term', $_POST['schoolTerm']);
 
+            $Enrollment->insert();
 
-        print_r($Student);
+            header('Location: /admin/aluno/cadastro');
+            
+        } else {
 
-
-        $Student->setAll($studentData);
-
-
-        $enrollmentData = [
-            'fk_student_situation' => 1,
-            'fk_id_student' => $Student->insert(),
-            'fk_id_class' => $_POST['class'],
-            'fk_id_school_term' => $_POST['schoolTerm']
-        ];
-
-
-        $Enrollment->setAll($enrollmentData)->insert();
-
-        $this->render('student_registration', 'AdminLayout'); */
+            print_r($Validation->__get('error'));
+        }
     }
 }

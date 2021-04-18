@@ -8,8 +8,20 @@ class Telephone extends Model
 
 {
 
-    protected $idTelephone;
-    protected $telephoneNumber;
+    private $idTelephone;
+    private $telephoneNumber;
+
+
+    public function __get($att)
+	{
+		return $this->$att;
+	}
+
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
 
 
     public function insert()

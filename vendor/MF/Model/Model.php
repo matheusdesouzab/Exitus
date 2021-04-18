@@ -13,14 +13,13 @@ abstract class Model
 	abstract public function delete(); // Delete
 	
 
-
 	public function __construct(\PDO $db)
 	{
 		$this->db = $db;
 	}
 
 
-	public function __get($att)
+	/* public function __get($att)
 	{
 		return $this->$att;
 	}
@@ -58,7 +57,7 @@ abstract class Model
 			$this->set($k, $v);
 			return $this;
 		
-	}
+	} */
 
 
 	public function speedingUp($query)
