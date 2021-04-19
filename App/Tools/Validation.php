@@ -10,15 +10,28 @@ class Validation
 	protected $error = [];
 
 
-	public function __construct($url)
-	{
-		$this->$url = $url;
-	}
-
-
 	public function __get($att)
 	{
 		return $this->$att;
+	}
+
+	public function __set($att, $newValue)
+	{
+		return $this->$att = $newValue;
+	}
+
+
+	public function getUrlError()
+	{
+
+
+		$errorVector = array_map(function ($value) {
+			return '&' . $value;
+		}, $this->error);
+
+		$errorVector = substr(str_replace(',', '', implode(",", $errorVector)), 1);
+
+		return $this->__get('url') . $errorVector;
 	}
 
 
@@ -31,14 +44,13 @@ class Validation
 
 			$ext = strtolower(pathinfo($_FILES['profilePhoto']['name'], PATHINFO_EXTENSION));
 
-			if ((strstr('.jpg;.jpeg', $ext))) {
+			if ((strstr('.jpg;.jpeg;.png', $ext))) {
 
 				$new_name = uniqid(time()) . '.' . $ext;
 
 				move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $dir . $new_name);
 
 				$model->__set('profilePhoto', $new_name);
-
 			} else {
 
 				array_push($this->error, $errorParameter);

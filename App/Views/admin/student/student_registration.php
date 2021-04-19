@@ -46,6 +46,13 @@
                                         <div class="form-group col-md-4">
                                             <label for="cpf">CPF:</label>
                                             <input type="text" id="cpf" minlength="14" name="cpf" class="form-control is-valid" placeholder="">
+
+                                            <?php if ((isset($_GET['cpf'])) && ($_GET['cpf'] == 'formato-invalido')) { ?>
+                                                <small class="text-danger text-center">
+                                                    Formato do CPF inválido
+                                                </small>
+                                            <?php } ?>
+
                                         </div>
 
                                         <div class="form-group col-md-3">
@@ -108,6 +115,13 @@
                                         <div class="form-group col-md-3">
                                             <label for="zipCode">CEP:</label>
                                             <input type="text" id="zipCode" class="form-control is-valid" name="zipCode" minlength="9">
+
+                                            <?php if ((isset($_GET['cep'])) && ($_GET['cep'] == 'formato-invalido')) { ?>
+                                                <small class="text-danger text-center">
+                                                    Formato do CEP inválido
+                                                </small>
+                                            <?php } ?>
+
                                         </div>
 
                                         <div class="form-group col-md-5">
@@ -139,6 +153,13 @@
                                         <div class="form-group col-md-4">
                                             <label for="telephone">Contato:</label>
                                             <input type="tel" id="telephone" class="form-control is-valid" name="telephoneNumber" placeholder="">
+
+                                            <?php if ((isset($_GET['telefone'])) && ($_GET['telefone'] == 'formato-invalido')) { ?>
+                                                <small class="text-danger text-center">
+                                                    Formato do telefone inválido
+                                                </small>
+                                            <?php } ?>
+
                                         </div>
 
 
@@ -158,6 +179,13 @@
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="profilePhoto" id="profilePhoto">
                                                 <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Aperte para selecionar uma foto para o perfil do aluno</label>
+
+                                                <?php if ((isset($_GET['imagem'])) && ($_GET['imagem'] == 'formato-invalido')) { ?>
+                                                <small class="text-danger text-center">
+                                                    Formato da Imagem Invalido ( Permitidos : jpeg - jpg - png ) 
+                                                </small>
+                                            <?php } ?>
+
                                             </div>
                                         </div>
 

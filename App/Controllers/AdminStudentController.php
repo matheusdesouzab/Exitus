@@ -28,30 +28,6 @@ class AdminStudentController extends Action
     }
 
 
-    public function availableSex()
-    {
-
-        $Student = Container::getModel('Student\\Student');
-        echo json_encode($Student->availableSex());
-    }
-
-
-    public function pcd()
-    {
-
-        $Student = Container::getModel('Student\\Student');
-        echo json_encode($Student->pcd());
-    }
-
-
-    public function bloodType()
-    {
-
-        $Student = Container::getModel('Student\\Student');
-        echo json_encode($Student->bloodType());
-    }
-
-
     public function availableListClass()
     {
 
@@ -68,7 +44,9 @@ class AdminStudentController extends Action
         $Telephone = Container::getModel('People\Telephone');
         $Student = Container::getModel('Student\\Student');
         $Enrollment = Container::getModel('Student\\StudentEnrollment');
-        $Validation = new Validation('/admin/aluno/cadastro');
+
+        $Validation = new Validation();
+        $Validation->__set('url', '/admin/aluno/cadastro?');
 
         $Validation->cpf($_POST['cpf'], $Student);
         $Validation->basic($Address, $_POST['zipCode'], 8, 'zipCode', 'cep=formato-invalido');
@@ -106,10 +84,9 @@ class AdminStudentController extends Action
             $Enrollment->insert();
 
             header('Location: /admin/aluno/cadastro');
-            
         } else {
 
-            print_r($Validation->__get('error'));
+            header('Location:' . $Validation->getUrlError());
         }
     }
 }

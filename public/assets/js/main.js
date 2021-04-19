@@ -280,6 +280,31 @@ $("#buttonAddStudent").click(function () {
 })
 
 
+$("#cpf").on('click', function () {
+
+    form = $('#addStudent').serialize()
+
+    $.ajax({
+        url: '/verificar-dados/cpf',
+        type: 'POST',
+        data: form,
+        dataType: 'json',
+        success: data => {
+
+            if (data[0] == null) {
+
+                
+
+            }
+
+        },
+        error: error => console.log(error.responseText)
+
+    })
+
+})
+
+
 //? Masks
 
 

@@ -7,10 +7,10 @@ abstract class Model
 
 	protected $db;
 
-	abstract public function insert(); // Create
+	/* abstract public function insert(); // Create
 	abstract public function list();   // Read
 	abstract public function update(); // Update
-	abstract public function delete(); // Delete
+	abstract public function delete(); // Delet */
 	
 
 	public function __construct(\PDO $db)

@@ -37,22 +37,30 @@ class Route extends Bootstrap
 			'action' => 'studentList'
 		);
 
+		//People
+
 		$routes['dadosGeraisAvailableSex'] = array(
 			'route' => '/dados-gerais/lista-sexo',
-			'controller' => 'AdminStudentController',
+			'controller' => 'AdminPeopleController',
 			'action' => 'availableSex'
 		);
 
 		$routes['dadosGeraisPcd'] = array(
 			'route' => '/dados-gerais/lista-pcd',
-			'controller' => 'AdminStudentController',
+			'controller' => 'AdminPeopleController',
 			'action' => 'pcd'
 		);
 
 		$routes['dadosGeraisTipoSanguineo'] = array(
 			'route' => '/dados-gerais/lista-tipo-sanguineo',
-			'controller' => 'AdminStudentController',
+			'controller' => 'AdminPeopleController',
 			'action' => 'bloodType'
+		);
+
+		$routes['verificarDadosCpf'] = array(
+			'route' => '/verificar-dados/cpf',
+			'controller' => 'AdminPeopleController',
+			'action' => 'checkCpf'
 		);
 
 
