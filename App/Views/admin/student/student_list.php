@@ -122,93 +122,8 @@
                                 </tr>
                             </thead>
 
-                            <tbody>
+                            <tbody containerListStudent></tbody>
 
-                                <tr>
-                                    <td class="text-right"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                    <td class="text-left">Matheus de Souza Barbosa</td>
-                                    <td>864.407.324-21</td>
-                                    <td>INFO-1M-A</td>
-                                    <td>
-                                        <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-right"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                    <td class="text-left">Matheus de Souza Barbosa</td>
-                                    <td>864.407.324-21</td>
-                                    <td>INFO-1M-A</td>
-                                    <td>
-                                        <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-right"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                    <td class="text-left">Matheus de Souza Barbosa</td>
-                                    <td>864.407.324-21</td>
-                                    <td>INFO-1M-A</td>
-                                    <td>
-                                        <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-right"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                    <td class="text-left">Matheus de Souza Barbosa</td>
-                                    <td>864.407.324-21</td>
-                                    <td>INFO-1M-A</td>
-                                    <td>
-                                        <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-right"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                    <td class="text-left">Matheus de Souza Barbosa</td>
-                                    <td>864.407.324-21</td>
-                                    <td>INFO-1M-A</td>
-                                    <td>
-                                        <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-right"><img src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                    <td class="text-left">Matheus de Souza Barbosa</td>
-                                    <td>864.407.324-21</td>
-                                    <td>INFO-1M-A</td>
-                                    <td>
-                                        <div class="row text-center d-flex justify-content-center mt-2">
-                                            <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                            <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -613,11 +528,11 @@
 
                                                                         <form class="col-lg-12" action="">
 
-                                                                          
+
 
                                                                             <div class="form-row mt-3 mb-3">
 
-                                                                            <div class="form-group col-lg-7">
+                                                                                <div class="form-group col-lg-7">
                                                                                     <label for="">Avaliações disponiveis:</label>
 
                                                                                     <select id="inputState" class="form-control custom-select" required>
@@ -628,13 +543,13 @@
                                                                                     </select>
 
                                                                                 </div>
-                                                                            <div class="form-group col-lg-1">
+                                                                                <div class="form-group col-lg-1">
                                                                                     <label for="">Nota:</label>
 
-                                                                                   <input class="form-control" type="text" maxlength="3">
+                                                                                    <input class="form-control" type="text" maxlength="3">
 
                                                                                 </div>
-                                                                            
+
                                                                                 <div class="form-group col-lg-4">
                                                                                     <label for="">&nbsp;</label>
                                                                                     <a class="btn btn-success w-100" href="">Adicionar nota da avaliação</a>

@@ -21,10 +21,23 @@ class AdminStudentController extends Action
         $this->render('student_registration', 'AdminLayout');
     }
 
+
     public function listStudent()
     {
 
         $this->render('student_list', 'AdminLayout');
+    }
+
+
+    public function listStudents()
+    {
+
+        $Student = Container::getModel('Student\\Student');
+
+        $this->view->listStudent = $Student->listStudent();
+
+        $this->render('/listElement/listStudent', 'SimpleLayout');
+
     }
 
 
@@ -46,12 +59,11 @@ class AdminStudentController extends Action
         $Enrollment = Container::getModel('Student\\StudentEnrollment');
 
         $Validation = new Validation();
-        $Validation->__set('url', '/admin/aluno/cadastro?');
-
-        $Validation->cpf($_POST['cpf'], $Student);
-        $Validation->basic($Address, $_POST['zipCode'], 8, 'zipCode', 'cep=formato-invalido');
-        $Validation->basic($Telephone, $_POST['telephoneNumber'], 11, 'telephoneNumber', 'telefone=formato-invalido');
-        $Validation->image($Student, '../App/Views/admin/student/profilePhoto/', 'imagem=formato-invalido');
+        
+        $Validation->basic($Student, $_POST['cpf'], 11, 'cpf');
+        $Validation->basic($Address, $_POST['zipCode'], 8, 'zipCode');
+        $Validation->basic($Telephone, $_POST['telephoneNumber'], 11, 'telephoneNumber');    
+        $Validation->image($Student, '../App/Views/admin/student/profilePhoto/', 'imagem');
 
 
         if (count($Validation->__get('error')) == 0) {
@@ -84,9 +96,31 @@ class AdminStudentController extends Action
             $Enrollment->insert();
 
             header('Location: /admin/aluno/cadastro');
+
         } else {
 
-            header('Location:' . $Validation->getUrlError());
+
+            $this->view->atributes = [
+
+                'name' => $_POST['name'],
+                'cpf' => $_POST['cpf'],
+                'birthDate' => $_POST['birthDate'],
+                'naturalness' => $_POST['naturalness'],
+                'nationality' => $_POST['nationality'],
+                'motherName' => $_POST['motherName'],
+                'fatherName' => $_POST['fatherName'],
+                'zipCode' => $_POST['zipCode'],
+                'district' => $_POST['district'],
+                'address' => $_POST['address'],
+                'uf' => $_POST['uf'],
+                'county' => $_POST['county'],
+                'telephoneNumber' => $_POST['telephoneNumber'],
+
+            ];
+
+            $this->view->incorrectAttributes = $Validation->__get('error');
+
+            $this->render('student_registration', 'AdminLayout');
         }
     }
 }

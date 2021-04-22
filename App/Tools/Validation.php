@@ -21,7 +21,7 @@ class Validation
 	}
 
 
-	public function getUrlError()
+	/* public function getUrlError()
 	{
 
 
@@ -32,7 +32,7 @@ class Validation
 		$errorVector = substr(str_replace(',', '', implode(",", $errorVector)), 1);
 
 		return $this->__get('url') . $errorVector;
-	}
+	} */
 
 
 	public function image($model, $dir, $errorParameter)
@@ -44,7 +44,7 @@ class Validation
 
 			$ext = strtolower(pathinfo($_FILES['profilePhoto']['name'], PATHINFO_EXTENSION));
 
-			if ((strstr('.jpg;.jpeg;.png', $ext))) {
+			if ((strstr('.jpg;.jpeg', $ext))) {
 
 				$new_name = uniqid(time()) . '.' . $ext;
 
@@ -53,6 +53,8 @@ class Validation
 				$model->__set('profilePhoto', $new_name);
 			} else {
 
+				echo('ext');
+
 				array_push($this->error, $errorParameter);
 			}
 		}
@@ -60,49 +62,39 @@ class Validation
 
 
 
-	function cpf($cpf, $model)
-	{
-
-		$cpfSituation = false;
-
-		$newCpf = preg_replace('/[^0-9]/', '', $cpf);
-
-		if (strlen($newCpf) == 11) {
-
-			$cpfSituation = true;
-
-			for ($t = 9; $t < 11; $t++) {
-
-				for ($d = 0, $c = 0; $c < $t; $c++) {
-					$d += $newCpf[$c] * (($t + 1) - $c);
-				}
-
-				$d = ((10 * $d) % 11) % 10;
-
-				$cpfSituation = $newCpf[$c] != $d ? true : false;
-			}
-		} else {
-
-			$cpfSituation = false;
-		}
-
-		$cpfSituation ?: array_push($this->error, 'cpf=formato-invalido');
-
-		$model->__set('cpf', $newCpf);
-	}
-
-
-	public function basic($model, $value, $size, $att, $errorParameter)
+	function basic($model, $value, $size, $att, $isCpf = false)
 	{
 
 		$situation = false;
 
-		$newValue = preg_replace('/[^0-9]/', '', $value);
+		$newName = preg_replace('/[^0-9]/', '', $value);
 
-		strlen($newValue) == $size ? $situation = true : $situation = false;
+		if (strlen($newName) == $size) {
 
-		$situation ?: array_push($this->error, $errorParameter);
+			$situation = true;
 
-		$model->__set($att, $newValue);
+			if ($isCpf) {
+
+				for ($t = 9; $t < 11; $t++) {
+
+					for ($d = 0, $c = 0; $c < $t; $c++) {
+						$d += $newName[$c] * (($t + 1) - $c);
+					}
+
+					$d = ((10 * $d) % 11) % 10;
+
+					$situation = $newName[$c] != $d ? true : false;
+				}
+			}
+		} else {
+
+			$situation = false;
+		}
+
+		$situation ?: array_push($this->error, $att);
+
+		$model->__set($att, $newName);
 	}
+
+
 }

@@ -280,7 +280,7 @@ $("#buttonAddStudent").click(function () {
 })
 
 
-$("#cpf").on('click', function () {
+$("#cpf").on('blur', function () {
 
     form = $('#addStudent').serialize()
 
@@ -291,10 +291,13 @@ $("#cpf").on('click', function () {
         dataType: 'json',
         success: data => {
 
-            if (data[0] == null) {
+            if (data[0] != null) {
+
+                showToast('Cpf já cadastrado', 'bg-info')
+
+            } else {
 
                 
-
             }
 
         },

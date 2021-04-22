@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+?>
 
 <?php
 
@@ -31,7 +33,7 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 				<?php require '../App/Views/admin/components/painelLeft.php' ?>
 			</div>
 			<div id="pagina" class="col-12 col-md-9 col-lg-10 col-sm-12 side-pagina">
-				<?php require '../App/Views/admin/components/navbar.php' ?>
+				<?php require '../App/Views/admin/components/navbar.php' ?> 
 				<?= $this->content() ?>
 			</div>
 		</div>

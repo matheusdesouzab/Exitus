@@ -40,14 +40,14 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="name">Nome Completo:</label>
-                                            <input type="text" class="form-control is-valid" id="name" name="name" placeholder="" maxlength="120">
+                                            <input type="text" value="<?= isset($this->view->atributes['name']) ? $this->view->atributes['name'] : ''  ?>" class="form-control is-valid" id="name" name="name" placeholder="" maxlength="120" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="cpf">CPF:</label>
-                                            <input type="text" id="cpf" minlength="14" name="cpf" class="form-control is-valid" placeholder="">
+                                            <input type="text" id="cpf" value="<?= isset($this->view->atributes['cpf']) ? $this->view->atributes['cpf'] : ''  ?>" minlength="14" name="cpf" class="form-control is-valid" placeholder="" required>
 
-                                            <?php if ((isset($_GET['cpf'])) && ($_GET['cpf'] == 'formato-invalido')) { ?>
+                                            <?php if (isset($this->view->incorrectAttributes) && in_array('cpf', $this->view->incorrectAttributes)) { ?>
                                                 <small class="text-danger text-center">
                                                     Formato do CPF inválido
                                                 </small>
@@ -57,7 +57,7 @@
 
                                         <div class="form-group col-md-3">
                                             <label for="sex">Sexo:</label>
-                                            <select id="sex" name="sex" class="form-control custom-select is-valid"></select>
+                                            <select id="sex" value='2' name="sex" class="form-control custom-select is-valid"></select>
                                         </div>
 
                                     </div>
@@ -66,17 +66,17 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="birthDate">Data Nascimento:</label>
-                                            <input name="birthDate" type="date" max="2006-01-31" min="1940-01-31" class="form-control is-valid" id="birthDate" placeholder="">
+                                            <input name="birthDate" value="<?= isset($this->view->atributes['birthDate']) ? $this->view->atributes['birthDate'] : '' ?>" type="date" max="2006-01-31" min="1940-01-31" class="form-control is-valid" id="birthDate" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="naturalness">Naturalidade:</label>
-                                            <input name="naturalness" type="text" class="form-control is-valid" id="naturalness" placeholder="">
+                                            <input name="naturalness" value="<?= isset($this->view->atributes['naturalness']) ? $this->view->atributes['naturalness'] : '' ?>" type="text" class="form-control is-valid" id="naturalness" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="nationality">Nacionalidade:</label>
-                                            <input type="text" name="nationality" class="form-control is-valid" id="nationality" placeholder="">
+                                            <input type="text" name="nationality" value="<?= isset($this->view->atributes['nationality']) ? $this->view->atributes['nationality'] : '' ?>" class="form-control is-valid" id="nationality" placeholder="" required>
                                         </div>
 
                                     </div>
@@ -85,17 +85,18 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="motherName">Nome da Mãe:</label>
-                                            <input type="text" class="form-control is-valid" name="motherName" id="motherName" maxlength="120">
+                                            <input type="text" class="form-control is-valid" value="<?= isset($this->view->atributes['motherName']) ? $this->view->atributes['motherName'] : '' ?>" name="motherName" id="motherName" maxlength="120" required>
                                         </div>
 
                                         <div class="form-group col-md-5">
                                             <label for="fatherName">Nome do Pai:</label>
-                                            <input type="text" class="form-control is-valid" name="fatherName" id="fatherName" maxlength="120">
+                                            <input type="text" class="form-control is-valid" value="<?= isset($this->view->atributes['fatherName']) ? $this->view->atributes['fatherName'] : '' ?>" name="fatherName" id="fatherName" maxlength="120" required>
                                         </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="pcd">PcD:</label>
-                                            <select id="pcd" name="pcd" class="form-control custom-select is-valid"></select>
+                                            <select id="pcd" name="pcd" class="form-control custom-select is-valid">
+                                            </select>
                                         </div>
 
                                     </div>
@@ -114,9 +115,9 @@
 
                                         <div class="form-group col-md-3">
                                             <label for="zipCode">CEP:</label>
-                                            <input type="text" id="zipCode" class="form-control is-valid" name="zipCode" minlength="9">
+                                            <input type="text" id="zipCode" value="<?= isset($this->view->atributes['zipCode']) ? $this->view->atributes['zipCode'] : '' ?>" class="form-control is-valid" name="zipCode" minlength="9" required>
 
-                                            <?php if ((isset($_GET['cep'])) && ($_GET['cep'] == 'formato-invalido')) { ?>
+                                            <?php if (isset($this->view->incorrectAttributes) && in_array('zipCode', $this->view->incorrectAttributes)) { ?>
                                                 <small class="text-danger text-center">
                                                     Formato do CEP inválido
                                                 </small>
@@ -126,12 +127,12 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="county">Munícipio:</label>
-                                            <input type="text" id="county" class="form-control is-valid" name="county">
+                                            <input type="text" id="county" class="form-control is-valid" value="<?= isset($this->view->atributes['county']) ? $this->view->atributes['county'] : '' ?>" name="county" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="district">Bairro:</label>
-                                            <input type="text" id="district" class="form-control is-valid" name="district" placeholder="">
+                                            <input type="text" id="district" value="<?= isset($this->view->atributes['district']) ? $this->view->atributes['district'] : '' ?>" class="form-control is-valid" name="district" placeholder="" required>
                                         </div>
 
 
@@ -142,27 +143,25 @@
 
                                         <div class="form-group col-md-6">
                                             <label for="address">Endereço:</label>
-                                            <input type="text" id="address" class="form-control is-valid" name="address" placeholder="">
+                                            <input type="text" id="address" value="<?= isset($this->view->atributes['address']) ? $this->view->atributes['address'] : '' ?>" class="form-control is-valid" name="address" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="uf">UF:</label>
-                                            <input type="text" id="uf" class="form-control is-valid" maxlength="2" name="uf" placeholder="">
+                                            <input type="text" id="uf" class="form-control is-valid" value="<?= isset($this->view->atributes['uf']) ? $this->view->atributes['uf'] : '' ?>" maxlength="2" name="uf" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="telephone">Contato:</label>
-                                            <input type="tel" id="telephone" class="form-control is-valid" name="telephoneNumber" placeholder="">
+                                            <input type="tel" id="telephone" value="<?= isset($this->view->atributes['telephoneNumber']) ? $this->view->atributes['telephoneNumber'] : '' ?>" class="form-control is-valid" name="telephoneNumber" placeholder="" required>
 
-                                            <?php if ((isset($_GET['telefone'])) && ($_GET['telefone'] == 'formato-invalido')) { ?>
+                                            <?php if (isset($this->view->incorrectAttributes) && in_array('telephoneNumber', $this->view->incorrectAttributes)) { ?>
                                                 <small class="text-danger text-center">
                                                     Formato do telefone inválido
                                                 </small>
                                             <?php } ?>
 
                                         </div>
-
-
 
                                     </div>
 
@@ -180,11 +179,11 @@
                                                 <input type="file" class="custom-file-input" name="profilePhoto" id="profilePhoto">
                                                 <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Aperte para selecionar uma foto para o perfil do aluno</label>
 
-                                                <?php if ((isset($_GET['imagem'])) && ($_GET['imagem'] == 'formato-invalido')) { ?>
-                                                <small class="text-danger text-center">
-                                                    Formato da Imagem Invalido ( Permitidos : jpeg - jpg - png ) 
-                                                </small>
-                                            <?php } ?>
+                                                <?php if (isset($this->view->incorrectAttributes) && in_array('imagem', $this->view->incorrectAttributes)) { ?>
+                                                    <small class="text-danger text-center">
+                                                        Formato da Imagem Invalido ( Permitidos : jpeg - jpg - png )
+                                                    </small>
+                                                <?php } ?>
 
                                             </div>
                                         </div>
@@ -222,36 +221,6 @@
                         </div>
                     </form>
 
-                    <div class="modal fade" id="matriculaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    Situação da matricula
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                    </div>
-                                    <div class="col-lg-12 d-flex justify-content-center">
-                                        <!-- <i class="fas fa-check-circle"></i> -->
-                                        <i class="fas fa-times-circle"></i>
-                                    </div>
-                                    <div class="col-lg-12 modal-text">
-                                        <p>Aluno não matriculado!</p>
-                                        <p>INFO-1M-B chegou ao limite de alunos! </p>
-                                    </div>
-                                    <div class="col-lg-12 alternative-modal-links mt-5 d-flex justify-content-around mb-4">
-
-                                        <a class="btn btn-primary" href="">Lista de Alunos <i class="fas fa-arrow-alt-circle-left ml-2"></i></a>
-                                        <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

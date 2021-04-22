@@ -344,10 +344,10 @@ select:disabled {
   border-radius: 10px;
 }
 
-#pagina .was-validated .form-control:valid {
+#pagina .form-control:valid {
   border: 2px solid #e4d9ff;
 }
-#pagina .was-validated .form-control:invalid {
+#pagina .form-control:invalid {
   border: 2px solid #F2DCD6;
 }
 
