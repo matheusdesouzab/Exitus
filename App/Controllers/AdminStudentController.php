@@ -65,8 +65,10 @@ class AdminStudentController extends Action
         $Validation->basic($Telephone, $_POST['telephoneNumber'], 11, 'telephoneNumber');    
         $Validation->image($Student, '../App/Views/admin/student/profilePhoto/', 'imagem');
 
+        phpinfo();
 
-        if (count($Validation->__get('error')) == 0) {
+
+        /* if (count($Validation->__get('error')) == 0) {
 
 
             $Address->__set('district', $_POST['district']);
@@ -99,6 +101,8 @@ class AdminStudentController extends Action
 
         } else {
 
+            print_r($Student);
+
 
             $this->view->atributes = [
 
@@ -121,6 +125,6 @@ class AdminStudentController extends Action
             $this->view->incorrectAttributes = $Validation->__get('error');
 
             $this->render('student_registration', 'AdminLayout');
-        }
+        } */
     }
 }

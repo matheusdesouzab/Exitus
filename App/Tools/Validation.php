@@ -20,6 +20,8 @@ class Validation
 		return $this->$att = $newValue;
 	}
 
+	
+
 
 	/* public function getUrlError()
 	{
@@ -37,8 +39,11 @@ class Validation
 
 	public function image($model, $dir, $errorParameter)
 	{
+		print_r($_FILES['profilePhoto']['error']);
 
 		if (isset($_FILES['profilePhoto']['name']) && $_FILES['profilePhoto']['error'] == 0) {
+
+			echo 'chegou';
 
 			date_default_timezone_set("Brazil/East");
 
@@ -51,12 +56,17 @@ class Validation
 				move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $dir . $new_name);
 
 				$model->__set('profilePhoto', $new_name);
+
 			} else {
 
 				echo('ext');
 
 				array_push($this->error, $errorParameter);
 			}
+
+		}else{
+
+			echo 'pau';
 		}
 	}
 

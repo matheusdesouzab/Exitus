@@ -280,33 +280,6 @@ $("#buttonAddStudent").click(function () {
 })
 
 
-$("#cpf").on('blur', function () {
-
-    form = $('#addStudent').serialize()
-
-    $.ajax({
-        url: '/verificar-dados/cpf',
-        type: 'POST',
-        data: form,
-        dataType: 'json',
-        success: data => {
-
-            if (data[0] != null) {
-
-                showToast('Cpf já cadastrado', 'bg-info')
-
-            } else {
-
-                
-            }
-
-        },
-        error: error => console.log(error.responseText)
-
-    })
-
-})
-
 
 //? Masks
 
@@ -339,3 +312,19 @@ $("#bars").on("click", sideState)
 
 
 $('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
+
+
+//? Validation
+
+
+let validation = new Validation()
+let listBasicElements = ['#name , #birthDate', '#naturalness', '#nationality', '#motherName', '#fatherName']
+
+
+$('#cpf').on('blur', e => validation.cpfState(e.target.value))
+
+$('#telephone').on('blur', e => validation.generic('specific', e.target.id, 11))
+
+listBasicElements.forEach(element => {
+    $(element).on('blur', e => validation.generic('basic', e.target.id))
+})

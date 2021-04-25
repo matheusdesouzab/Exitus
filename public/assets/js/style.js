@@ -1,6 +1,3 @@
-
-
-
 function sideState() {
 
     let $sidebarLogo = $('#painel-left .logo img')
@@ -22,21 +19,40 @@ function getLocation() {
 
     let zipCode = $('#zipCode').val()
 
-    $.ajax({
-        type: 'GET',
-        url: `https://viacep.com.br/ws/${zipCode}/json/unicode/`,
-        dataType: 'json',
-        success: data => {
+    zipCode = zipCode.replace(/[^\d]/g, "")
 
-            $('#address').val(data.logradouro)
-            $('#district').val(data.bairro)
-            $('#county').val(data.localidade)
-            $('#uf').val(data.uf)
-            $('#zipCode').val(data.cep)
+    if (zipCode.length == 8) {
 
-        },
-        error: erro => showToast('CEP inválido','bg-danger') 
-    })
+        $('.zipCode-info').remove()
+        $('#zipCode').addClass('is-valid')
+
+        $.ajax({
+            type: 'GET',
+            url: `https://viacep.com.br/ws/${zipCode}/json/unicode/`,
+            dataType: 'json',
+            success: data => {
+
+                $('#address').val(data.logradouro)
+                $('#district').val(data.bairro)
+                $('#county').val(data.localidade)
+                $('#uf').val(data.uf)
+                $('#zipCode').val(data.cep)
+
+                let validation = new Validation()
+
+                let address = ['county', 'district', 'address', 'uf']
+
+                address.forEach(element => validation.generic('basic', element))
+
+            },
+            error: erro => showToast('CEP inválido', 'bg-danger')
+        })
+
+    } else {
+
+        $('#zipCode').removeClass('is-valid')
+        $('#zipCodeField').append('<small class="text-danger text-center zipCode-info">Formato Invalido</small>')
+    }
 }
 
 

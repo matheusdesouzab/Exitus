@@ -32,7 +32,7 @@
 
                     <hr class="col-lg-11 mx-auto">
 
-                    <form class="was-validated" id="addStudent" role="form" enctype="multipart/form-data" method="POST" action="/admin/aluno/cadastro/inserir">
+                    <form class="" id="addStudent" role="form" enctype="multipart/form-data" method="POST" action="/admin/aluno/cadastro/inserir">
                         <div class="row collapse show" id="student-registration-initial-data" data-parent="#student-record-accordion">
                             <div class="col-lg-10 mt-2 mx-auto">
                                 <div class="col-md-12">
@@ -40,19 +40,12 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="name">Nome Completo:</label>
-                                            <input type="text" value="<?= isset($this->view->atributes['name']) ? $this->view->atributes['name'] : ''  ?>" class="form-control is-valid" id="name" name="name" placeholder="" maxlength="120" required>
+                                            <input type="text" value="" class="form-control" id="name" name="name" placeholder="" maxlength="120" required>
                                         </div>
 
-                                        <div class="form-group col-md-4">
+                                        <div id="cpfField" class="form-group col-md-4">
                                             <label for="cpf">CPF:</label>
-                                            <input type="text" id="cpf" value="<?= isset($this->view->atributes['cpf']) ? $this->view->atributes['cpf'] : ''  ?>" minlength="14" name="cpf" class="form-control is-valid" placeholder="" required>
-
-                                            <?php if (isset($this->view->incorrectAttributes) && in_array('cpf', $this->view->incorrectAttributes)) { ?>
-                                                <small class="text-danger text-center">
-                                                    Formato do CPF inválido
-                                                </small>
-                                            <?php } ?>
-
+                                            <input type="text" id="cpf" value="" minlength="14" name="cpf" class="form-control" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-3">
@@ -66,17 +59,17 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="birthDate">Data Nascimento:</label>
-                                            <input name="birthDate" value="<?= isset($this->view->atributes['birthDate']) ? $this->view->atributes['birthDate'] : '' ?>" type="date" max="2006-01-31" min="1940-01-31" class="form-control is-valid" id="birthDate" placeholder="" required>
+                                            <input name="birthDate" value="" type="date" max="2006-01-31" min="1940-01-31" class="form-control" id="birthDate" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="naturalness">Naturalidade:</label>
-                                            <input name="naturalness" value="<?= isset($this->view->atributes['naturalness']) ? $this->view->atributes['naturalness'] : '' ?>" type="text" class="form-control is-valid" id="naturalness" placeholder="" required>
+                                            <input name="naturalness" value="" type="text" class="form-control" id="naturalness" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="nationality">Nacionalidade:</label>
-                                            <input type="text" name="nationality" value="<?= isset($this->view->atributes['nationality']) ? $this->view->atributes['nationality'] : '' ?>" class="form-control is-valid" id="nationality" placeholder="" required>
+                                            <input type="text" name="nationality" value="" class="form-control" id="nationality" placeholder="" required>
                                         </div>
 
                                     </div>
@@ -85,12 +78,12 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="motherName">Nome da Mãe:</label>
-                                            <input type="text" class="form-control is-valid" value="<?= isset($this->view->atributes['motherName']) ? $this->view->atributes['motherName'] : '' ?>" name="motherName" id="motherName" maxlength="120" required>
+                                            <input type="text" class="form-control" value="" name="motherName" id="motherName" maxlength="120" required>
                                         </div>
 
                                         <div class="form-group col-md-5">
                                             <label for="fatherName">Nome do Pai:</label>
-                                            <input type="text" class="form-control is-valid" value="<?= isset($this->view->atributes['fatherName']) ? $this->view->atributes['fatherName'] : '' ?>" name="fatherName" id="fatherName" maxlength="120" required>
+                                            <input type="text" class="form-control" value="" name="fatherName" id="fatherName" maxlength="120" required>
                                         </div>
 
                                         <div class="form-group col-md-2">
@@ -113,26 +106,19 @@
 
                                     <div class="form-row mt-3">
 
-                                        <div class="form-group col-md-3">
+                                        <div id="zipCodeField" class="form-group col-md-3">
                                             <label for="zipCode">CEP:</label>
-                                            <input type="text" id="zipCode" value="<?= isset($this->view->atributes['zipCode']) ? $this->view->atributes['zipCode'] : '' ?>" class="form-control is-valid" name="zipCode" minlength="9" required>
-
-                                            <?php if (isset($this->view->incorrectAttributes) && in_array('zipCode', $this->view->incorrectAttributes)) { ?>
-                                                <small class="text-danger text-center">
-                                                    Formato do CEP inválido
-                                                </small>
-                                            <?php } ?>
-
+                                            <input type="text" id="zipCode" value="" class="form-control" name="zipCode" minlength="9" required>
                                         </div>
 
                                         <div class="form-group col-md-5">
                                             <label for="county">Munícipio:</label>
-                                            <input type="text" id="county" class="form-control is-valid" value="<?= isset($this->view->atributes['county']) ? $this->view->atributes['county'] : '' ?>" name="county" required>
+                                            <input type="text" id="county" class="form-control" value="" name="county" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="district">Bairro:</label>
-                                            <input type="text" id="district" value="<?= isset($this->view->atributes['district']) ? $this->view->atributes['district'] : '' ?>" class="form-control is-valid" name="district" placeholder="" required>
+                                            <input type="text" id="district" value="" class="form-control" name="district" placeholder="" required>
                                         </div>
 
 
@@ -143,23 +129,17 @@
 
                                         <div class="form-group col-md-6">
                                             <label for="address">Endereço:</label>
-                                            <input type="text" id="address" value="<?= isset($this->view->atributes['address']) ? $this->view->atributes['address'] : '' ?>" class="form-control is-valid" name="address" placeholder="" required>
+                                            <input type="text" id="address" value="" class="form-control" name="address" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="uf">UF:</label>
-                                            <input type="text" id="uf" class="form-control is-valid" value="<?= isset($this->view->atributes['uf']) ? $this->view->atributes['uf'] : '' ?>" maxlength="2" name="uf" placeholder="" required>
+                                            <input type="text" id="uf" class="form-control" value="" maxlength="2" name="uf" placeholder="" required>
                                         </div>
 
-                                        <div class="form-group col-md-4">
+                                        <div id="telephoneField" class="form-group col-md-4">
                                             <label for="telephone">Contato:</label>
-                                            <input type="tel" id="telephone" value="<?= isset($this->view->atributes['telephoneNumber']) ? $this->view->atributes['telephoneNumber'] : '' ?>" class="form-control is-valid" name="telephoneNumber" placeholder="" required>
-
-                                            <?php if (isset($this->view->incorrectAttributes) && in_array('telephoneNumber', $this->view->incorrectAttributes)) { ?>
-                                                <small class="text-danger text-center">
-                                                    Formato do telefone inválido
-                                                </small>
-                                            <?php } ?>
+                                            <input type="tel" id="telephone" value="" class="form-control" name="telephoneNumber" placeholder="" required>
 
                                         </div>
 
@@ -178,12 +158,6 @@
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="profilePhoto" id="profilePhoto">
                                                 <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Aperte para selecionar uma foto para o perfil do aluno</label>
-
-                                                <?php if (isset($this->view->incorrectAttributes) && in_array('imagem', $this->view->incorrectAttributes)) { ?>
-                                                    <small class="text-danger text-center">
-                                                        Formato da Imagem Invalido ( Permitidos : jpeg - jpg - png )
-                                                    </small>
-                                                <?php } ?>
 
                                             </div>
                                         </div>
@@ -204,7 +178,7 @@
 
                                         <div class="form-group col-md-8">
                                             <label for="class">Turma</label>
-                                            <select id="class" class4 name="class" class="form-control custom-select is-valid"></select>
+                                            <select id="class" class4 name="class" class="form-control custom-select"></select>
                                         </div>
 
                                         <select id="class" name="schoolTerm" class="d-none"></select>

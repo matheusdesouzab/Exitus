@@ -12,7 +12,7 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 ?>
 
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
 	<meta charset="utf-8">
@@ -33,7 +33,7 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 				<?php require '../App/Views/admin/components/painelLeft.php' ?>
 			</div>
 			<div id="pagina" class="col-12 col-md-9 col-lg-10 col-sm-12 side-pagina">
-				<?php require '../App/Views/admin/components/navbar.php' ?> 
+				<?php require '../App/Views/admin/components/navbar.php' ?>  
 				<?= $this->content() ?>
 			</div>
 		</div>
@@ -52,6 +52,8 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
 <script src="/assets/js/request.js"></script>
+
+<script src="/assets/js/Validation.js"></script>
 
 <script src="/assets/js/style.js"></script>
 
