@@ -318,13 +318,15 @@ $('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggl
 
 
 let validation = new Validation()
-let listBasicElements = ['#name , #birthDate', '#naturalness', '#nationality', '#motherName', '#fatherName']
+
+
+// Applying validation
 
 
 $('#cpf').on('blur', e => validation.cpfState(e.target.value))
 
-$('#telephone').on('blur', e => validation.generic('specific', e.target.id, 11))
+$('#telephone').on('blur', e => validation.validateBySize(e.target.id, 11, '#telephoneField', 'telephone-info'))
 
-listBasicElements.forEach(element => {
-    $(element).on('blur', e => validation.generic('basic', e.target.id))
-})
+let commonElements = ['#name , #birthDate', '#naturalness', '#nationality', '#motherName', '#fatherName']
+
+commonElements.forEach(element => $(element).on('blur', e => validation.validateByContent(e.target.id)))

@@ -17,9 +17,7 @@ function sideState() {
 
 function getLocation() {
 
-    let zipCode = $('#zipCode').val()
-
-    zipCode = zipCode.replace(/[^\d]/g, "")
+    let zipCode = $('#zipCode').val().replace(/[^\d]/g, "")
 
     if (zipCode.length == 8) {
 
@@ -42,7 +40,7 @@ function getLocation() {
 
                 let address = ['county', 'district', 'address', 'uf']
 
-                address.forEach(element => validation.generic('basic', element))
+                address.forEach(element => validation.validateByContent(element))
 
             },
             error: erro => showToast('CEP inválido', 'bg-danger')

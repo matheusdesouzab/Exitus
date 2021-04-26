@@ -1,14 +1,16 @@
 class Validation {
 
-    validCpf() {
+    cpfAlreadyInformed() {
 
-        let $form = $('#addStudent').serialize()
-        var state = false
+        let state = false
+        let cpf = $('#cpf').val()
 
         $.ajax({
             url: '/verificar-dados/cpf',
-            type: 'POST',
-            data: $form,
+            type: 'GET',
+            data: {
+                cpf: cpf
+            },
             async: false,
             dataType: 'json',
             success: data => data[0] != null ? state : state = true
@@ -18,63 +20,60 @@ class Validation {
     }
 
 
-
     cpfState(cpf) {
 
-        let newValue = cpf.replace(/[^\d]/g, "")
+        let formattedCpf = cpf.replace(/[^\d]/g, "")
         let $cpfField = $('#cpfField')
         let message = '';
 
         $('.cpf-info').remove()
 
-        if (newValue.length == 11) {
+        if (formattedCpf.length == 11) {
 
-            if (!this.validCpf()) {
+            if (!this.cpfAlreadyInformed()) {
 
                 $('#cpf').removeClass('is-valid')
-
-                message = (`<small class="text-danger text-center cpf-info">Cpf já informado</small>`)
+                message = 'Cpf já informado'
 
             } else {
+
                 $('#cpf').addClass('is-valid')
             }
 
         } else {
 
             $('#cpf').removeClass('is-valid')
-
-            message = (`<small class="text-danger text-center cpf-info">Formato Inválido</small>`)
+            message = 'Formato Inválido'
         }
 
-        $($cpfField).append(message)
+        $($cpfField).append(`<small class="text-danger text-center cpf-info">${message}</small>`)
 
     }
 
 
-    generic(verificationMode, element, size = null) {
+    validateBySize(element, size, classField, elementInfo) {
 
         let formatElement = ($(`#${element}`).val()).replace(/[^\d]/g, "")
 
-        if (verificationMode == 'basic') {
+        if (formatElement.length == size) {
 
-            if ($(`#${element}`).val() == '') {
-                $(`#${element}`).removeClass('is-valid')
-            } else {
-                $(`#${element}`).addClass('is-valid')
-            }
+            $(`#${element}`).addClass('is-valid')
+            $(`.${elementInfo}`).remove()
 
         } else {
 
-            if (formatElement.length == size) {
-                $(`#${element}`).addClass('is-valid')
-                $('.telephone-info').remove()
-
-            } else {
-                $(`#${element}`).removeClass('is-valid')
-                $('#telephoneField').append('<small class="text-danger text-center telephone-info">Formato Inválido</small>')
-            }
-
+            $(`#${element}`).removeClass('is-valid')
+            $(classField).append(`<small class="text-danger text-center ${elementInfo} ">Formato Inválido</small>`)
         }
+
+    }
+
+
+    validateByContent(element) {
+
+        let $element = $(`#${element}`)
+
+        $element.val() == '' ? $element.removeClass('is-valid') : $element.addClass('is-valid')
 
     }
 
