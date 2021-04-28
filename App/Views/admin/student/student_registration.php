@@ -147,19 +147,27 @@
 
                                     <div class="form-row mb-3">
 
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-3">
                                             <label for="bloodType">Tipo sanguíneo:</label>
                                             <select id="bloodType" name="bloodType" class="form-control custom-select is-valid"></select>
                                         </div>
 
 
-                                        <div class="form-group col-md-8">
+                                        <div id="photoField" class="form-group col-md-8">
                                             <label for="">&nbsp;</label>
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="profilePhoto" id="profilePhoto">
-                                                <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Aperte para selecionar uma foto para o perfil do aluno</label>
+                                                <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
 
                                             </div>
+                                        </div>
+
+
+                                        <div class="form-group col-md-1">
+                                            <label for="">&nbsp;</label><br>
+                                            <a type="button" class="btn btn-success w-100 p-2" data-toggle="modal" data-target="#profilePhotoModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -185,7 +193,7 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="">&nbsp;</label>
-                                            <button id="buttonAddStudent" class="btn btn-success w-100">Cadastra aluno (a)</button>
+                                            <button id="buttonAddStudent" disabled class="btn btn-success w-100">Cadastra aluno (a)</button>
                                         </div>
 
 
@@ -193,7 +201,29 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="modal fade" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="profilePhotoModal">Foto selecionada</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-img col-lg-12 d-flex justify-content-center"><img alt="Selecione uma foto" class="mx-auto rounded-circle" src="" id="visualizarimagem" style="width:300px; height: 300px; object-position:top; object-fit: cover;"></div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar ao cadastro</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
+
+
 
                 </div>
             </div>

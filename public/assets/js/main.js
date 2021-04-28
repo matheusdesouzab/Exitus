@@ -330,3 +330,8 @@ $('#telephone').on('blur', e => validation.validateBySize(e.target.id, 11, '#tel
 let commonElements = ['#name , #birthDate', '#naturalness', '#nationality', '#motherName', '#fatherName']
 
 commonElements.forEach(element => $(element).on('blur', e => validation.validateByContent(e.target.id)))
+
+$('#profilePhoto').change(function () {
+    validation.validateImage()
+    validation.imagePreview(this)
+})

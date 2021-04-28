@@ -77,4 +77,64 @@ class Validation {
 
     }
 
+
+    imagePreview(input) {
+
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#visualizarimagem')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
+    validateImage() {
+
+        let photo = $('#profilePhoto')
+        let dir = photo.val()
+        let message = ''
+
+        let extesion = /(.jpg|.jpeg)$/i;
+
+        $('.photo-info').remove()
+
+        if (!extesion.exec(dir)) {
+
+            $('#profilePhoto').removeClass('is-valid')
+
+            message = 'Formato inválido - Válidos somentes jpg e jpeg'
+
+        } else {
+
+            if (photo.get(0).files[0].size <= 10485760) {
+
+                $('#profilePhoto').addClass('is-valid')
+
+
+            } else {
+
+                $('#profilePhoto').removeClass('is-valid')
+
+                message = 'Anexe um arquivo com no máximo 10 MB'
+            }
+        }
+
+        $('#photoField').append(`<small class="text-danger text-center photo-info">${message}</small>`)
+
+    }
+
+
+    checkAllFields(form){
+
+        let inputs = $(`${form} .form-control`)
+
+        input.forEach(e )
+    }
+
 }
