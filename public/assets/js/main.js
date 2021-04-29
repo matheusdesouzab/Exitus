@@ -331,7 +331,14 @@ let commonElements = ['#name , #birthDate', '#naturalness', '#nationality', '#mo
 
 commonElements.forEach(element => $(element).on('blur', e => validation.validateByContent(e.target.id)))
 
+let address = ['#county', '#district', '#address', '#uf']
+
+address.forEach(element => $(element).on('blur', e => validation.validateByContent(e.target.id)))
+
 $('#profilePhoto').change(function () {
     validation.validateImage()
     validation.imagePreview(this)
 })
+
+
+$('[data-target="#student-registration-class"]').on('click', () => validation.checkAllFields('#addStudent', 18))

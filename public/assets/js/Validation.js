@@ -116,7 +116,6 @@ class Validation {
 
                 $('#profilePhoto').addClass('is-valid')
 
-
             } else {
 
                 $('#profilePhoto').removeClass('is-valid')
@@ -130,11 +129,19 @@ class Validation {
     }
 
 
-    checkAllFields(form){
+    checkAllFields(form , totalFields) {
 
         let inputs = $(`${form} .form-control`)
+        let photo = $('#profilePhoto')
 
-        input.forEach(e )
+        let size = null
+
+        $.each(inputs, (key, value) => $(value).hasClass('is-valid') ? size += 1 : '')
+
+            !photo.hasClass('is-valid') && $('.photo-info').length == 0 ? size += 1 : ''
+
+        totalFields == size ? $('#buttonAddStudent').prop("disabled", false) : $('#buttonAddStudent').prop("disabled", true)
+
     }
 
 }

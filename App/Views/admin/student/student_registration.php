@@ -24,7 +24,7 @@
                                 <p>Endereço e outros</p>
                             </div>
                             <div class="registration-in-stages">
-                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#student-registration-course-and-class"><i class="fas fa-clipboard-check"></i></a>
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#student-registration-class"><i class="fas fa-clipboard-check"></i></a>
                                 <p>Finalizando</p>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                                         <div id="photoField" class="form-group col-md-8">
                                             <label for="">&nbsp;</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="profilePhoto" id="profilePhoto">
+                                                <input type="file" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
                                                 <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
 
                                             </div>
@@ -178,7 +178,7 @@
                             </div>
                         </div>
 
-                        <div class="row collapse" id="student-registration-course-and-class" data-parent="#student-record-accordion">
+                        <div class="row collapse" id="student-registration-class" data-parent="#student-record-accordion">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
 
@@ -186,7 +186,7 @@
 
                                         <div class="form-group col-md-8">
                                             <label for="class">Turma</label>
-                                            <select id="class" class4 name="class" class="form-control custom-select"></select>
+                                            <select id="class" class4 name="class" class="form-control custom-select is-valid"></select>
                                         </div>
 
                                         <select id="class" name="schoolTerm" class="d-none"></select>

@@ -7,7 +7,7 @@ use App\Models\Management\Classe;
 use App\Models\Student\StudentEnrollment;
 use App\Models\People\Address;
 use App\Models\People\Telephone;
-use App\Tools\Validation;
+use App\Tools\Tools;
 use MF\Controller\Action;
 use MF\Model\Container;
 
@@ -57,15 +57,20 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
         $Enrollment = Container::getModel('Student\\StudentEnrollment');
 
+        $Tool = new Tools();
+        $Tool->image($Student, '../App/Views/admin/student/profilePhoto/');
 
         $Address->__set('district', $_POST['district']);
         $Address->__set('address', $_POST['address']);
         $Address->__set('uf', $_POST['uf']);
         $Address->__set('county', $_POST['county']);
+        $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
 
+        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
 
         $Student->__set('name', $_POST['name']);
         $Student->__set('birthDate', $_POST['birthDate']);
+        $Student->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
         $Student->__set('naturalness', $_POST['naturalness']);
         $Student->__set('nationality', $_POST['nationality']);
         $Student->__set('motherName', $_POST['motherName']);
@@ -85,6 +90,5 @@ class AdminStudentController extends Action
         $Enrollment->insert();
 
         header('Location: /admin/aluno/cadastro');
-
     }
 }
