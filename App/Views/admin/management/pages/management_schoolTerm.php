@@ -1,5 +1,7 @@
 <section id="schoolTerm">
 
+<input type="hidden" id="powa43" alt="submit" name="">
+
     <div class="row main-container ">
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-school-term">

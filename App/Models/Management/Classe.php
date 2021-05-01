@@ -17,15 +17,15 @@ class Classe extends Model
 
 
     public function __get($att)
-	{
-		return $this->$att;
-	}
+    {
+        return $this->$att;
+    }
 
 
-	public function __set($att, $newValue)
-	{
-		return $this->$att = $newValue;
-	}
+    public function __set($att, $newValue)
+    {
+        return $this->$att = $newValue;
+    }
 
 
     public function insert()
@@ -49,6 +49,7 @@ class Classe extends Model
 
     public function update()
     {
+
         $query = 'UPDATE turma SET fk_id_turno = :fk_id_shift , fk_id_sala = :fk_id_classroom , fk_id_curso = :fk_id_course , fk_id_periodo_letivo = :fk_id_school_term , fk_id_cedula = :fk_id_ballot , fk_id_serie = :fk_id_series WHERE id_turma = :idClass;';
 
         $stmt = $this->db->prepare($query);
@@ -142,6 +143,7 @@ class Classe extends Model
 
     public function list()
     {
+
         return $this->speedingUp(
             "SELECT turma.id_turma as id_class , serie.sigla AS series_acronym , cedula_turma.cedula AS ballot , curso.sigla AS course , turno.nome_turno AS shift , numero_sala_aula.numero_sala_aula AS classroom_number , periodo_disponivel.ano_letivo AS school_term from turma LEFT JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) LEFT JOIN curso ON(turma.fk_id_curso = curso.id_curso) LEFT JOIN serie ON(turma.fk_id_serie = serie.id_serie) LEFT JOIN turno ON(turma.fk_id_turno = turno.id_turno)LEFT JOIN sala ON(turma.fk_id_sala = sala.fk_id_numero_sala) LEFT JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula) LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) LEFT JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
         );
@@ -149,8 +151,9 @@ class Classe extends Model
 
     public function availableListClass()
     {
+
         return $this->speedingUp(
-            
+
             "SELECT turma.id_turma as id_class , serie.sigla AS series_acronym , cedula_turma.cedula AS ballot , curso.nome_curso AS course , turno.nome_turno AS shift , numero_sala_aula.numero_sala_aula AS classroom_number , periodo_disponivel.ano_letivo AS school_term , sala.capacidade_alunos as class_capacity ,
 
             (SELECT COUNT(matricula.fk_id_aluno) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma  ) as student_total 
@@ -158,15 +161,5 @@ class Classe extends Model
             
             FROM turma LEFT JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) LEFT JOIN curso ON(turma.fk_id_curso = curso.id_curso) LEFT JOIN serie ON(turma.fk_id_serie = serie.id_serie) LEFT JOIN turno ON(turma.fk_id_turno = turno.id_turno)LEFT JOIN sala ON(turma.fk_id_sala = sala.fk_id_numero_sala) LEFT JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula) LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) LEFT JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
         );
-
-        
     }
-
-
-    public function delete(){
-        //delete
-    }
-
-
-    
 }

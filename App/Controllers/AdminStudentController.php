@@ -29,12 +29,12 @@ class AdminStudentController extends Action
     }
 
 
-    public function listStudents()
+    public function studentListing()
     {
 
         $Student = Container::getModel('Student\\Student');
 
-        $this->view->listStudent = $Student->listStudent();
+        $this->view->listStudent = $Student->list();
 
         $this->render('/listElement/listStudent', 'SimpleLayout');
     }
@@ -52,13 +52,14 @@ class AdminStudentController extends Action
     public function insertStudent()
     {
 
+        $Tool = new Tools();
+        
+
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Student = Container::getModel('Student\\Student');
         $Enrollment = Container::getModel('Student\\StudentEnrollment');
 
-        $Tool = new Tools();
-        $Tool->image($Student, '../App/Views/admin/student/profilePhoto/');
 
         $Address->__set('district', $_POST['district']);
         $Address->__set('address', $_POST['address']);
@@ -66,11 +67,14 @@ class AdminStudentController extends Action
         $Address->__set('county', $_POST['county']);
         $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
 
+
         $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
+
 
         $Student->__set('name', $_POST['name']);
         $Student->__set('birthDate', $_POST['birthDate']);
         $Student->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
+        $Tool->image($Student, '../App/Views/admin/student/profilePhoto/');
         $Student->__set('naturalness', $_POST['naturalness']);
         $Student->__set('nationality', $_POST['nationality']);
         $Student->__set('motherName', $_POST['motherName']);
@@ -87,7 +91,9 @@ class AdminStudentController extends Action
         $Enrollment->__set('fk_id_class', $_POST['class']);
         $Enrollment->__set('fk_id_school_term', $_POST['schoolTerm']);
 
+
         $Enrollment->insert();
+
 
         header('Location: /admin/aluno/cadastro');
     }

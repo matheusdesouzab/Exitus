@@ -14,15 +14,15 @@ class Discipline extends Model
 
 
     public function __get($att)
-	{
-		return $this->$att;
-	}
+    {
+        return $this->$att;
+    }
 
 
-	public function __set($att, $newValue)
-	{
-		return $this->$att = $newValue;
-	}
+    public function __set($att, $newValue)
+    {
+        return $this->$att = $newValue;
+    }
 
 
     public function insert()
@@ -39,6 +39,7 @@ class Discipline extends Model
         $stmt->execute();
     }
 
+
     public function list()
     {
 
@@ -46,6 +47,7 @@ class Discipline extends Model
             "SELECT disciplina.id_disciplina AS id_discipline , disciplina.nome_disciplina AS discipline , modalidade_disciplina.modalidade_disciplina AS discipline_modality , disciplina.sigla_disciplina AS acronym FROM disciplina LEFT JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina);"
         );
     }
+
 
     public function disciplineData()
     {
@@ -61,18 +63,22 @@ class Discipline extends Model
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
+
     public function listDisciplineModality()
     {
 
         return $this->speedingUp(
-            "SELECT modalidade_disciplina.id_modalidade_disciplina AS option_value , modalidade_disciplina.modalidade_disciplina AS option_text FROM modalidade_disciplina;"
+            "SELECT modalidade_disciplina.id_modalidade_disciplina AS option_value , modalidade_disciplina.modalidade_disciplina AS option_text 
+            FROM modalidade_disciplina;"
         );
     }
+
 
     public function update()
     {
 
-        $query = 'UPDATE disciplina SET nome_disciplina = :discipline , sigla_disciplina = :acronym , fk_id_modalidade_disciplina = :fk_id_modality WHERE disciplina.id_disciplina = :idDiscipline;';
+        $query = 'UPDATE disciplina SET nome_disciplina = :discipline , sigla_disciplina = :acronym , fk_id_modalidade_disciplina = :fk_id_modality 
+        WHERE disciplina.id_disciplina = :idDiscipline;';
 
         $stmt = $this->db->prepare($query);
 
@@ -83,6 +89,7 @@ class Discipline extends Model
 
         $stmt->execute();
     }
+
 
     public function seekDiscipline()
     {
@@ -100,6 +107,7 @@ class Discipline extends Model
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
+
 
     public function delete()
     {

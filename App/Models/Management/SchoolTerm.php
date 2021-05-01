@@ -59,7 +59,8 @@ class SchoolTerm extends Model
     {
 
         return $this->speedingUp(
-            "SELECT situacao_periodo_letivo.id_situacao_periodo_letivo AS option_value  , situacao_periodo_letivo.situacao_periodo_letivo AS option_text FROM situacao_periodo_letivo"
+            "SELECT situacao_periodo_letivo.id_situacao_periodo_letivo AS option_value  , situacao_periodo_letivo.situacao_periodo_letivo AS option_text 
+             FROM situacao_periodo_letivo"
         );
     }
 

@@ -6,6 +6,7 @@ use MF\Model\Model;
 
 class Course extends Model
 {
+
     private $idCourse;
     private $course;
     private $acronym;
@@ -27,12 +28,15 @@ class Course extends Model
     {
 
         $query = 'INSERT INTO curso(nome_curso,sigla) VALUES (:course,:acronym);';
+
         $stmt = $this->db->prepare($query);
+
         $stmt->bindValue(':course', $this->__get('course'));
         $stmt->bindValue(':acronym', $this->__get('acronym'));
 
         $stmt->execute();
     }
+
 
     public function list()
     {
@@ -42,15 +46,19 @@ class Course extends Model
         );
     }
 
+
     public function delete()
     {
 
         $query = 'DELETE FROM curso WHERE curso.id_curso = :idCourse';
+        
         $stmt = $this->db->prepare($query);
+
         $stmt->bindValue(':idCourse', $this->__get('idCourse'));
 
         $stmt->execute();
     }
+
 
     public function update()
     {
@@ -65,6 +73,7 @@ class Course extends Model
 
         $stmt->execute();
     }
+
 
     public function availableCourse()
     {

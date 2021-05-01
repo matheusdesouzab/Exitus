@@ -31,11 +31,13 @@ class Route extends Bootstrap
 			'action' => 'listStudent'
 		);
 
-		$routes['adminListaAlunos'] = array(
-			'route' => '/admAlunoLista',
+		$routes['adminListingStudents'] = array(
+			'route' => '/admin/aluno/lista/listagem',
 			'controller' => 'AdminStudentController',
-			'action' => 'studentList'
+			'action' => 'studentListing'
 		);
+
+		
 
 		//People
 

@@ -1,208 +1,212 @@
+class Request1 {
 
-let timeout = null
 
-function addElement(form, route, toastDescription, clean = true) {
+    addElement(form, route, toastDescription, clean = true) {
 
-    let $formData = $(form).serialize()
+        let $formData = $(form).serialize()
 
-    if ($(`${form} .form-control`).val() != '') {
+        if ($(`${form} .form-control`).val() != '') {
+
+            $.ajax({
+                url: route,
+                dataType: 'html',
+                type: 'POST',
+                data: $formData,
+                success: data => {
+
+                    clean ? $(`${form} input`).val('') : ''
+
+                    showToast(toastDescription, 'bg-success')
+
+                },
+
+                error: error => console.log(error)
+
+            })
+
+        } else {
+
+            showToast('Preencha todos os campos', 'bg-danger')
+        }
+    }
+
+
+    deleteElement(form, route, dataToast) {
+
+        let $formData = $(`${form}`).serialize()
 
         $.ajax({
             url: route,
-            dataType: 'html',
             type: 'POST',
+            dataType: 'html',
             data: $formData,
-            success: data => {
+            success: data => showToast(dataToast, 'bg-danger'),
+            error: erro => showToast('Houve um erro na requisição', 'bg-info')
+        })
+    }
 
-                clean ? $(`${form} input`).val('') : ''
 
-                showToast(toastDescription, 'bg-success')
+    availableElement(dataMatrix) {
 
-            },
 
-            error: error => console.log(error)
+        $.each(dataMatrix, i => {
+
+            let $selectSituation = $(`form select[name="${dataMatrix[i][0]}"]`)
+
+            if ((dataMatrix[i][0] == 'classroomNumber' || dataMatrix[i][0] == 'schoolYear' || dataMatrix[i][0] == 'modalityAdd' || dataMatrix[i][0] == 'schoolTermSituationAdd' || dataMatrix[i][0] == 'schoolTerm')) $selectSituation.empty()
+
+            $.ajax({
+                url: dataMatrix[i][1],
+                dataType: 'json',
+                type: 'GET',
+                success: data => {
+
+                    console.log(data)
+
+                    $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
+
+                },
+
+                error: erro => console.log(erro.responseText)
+
+            })
 
         })
 
-    } else {
-
-        showToast('Preencha todos os campos', 'bg-danger')
-    } 
-}
+    }
 
 
-function deleteElement(form, route, dataToast) {
+    updateElement(form, route, dataToast) {
 
-    let $formData = $(`${form}`).serialize()
-
-    $.ajax({
-        url: route,
-        type: 'POST',
-        dataType: 'html',
-        data: $formData,
-        success: data => showToast(dataToast, 'bg-danger'),
-        error: erro => showToast('Houve um erro na requisição', 'bg-info')
-    })
-}
-
-
-function availableElement(dataMatrix) {
-
-    $.each(dataMatrix, i => {
-
-        let $selectSituation = $(`form select[name="${dataMatrix[i][0]}"]`)
-
-        if ((dataMatrix[i][0] == 'classroomNumber' || dataMatrix[i][0] == 'schoolYear' || dataMatrix[i][0] == 'modalityAdd' || dataMatrix[i][0] == 'schoolTermSituationAdd' || dataMatrix[i][0] == 'schoolTerm')) $selectSituation.empty()
+        let $formData = $(`${form}`).serialize()
 
         $.ajax({
-            url: dataMatrix[i][1],
-            dataType: 'json',
+            url: route,
+            type: 'POST',
+            dataType: 'html',
+            data: $formData,
+            success: data => showToast(dataToast, 'bg-primary'),
+            error: erro => showToast('Houve um erro na requisição', 'bg-info')
+
+        })
+    }
+
+
+    editElement(form) {
+
+        $('form .form-control').prop('disabled', true)
+        $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
+
+        $('#addSchoolTerm .form-control, #addCourse .form-control, #seekDiscipline .form-control, #addDiscipline .form-control, #addClassRoom .form-control').prop('disabled', false)
+
+        $(`${form} .form-control`).prop('disabled', false)
+        $(`${form} .update-data-icon, ${form} .delete-data-icon`).css("pointer-events", "auto")
+
+    }
+
+
+    listElement(container, route) {
+
+        let $container = $(`[${container}]`)
+
+        let loading = '<div class="d-flex justify-content-center loading"><div class="spinner-grow text-primary" role="status"></div></div>'
+
+        $container.text('').append(loading)
+
+        $.ajax({
+            url: route,
             type: 'GET',
             success: data => {
 
-                $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
+                $('.loading').remove()
+                $container.append(data)
+
+            },
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
+        })
+    }
+
+
+    seekElement(form, container, route) {
+
+        let formData = $(form).serialize()
+
+        let $container = $(`[${container}]`)
+
+        $container.text('')
+
+        $.ajax({
+            url: route,
+            type: 'GET',
+            data: formData,
+            success: data => $container.append(data),
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
+        })
+    }
+
+
+    showModal(formId, route, container, modal) {
+
+        let id = formId.replace(/[^0-9]/g, '')
+
+        let $container = $(`[${container}]`)
+
+        $container.text('')
+
+        $.ajax({
+            url: route,
+            type: 'GET',
+            data: {
+                idDiscipline: id
+            },
+            success: data => {
+
+                $container.append(data)
+
+                $(modal).modal("show")
 
             },
 
-            error: erro => console.log(erro.responseText)
+            error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
 
         })
 
-    })
-
-}
+    }
 
 
-function updateElement(form, route, dataToast) {
+    /* checkClass() {
 
-    let $formData = $(`${form}`).serialize()
+        let dados = $('#addClass')
 
-    $.ajax({
-        url: route,
-        type: 'POST',
-        dataType: 'html',
-        data: $formData,
-        success: data => showToast(dataToast, 'bg-primary'),
-        error: erro => showToast('Houve um erro na requisição', 'bg-info')
+        $.ajax({
+            url: '/admin/gestao/turma/verificar-dados',
+            data: dados.serialize(),
+            type: 'GET',
+            success: data => {
 
-    })
-}
+                let situation = data.replace(/[^\d]+/g, '')
 
+                situation == 00 ? [$('#buttonAddClass').removeClass('disabled'),
+                    $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid'),
+                    $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+                ] : ''
 
-function editElement(form) {
+                situation >= 10 ? [
+                    $('#buttonAddClass').addClass('disabled'),
+                    showToast('Sala e turno já adicionados', 'bg-info'),
+                    $('#addClass #classRoom , #addClass #shift ').addClass('is-invalid'),
+                    $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+                ] : ''
 
-    $('form .form-control').prop('disabled', true)
-    $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
+                situation == 01 ? [
+                    $('#buttonAddClass').addClass('disabled'),
+                    showToast('Série e cédula já adicionadas', 'bg-info'),
+                    $('#addClass #ballot , #addClass #series ').addClass('is-invalid'),
+                    $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
+                ] : ''
 
-    $('#addSchoolTerm .form-control, #addCourse .form-control, #seekDiscipline .form-control, #addDiscipline .form-control, #addClassRoom .form-control').prop('disabled', false)
-
-    $(`${form} .form-control`).prop('disabled', false)
-    $(`${form} .update-data-icon, ${form} .delete-data-icon`).css("pointer-events", "auto")
-
-}
-
-
-function listElement(container, route) {
-
-    let $container = $(`[${container}]`)
-
-    let loading = '<div class="d-flex justify-content-center loading"><div class="spinner-grow text-primary" role="status"></div></div>'
-
-    $container.text('').append(loading)
-
-    $.ajax({
-        url: route,
-        type: 'GET',
-        success: data => {
-
-            $('.loading').remove()
-            $container.append(data)
-
-        },
-        error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
-    })
-}
-
-
-function seekElement(form, container, route) {
-
-    let formData = $(form).serialize()
-
-    let $container = $(`[${container}]`)
-
-    $container.text('')
-
-    $.ajax({
-        url: route,
-        type: 'GET',
-        data: formData,
-        success: data => $container.append(data),
-        error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
-    })
-}
-
-
-function showModal(formId, route, container, modal) {
-
-    let id = formId.replace(/[^0-9]/g, '')
-
-    let $container = $(`[${container}]`)
-
-    $container.text('')
-
-    $.ajax({
-        url: route,
-        type: 'GET',
-        data: {
-            idDiscipline: id
-        },
-        success: data => {
-
-            $container.append(data)
-
-            $(modal).modal("show")
-
-        },
-
-        error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
-
-    })
-
-}
-
-
-function checkClass() {
-
-    let dados = $('#addClass')
-
-    $.ajax({
-        url: '/admin/gestao/turma/verificar-dados',
-        data: dados.serialize(),
-        type: 'GET',
-        success: data => {
-
-            let situation = data.replace(/[^\d]+/g, '')
-
-            situation == 00 ? [$('#buttonAddClass').removeClass('disabled'),
-                $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid'),
-                $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
-            ] : ''
-
-            situation >= 10 ? [
-                $('#buttonAddClass').addClass('disabled'),
-                showToast('Sala e turno já adicionados', 'bg-info'),
-                $('#addClass #classRoom , #addClass #shift ').addClass('is-invalid'),
-                $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
-            ] : ''
-
-            situation == 01 ? [
-                $('#buttonAddClass').addClass('disabled'),
-                showToast('Série e cédula já adicionadas', 'bg-info'),
-                $('#addClass #ballot , #addClass #series ').addClass('is-invalid'),
-                $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
-            ] : ''
-
-        },
-        error: erro => console.log(erro)
-    })
+            },
+            error: erro => console.log(erro)
+        })
+    } */
 }

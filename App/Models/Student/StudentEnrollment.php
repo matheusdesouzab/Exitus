@@ -40,6 +40,7 @@ class StudentEnrollment extends Model
 
         $stmt->execute();
     }
+    
 
     public function delete()
     {

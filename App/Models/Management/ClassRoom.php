@@ -35,6 +35,7 @@ class ClassRoom extends Model
         $stmt->execute();
     }
 
+
     public function list()
     {
 
@@ -42,6 +43,7 @@ class ClassRoom extends Model
             "SELECT sala.id_sala AS id_room , numero_sala_aula.numero_sala_aula AS classroom_number , sala.capacidade_alunos AS student_capacity FROM sala LEFT JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula)"
         );
     }
+
 
     public function update()
     {
@@ -55,6 +57,7 @@ class ClassRoom extends Model
 
         $stmt->execute();
     }
+    
 
     public function delete()
     {

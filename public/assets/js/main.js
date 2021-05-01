@@ -3,12 +3,13 @@
 
 // School Term
 
+let request = new Request1()
 
 //? Load list school term and group available element
 
 
-$('#schoolTerm').ready(function () {
-    listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'), availableElement([
+$("#schoolTerm").ready(function () {
+    request.listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista') ; request.availableElement([
         ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis'],
         ['schoolTermSituation', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo'],
         ['schoolTermSituationAdd', '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo']
@@ -19,7 +20,7 @@ $('#schoolTerm').ready(function () {
 //? List school term using collapse
 
 
-$('#collapseListSchoolTerm').on('click', () => listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
+//$('#collapseListSchoolTerm').on('click', () => listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
 
 
 //? Group of elements available using collapse
@@ -131,6 +132,7 @@ $('#collapseListDiscipline').on('click', () => listElement('containerListDiscipl
 
 $('select[name="seekModality"]').change(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'))
 
+let timeout = null
 
 $('input[name="seekName"]').keyup(function (e) {
 
@@ -260,6 +262,7 @@ $('#student').ready(function () {
 })
 
 
+
 //? Button add student
 
 
@@ -300,6 +303,20 @@ $('#zipCode').on('blur', getLocation)
 
 
 //************************************************************************** */
+
+
+//* Student List
+
+
+$('#list-students').ready(function () {
+    listElement('containerListStudent', '/admin/aluno/lista/listagem');
+    availableElement([
+        ['sex', '/dados-gerais/lista-sexo'],
+        ['shift', '/dados-gerais/lista-turnos'],
+        ['series', '/admin/gestao/turma/lista-series'],
+        ['course', '/admin/gestao/turma/lista-cursos'],
+    ])
+})
 
 
 //* General

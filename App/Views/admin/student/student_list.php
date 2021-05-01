@@ -16,29 +16,17 @@
 
                             <div class="form-group col-12 col-lg-5">
                                 <label for="">Aluno:</label>
-                                <input class="form-control" type="text" name="" placeholder="Nome do aluno ou CPF" id="">
+                                <input class="form-control" type="text" name="name" placeholder="Nome do aluno ou CPF" id="name">
                             </div>
 
                             <div class="form-group col-12 col-lg-3">
                                 <label for="">Turma:</label>
-                                <select class="form-control custom-select" name="" id="">
-                                    <option value="">Todas</option>
-                                    <option value="">INFO-1M-B</option>
-                                    <option value="">INFO-1M-C</option>
-                                    <option value="">INFO-1M-V</option>
-                                </select>
+                                <select class="form-control custom-select" name="class" id="class"></select>
                             </div>
 
                             <div class="form-group col-10 col-lg-3">
                                 <label for="">Situação do aluno:</label>
-                                <select class="form-control custom-select" name="" id="">
-                                    <option value="">Estudando</option>
-                                    <option value="">Reprovado</option>
-                                    <option value="">Aprovado</option>
-                                    <option value="">Desistente</option>
-                                    <option value="">Recuperação final</option>
-                                </select>
-
+                                <select class="form-control custom-select" name="studentSituation" id="studentSituation"></select>
                             </div>
 
                             <div class="form-group col-2 col-lg-1">
@@ -54,58 +42,34 @@
 
                                     <div class="form-group col-12 col-lg-3">
                                         <label for="">Curso:</label>
-                                        <select class="form-control custom-select" name="" id="">
-                                            <option value="">Todos</option>
-                                            <option value="">INFO</option>
-                                            <option value="">ELET</option>
-                                            <option value="">SEGU</option>
-                                            <option value="">MECA</option>
-                                        </select>
+                                        <select class="form-control custom-select" name="course" id="course"></select>
                                     </div>
 
                                     <div class="form-group col-12 col-lg-3">
                                         <label for="">Sexo:</label>
-                                        <select class="form-control custom-select" name="" id="">
-                                            <option value="">Todos</option>
-                                            <option value="">Masculino</option>
-                                            <option value="">Feminino</option>
-                                            <option value="">Outros</option>
-                                        </select>
+                                        <select class="form-control custom-select" name="sex" id="sex"></select>
                                     </div>
 
                                     <div class="form-group col-12 col-lg-3">
                                         <label for="">Periodo Letivo:</label>
-                                        <select class="form-control custom-select" name="" id="">
-                                            <option value="">2021</option>
-                                            <option value="">2022</option>
-                                            <option value="">2019</option>
-                                        </select>
+                                        <select class="form-control custom-select" name="schoolYear" id="schoolYear"></select>
                                     </div>
 
                                     <div class="form-group col-12 col-lg-3">
                                         <label for="">Turno:</label>
-                                        <select class="form-control custom-select" name="" id="">
-                                            <option value="">Todos</option>
-                                            <option value="">Matutino</option>
-                                            <option value="">Vespertino</option>
-                                            <option value="">Noturno</option>
-                                        </select>
+                                        <select class="form-control custom-select" name="shift" id="shift"></select>
                                     </div>
 
                                     <div class="form-group col-12 col-lg-3">
                                         <label for="">Série:</label>
-                                        <select class="form-control custom-select" name="" id="">
-                                            <option value="">Todas</option>
-                                            <option value="">1 ano</option>
-                                            <option value="">2 ano</option>
-                                            <option value="">3 ano</option>
-                                        </select>
+                                        <select class="form-control custom-select" name="series" id="series"></select>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
                     </form>
+
 
                     <hr class="col-10 mx-auto">
 
