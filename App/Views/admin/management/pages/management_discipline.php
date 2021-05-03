@@ -14,7 +14,7 @@
 
                         <a class="font-weight-bold" id="collapseListDiscipline" aria-expanded="true" data-toggle="collapse" data-target="#list-subjects"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" id="collapseAddDiscipline" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
                     </div>
                 </div>
@@ -42,6 +42,9 @@
                                                 <label for="seekModality">Modalidade:</label>
                                                 <select name="seekModality" id="seekModality" class="form-control custom-select" required>
                                                     <option value="0">Todas</option>
+                                                    <?php foreach ($this->view->listModality as $key => $modality) { ?>
+                                                        <option value="<?= $modality->option_value ?>"><?= $modality->option_text ?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
 
@@ -61,7 +64,9 @@
                                                     <th scope="col">Modalidade da disciplina</th>
                                                 </tr>
                                             </thead>
-                                            <tbody containerListDiscipline></tbody>
+                                            <tbody containerListDiscipline>
+                                                <?php require '../App/Views/admin/management/listElement/listDiscipline.php' ?>
+                                            </tbody>
                                         </table>
                                     </div>
 
@@ -106,7 +111,11 @@
 
                                             <div class="form-group col-lg-3">
                                                 <label for="inputState">Modalidade:</label>
-                                                <select id="inputState" name="modalityAdd" class="form-control custom-select is-valid" required></select>
+                                                <select id="inputState" name="modalityAdd" class="form-control custom-select is-valid" required>
+                                                    <?php foreach ($this->view->listModality as $key => $modality) { ?>
+                                                        <option value="<?= $modality->option_value ?>"><?= $modality->option_text ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
 
                                             <div class="form-group col-lg-3">

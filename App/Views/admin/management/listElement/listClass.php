@@ -8,7 +8,7 @@ if (count($this->view->listClass) >= 1) {
 
         <tr id="<?= $class->id_class ?>">
             <td><?= $class->course ?>-<?= $class->series_acronym ?><?= $shift ?>-<?= $class->ballot ?></td>
-            <td>0</td>
+            <td><?= $class->student_total ?></td>
             <td><?= $class->school_term ?></td>
             <td>0.0</td>
         </tr>

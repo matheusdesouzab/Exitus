@@ -1,18 +1,10 @@
 <section id="schoolTerm">
 
-<input type="hidden" id="powa43" alt="submit" name="">
+    <input type="hidden" id="powa43" alt="submit" name="">
 
     <div class="row main-container ">
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-school-term">
-
-            <!-- <nav aria-label="breadcrumb" class="col-lg-12">
-                <ol class="breadcrumb bg-white mb-3 font-weight-bold">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/admin/gestao">Gestão</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Periodo Letivo</li>
-                </ol>
-            </nav> -->
 
             <div class="col-lg-12 mb-3 mt-3">
                 <div class="row d-flex align-items-center">
@@ -38,7 +30,9 @@
 
                         <div class="collapse show" id="list-terms" data-parent="#accordion-school-term">
                             <div class="row">
-                                <div containerListSchoolTerm class="col-lg-12"></div>
+                                <div containerListSchoolTerm class="col-lg-12">
+                                    <?php require '../App/Views/admin/management/listElement/listSchoolTerm.php' ?>
+                                </div>
                             </div>
                         </div>
 
@@ -74,7 +68,11 @@
 
                                             <div class="form-group col-lg-2">
                                                 <label for="schoolTermSituationAdd">Situação:</label>
-                                                <select name="schoolTermSituationAdd" id="schoolTermSituationAdd" class="form-control custom-select" required></select>
+                                                <select name="schoolTermSituationAdd" id="schoolTermSituationAdd" class="form-control custom-select" required>
+                                                    <?php foreach ($this->view->listSchoolTermSituation as $i => $situation) { ?>
+                                                        <option value="<?= $situation->option_value ?>"><?= $situation->option_text ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
 
                                             <div class="form-group col-lg-2">
@@ -92,4 +90,5 @@
             </div>
         </div>
     </div>
+
 </section>

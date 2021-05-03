@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\Student\Student;
 use App\Models\Management\Classe;
+use App\Models\Management\SchoolTerm;
+use App\Models\Management\Course;
 use App\Models\Student\StudentEnrollment;
 use App\Models\People\Address;
 use App\Models\People\Telephone;
@@ -18,6 +20,14 @@ class AdminStudentController extends Action
     public function studentRegistration()
     {
 
+        $People = Container::getModel('People\\People');
+        $Classe = Container::getModel('Management\\Classe');
+
+        $this->view->availableSex = $People->availableSex();
+        $this->view->pcd = $People->pcd();
+        $this->view->bloodType = $People->bloodType();
+        $this->view->availableClass = $Classe->availableListClass();
+
         $this->render('student_registration', 'AdminLayout');
     }
 
@@ -25,6 +35,18 @@ class AdminStudentController extends Action
     public function listStudent()
     {
 
+        $Student = Container::getModel('Student\\Student');
+        $Course = Container::getModel('Management\\Course');
+        $Classe = Container::getModel('Management\\Classe');
+        $People = Container::getModel('People\\People');
+
+        $this->view->listStudent = $Student->list();
+        $this->view->availableCourse = $Course->availableCourse();
+        $this->view->availableClass = $Classe->availableListClass();
+        $this->view->availableSex = $People->availableSex();
+        $this->view->availableShift = $Classe->availableShift();
+        $this->view->availableSeries = $Classe->availableSeries();
+ 
         $this->render('student_list', 'AdminLayout');
     }
 
@@ -32,7 +54,7 @@ class AdminStudentController extends Action
     public function studentListing()
     {
 
-        $Student = Container::getModel('Student\\Student');
+        $Student = Container::getModel('Student\\Student');      
 
         $this->view->listStudent = $Student->list();
 
@@ -52,8 +74,10 @@ class AdminStudentController extends Action
     public function insertStudent()
     {
 
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
+        $activeSchoolTerm = $SchoolTerm->activeSchoolTerm();
+
         $Tool = new Tools();
-        
 
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
@@ -74,7 +98,7 @@ class AdminStudentController extends Action
         $Student->__set('name', $_POST['name']);
         $Student->__set('birthDate', $_POST['birthDate']);
         $Student->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
-        $Tool->image($Student, '../App/Views/admin/student/profilePhoto/');
+        $Tool->image($Student, '../public/assets/img/profilePhoto/');
         $Student->__set('naturalness', $_POST['naturalness']);
         $Student->__set('nationality', $_POST['nationality']);
         $Student->__set('motherName', $_POST['motherName']);
@@ -89,7 +113,7 @@ class AdminStudentController extends Action
         $Enrollment->__set('fk_student_situation', 1);
         $Enrollment->__set('fk_id_student', $Student->insert());
         $Enrollment->__set('fk_id_class', $_POST['class']);
-        $Enrollment->__set('fk_id_school_term', $_POST['schoolTerm']);
+        $Enrollment->__set('fk_id_school_term', $activeSchoolTerm[0]->option_value);
 
 
         $Enrollment->insert();

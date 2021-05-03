@@ -50,7 +50,11 @@
 
                                         <div class="form-group col-md-3">
                                             <label for="sex">Sexo:</label>
-                                            <select id="sex" value='2' name="sex" class="form-control custom-select is-valid"></select>
+                                            <select id="sex" value='2' name="sex" class="form-control custom-select is-valid">
+                                                <?php foreach ($this->view->availableSex as $key => $sex) { ?>
+                                                    <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
 
                                     </div>
@@ -89,6 +93,9 @@
                                         <div class="form-group col-md-2">
                                             <label for="pcd">PcD:</label>
                                             <select id="pcd" name="pcd" class="form-control custom-select is-valid">
+                                                <?php foreach ($this->view->pcd as $key => $pcd) { ?>
+                                                    <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
 
@@ -149,7 +156,11 @@
 
                                         <div class="form-group col-md-3">
                                             <label for="bloodType">Tipo sanguíneo:</label>
-                                            <select id="bloodType" name="bloodType" class="form-control custom-select is-valid"></select>
+                                            <select id="bloodType" name="bloodType" class="form-control custom-select is-valid">
+                                                <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
+                                                    <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
 
 
@@ -186,10 +197,28 @@
 
                                         <div class="form-group col-md-8">
                                             <label for="class">Turma</label>
-                                            <select id="class" class4 name="class" class="form-control custom-select is-valid"></select>
-                                        </div>
+                                            <select id="class"  name="class" class="form-control custom-select is-valid">                                       
 
-                                        <select id="class" name="schoolTerm" class="d-none"></select>
+                                            <?php
+
+                                            foreach ($this->view->availableClass as $i => $class) {
+
+                                                $totalVacancies = $class->class_capacity - $class->student_total;
+
+
+                                                $newName = $class->series_acronym . ' ' . $class->ballot . ' - ' . $class->course . ' - ' . $class->shift . ' - Sala: ' . $class->classroom_number . ' - ' . 'Vagas: ' . $totalVacancies;
+
+                                            ?>
+                                                <?php if ($totalVacancies >= 1) { ?>
+
+                                                    <option value="<?= $class->id_class ?>"><?= $newName ?></option>
+
+                                                <?php } ?>
+
+                                            <?php } ?>
+
+                                        </select>
+                                        </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="">&nbsp;</label>

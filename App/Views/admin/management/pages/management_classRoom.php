@@ -1,5 +1,7 @@
 <section id="classRoom">
 
+    <input type="hidden" data-onload="alert('x')" name="">
+
     <div class="row main-container">
 
         <div class="col-lg-11 mx-auto accordion" id="room-accordion">
@@ -28,7 +30,9 @@
 
                         <div class="collapse show" id="list-rooms" data-parent="#room-accordion">
                             <div class="row">
-                                <div class="col-lg-12" containerListClassRoom></div>
+                                <div class="col-lg-12" containerListClassRoom>
+                                    <?php require '../App/Views/admin/management/listElement/listClassRoom.php' ?>
+                                </div>
                             </div>
 
                         </div>

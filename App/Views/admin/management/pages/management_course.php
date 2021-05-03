@@ -29,7 +29,9 @@
                         <div class="collapse show" id="list-courses" data-parent="#accordion-course">
 
                             <div class="row">
-                                <div containerListCourse class="col-lg-12"></div>
+                                <div containerListCourse class="col-lg-12">
+                                    <?php require '../App/Views/admin/management/listElement/listCourse.php' ?>
+                                </div>
                             </div>
                         </div>
 

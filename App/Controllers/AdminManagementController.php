@@ -20,6 +20,11 @@ class AdminManagementController extends Action
 
     public function SchoolTerm()
     {
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
+
+        $this->view->listSchoolTerm = $SchoolTerm->list();
+        $this->view->listSchoolTermSituation = $SchoolTerm->listSchoolTermSituation();
+
         $this->render('/pages/management_schoolTerm', 'AdminLayout');
     }
 
@@ -102,6 +107,11 @@ class AdminManagementController extends Action
 
     public function ClassRoom()
     {
+
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
+
+        $this->view->listClassRoom = $ClassRoom->list();
+
         $this->render('/pages/management_classRoom', 'AdminLayout');
     }
 
@@ -170,6 +180,11 @@ class AdminManagementController extends Action
 
     public function managementCourse()
     {
+
+        $Course = Container::getModel('Management\\Course');
+
+        $this->view->listCourse = $Course->list();
+
         $this->render('/pages/management_course', 'AdminLayout');
     }
 
@@ -190,7 +205,9 @@ class AdminManagementController extends Action
     {
 
         $Course = Container::getModel('Management\\Course');
+
         $this->view->listCourse = $Course->list();
+
         $this->render('/listElement/listCourse', 'SimpleLayout');
     }
 
@@ -230,6 +247,12 @@ class AdminManagementController extends Action
 
     public function managementDiscipline()
     {
+
+        $Discipline = Container::getModel('Management\\Discipline');
+
+        $this->view->listDiscipline = $Discipline->list();
+        $this->view->listModality = $Discipline->listDisciplineModality();
+
         $this->render('/pages/management_discipline', 'AdminLayout');
     }
 
@@ -319,6 +342,20 @@ class AdminManagementController extends Action
 
     public function managementClass()
     {
+
+        $Classe = Container::getModel('Management\\Classe');
+        $Course = Container::getModel('Management\\Course');
+        $ClassRoom = Container::getModel('Management\\ClassRoom');
+        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
+
+        $this->view->listClass = $Classe->list();
+        $this->view->availableShift = $Classe->availableShift();
+        $this->view->availableBallot = $Classe->availableBallot();
+        $this->view->availableSeries = $Classe->availableSeries();
+        $this->view->availableCourse = $Course->availableCourse();
+        $this->view->availableClassRoom = $ClassRoom->activeClassroom();
+        $this->view->activeSchoolTerm = $SchoolTerm->activeSchoolTerm();
+
         $this->render('/pages/management_class', 'AdminLayout');
     }
 
