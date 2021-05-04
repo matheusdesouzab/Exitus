@@ -100,6 +100,7 @@ $('#collapseListDiscipline').on('click', () => listElement('containerListDiscipl
 
 $('select[name="seekModality"]').change(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'))
 
+
 let timeout = null
 
 $('input[name="seekName"]').keyup(function (e) {
@@ -225,6 +226,17 @@ $("#buttonAddStudent").click(function () {
 
 })
 
+
+$('#seekStudent input[name="name"]').keyup(function (e) {
+
+    if (timeout) clearTimeout(timeout);
+
+    timeout = setTimeout(() => seekElement('#seekStudent', 'containerListStudent', '/admin/aluno/lista/buscar'), 1500)
+
+})
+
+
+$('#seekStudent select[name="sex"]').change(() => seekElement('#seekStudent', 'containerListStudent', '/admin/aluno/lista/buscar'))
 
 
 //? Masks

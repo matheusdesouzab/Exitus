@@ -70,4 +70,23 @@ class Student extends People
             "SELECT aluno.nome_aluno AS student_name , aluno.foto_perfil_aluno as profilePhoto , aluno.cpf_aluno AS student_cpf , serie.sigla AS acronym_series , cedula_turma.cedula AS class_ballot , curso.sigla AS course , turno.nome_turno AS shift FROM aluno LEFT JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) left join turma ON(matricula.fk_id_turma_matricula = turma.id_turma) left join serie ON(turma.fk_id_serie = serie.id_serie) left join cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) left join curso ON(turma.fk_id_curso = curso.id_curso) left join turno ON(turma.fk_id_turno = turno.id_turno);"
         );
     }
+
+
+    public function seekStudent()
+    {
+
+        $this->__get('fk_id_sex') == 0 ? $operationSex = '<>' : $operationSex = '=';
+
+        $query = "SELECT aluno.nome_aluno AS student_name , aluno.foto_perfil_aluno as profilePhoto , aluno.cpf_aluno AS student_cpf , serie.sigla AS acronym_series , cedula_turma.cedula AS class_ballot , curso.sigla AS course , turno.nome_turno AS shift FROM aluno LEFT JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) left join turma ON(matricula.fk_id_turma_matricula = turma.id_turma) left join serie ON(turma.fk_id_serie = serie.id_serie) left join cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) left join curso ON(turma.fk_id_curso = curso.id_curso) left join turno ON(turma.fk_id_turno = turno.id_turno) WHERE aluno.nome_aluno LIKE :studentName AND aluno.fk_id_sexo_aluno $operationSex :sex OR aluno.cpf_aluno = :cpf ;";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':studentName', "%" . $this->__get('name') . "%", \PDO::PARAM_STR);
+        $stmt->bindValue(':cpf', "%" . $this->__get('cpf') . "%", \PDO::PARAM_STR);
+        $stmt->bindValue(':sex', $this->__get('fk_id_sex'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 }

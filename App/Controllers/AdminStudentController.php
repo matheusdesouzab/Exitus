@@ -71,6 +71,22 @@ class AdminStudentController extends Action
     }
 
 
+    public function seekStudent()
+    {
+
+        $Student = Container::getModel('Student\\Student');
+
+        $Student->__set('name', $_GET['name']);
+        $Student->__set('cpf', $_GET['name']);
+        $Student->__set('fk_id_sex', $_GET['sex']);
+        
+        $this->view->listStudent = $Student->seekStudent();
+
+        $this->render('/listElement/listStudent', 'SimpleLayout');
+
+    }
+
+
     public function insertStudent()
     {
 

@@ -8,31 +8,21 @@
 
             <div class="col-lg-12 ">
 
-                <div class="p-3 mb-3 card">
+                <div class="p-3 mb-3 card" id="advanced-search-accordion">
 
-                    <form class="col-lg-11 accordion mx-auto mt-3" id="advanced-search-accordion">
+                    <form class="col-lg-11 accordion mx-auto mt-3" id="seekStudent">
 
                         <div class="form-row">
 
-                            <div class="form-group col-12 col-lg-4">
+                            <div class="form-group col-12 col-lg-5">
                                 <label for="">Aluno:</label>
-                                <input class="form-control" type="text" name="name" placeholder="Nome do aluno ou CPF" id="name">
-                            </div>
-
-                            <div class="form-group col-12 col-lg-3">
-                                <label for="">Turma:</label>
-                                <select class="form-control custom-select" name="class" id="class">
-                                    <?php foreach ($this->view->availableClass as $i => $class) { ?>
-
-                                        <option value="<?= $class->id_class ?>"><?= $class->series_acronym . ' ' . $class->ballot . ' - ' . $class->course_acronym . ' - ' . $class->shift  ?></option>
-
-                                    <?php } ?>
-                                </select>
+                                <input class="form-control" type="text" value="" name="name" placeholder="Nome do aluno ou CPF">
                             </div>
 
                             <div class="form-group col-12 col-lg-4">
                                 <label for="">Curso:</label>
                                 <select class="form-control custom-select" name="course" id="course">
+                                <option value="0">Todos</option>
                                     <?php foreach ($this->view->availableCourse as $key => $course) { ?>
 
                                         <option value="<?= $course->option_value ?>"><?= $course->option_text ?></option>
@@ -40,6 +30,16 @@
                                     <?php } ?>
                                 </select>
                             </div>
+
+                            <div class="form-group col-12 col-lg-2">                         
+                                    <label for="">Turno:</label>
+                                    <select class="form-control custom-select" name="shift" id="shift">
+                                    <option value="0">Todos</option>
+                                        <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+                                            <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
 
 
                             <div class="form-group col-2 col-lg-1">
@@ -57,21 +57,15 @@
 
                                 <div class="form-group col-12 col-lg-3">
                                     <label for="">Sexo:</label>
-                                    <select class="form-control custom-select" name="sex" id="sex">
+                                    <select class="form-control custom-select" name="sex">
+                                    <option value="0">Todos</option>
                                         <?php foreach ($this->view->availableSex as $key => $sex) { ?>
                                             <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
 
-                                <div class="form-group col-12 col-lg-3">
-                                    <label for="">Turno:</label>
-                                    <select class="form-control custom-select" name="shift" id="shift">
-                                        <?php foreach ($this->view->availableShift as $key => $shift) { ?>
-                                            <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
+                               
 
                                 <div class="form-group col-12 col-lg-3">
                                     <label for="">Série:</label>

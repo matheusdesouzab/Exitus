@@ -52,13 +52,6 @@ function availableElement(elements) {
 
         elements[i][2] == 'clean' ? $selectSituation.empty() : ''
 
-        /* if (
-            elements[i][0] == 'classroomNumber' ||
-            elements[i][0] == 'schoolYear' ||
-            elements[i][0] == 'modalityAdd' ||
-            elements[i][0] == 'schoolTermSituationAdd' ||
-            elements[i][0] == 'schoolTerm') $selectSituation.empty() */
-
         $.ajax({
             url: elements[i][1],
             dataType: 'json',

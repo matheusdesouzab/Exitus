@@ -37,6 +37,12 @@ class Route extends Bootstrap
 			'action' => 'studentListing'
 		);
 
+		$routes['adminSeekStudent'] = array(
+			'route' => '/admin/aluno/lista/buscar',
+			'controller' => 'AdminStudentController',
+			'action' => 'seekStudent'
+		);
+
 		
 
 		//People
