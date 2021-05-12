@@ -319,7 +319,7 @@ class AdminManagementController extends Action
     {
 
         $Discipline = Container::getModel('Management\\Discipline');
-        $Discipline->__set('idDiscipline', $_GET['idDiscipline']);
+        $Discipline->__set('idDiscipline', $_GET['id']);
 
         $this->view->discipline = $Discipline->disciplineData();
         $this->view->listDisciplineModality = $Discipline->listDisciplineModality();

@@ -10,8 +10,13 @@ if (count($this->view->listDiscipline) >= 1) {
             <td><?= $discipline->discipline_modality ?></td>
         </tr>
 
-    <?php }
-} else { ?>
+    <?php } ?>
+
+    <tr class="mt-4">
+        <td colspan="5" style="background-color: #ECECEC;"><?= count($this->view->listDiscipline) ?> disciplinas retornadas</td>
+    </tr>
+
+<?php } else { ?>
 
     <tr class="mt-4">
         <td colspan="3">Nenhuma disciplina adicionada</td>

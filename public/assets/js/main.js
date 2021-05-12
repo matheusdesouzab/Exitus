@@ -120,6 +120,12 @@ $(document).on('click', '#discipline tr', function () {
 })
 
 
+$(document).on('click', '#student-table tr', function () {
+    showModal(this.id, '/admin/aluno/lista/perfil-aluno', 'containerModal', '#profileStudentModal')
+})
+
+
+
 //? Upper Case
 
 
@@ -236,7 +242,7 @@ $('#seekStudent input[name="name"]').keyup(function (e) {
 })
 
 
-$('#seekStudent select[name="sex"]').change(() => seekElement('#seekStudent', 'containerListStudent', '/admin/aluno/lista/buscar'))
+$('#seekStudent select').change(() => seekElement('#seekStudent', 'containerListStudent', '/admin/aluno/lista/buscar'))
 
 
 //? Masks

@@ -77,13 +77,25 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
 
         $Student->__set('name', $_GET['name']);
-        $Student->__set('cpf', $_GET['name']);
         $Student->__set('fk_id_sex', $_GET['sex']);
         
-        $this->view->listStudent = $Student->seekStudent();
+        $this->view->listStudent = $Student->seekStudent($_GET['course'], $_GET['shift'] , $_GET['series']);
 
         $this->render('/listElement/listStudent', 'SimpleLayout');
 
+    }
+
+
+    public function studentProfile()
+    {
+
+        $Student = Container::getModel('Student\\Student');
+
+        $Student->__set('id', $_GET['id']);
+
+        $this->view->studentProfile = $Student->studentProfile();
+
+        $this->render('/listElement/profileStudentModal', 'SimpleLayout');
     }
 
 

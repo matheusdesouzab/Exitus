@@ -4,7 +4,7 @@
 
         <?php $photoDir =  "/assets/img/profilePhoto/" ?>
 
-        <tr>
+        <tr id="aluno<?=$student->student_id?>">
             <td class="text-right">
                 <img src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
@@ -23,12 +23,17 @@
 
         </tr>
 
-    <?php }
-} else { ?>
+
+    <?php } ?>
 
     <tr class="mt-4">
-        <td colspan="5">Nenhum aluno encrontado</td>
+        <td class="font-weight-bold" colspan="5" style="background-color: #F9F8F8;"><?= count($this->view->listStudent) ?> alunos retornados <i class="fas fa-history ml-2"></i></td>
     </tr>
 
+<?php } else { ?>
+
+    <tr class="mt-4 thead-light">
+        <td class="ml-3" colspan="5">Nenhum aluno encrontado </td>
+    </tr>
 
 <?php } ?>

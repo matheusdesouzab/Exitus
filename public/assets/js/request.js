@@ -58,8 +58,6 @@ function availableElement(elements) {
             type: 'GET',
             success: data => {
 
-                console.log(data)
-
                 $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
 
             },
@@ -89,15 +87,13 @@ function updateElement(form, route, dataToast) {
 }
 
 
-function editElement(form) {
+function editElement(activeForm, deactivatedElements ) {
 
-    $('form .form-control').prop('disabled', true)
+    $(`${deactivatedElements} .form-control`).prop('disabled', true)
     $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
 
-    $('#addSchoolTerm .form-control, #addCourse .form-control, #seekDiscipline .form-control, #addDiscipline .form-control, #addClassRoom .form-control').prop('disabled', false)
-
-    $(`${form} .form-control`).prop('disabled', false)
-    $(`${form} .update-data-icon, ${form} .delete-data-icon`).css("pointer-events", "auto")
+    $(`${activeForm} .form-control`).prop('disabled', false)
+    $(`${activeForm} .update-data-icon, ${activeForm} .delete-data-icon`).css("pointer-events", "auto")
 
 }
 
@@ -156,7 +152,7 @@ function showModal(formId, route, container, modal) {
         url: route,
         type: 'GET',
         data: {
-            idDiscipline: id
+            id: id
         },
         success: data => {
 

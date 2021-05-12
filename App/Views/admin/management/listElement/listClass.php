@@ -13,8 +13,13 @@ if (count($this->view->listClass) >= 1) {
             <td>0.0</td>
         </tr>
 
-    <?php }
-} else { ?>
+    <?php } ?>
+
+    <tr class="mt-4">
+        <td colspan="5" style="background-color: #ECECEC;"><?= count($this->view->listClass) ?> turmas retornadas</td>
+    </tr>
+
+<?php } else { ?>
 
     <tr class="mt-4">
         <td colspan="4">Nenhuma turma adicionada</td>

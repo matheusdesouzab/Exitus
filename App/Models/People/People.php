@@ -2,6 +2,7 @@
 
 namespace App\Models\People;
 
+
 use MF\Model\Model;
 
 class People extends Model
@@ -11,7 +12,7 @@ class People extends Model
     protected $name;
     protected $cpf;
     protected $birthDate;
-    protected $naturalness;
+    protected $naturalness; 
     protected $nationality;
     protected $profilePhoto;
     protected $fk_id_sex;
