@@ -13,7 +13,7 @@
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span idElement="#formClassRoom<?= $classRoom->id_room ?>" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                    <span idElement="#formClassRoom<?= $classRoom->id_room ?>" formGroup="containerListClassRoom" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
                     <span idElement="#formClassRoom<?= $classRoom->id_room ?>" routeUpdate="/admin/gestao/sala/atualizar" toastData="Sala Atualizada" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 

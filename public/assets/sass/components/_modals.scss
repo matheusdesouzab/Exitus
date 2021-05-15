@@ -1,10 +1,8 @@
 #pagina {
 
+    .modal-registration-success {
 
 
-    .modal-registration-success{
-
-        
 
         .fa-check-circle {
             @include icon-modal($color-green);
@@ -28,7 +26,7 @@
             font-weight: 500;
         }
 
-        
+
 
         .modal-registration-error {
 
@@ -52,6 +50,11 @@
             background-color: $color-black;
         }
 
+        .input-group input{
+            border: none;          
+            border-bottom: 1px solid $color-extra-light-blue;
+        }
+
         @include all-edges-of-images(3px);
 
         .modal-body>.row:nth-child(1) {
@@ -59,9 +62,10 @@
             margin-top: -10px;
         }
 
-        input:disabled,select:disabled{
-        background: $color-pure-gray;
-        border: 1px solid $color-extra-light-blue;
+        input:disabled,
+        select:disabled {
+            background: $color-pure-gray;
+            border: 1px solid $color-extra-light-blue;
         }
 
         h5 {

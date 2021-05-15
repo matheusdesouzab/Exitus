@@ -199,6 +199,10 @@ select:disabled {
   height: 630px;
   background-color: #283339;
 }
+#pagina .modal-profile .input-group input {
+  border: none;
+  border-bottom: 1px solid #e4d9ff;
+}
 #pagina .modal-profile .border-img-red {
   border: 3px solid #DC3545;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -223,7 +227,8 @@ select:disabled {
   background-color: #F4F6F6;
   margin-top: -10px;
 }
-#pagina .modal-profile input:disabled, #pagina .modal-profile select:disabled {
+#pagina .modal-profile input:disabled,
+#pagina .modal-profile select:disabled {
   background: #F4F6F6;
   border: 1px solid #e4d9ff;
 }

@@ -121,7 +121,7 @@ $(document).on('click', '#discipline tr', function () {
 
 
 $(document).on('click', '#student-table tr', function () {
-    showModal(this.id, '/admin/aluno/lista/perfil-aluno', 'containerModal', '#profileStudentModal')
+    showModal(this.id, '/admin/aluno/lista/perfil-aluno', 'containerModal', '#profileStudentModal', 'profile')
 })
 
 
@@ -181,7 +181,7 @@ $('#addClass .form-control').change(checkClass)
 
 
 $(document).on('click', '.edit-data-icon', function () {
-    editElement($(this).attr('idElement'))
+    editElement($(this).attr('idElement'), $(this).attr('formGroup'))
 })
 
 
@@ -250,9 +250,7 @@ $('#seekStudent select').change(() => seekElement('#seekStudent', 'containerList
 
 $('#cpf').on('keypress', e => $(e.target).mask('000.000.000-00'))
 
-
 $('#zipCode').on('keypress', e => $(e.target).mask('00000-000'))
-
 
 $("#telephone").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
 

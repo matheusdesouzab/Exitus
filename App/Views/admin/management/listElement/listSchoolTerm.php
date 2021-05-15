@@ -20,7 +20,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                     <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                        <span idElement="#formSchoolTerm<?= $schoolTerm->id_school_term ?>" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                        <span idElement="#formSchoolTerm<?= $schoolTerm->id_school_term ?>" formGroup="containerListSchoolTerm" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
                         <span idElement="#formSchoolTerm<?= $schoolTerm->id_school_term ?>" routeUpdate="/admin/gestao/periodo-letivo/atualizar" toastData="Periodo Letivo Atualizado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 

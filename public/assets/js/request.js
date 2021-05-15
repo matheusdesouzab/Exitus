@@ -87,12 +87,12 @@ function updateElement(form, route, dataToast) {
 }
 
 
-function editElement(activeForm, deactivatedElements ) {
+function editElement(activeForm, formGroup) {
 
-    $(`${deactivatedElements} .form-control`).prop('disabled', true)
-    $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
-
+    $(`[${formGroup}] .form-control`).prop('disabled', true)
     $(`${activeForm} .form-control`).prop('disabled', false)
+
+    $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
     $(`${activeForm} .update-data-icon, ${activeForm} .delete-data-icon`).css("pointer-events", "auto")
 
 }
@@ -105,8 +105,6 @@ function listElement(container, route) {
     let loading = '<div class="d-flex justify-content-center loading"><div class="spinner-grow text-primary" role="status"></div></div>'
 
     $container.text('').append(loading)
-
-    console.log('list-element')
 
     $.ajax({
         url: route,
@@ -140,7 +138,7 @@ function seekElement(form, container, route) {
 }
 
 
-function showModal(formId, route, container, modal) {
+function showModal(formId, route, container, modal, type = normal) {
 
     let id = formId.replace(/[^0-9]/g, '')
 
@@ -159,6 +157,16 @@ function showModal(formId, route, container, modal) {
             $container.append(data)
 
             $(modal).modal("show")
+
+            if (type == 'profile') {
+
+                $('#cpf').mask('000.000.000-00')
+
+                $('#zipCode').mask('00000-000')
+
+                $("#telephone").mask(('(00) 00000-0000'))
+
+            }
 
         },
 

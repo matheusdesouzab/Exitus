@@ -15,7 +15,7 @@ if (count($this->view->listCourse) >= 1) {
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span idElement="#formCourse<?= $course->id_course ?>" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                    <span idElement="#formCourse<?= $course->id_course ?>" formGroup="containerListCourse" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
                     <span idElement="#formCourse<?= $course->id_course ?>" routeUpdate="/admin/gestao/curso/atualizar" toastData="Curso Atualizado" container="containerListCourse" routeList="/admin/gestao/curso/lista" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
