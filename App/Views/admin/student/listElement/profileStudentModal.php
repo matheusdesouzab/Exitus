@@ -48,7 +48,7 @@
 
                                                     <span idElement="#studentModal<?= $student->student_id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                                                    <span idElement="#studentModal<?= $student->student_id ?>" routeUpdate="/admin/gestao/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" container="containerListStudent" routeList="" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                    <span idElement="#studentModal<?= $student->student_id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" container="containerListStudent" routeList="/admin/aluno/lista/listagem" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
                                                 </div>
 
@@ -58,71 +58,69 @@
 
                                                 <div class="col-lg-7 col-12">
 
-
-
                                                     <h5 class="mt-3 mb-3 ml-2">Dados pessoais:</h5>
 
                                                     <div class="input-group d-flex col-12 col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Nome:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_name ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="name" name="name" disabled class="form-control" value="<?= $student->student_name ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-12 col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Nome da mãe:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_mother ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="motherName" name="motherName" disabled class="form-control" value="<?= $student->student_mother ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Nome do pai:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_father ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="fatherName" name="fatherName" disabled class="form-control" value="<?= $student->student_father ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">CPF:</span>
                                                         </div>
-                                                        <input type="text" id="cpf" disabled class="form-control" value="<?= $student->student_cpf ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="cpf" name="cpf" disabled class="form-control" value="<?= $student->student_cpf ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Sexo:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_sex ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="sex" name="sex" disabled class="form-control" value="<?= $student->student_sex ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="nacionality" name="nacionality" disabled class="form-control" value="<?= $student->student_nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Naturalidade:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_naturalness ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="naturalness" name="naturalness" disabled class="form-control" value="<?= $student->student_naturalness ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">PcD:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_pcd ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="pcd" name="pcd" disabled class="form-control" value="<?= $student->student_pcd ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Tipo sanguíneo:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->blood_type ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="bloodType" name="bloodTpe" disabled class="form-control" value="<?= $student->blood_type ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <hr>
@@ -133,42 +131,42 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">CEP:</span>
                                                         </div>
-                                                        <input type="text" id="zipCode" disabled class="form-control" value="<?= $student->student_zipCode ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="zipCode" name="zipCode" disabled class="form-control" value="<?= $student->student_zipCode ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">UF:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_uf ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="uf" name="uf" disabled class="form-control" value="<?= $student->student_uf ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Município:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_county ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="county" name="county" disabled class="form-control" value="<?= $student->student_county ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Bairro:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_district ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="district" name="district" disabled class="form-control" value="<?= $student->student_district ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Endereço:</span>
                                                         </div>
-                                                        <input type="text" disabled class="form-control" value="<?= $student->student_address ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="address" name="address" disabled class="form-control" value="<?= $student->student_address ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Telefone</span>
                                                         </div>
-                                                        <input id="telephone" type="text" disabled class="form-control" value="<?= $student->telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input id="telephone" name="telephone" type="text" disabled class="form-control" value="<?= $student->telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
 

@@ -32,7 +32,7 @@ class AdminStudentController extends Action
     }
 
 
-    public function listStudent()
+    public function studentList()
     {
 
         $Student = Container::getModel('Student\\Student');
@@ -71,7 +71,7 @@ class AdminStudentController extends Action
     }
 
 
-    public function seekStudent()
+    public function studentSeek()
     {
 
         $Student = Container::getModel('Student\\Student');
@@ -79,7 +79,7 @@ class AdminStudentController extends Action
         $Student->__set('name', $_GET['name']);
         $Student->__set('fk_id_sex', $_GET['sex']);
         
-        $this->view->listStudent = $Student->seekStudent($_GET['course'], $_GET['shift'] , $_GET['series']);
+        $this->view->listStudent = $Student->seek($_GET['course'], $_GET['shift'] , $_GET['series']);
 
         $this->render('/listElement/listStudent', 'SimpleLayout');
 
@@ -93,13 +93,21 @@ class AdminStudentController extends Action
 
         $Student->__set('id', $_GET['id']);
 
-        $this->view->studentProfile = $Student->studentProfile();
+        $this->view->studentProfile = $Student->profile();
 
         $this->render('/listElement/profileStudentModal', 'SimpleLayout');
     }
 
 
-    public function insertStudent()
+    public function updateStudentProfile()
+    {
+
+        print_r($_GET);
+
+    }
+
+
+    public function studentInsert()
     {
 
         $SchoolTerm = Container::getModel('Management\\SchoolTerm');

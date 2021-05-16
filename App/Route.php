@@ -10,68 +10,56 @@ class Route extends Bootstrap
 	protected function initRoutes()
 	{
 
-		// Student ( Aluno )
+		// Student routes
 
 
-		$routes['adminCadastroAluno'] = array(
+		$routes['adminStudentRegistration'] = array(
 			'route' => '/admin/aluno/cadastro',
 			'controller' => 'AdminStudentController',
 			'action' => 'studentRegistration'
 		);
 
-		$routes['adminInsertStudent'] = array(
+		$routes['adminStudentInsert'] = array(
 			'route' => '/admin/aluno/cadastro/inserir',
 			'controller' => 'AdminStudentController',
-			'action' => 'insertStudent'
+			'action' => 'studentInsert'
 		);
 
-		$routes['adminListStudent'] = array(
+		$routes['adminStudentList'] = array(
 			'route' => '/admin/aluno/lista',
 			'controller' => 'AdminStudentController',
-			'action' => 'listStudent'
+			'action' => 'studentList'
 		);
 
-		$routes['adminListingStudents'] = array(
+		$routes['adminStudentListing'] = array(
 			'route' => '/admin/aluno/lista/listagem',
 			'controller' => 'AdminStudentController',
 			'action' => 'studentListing'
 		);
 
-		$routes['adminSeekStudent'] = array(
+		$routes['adminStudentSeek'] = array(
 			'route' => '/admin/aluno/lista/buscar',
 			'controller' => 'AdminStudentController',
-			'action' => 'seekStudent'
+			'action' => 'studentSeek'
 		);
 
-		$routes['adminProfileStudent'] = array(
+		$routes['adminStudentProfile'] = array(
 			'route' => '/admin/aluno/lista/perfil-aluno',
 			'controller' => 'AdminStudentController',
 			'action' => 'studentProfile'
 		);
 
+		$routes['adminUpdateStudentProfile'] = array(
+			'route' => '/admin/aluno/lista/perfil-aluno/atualizar',
+			'controller' => 'AdminStudentController',
+			'action' => 'updateStudentProfile'
+		); 
 		
 
-		//People
+		// People routes
+		
 
-		$routes['dadosGeraisAvailableSex'] = array(
-			'route' => '/dados-gerais/lista-sexo',
-			'controller' => 'AdminPeopleController',
-			'action' => 'availableSex'
-		);
-
-		$routes['dadosGeraisPcd'] = array(
-			'route' => '/dados-gerais/lista-pcd',
-			'controller' => 'AdminPeopleController',
-			'action' => 'pcd'
-		);
-
-		$routes['dadosGeraisTipoSanguineo'] = array(
-			'route' => '/dados-gerais/lista-tipo-sanguineo',
-			'controller' => 'AdminPeopleController',
-			'action' => 'bloodType'
-		);
-
-		$routes['verificarDadosCpf'] = array(
+		$routes['checkCpf'] = array(
 			'route' => '/verificar-dados/cpf',
 			'controller' => 'AdminPeopleController',
 			'action' => 'checkCpf'
@@ -94,185 +82,180 @@ class Route extends Bootstrap
 		);
 
 
-		// Management General ( Gestão General )
+		// Management general routes
 
 
-		$routes['adminGestao'] = array(
+		$routes['adminManagementGeneral'] = array(
 			'route' => '/admin/gestao',
 			'controller' => 'AdminManagementController',
 			'action' => 'managementGeneral'
 		);
 
 
-		// School Term ( Período letivo )
+		// School term routes
 
 
-		$routes['adminPeriodoLetivo'] = array(
+		$routes['adminSchoolTermManagement'] = array(
 			'route' => '/admin/gestao/periodo-letivo',
 			'controller' => 'AdminManagementController',
-			'action' => 'SchoolTerm'
+			'action' => 'schoolTermManagement'
 		);
 
-		$routes['adminInsertSchoolTerm'] = array(
+		$routes['adminSchoolTermInsert'] = array(
 			'route' => '/admin/gestao/periodo-letivo/inserir',
 			'controller' => 'AdminManagementController',
-			'action' => 'insertSchoolTerm'
+			'action' => 'schoolTermInsert'
 		);
 
-		$routes['adminListSchoolTerm'] = array(
+		$routes['adminSchoolTermList'] = array(
 			'route' => '/admin/gestao/periodo-letivo/lista',
 			'controller' => 'AdminManagementController',
-			'action' => 'listSchoolTerm'
+			'action' => 'schoolTermList'
 		);
 
-		$routes['adminUpdateSchoolTerm'] = array(
+		$routes['adminSchoolTermUpdate'] = array(
 			'route' => '/admin/gestao/periodo-letivo/atualizar',
 			'controller' => 'AdminManagementController',
-			'action' => 'updateSchoolTerm'
+			'action' => 'schoolTermUpdate'
 		);
 
-		$routes['adminDeleteSchoolTerm'] = array(
+		$routes['adminSchoolTermDelete'] = array(
 			'route' => '/admin/gestao/periodo-letivo/deletar',
 			'controller' => 'AdminManagementController',
-			'action' => 'deleteSchoolTerm'
+			'action' => 'schoolTermDelete'
 		);
 
-		$routes['adminListSchoolTermSituation'] = array(
-			'route' => '/admin/gestao/periodo-letivo/lista-situacao-periodo-letivo',
-			'controller' => 'AdminManagementController',
-			'action' => 'listSchoolTermSituation'
-		);
 
-		$routes['adminAvailableSchoolTerm'] = array(
+		$routes['adminSchoolTermAvailable'] = array(
 			'route' => '/admin/gestao/periodo-letivo/lista-anos-disponiveis',
 			'controller' => 'AdminManagementController',
-			'action' => 'availableSchoolTerm'
-		);
-
-		$routes['adminActiveSchoolTerm'] = array(
-			'route' => '/admin/gestao/periodo-letivo/ativado',
-			'controller' => 'AdminManagementController',
-			'action' => 'activeSchoolTerm'
+			'action' => 'schoolTermAvailable'
 		);
 
 
-		// Class Room ( Sala de aula )
+		// Class room routes
 
 
-		$routes['adminSalaGestao'] = array(
+		$routes['adminClassRoomManagement'] = array(
 			'route' => '/admin/gestao/sala',
 			'controller' => 'AdminManagementController',
-			'action' => 'ClassRoom'
+			'action' => 'classRoomManagement'
 		);
 
-		$routes['adminInsertClassRoom'] = array(
+		$routes['adminClassRoomInsert'] = array(
 			'route' => '/admin/gestao/sala/inserir',
 			'controller' => 'AdminManagementController',
-			'action' => 'insertClassRoom'
+			'action' => 'classRoomInsert'
 		);
 
-		$routes['adminListClassRoom'] = array(
+		$routes['adminClassRoomList'] = array(
 			'route' => '/admin/gestao/sala/lista',
 			'controller' => 'AdminManagementController',
-			'action' => 'listClassRoom'
+			'action' => 'classRoomList'
 		);
 
-		$routes['adminAvailableClassroom'] = array(
+		$routes['adminAvailableRoomNumbers'] = array(
 			'route' => '/admin/gestao/sala/lista-numeros-disponiveis',
 			'controller' => 'AdminManagementController',
-			'action' => 'availableClassroom'
+			'action' => 'availableRoomNumbers'
 		);
 
-		$routes['adminDeleteClassRoom'] = array(
+		$routes['adminClassRoomDelete'] = array(
 			'route' => '/admin/gestao/sala/deletar',
 			'controller' => 'AdminManagementController',
-			'action' => 'deleteClassRoom'
+			'action' => 'classRoomDelete'
 		);
 
-		$routes['adminUpdateClassRoom'] = array(
+		$routes['adminClassRoomUpdate'] = array(
 			'route' => '/admin/gestao/sala/atualizar',
 			'controller' => 'AdminManagementController',
-			'action' => 'updateClassRoom'
+			'action' => 'classRoomUpdate'
+		);
+
+		$routes['adminActiveClassRoom'] = array(
+			'route' => '/admin/gestao/turma/lista-salas',
+			'controller' => 'AdminManagementController',
+			'action' => 'activeClassRoom'
 		);
 
 
-		// Course
+		// Course routes
 
 
-		$routes['adminCursoGestao'] = array(
+		$routes['adminCourseManagement'] = array(
 			'route' => '/admin/gestao/curso',
 			'controller' => 'AdminManagementController',
-			'action' => 'managementCourse'
+			'action' => 'courseManagement'
 		);
 
-		$routes['adminInsertCourse'] = array(
+		$routes['adminCourseInsert'] = array(
 			'route' => '/admin/gestao/curso/inserir',
 			'controller' => 'AdminManagementController',
-			'action' => 'insertCourse'
+			'action' => 'courseInsert'
 		);
 
-		$routes['adminListCourse'] = array(
+		$routes['adminCourseList'] = array(
 			'route' => '/admin/gestao/curso/lista',
 			'controller' => 'AdminManagementController',
-			'action' => 'listCourse'
+			'action' => 'courseList'
 		);
 
-		$routes['adminUpdateCourse'] = array(
+		$routes['adminCourseUpdate'] = array(
 			'route' => '/admin/gestao/curso/atualizar',
 			'controller' => 'AdminManagementController',
-			'action' => 'updateCourse'
+			'action' => 'courseUpdate'
 		);
 
-		$routes['adminDeleteCourse'] = array(
+		$routes['adminCourseDelete'] = array(
 			'route' => '/admin/gestao/curso/deletar',
 			'controller' => 'AdminManagementController',
-			'action' => 'deleteCourse'
+			'action' => 'courseDelete'
+		);
+
+		$routes['adminAvailableCourse'] = array(
+			'route' => '/admin/gestao/turma/lista-cursos',
+			'controller' => 'AdminManagementController',
+			'action' => 'availableCourse'
 		);
 
 
-		// Discipline ( Disciplina )
+		// Discipline routes
 
 
-		$routes['adminDisciplinaGestao'] = array(
+		$routes['adminDisciplineManagement'] = array(
 			'route' => '/admin/gestao/disciplina',
 			'controller' => 'AdminManagementController',
-			'action' => 'managementDiscipline'
+			'action' => 'disciplineManagement'
 		);
 
-		$routes['adminInsertDiscipline'] = array(
+		$routes['adminDisciplineInsert'] = array(
 			'route' => '/admin/gestao/disciplina/inserir',
 			'controller' => 'AdminManagementController',
-			'action' => 'insertDiscipline'
+			'action' => 'disciplineInsert'
 		);
 
-		$routes['adminListDiscipline'] = array(
+		$routes['adminDisciplineList'] = array(
 			'route' => '/admin/gestao/disciplina/lista',
 			'controller' => 'AdminManagementController',
-			'action' => 'listDiscipline'
+			'action' => 'disciplineList'
 		);
 
-		$routes['adminUpdateDiscipline'] = array(
+		$routes['adminDisciplineUpdate'] = array(
 			'route' => '/admin/gestao/disciplina/atualizar',
 			'controller' => 'AdminManagementController',
-			'action' => 'updateDiscipline'
+			'action' => 'disciplineUpdate'
 		);
 
-		$routes['adminDeleteDiscipline'] = array(
+		$routes['adminDisciplineDelete'] = array(
 			'route' => '/admin/gestao/disciplina/deletar',
 			'controller' => 'AdminManagementController',
-			'action' => 'deleteDiscipline'
+			'action' => 'disciplineDelete'
 		);
 
-		$routes['adminlistDisciplineModality'] = array(
-			'route' => '/admin/gestao/disciplina/lista-modalidades',
-			'controller' => 'AdminManagementController',
-			'action' => 'listDisciplineModality'
-		);
-
-		$routes['adminSeekDiscipline'] = array(
+		$routes['adminDisciplineSeek'] = array(
 			'route' => '/admin/gestao/disciplina/buscar',
 			'controller' => 'AdminManagementController',
-			'action' => 'seekDiscipline'
+			'action' => 'disciplineSeek'
 		);
 
 		$routes['adminDisciplineData'] = array(
@@ -282,31 +265,31 @@ class Route extends Bootstrap
 		);
 
 
-		// Class ( Turma )
+		// Class routes
 
 
-		$routes['adminGestaoTurma'] = array(
+		$routes['adminClassManagement'] = array(
 			'route' => '/admin/gestao/turma',
 			'controller' => 'AdminManagementController',
-			'action' => 'ManagementClass'
+			'action' => 'classManagement'
 		);
 
-		$routes['adminInsertClass'] = array(
+		$routes['adminClassInsert'] = array(
 			'route' => '/admin/gestao/turma/inserir',
 			'controller' => 'AdminManagementController',
-			'action' => 'insertClass'
+			'action' => 'classInsert'
 		);
 
-		$routes['adminUpdateClass'] = array(
+		$routes['adminClassUpdate'] = array(
 			'route' => '/admin/gestao/turma/atualizar',
 			'controller' => 'AdminManagementController',
-			'action' => 'updateClass'
+			'action' => 'classUpdate'
 		);
 
-		$routes['adminDeleteClass'] = array(
+		$routes['adminClassDelete'] = array(
 			'route' => '/admin/gestao/turma/deletar',
 			'controller' => 'AdminManagementController',
-			'action' => 'deleteClass'
+			'action' => 'classDelete'
 		);
 
 		$routes['adminClassData'] = array(
@@ -315,67 +298,29 @@ class Route extends Bootstrap
 			'action' => 'classData'
 		);
 
-		$routes['adminListClass'] = array(
+		$routes['adminClassList'] = array(
 			'route' => '/admin/gestao/turma/lista',
 			'controller' => 'AdminManagementController',
-			'action' => 'listClass'
+			'action' => 'classList'
 		);
 
-		$routes['adminAvailableShift'] = array(
-			'route' => '/admin/gestao/turma/lista-turnos',
-			'controller' => 'AdminManagementController',
-			'action' => 'availableShift'
-		);
-
-		$routes['adminAvailableBallot'] = array(
-			'route' => '/admin/gestao/turma/lista-cedulas',
-			'controller' => 'AdminManagementController',
-			'action' => 'availableBallot'
-		);
-
-		$routes['adminAvailableSeries'] = array(
-			'route' => '/admin/gestao/turma/lista-series',
-			'controller' => 'AdminManagementController',
-			'action' => 'availableSeries'
-		);
-
-		$routes['adminAvailableCourse'] = array(
-			'route' => '/admin/gestao/turma/lista-cursos',
-			'controller' => 'AdminManagementController',
-			'action' => 'availableCourse'
-		);
-
-		$routes['adminActiveClassRoom'] = array(
-			'route' => '/admin/gestao/turma/lista-salas',
-			'controller' => 'AdminManagementController',
-			'action' => 'activeClassRoom'
-		);
-
-		$routes['adminCheckClass'] = array(
+		$routes['adminClassCheck'] = array(
 			'route' => '/admin/gestao/turma/verificar-dados',
 			'controller' => 'AdminManagementController',
-			'action' => 'checkClass'
+			'action' => 'classCheck'
 		);
 
-		$routes['adminSeekClass'] = array(
+		$routes['adminClassSeek'] = array(
 			'route' => '/admin/gestao/turma/buscar',
 			'controller' => 'AdminManagementController',
-			'action' => 'seekClass'
+			'action' => 'classSeek'
 		);
 
 		$routes['adminAvailableListClass'] = array(
-			'route' => '/admin/gestao/turma/lista-turmas-disponiveis',
+			'route' => '/admin/gestao/turma/turmas-disponiveis',
 			'controller' => 'AdminStudentController',
-			'action' => 'availableListClass'
+			'action' => 'classAvailable'
 		);
-
-
-
-
-
-
-
-
 
 
 		$this->setRoutes($routes);

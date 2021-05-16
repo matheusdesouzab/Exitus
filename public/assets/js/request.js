@@ -138,7 +138,7 @@ function seekElement(form, container, route) {
 }
 
 
-function showModal(formId, route, container, modal, type = normal) {
+function showModal(formId, route, container, modal, type = 'normal') {
 
     let id = formId.replace(/[^0-9]/g, '')
 

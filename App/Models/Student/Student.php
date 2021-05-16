@@ -72,7 +72,7 @@ class Student extends People
     }
 
 
-    public function seekStudent($course, $shift, $series)
+    public function seek($course, $shift, $series)
     {
 
         $this->__get('fk_id_sex') == 0 ? $operationSex = '<>' : $operationSex = '=';
@@ -93,7 +93,7 @@ class Student extends People
     }
 
 
-    public function studentProfile()
+    public function profile()
     {
 
         $query = "SELECT aluno.id_aluno AS student_id , aluno.nome_aluno AS student_name , aluno.cpf_aluno AS student_cpf , sexo.sexo AS student_sex , aluno.data_nascimento_aluno AS student_birth_date , aluno.naturalidade_aluno AS student_naturalness , aluno.foto_perfil_aluno AS student_profile_photo , aluno.nacionalidade_aluno AS student_nacionality , aluno.nome_mae AS student_mother , aluno.nome_pai AS student_father , tipo_sanguineo.tipo_sanguineo AS blood_type , pcd.pcd AS student_pcd , telefone.numero_telefone AS telephone_number , endereco.id_endereco AS student_address_id , endereco.cep AS student_zipCode , endereco.bairro AS student_district , endereco.endereco AS student_address , endereco.uf AS student_uf , endereco.municipio AS student_county , serie.sigla AS acronym_series , cedula_turma.cedula AS ballot , curso.sigla AS course , turno.nome_turno AS shift_name , numero_sala_aula.numero_sala_aula AS number_classroom , situacao_aluno.situacao_aluno as student_situation
