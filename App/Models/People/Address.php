@@ -7,7 +7,7 @@ use MF\Model\Model;
 class Address extends Model
 {
 
-    private $idAddress;
+    private $addressId;
     private $zipCode;
     private $district;
     private $address;
@@ -16,15 +16,15 @@ class Address extends Model
 
 
     public function __get($att)
-	{
-		return $this->$att;
-	}
+    {
+        return $this->$att;
+    }
 
 
-	public function __set($att, $newValue)
-	{
-		return $this->$att = $newValue;
-	}
+    public function __set($att, $newValue)
+    {
+        return $this->$att = $newValue;
+    }
 
 
     public function insert()
@@ -42,7 +42,6 @@ class Address extends Model
         $stmt->execute();
 
         return $this->db->lastInsertId();
-
     }
 
 
@@ -60,6 +59,17 @@ class Address extends Model
 
     public function update()
     {
-        //
+
+        $query = "UPDATE endereco SET cep = :zipCode , bairro = :district , municipio = :county , uf = :uf , endereco = :addresss WHERE endereco.id_endereco = :id";
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':zipCode', $this->__get('zipCode'));
+        $stmt->bindValue(':district', $this->__get('district'));
+        $stmt->bindValue(':addresss', $this->__get('address'));
+        $stmt->bindValue(':uf', $this->__get('uf'));
+        $stmt->bindValue(':county', $this->__get('county'));
+        $stmt->bindValue(':id', $this->__get('addressId'));
+
+        $stmt->execute();
     }
 }

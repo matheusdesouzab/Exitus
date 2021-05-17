@@ -42,6 +42,10 @@
 
                                         <form id="studentModal<?= $student->student_id ?>" class="" action="">
 
+                                            <input type="hidden" value="<?= $student->student_id ?>" name="studentId">
+                                            <input type="hidden" value="<?= $student->telephone_id ?>" name="telephoneId">
+                                            <input type="hidden" value="<?= $student->address_id ?>" name="addressId">
+
                                             <div class="row">
 
                                                 <div class="option-list col-lg-12">
@@ -89,17 +93,26 @@
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Sexo:</span>
                                                         </div>
-                                                        <input type="text" id="sex" name="sex" disabled class="form-control" value="<?= $student->student_sex ?>" aria-label="Username" aria-describedby="addon-wrapping">
+
+                                                        <select id="sex" name="sex" disabled class="form-control custom-select">
+                                                        <option value="<?= $student->student_sex_id ?>"><?= $student->student_sex ?></option>                                                          
+                                                            <?php foreach ($this->view->availableSex as $key => $sex) { ?>
+                                                            <?php if($sex->option_value != $student->student_sex_id){ ?>
+                                                                <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+                                                            <?php }} ?>
+                                                        </select>
+                                                       
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
                                                         </div>
-                                                        <input type="text" id="nacionality" name="nacionality" disabled class="form-control" value="<?= $student->student_nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" id="nationality" name="nationality" disabled class="form-control" value="<?= $student->student_nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
@@ -110,17 +123,35 @@
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">PcD:</span>
                                                         </div>
-                                                        <input type="text" id="pcd" name="pcd" disabled class="form-control" value="<?= $student->student_pcd ?>" aria-label="Username" aria-describedby="addon-wrapping">
+
+                                                        <select id="pcd" name="pcd" disabled class="form-control custom-select">
+                                                        <option value="<?= $student->student_pcd_id ?>"><?= $student->student_pcd ?></option>                                                          
+                                                            <?php foreach ($this->view->pcd as $key => $pcd) { ?>
+                                                            <?php if($pcd->option_value != $student->student_pcd_id){ ?>
+                                                                <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
+                                                            <?php }} ?>
+                                                        </select>
+                                                       
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Tipo sanguíneo:</span>
                                                         </div>
-                                                        <input type="text" id="bloodType" name="bloodTpe" disabled class="form-control" value="<?= $student->blood_type ?>" aria-label="Username" aria-describedby="addon-wrapping">
+
+                                                        <select id="bloodType" name="bloodType" disabled class="form-control custom-select">
+                                                        <option value="<?= $student->blood_type_id ?>"><?= $student->blood_type ?></option>                                                          
+                                                            <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
+                                                            <?php if($bloodType->option_value != $student->blood_type_id){ ?>
+                                                                <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
+                                                            <?php }} ?>
+                                                        </select>
+                                                        
                                                     </div>
 
                                                     <hr>
@@ -166,7 +197,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">Telefone</span>
                                                         </div>
-                                                        <input id="telephone" name="telephone" type="text" disabled class="form-control" value="<?= $student->telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $student->telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
 

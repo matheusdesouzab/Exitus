@@ -46,7 +46,7 @@ class AdminStudentController extends Action
         $this->view->availableSex = $People->availableSex();
         $this->view->availableShift = $Classe->availableShift();
         $this->view->availableSeries = $Classe->availableSeries();
- 
+
         $this->render('student_list', 'AdminLayout');
     }
 
@@ -54,7 +54,7 @@ class AdminStudentController extends Action
     public function studentListing()
     {
 
-        $Student = Container::getModel('Student\\Student');      
+        $Student = Container::getModel('Student\\Student');
 
         $this->view->listStudent = $Student->list();
 
@@ -78,11 +78,10 @@ class AdminStudentController extends Action
 
         $Student->__set('name', $_GET['name']);
         $Student->__set('fk_id_sex', $_GET['sex']);
-        
-        $this->view->listStudent = $Student->seek($_GET['course'], $_GET['shift'] , $_GET['series']);
+
+        $this->view->listStudent = $Student->seek($_GET['course'], $_GET['shift'], $_GET['series']);
 
         $this->render('/listElement/listStudent', 'SimpleLayout');
-
     }
 
 
@@ -90,10 +89,14 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
+        $People = Container::getModel('People\\People');
 
         $Student->__set('id', $_GET['id']);
 
         $this->view->studentProfile = $Student->profile();
+        $this->view->availableSex = $People->availableSex();
+        $this->view->pcd = $People->pcd();
+        $this->view->bloodType = $People->bloodType();
 
         $this->render('/listElement/profileStudentModal', 'SimpleLayout');
     }
@@ -102,8 +105,43 @@ class AdminStudentController extends Action
     public function updateStudentProfile()
     {
 
-        print_r($_GET);
+        $Address =  Container::getModel('People\\Address');
+        $Telephone = Container::getModel('People\Telephone');
+        $Student = Container::getModel('Student\\Student');
+        $People = Container::getModel('People\\People');
 
+        $Address->__set('addressId', $_POST['addressId']);
+        $Address->__set('district', $_POST['district']);
+        $Address->__set('address', $_POST['address']);
+        $Address->__set('uf', $_POST['uf']);
+        $Address->__set('county', $_POST['county']);
+        $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
+
+        $Telephone->__set('telephoneId', $_POST['telephoneId']);
+        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber'])); 
+
+        $Student->__set('name', $_POST['name']);
+        //$Student->__set('birthDate', $_POST['birthDate']);
+        $Student->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
+        $Student->__set('naturalness', $_POST['naturalness']);
+        $Student->__set('nationality', $_POST['nationality']);
+        $Student->__set('motherName', $_POST['motherName']);
+        $Student->__set('fatherName', $_POST['fatherName']);
+        $Student->__set('fk_id_sex', $_POST['sex']);
+        $Student->__set('fk_id_blood_type', $_POST['bloodType']);
+        $Student->__set('fk_id_pcd', $_POST['pcd']);   
+        $Student->__set('id', $_POST['studentId']);
+
+        $Telephone->update();
+        $Address->update();
+        $Student->update();
+
+        $this->view->studentProfile = $Student->profile();
+        $this->view->availableSex = $People->availableSex();
+        $this->view->pcd = $People->pcd();
+        $this->view->bloodType = $People->bloodType();
+
+        $this->render('/listElement/profileStudentModal', 'SimpleLayout');
     }
 
 

@@ -164,7 +164,7 @@ function showModal(formId, route, container, modal, type = 'normal') {
 
                 $('#zipCode').mask('00000-000')
 
-                $("#telephone").mask(('(00) 00000-0000'))
+                $("#telephoneNumber").mask(('(00) 00000-0000'))
 
             }
 

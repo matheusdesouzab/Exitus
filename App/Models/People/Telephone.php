@@ -8,7 +8,7 @@ class Telephone extends Model
 
 {
 
-    private $idTelephone;
+    private $telephoneId;
     private $telephoneNumber;
 
 
@@ -50,6 +50,12 @@ class Telephone extends Model
 
     public function update()
     {
-        //
+        
+        $query = "UPDATE telefone SET numero_telefone = :telephoneNumber WHERE id_telefone = :telephoneId";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':telephoneId', $this->__get('telephoneId'));
+        $stmt->bindValue(':telephoneNumber', $this->__get('telephoneNumber'));
+        $stmt->execute();
     }
 }

@@ -313,7 +313,7 @@ select:disabled {
   padding-left: 0;
   margin-bottom: 13px;
 }
-#pagina .modal-profile input:disabled {
+#pagina .modal-profile input:disabled, #pagina .modal-profile select:disabled {
   background-color: transparent;
   font-weight: bold;
   border: none;
