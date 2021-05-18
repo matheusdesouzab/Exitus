@@ -65,7 +65,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody containerListDiscipline>
-                                                <?php require '../App/Views/admin/management/listElement/listDiscipline.php' ?>
+                                                <?php require '../App/Views/admin/management/components/disciplinesList.php' ?>
                                             </tbody>
                                         </table>
                                     </div>

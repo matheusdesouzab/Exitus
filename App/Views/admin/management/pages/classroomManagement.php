@@ -31,7 +31,7 @@
                         <div class="collapse show" id="list-rooms" data-parent="#room-accordion">
                             <div class="row">
                                 <div class="col-lg-12" containerListClassRoom>
-                                    <?php require '../App/Views/admin/management/listElement/listClassRoom.php' ?>
+                                    <?php require '../App/Views/admin/management/components/classroomsList.php' ?>
                                 </div>
                             </div>
 

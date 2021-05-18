@@ -30,7 +30,7 @@
 
                             <div class="row">
                                 <div containerListCourse class="col-lg-12">
-                                    <?php require '../App/Views/admin/management/listElement/listCourse.php' ?>
+                                    <?php require '../App/Views/admin/management/components/coursesList.php' ?>
                                 </div>
                             </div>
                         </div>

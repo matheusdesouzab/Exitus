@@ -54,13 +54,13 @@ class Student extends People
     public function update()
     {
         
-        $query = "UPDATE aluno SET nome_aluno = :studentName , cpf_aluno = :cpf  , naturalidade_aluno = :naturalness , nacionalidade_aluno = :nationality , nome_mae = :motherName , nome_pai = :fatherName , fk_id_sexo_aluno = :fk_id_sex , fk_id_tipo_sanguineo_aluno = :fk_id_blood_type,fk_id_aluno_pcd = :fk_id_pcd WHERE id_aluno = :id";
+        $query = "UPDATE aluno SET nome_aluno = :studentName , cpf_aluno = :cpf  , naturalidade_aluno = :naturalness , nacionalidade_aluno = :nationality , nome_mae = :motherName , nome_pai = :fatherName , fk_id_sexo_aluno = :fk_id_sex , fk_id_tipo_sanguineo_aluno = :fk_id_blood_type, fk_id_aluno_pcd = :fk_id_pcd , data_nascimento_aluno = :birthDate WHERE id_aluno = :id";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':studentName', $this->__get('name'));
         $stmt->bindValue(':cpf', $this->__get('cpf'));
-        //$stmt->bindValue(':birthDate', $this->__get('birthDate'));
+        $stmt->bindValue(':birthDate', $this->__get('birthDate'));
         $stmt->bindValue(':naturalness', $this->__get('naturalness'));
         $stmt->bindValue(':nationality', $this->__get('nationality'));
         $stmt->bindValue(':motherName', $this->__get('motherName'));

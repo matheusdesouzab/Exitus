@@ -31,7 +31,7 @@
                         <div class="collapse show" id="list-terms" data-parent="#accordion-school-term">
                             <div class="row">
                                 <div containerListSchoolTerm class="col-lg-12">
-                                    <?php require '../App/Views/admin/management/listElement/listSchoolTerm.php' ?>
+                                    <?php require '../App/Views/admin/management/components/schoolTermsList.php' ?>
                                 </div>
                             </div>
                         </div>

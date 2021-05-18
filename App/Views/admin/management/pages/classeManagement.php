@@ -85,7 +85,7 @@
                                             </thead>
 
                                             <tbody containerListClass>
-                                                <?php require '../App/Views/admin/management/listElement/listClass.php' ?>
+                                                <?php require '../App/Views/admin/management/components/classesList.php' ?>
                                             </tbody>
 
                                         </table>

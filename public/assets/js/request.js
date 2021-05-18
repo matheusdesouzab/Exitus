@@ -80,7 +80,10 @@ function updateElement(form, route, dataToast) {
         type: 'POST',
         dataType: 'html',
         data: $formData,
-        success: data => showToast(dataToast, 'bg-primary'),
+        success: data => {
+            showToast(dataToast, 'bg-primary')
+            console.log(data)
+        },
         error: erro => showToast('Houve um erro na requisição', 'bg-info')
 
     })

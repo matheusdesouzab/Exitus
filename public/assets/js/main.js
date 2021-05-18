@@ -193,6 +193,8 @@ $(document).on('click', '.update-data-icon', function () {
     updateElement($(this).attr('idElement'), $(this).attr('routeUpdate'), $(this).attr('toastData'))
 
     listElement($(this).attr('container'), $(this).attr('routeList'))
+
+    $(`${$(this).attr('idElement')} .form-control`).prop('disabled', true)
 })
 
 

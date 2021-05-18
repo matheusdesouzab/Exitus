@@ -4,13 +4,21 @@
 
         <?php $photoDir =  "/assets/img/profilePhoto/" ?>
 
-        <tr id="aluno<?=$student->student_id?>">
+        <tr id="aluno<?= $student->student_id ?>">
             <td class="text-right">
                 <img src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
 
+            <?php
+
+            $cpf = $student->student_cpf;
+
+            $formattedCpf = substr($cpf, 0, 3).".".substr($cpf, 3, 3).".".substr($cpf, 6, 3)."-".substr($cpf, -2);
+
+            ?>
+
             <td class="text-left"><?= $student->student_name ?></td>
-            <td><?= $student->student_cpf ?></td>
+            <td><?= $formattedCpf ?></td>
             <td><?= $student->acronym_series . ' ' . $student->class_ballot  . ' - ' . $student->course . ' - ' . $student->shift ?></td>
 
             <td>

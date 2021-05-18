@@ -123,6 +123,13 @@
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="addon-wrapping">Data de Nascimento:</span>
+                                                        </div>
+                                                        <input type="date" id="birthDate" name="birthDate" disabled class="form-control" value="<?= $student->student_birth_date ?>" max="2006-01-31" min="1940-01-31" aria-label="Username" aria-describedby="addon-wrapping">
+                                                    </div>
+
+                                                    <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
 
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">PcD:</span>

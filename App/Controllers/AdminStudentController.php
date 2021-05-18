@@ -28,7 +28,7 @@ class AdminStudentController extends Action
         $this->view->bloodType = $People->bloodType();
         $this->view->availableClass = $Classe->availableListClass();
 
-        $this->render('student_registration', 'AdminLayout');
+        $this->render('studentRegistration', 'AdminLayout');
     }
 
 
@@ -47,7 +47,7 @@ class AdminStudentController extends Action
         $this->view->availableShift = $Classe->availableShift();
         $this->view->availableSeries = $Classe->availableSeries();
 
-        $this->render('student_list', 'AdminLayout');
+        $this->render('studentList', 'AdminLayout');
     }
 
 
@@ -58,7 +58,7 @@ class AdminStudentController extends Action
 
         $this->view->listStudent = $Student->list();
 
-        $this->render('/listElement/listStudent', 'SimpleLayout');
+        $this->render('/components/studentListing', 'SimpleLayout');
     }
 
 
@@ -67,7 +67,7 @@ class AdminStudentController extends Action
 
         $Classe = Container::getModel('Management\\Classe');
         $this->view->listClass = $Classe->availableListClass();
-        $this->render('/listElement/listClass', 'SimpleLayout');
+        $this->render('/components/classesList', 'SimpleLayout');
     }
 
 
@@ -81,7 +81,7 @@ class AdminStudentController extends Action
 
         $this->view->listStudent = $Student->seek($_GET['course'], $_GET['shift'], $_GET['series']);
 
-        $this->render('/listElement/listStudent', 'SimpleLayout');
+        $this->render('/components/studentListing', 'SimpleLayout');
     }
 
 
@@ -98,7 +98,7 @@ class AdminStudentController extends Action
         $this->view->pcd = $People->pcd();
         $this->view->bloodType = $People->bloodType();
 
-        $this->render('/listElement/profileStudentModal', 'SimpleLayout');
+        $this->render('/components/modalStudentProfile', 'SimpleLayout');
     }
 
 
@@ -121,7 +121,7 @@ class AdminStudentController extends Action
         $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber'])); 
 
         $Student->__set('name', $_POST['name']);
-        //$Student->__set('birthDate', $_POST['birthDate']);
+        $Student->__set('birthDate', $_POST['birthDate']);
         $Student->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
         $Student->__set('naturalness', $_POST['naturalness']);
         $Student->__set('nationality', $_POST['nationality']);
@@ -132,6 +132,7 @@ class AdminStudentController extends Action
         $Student->__set('fk_id_pcd', $_POST['pcd']);   
         $Student->__set('id', $_POST['studentId']);
 
+
         $Telephone->update();
         $Address->update();
         $Student->update();
@@ -141,7 +142,7 @@ class AdminStudentController extends Action
         $this->view->pcd = $People->pcd();
         $this->view->bloodType = $People->bloodType();
 
-        $this->render('/listElement/profileStudentModal', 'SimpleLayout');
+        $this->render('/components/modalStudentProfile', 'SimpleLayout'); 
     }
 
 
