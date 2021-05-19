@@ -218,21 +218,7 @@ $(document).on('click', '.delete-data-icon', function () {
 //? Add student
 
 
-$("#buttonAddStudent").click(function () {
-
-    let formData = new FormData(this)
-
-    $.ajax({
-        url: '/admin/aluno/cadastro/inserir',
-        type: 'POST',
-        data: formData,
-        success: data => console.log(data),
-        cache: false,
-        contentType: false,
-        processData: false,
-    });
-
-})
+$("#buttonAddStudent").click(() => addElement(this, '/admin/aluno/cadstro/inserir', ' ' , 'formData') )
 
 
 $('#seekStudent input[name="name"]').keyup(function (e) {

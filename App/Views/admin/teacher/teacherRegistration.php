@@ -5,7 +5,7 @@
         <div class="col-lg-11 mx-auto">
 
             <div class="col-lg-12 mb-4">
-                <h5>Cadastra professor(a)</h5>
+                <h5>Cadastrar professor(a)</h5>
             </div>
 
             <div class="col-lg-12">
@@ -21,7 +21,7 @@
                             </div>
                             <div class="registration-in-stages">
                                 <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#teacher-registration-address-and-contact"><i class="fas fa-home"></i></a>
-                                <p>Endereço e contato</p>
+                                <p>Endereço e outros</p>
                             </div>
 
                         </div>
@@ -29,7 +29,7 @@
 
                     <hr>
 
-                    <form class="was-validated" role="form">
+                    <form class="" role="form" enctype="multipart/form-data" method="POST" action="/admin/professor/cadastro/inserir">
                         <div class="row collapse show" id="teacher-registration-initial-data" data-parent="#teacher-registration-accordion">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
@@ -37,20 +37,20 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="inputEmail4">Nome Completo:</label>
-                                            <input type="text" class="form-control is-valid" id="inputEmail4" placeholder="" maxlength="120" required>
+                                            <input id="name" name="name" type="text" class="form-control" placeholder="" maxlength="120" required>
                                         </div>
 
-                                        <div class="form-group col-md-4">
-                                            <label for="inputPassword4">CPF:</label>
-                                            <input type="text" id="cpf" class="form-control is-valid" placeholder="Somente números" maxlength="14" required>
+                                        <div id="cpfField" class="form-group col-md-4">
+                                            <label for="cpf">CPF:</label>
+                                            <input type="text" id="cpf" value="" minlength="14" name="cpf" class="form-control" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-3">
-                                            <label for="inputState">Sexo:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option selected></option>
-                                                <option>Masculino</option>
-                                                <option>Feminino</option>
+                                            <label for="sex">Sexo:</label>
+                                            <select id="sex" name="sex" class="form-control is-valid custom-select">
+                                                <?php foreach ($this->view->availableSex as $key => $sex) { ?>
+                                                    <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
 
@@ -60,50 +60,42 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="inputAddress">Data Nascimento:</label>
-                                            <input type="date" class="form-control is-valid" id="inputAddress" placeholder="" required>
+                                            <input name="birthDate" id="birthDate" type="date" class="form-control" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="inputAddress2">Naturalidade:</label>
-                                            <input type="text" class="form-control is-valid" id="inputAddress2" placeholder="" required>
+                                            <input name="naturalness" id="naturalness" type="text" class="form-control" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="inputAddress2">Nacionalidade:</label>
-                                            <input type="text" class="form-control is-valid" id="inputAddress2" placeholder="" required>
+                                            <input name="nationality" id="nationality" type="text" class="form-control"  placeholder="" required>
                                         </div>
 
                                     </div>
 
                                     <div class="form-row mb-5">
 
-                                        <div class="form-group col-md-9">
-                                            <label for="">Foto do perfil:</label>
+                                    <div id="photoField" class="form-group col-md-9">
+                                            <label for="">&nbsp;</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input is-valid" id="customFileLangHTML" required>
-                                                <label class="custom-file-label" for="customFileLangHTML" data-browse="Arquivo">Selecionar foto do professor(a)</label>
+                                                <input type="file" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
+                                                <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
+
                                             </div>
                                         </div>
                                         
                                         <div class="form-group col-md-3">
-                                            <label for="inputCity">Tipo sanguíneo:</label>
-                                            <select id="inputState" class="form-control custom-select is-valid" required>
-                                                <option value=""></option>
-                                                <option>A+</option>
-                                                <option>A-</option>
-                                                <option>B+</option>
-                                                <option>B-</option>
-                                                <option>AB+</option>
-                                                <option>AB-</option>
-                                                <option>O+</option>
-                                                <option>O-</option>
+                                            <label for="bloodType">Tipo sanguíneo:</label>
+                                            <select id="bloodType" name="bloodType" class="form-control custom-select is-valid">
+                                                <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
+                                                    <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
 
                                     </div>
-
-
-
 
                                 </div>
                             </div>
@@ -115,49 +107,55 @@
 
                                     <div class="form-row mt-3">
 
+                                    <div id="zipCodeField" class="form-group col-md-3">
+                                            <label for="zipCode">CEP:</label>
+                                            <input type="text" id="zipCode" value="" class="form-control" name="zipCode" minlength="9" required>
+                                        </div>
+
                                         <div class="form-group col-md-4">
-                                            <label for="inputCity">CEP:</label>
-                                            <input type="text" id="cep" class="form-control is-valid" id="inputCity" maxlength="9" required>
+                                            <label for="county">Munícipio:</label>
+                                            <input type="text" id="county" class="form-control" name="county" required>
                                         </div>
 
                                         <div class="form-group col-md-3">
-                                            <label for="inputCity">Munícipio:</label>
-                                            <input type="text" id="municipio" class="form-control is-valid" id="inputCity" required>
-                                        </div>
-
-                                        <div class="form-group col-md-3">
-                                            <label for="inputCity">Bairro:</label>
-                                            <input type="text" id="bairro" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                            <label for="district">Bairro:</label>
+                                            <input type="text" id="district" class="form-control" name="district" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-2">
                                             <label for="inputCity">UF:</label>
-                                            <input type="text" id="uf" class="form-control is-valid" id="inputCity" required placeholder="Sigla" maxlength="2">
+                                            <input type="text" id="uf" name="uf" class="form-control" required placeholder="Sigla" maxlength="2">
                                         </div>
 
                                     </div>
 
                                     <div class="form-row">
 
-                                        <div class="form-group col-md-4">
+                                        <div class="form-group col-md-5">
                                             <label for="inputCity">Endereço:</label>
-                                            <input type="text" id="endereco" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                            <input type="text" id="address" name="address" class="form-control" id="inputCity" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <label for="inputCity">Telefone 1:</label>
-                                            <input type="text" id="telefone1" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                            <label for="inputCity">Telefone:</label>
+                                            <input type="text" id="telephone" name="telephoneNumber" class="form-control" id="inputCity" placeholder="" required>
                                         </div>
 
-                                        <div class="form-group col-md-4">
-                                            <label for="inputCity">Telefone 2:</label>
-                                            <input type="text" id="telefone2" class="form-control is-valid" id="inputCity" placeholder="" required>
+                                        <div class="form-group col-md-3">
+                                            <label for="pcd">PcD:</label>
+                                            <select id="pcd" name="pcd" class="form-control custom-select is-valid">
+                                                <?php foreach ($this->view->pcd as $key => $pcd) { ?>
+                                                    <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
+
+                                        
 
                                     </div>
                                     <div class="form-row mt-3">
                                         <div class="form-group col-md-3 mt-3 mb-5 mx-auto">
-                                            <a id="matricularAluno" class="btn btn-success w-100" href="#">Finalizar cadastro</a>
+                                        <button id="buttonAddEmployee" disabled class="btn btn-success w-100">Cadastra professor (a)</button>
                                         </div>
                                     </div>
 

@@ -63,17 +63,17 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="birthDate">Data Nascimento:</label>
-                                            <input name="birthDate" value="" type="date" max="2006-01-31" min="1940-01-31" class="form-control" id="birthDate" placeholder="" required>
+                                            <input name="birthDate" id="birthDate" type="date" max="2006-01-31" min="1940-01-31" class="form-control" id="birthDate" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="naturalness">Naturalidade:</label>
-                                            <input name="naturalness" value="" type="text" class="form-control" id="naturalness" placeholder="" required>
+                                            <input name="naturalness" name="naturalness" type="text" class="form-control" id="naturalness" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
                                             <label for="nationality">Nacionalidade:</label>
-                                            <input type="text" name="nationality" value="" class="form-control" id="nationality" placeholder="" required>
+                                            <input type="text" name="nationality" id="nationality" value="" class="form-control" id="nationality" placeholder="" required>
                                         </div>
 
                                     </div>
@@ -127,7 +127,6 @@
                                             <label for="district">Bairro:</label>
                                             <input type="text" id="district" value="" class="form-control" name="district" placeholder="" required>
                                         </div>
-
 
 
                                     </div>

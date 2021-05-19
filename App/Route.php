@@ -69,8 +69,8 @@ class Route extends Bootstrap
 		// Employee ( Funcionário )
 
 
-		$routes['admCadastroProfessor'] = array(
-			'route' => '/admProfessorCadastro',
+		$routes['adminEmployeeRegistration'] = array(
+			'route' => '/admin/professor/cadastro',
 			'controller' => 'AdminTeacherController',
 			'action' => 'teacherRegistration'
 		);

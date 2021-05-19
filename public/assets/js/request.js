@@ -1,25 +1,43 @@
-function addElement(form, route, toastDescription, clean = true) {
+function addElement(form, route, toastDescription, formType = 'normal', clean = true) {
 
     let $formData = $(form).serialize()
 
     if ($(`${form} .form-control`).val() != '') {
 
-        $.ajax({
-            url: route,
-            dataType: 'html',
-            type: 'POST',
-            data: $formData,
-            success: data => {
+        if (formType == normal) {
 
-                clean ? $(`${form} input`).val('') : ''
+            $.ajax({
+                url: route,
+                dataType: 'html',
+                type: 'POST',
+                data: $formData,
+                success: data => {
 
-                showToast(toastDescription, 'bg-success')
+                    clean ? $(`${form} input`).val('') : ''
 
-            },
+                    showToast(toastDescription, 'bg-success')
 
-            error: error => console.log(error)
+                },
 
-        })
+                error: error => console.log(error)
+
+            })
+
+        } else {
+
+            let formData = new FormData(this)
+
+            $.ajax({
+                url: $(this).att('route'),
+                type: 'POST',
+                data: formData,
+                success: data => console.log(data),
+                cache: false,
+                contentType: false,
+                processData: false,
+            });
+
+        }
 
     } else {
 
@@ -44,7 +62,6 @@ function deleteElement(form, route, dataToast) {
 
 
 function availableElement(elements) {
-
 
     $.each(elements, i => {
 
@@ -82,7 +99,6 @@ function updateElement(form, route, dataToast) {
         data: $formData,
         success: data => {
             showToast(dataToast, 'bg-primary')
-            console.log(data)
         },
         error: erro => showToast('Houve um erro na requisição', 'bg-info')
 
