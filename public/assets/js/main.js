@@ -292,4 +292,5 @@ $('#profilePhoto').change(function () {
 })
 
 
-$('[data-target="#student-registration-class"]').on('click', () => validation.checkAllFields('#addStudent', 18))
+$('[data-target="#student-registration-class"]').on('click', () => validation.checkAllFields('#addStudent', 18, '#buttonAddStudent'))
+$('#teacherAddressOthers .form-control').on('blur', () => validation.checkAllFields('#addTeacher', 15, '#buttonAddTeacher'))

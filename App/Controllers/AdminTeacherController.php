@@ -21,16 +21,16 @@ class AdminTeacherController extends Action
         $this->view->pcd = $People->pcd();
         $this->view->bloodType = $People->bloodType();
 
-        $this->render('teacherRegistration' , 'AdminLayout');
+        $this->render('teacherRegistration', 'AdminLayout');
     }
 
 
-    public function teacherInsert(){
+    public function teacherInsert()
+    {
 
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $People = Container::getModel('People\\People');
 
         $Tool = new Tools();
 
@@ -38,26 +38,30 @@ class AdminTeacherController extends Action
         $Address->__set('address', $_POST['address']);
         $Address->__set('uf', $_POST['uf']);
         $Address->__set('county', $_POST['county']);
-        $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
+        $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
 
-        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
+        $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
 
+        $Teacher->__set('name', $_POST['name']);
+        $Teacher->__set('birthDate', $_POST['birthDate']);
+        $Teacher->__set('cpf', $Tool->formatElement($_POST['cpf']));
+        $Tool->image($Teacher, '../public/assets/img/teacherProfilePhotos/');
+        $Teacher->__set('naturalness', $_POST['naturalness']);
+        $Teacher->__set('nationality', $_POST['nationality']);
+        $Teacher->__set('fk_id_sex', $_POST['sex']);
+        $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
+        $Teacher->__set('fk_id_pcd', $_POST['pcd']);
+        $Teacher->__set('fk_id_telephone', $Telephone->insert());
+        $Teacher->__set('fk_id_address', $Address->insert());
 
+        $Teacher->insert();
 
+        header('Location: /admin/professor/cadastro');
     }
 
     public function teacherList()
     {
 
-        $this->render('teacherList' , 'AdminLayout');
+        $this->render('teacherList', 'AdminLayout');
     }
 }
-
-
-
-
-
-
-
-
-?>

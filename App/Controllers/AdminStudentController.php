@@ -164,16 +164,16 @@ class AdminStudentController extends Action
         $Address->__set('address', $_POST['address']);
         $Address->__set('uf', $_POST['uf']);
         $Address->__set('county', $_POST['county']);
-        $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
+        $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
 
 
-        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
+        $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
 
 
         $Student->__set('name', $_POST['name']);
         $Student->__set('birthDate', $_POST['birthDate']);
-        $Student->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
-        $Tool->image($Student, '../public/assets/img/profilePhoto/');
+        $Student->__set('cpf', $Tool->formatElement($_POST['cpf']));
+        $Tool->image($Student, '../public/assets/img/studentProfilePhotos/');
         $Student->__set('naturalness', $_POST['naturalness']);
         $Student->__set('nationality', $_POST['nationality']);
         $Student->__set('motherName', $_POST['motherName']);

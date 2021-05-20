@@ -20,6 +20,13 @@ class Tools
 	}
 
 
+	public function formatElement($value)
+	{
+
+		return preg_replace('/[^0-9]/', '', $value);
+	}
+
+
 	public function image($model, $dir)
 	{
 

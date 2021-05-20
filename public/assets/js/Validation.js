@@ -129,7 +129,7 @@ class Validation {
     }
 
 
-    checkAllFields(form , totalFields) {
+    checkAllFields(form , totalFields, button) {
 
         let inputs = $(`${form} .form-control`)
         let photo = $('#profilePhoto')
@@ -140,7 +140,7 @@ class Validation {
 
             !photo.hasClass('is-valid') && $('.photo-info').length == 0 ? size += 1 : ''
 
-        totalFields == size ? $('#buttonAddStudent').prop("disabled", false) : $('#buttonAddStudent').prop("disabled", true)
+        totalFields == size ? $(button).prop("disabled", false) : $(button).prop("disabled", true)
 
     }
 

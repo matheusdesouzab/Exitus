@@ -20,7 +20,7 @@
                                 <p>Dados iniciais</p>
                             </div>
                             <div class="registration-in-stages">
-                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#teacher-registration-address-and-contact"><i class="fas fa-home"></i></a>
+                                <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#teacherAddressOthers"><i class="fas fa-home"></i></a>
                                 <p>Endereço e outros</p>
                             </div>
 
@@ -29,7 +29,7 @@
 
                     <hr>
 
-                    <form class="" role="form" enctype="multipart/form-data" method="POST" action="/admin/professor/cadastro/inserir">
+                    <form class="" id="addTeacher" role="form" enctype="multipart/form-data" method="POST" action="/admin/professor/cadastro/inserir">
                         <div class="row collapse show" id="teacher-registration-initial-data" data-parent="#teacher-registration-accordion">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
@@ -70,22 +70,13 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="inputAddress2">Nacionalidade:</label>
-                                            <input name="nationality" id="nationality" type="text" class="form-control"  placeholder="" required>
+                                            <input name="nationality" id="nationality" type="text" class="form-control" placeholder="" required>
                                         </div>
 
                                     </div>
 
                                     <div class="form-row mb-5">
 
-                                    <div id="photoField" class="form-group col-md-9">
-                                            <label for="">&nbsp;</label>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
-                                                <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
-
-                                            </div>
-                                        </div>
-                                        
                                         <div class="form-group col-md-3">
                                             <label for="bloodType">Tipo sanguíneo:</label>
                                             <select id="bloodType" name="bloodType" class="form-control custom-select is-valid">
@@ -95,19 +86,35 @@
                                             </select>
                                         </div>
 
+                                        <div id="photoField" class="form-group col-md-8">
+                                            <label for="">&nbsp;</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
+                                                <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-1">
+                                            <label for="">&nbsp;</label><br>
+                                            <a type="button" class="btn btn-success w-100 p-2" data-toggle="modal" data-target="#profilePhotoModal">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </div>
+
                                     </div>
 
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row collapse" id="teacher-registration-address-and-contact" data-parent="#teacher-registration-accordion">
+                        <div class="row collapse" id="teacherAddressOthers" data-parent="#teacher-registration-accordion">
                             <div class="col-lg-10 mx-auto">
                                 <div class="col-md-12">
 
                                     <div class="form-row mt-3">
 
-                                    <div id="zipCodeField" class="form-group col-md-3">
+                                        <div id="zipCodeField" class="form-group col-md-3">
                                             <label for="zipCode">CEP:</label>
                                             <input type="text" id="zipCode" value="" class="form-control" name="zipCode" minlength="9" required>
                                         </div>
@@ -150,17 +157,36 @@
                                             </select>
                                         </div>
 
-                                        
+
 
                                     </div>
                                     <div class="form-row mt-3">
                                         <div class="form-group col-md-3 mt-3 mb-5 mx-auto">
-                                        <button id="buttonAddEmployee" disabled class="btn btn-success w-100">Cadastra professor (a)</button>
+                                            <button id="buttonAddTeacher" disabled class="btn btn-success w-100">Cadastra professor (a)</button>
                                         </div>
                                     </div>
 
 
 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="profilePhotoModal">Foto selecionada</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-img col-lg-12 d-flex justify-content-center"><img alt="Selecione uma foto" class="mx-auto rounded-circle" src="" id="visualizarimagem" style="width:300px; height: 300px; object-position:top; object-fit: cover;"></div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar ao cadastro</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

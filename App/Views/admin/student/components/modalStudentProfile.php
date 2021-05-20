@@ -28,7 +28,7 @@
 
                                     <div class="row">
 
-                                        <?php $photoDir =  "/assets/img/profilePhoto/" ?>
+                                        <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
                                         <div class="col-lg-12 mt-4"> <img class="mx-auto" src='<?= $this->view->studentProfile[0]->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->studentProfile[0]->student_profile_photo ?>' alt="" style="width: 100px; height: 100px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 

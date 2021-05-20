@@ -66,13 +66,19 @@ class Route extends Bootstrap
 		);
 
 
-		// Employee ( Funcionário )
+		// Teacher
 
 
-		$routes['adminEmployeeRegistration'] = array(
+		$routes['adminTeacherRegistration'] = array(
 			'route' => '/admin/professor/cadastro',
 			'controller' => 'AdminTeacherController',
 			'action' => 'teacherRegistration'
+		);
+
+		$routes['adminTeacherInsert'] = array(
+			'route' => '/admin/professor/cadastro/inserir',
+			'controller' => 'AdminTeacherController',
+			'action' => 'teacherInsert'
 		);
 
 		$routes['admlistaProfessor'] = array(

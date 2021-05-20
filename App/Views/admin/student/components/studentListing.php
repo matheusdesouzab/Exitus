@@ -2,7 +2,7 @@
 
     <?php foreach ($this->view->listStudent as $key => $student) { ?>
 
-        <?php $photoDir =  "/assets/img/profilePhoto/" ?>
+        <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
         <tr id="aluno<?= $student->student_id ?>">
             <td class="text-right">
