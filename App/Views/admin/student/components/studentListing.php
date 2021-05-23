@@ -13,7 +13,7 @@
 
             $cpf = $student->student_cpf;
 
-            $formattedCpf = substr($cpf, 0, 3).".".substr($cpf, 3, 3).".".substr($cpf, 6, 3)."-".substr($cpf, -2);
+            $formattedCpf = substr($cpf, 0, 3) . "." . substr($cpf, 3, 3) . "." . substr($cpf, 6, 3) . "-" . substr($cpf, -2);
 
             ?>
 
@@ -41,7 +41,7 @@
 <?php } else { ?>
 
     <tr class="mt-4 thead-light">
-        <td class="ml-3" colspan="5">Nenhum aluno encrontado </td>
+        <td class="ml-3" colspan="5">Nenhum aluno encontrado </td>
     </tr>
 
 <?php } ?>

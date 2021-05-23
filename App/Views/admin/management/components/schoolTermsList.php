@@ -63,7 +63,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
     } else { ?>
 
 
-            <h5 class="mt-3">Nenhuma sala encontrada</h5>
+            <h5 class="mt-3">Nenhuma periodo letivo encontrado</h5>
 
 
         <?php } ?>

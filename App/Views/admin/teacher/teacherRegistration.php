@@ -37,7 +37,7 @@
 
                                         <div class="form-group col-md-5">
                                             <label for="inputEmail4">Nome Completo:</label>
-                                            <input id="name" name="name" type="text" class="form-control" placeholder="" maxlength="120" required>
+                                            <input id="name" name="name" type="text" class="form-control" maxlength="120" placeholder="" maxlength="120" required>
                                         </div>
 
                                         <div id="cpfField" class="form-group col-md-4">
@@ -60,7 +60,7 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="inputAddress">Data Nascimento:</label>
-                                            <input name="birthDate" id="birthDate" type="date" class="form-control" placeholder="" required>
+                                            <input name="birthDate" max="2006-01-31" id="birthDate" type="date" class="form-control" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-4">
@@ -90,7 +90,7 @@
                                             <label for="">&nbsp;</label>
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
-                                                <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
+                                                <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do professor</label>
 
                                             </div>
                                         </div>
@@ -145,7 +145,7 @@
 
                                         <div class="form-group col-md-4">
                                             <label for="inputCity">Telefone:</label>
-                                            <input type="text" id="telephone" name="telephoneNumber" class="form-control" id="inputCity" placeholder="" required>
+                                            <input type="text" id="telephone" name="telephoneNumber" class="form-control" placeholder="" required>
                                         </div>
 
                                         <div class="form-group col-md-3">

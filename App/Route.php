@@ -81,10 +81,28 @@ class Route extends Bootstrap
 			'action' => 'teacherInsert'
 		);
 
-		$routes['admlistaProfessor'] = array(
-			'route' => '/admProfessorLista',
+		$routes['adminTeacherList'] = array(
+			'route' => '/admin/professor/lista',
 			'controller' => 'AdminTeacherController',
 			'action' => 'teacherList'
+		);
+
+		$routes['adminTeacherListing'] = array(
+			'route' => '/admin/professor/lista/listagem',
+			'controller' => 'AdminTeacherController',
+			'action' => 'teacherListing'
+		);
+
+		$routes['adminTeacherProfile'] = array(
+			'route' => '/admin/professor/lista/perfil-professor',
+			'controller' => 'AdminTeacherController',
+			'action' => 'teacherProfile'
+		);
+
+		$routes['adminTeacherUpdate'] = array(
+			'route' => '/admin/professor/lista/perfil-professor/atualizar',
+			'controller' => 'AdminTeacherController',
+			'action' => 'updateTeacherProfile'
 		);
 
 

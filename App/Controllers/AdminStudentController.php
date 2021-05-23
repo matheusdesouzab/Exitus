@@ -20,12 +20,12 @@ class AdminStudentController extends Action
     public function studentRegistration()
     {
 
-        $People = Container::getModel('People\\People');
+        $Student = Container::getModel('Student\\Student');
         $Classe = Container::getModel('Management\\Classe');
 
-        $this->view->availableSex = $People->availableSex();
-        $this->view->pcd = $People->pcd();
-        $this->view->bloodType = $People->bloodType();
+        $this->view->availableSex = $Student->availableSex();
+        $this->view->pcd = $Student->pcd();
+        $this->view->bloodType = $Student->bloodType();
         $this->view->availableClass = $Classe->availableListClass();
 
         $this->render('studentRegistration', 'AdminLayout');
@@ -38,12 +38,12 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
         $Course = Container::getModel('Management\\Course');
         $Classe = Container::getModel('Management\\Classe');
-        $People = Container::getModel('People\\People');
+        $Student = Container::getModel('Student\\Student');
 
         $this->view->listStudent = $Student->list();
         $this->view->availableCourse = $Course->availableCourse();
         $this->view->availableClass = $Classe->availableListClass();
-        $this->view->availableSex = $People->availableSex();
+        $this->view->availableSex = $Student->availableSex();
         $this->view->availableShift = $Classe->availableShift();
         $this->view->availableSeries = $Classe->availableSeries();
 
@@ -89,14 +89,13 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $People = Container::getModel('People\\People');
 
         $Student->__set('id', $_GET['id']);
 
         $this->view->studentProfile = $Student->profile();
-        $this->view->availableSex = $People->availableSex();
-        $this->view->pcd = $People->pcd();
-        $this->view->bloodType = $People->bloodType();
+        $this->view->availableSex = $Student->availableSex();
+        $this->view->pcd = $Student->pcd();
+        $this->view->bloodType = $Student->bloodType();
 
         $this->render('/components/modalStudentProfile', 'SimpleLayout');
     }
@@ -108,7 +107,6 @@ class AdminStudentController extends Action
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Student = Container::getModel('Student\\Student');
-        $People = Container::getModel('People\\People');
 
         $Address->__set('addressId', $_POST['addressId']);
         $Address->__set('district', $_POST['district']);
@@ -138,9 +136,9 @@ class AdminStudentController extends Action
         $Student->update();
 
         $this->view->studentProfile = $Student->profile();
-        $this->view->availableSex = $People->availableSex();
-        $this->view->pcd = $People->pcd();
-        $this->view->bloodType = $People->bloodType();
+        $this->view->availableSex = $Student->availableSex();
+        $this->view->pcd = $Student->pcd();
+        $this->view->bloodType = $Student->bloodType();
 
         $this->render('/components/modalStudentProfile', 'SimpleLayout'); 
     }

@@ -112,7 +112,7 @@
                                                     </button></div>
                                             </div>
 
-                                            <div containerModal class="row"></div>
+                                            <div containerStudentProfileModal class="row modal-body"></div>
                                         </div>
                                     </div>
                                 </div>

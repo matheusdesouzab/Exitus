@@ -120,11 +120,13 @@ $(document).on('click', '#discipline tr', function () {
 })
 
 
-$(document).on('click', '#student-table tr', function () {
-    showModal(this.id, '/admin/aluno/lista/perfil-aluno', 'containerModal', '#profileStudentModal', 'profile')
+$(document).on('click', '#student-table tbody tr', function () {
+    showModal(this.id, '/admin/aluno/lista/perfil-aluno', 'containerStudentProfileModal', '#profileStudentModal', 'profile')
 })
 
-
+$(document).on('click', '#teacher-table tbody tr', function () {
+    showModal(this.id, '/admin/professor/lista/perfil-professor', 'containerTeacherProfileModal', '#profileTeacherModal', 'profile')
+})
 
 //? Upper Case
 

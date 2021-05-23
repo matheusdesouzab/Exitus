@@ -51,17 +51,101 @@ class AdminTeacherController extends Action
         $Teacher->__set('fk_id_sex', $_POST['sex']);
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
+
+
         $Teacher->__set('fk_id_telephone', $Telephone->insert());
         $Teacher->__set('fk_id_address', $Address->insert());
 
         $Teacher->insert();
 
         header('Location: /admin/professor/cadastro');
+        
     }
+
 
     public function teacherList()
     {
 
+        $Teacher = Container::getModel('Teacher\\Teacher');
+        $Classe = Container::getModel('Management\\Classe');
+
+        $this->view->listTeacher = $Teacher->list();
+        $this->view->availableSex = $Teacher->availableSex();
+        $this->view->pcd = $Teacher->pcd();
+        $this->view->bloodType = $Teacher->bloodType();
+        $this->view->availableClass = $Classe->availableListClass();
+
         $this->render('teacherList', 'AdminLayout');
     }
+
+
+    public function teacherListing()
+    {
+
+        $Teacher = Container::getModel('Teacher\\Teacher');
+
+        $this->view->listTeacher = $Teacher->list();
+
+        $this->render('/components/teacherListing', 'SimpleLayout');
+    }
+
+
+    public function teacherProfile()
+    {
+
+        $Teacher = Container::getModel('Teacher\\Teacher');
+
+        $Teacher->__set('id', $_GET['id']);
+
+        $this->view->teacherProfile = $Teacher->profile();
+        $this->view->availableSex = $Teacher->availableSex();
+        $this->view->pcd = $Teacher->pcd();
+        $this->view->bloodType = $Teacher->bloodType();
+
+        $this->render('/components/modalTeacherProfile', 'SimpleLayout');
+    }
+
+
+    public function updateTeacherProfile()
+    {
+
+        $Address =  Container::getModel('People\\Address');
+        $Telephone = Container::getModel('People\Telephone');
+        $Teacher = Container::getModel('Teacher\\Teacher');
+
+        $Address->__set('addressId', $_POST['addressId']);
+        $Address->__set('district', $_POST['district']);
+        $Address->__set('address', $_POST['address']);
+        $Address->__set('uf', $_POST['uf']);
+        $Address->__set('county', $_POST['county']);
+        $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
+
+        $Telephone->__set('telephoneId', $_POST['telephoneId']);
+        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber'])); 
+
+        $Teacher->__set('name', $_POST['name']);
+        $Teacher->__set('birthDate', $_POST['birthDate']);
+        $Teacher->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
+        $Teacher->__set('naturalness', $_POST['naturalness']);
+        $Teacher->__set('nationality', $_POST['nationality']);
+        $Teacher->__set('fk_id_sex', $_POST['sex']);
+        $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
+        $Teacher->__set('fk_id_pcd', $_POST['pcd']);   
+        $Teacher->__set('id', $_POST['teacherId']);
+
+
+        $Telephone->update();
+        $Address->update();
+        $Teacher->update();
+
+        $this->view->TeacherProfile = $Teacher->profile();
+        $this->view->availableSex = $Teacher->availableSex();
+        $this->view->pcd = $Teacher->pcd();
+        $this->view->bloodType = $Teacher->bloodType();
+
+        $this->render('/components/modalTeacherProfile', 'SimpleLayout'); 
+    }
+
+
+
 }

@@ -4,7 +4,7 @@ function addElement(form, route, toastDescription, formType = 'normal', clean = 
 
     if ($(`${form} .form-control`).val() != '') {
 
-        if (formType == normal) {
+        if (formType == 'normal') {
 
             $.ajax({
                 url: route,

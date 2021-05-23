@@ -50,7 +50,7 @@
 
                                         <div class="form-group col-md-3">
                                             <label for="sex">Sexo:</label>
-                                            <select id="sex" value='2' name="sex" class="form-control custom-select is-valid">
+                                            <select id="sex" name="sex" class="form-control custom-select is-valid">
                                                 <?php foreach ($this->view->availableSex as $key => $sex) { ?>
                                                     <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
                                                 <?php } ?>
