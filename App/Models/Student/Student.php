@@ -75,11 +75,11 @@ class Student extends People
     }
 
 
-    public function list()
+    public function list($operation = '')
     {
 
         return $this->speedingUp(
-            "SELECT aluno.id_aluno as student_id , aluno.nome_aluno AS student_name , aluno.foto_perfil_aluno as profilePhoto , aluno.cpf_aluno AS student_cpf , serie.sigla AS acronym_series , cedula_turma.cedula AS class_ballot , curso.sigla AS course , turno.nome_turno AS shift FROM aluno LEFT JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) left join turma ON(matricula.fk_id_turma_matricula = turma.id_turma) left join serie ON(turma.fk_id_serie = serie.id_serie) left join cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) left join curso ON(turma.fk_id_curso = curso.id_curso) left join turno ON(turma.fk_id_turno = turno.id_turno);"
+            "SELECT aluno.id_aluno as student_id , aluno.nome_aluno AS student_name , aluno.foto_perfil_aluno as profilePhoto , aluno.cpf_aluno AS student_cpf , serie.sigla AS acronym_series , cedula_turma.cedula AS class_ballot , curso.sigla AS course , turno.nome_turno AS shift FROM aluno LEFT JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) left join turma ON(matricula.fk_id_turma_matricula = turma.id_turma) left join serie ON(turma.fk_id_serie = serie.id_serie) left join cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) left join curso ON(turma.fk_id_curso = curso.id_curso) left join turno ON(turma.fk_id_turno = turno.id_turno) $operation;"
         );
     }
 

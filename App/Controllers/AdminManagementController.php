@@ -3,6 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\Management\SchoolTerm;
+use App\Models\Student\Student;
+use App\Models\Teacher\Teacher;
+use App\Models\Management\Discipline;
+use App\Models\Management\ClassDiscipline;
 use MF\Controller\Action;
 use MF\Model\Container;
 
@@ -401,5 +405,40 @@ class AdminManagementController extends Action
         $this->view->listClass = $Classe->seekClass();
 
         $this->render('/components/classesList', 'SimpleLayout');
+    }
+
+
+    public function classProfile()
+    {
+
+        $Student = Container::getModel('Student\\Student');
+        $Teacher = Container::getModel('Teacher\\Teacher');
+        $Discipline = Container::getModel('Management\\Discipline');
+        $Classe = Container::getModel('Management\\Classe');
+
+        $Classe->__set('idClass', $_GET['id']);
+
+        $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('idClass'));
+        $this->view->teacherAvailable = $Teacher->teacherAvailable();
+        $this->view->disciplineAvailable = $Discipline->disciplineAvailable();
+        $this->view->typeStudentList = "class";
+        $this->view->classId = $Classe->__get('idClass');
+
+        $this->render('/components/modalClasseProfile', 'SimpleLayout');
+
+    }
+
+
+    public function classDisciplineInsert()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+
+        $ClassDiscipline->__set("fk_id_teacher", $_POST['teacher']);
+        $ClassDiscipline->__set("fk_id_class", $_POST['classId']);
+        $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
+
+        $ClassDiscipline->insert();
+
     }
 }

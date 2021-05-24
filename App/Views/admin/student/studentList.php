@@ -99,7 +99,7 @@
                             </thead>
 
                             <tbody containerListStudent>
-                            
+
                                 <?php require '../App/Views/admin/student/components/studentListing.php' ?>
 
                                 <div class="modal fade modal-profile" id="profileStudentModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

@@ -57,6 +57,7 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
 
         $this->view->listStudent = $Student->list();
+        $this->view->typeStudentList = 'normal';
 
         $this->render('/components/studentListing', 'SimpleLayout');
     }
@@ -80,6 +81,7 @@ class AdminStudentController extends Action
         $Student->__set('fk_id_sex', $_GET['sex']);
 
         $this->view->listStudent = $Student->seek($_GET['course'], $_GET['shift'], $_GET['series']);
+        $this->view->typeStudentList = 'normal';
 
         $this->render('/components/studentListing', 'SimpleLayout');
     }

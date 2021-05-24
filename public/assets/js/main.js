@@ -19,6 +19,10 @@ $('#collapseAddSchoolTerm').on('click', function () {
     ])
 })
 
+$('[data-target="#students-list"]').on('click', function() {
+    listElement('.modal containerListStudent', '/admin/aluno/lista/listagem')
+})
+
 
 //? Add school year
 
@@ -124,9 +128,16 @@ $(document).on('click', '#student-table tbody tr', function () {
     showModal(this.id, '/admin/aluno/lista/perfil-aluno', 'containerStudentProfileModal', '#profileStudentModal', 'profile')
 })
 
+
 $(document).on('click', '#teacher-table tbody tr', function () {
     showModal(this.id, '/admin/professor/lista/perfil-professor', 'containerTeacherProfileModal', '#profileTeacherModal', 'profile')
 })
+
+
+$(document).on('click', '#classe-table tbody tr', function () {
+    showModal(this.id, '/admin/gestao/turma/perfil-turma', 'containerClasseProfileModal', '#profileClasseModal', 'profile')
+})
+
 
 //? Upper Case
 
@@ -151,6 +162,13 @@ $('#buttonAddClass').on('click', function () {
     addElement('#addClass', '/admin/gestao/turma/inserir', 'Turma adicionada')
 
     checkClass()
+
+})
+
+
+$(document).on('click', '#buttonAddClassDiscipline', function () {
+
+    addElement('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', 'normal' , false)
 
 })
 

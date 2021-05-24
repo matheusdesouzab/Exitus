@@ -118,4 +118,13 @@ class Discipline extends Model
 
         $stmt->execute();
     }
+
+
+    public function disciplineAvailable()
+    {
+
+        return $this->speedingUp(
+            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina;"
+        );
+    }
 }

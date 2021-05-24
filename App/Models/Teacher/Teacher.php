@@ -71,7 +71,7 @@ class Teacher extends People
 
     public function update()
     {
-        
+
         $query = "UPDATE professor SET nome_professor = :teacherName , cpf_professor = :cpf  , naturalidade_professor = :naturalness , nacionalidade_professor = :nationality , fk_id_sexo_professor = :fk_id_sex , fk_id_tipo_sanguineo_professor = :fk_id_blood_type, fk_id_pcd_professor = :fk_id_pcd , data_nascimento_professor = :birthDate WHERE id_professor = :id";
 
         $stmt = $this->db->prepare($query);
@@ -87,6 +87,14 @@ class Teacher extends People
         $stmt->bindValue(':id', $this->__get('id'));
 
         $stmt->execute();
+    }
+    
 
+    public function teacherAvailable()
+    {
+
+        return $this->speedingUp(
+            "SELECT professor.id_professor AS option_value , professor.nome_professor AS option_text FROM professor;"
+        );
     }
 }

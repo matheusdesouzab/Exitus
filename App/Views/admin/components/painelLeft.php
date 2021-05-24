@@ -35,8 +35,8 @@
         <li data-toggle="collapse" href="#professores" role="button" aria-expanded="false" aria-controls="professores" class="active link-collapse"><a><i class="fas fa-id-card-alt mr-2"></i> <span class="mr-3">Professores</span> <i class="fas fa-angle-right" style="margin-left: 52px;"></i></a></li>
 
         <div class="collapse" id="professores">
-            <li><a href='/admin/ProfessorCadastro'><span>Cadastra professor(a)</span></a></li>
-            <li><a href='/admin/ListaCadastro'><span>Lista professor</span></a></li>
+            <li><a href='/admin/professor/cadastro'><span>Cadastra professor(a)</span></a></li>
+            <li><a href='/admin/professor/lista'><span>Lista professor</span></a></li>
         </div>
 
 

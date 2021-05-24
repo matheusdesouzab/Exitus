@@ -346,6 +346,18 @@ class Route extends Bootstrap
 			'action' => 'classAvailable'
 		);
 
+		$routes['adminClassProfile'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma',
+			'controller' => 'AdminManagementController',
+			'action' => 'classProfile'
+		);
+
+		$routes['adminClassDisciplineInsert'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir',
+			'controller' => 'AdminManagementController',
+			'action' => 'classDisciplineInsert'
+		);
+
 
 		$this->setRoutes($routes);
 	}
