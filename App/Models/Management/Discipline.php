@@ -120,11 +120,11 @@ class Discipline extends Model
     }
 
 
-    public function disciplineAvailable()
+    public function available()
     {
 
         return $this->speedingUp(
-            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina;"
+            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina LEFT JOIN turma_disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina) WHERE turma_disciplina.fk_id_disciplina IS NULL;"
         );
     }
 }

@@ -21,9 +21,18 @@
             ?>
 
             <td><?= $formattedCpf ?></td>
-            <td>43</td>
-            <td><?= $teacher->teacher_sex ?></td>
-            <td>6</td>
+
+            <?php if ($this->view->typeTeacherList != 'class' && isset($this->view->typeTeacherList)) { ?>
+
+                <td>43</td>
+                <td><?= $teacher->teacher_sex ?></td>
+                <td>6</td>
+
+            <?php } else { ?>
+
+                <td><?= $teacher->discipline_name ?></td>
+
+            <?php } ?>
         </tr>
 
     <?php } ?>

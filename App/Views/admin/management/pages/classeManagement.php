@@ -91,22 +91,41 @@
                                         </table>
                                     </div>
 
-                                    <div class="modal fade modal-profile" id="profileClasseModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-
-                                    <div class="modal-dialog">
-                                        <div class="modal-content p-2">
-                                            <div class="row">
-                                                <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
-                                                    </button></div>
+                                    <div class="modal fade" id="modalErrorDisciplineClass" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
+                                        <div class="modal-dialog" id="">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Erro em adicionar disciplina</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Confira se todos os campos estão preenchidos
+                                                </div>
                                             </div>
-
-                                            <div containerClasseProfileModal class="row modal-body"></div>
                                         </div>
                                     </div>
+
+                                    <div class="modal fade modal-profile" id="profileClasseModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+                                        <div class="modal-dialog">
+                                            <div class="modal-content p-2">
+                                                <div class="row">
+                                                    <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
+                                                        </button></div>
+                                                </div>
+
+                                                <div containerClasseProfileModal class="row modal-body"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
                                 </div>
                             </div>
-                        </div>
                         </div>
 
                         <div class="collapse" id="add-class" data-parent="#class-accordion">
@@ -187,6 +206,8 @@
                                         </div>
 
                                     </form>
+
+                                   
 
                                 </div>
                             </div>

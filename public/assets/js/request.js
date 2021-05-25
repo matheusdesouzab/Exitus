@@ -94,13 +94,18 @@ function updateElement(form, route, dataToast) {
 
     let $formData = $(`${form}`).serialize()
 
+    console.log($formData)
+
     $.ajax({
         url: route,
         type: 'POST',
         dataType: 'html',
         data: $formData,
         success: data => {
+            
             showToast(dataToast, 'bg-primary')
+            console.log(data)
+            
         },
         error: erro => showToast('Houve um erro na requisição', 'bg-info')
 

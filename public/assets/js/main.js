@@ -19,7 +19,7 @@ $('#collapseAddSchoolTerm').on('click', function () {
     ])
 })
 
-$('[data-target="#students-list"]').on('click', function() {
+$('[data-target="#students-list"]').on('click', function () {
     listElement('.modal containerListStudent', '/admin/aluno/lista/listagem')
 })
 
@@ -168,9 +168,25 @@ $('#buttonAddClass').on('click', function () {
 
 $(document).on('click', '#buttonAddClassDiscipline', function () {
 
-    addElement('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', 'normal' , false)
+    if ($('#discipline option').length == 0 || $('#teacher option').length == 0) {
+
+        $("#modalErrorDisciplineClass").modal("show")
+
+    } else {
+
+        addElement('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', 'normal', false)
+
+        availableElement([
+            ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean']
+        ])
+
+    }
 
 })
+
+
+
+
 
 
 //? List class using collapse
@@ -238,7 +254,7 @@ $(document).on('click', '.delete-data-icon', function () {
 //? Add student
 
 
-$("#buttonAddStudent").click(() => addElement(this, '/admin/aluno/cadstro/inserir', ' ' , 'formData') )
+$("#buttonAddStudent").click(() => addElement(this, '/admin/aluno/cadstro/inserir', ' ', 'formData'))
 
 
 $('#seekStudent input[name="name"]').keyup(function (e) {

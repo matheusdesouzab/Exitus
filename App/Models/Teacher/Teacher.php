@@ -7,6 +7,9 @@ use App\Models\People\People;
 class Teacher extends People
 {
 
+    private $fk_id_class;
+
+
     public function __get($att)
     {
         return $this->$att;
@@ -88,7 +91,7 @@ class Teacher extends People
 
         $stmt->execute();
     }
-    
+
 
     public function teacherAvailable()
     {
@@ -97,4 +100,7 @@ class Teacher extends People
             "SELECT professor.id_professor AS option_value , professor.nome_professor AS option_text FROM professor;"
         );
     }
+
+
+    
 }

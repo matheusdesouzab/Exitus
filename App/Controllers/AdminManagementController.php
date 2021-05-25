@@ -386,7 +386,7 @@ class AdminManagementController extends Action
     {
 
         $Classe = Container::getModel('Management\\Classe');
-        
+
         $this->view->listClass = $Classe->list();
 
         $this->render('/components/classesList', 'SimpleLayout');
@@ -415,17 +415,32 @@ class AdminManagementController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Discipline = Container::getModel('Management\\Discipline');
         $Classe = Container::getModel('Management\\Classe');
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
+        $ClassDiscipline->__set("fk_id_class", $_GET['id']);
         $Classe->__set('idClass', $_GET['id']);
 
         $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('idClass'));
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplineAvailable = $Discipline->disciplineAvailable();
+        $this->view->disciplineAvailable = $Discipline->available();
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('idClass');
+        $this->view->typeTeacherList = 'class';
+        $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
 
         $this->render('/components/modalClasseProfile', 'SimpleLayout');
+    }
 
+
+    public function disciplineAvailable()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+        $ClassDiscipline->__set("fk_id_class", 1);
+        
+        $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
+
+        $this->render('/componenets/disciplineClass', 'SimpleLayout');
     }
 
 
@@ -439,6 +454,29 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
 
         $ClassDiscipline->insert();
+    }
 
+
+    public function listTeachersClass()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+
+        echo json_encode($ClassDiscipline->listTeachersClass());
+    }
+
+
+    public function updateClassDiscipline()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+
+        $ClassDiscipline->__set("classeDisciplineId", $_POST['disciplineClassId']);
+        $ClassDiscipline->__set("fk_id_teacher", $_POST['teacher']);
+        $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
+
+        print_r($ClassDiscipline);
     }
 }

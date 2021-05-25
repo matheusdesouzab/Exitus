@@ -105,6 +105,8 @@ class Route extends Bootstrap
 			'action' => 'updateTeacherProfile'
 		);
 
+		
+
 
 		// Management general routes
 
@@ -288,6 +290,12 @@ class Route extends Bootstrap
 			'action' => 'disciplineData'
 		);
 
+		$routes['adminDisciplineAvailable'] = array(
+			'route' => '/admin/gestao/disciplina/disponiveis',
+			'controller' => 'AdminManagementController',
+			'action' => 'disciplineAvailable'
+		);
+
 
 		// Class routes
 
@@ -356,6 +364,18 @@ class Route extends Bootstrap
 			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir',
 			'controller' => 'AdminManagementController',
 			'action' => 'classDisciplineInsert'
+		);
+
+		$routes['adminListTeachersClass'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma',
+			'controller' => 'AdminManagementController',
+			'action' => 'listTeachersClass'
+		);
+
+		$routes['adminUpdateClassDiscipline'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/atualizar',
+			'controller' => 'AdminManagementController',
+			'action' => 'updateClassDiscipline'
 		);
 
 

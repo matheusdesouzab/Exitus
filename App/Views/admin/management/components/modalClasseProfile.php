@@ -96,49 +96,13 @@
                                                                             </tr>
                                                                         </thead>
 
-                                                                        <tbody>
+                                                                        <tbody containerListTeacher>
 
-                                                                            <tr>
-                                                                                <td class="text-right"><img class="" src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                                                                <td class="text-left">Matheus de Souza Barbosa</td>
-                                                                                <td>864.407.324-21</td>
-                                                                                <td>Matemática</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="text-right"><img class="" src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                                                                <td class="text-left">Matheus de Souza Barbosa</td>
-                                                                                <td>864.407.324-21</td>
-                                                                                <td>Matemática</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="text-right"><img class="" src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                                                                <td class="text-left">Matheus de Souza Barbosa</td>
-                                                                                <td>864.407.324-21</td>
-                                                                                <td>Matemática</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="text-right"><img class="" src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                                                                <td class="text-left">Matheus de Souza Barbosa</td>
-                                                                                <td>864.407.324-21</td>
-                                                                                <td>Matemática</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="text-right"><img class="" src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                                                                <td class="text-left">Matheus de Souza Barbosa</td>
-                                                                                <td>864.407.324-21</td>
-                                                                                <td>Matemática</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td class="text-right"><img class="" src="/assets/img/foto-perfil-1.png" alt=""></td>
-                                                                                <td class="text-left">Matheus de Souza Barbosa</td>
-                                                                                <td>864.407.324-21</td>
-                                                                                <td>Matemática</td>
-                                                                            </tr>
-
-
-
+                                                                            <?php require '../App/Views/admin/teacher/components/teacherListing.php' ?>
 
                                                                         </tbody>
+
+
                                                                     </table>
                                                                 </div>
 
@@ -190,79 +154,14 @@
                                     <div class="row mb-3">
 
                                         <div class="col-lg-12">
-                                            <div class="collapse show card" id="list-discipline" data-parent="#class-discipline-accordion">
-                                                <div class="row">
-                                                    <div class="col-lg-12 table-responsive">
-
-                                                        <table class="table table-borderless table-hover">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th scope="col">Sigla Disciplina</th>
-                                                                    <th scope="col">Modalidade da disciplina</th>
-
-                                                                    <th scope="col">Professor</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>LTP</td>
-                                                                    <td>Ensino Técnico</td>
-
-                                                                    <td>Jamilton Damasceno</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>LTP</td>
-                                                                    <td>Ensino Técnico</td>
-
-                                                                    <td>Jamilton Damasceno</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>LTP</td>
-                                                                    <td>Ensino Técnico</td>
-
-                                                                    <td>Jamilton Damasceno</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>LTP</td>
-                                                                    <td>Ensino Técnico</td>
-
-                                                                    <td>Jamilton Damasceno</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>LTP</td>
-                                                                    <td>Ensino Técnico</td>
-
-                                                                    <td>Jamilton Damasceno</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>LTP</td>
-                                                                    <td>Ensino Técnico</td>
-
-                                                                    <td>Jamilton Damasceno</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>LTP</td>
-                                                                    <td>Ensino Técnico</td>
-
-                                                                    <td>Jamilton Damasceno</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>LTP</td>
-                                                                    <td>Ensino Técnico</td>
-
-                                                                    <td>Jamilton Damasceno</td>
-                                                                </tr>
-
-                                                            </tbody>
-                                                        </table>
-
-                                                    </div>
+                                            <div class="collapse show" id="list-discipline" data-parent="#class-discipline-accordion">
+                                                <div class="row" containerListDisciplineClass>
+                                                   
+                                                <?php require '../App/Views/admin/management/components/disciplineClass.php' ?>
 
                                                 </div>
 
                                             </div>
-
-
 
 
                                             <div class="collapse card" id="add-discipline" data-parent="#class-discipline-accordion">
@@ -304,6 +203,8 @@
 
 
                                                         </div>
+
+
 
                                                     </form>
 
