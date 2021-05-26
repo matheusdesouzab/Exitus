@@ -366,10 +366,16 @@ class Route extends Bootstrap
 			'action' => 'classDisciplineInsert'
 		);
 
-		$routes['adminListTeachersClass'] = array(
+		$routes['adminListTeacherClass'] = array(
 			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma',
+			'controller' => 'AdminTeacherController',
+			'action' => 'listTeacherClass'
+		);
+
+		$routes['adminListTeachersDisciplineClass'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma',
 			'controller' => 'AdminManagementController',
-			'action' => 'listTeachersClass'
+			'action' => 'listTeachersDisciplineClass'
 		);
 
 		$routes['adminUpdateClassDiscipline'] = array(

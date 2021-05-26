@@ -4,10 +4,14 @@
 // School Term
 
 
-//? List school term using collapse
+//? List school term using collapseroute
 
 
 $('#collapseListSchoolTerm').on('click', () => listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
+
+$(document).on('click', '[data-target="#class-profile-data"]' , function(){ 
+    listElement('containerListTeacher', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma', '#formClassId')
+})
 
 
 //? Group of elements available using collapse
@@ -168,7 +172,7 @@ $('#buttonAddClass').on('click', function () {
 
 $(document).on('click', '#buttonAddClassDiscipline', function () {
 
-    if ($('#discipline option').length == 0 || $('#teacher option').length == 0) {
+    if ($('#addClassDiscipline #discipline option').length == 0 || $('#addClassDiscipline #teacher option').length == 0) {
 
         $("#modalErrorDisciplineClass").modal("show")
 
@@ -228,7 +232,7 @@ $(document).on('click', '.update-data-icon', function () {
 
     updateElement($(this).attr('idElement'), $(this).attr('routeUpdate'), $(this).attr('toastData'))
 
-    listElement($(this).attr('container'), $(this).attr('routeList'))
+    listElement($(this).attr('container'), $(this).attr('routeList'), $(this).attr('routeData'))
 
     $(`${$(this).attr('idElement')} .form-control`).prop('disabled', true)
 })

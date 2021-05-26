@@ -4,22 +4,23 @@ if (count($this->view->listTeacher) >= 1) {
 
     foreach ($this->view->listTeacher as $key => $discipline) { ?>
 
-        <form id="formDisciplineClass<?= $discipline->discipline_id ?>" class="card mb-4 col-lg-12" action="">
+        <form id="formDisciplineClass<?= $discipline->discipline_class_id ?>" class="card mb-4 col-lg-12" action="">
 
             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
                 <input type="hidden" name="disciplineClassId" value="<?= $discipline->discipline_class_id ?>">
+                <input type="hidden" name="classId" value="<?= $discipline->class_id ?>">
 
                 <div class=" col-lg-8 font-weight-bold">Disciplina de <?= $discipline->discipline_name ?>
                 </div>
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span idElement="#formDisciplineClass<?= $discipline->discipline_id ?>" formGroup="containerListDisciplineClass" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" formGroup="containerListDisciplineClass" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                    <span idElement="#formDisciplineClass<?= $discipline->discipline_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/turma-disciplina/atualizar" toastData="Curso Atualizado" container="containerListDisciplineClass" routeList="/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma?classId=<?= $discipline->discipline_class_id?>" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/turma-disciplina/atualizar" toastData="Curso Atualizado" container="containerListDisciplineClass" routeList="/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma" routeData="#formDisciplineClass<?= $discipline->discipline_class_id ?>" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
-                    <span idElement="#formDisciplineClass<?= $discipline->discipline_id ?>" routeDelete="/admin/gestao/curso/deletar" toastData="Curso Atualizado" container="containerListDisciplineClass" routeList="/admin/gestao/curso/lista" class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
+                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeDelete="/admin/gestao/curso/deletar" toastData="Curso Atualizado" container="containerListDisciplineClass" routeList="/admin/gestao/curso/lista" class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
                 </div>
 

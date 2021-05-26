@@ -408,6 +408,9 @@ class AdminManagementController extends Action
     }
 
 
+    
+
+
     public function classProfile()
     {
 
@@ -432,18 +435,6 @@ class AdminManagementController extends Action
     }
 
 
-    public function disciplineAvailable()
-    {
-
-        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
-        $ClassDiscipline->__set("fk_id_class", 1);
-        
-        $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
-
-        $this->render('/componenets/disciplineClass', 'SimpleLayout');
-    }
-
-
     public function classDisciplineInsert()
     {
 
@@ -457,14 +448,20 @@ class AdminManagementController extends Action
     }
 
 
-    public function listTeachersClass()
+    public function listTeachersDisciplineClass()
     {
 
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+        $Discipline = Container::getModel('Management\\Discipline');
+        $Teacher = Container::getModel('Teacher\\Teacher');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
-        echo json_encode($ClassDiscipline->listTeachersClass());
+        $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
+        $this->view->teacherAvailable = $Teacher->teacherAvailable();
+        $this->view->disciplineAvailable = $Discipline->available();
+
+        $this->render('/components/disciplineClass', 'SimpleLayout');
     }
 
 
@@ -473,10 +470,13 @@ class AdminManagementController extends Action
 
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
-        $ClassDiscipline->__set("classeDisciplineId", $_POST['disciplineClassId']);
+        $ClassDiscipline->__set("classDisciplineId", $_POST['disciplineClassId']);
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacher']);
         $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
 
-        print_r($ClassDiscipline);
+        print_r($_POST);
+
+        $ClassDiscipline->update();
+     
     }
 }

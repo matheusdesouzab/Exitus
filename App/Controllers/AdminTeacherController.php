@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Teacher\Teacher;
 use App\Models\People\Address;
 use App\Models\People\Telephone;
+use App\Models\Management\ClassDiscipline;
 use App\Tools\Tools;
 use MF\Controller\Action;
 use MF\Model\Container;
@@ -63,6 +64,19 @@ class AdminTeacherController extends Action
     }
 
 
+    public function listTeacherClass()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+        $ClassDiscipline->__set("fk_id_class", $_GET['id']);
+
+        $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
+
+        $this->render('/components/teacherListing', 'SimpleLayout');
+
+    }
+
+
     public function teacherList()
     {
 
@@ -72,6 +86,7 @@ class AdminTeacherController extends Action
         $this->view->listTeacher = $Teacher->list();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
+        $this->view->typeTeacherList = 'normal';
         $this->view->bloodType = $Teacher->bloodType();
         $this->view->availableClass = $Classe->availableListClass();
 

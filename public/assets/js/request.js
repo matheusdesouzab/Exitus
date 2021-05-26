@@ -94,8 +94,6 @@ function updateElement(form, route, dataToast) {
 
     let $formData = $(`${form}`).serialize()
 
-    console.log($formData)
-
     $.ajax({
         url: route,
         type: 'POST',
@@ -124,10 +122,12 @@ function editElement(activeForm, formGroup) {
 }
 
 
-function listElement(container, route) {
+function listElement(container, route, form = '') {
 
     let $container = $(`[${container}]`)
 
+    let $formData = $(`${form}`).serialize()
+    
     let loading = '<div class="d-flex justify-content-center loading"><div class="spinner-grow text-primary" role="status"></div></div>'
 
     $container.text('').append(loading)
@@ -135,7 +135,10 @@ function listElement(container, route) {
     $.ajax({
         url: route,
         type: 'GET',
+        data: $formData,
         success: data => {
+
+            console.log(data)
 
             $('.loading').remove()
             $container.append(data)

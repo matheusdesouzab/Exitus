@@ -31,8 +31,10 @@ class Classe extends Model
     public function insert()
     {
 
-        $query = "INSERT INTO turma (fk_id_turno, fk_id_sala, fk_id_periodo_letivo, fk_id_cedula, fk_id_curso, fk_id_serie) 
-        VALUES (:fk_id_shift, :fk_id_classroom,:fk_id_school_term, :fk_id_ballot, :fk_id_course , :fk_id_series);";
+        $query = "INSERT INTO 
+        turma (fk_id_turno, fk_id_sala, fk_id_periodo_letivo, fk_id_cedula, fk_id_curso, fk_id_serie) 
+        VALUES 
+        (:fk_id_shift, :fk_id_classroom,:fk_id_school_term, :fk_id_ballot, :fk_id_course , :fk_id_series);";
 
         $stmt = $this->db->prepare($query);
 
@@ -50,7 +52,14 @@ class Classe extends Model
     public function update()
     {
 
-        $query = 'UPDATE turma SET fk_id_turno = :fk_id_shift , fk_id_sala = :fk_id_classroom , fk_id_curso = :fk_id_course , fk_id_periodo_letivo = :fk_id_school_term , fk_id_cedula = :fk_id_ballot , fk_id_serie = :fk_id_series WHERE id_turma = :idClass;';
+        $query = 'UPDATE turma SET 
+        fk_id_turno = :fk_id_shift , 
+        fk_id_sala = :fk_id_classroom , 
+        fk_id_curso = :fk_id_course , 
+        fk_id_periodo_letivo = :fk_id_school_term , 
+        fk_id_cedula = :fk_id_ballot , 
+        fk_id_serie = :fk_id_series 
+        WHERE id_turma = :idClass;';
 
         $stmt = $this->db->prepare($query);
 

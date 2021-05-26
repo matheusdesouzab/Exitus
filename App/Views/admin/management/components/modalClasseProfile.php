@@ -41,7 +41,7 @@
 
                                                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#students-list"><span class="mr-2"><i class="fas fa-user-friends"></i> Alunos</span></a>
 
-                                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#teacher-list"><span class="mr-2"><i class="fas fa-chalkboard-teacher"></i> Professores</span></a>
+                                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#teacher-list" routeData="<?= $this->view->classId ?>"><span class="mr-2"><i class="fas fa-chalkboard-teacher"></i> Professores</span></a>
 
 
                                                     </div>
@@ -221,6 +221,12 @@
                             </div>
 
                         </div>
+
+                        <form id="formClassId" action="">
+
+                        <input type="hidden" value="<?= $this->view->classId ?>" name="id">
+                        
+                        </form>
 
 
 
