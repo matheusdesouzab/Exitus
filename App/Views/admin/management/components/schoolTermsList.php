@@ -16,7 +16,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                 <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
 
-                    <div class="col-lg-8 font-weight-bold">Ano letivo <?= $schoolTerm->ano_letivo ?></div>
+                    <div class="col-lg-8 font-weight-bold">Ano letivo <?= $schoolTerm->school_year ?></div>
 
                     <div class="col-lg-4 d-flex justify-content-end mt-2">
 
@@ -32,7 +32,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                 <div class="form-row col-lg-11 mx-auto mt-4 mb-2">
 
-                    <input class="form-control" name="idSchoolTerm" value="<?= $schoolTerm->id_school_term ?>" type="hidden">
+                    <input class="form-control" name="schoolTermId" value="<?= $schoolTerm->id_school_term ?>" type="hidden">
 
                     <div class="form-group col-lg-4">
                         <label for="">Data de início:</label>

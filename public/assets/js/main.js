@@ -181,15 +181,23 @@ $(document).on('click', '#buttonAddClassDiscipline', function () {
         addElement('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', 'normal', false)
 
         availableElement([
-            ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean']
+            ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean' , '#addClassDiscipline']
         ])
+
+        listElement('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', '#formClassId')
 
     }
 
 })
 
 
+$(document).on('click', '#class-discipline-accordion [data-target="#add-discipline"] ' , function(){
 
+    availableElement([
+        ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean' , '#addClassDiscipline']
+    ])
+    
+})
 
 
 

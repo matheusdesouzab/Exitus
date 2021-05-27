@@ -68,7 +68,9 @@ class AdminTeacherController extends Action
     {
 
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
-        $ClassDiscipline->__set("fk_id_class", $_GET['id']);
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+
+        $this->view->typeTeacherList = 'class';
 
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
 
@@ -101,6 +103,8 @@ class AdminTeacherController extends Action
 
         $this->view->listTeacher = $Teacher->list();
 
+        $this->view->typeTeacherList = 'normal';
+
         $this->render('/components/teacherListing', 'SimpleLayout');
     }
 
@@ -109,13 +113,16 @@ class AdminTeacherController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
+        $ClassDiscipline =  Container::getModel('Management\\ClassDiscipline');
 
         $Teacher->__set('id', $_GET['id']);
+        $ClassDiscipline->__set('fk_id_teacher', $_GET['id']);
 
         $this->view->teacherProfile = $Teacher->profile();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->bloodType = $Teacher->bloodType();
+        $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
 
         $this->render('/components/modalTeacherProfile', 'SimpleLayout');
     }
@@ -127,7 +134,11 @@ class AdminTeacherController extends Action
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Teacher = Container::getModel('Teacher\\Teacher');
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
+        $ClassDiscipline->__set("fk_id_class", $_POST['classId']);
+        $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
+        
         $Address->__set('addressId', $_POST['addressId']);
         $Address->__set('district', $_POST['district']);
         $Address->__set('address', $_POST['address']);
@@ -153,10 +164,13 @@ class AdminTeacherController extends Action
         $Address->update();
         $Teacher->update();
 
-        $this->view->TeacherProfile = $Teacher->profile();
+        $this->view->teacherProfile = $Teacher->profile();
+        $this->view->typeTeacherList = 'normal';
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->bloodType = $Teacher->bloodType();
+        $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
+
 
         $this->render('/components/modalTeacherProfile', 'SimpleLayout'); 
     }

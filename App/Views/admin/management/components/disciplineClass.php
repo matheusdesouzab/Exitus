@@ -42,10 +42,11 @@ if (count($this->view->listTeacher) >= 1) {
 
                     </select>
 
+
                 </div>
                 <div class="form-group col-lg-7">
                     <label for="">Disciplina:</label>
-                    <select id="discipline" disabled name="discipline" class="form-control custom-select" required>
+                    <select id="discipline" disabled name="discipline" class="form-control custom-select" required style="pointer-events:none">
 
                         <option value="<?= $discipline->discipline_id ?>"><?= $discipline->discipline_name ?></option>
 

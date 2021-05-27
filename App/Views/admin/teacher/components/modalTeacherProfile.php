@@ -195,6 +195,7 @@
                                                         <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $teacher->teacher_telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
+                                                    <input type="hidden" name="classId" value="<?= $this->view->subjectsThatTeacherTeaches[0]->discipline_class_id ?>">
 
                                                 <?php } ?>
 
@@ -206,27 +207,46 @@
 
                                     <div class="row p-3">
 
-                                        <h5 class="mt-3 mb-3 ml-2">Observações:</h5>
+                                        <h5 class="mb-3 ml-2"> <?= $this->view->subjectsThatTeacherTeaches[0]->total_discipline ?> Disciplinas ativa:</h5>
 
                                         <div class="col-lg-12">
 
                                             <div class="row">
 
-                                                <div class="card col-lg-12 card-hover bg-white mb-3">
+                                                <?php if ($this->view->subjectsThatTeacherTeaches[0]->total_discipline > 0) { ?>
 
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">Comportamento Infantil</h5>
-                                                        <p class="card-text">Aluno xingou seus colegas com palavras de baixo calão.</p>
+                                                    <?php foreach ($this->view->subjectsThatTeacherTeaches as $key => $data) { ?>
 
-                                                        <p><b>Professor(a):</b> Magno Lima</p>
-                                                        <p><b>Disciplina:</b> Mátematica</p>
-                                                        <p><b>Unidade:</b> 1</p>
-                                                        <p><b>Data do ocorrido:</b> 31/08</p>
+                                                        <div class="card col-lg-12 card-hover bg-white mb-3">
+
+                                                            <div class="card-body">
+                                                                <h5 class="card-title"><?= $data->discipline_name ?></h5>
+                                                                <p class="card-text">
+
+                                                                <p><b>Turma:</b> <?= $data->series_acronym ?> <?= $data->ballot ?> - <?= $data->course ?> - <?= $data->shift_name ?></p>
+                                                                <p><b>Sala:</b> <?= $data->classroom_number ?></p>
+                                                                <p><b>Ano letivo:</b> <?= $data->school_year ?></p>
+                                                                </p>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    <?php }
+                                                } else { ?>
+
+                                                    <div class="card col-lg-12 card-hover bg-white mb-3">
+
+                                                        <div class="card-body">
+                                                            <h5 class="card-title text-center"> Vincule uma disciplina </h5>
+                                                            <p class="card-text d-flex justify-content-center"><a class="btn btn-success mt-3 w-100" href="/admin/gestao/turma">Turmas disponíveis</a></p>
+                                                        </div>
+
+
 
                                                     </div>
 
-
-                                                </div>
+                                                <?php } ?>
 
                                             </div>
 

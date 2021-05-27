@@ -9,6 +9,7 @@ use App\Models\Management\Course;
 use App\Models\Student\StudentEnrollment;
 use App\Models\People\Address;
 use App\Models\People\Telephone;
+use App\Models\Management\ClassDiscipline;
 use App\Tools\Tools;
 use MF\Controller\Action;
 use MF\Model\Container;
@@ -40,12 +41,13 @@ class AdminStudentController extends Action
         $Classe = Container::getModel('Management\\Classe');
         $Student = Container::getModel('Student\\Student');
 
-        $this->view->listStudent = $Student->list();
+        $this->view->listStudent = $Student->list('WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1');
         $this->view->availableCourse = $Course->availableCourse();
         $this->view->availableClass = $Classe->availableListClass();
         $this->view->availableSex = $Student->availableSex();
         $this->view->availableShift = $Classe->availableShift();
         $this->view->availableSeries = $Classe->availableSeries();
+        $this->view->typeStudentList = 'normal';
 
         $this->render('studentList', 'AdminLayout');
     }
@@ -109,7 +111,7 @@ class AdminStudentController extends Action
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Student = Container::getModel('Student\\Student');
-
+        
         $Address->__set('addressId', $_POST['addressId']);
         $Address->__set('district', $_POST['district']);
         $Address->__set('address', $_POST['address']);

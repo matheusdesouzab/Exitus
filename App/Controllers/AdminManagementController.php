@@ -52,7 +52,7 @@ class AdminManagementController extends Action
 
         $SchoolTerm = Container::getModel('Management\\SchoolTerm');
 
-        $SchoolTerm->__set('idSchoolTerm', $_POST['idSchoolTerm']);
+        $SchoolTerm->__set('schoolTermId', $_POST['schoolTermId']);
         $SchoolTerm->__set('startDate', $_POST['startDate']);
         $SchoolTerm->__set('endDate', $_POST['endDate']);
         $SchoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
@@ -77,7 +77,7 @@ class AdminManagementController extends Action
     {
 
         $SchoolTerm = Container::getModel('Management\\SchoolTerm');
-        $SchoolTerm->__set('idSchoolTerm', $_POST['idSchoolTerm']);
+        $SchoolTerm->__set('schoolTermId', $_POST['schoolTermId']);
         $SchoolTerm->delete();
     }
 
@@ -327,6 +327,14 @@ class AdminManagementController extends Action
     }
 
 
+    public function disciplineAvailable()
+    {
+
+        $Discipline = Container::getModel('Management\\Discipline');
+        echo json_encode($Discipline->available());
+    }
+
+
     // Class
 
 
@@ -408,9 +416,6 @@ class AdminManagementController extends Action
     }
 
 
-    
-
-
     public function classProfile()
     {
 
@@ -430,6 +435,7 @@ class AdminManagementController extends Action
         $this->view->classId = $Classe->__get('idClass');
         $this->view->typeTeacherList = 'class';
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
+        
 
         $this->render('/components/modalClasseProfile', 'SimpleLayout');
     }
@@ -445,6 +451,8 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
 
         $ClassDiscipline->insert();
+
+        $this->view->typeTeacherList = 'class';
     }
 
 
@@ -473,10 +481,11 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("classDisciplineId", $_POST['disciplineClassId']);
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacher']);
         $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
-
-        print_r($_POST);
+        $ClassDiscipline->__set("fk_id_class", $_POST['classId']);
 
         $ClassDiscipline->update();
+
+        $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
      
     }
 }

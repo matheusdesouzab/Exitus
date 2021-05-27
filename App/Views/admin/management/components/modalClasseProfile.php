@@ -224,7 +224,7 @@
 
                         <form id="formClassId" action="">
 
-                        <input type="hidden" value="<?= $this->view->classId ?>" name="id">
+                        <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
                         
                         </form>
 

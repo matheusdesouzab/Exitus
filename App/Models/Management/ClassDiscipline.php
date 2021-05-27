@@ -88,4 +88,54 @@ class ClassDiscipline extends Model
 
         $stmt->execute();
     }
+
+
+    public function subjectsThatTeacherTeaches()
+    {
+
+        $query = "SELECT 
+        
+        professor.id_professor AS teacher_id , 
+        professor.nome_professor AS teacher_name , 
+        periodo_disponivel.ano_letivo AS school_year , 
+        serie.sigla AS series_acronym , 
+        cedula_turma.cedula AS ballot , 
+        curso.sigla AS course , 
+        turno.nome_turno AS shift_name , 
+        turma_disciplina.id_turma_disciplina AS discipline_class_id ,
+        numero_sala_aula.numero_sala_aula AS classroom_number , 
+        disciplina.nome_disciplina AS discipline_name ,
+
+        (SELECT COUNT(turma_disciplina.id_turma_disciplina) 
+
+        FROM turma_disciplina 
+
+        WHERE turma_disciplina.fk_id_professor = professor.id_professor) AS total_discipline
+        
+        FROM professor 
+
+        LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)         
+        LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma) 
+        LEFT JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+        LEFT JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+        LEFT JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+        LEFT JOIN turno ON(turma.fk_id_turno = turno.id_turno)LEFT JOIN sala ON(turma.fk_id_sala = sala.fk_id_numero_sala) 
+        LEFT JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula) 
+        LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+        LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+        LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel)
+        LEFT JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
+
+        WHERE professor.id_professor = :id";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':id' , $this->__get('fk_id_teacher'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+
+    }
+
 }

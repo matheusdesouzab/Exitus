@@ -67,7 +67,9 @@ function availableElement(elements) {
 
     $.each(elements, i => {
 
-        let $selectSituation = $(`form select[name="${elements[i][0]}"]`)
+        let form = elements[i][3] == '' ? 'form' : elements[i][3];
+
+        let $selectSituation = $(`${form} select[name="${elements[i][0]}"]`)
 
         elements[i][2] == 'clean' ? $selectSituation.empty() : ''
 
@@ -93,6 +95,8 @@ function availableElement(elements) {
 function updateElement(form, route, dataToast) {
 
     let $formData = $(`${form}`).serialize()
+
+    console.log($formData)
 
     $.ajax({
         url: route,
@@ -137,8 +141,6 @@ function listElement(container, route, form = '') {
         type: 'GET',
         data: $formData,
         success: data => {
-
-            console.log(data)
 
             $('.loading').remove()
             $container.append(data)
