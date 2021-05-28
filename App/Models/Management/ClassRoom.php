@@ -7,7 +7,7 @@ use MF\Model\Model;
 class ClassRoom extends Model
 {
 
-    private $idClassRoom;
+    private $classroomId;
     private $studentCapacity;
     private $fk_id_classroom_number;
 
@@ -27,8 +27,10 @@ class ClassRoom extends Model
     public function insert()
     {
 
-        $query = 'INSERT INTO sala(fk_id_numero_sala,capacidade_alunos) VALUES (:fk_id_classroom_number,:studentCapacity);';
+        $query = 'INSERT INTO sala(fk_id_numero_sala, capacidade_alunos) VALUES (:fk_id_classroom_number, :studentCapacity)';
+
         $stmt = $this->db->prepare($query);
+
         $stmt->bindValue(':fk_id_classroom_number', $this->__get('fk_id_classroom_number'));
         $stmt->bindValue(':studentCapacity', $this->__get('studentCapacity'));
 
@@ -40,7 +42,17 @@ class ClassRoom extends Model
     {
 
         return $this->speedingUp(
-            "SELECT sala.id_sala AS id_room , numero_sala_aula.numero_sala_aula AS classroom_number , sala.capacidade_alunos AS student_capacity FROM sala LEFT JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula)"
+            
+            "SELECT 
+            
+            sala.id_sala AS id_room , 
+            numero_sala_aula.numero_sala_aula AS classroom_number , 
+            sala.capacidade_alunos AS student_capacity 
+            
+            FROM sala 
+            
+            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula)"
+
         );
     }
 
@@ -48,12 +60,12 @@ class ClassRoom extends Model
     public function update()
     {
 
-        $query = 'UPDATE sala SET capacidade_alunos = :studentCapacity WHERE id_sala = :idClassRoom';
+        $query = 'UPDATE sala SET capacidade_alunos = :studentCapacity WHERE id_sala = :classroomId';
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':studentCapacity', $this->__get('studentCapacity'));
-        $stmt->bindValue(':idClassRoom', $this->__get('idClassRoom'));
+        $stmt->bindValue(':classroomId', $this->__get('classroomId'));
 
         $stmt->execute();
     }
@@ -62,19 +74,32 @@ class ClassRoom extends Model
     public function delete()
     {
 
-        $query = 'DELETE FROM sala WHERE sala.id_sala = :idClassRoom';
+        $query = 'DELETE FROM sala WHERE sala.id_sala = :classroomId';
+
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':idClassRoom', $this->__get('idClassRoom'));
+
+        $stmt->bindValue(':classroomId', $this->__get('classroomId'));
 
         $stmt->execute();
     }
 
 
-    public function availableClassroom()
+    public function availableNumbers()
     {
 
         return $this->speedingUp(
-            "SELECT numero_sala_aula.id_numero_sala_aula AS option_value , numero_sala_aula.numero_sala_aula AS option_text FROM numero_sala_aula LEFT JOIN sala ON(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) WHERE sala.fk_id_numero_sala IS NULL;"
+
+            "SELECT 
+            
+            numero_sala_aula.id_numero_sala_aula AS option_value , 
+            numero_sala_aula.numero_sala_aula AS option_text 
+            
+            FROM numero_sala_aula 
+            
+            LEFT JOIN sala ON(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) 
+            
+            WHERE sala.fk_id_numero_sala IS NULL"
+
         );
     }
 
@@ -83,7 +108,16 @@ class ClassRoom extends Model
     {
 
         return $this->speedingUp(
-            "SELECT sala.id_sala AS option_value , numero_sala_aula.numero_sala_aula AS option_text FROM sala LEFT JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula)"
+
+            "SELECT 
+            
+            sala.id_sala AS option_value , 
+            numero_sala_aula.numero_sala_aula AS option_text 
+            
+            FROM sala 
+            
+            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula)"
+
         ); 
     }
 }

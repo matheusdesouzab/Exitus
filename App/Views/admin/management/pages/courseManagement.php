@@ -50,7 +50,7 @@
                                         <div class="form-row mt-4 mb-2 form-row col-lg-11 mx-auto">
                                             <div class="form-group col-lg-7">
                                                 <label for="courseName">Nome do curso:</label>
-                                                <input class="form-control is-valid" value="" type="text" name="course" id="courseName" required>
+                                                <input class="form-control is-valid" value="" type="text" name="courseName" id="courseName" required>
                                             </div>
 
                                             <div class="form-group col-lg-2">

@@ -19,7 +19,7 @@ $(document).on('click', '[data-target="#class-profile-data"]' , function(){
 
 $('#collapseAddSchoolTerm').on('click', function () {
     availableElement([
-        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis', 'clean']
+        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis', 'clean', '']
     ])
 })
 
@@ -38,7 +38,7 @@ $('#buttonAddSchoolTerm').on('click', function () {
     addElement('#addSchoolTerm', '/admin/gestao/periodo-letivo/inserir', 'Período letivo adicionado')
 
     availableElement([
-        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis', 'clean']
+        ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis', 'clean', '']
     ])
 
 })
@@ -60,7 +60,7 @@ $('#collapseListClassRoom').on('click', () => listElement('containerListClassRoo
 
 $('#collapseAddClassRoom').on('click', function () {
     availableElement([
-        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean']
+        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean' , '']
     ])
 })
 
@@ -73,7 +73,7 @@ $('#buttonAddClassRoom').on('click', function () {
     addElement('#addClassRoom', '/admin/gestao/sala/inserir', 'Sala de aula adicionada')
 
     availableElement([
-        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean']
+        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean', '']
     ])
 
 })
@@ -115,7 +115,7 @@ $('input[name="seekName"]').keyup(function (e) {
 
     if (timeout) clearTimeout(timeout);
 
-    timeout = setTimeout(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'), 1500)
+    timeout = setTimeout(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'), 2000)
 
 })
 

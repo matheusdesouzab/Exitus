@@ -152,7 +152,7 @@ class AdminStudentController extends Action
     {
 
         $SchoolTerm = Container::getModel('Management\\SchoolTerm');
-        $activeSchoolTerm = $SchoolTerm->activeSchoolTerm();
+        $activeSchoolTerm = $SchoolTerm->active();
 
         $Tool = new Tools();
 

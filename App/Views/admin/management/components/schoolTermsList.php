@@ -47,7 +47,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
                         <select name="schoolTermSituation" disabled id="inputState" class="form-control custom-select" name="schoolTermSituation" required>
                             <option value="<?= $schoolTerm->fk_id_situation_school_term ?>"><?= $schoolTerm->situation_school_term ?></option>
 
-                            <?php foreach ($this->view->listSchoolTermSituation as $i => $situation) { ?>
+                            <?php foreach ($this->view->listSchoolTermStates as $i => $situation) { ?>
                                 <?php if ($situation->option_value != $schoolTerm->fk_id_situation_school_term) { ?>
                                     <option value="<?= $situation->option_value ?>"><?= $situation->option_text ?></option>
                             <?php }

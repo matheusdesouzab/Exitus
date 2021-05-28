@@ -6,7 +6,7 @@
 
             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
-                <input type="hidden" name="idClassRoom" value="<?= $classRoom->id_room ?>">
+                <input type="hidden" name="classroomId" value="<?= $classRoom->id_room ?>">
 
                 <div class="col-lg-8 font-weight-bold">
                     Sala de aula número <?= $classRoom->classroom_number ?></div>

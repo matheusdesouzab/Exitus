@@ -19,10 +19,11 @@
 
                 <div class="form-row mb-2 mt-3">
 
-                <input type="hidden" name="idDiscipline" value="<?= $this->view->discipline[0]->id_discipline ?>">
+                <input type="hidden" name="disciplineId" value="<?= $this->view->discipline[0]->id_discipline ?>">
+
                     <div class="form-group col-lg-7">
                         <label for="">Nome da disciplina:</label>
-                        <input class="form-control" disabled value="<?= $this->view->discipline[0]->discipline ?>" type="text" name="discipline" id="">
+                        <input class="form-control" disabled value="<?= $this->view->discipline[0]->discipline ?>" type="text" name="disciplineName" id="">
                     </div>
 
                     <div class="form-group col-lg-2">

@@ -7,31 +7,31 @@ use MF\Model\Model;
 class Course extends Model
 {
 
-    private $idCourse;
-    private $course;
+    private $courseId;
+    private $courseName;
     private $acronym;
 
 
     public function __get($att)
-	{
-		return $this->$att;
-	}
+    {
+        return $this->$att;
+    }
 
 
-	public function __set($att, $newValue)
-	{
-		return $this->$att = $newValue;
-	}
+    public function __set($att, $newValue)
+    {
+        return $this->$att = $newValue;
+    }
 
 
     public function insert()
     {
 
-        $query = 'INSERT INTO curso(nome_curso,sigla) VALUES (:course,:acronym);';
+        $query = 'INSERT INTO curso(nome_curso, sigla) VALUES (:courseName, :acronym);';
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':course', $this->__get('course'));
+        $stmt->bindValue(':courseName', $this->__get('courseName'));
         $stmt->bindValue(':acronym', $this->__get('acronym'));
 
         $stmt->execute();
@@ -42,7 +42,15 @@ class Course extends Model
     {
 
         return $this->speedingUp(
-            "SELECT curso.id_curso AS id_course , curso.nome_curso AS course , curso.sigla AS acronym FROM curso;"
+
+            "SELECT 
+            
+            curso.id_curso AS id_course , 
+            curso.nome_curso AS course_name , 
+            curso.sigla AS acronym 
+            
+            FROM curso"
+
         );
     }
 
@@ -50,11 +58,11 @@ class Course extends Model
     public function delete()
     {
 
-        $query = 'DELETE FROM curso WHERE curso.id_curso = :idCourse';
-        
+        $query = 'DELETE FROM curso WHERE curso.id_curso = :courseId';
+
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':idCourse', $this->__get('idCourse'));
+        $stmt->bindValue(':courseId', $this->__get('courseId'));
 
         $stmt->execute();
     }
@@ -63,13 +71,13 @@ class Course extends Model
     public function update()
     {
 
-        $query = 'UPDATE curso SET nome_curso = :course , sigla = :acronym WHERE curso.id_curso = :idCourse;';
+        $query = 'UPDATE curso SET nome_curso = :courseName , sigla = :acronym WHERE curso.id_curso = :courseId';
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':course', $this->__get('course'));
+        $stmt->bindValue(':courseName', $this->__get('courseName'));
         $stmt->bindValue(':acronym', $this->__get('acronym'));
-        $stmt->bindValue(':idCourse', $this->__get('idCourse'));
+        $stmt->bindValue(':courseId', $this->__get('courseId'));
 
         $stmt->execute();
     }
@@ -79,7 +87,14 @@ class Course extends Model
     {
 
         return $this->speedingUp(
-            "SELECT curso.id_curso AS option_value , curso.nome_curso AS option_text FROM curso"
+
+            "SELECT 
+            
+            curso.id_curso AS option_value , 
+            curso.nome_curso AS option_text 
+            
+            FROM curso"
+
         );
     }
 }

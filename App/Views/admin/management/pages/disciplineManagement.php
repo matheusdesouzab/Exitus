@@ -101,7 +101,7 @@
 
                                             <div class="form-group col-lg-4">
                                                 <label for="">Nome da disciplina:</label>
-                                                <input class="form-control is-valid" value="" type="text" name="discipline" id="" required>
+                                                <input class="form-control is-valid" value="" type="text" name="disciplineName" id="" required>
                                             </div>
 
                                             <div class="form-group col-lg-2">

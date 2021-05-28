@@ -8,9 +8,9 @@ if (count($this->view->listCourse) >= 1) {
 
             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
-                <input type="hidden" name="idCourse" value="<?= $course->id_course ?>">
+                <input type="hidden" name="courseId" value="<?= $course->id_course ?>">
 
-                <div class=" col-lg-8 font-weight-bold">Curso Técnico de <?= $course->course ?>
+                <div class=" col-lg-8 font-weight-bold">Curso Técnico de <?= $course->course_name ?>
                 </div>
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
@@ -28,7 +28,7 @@ if (count($this->view->listCourse) >= 1) {
             <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
                 <div class="form-group col-lg-9">
                     <label for="">Nome do curso:</label>
-                    <input class="form-control" disabled value="<?= $course->course ?>" type="text" name="course" id="">
+                    <input class="form-control" disabled value="<?= $course->course_name ?>" type="text" name="courseName" id="">
                 </div>
                 <div class="form-group col-lg-3">
                     <label for="">Sigla:</label>
