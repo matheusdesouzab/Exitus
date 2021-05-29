@@ -172,12 +172,17 @@
                                                         <div class="form-row mt-3 mb-4">
 
                                                             <div class="form-group col-lg-6">
+
                                                                 <label for="">Professor:</label>
 
                                                                 <select id="teacher" name="teacher" class="form-control custom-select" required>
+
                                                                     <?php foreach ($this->view->teacherAvailable as $key => $teacher) { ?>
+
                                                                         <option value="<?= $teacher->option_value ?>"><?= $teacher->option_text ?></option>
+
                                                                     <?php } ?>
+
                                                                 </select>
 
                                                             </div>
@@ -185,12 +190,17 @@
                                                             <input type="hidden" name="classId" value="<?= $this->view->classId ?>">
 
                                                             <div class="form-group col-lg-4">
+
                                                                 <label for="">Disciplina:</label>
 
                                                                 <select id="discipline" name="discipline" class="form-control custom-select" required>
+                                                                   
                                                                     <?php foreach ($this->view->disciplineAvailable as $key => $discipline) { ?>
+                                                                        
                                                                         <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
                                                                     <?php } ?>
+
                                                                 </select>
 
                                                             </div>
@@ -229,8 +239,6 @@
                         </form>
 
 
-
-
                         <div class="col-lg-12 collapse overflow-auto accordion-container" id="class-profile-assessments" aria-labelledby="turma-avaliacoes" data-parent="#class-profile-accordion">
 
                             <div class="accordion" id="class-assessments-accordion">
@@ -240,16 +248,11 @@
                                             <h5>Avaliações da turma</h5>
                                         </div>
 
-
-
-
                                         <div class="col-lg-6 col-12 collapse-options-container">
 
                                             <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-assessments"><span class="mr-2 "><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
                                             <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
-
-
 
                                         </div>
                                     </div>

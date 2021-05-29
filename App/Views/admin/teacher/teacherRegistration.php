@@ -13,15 +13,25 @@
                 <div class="card col-lg-12 pt-4 p-3 accordion" id="teacher-registration-accordion">
 
                     <div class="registration-session-in-stages mx-auto">
+
                         <div class="registration-by-content-step">
+
                             <div class="registration-connection-line-in-stages"></div>
+
                             <div class="registration-in-stages">
+
                                 <a type="button" class="btn round-button" data-toggle="collapse" data-target="#teacher-registration-initial-data"><i class="fas fa-user-alt"></i></a>
+
                                 <p>Dados iniciais</p>
+
                             </div>
+
                             <div class="registration-in-stages">
+
                                 <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#teacherAddressOthers"><i class="fas fa-home"></i></a>
+
                                 <p>Endereço e outros</p>
+
                             </div>
 
                         </div>
@@ -46,12 +56,19 @@
                                         </div>
 
                                         <div class="form-group col-md-3">
+
                                             <label for="sex">Sexo:</label>
+
                                             <select id="sex" name="sex" class="form-control is-valid custom-select">
+
                                                 <?php foreach ($this->view->availableSex as $key => $sex) { ?>
+
                                                     <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+
                                                 <?php } ?>
+
                                             </select>
+
                                         </div>
 
                                     </div>
@@ -78,12 +95,19 @@
                                     <div class="form-row mb-5">
 
                                         <div class="form-group col-md-3">
+
                                             <label for="bloodType">Tipo sanguíneo:</label>
+
                                             <select id="bloodType" name="bloodType" class="form-control custom-select is-valid">
+
                                                 <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
+
                                                     <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
+
                                                 <?php } ?>
+
                                             </select>
+
                                         </div>
 
                                         <div id="photoField" class="form-group col-md-8">
@@ -149,12 +173,18 @@
                                         </div>
 
                                         <div class="form-group col-md-3">
+
                                             <label for="pcd">PcD:</label>
+
                                             <select id="pcd" name="pcd" class="form-control custom-select is-valid">
+
                                                 <?php foreach ($this->view->pcd as $key => $pcd) { ?>
+
                                                     <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
                                                 <?php } ?>
+
                                             </select>
+
                                         </div>
 
 
@@ -175,18 +205,22 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
+
                                         <h5 class="modal-title" id="profilePhotoModal">Foto selecionada</h5>
+
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
+
                                     <div class="modal-body">
                                         <div class="container-img col-lg-12 d-flex justify-content-center"><img alt="Selecione uma foto" class="mx-auto rounded-circle" src="" id="visualizarimagem" style="width:300px; height: 300px; object-position:top; object-fit: cover;"></div>
-
                                     </div>
+
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar ao cadastro</button>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -195,37 +229,5 @@
             </div>
         </div>
 
-
-
-        <div class="modal fade" id="matriculaModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        Situação da matricula
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                        </div>
-                        <div class="col-lg-12 d-flex justify-content-center">
-                            <!-- <i class="fas fa-check-circle"></i> -->
-                            <i class="fas fa-times-circle"></i>
-                        </div>
-                        <div class="col-lg-12 modal-text">
-                            <p>Aluno não matriculado!</p>
-                            <p>INFO-1M-B chegou ao limite de alunos! </p>
-                        </div>
-                        <div class="col-lg-12 alternative-modal-links mt-5 d-flex justify-content-around mb-4">
-
-                            <a class="btn btn-primary" href="">Lista de Alunos <i class="fas fa-arrow-alt-circle-left ml-2"></i></a>
-                            <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>

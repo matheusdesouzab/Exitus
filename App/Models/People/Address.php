@@ -30,7 +30,18 @@ class Address extends Model
     public function insert()
     {
 
-        $query = "INSERT INTO endereco (cep,bairro,endereco,uf,municipio) VALUES (:zipCode,:district,:addresss,:uf,:county);";
+        $query = 
+        
+            "INSERT INTO endereco 
+            
+            (cep, bairro, endereco, uf, municipio) 
+            
+            VALUES 
+            
+            (:zipCode, :district, :addresss, :uf, :county)
+        
+        ";
+
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':zipCode', $this->__get('zipCode'));
@@ -60,7 +71,20 @@ class Address extends Model
     public function update()
     {
 
-        $query = "UPDATE endereco SET cep = :zipCode , bairro = :district , municipio = :county , uf = :uf , endereco = :addresss WHERE endereco.id_endereco = :id";
+        $query = 
+        
+            "UPDATE endereco SET 
+            
+            cep = :zipCode , 
+            bairro = :district , 
+            municipio = :county , 
+            uf = :uf , 
+            endereco = :addresss 
+            
+            WHERE endereco.id_endereco = :id
+        
+        ";
+
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':zipCode', $this->__get('zipCode'));

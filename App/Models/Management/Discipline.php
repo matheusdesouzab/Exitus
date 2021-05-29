@@ -57,8 +57,8 @@ class Discipline extends Model
 
             "SELECT 
             
-            disciplina.id_disciplina AS id_discipline , 
-            disciplina.nome_disciplina AS discipline , 
+            disciplina.id_disciplina AS discipline_id , 
+            disciplina.nome_disciplina AS discipline_name , 
             modalidade_disciplina.modalidade_disciplina AS discipline_modality , 
             disciplina.sigla_disciplina AS acronym 
             
@@ -77,10 +77,10 @@ class Discipline extends Model
 
             'SELECT 
             
-            disciplina.id_disciplina AS id_discipline , 
-            disciplina.nome_disciplina AS discipline , 
+            disciplina.id_disciplina AS discipline_id , 
+            disciplina.nome_disciplina AS discipline_name , 
             modalidade_disciplina.modalidade_disciplina AS discipline_modality , 
-            disciplina.fk_id_modalidade_disciplina AS id_modality , 
+            disciplina.fk_id_modalidade_disciplina AS modality_id , 
             disciplina.sigla_disciplina AS acronym  
             
             FROM disciplina 
@@ -152,8 +152,8 @@ class Discipline extends Model
         
             "SELECT 
             
-            disciplina.id_disciplina AS id_discipline , 
-            disciplina.nome_disciplina AS discipline , 
+            disciplina.id_disciplina AS discipline_id , 
+            disciplina.nome_disciplina AS discipline_name , 
             modalidade_disciplina.modalidade_disciplina AS discipline_modality , 
             disciplina.sigla_disciplina AS acronym 
             

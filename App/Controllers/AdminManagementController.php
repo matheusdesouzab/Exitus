@@ -2,11 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\Management\SchoolTerm;
 use App\Models\Student\Student;
 use App\Models\Teacher\Teacher;
-use App\Models\Management\Discipline;
-use App\Models\Management\ClassDiscipline;
 use MF\Controller\Action;
 use MF\Model\Container;
 
@@ -24,6 +21,7 @@ class AdminManagementController extends Action
 
     public function schoolTermManagement()
     {
+
         $SchoolTerm = Container::getModel('Management\\SchoolTerm');
 
         $this->view->listSchoolTerm = $SchoolTerm->list();
@@ -148,7 +146,9 @@ class AdminManagementController extends Action
     {
 
         $ClassRoom = Container::getModel('Management\\ClassRoom');
+
         $this->view->listClassRoom = $ClassRoom->list();
+
         $this->render('/components/classroomsList', 'SimpleLayout');
     }
 
@@ -233,7 +233,9 @@ class AdminManagementController extends Action
     {
 
         $Course = Container::getModel('Management\\Course');
+
         $Course->__set('courseId', $_POST['courseId']);
+
         $Course->delete();
     }
 
@@ -309,6 +311,7 @@ class AdminManagementController extends Action
     {
 
         $Discipline = Container::getModel('Management\\Discipline');
+
         $Discipline->__set('disciplineId', $_GET['id']);
 
         $this->view->discipline = $Discipline->disciplineData();
@@ -322,7 +325,9 @@ class AdminManagementController extends Action
     {
 
         $Discipline = Container::getModel('Management\\Discipline');
+
         $Discipline->__set('disciplineId', $_POST['disciplineId']);
+        
         $Discipline->delete();
     }
 
@@ -397,7 +402,7 @@ class AdminManagementController extends Action
 
         $this->view->listClass = $Classe->list();
 
-        $this->render('/components/classesList', 'SimpleLayout');
+        $this->render('/components/classList', 'SimpleLayout');
     }
 
 
@@ -412,7 +417,7 @@ class AdminManagementController extends Action
 
         $this->view->listClass = $Classe->seekClass();
 
-        $this->render('/components/classesList', 'SimpleLayout');
+        $this->render('/components/classList', 'SimpleLayout');
     }
 
 
@@ -426,18 +431,18 @@ class AdminManagementController extends Action
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['id']);
-        $Classe->__set('idClass', $_GET['id']);
+        $Classe->__set('classId', $_GET['id']);
 
-        $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('idClass'));
+        $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('classId'));
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
         $this->view->disciplineAvailable = $Discipline->available();
         $this->view->typeStudentList = "class";
-        $this->view->classId = $Classe->__get('idClass');
+        $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         
 
-        $this->render('/components/modalClasseProfile', 'SimpleLayout');
+        $this->render('/components/modalClassProfile', 'SimpleLayout');
     }
 
 

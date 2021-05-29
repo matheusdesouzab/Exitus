@@ -69,7 +69,9 @@ class AdminStudentController extends Action
     {
 
         $Classe = Container::getModel('Management\\Classe');
+
         $this->view->listClass = $Classe->availableListClass();
+        
         $this->render('/components/classesList', 'SimpleLayout');
     }
 

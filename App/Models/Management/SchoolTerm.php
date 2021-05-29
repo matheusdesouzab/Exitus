@@ -47,11 +47,11 @@ class SchoolTerm extends Model
 
             "INSERT INTO periodo_letivo 
 
-            (data_inicio,data_fim,fk_id_situacao_periodo_letivo,fk_id_ano_letivo) 
+            (data_inicio,data_fim, fk_id_situacao_periodo_letivo, fk_id_ano_letivo) 
 
             VALUES 
 
-            (:startDate,:endDate,:fk_id_school_term_situation,:fk_id_school_year)
+            (:startDate,:endDate, :fk_id_school_term_situation, :fk_id_school_year)
             
         ";
 
@@ -139,7 +139,7 @@ class SchoolTerm extends Model
 
             "SELECT 
             
-            periodo_letivo.id_ano_letivo AS id_school_term  , 
+            periodo_letivo.id_ano_letivo AS school_term_id  , 
             periodo_letivo.data_inicio AS start_date , 
             periodo_letivo.data_fim AS end_date , 
             situacao_periodo_letivo.situacao_periodo_letivo AS situation_school_term , 

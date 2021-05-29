@@ -1,22 +1,26 @@
 <section id="schoolTerm">
 
-    <input type="hidden" id="powa43" alt="submit" name="">
-
     <div class="row main-container ">
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-school-term">
 
             <div class="col-lg-12 mb-3 mt-3">
+
                 <div class="row d-flex align-items-center">
+
                     <div class="col-lg-6">
                         <h5>Gestão dos períodos letivos</h5>
                     </div>
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a href="#" class="font-weight-bold" id="collapseListSchoolTerm" aria-expanded="true" data-toggle="collapse" data-target="#list-terms"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Períodos</span></a>
+                        <a href="#" class="font-weight-bold" id="collapseListSchoolTerm" aria-expanded="true" data-toggle="collapse" data-target="#list-terms">
+                            <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Períodos</span>
+                        </a>
 
-                        <a href="#" class="collapsed font-weight-bold" id="collapseAddSchoolTerm" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a href="#" class="collapsed font-weight-bold" id="collapseAddSchoolTerm" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term">
+                            <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+                        </a>
 
                     </div>
                 </div>
@@ -67,12 +71,17 @@
 
 
                                             <div class="form-group col-lg-2">
+
                                                 <label for="schoolTermSituationAdd">Situação:</label>
+
                                                 <select name="schoolTermSituationAdd" id="schoolTermSituationAdd" class="form-control custom-select" required>
+
                                                     <?php foreach ($this->view->listSchoolTermStates as $i => $situation) { ?>
                                                         <option value="<?= $situation->option_value ?>"><?= $situation->option_text ?></option>
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                             <div class="form-group col-lg-2">

@@ -13,20 +13,35 @@
                 <div class="card mb-5 col-lg-12 pt-4 p-3 accordion" id="student-record-accordion">
 
                     <div class="registration-session-in-stages">
+
                         <div class="registration-by-content-step">
+
                             <div class="registration-connection-line-in-stages"></div>
+
                             <div class="registration-in-stages">
+
                                 <a type="button" class="btn round-button" data-toggle="collapse" data-target="#student-registration-initial-data"><i class="fas fa-user-alt"></i></a>
+
                                 <p>Dados iniciais</p>
+
                             </div>
+
                             <div class="registration-in-stages">
+
                                 <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#student-registration-address-and-others"><i class="fas fa-home"></i></a>
+
                                 <p>Endereço e outros</p>
+
                             </div>
+                            
                             <div class="registration-in-stages">
+
                                 <a type="button" class="btn round-button collapsed" data-toggle="collapse" data-target="#student-registration-class"><i class="fas fa-clipboard-check"></i></a>
+
                                 <p>Finalizando</p>
+
                             </div>
+
                         </div>
                     </div>
 
@@ -49,12 +64,19 @@
                                         </div>
 
                                         <div class="form-group col-md-3">
+
                                             <label for="sex">Sexo:</label>
+
                                             <select id="sex" name="sex" class="form-control custom-select is-valid">
+
                                                 <?php foreach ($this->view->availableSex as $key => $sex) { ?>
+
                                                     <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+
                                                 <?php } ?>
+
                                             </select>
+
                                         </div>
 
                                     </div>
@@ -91,12 +113,19 @@
                                         </div>
 
                                         <div class="form-group col-md-2">
+
                                             <label for="pcd">PcD:</label>
+
                                             <select id="pcd" name="pcd" class="form-control custom-select is-valid">
+
                                                 <?php foreach ($this->view->pcd as $key => $pcd) { ?>
+
                                                     <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
+
                                                 <?php } ?>
+
                                             </select>
+
                                         </div>
 
                                     </div>
@@ -154,12 +183,19 @@
                                     <div class="form-row mb-3">
 
                                         <div class="form-group col-md-3">
+
                                             <label for="bloodType">Tipo sanguíneo:</label>
+
                                             <select id="bloodType" name="bloodType" class="form-control custom-select is-valid">
+
                                                 <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
+
                                                     <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
+
                                                 <?php } ?>
+
                                             </select>
+                                            
                                         </div>
 
 

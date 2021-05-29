@@ -39,13 +39,19 @@
                                             </div>
 
                                             <div class="form-group col-lg-4">
+
                                                 <label for="seekModality">Modalidade:</label>
+
                                                 <select name="seekModality" id="seekModality" class="form-control custom-select" required>
+
                                                     <option value="0">Todas</option>
+
                                                     <?php foreach ($this->view->listModality as $key => $modality) { ?>
                                                         <option value="<?= $modality->option_value ?>"><?= $modality->option_text ?></option>
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                         </div>
@@ -110,12 +116,19 @@
                                             </div>
 
                                             <div class="form-group col-lg-3">
+
                                                 <label for="inputState">Modalidade:</label>
+
                                                 <select id="inputState" name="modalityAdd" class="form-control custom-select is-valid" required>
+
                                                     <?php foreach ($this->view->listModality as $key => $modality) { ?>
+
                                                         <option value="<?= $modality->option_value ?>"><?= $modality->option_text ?></option>
+                                                        
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                             <div class="form-group col-lg-3">

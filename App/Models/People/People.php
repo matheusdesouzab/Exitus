@@ -2,7 +2,6 @@
 
 namespace App\Models\People;
 
-
 use MF\Model\Model;
 
 class People extends Model
@@ -51,14 +50,24 @@ class People extends Model
     public function bloodType()
     {
 
-        return $this->speedingUp('SELECT tipo_sanguineo.id_tipo_sanguineo as option_value , tipo_sanguineo.tipo_sanguineo as option_text FROM tipo_sanguineo;');
+        return $this->speedingUp(
+            
+            'SELECT 
+            
+            tipo_sanguineo.id_tipo_sanguineo AS option_value , 
+            tipo_sanguineo.tipo_sanguineo AS option_text 
+            
+            FROM tipo_sanguineo
+
+        ');
     }
 
 
     public function checkCpf()
     {
 
-        $query = "SELECT aluno.cpf_aluno FROM aluno WHERE aluno.cpf_aluno = :cpf ;";
+        $query = "SELECT aluno.cpf_aluno FROM aluno WHERE aluno.cpf_aluno = :cpf";
+
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':cpf', $this->__get('cpf'));

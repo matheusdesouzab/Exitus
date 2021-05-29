@@ -6,7 +6,7 @@ if (count($this->view->listClass) >= 1) {
 
         <?php $shift = substr($class->shift, 0, 1) ?>
 
-        <tr id="classe<?= $class->id_class ?>">
+        <tr id="classe<?= $class->class_id ?>">
             <td><?= $class->course ?>-<?= $class->series_acronym ?><?= $shift ?>-<?= $class->ballot ?></td>
             <td><?= $class->student_total ?></td>
             <td><?= $class->school_term ?></td>
@@ -22,7 +22,7 @@ if (count($this->view->listClass) >= 1) {
 <?php } else { ?>
 
     <tr class="mt-4">
-        <td colspan="4">Nenhuma turma adicionada</td>
+        <td colspan="4" style="pointer-events:none">Nenhuma turma adicionada</td>
     </tr>
 
 

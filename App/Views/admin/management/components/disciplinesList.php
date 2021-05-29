@@ -4,8 +4,8 @@ if (count($this->view->listDiscipline) >= 1) {
 
     foreach ($this->view->listDiscipline as $i => $discipline) { ?>
 
-        <tr id="disciplina<?= $discipline->id_discipline ?>">
-            <td><?= $discipline->discipline ?></td>
+        <tr id="disciplina<?= $discipline->discipline_id ?>">
+            <td><?= $discipline->discipline_name ?></td>
             <td><?= $discipline->acronym ?></td>
             <td><?= $discipline->discipline_modality ?></td>
         </tr>
@@ -19,7 +19,7 @@ if (count($this->view->listDiscipline) >= 1) {
 <?php } else { ?>
 
     <tr class="mt-4">
-        <td colspan="3">Nenhuma disciplina adicionada</td>
+        <td colspan="3" style="pointer-events:none">Nenhuma disciplina adicionada</td>
     </tr>
 
 <?php } ?>

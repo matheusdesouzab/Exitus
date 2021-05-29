@@ -1,7 +1,5 @@
 <section id="classRoom">
 
-    <input type="hidden" data-onload="alert('x')" name="">
-
     <div class="row main-container">
 
         <div class="col-lg-11 mx-auto accordion" id="room-accordion">
@@ -14,9 +12,17 @@
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" id="collapseListClassRoom" aria-expanded="true" data-toggle="collapse" data-target="#list-rooms"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Salas</span></a>
+                        <a class="font-weight-bold" id="collapseListClassRoom" aria-expanded="true" data-toggle="collapse" data-target="#list-rooms">
+                        
+                            <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Salas</span>
+                            
+                        </a>
 
-                        <a class="collapsed font-weight-bold" id="collapseAddClassRoom" aria-expanded="false" data-toggle="collapse" data-target="#add-rooms"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                        <a class="collapsed font-weight-bold" id="collapseAddClassRoom" aria-expanded="false" data-toggle="collapse" data-target="#add-rooms">
+
+                            <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+                            
+                        </a>
 
                     </div>
                 </div>

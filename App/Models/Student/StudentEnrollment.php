@@ -28,8 +28,17 @@ class StudentEnrollment extends Model
     public function insert()
     {
 
-        $query = "INSERT INTO matricula (fk_id_aluno,fk_id_turma_matricula,fk_id_situacao_aluno,fk_id_periodo_letivo_matricula) VALUES 
-        (:fk_id_student,:fk_id_class,:fk_student_situation,:fk_id_school_term)";
+        $query = 
+        
+            "INSERT INTO matricula 
+            
+            (fk_id_aluno, fk_id_turma_matricula, fk_id_situacao_aluno, fk_id_periodo_letivo_matricula) 
+            
+            VALUES 
+
+            (:fk_id_student, :fk_id_class, :fk_student_situation, :fk_id_school_term)
+        
+        ";
 
         $stmt = $this->db->prepare($query);
 

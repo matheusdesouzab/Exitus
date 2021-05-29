@@ -45,7 +45,7 @@ class Course extends Model
 
             "SELECT 
             
-            curso.id_curso AS id_course , 
+            curso.id_curso AS course_id , 
             curso.nome_curso AS course_name , 
             curso.sigla AS acronym 
             

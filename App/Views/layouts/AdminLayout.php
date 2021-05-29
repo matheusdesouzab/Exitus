@@ -1,7 +1,3 @@
-<?php 
-session_start();
-?>
-
 <?php
 
 /* $url = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/') + 1);
@@ -28,13 +24,19 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 <body>
 
 	<div class="container-fluid">
+
 		<div class="row">
+
 			<div class="col-lg-2 col-md-3 col-sm-2 panel-side">
 				<?php require '../App/Views/admin/components/painelLeft.php' ?>
 			</div>
+
 			<div id="pagina" class="col-12 col-md-9 col-lg-10 col-sm-12 side-pagina">
-				<?php require '../App/Views/admin/components/navbar.php' ?>  
+
+				<?php require '../App/Views/admin/components/navbar.php' ?>
+
 				<?= $this->content() ?>
+
 			</div>
 		</div>
 	</div>
@@ -58,6 +60,5 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 <script src="/assets/js/style.js"></script>
 
 <script src="/assets/js/main.js"></script>
-
 
 </html>

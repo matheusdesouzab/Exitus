@@ -45,7 +45,7 @@ class ClassRoom extends Model
             
             "SELECT 
             
-            sala.id_sala AS id_room , 
+            sala.id_sala AS classroom_id , 
             numero_sala_aula.numero_sala_aula AS classroom_number , 
             sala.capacidade_alunos AS student_capacity 
             

@@ -5,17 +5,22 @@
         <div class="col-lg-12 accordion" id="class-accordion">
 
             <div class="col-lg-11 mx-auto mb-4 mt-3">
+            
                 <div class="row d-flex align-items-center">
+
                     <div class="col-lg-6">
                         <h5>Gestão das turmas</h5>
                     </div>
 
                     <div class="col-lg-6 collapse-options-container">
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" id="collapseListClass" data-target="#class-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span></a>
+                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" id="collapseListClass" data-target="#class-list">
+                            <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span>
+                        </a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" id="collapseAddClass" data-toggle="collapse" data-target="#add-class"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
-
+                        <a class="collapsed font-weight-bold" aria-expanded="false" id="collapseAddClass" data-toggle="collapse" data-target="#add-class">
+                            <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+                        </a>
 
                     </div>
                 </div>
@@ -35,33 +40,57 @@
                                         <div class="form-row mt-3">
 
                                             <div class="form-group col-lg-4">
+
                                                 <label for="course">Curso</label>
+
                                                 <select id="course" name="course" class="form-control custom-select">
+
                                                     <option value="0">Todos</option>
+
                                                     <?php foreach ($this->view->availableCourse as $key => $course) { ?>
+
                                                         <option value="<?= $course->option_value ?>"><?= $course->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                             <div class="form-group col-lg-4">
+
                                                 <label for="series">Série:</label>
+
                                                 <select id="series" name="series" class="form-control custom-select">
+
                                                     <option value="0">Todas</option>
+
                                                     <?php foreach ($this->view->availableSeries as $key => $series) { ?>
+
                                                         <option value="<?= $series->option_value ?>"><?= $series->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                             <div class="form-group col-lg-4">
+
                                                 <label for="shift">Turno</label>
+
                                                 <select id="shift" name="shift" class="form-control custom-select">
+
                                                     <option value="0">Todos</option>
+
                                                     <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+
                                                         <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                         </div>
@@ -85,7 +114,7 @@
                                             </thead>
 
                                             <tbody containerListClass>
-                                                <?php require '../App/Views/admin/management/components/classesList.php' ?>
+                                                <?php require '../App/Views/admin/management/components/classList.php' ?>
                                             </tbody>
 
                                         </table>
@@ -143,59 +172,103 @@
                                         <div class="form-row mt-4 mb-2">
 
                                             <div class="form-group col-lg-2">
+
                                                 <label for="series">Série:</label>
+
                                                 <select id="series" name="series" class="form-control custom-select">
+
                                                     <?php foreach ($this->view->availableSeries as $key => $series) { ?>
+
                                                         <option value="<?= $series->option_value ?>"><?= $series->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                             <div class="form-group col-lg-2">
+
                                                 <label for="ballot">Cédula:</label>
+
                                                 <select id="ballot" name="ballot" class="form-control custom-select">
+
                                                     <?php foreach ($this->view->availableBallot as $key => $ballot) { ?>
+
                                                         <option value="<?= $ballot->option_value ?>"><?= $ballot->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                             <div class="form-group col-lg-5">
+
                                                 <label for="course">Curso:</label>
+
                                                 <select id="course" name="course" class="form-control custom-select">
+
                                                     <?php foreach ($this->view->availableCourse as $key => $course) { ?>
+
                                                         <option value="<?= $course->option_value ?>"><?= $course->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                             <div class="form-group col-lg-3">
+
                                                 <label for="shift">Turno:</label>
+
                                                 <select id="shift" name="shift" class="form-control custom-select">
+
                                                     <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+
                                                         <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                         </div>
 
                                         <div class="form-row">
+
                                             <div class="form-group col-lg-2">
+
                                                 <label for="classRoom">Sala:</label>
+
                                                 <select id="classRoom" name="classRoom" class="form-control custom-select" required>
+
                                                     <?php foreach ($this->view->availableClassRoom as $key => $classRoom) { ?>
+
                                                         <option value="<?= $classRoom->option_value ?>"><?= $classRoom->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
+
                                             <div class="form-group col-lg-2">
+
                                                 <label for="schoolTerm">Ano letivo:</label>
+
                                                 <select id="schoolTerm" name="schoolTerm" class="form-control custom-select">
+
                                                     <?php foreach ($this->view->activeSchoolTerm as $key => $schoolTerm) { ?>
+
                                                         <option value="<?= $schoolTerm->option_value ?>"><?= $schoolTerm->option_text ?></option>
+
                                                     <?php } ?>
+
                                                 </select>
+
                                             </div>
 
 
@@ -203,27 +276,19 @@
                                                 <label for="">&nbsp;</label>
                                                 <a id="buttonAddClass" class="btn btn-success w-100 text-center disabled" href="#">Adicionar nova turma</a>
                                             </div>
+
                                         </div>
 
-                                    </form>
-
-                                   
+                                    </form>                        
 
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-
     </div>
-
 </div>
 
 

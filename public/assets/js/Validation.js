@@ -85,8 +85,7 @@ class Validation {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#visualizarimagem')
-                    .attr('src', e.target.result);
+                $('#visualizarimagem').attr('src', e.target.result);
             };
 
             reader.readAsDataURL(input.files[0]);

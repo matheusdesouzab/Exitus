@@ -44,7 +44,7 @@
 <?php } else { ?>
 
     <tr class="mt-4 thead-light">
-        <td class="ml-3" colspan="5">Nenhum professor encontrado </td>
+        <td class="ml-3" colspan="5" style="pointer-events:none">Nenhum professor encontrado </td>
     </tr>
 
 <?php } ?>

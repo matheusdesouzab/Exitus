@@ -58,7 +58,7 @@
 <?php } else { ?>
 
     <tr class="mt-4 thead-light">
-        <td class="ml-3" colspan="5">Nenhum aluno encontrado </td>
+        <td class="ml-3" colspan="5" style="pointer-events:none">Nenhum aluno encontrado </td>
     </tr>
 
 <?php } ?>

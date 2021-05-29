@@ -27,9 +27,12 @@ class Telephone extends Model
     public function insert()
     {
 
-        $query = "INSERT INTO telefone (numero_telefone) values (:telephoneNumber);";
+        $query = "INSERT INTO telefone (numero_telefone) values (:telephoneNumber)";
+
         $stmt = $this->db->prepare($query);
+
         $stmt->bindValue(':telephoneNumber', $this->__get('telephoneNumber'));
+
         $stmt->execute();
 
         return $this->db->lastInsertId();
@@ -54,8 +57,10 @@ class Telephone extends Model
         $query = "UPDATE telefone SET numero_telefone = :telephoneNumber WHERE id_telefone = :telephoneId";
 
         $stmt = $this->db->prepare($query);
+
         $stmt->bindValue(':telephoneId', $this->__get('telephoneId'));
         $stmt->bindValue(':telephoneNumber', $this->__get('telephoneNumber'));
+        
         $stmt->execute();
     }
 }

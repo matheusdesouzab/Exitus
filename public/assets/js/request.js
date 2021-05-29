@@ -13,8 +13,6 @@ function addElement(form, route, toastDescription, formType = 'normal', clean = 
                 data: $formData,
                 success: data => {
 
-                    console.log(data)
-
                     clean ? $(`${form} input`).val('') : ''
 
                     showToast(toastDescription, 'bg-success')
@@ -106,7 +104,6 @@ function updateElement(form, route, dataToast) {
         success: data => {
             
             showToast(dataToast, 'bg-primary')
-            console.log(data)
             
         },
         error: erro => showToast('Houve um erro na requisição', 'bg-info')
