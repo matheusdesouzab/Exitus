@@ -2,11 +2,11 @@
 
     <?php foreach ($this->view->listClassRoom as $i => $classRoom) { ?>
 
-        <form id="formClassRoom<?= $classRoom->classroomId ?>" class="card mb-4" action="">
+        <form id="formClassRoom<?= $classRoom->classroom_id ?>" class="card mb-4" action="">
 
             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
-                <input type="hidden" name="classroomId" value="<?= $classRoom->classroomId ?>">
+                <input type="hidden" name="classroomId" value="<?= $classRoom->classroom_id ?>">
 
                 <div class="col-lg-8 font-weight-bold">
                     Sala de aula número <?= $classRoom->classroom_number ?>
@@ -14,15 +14,15 @@
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span idElement="#formClassRoom<?= $classRoom->classroomId ?>" formGroup="containerListClassRoom" class="mr-2 edit-data-icon">
+                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" formGroup="containerListClassRoom" class="mr-2 edit-data-icon">
                         <i class="fas fa-edit"></i>
                     </span>
 
-                    <span idElement="#formClassRoom<?= $classRoom->classroomId ?>" routeUpdate="/admin/gestao/sala/atualizar" toastData="Sala Atualizada" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 update-data-icon">
+                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" routeUpdate="/admin/gestao/sala/atualizar" toastData="Sala Atualizada" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 update-data-icon">
                         <i class="fas fa-check"></i>
                     </span>
 
-                    <span idElement="#formClassRoom<?= $classRoom->classroomId ?>" routeDelete="/admin/gestao/sala/deletar" toastData="Periodo Letivo Atualizado" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 delete-data-icon">
+                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" routeDelete="/admin/gestao/sala/deletar" toastData="Periodo Letivo Atualizado" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 delete-data-icon">
                         <i class="fas fa-ban"></i>
                     </span>
 

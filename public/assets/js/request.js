@@ -1,48 +1,50 @@
-function addElement(form, route, toastDescription, formType = 'normal', clean = true) {
+function addMultipleParts(form, route) {
+
+    let formData = new FormData(this)
+
+    $.ajax({
+        url: route,
+        dataType: 'html',
+        type: 'POST',
+        data: $formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: data => console.log('Tudo ok'),
+        error: error => console.log(error)
+
+    })
+}
+
+
+function addSinglePart(form, route, toastDescription, clean = true) {
 
     let $formData = $(form).serialize()
 
     if ($(`${form} .form-control`).val() != '') {
 
-        if (formType == 'normal') {
+        $.ajax({
+            url: route,
+            dataType: 'html',
+            type: 'POST',
+            data: $formData,
+            success: data => {
 
-            $.ajax({
-                url: route,
-                dataType: 'html',
-                type: 'POST',
-                data: $formData,
-                success: data => {
+                clean ? $(`${form} input`).val('') : ''
 
-                    clean ? $(`${form} input`).val('') : ''
+                showToast(toastDescription, 'bg-success')
 
-                    showToast(toastDescription, 'bg-success')
+            },
 
-                },
+            error: error => console.log(error)
 
-                error: error => console.log(error)
-
-            })
-
-        } else {
-
-            let formData = new FormData(this)
-
-            $.ajax({
-                url: $(this).att('route'),
-                type: 'POST',
-                data: formData,
-                success: data => console.log(data),
-                cache: false,
-                contentType: false,
-                processData: false,
-            });
-
-        }
+        })
 
     } else {
 
         showToast('Preencha todos os campos', 'bg-danger')
     }
+
 }
 
 
@@ -61,7 +63,7 @@ function deleteElement(form, route, dataToast) {
 }
 
 
-function availableElement(elements) {
+function loadOptions(elements) {
 
     $.each(elements, i => {
 
@@ -94,17 +96,15 @@ function updateElement(form, route, dataToast) {
 
     let $formData = $(`${form}`).serialize()
 
-    console.log($formData)
-
     $.ajax({
         url: route,
         type: 'POST',
         dataType: 'html',
         data: $formData,
         success: data => {
-            
+
             showToast(dataToast, 'bg-primary')
-            
+
         },
         error: erro => showToast('Houve um erro na requisição', 'bg-info')
 
@@ -123,12 +123,12 @@ function editElement(activeForm, formGroup) {
 }
 
 
-function listElement(container, route, form = '') {
+function loadListElements(container, route, form = '') {
 
     let $container = $(`[${container}]`)
 
     let $formData = $(`${form}`).serialize()
-    
+
     let loading = '<div class="d-flex justify-content-center loading"><div class="spinner-grow text-primary" role="status"></div></div>'
 
     $container.text('').append(loading)
@@ -186,21 +186,26 @@ function showModal(formId, route, container, modal, type = 'normal') {
 
             $(modal).modal("show")
 
-            if (type == 'profile') {
-
-                $('#cpf').mask('000.000.000-00')
-
-                $('#zipCode').mask('00000-000')
-
-                $("#telephoneNumber").mask(('(00) 00000-0000'))
-
-            }
-
         },
 
         error: erro => $container.append('<h5 class="mt-3">Houve um erro na requisição, tente novamente mais tarde</h5>')
 
     })
+
+}
+
+
+function removerOurAdd(vetor) {
+
+    vetor.forEach((number, index, vetor) => {
+        console.log(number);
+    });
+
+        
+
+        /* vetor[e][1] == 'addClass' ? $(`${vetor[e][0]}`).addClass(`${vetor[e][2]}`) : $(`${vetor[e][0]}`).removeClass(`${vetor[e][2]}`)
+
+        vetor[e][3] == 'needToast' ? showToast(`${vetor[e][4]}`, 'bg-info') : '' */
 
 }
 
@@ -217,24 +222,42 @@ function checkClass() {
 
             let situation = data.replace(/[^\d]+/g, '')
 
-            situation == 00 ? [$('#buttonAddClass').removeClass('disabled'),
-                $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid'),
-                $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
-            ] : ''
+            removerOurAdd([
+                ['#buttonAddClass', 'addClass', 'disabled'],
+                ['#addClass #classRoom , #addClass #shift', 'addClass', 'is-invalid']
+                ['#addClass #ballot , #addClass #series', 'removeClass', 'is-invalid', 'needToast', 'Sala e turno já adicionados']
+            ])
 
-            situation >= 10 ? [
-                $('#buttonAddClass').addClass('disabled'),
-                showToast('Sala e turno já adicionados', 'bg-info'),
-                $('#addClass #classRoom , #addClass #shift ').addClass('is-invalid'),
-                $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
-            ] : ''
+           /*  switch (situation) {
 
-            situation == 01 ? [
-                $('#buttonAddClass').addClass('disabled'),
-                showToast('Série e cédula já adicionadas', 'bg-info'),
-                $('#addClass #ballot , #addClass #series ').addClass('is-invalid'),
-                $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
-            ] : ''
+                case 00:
+
+                    removerOurAdd([
+                        ['#buttonAddClass', 'removeClass', 'disabled'],
+                        ['#addClass #classRoom , #addClass #shift', 'removeClass', 'is-invalid']
+                        ['#addClass #ballot , #addClass #series', 'removeClass', 'is-valid']
+                    ])
+
+                    break
+
+                case 01:
+
+                    removerOurAdd([
+                        ['#buttonAddClass', 'addClass', 'disabled'],
+                        ['#addClass #classRoom , #addClass #shift', 'removeClass', 'is-invalid']
+                        ['#addClass #ballot , #addClass #series', 'addClass', 'is-invalid', 'needToast', 'Série e cédula já adicionadas']
+                    ])
+
+                    break
+
+                case situation >= 10:
+
+                    removerOurAdd([
+                        ['#buttonAddClass', 'addClass', 'disabled'],
+                        ['#addClass #classRoom , #addClass #shift', 'addClass', 'is-invalid']
+                        ['#addClass #ballot , #addClass #series', 'removeClass', 'is-invalid', 'needToast', 'Sala e turno já adicionados']
+                    ])
+            } */
 
         },
         error: erro => console.log(erro)

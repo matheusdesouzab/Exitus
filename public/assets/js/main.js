@@ -7,10 +7,10 @@
 //? List school term using collapseroute
 
 
-$('#collapseListSchoolTerm').on('click', () => listElement('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
+$('#collapseListSchoolTerm').on('click', () => loadListElements('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
 
 $(document).on('click', '[data-target="#class-profile-data"]' , function(){ 
-    listElement('containerListTeacher', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma', '#formClassId')
+    loadListElements('containerListTeacher', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma', '#formClassId')
 })
 
 
@@ -18,13 +18,13 @@ $(document).on('click', '[data-target="#class-profile-data"]' , function(){
 
 
 $('#collapseAddSchoolTerm').on('click', function () {
-    availableElement([
+    loadOptions([
         ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis', 'clean', '']
     ])
 })
 
 $('[data-target="#students-list"]').on('click', function () {
-    listElement('.modal containerListStudent', '/admin/aluno/lista/listagem')
+    loadListElements('.modal containerListStudent', '/admin/aluno/lista/listagem')
 })
 
 
@@ -35,9 +35,9 @@ $('#buttonAddSchoolTerm').on('click', function () {
 
     automaticDate()
 
-    addElement('#addSchoolTerm', '/admin/gestao/periodo-letivo/inserir', 'Período letivo adicionado')
+    addSinglePart('#addSchoolTerm', '/admin/gestao/periodo-letivo/inserir', 'Período letivo adicionado')
 
-    availableElement([
+    loadOptions([
         ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis', 'clean', '']
     ])
 
@@ -52,14 +52,14 @@ $('#buttonAddSchoolTerm').on('click', function () {
 //? List classroom using collapse
 
 
-$('#collapseListClassRoom').on('click', () => listElement('containerListClassRoom', '/admin/gestao/sala/lista'))
+$('#collapseListClassRoom').on('click', () => loadListElements('containerListClassRoom', '/admin/gestao/sala/lista'))
 
 
 //? Group of elements available using collapse
 
 
 $('#collapseAddClassRoom').on('click', function () {
-    availableElement([
+    loadOptions([
         ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean' , '']
     ])
 })
@@ -72,7 +72,7 @@ $('#buttonAddClassRoom').on('click', function () {
 
     addElement('#addClassRoom', '/admin/gestao/sala/inserir', 'Sala de aula adicionada')
 
-    availableElement([
+    loadOptions([
         ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean', '']
     ])
 
@@ -85,7 +85,7 @@ $('#buttonAddClassRoom').on('click', function () {
 //? List classroom using collapse
 
 
-$('#collapseListCourse').on('click', () => listElement('containerListCourse', '/admin/gestao/curso/lista'))
+$('#collapseListCourse').on('click', () => loadListElements('containerListCourse', '/admin/gestao/curso/lista'))
 
 
 //? Add Course
@@ -100,7 +100,7 @@ $('#buttonAddCourse').on('click', () => addElement('#addCourse', '/admin/gestao/
 //? List classroom using collapse
 
 
-$('#collapseListDiscipline').on('click', () => listElement('containerListDiscipline', '/admin/gestao/disciplina/lista'))
+$('#collapseListDiscipline').on('click', () => loadListElements('containerListDiscipline', '/admin/gestao/disciplina/lista'))
 
 
 //? Seek discipline
@@ -180,11 +180,11 @@ $(document).on('click', '#buttonAddClassDiscipline', function () {
 
         addElement('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', 'normal', false)
 
-        availableElement([
+        loadOptions([
             ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean' , '#addClassDiscipline']
         ])
 
-        listElement('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', '#formClassId')
+        loadListElements('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', '#formClassId')
 
     }
 
@@ -193,7 +193,7 @@ $(document).on('click', '#buttonAddClassDiscipline', function () {
 
 $(document).on('click', '#class-discipline-accordion [data-target="#add-discipline"] ' , function(){
 
-    availableElement([
+    loadOptions([
         ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean' , '#addClassDiscipline']
     ])
     
@@ -204,7 +204,7 @@ $(document).on('click', '#class-discipline-accordion [data-target="#add-discipli
 //? List class using collapse
 
 
-$('#collapseListClass').on('click', () => listElement('containerListClass', '/admin/gestao/turma/lista'))
+$('#collapseListClass').on('click', () => loadListElements('containerListClass', '/admin/gestao/turma/lista'))
 
 
 //? Seek class
@@ -240,7 +240,7 @@ $(document).on('click', '.update-data-icon', function () {
 
     updateElement($(this).attr('idElement'), $(this).attr('routeUpdate'), $(this).attr('toastData'))
 
-    listElement($(this).attr('container'), $(this).attr('routeList'), $(this).attr('routeData'))
+    loadListElements($(this).attr('container'), $(this).attr('routeList'), $(this).attr('routeData'))
 
     $(`${$(this).attr('idElement')} .form-control`).prop('disabled', true)
 })
@@ -253,7 +253,7 @@ $(document).on('click', '.delete-data-icon', function () {
 
     deleteElement($(this).attr('idElement'), $(this).attr('routeDelete'), $(this).attr('toastData'))
 
-    listElement($(this).attr('container'), $(this).attr('routeList'))
+    loadListElements($(this).attr('container'), $(this).attr('routeList'))
 })
 
 
@@ -266,7 +266,7 @@ $(document).on('click', '.delete-data-icon', function () {
 //? Add student
 
 
-$("#buttonAddStudent").click(() => addElement(this, '/admin/aluno/cadstro/inserir', ' ', 'formData'))
+$("#buttonAddStudent").click(() => addMultipleParts(this, '/admin/aluno/cadstro/inserir'))
 
 
 $('#seekStudent input[name="name"]').keyup(function (e) {
@@ -284,7 +284,7 @@ $('#seekStudent select').change(() => seekElement('#seekStudent', 'containerList
 //? Masks
 
 
-$('#cpf').on('keypress', e => $(e.target).mask('000.000.000-00'))
+$(document).on('keypress', '#cpf' , e => $(e.target).mask('000.000.000-00'))
 
 $('#zipCode').on('keypress', e => $(e.target).mask('00000-000'))
 

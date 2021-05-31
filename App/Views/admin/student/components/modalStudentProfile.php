@@ -89,7 +89,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="addon-wrapping">CPF:</span>
                                                         </div>
-                                                        <input type="text" id="cpf" name="cpf" disabled class="form-control" value="<?= $student->student_cpf ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                                        <input type="text" onload="this.value = this.value.mask('000.000.000-00')" id="cpf" name="cpf" disabled class="form-control" value="<?= $student->student_cpf ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">

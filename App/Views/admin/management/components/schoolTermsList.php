@@ -8,7 +8,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
             <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
 
-                <div class="col-lg-8 font-weight-bold">Ano letivo <?= $schoolTerm->school_year ?></div>
+                <div class="col-lg-8 font-weight-bold mudar-de-cor">Ano letivo <?= $schoolTerm->school_year ?></div>
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 

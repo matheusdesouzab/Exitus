@@ -48,6 +48,7 @@
                     <hr class="col-lg-11 mx-auto">
 
                     <form class="" id="addStudent" role="form" enctype="multipart/form-data" method="POST" action="/admin/aluno/cadastro/inserir">
+
                         <div class="row collapse show" id="student-registration-initial-data" data-parent="#student-record-accordion">
                             <div class="col-lg-10 mt-2 mx-auto">
                                 <div class="col-md-12">
@@ -246,7 +247,7 @@
                                             ?>
                                                 <?php if ($totalVacancies >= 1) { ?>
 
-                                                    <option value="<?= $class->id_class ?>"><?= $newName ?></option>
+                                                    <option value="<?= $class->class_id ?>"><?= $newName ?></option>
 
                                                 <?php } ?>
 
