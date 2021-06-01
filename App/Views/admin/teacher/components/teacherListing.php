@@ -26,7 +26,7 @@
 
                 <td>43</td>
                 <td><?= $teacher->teacher_sex ?></td>
-                <td>6</td>
+                <td><?= $teacher->total_discipline ?></td>
 
             <?php } else { ?>
 

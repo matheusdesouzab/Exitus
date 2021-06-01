@@ -156,8 +156,8 @@
                                         <div class="col-lg-12">
                                             <div class="collapse show" id="list-discipline" data-parent="#class-discipline-accordion">
                                                 <div class="row" containerListDisciplineClass>
-                                                   
-                                                <?php require '../App/Views/admin/management/components/disciplineClass.php' ?>
+
+                                                    <?php require '../App/Views/admin/management/components/disciplineClass.php' ?>
 
                                                 </div>
 
@@ -189,23 +189,13 @@
 
                                                             <input type="hidden" name="classId" value="<?= $this->view->classId ?>">
 
-                                                            <div class="form-group col-lg-4">
+                                                           
+                                                            <div containerSelectDiscipline class="form-group col-lg-4">
 
-                                                                <label for="">Disciplina:</label>
-
-                                                                <select id="discipline" name="discipline" class="form-control custom-select" required>
-                                                                   
-                                                                    <?php foreach ($this->view->disciplineAvailable as $key => $discipline) { ?>
-                                                                        
-                                                                        <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
-
-                                                                    <?php } ?>
-
-                                                                </select>
-
+                                                            <?php  require '../App/Views/admin/management/components/disciplineSelect.php' ?>
+                                                            
                                                             </div>
-
-
+                                                          
                                                             <div class="form-group col-lg-2">
                                                                 <label for="">&nbsp;</label>
                                                                 <a id="buttonAddClassDiscipline" class="btn btn-success w-100">Adicionar</a>
@@ -213,7 +203,6 @@
 
 
                                                         </div>
-
 
 
                                                     </form>
@@ -234,8 +223,8 @@
 
                         <form id="formClassId" action="">
 
-                        <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
-                        
+                            <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
+
                         </form>
 
 

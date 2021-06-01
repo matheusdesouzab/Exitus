@@ -332,14 +332,6 @@ class AdminManagementController extends Action
     }
 
 
-    public function disciplineAvailable()
-    {
-
-        $Discipline = Container::getModel('Management\\Discipline');
-        echo json_encode($Discipline->available());
-    }
-
-
     // Class
 
 
@@ -435,7 +427,8 @@ class AdminManagementController extends Action
 
         $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('classId'));
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplineAvailable = $Discipline->available();
+        $this->view->disciplineAvailable = $ClassDiscipline->available();
+        $this->view->disciplineAll = $ClassDiscipline->disciplineAll();
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
@@ -472,9 +465,35 @@ class AdminManagementController extends Action
 
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplineAvailable = $Discipline->available();
+        $this->view->disciplineAvailable = $ClassDiscipline->available();
 
         $this->render('/components/disciplineClass', 'SimpleLayout');
+    }
+
+
+    public function disciplineAvailable()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+
+        $ClassDiscipline->__set('fk_id_class', $_POST['classId']);
+        
+        echo json_encode($ClassDiscipline->available());
+    }
+
+
+    public function SelectClassDiscipline()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+
+        $this->view->disciplineAvailable = $ClassDiscipline->available();
+        $this->view->disciplineAll = $ClassDiscipline->disciplineAll();
+
+        $this->render('/components/disciplineSelect', 'SimpleLayout');
+
     }
 
 

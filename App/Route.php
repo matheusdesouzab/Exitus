@@ -384,6 +384,12 @@ class Route extends Bootstrap
 			'action' => 'updateClassDiscipline'
 		);
 
+		$routes['adminSelectClassDiscipline'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas',
+			'controller' => 'AdminManagementController',
+			'action' => 'SelectClassDiscipline'
+		);
+
 
 		$this->setRoutes($routes);
 	}

@@ -4,7 +4,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
     foreach ($this->view->listSchoolTerm as $i => $schoolTerm) { ?>
 
-        <form id="formSchoolTerm<?= $schoolTerm->school_term_id ?>" class="card mb-3" action="">
+        <form id="formSchoolTerm<?= $schoolTerm->school_term_id ?>" class="card mb-3" action="" style='<?= $schoolTerm->fk_id_situation_school_term == 1 ? "border-left: 5px solid blue" : "" ?>'>
 
             <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
 

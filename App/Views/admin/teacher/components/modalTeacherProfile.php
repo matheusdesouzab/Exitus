@@ -195,7 +195,7 @@
                                                         <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $teacher->teacher_telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                                     </div>
 
-                                                    <input type="hidden" name="classId" value="<?= $this->view->subjectsThatTeacherTeaches[0]->discipline_class_id ?>">
+                                                    <input type="hidden" name="classId" value="<?= isset($this->view->subjectsThatTeacherTeaches[0]->discipline_class_id) ? $this->view->subjectsThatTeacherTeaches[0]->discipline_class_id : ''  ?>">
 
                                                 <?php } ?>
 
@@ -207,13 +207,13 @@
 
                                     <div class="row p-3">
 
-                                        <h5 class="mb-3 ml-2"> <?= $this->view->subjectsThatTeacherTeaches[0]->total_discipline ?> Disciplinas ativa:</h5>
+                                        <h5 class="mb-3 ml-2"> <?= count($this->view->subjectsThatTeacherTeaches) ?> Disciplinas ativa:</h5>
 
                                         <div class="col-lg-12">
 
                                             <div class="row">
 
-                                                <?php if ($this->view->subjectsThatTeacherTeaches[0]->total_discipline > 0) { ?>
+                                                <?php if (count($this->view->subjectsThatTeacherTeaches) > 0) { ?>
 
                                                     <?php foreach ($this->view->subjectsThatTeacherTeaches as $key => $data) { ?>
 

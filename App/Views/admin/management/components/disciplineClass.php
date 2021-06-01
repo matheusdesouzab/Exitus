@@ -50,12 +50,6 @@ if (count($this->view->listTeacher) >= 1) {
 
                         <option value="<?= $discipline->discipline_id ?>"><?= $discipline->discipline_name ?></option>
 
-                        <?php foreach ($this->view->disciplineAvailable as $key => $discipline) {
-                            if ($discipline->discipline_id != $discipline->option_value) { ?>
-                                <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
-                        <?php }
-                        } ?>
-
                     </select>
 
                 </div>

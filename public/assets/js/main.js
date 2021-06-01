@@ -4,17 +4,7 @@
 // School Term
 
 
-//? List school term using collapseroute
-
-
 $('#collapseListSchoolTerm').on('click', () => loadListElements('containerListSchoolTerm', '/admin/gestao/periodo-letivo/lista'))
-
-$(document).on('click', '[data-target="#class-profile-data"]' , function(){ 
-    loadListElements('containerListTeacher', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma', '#formClassId')
-})
-
-
-//? Group of elements available using collapse
 
 
 $('#collapseAddSchoolTerm').on('click', function () {
@@ -22,13 +12,6 @@ $('#collapseAddSchoolTerm').on('click', function () {
         ['schoolYear', '/admin/gestao/periodo-letivo/lista-anos-disponiveis', 'clean', '']
     ])
 })
-
-$('[data-target="#students-list"]').on('click', function () {
-    loadListElements('.modal containerListStudent', '/admin/aluno/lista/listagem')
-})
-
-
-//? Add school year
 
 
 $('#buttonAddSchoolTerm').on('click', function () {
@@ -48,29 +31,21 @@ $('#buttonAddSchoolTerm').on('click', function () {
 // ClassRoom
 
 
-
-//? List classroom using collapse
-
-
 $('#collapseListClassRoom').on('click', () => loadListElements('containerListClassRoom', '/admin/gestao/sala/lista'))
 
 
-//? Group of elements available using collapse
-
-
 $('#collapseAddClassRoom').on('click', function () {
+
     loadOptions([
         ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean' , '']
     ])
+
 })
-
-
-//? Button to add classroom
 
 
 $('#buttonAddClassRoom').on('click', function () {
 
-    addElement('#addClassRoom', '/admin/gestao/sala/inserir', 'Sala de aula adicionada')
+    addSinglePart('#addClassRoom', '/admin/gestao/sala/inserir', 'Sala de aula adicionada')
 
     loadOptions([
         ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean', '']
@@ -82,28 +57,16 @@ $('#buttonAddClassRoom').on('click', function () {
 // Course
 
 
-//? List classroom using collapse
-
-
 $('#collapseListCourse').on('click', () => loadListElements('containerListCourse', '/admin/gestao/curso/lista'))
 
 
-//? Add Course
-
-
-$('#buttonAddCourse').on('click', () => addElement('#addCourse', '/admin/gestao/curso/inserir', 'Curso adicionado'))
+$('#buttonAddCourse').on('click', () => addSinglePart('#addCourse', '/admin/gestao/curso/inserir', 'Curso adicionado'))
 
 
 // Discipline
 
 
-//? List classroom using collapse
-
-
 $('#collapseListDiscipline').on('click', () => loadListElements('containerListDiscipline', '/admin/gestao/disciplina/lista'))
-
-
-//? Seek discipline
 
 
 $('select[name="seekModality"]').change(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'))
@@ -111,13 +74,81 @@ $('select[name="seekModality"]').change(() => seekElement('#seekDiscipline', 'co
 
 let timeout = null
 
+
 $('input[name="seekName"]').keyup(function (e) {
 
-    if (timeout) clearTimeout(timeout);
+    if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => seekElement('#seekDiscipline', 'containerListDiscipline', '/admin/gestao/disciplina/buscar'), 2000)
 
 })
+
+
+// Class
+
+
+$('#buttonAddClass').on('click', function () {
+
+    addSinglePart('#addClass', '/admin/gestao/turma/inserir', 'Turma adicionada')
+
+    checkClass()
+
+})
+
+
+$(document).on('click', '[data-target="#class-profile-data"]' , function() { 
+
+    loadListElements('containerListTeacher', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma', '#formClassId')
+
+})
+
+
+$('[data-target="#students-list"]').on('click', function () {
+
+    loadListElements('.modal containerListStudent', '/admin/aluno/lista/listagem')
+
+})
+
+
+$(document).on('click', '#buttonAddClassDiscipline', function () {
+
+
+    if ($('#addClassDiscipline #discipline option').length == 0 || $('#addClassDiscipline #teacher option').length == 0) {
+
+        $("#modalErrorDisciplineClass").modal("show")
+
+    } else {
+
+        addSinglePart('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', 'normal', false)
+
+        loadListElements('containerSelectDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas' , '#addClassDiscipline')
+
+        loadListElements('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', '#formClassId')
+
+    }
+
+})
+
+/* 
+$(document).on('click', '#class-discipline-accordion [data-target="#add-discipline"] ' , function(){
+
+    loadOptions([
+        ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean' , '#addClassDiscipline']
+    ])
+    
+}) */
+
+
+$('#collapseListClass').on('click', () => loadListElements('containerListClass', '/admin/gestao/turma/lista'))
+
+
+$('#seekClass .custom-select').change(() => seekElement('#seekClass', 'containerListClass', '/admin/gestao/turma/buscar'))
+
+
+$('#addClass .form-control').change(checkClass)
+
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 
 //? Show modal
@@ -152,71 +183,7 @@ $('input[name="acronym"]').on('keyup', e => e.target.value = e.target.value.toUp
 //? Add discipline
 
 
-$('#buttonAddDiscipline').on('click', () => addElement('#addDiscipline', '/admin/gestao/disciplina/inserir', 'Disciplina adicionada'))
-
-
-// Class
-
-
-//? Add class
-
-
-$('#buttonAddClass').on('click', function () {
-
-    addElement('#addClass', '/admin/gestao/turma/inserir', 'Turma adicionada')
-
-    checkClass()
-
-})
-
-
-$(document).on('click', '#buttonAddClassDiscipline', function () {
-
-    if ($('#addClassDiscipline #discipline option').length == 0 || $('#addClassDiscipline #teacher option').length == 0) {
-
-        $("#modalErrorDisciplineClass").modal("show")
-
-    } else {
-
-        addElement('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', 'normal', false)
-
-        loadOptions([
-            ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean' , '#addClassDiscipline']
-        ])
-
-        loadListElements('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', '#formClassId')
-
-    }
-
-})
-
-
-$(document).on('click', '#class-discipline-accordion [data-target="#add-discipline"] ' , function(){
-
-    loadOptions([
-        ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean' , '#addClassDiscipline']
-    ])
-    
-})
-
-
-
-//? List class using collapse
-
-
-$('#collapseListClass').on('click', () => loadListElements('containerListClass', '/admin/gestao/turma/lista'))
-
-
-//? Seek class
-
-
-$('#seekClass .custom-select').change(() => seekElement('#seekClass', 'containerListClass', '/admin/gestao/turma/buscar'))
-
-
-//? Check class
-
-
-$('#addClass .form-control').change(checkClass)
+$('#buttonAddDiscipline').on('click', () => addSinglePart('#addDiscipline', '/admin/gestao/disciplina/inserir', 'Disciplina adicionada'))
 
 
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -225,15 +192,11 @@ $('#addClass .form-control').change(checkClass)
 // Edit , update and delete
 
 
-//? Edit element
-
-
 $(document).on('click', '.edit-data-icon', function () {
+
     editElement($(this).attr('idElement'), $(this).attr('formGroup'))
+
 })
-
-
-//? Update element
 
 
 $(document).on('click', '.update-data-icon', function () {
@@ -243,10 +206,8 @@ $(document).on('click', '.update-data-icon', function () {
     loadListElements($(this).attr('container'), $(this).attr('routeList'), $(this).attr('routeData'))
 
     $(`${$(this).attr('idElement')} .form-control`).prop('disabled', true)
+
 })
-
-
-//? Delete element
 
 
 $(document).on('click', '.delete-data-icon', function () {
@@ -254,6 +215,7 @@ $(document).on('click', '.delete-data-icon', function () {
     deleteElement($(this).attr('idElement'), $(this).attr('routeDelete'), $(this).attr('toastData'))
 
     loadListElements($(this).attr('container'), $(this).attr('routeList'))
+
 })
 
 
@@ -261,9 +223,6 @@ $(document).on('click', '.delete-data-icon', function () {
 
 
 //* Student 
-
-
-//? Add student
 
 
 $("#buttonAddStudent").click(() => addMultipleParts(this, '/admin/aluno/cadstro/inserir'))
@@ -286,19 +245,12 @@ $('#seekStudent select').change(() => seekElement('#seekStudent', 'containerList
 
 $(document).on('keypress', '#cpf' , e => $(e.target).mask('000.000.000-00'))
 
-$('#zipCode').on('keypress', e => $(e.target).mask('00000-000'))
+$(document).on('keypress', '#zipCode', e => $(e.target).mask('00000-000'))
 
-$("#telephone").on('keypress', e => $(e.target).mask(('(00) 00000-0000')))
-
-
-//? Automatic cep
+$(document).on('keypress', '#telephone', e => $(e.target).mask(('(00) 00000-0000')))
 
 
 $('#zipCode').on('blur', getLocation)
-
-
-//************************************************************************** */
-
 
 
 //* General
@@ -317,22 +269,19 @@ $('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggl
 
 
 let validation = new Validation()
+let commonElements = ['#name , #birthDate', '#naturalness', '#nationality', '#motherName', '#fatherName']
+let address = ['#county', '#district', '#address', '#uf']
 
 
-// Applying validation
+commonElements.forEach(element => $(element).on('blur', e => validation.validateByContent(e.target.id)))
+
+address.forEach(element => $(element).on('blur', e => validation.validateByContent(e.target.id)))
 
 
 $('#cpf').on('blur', e => validation.cpfState(e.target.value))
 
 $('#telephone').on('blur', e => validation.validateBySize(e.target.id, 11, '#telephoneField', 'telephone-info'))
 
-let commonElements = ['#name , #birthDate', '#naturalness', '#nationality', '#motherName', '#fatherName']
-
-commonElements.forEach(element => $(element).on('blur', e => validation.validateByContent(e.target.id)))
-
-let address = ['#county', '#district', '#address', '#uf']
-
-address.forEach(element => $(element).on('blur', e => validation.validateByContent(e.target.id)))
 
 $('#profilePhoto').change(function () {
     validation.validateImage()

@@ -6,7 +6,7 @@ function addMultipleParts(form, route) {
         url: route,
         dataType: 'html',
         type: 'POST',
-        data: $formData,
+        data: formData,
         cache: false,
         contentType: false,
         processData: false,
@@ -195,21 +195,6 @@ function showModal(formId, route, container, modal, type = 'normal') {
 }
 
 
-function removerOurAdd(vetor) {
-
-    vetor.forEach((number, index, vetor) => {
-        console.log(number);
-    });
-
-        
-
-        /* vetor[e][1] == 'addClass' ? $(`${vetor[e][0]}`).addClass(`${vetor[e][2]}`) : $(`${vetor[e][0]}`).removeClass(`${vetor[e][2]}`)
-
-        vetor[e][3] == 'needToast' ? showToast(`${vetor[e][4]}`, 'bg-info') : '' */
-
-}
-
-
 function checkClass() {
 
     let dados = $('#addClass')
@@ -222,42 +207,24 @@ function checkClass() {
 
             let situation = data.replace(/[^\d]+/g, '')
 
-            removerOurAdd([
-                ['#buttonAddClass', 'addClass', 'disabled'],
-                ['#addClass #classRoom , #addClass #shift', 'addClass', 'is-invalid']
-                ['#addClass #ballot , #addClass #series', 'removeClass', 'is-invalid', 'needToast', 'Sala e turno já adicionados']
-            ])
+            situation == 00 ? [$('#buttonAddClass').removeClass('disabled'),
+                $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid'),
+                $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+            ] : ''
 
-           /*  switch (situation) {
+            situation >= 10 ? [
+                $('#buttonAddClass').addClass('disabled'),
+                showToast('Sala e turno já adicionados', 'bg-info'),
+                $('#addClass #classRoom , #addClass #shift ').addClass('is-invalid'),
+                $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+            ] : ''
 
-                case 00:
-
-                    removerOurAdd([
-                        ['#buttonAddClass', 'removeClass', 'disabled'],
-                        ['#addClass #classRoom , #addClass #shift', 'removeClass', 'is-invalid']
-                        ['#addClass #ballot , #addClass #series', 'removeClass', 'is-valid']
-                    ])
-
-                    break
-
-                case 01:
-
-                    removerOurAdd([
-                        ['#buttonAddClass', 'addClass', 'disabled'],
-                        ['#addClass #classRoom , #addClass #shift', 'removeClass', 'is-invalid']
-                        ['#addClass #ballot , #addClass #series', 'addClass', 'is-invalid', 'needToast', 'Série e cédula já adicionadas']
-                    ])
-
-                    break
-
-                case situation >= 10:
-
-                    removerOurAdd([
-                        ['#buttonAddClass', 'addClass', 'disabled'],
-                        ['#addClass #classRoom , #addClass #shift', 'addClass', 'is-invalid']
-                        ['#addClass #ballot , #addClass #series', 'removeClass', 'is-invalid', 'needToast', 'Sala e turno já adicionados']
-                    ])
-            } */
+            situation == 01 ? [
+                $('#buttonAddClass').addClass('disabled'),
+                showToast('Série e cédula já adicionadas', 'bg-info'),
+                $('#addClass #ballot , #addClass #series ').addClass('is-invalid'),
+                $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
+            ] : ''
 
         },
         error: erro => console.log(erro)

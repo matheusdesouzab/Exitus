@@ -62,8 +62,21 @@ class Teacher extends People
 
         return $this->speedingUp(
 
-            "SELECT 
+            "SELECT DISTINCT
+
+            (SELECT COUNT(turma_disciplina.id_turma_disciplina) 
+
+            FROM turma_disciplina           
+                
+            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma) 
+            LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)         
+            LEFT JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
+
+            WHERE turma_disciplina.fk_id_professor = professor.id_professor 
             
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS total_discipline ,
+                                  
             professor.id_professor AS teacher_id , 
             professor.nome_professor AS teacher_name , 
             professor.foto_perfil_professor AS profilePhoto , 
@@ -72,7 +85,8 @@ class Teacher extends People
             
             FROM professor 
             
-            LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)"
+            LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)
+            LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)"
 
         );
     }
