@@ -421,17 +421,20 @@ class AdminManagementController extends Action
         $Discipline = Container::getModel('Management\\Discipline');
         $Classe = Container::getModel('Management\\Classe');
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+        $Exam = Container::getModel('Management\\Exam');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['id']);
         $Classe->__set('classId', $_GET['id']);
 
         $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('classId'));
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplineAvailable = $ClassDiscipline->available();
-        $this->view->disciplineAll = $ClassDiscipline->disciplineAll();
+        $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
+        $this->view->disciplineAll = $Discipline->disciplineAll();
+        $this->view->disciplinesAlreadyAdded = $ClassDiscipline->disciplinesAlreadyAdded();
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
+        $this->view->unity = $Exam->unity();
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         
 
@@ -465,7 +468,7 @@ class AdminManagementController extends Action
 
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplineAvailable = $ClassDiscipline->available();
+        $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
 
         $this->render('/components/disciplineClass', 'SimpleLayout');
     }
@@ -478,7 +481,7 @@ class AdminManagementController extends Action
 
         $ClassDiscipline->__set('fk_id_class', $_POST['classId']);
         
-        echo json_encode($ClassDiscipline->available());
+        echo json_encode($ClassDiscipline->disciplinesNotYetAdded());
     }
 
 
@@ -486,11 +489,12 @@ class AdminManagementController extends Action
     {
 
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+        $Discipline = Container::getModel('Management\\Discipline');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
-        $this->view->disciplineAvailable = $ClassDiscipline->available();
-        $this->view->disciplineAll = $ClassDiscipline->disciplineAll();
+        $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
+        $this->view->disciplineAll = $Discipline->disciplineAll();
 
         $this->render('/components/disciplineSelect', 'SimpleLayout');
 
@@ -511,5 +515,44 @@ class AdminManagementController extends Action
 
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
      
+    }
+
+
+    public function disciplinesAlreadyAdded()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+
+        $ClassDiscipline->__set("fk_id_class", $_GET['id']);
+
+        echo json_encode($ClassDiscipline->disciplinesAlreadyAdded());
+    }
+
+
+    public function examInsert()
+    {
+
+        $Exam = Container::getModel('Management\\Exam');
+
+        $Exam->__set("examDescription" , $_POST['examDescription']);
+        $Exam->__set("examValue" , $_POST['examValue']);
+        $Exam->__set("realizeDate" , $_POST['realizeDate']);
+        $Exam->__set("fk_id_exam_unity" , $_POST['unity']);
+        $Exam->__set("fk_id_discipline_class" , $_POST['disciplineClassId']);
+
+        $Exam->insert();
+
+    }
+
+
+    public function sumUnitGrades(){
+
+        $Exam = Container::getModel('Management\\Exam');
+
+        $Exam->__set("fk_id_exam_unity" , $_GET['unity']);
+        $Exam->__set("fk_id_discipline_class" , $_GET['disciplineClassId']);
+
+        echo json_encode($Exam->sumUnitGrades());
+
     }
 }

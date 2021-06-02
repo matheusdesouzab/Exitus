@@ -189,5 +189,12 @@ class Discipline extends Model
     }
 
 
-    
+    public function disciplineAll()
+    {
+
+        return $this->speedingUp(
+            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina;"
+        );
+        
+    }
 }

@@ -119,7 +119,7 @@ $(document).on('click', '#buttonAddClassDiscipline', function () {
 
     } else {
 
-        addSinglePart('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', 'normal', false)
+        addSinglePart('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada' , false)
 
         loadListElements('containerSelectDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas' , '#addClassDiscipline')
 
@@ -249,6 +249,20 @@ $(document).on('keypress', '#zipCode', e => $(e.target).mask('00000-000'))
 
 $(document).on('keypress', '#telephone', e => $(e.target).mask(('(00) 00000-0000')))
 
+$(document).on('input' , '#examValue' , function(){
+    
+        if (this.value.length > 4) {
+            this.value = this.value.slice(0,4); 
+        }
+})
+
+/* 
+$(document).on("change", '#examValue' , function(){
+    $(this).val(parseFloat($(this).val()).toFixed(2));
+ })
+ */
+//$(document).on('keypress' , '' , e => $(e.target).mask('00.0'))
+
 
 $('#zipCode').on('blur', getLocation)
 
@@ -291,3 +305,34 @@ $('#profilePhoto').change(function () {
 
 $('[data-target="#student-registration-class"]').on('click', () => validation.checkAllFields('#addStudent', 18, '#buttonAddStudent'))
 $('#teacherAddressOthers .form-control').on('blur', () => validation.checkAllFields('#addTeacher', 15, '#buttonAddTeacher'))
+
+
+
+$(document).on('click' , '#buttonAddExam', function(e){
+
+     //addSinglePart('#addExam', '/admin/gestao/turma/perfil-turma/avaliacoes/inserir', 'Avaliação adicionada' , false)
+
+     //this.preventDefault()
+
+     let $form = $('#addExam').serialize() 
+
+     $.ajax({
+         type: "GET",
+         url: "/admin/gestao/turma/perfil-turma/avaliacoes/soma-notas-unidade",
+         data: $form,
+         dataType: 'json',
+         success: response => {
+
+            let sumNote = response[0].sum_notes
+
+            let validation = new Validation()
+
+            console.log(validation.round(sumNote,2))
+             
+         },
+         error: erro => console.log(erro)
+     })
+
+    
+
+})

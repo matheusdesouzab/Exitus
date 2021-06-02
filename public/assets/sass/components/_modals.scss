@@ -62,8 +62,8 @@
             margin-top: -10px;
         }
 
-        input:disabled,
-        select:disabled {
+        input:disabled
+        {
             background: $color-pure-gray;
             border: 1px solid $color-extra-light-blue;
         }
@@ -135,13 +135,6 @@
             margin-bottom: 13px;
         }
 
-        input:disabled , select:disabled {
-            background-color: transparent;
-            font-weight: bold;
-            border: none;
-            padding-left: 0px;
-        }
-
         img {
             display: flex;
             justify-content: center;
@@ -176,6 +169,17 @@
 
         }
 
+    }
+
+    #profileTeacherModal ,#profileStudentModal  {
+        
+        input:disabled , select:disabled{
+        background-color: transparent;
+        font-weight: bold;
+        border: none;
+        padding-left: 0px;
+
+        }
     }
 
     #modal-discipline {

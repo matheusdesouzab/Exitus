@@ -227,8 +227,7 @@ select:disabled {
   background-color: #F4F6F6;
   margin-top: -10px;
 }
-#pagina .modal-profile input:disabled,
-#pagina .modal-profile select:disabled {
+#pagina .modal-profile input:disabled {
   background: #F4F6F6;
   border: 1px solid #e4d9ff;
 }
@@ -313,12 +312,6 @@ select:disabled {
   padding-left: 0;
   margin-bottom: 13px;
 }
-#pagina .modal-profile input:disabled, #pagina .modal-profile select:disabled {
-  background-color: transparent;
-  font-weight: bold;
-  border: none;
-  padding-left: 0px;
-}
 #pagina .modal-profile img {
   display: flex;
   justify-content: center;
@@ -342,6 +335,12 @@ select:disabled {
 #pagina .modal-profile #student-profile-newsletter td,
 #pagina .modal-profile #student-profile-newsletter th {
   font-size: 13px;
+}
+#pagina #profileTeacherModal input:disabled, #pagina #profileTeacherModal select:disabled, #pagina #profileStudentModal input:disabled, #pagina #profileStudentModal select:disabled {
+  background-color: transparent;
+  font-weight: bold;
+  border: none;
+  padding-left: 0px;
 }
 #pagina #modal-discipline .modal-content {
   border: none;
@@ -1104,7 +1103,5 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
     display: none;
   }
 }
-
-
 
 /*# sourceMappingURL=stylesheet.css.map */

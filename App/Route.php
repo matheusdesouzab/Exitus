@@ -387,8 +387,22 @@ class Route extends Bootstrap
 		$routes['adminSelectClassDiscipline'] = array(
 			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas',
 			'controller' => 'AdminManagementController',
-			'action' => 'SelectClassDiscipline'
+			'action' => 'selectClassDiscipline'
 		);
+
+		$routes['adminExamInsert'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/inserir',
+			'controller' => 'AdminManagementController',
+			'action' => 'examInsert'
+		);
+
+		$routes['adminSumUnitGrades'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/soma-notas-unidade',
+			'controller' => 'AdminManagementController',
+			'action' => 'sumUnitGrades'
+		);
+
+
 
 
 		$this->setRoutes($routes);

@@ -174,16 +174,7 @@ class ClassDiscipline extends Model
     }
 
 
-    public function disciplineAll()
-    {
-
-        return $this->speedingUp(
-            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina;"
-        );
-        
-    }
-
-    public function available()
+    public function disciplinesNotYetAdded()
     {
 
         $query = 
@@ -198,16 +189,54 @@ class ClassDiscipline extends Model
             LEFT JOIN turma_disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina) 
             LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
 
-            WHERE turma.id_turma = :fk_id_class ";
+            WHERE turma.id_turma = :fk_id_class 
+            
+        ";
 
-            $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare($query);
 
-            $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
 
-            $stmt->execute();
+        $stmt->execute();
 
-            return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
 
     }
+
+
+    public function disciplinesAlreadyAdded()
+    {
+
+        $query = 
+        
+            "SELECT 
+            
+            turma_disciplina.id_turma_disciplina AS option_value , 
+            disciplina.nome_disciplina AS option_text 
+            
+            FROM turma_disciplina 
+            
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            
+            WHERE turma_disciplina.fk_id_turma = :fk_id_class
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+
+    }
+
+
+    
+
+
+
+
 
 }
