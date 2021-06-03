@@ -8,8 +8,6 @@ foreach ($this->view->disciplineAvailable as $key => $discipline) {
 
 ?>
 
-
-
     <label for="">Disciplina:</label>
 
     <select id="discipline" name="discipline" class="form-control custom-select" required>

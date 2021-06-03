@@ -402,6 +402,12 @@ class Route extends Bootstrap
 			'action' => 'sumUnitGrades'
 		);
 
+		$routes['adminExamList'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/lista',
+			'controller' => 'AdminManagementController',
+			'action' => 'examList'
+		);
+
 
 
 

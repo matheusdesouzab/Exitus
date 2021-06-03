@@ -501,6 +501,22 @@ class AdminManagementController extends Action
     }
 
 
+    public function examList()
+    {
+
+        $Exam = Container::getModel('Management\\Exam');
+
+        $Exam->__set("fk_id_exam_unity" , $_GET['unity']);
+        $Exam->__set("fk_id_discipline_class" , $_GET['disciplineClassId']);
+
+        $this->view->listExam = $Exam->examList("WHERE avaliacoes.fk_id_unidade_avaliacao = ". $Exam->__get('fk_id_exam_unity'). " AND avaliacoes.fk_turma_disciplina_avaliacao = " . $Exam->__get('fk_id_discipline_class'));
+
+        $this->render('/components/examsAlreadyAdded', 'SimpleLayout');
+
+    }
+
+
+
     public function updateClassDiscipline()
     {
 
@@ -545,7 +561,8 @@ class AdminManagementController extends Action
     }
 
 
-    public function sumUnitGrades(){
+    public function sumUnitGrades()
+    {
 
         $Exam = Container::getModel('Management\\Exam');
 
@@ -555,4 +572,7 @@ class AdminManagementController extends Action
         echo json_encode($Exam->sumUnitGrades());
 
     }
+
+
+    
 }

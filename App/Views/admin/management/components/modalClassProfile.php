@@ -305,7 +305,7 @@
 
                                                     <label for="">Disciplina:</label>
 
-                                                    <select id="inputState" class="form-control custom-select" name="disciplineClassId" required>
+                                                    <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
 
                                                         <?php foreach ($this->view->disciplinesAlreadyAdded as $key => $discipline) { ?>
 
@@ -320,7 +320,7 @@
                                                 <div class="form-group col-lg-2">
                                                     <label for="">Unidade:</label>
 
-                                                    <select id="inputState" class="form-control custom-select" name="unity" required>
+                                                    <select id="unity" class="form-control custom-select" name="unity" required>
 
                                                         <?php foreach ($this->view->unity as $key => $unity) { ?>
 
@@ -334,16 +334,16 @@
 
                                             </div>
 
-                                            <div class="form-row">  
+                                            <div class="form-row">
 
-                                             <div class="form-group col-lg-4">
+                                                <div class="form-group col-lg-4">
                                                     <label for="">Data de realização:</label>
                                                     <input class="form-control" name="realizeDate" id="realizeDate" type="date">
-                                                </div>  
+                                                </div>
 
                                                 <div class="form-group col-lg-2">
                                                     <label for="">Valor:</label>
-                                                    <input class="form-control" step="0.1" name="examValue" id="examValue" type="number">
+                                                    <input class="form-control" value="0.0" name="examValue" id="examValue" type="text">
                                                 </div>
 
                                                 <div class="form-group col-lg-3 ml-auto">
@@ -353,9 +353,10 @@
 
                                             </div>
 
-
-
                                         </form>
+
+                                        <div containerListExam></div>
+
 
                                     </div>
 

@@ -566,6 +566,11 @@ select:disabled {
   width: 0;
   background: transparent;
 }
+#pagina #tableListExam td {
+  padding: 1.5px;
+  text-align: center;
+  font-size: 14px;
+}
 #pagina .registration-session-in-stages {
   display: table;
   width: 100%;

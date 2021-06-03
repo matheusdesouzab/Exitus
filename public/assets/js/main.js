@@ -37,7 +37,7 @@ $('#collapseListClassRoom').on('click', () => loadListElements('containerListCla
 $('#collapseAddClassRoom').on('click', function () {
 
     loadOptions([
-        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean' , '']
+        ['classroomNumber', '/admin/gestao/sala/lista-numeros-disponiveis', 'clean', '']
     ])
 
 })
@@ -96,7 +96,7 @@ $('#buttonAddClass').on('click', function () {
 })
 
 
-$(document).on('click', '[data-target="#class-profile-data"]' , function() { 
+$(document).on('click', '[data-target="#class-profile-data"]', function () {
 
     loadListElements('containerListTeacher', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma', '#formClassId')
 
@@ -119,9 +119,9 @@ $(document).on('click', '#buttonAddClassDiscipline', function () {
 
     } else {
 
-        addSinglePart('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada' , false)
+        addSinglePart('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', false)
 
-        loadListElements('containerSelectDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas' , '#addClassDiscipline')
+        loadListElements('containerSelectDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', '#addClassDiscipline')
 
         loadListElements('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', '#formClassId')
 
@@ -243,25 +243,11 @@ $('#seekStudent select').change(() => seekElement('#seekStudent', 'containerList
 //? Masks
 
 
-$(document).on('keypress', '#cpf' , e => $(e.target).mask('000.000.000-00'))
+$(document).on('keypress', '#cpf', e => $(e.target).mask('000.000.000-00'))
 
 $(document).on('keypress', '#zipCode', e => $(e.target).mask('00000-000'))
 
 $(document).on('keypress', '#telephone', e => $(e.target).mask(('(00) 00000-0000')))
-
-$(document).on('input' , '#examValue' , function(){
-    
-        if (this.value.length > 4) {
-            this.value = this.value.slice(0,4); 
-        }
-})
-
-/* 
-$(document).on("change", '#examValue' , function(){
-    $(this).val(parseFloat($(this).val()).toFixed(2));
- })
- */
-//$(document).on('keypress' , '' , e => $(e.target).mask('00.0'))
 
 
 $('#zipCode').on('blur', getLocation)
@@ -308,31 +294,73 @@ $('#teacherAddressOthers .form-control').on('blur', () => validation.checkAllFie
 
 
 
-$(document).on('click' , '#buttonAddExam', function(e){
+$(document).on('click', '#buttonAddExam', function (e) {
 
-     //addSinglePart('#addExam', '/admin/gestao/turma/perfil-turma/avaliacoes/inserir', 'Avaliação adicionada' , false)
+    let $form = $('#addExam').serialize()
 
-     //this.preventDefault()
+    $.ajax({
+        type: "GET",
+        url: "/admin/gestao/turma/perfil-turma/avaliacoes/soma-notas-unidade",
+        data: $form,
+        dataType: 'json',
+        success: response => {
 
-     let $form = $('#addExam').serialize() 
+            if (response[0].sum_notes >= 10) {
 
-     $.ajax({
-         type: "GET",
-         url: "/admin/gestao/turma/perfil-turma/avaliacoes/soma-notas-unidade",
-         data: $form,
-         dataType: 'json',
-         success: response => {
+                alert('Você chegou ao limite de nota')
 
-            let sumNote = response[0].sum_notes
+            } else {
 
-            let validation = new Validation()
+                addSinglePart('#addExam', '/admin/gestao/turma/perfil-turma/avaliacoes/inserir', 'Avaliação adicionada', false)
+            }
 
-            console.log(validation.round(sumNote,2))
-             
-         },
-         error: erro => console.log(erro)
-     })
+        }
+    })
 
-    
+    this.preventDefault()
+
+})
+
+
+$(document).on('blur', '#addExam #disciplineClassId', function (e) {
+
+    loadListElements('containerListExam', '/admin/gestao/turma/perfil-turma/avaliacoes/lista', '#addExam')
+
+})
+
+$(document).on('keyup', '#examValue', function (e) {
+
+    let $form = $('#addExam').serialize()
+
+    $.ajax({
+        type: "GET",
+        url: "/admin/gestao/turma/perfil-turma/avaliacoes/soma-notas-unidade",
+        data: $form,
+        dataType: 'json',
+        success: response => {
+
+            let sumNote = response[0].sum_notes || 0
+
+            sumNote = (10 - validation.round(sumNote, 1))
+
+            console.log(sumNote)
+
+            var code = (e.keyCode || e.which)
+
+            if (code == 37 || code == 38 || code == 39 || code == 40 || code == 8) return
+
+            var num = Number(this.value.replace(".", "."))
+
+            if (this.value.replace(".", "").length > 2) num = num * 100
+
+            var value = (num <= sumNote ? num : sumNote)
+
+            this.value = value.toFixed(1).replace(".", ".")
+
+        },
+        error: erro => console.log(erro)
+    })
+
+
 
 })

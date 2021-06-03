@@ -6,8 +6,7 @@ use MF\Model\Model;
 
 class Exam extends Model
 {
-
-   
+ 
     private $examId;
     private $examDescription;
     private $examValue;
@@ -91,6 +90,29 @@ class Exam extends Model
 
     }
 
-}
 
-?>
+    public function examList($operation = ''){
+
+        return $this->speedingUp(
+        
+            "SELECT 
+            
+            avaliacoes.id_avaliacao AS exam_id, 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name, 
+            avaliacoes.data_realizada AS realize_date, 
+            avaliacoes.valor_avaliacao AS exam_value, 
+            unidade.unidade AS unity
+            
+            FROM avaliacoes 
+            
+            LEFT JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            
+            $operation
+            
+        ");
+    }
+
+}
