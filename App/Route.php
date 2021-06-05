@@ -408,6 +408,24 @@ class Route extends Bootstrap
 			'action' => 'examList'
 		);
 
+		$routes['adminRecentsExam'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/lista-recentes',
+			'controller' => 'AdminManagementController',
+			'action' => 'recentsExam'
+		);
+
+		$routes['adminExamData'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/dados',
+			'controller' => 'AdminManagementController',
+			'action' => 'examData'
+		);
+
+		$routes['adminExamUpdate'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/atualizar',
+			'controller' => 'AdminManagementController',
+			'action' => 'examUpdate'
+		);
+
 
 
 

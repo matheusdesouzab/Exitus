@@ -327,7 +327,7 @@ class AdminManagementController extends Action
         $Discipline = Container::getModel('Management\\Discipline');
 
         $Discipline->__set('disciplineId', $_POST['disciplineId']);
-        
+
         $Discipline->delete();
     }
 
@@ -436,7 +436,8 @@ class AdminManagementController extends Action
         $this->view->typeTeacherList = 'class';
         $this->view->unity = $Exam->unity();
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
-        
+        $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Classe->__get('classId'));
+
 
         $this->render('/components/modalClassProfile', 'SimpleLayout');
     }
@@ -480,7 +481,7 @@ class AdminManagementController extends Action
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
         $ClassDiscipline->__set('fk_id_class', $_POST['classId']);
-        
+
         echo json_encode($ClassDiscipline->disciplinesNotYetAdded());
     }
 
@@ -497,7 +498,6 @@ class AdminManagementController extends Action
         $this->view->disciplineAll = $Discipline->disciplineAll();
 
         $this->render('/components/disciplineSelect', 'SimpleLayout');
-
     }
 
 
@@ -506,12 +506,27 @@ class AdminManagementController extends Action
 
         $Exam = Container::getModel('Management\\Exam');
 
-        $Exam->__set("fk_id_exam_unity" , $_GET['unity']);
-        $Exam->__set("fk_id_discipline_class" , $_GET['disciplineClassId']);
+        $Exam->__set("fk_id_class", $_GET['classId']);
 
-        $this->view->listExam = $Exam->examList("WHERE avaliacoes.fk_id_unidade_avaliacao = ". $Exam->__get('fk_id_exam_unity'). " AND avaliacoes.fk_turma_disciplina_avaliacao = " . $Exam->__get('fk_id_discipline_class'));
+        $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class'));
 
-        $this->render('/components/examsAlreadyAdded', 'SimpleLayout');
+        $this->render('/components/examList', 'SimpleLayout');
+    }
+
+
+    public function recentsExam()
+    {
+
+        $Exam = Container::getModel('Management\\Exam');
+
+        $Exam->__set("fk_id_exam_unity", $_GET['unity']);
+        $Exam->__set("fk_id_discipline_class", $_GET['disciplineClassId']);
+
+        $this->view->listExam = $Exam->examList("WHERE avaliacoes.fk_id_unidade_avaliacao = " . $Exam->__get('fk_id_exam_unity') . " AND avaliacoes.fk_turma_disciplina_avaliacao = " . $Exam->__get('fk_id_discipline_class'));
+
+        $this->view->typeListExam = 'recent';
+
+        $this->render('/components/examList', 'SimpleLayout');
 
     }
 
@@ -530,7 +545,6 @@ class AdminManagementController extends Action
         $ClassDiscipline->update();
 
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
-     
     }
 
 
@@ -550,14 +564,13 @@ class AdminManagementController extends Action
 
         $Exam = Container::getModel('Management\\Exam');
 
-        $Exam->__set("examDescription" , $_POST['examDescription']);
-        $Exam->__set("examValue" , $_POST['examValue']);
-        $Exam->__set("realizeDate" , $_POST['realizeDate']);
-        $Exam->__set("fk_id_exam_unity" , $_POST['unity']);
-        $Exam->__set("fk_id_discipline_class" , $_POST['disciplineClassId']);
+        $Exam->__set("examDescription", $_POST['examDescription']);
+        $Exam->__set("examValue", $_POST['examValue']);
+        $Exam->__set("realizeDate", $_POST['realizeDate']);
+        $Exam->__set("fk_id_exam_unity", $_POST['unity']);
+        $Exam->__set("fk_id_discipline_class", $_POST['disciplineClassId']);
 
         $Exam->insert();
-
     }
 
 
@@ -566,13 +579,36 @@ class AdminManagementController extends Action
 
         $Exam = Container::getModel('Management\\Exam');
 
-        $Exam->__set("fk_id_exam_unity" , $_GET['unity']);
-        $Exam->__set("fk_id_discipline_class" , $_GET['disciplineClassId']);
+        $Exam->__set("fk_id_exam_unity", $_GET['unity']);
+        $Exam->__set("fk_id_discipline_class", $_GET['disciplineClassId']);
 
         echo json_encode($Exam->sumUnitGrades());
-
     }
 
 
-    
+    public function examData()
+    {
+
+        $Exam = Container::getModel('Management\\Exam');
+
+        $Exam->__set('examId', $_GET['id']);
+
+        $this->view->examData = $Exam->examList("WHERE avaliacoes.id_avaliacao = " . $Exam->__get('examId'));
+
+        $this->render('/components/modalExam', 'SimpleLayout');
+    }
+
+
+    public function examUpdate()
+    {
+
+        $Exam = Container::getModel('Management\\Exam');
+
+        $Exam->__set('examId', $_POST['examId']);
+        $Exam->__set('examDescription', $_POST['examDescription']);
+        $Exam->__set('realizeDate', $_POST['realizeDate']);
+        $Exam->__set('examValue', $_POST['examValue']);
+
+        $Exam->update();
+    }
 }

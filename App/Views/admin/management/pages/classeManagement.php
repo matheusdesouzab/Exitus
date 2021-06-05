@@ -5,7 +5,7 @@
         <div class="col-lg-12 accordion" id="class-accordion">
 
             <div class="col-lg-11 mx-auto mb-4 mt-3">
-            
+
                 <div class="row d-flex align-items-center">
 
                     <div class="col-lg-6">
@@ -136,6 +136,17 @@
                                         </div>
                                     </div>
 
+                                    <div class="modal fade" id="modalExam" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered" id="">
+                                            <div class="modal-content" style="border-radius: 10px">
+
+                                                <div class="modal-body">
+                                                    <div containerModalExam class="row"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="modal fade modal-profile" id="profileClasseModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
                                         <div class="modal-dialog">
@@ -151,7 +162,7 @@
                                         </div>
                                     </div>
 
-                                    
+
 
                                 </div>
                             </div>
@@ -279,7 +290,7 @@
 
                                         </div>
 
-                                    </form>                        
+                                    </form>
 
                                 </div>
                             </div>

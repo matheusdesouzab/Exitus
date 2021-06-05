@@ -174,6 +174,23 @@ $(document).on('click', '#classe-table tbody tr', function () {
 })
 
 
+$(document).on('click', '#list-assessments tbody tr', function () {
+
+
+    $('#profileClasseModal .modal-body').css("opacity", "0.5")
+
+    showModal(this.id, '/admin/gestao/turma/perfil-turma/avaliacoes/dados', 'containerModalExam', '#modalExam')
+
+})
+
+
+$(document).on('hide.bs.modal', '#modalExam', function (event) {
+
+    $('#profileClasseModal .modal-body').css("opacity", "1.0")
+
+})
+
+
 //? Upper Case
 
 
@@ -324,43 +341,15 @@ $(document).on('click', '#buttonAddExam', function (e) {
 
 $(document).on('blur', '#addExam #disciplineClassId', function (e) {
 
-    loadListElements('containerListExam', '/admin/gestao/turma/perfil-turma/avaliacoes/lista', '#addExam')
+    loadListElements('containerListExam', '/admin/gestao/turma/perfil-turma/avaliacoes/lista-recentes', '#addExam')
 
 })
 
-$(document).on('keyup', '#examValue', function (e) {
+$(document).on('keyup', '#addExam #examValue', function () {
 
-    let $form = $('#addExam').serialize()
-
-    $.ajax({
-        type: "GET",
-        url: "/admin/gestao/turma/perfil-turma/avaliacoes/soma-notas-unidade",
-        data: $form,
-        dataType: 'json',
-        success: response => {
-
-            let sumNote = response[0].sum_notes || 0
-
-            sumNote = (10 - validation.round(sumNote, 1))
-
-            console.log(sumNote)
-
-            var code = (e.keyCode || e.which)
-
-            if (code == 37 || code == 38 || code == 39 || code == 40 || code == 8) return
-
-            var num = Number(this.value.replace(".", "."))
-
-            if (this.value.replace(".", "").length > 2) num = num * 100
-
-            var value = (num <= sumNote ? num : sumNote)
-
-            this.value = value.toFixed(1).replace(".", ".")
-
-        },
-        error: erro => console.log(erro)
-    })
-
-
+    getSumNote('#addExam', $('#addExam #examValue'))
 
 })
+
+/* getSumNote('#addExam #examValue' , '#addExam')
+getSumNote(`#examValue`, $(this).attr('formId')) */

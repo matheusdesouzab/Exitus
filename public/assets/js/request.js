@@ -96,6 +96,8 @@ function updateElement(form, route, dataToast) {
 
     let $formData = $(`${form}`).serialize()
 
+    console.log($formData)
+
     $.ajax({
         url: route,
         type: 'POST',
@@ -229,4 +231,41 @@ function checkClass() {
         },
         error: erro => console.log(erro)
     })
+}
+
+
+function getSumNote(form , event){
+
+        let $form = $(`${form}`).serialize()
+    
+        $.ajax({
+            type: "GET",
+            url: "/admin/gestao/turma/perfil-turma/avaliacoes/soma-notas-unidade",
+            data: $form,
+            dataType: 'json',
+            success: response => {
+
+    
+                let sumNote = response[0].sum_notes || 0
+    
+                sumNote = (10 - validation.round(sumNote, 1))
+    
+                var code = (event.keyCode || event.which)
+    
+                if (code == 37 || code == 38 || code == 39 || code == 40 || code == 8) return
+    
+                var num = Number(event.val().replace(".", "."))
+    
+                if (event.val().replace(".", "").length > 2) num = num * 100
+    
+                var value = (num <= sumNote ? num : sumNote)
+    
+                event.value = value.toFixed(1).replace(".", ".")
+    
+            },
+    
+            error: erro => console.log(erro)
+    
+        })
+    
 }

@@ -31,7 +31,7 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 				<?php require '../App/Views/admin/components/painelLeft.php' ?>
 			</div>
 
-			<div id="pagina" class="col-12 col-md-9 col-lg-10 col-sm-12 side-pagina">
+			<div id="pagina" class="col-12 col-md-9 col-lg-10 col-sm-12">
 
 				<?php require '../App/Views/admin/components/navbar.php' ?>
 

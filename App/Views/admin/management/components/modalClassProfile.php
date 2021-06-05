@@ -260,31 +260,50 @@
                                                     <input type="text" placeholder="Nome da avaliação" class="form-control">
                                                 </div>
 
-                                                <div class="form-group col-lg-3">
-                                                    <label for="inputState">Disciplina:</label>
-                                                    <select id="inputState" class="form-control custom-select" required>
-                                                        <option>Matemática</option>
-                                                        <option>Ensino Médio</option>
-                                                        <option>Técnico</option>
+                                                <div class="form-group col-lg-4">
+
+                                                    <label for="">Disciplina:</label>
+
+                                                    <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+
+                                                        <?php foreach ($this->view->disciplinesAlreadyAdded as $key => $discipline) { ?>
+
+                                                            <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                        <?php } ?>
+
                                                     </select>
+
                                                 </div>
 
-                                                <div class="form-group col-lg-3">
-                                                    <label for="inputState">UE referente:</label>
-                                                    <select id="inputState" class="form-control custom-select" required>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
+                                                <div class="form-group col-lg-2">
+                                                    <label for="">Unidade:</label>
+
+                                                    <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                        <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                            <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                        <?php } ?>
+
                                                     </select>
+
                                                 </div>
 
                                             </div>
 
                                         </form>
 
-                                        <hr class="col-lg-11 mx-auto col-11">
+                                    
 
-                                        <div containerExamList></div>
+                                        
+
+                                        <div containerExamsList>
+
+                                            <?php require '../App/Views/admin/management/components/examList.php' ?>
+
+                                        </div>
 
                                     </div>
 
@@ -356,7 +375,6 @@
                                         </form>
 
                                         <div containerListExam></div>
-
 
                                     </div>
 
