@@ -435,6 +435,7 @@ class AdminManagementController extends Action
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
         $this->view->unity = $Exam->unity();
+        $this->view->classData = $Classe->list("AND turma.id_turma = " . $Classe->__get('classId'));
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Classe->__get('classId'));
 
@@ -527,7 +528,6 @@ class AdminManagementController extends Action
         $this->view->typeListExam = 'recent';
 
         $this->render('/components/examList', 'SimpleLayout');
-
     }
 
 
@@ -548,12 +548,23 @@ class AdminManagementController extends Action
     }
 
 
+    public function disciplineClassDelete()
+    {
+
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+
+        $ClassDiscipline->__set("classDisciplineId", $_POST['disciplineClassId']);
+
+        $ClassDiscipline->delete();
+    }
+
+
     public function disciplinesAlreadyAdded()
     {
 
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
-        $ClassDiscipline->__set("fk_id_class", $_GET['id']);
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
         echo json_encode($ClassDiscipline->disciplinesAlreadyAdded());
     }
@@ -610,5 +621,14 @@ class AdminManagementController extends Action
         $Exam->__set('examValue', $_POST['examValue']);
 
         $Exam->update();
+    }
+
+
+    public function examDelete()
+    {
+
+        $Exam = Container::getModel('Management\\Exam');
+        $Exam->__set('examId', $_POST['examId']);
+        $Exam->delete();
     }
 }

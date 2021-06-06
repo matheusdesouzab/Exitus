@@ -20,7 +20,7 @@ if (count($this->view->listTeacher) >= 1) {
 
                     <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/turma-disciplina/atualizar" toastData="Curso Atualizado" container="containerListDisciplineClass" routeList="/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma" routeData="#formDisciplineClass<?= $discipline->discipline_class_id ?>" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
-                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeDelete="/admin/gestao/curso/deletar" toastData="Curso Atualizado" container="containerListDisciplineClass" routeList="/admin/gestao/curso/lista" class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
+                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/turma-disciplina/deletar" toastData="Curso Atualizado" routeData="#formDisciplineClass<?= $discipline->discipline_class_id ?>" container="containerListDisciplineClass" routeList="/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma" class="mr-2 delete-data-icon"><i class="fas fa-ban"></i></span>
 
                 </div>
 

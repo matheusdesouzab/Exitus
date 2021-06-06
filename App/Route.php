@@ -390,6 +390,18 @@ class Route extends Bootstrap
 			'action' => 'selectClassDiscipline'
 		);
 
+		$routes['adminDisciplinesAlreadyAdded'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas',
+			'controller' => 'AdminManagementController',
+			'action' => 'disciplinesAlreadyAdded'
+		);
+
+		$routes['adminDisciplineClassDelete'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/deletar',
+			'controller' => 'AdminManagementController',
+			'action' => 'disciplineClassDelete'
+		);
+
 		$routes['adminExamInsert'] = array(
 			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/inserir',
 			'controller' => 'AdminManagementController',
@@ -424,6 +436,12 @@ class Route extends Bootstrap
 			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/atualizar',
 			'controller' => 'AdminManagementController',
 			'action' => 'examUpdate'
+		);
+
+		$routes['adminExamDeletar'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/deletar',
+			'controller' => 'AdminManagementController',
+			'action' => 'examDelete'
 		);
 
 

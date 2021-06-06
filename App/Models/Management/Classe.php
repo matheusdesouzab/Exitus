@@ -221,7 +221,7 @@ class Classe extends Model
     }
 
 
-    public function list()
+    public function list($operation = "")
     {
 
         return $this->speedingUp(
@@ -250,8 +250,11 @@ class Classe extends Model
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
-            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1
 
+            $operation
+            
+            "
         );
     }
 

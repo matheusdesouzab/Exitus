@@ -147,4 +147,18 @@ class Exam extends Model
 
         $stmt->execute();
     }
+
+
+    public function delete()
+    {
+
+        $query = "DELETE FROM avaliacoes WHERE avaliacoes.id_avaliacao = :examId";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':examId', $this->__get('examId'));
+
+        $stmt->execute();
+
+    }
 }

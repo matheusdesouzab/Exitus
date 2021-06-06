@@ -129,15 +129,6 @@ $(document).on('click', '#buttonAddClassDiscipline', function () {
 
 })
 
-/* 
-$(document).on('click', '#class-discipline-accordion [data-target="#add-discipline"] ' , function(){
-
-    loadOptions([
-        ['discipline', '/admin/gestao/disciplina/disponiveis', 'clean' , '#addClassDiscipline']
-    ])
-    
-}) */
-
 
 $('#collapseListClass').on('click', () => loadListElements('containerListClass', '/admin/gestao/turma/lista'))
 
@@ -231,7 +222,7 @@ $(document).on('click', '.delete-data-icon', function () {
 
     deleteElement($(this).attr('idElement'), $(this).attr('routeDelete'), $(this).attr('toastData'))
 
-    loadListElements($(this).attr('container'), $(this).attr('routeList'))
+    loadListElements($(this).attr('container'), $(this).attr('routeList'), $(this).attr('routeData'))
 
 })
 
@@ -322,19 +313,57 @@ $(document).on('click', '#buttonAddExam', function (e) {
         dataType: 'json',
         success: response => {
 
-            if (response[0].sum_notes >= 10) {
+            let sumNote = response[0].sum_notes || 0
+
+            if (sumNote >= 10) {
 
                 alert('Você chegou ao limite de nota')
 
             } else {
 
                 addSinglePart('#addExam', '/admin/gestao/turma/perfil-turma/avaliacoes/inserir', 'Avaliação adicionada', false)
+
+                $('#addExam #examValue').val('0.0')
             }
 
         }
     })
 
-    this.preventDefault()
+})
+
+
+$(document).on('click', '[data-target="#add-discipline"]', function (e) {
+
+    loadListElements('containerSelectDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', '#addClassDiscipline')
+
+})
+
+
+$(document).on('click', "[data-target='#add-assessments']", function (e) {
+
+    loadOptions([
+        ['disciplineClassId', '/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas', 'clean', '#addExam', "#formClassId"]
+    ])
+
+})
+
+
+$(document).on('click', '[data-target="#class-profile-assessments"]', function (e) {
+
+    loadOptions([
+        ['disciplineClassId', '/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas', 'clean', '#addExam', "#formClassId"],
+        ['disciplineClassId', '/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas', 'clean', '#seekExam', "#formClassId"]
+    ])
+
+    loadListElements('containerExamsList', '/admin/gestao/turma/perfil-turma/avaliacoes/lista', '#formClassId')
+
+
+})
+
+
+$(document).on('click', '[data-target="#list-assessments"]', function (e) {
+
+    loadListElements('containerExamsList', '/admin/gestao/turma/perfil-turma/avaliacoes/lista', '#formClassId')
 
 })
 
@@ -345,11 +374,16 @@ $(document).on('blur', '#addExam #disciplineClassId', function (e) {
 
 })
 
-$(document).on('keyup', '#addExam #examValue', function () {
 
-    getSumNote('#addExam', $('#addExam #examValue'))
+$(document).on('keyup', `#addExam #examValue`, function (e) {
+
+    getSumNote(`#addExam`, this, e, false)
 
 })
 
-/* getSumNote('#addExam #examValue' , '#addExam')
-getSumNote(`#examValue`, $(this).attr('formId')) */
+
+$(document).on('keyup', `#modalExam form #examValue`, function (e) {
+
+    getSumNote($(this).attr('formId'), this, e, true, $(this).attr('initialValue'))
+
+})

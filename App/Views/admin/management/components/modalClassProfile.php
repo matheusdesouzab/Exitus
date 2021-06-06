@@ -34,7 +34,7 @@
                                             <div class="col-lg-12 mb-4">
                                                 <div class="row d-flex align-items-center">
                                                     <div class="col-lg-6">
-                                                        <h5>Dados da turma</h5>
+                                                        <h5><?= $this->view->classData[0]->course ?>-<?=$this->view->classData[0]->series_acronym ?> <?= $this->view->classData[0]->shift ?>-<?= $this->view->classData[0]->ballot ?> </h5> 
                                                     </div>
 
                                                     <div class="col-lg-6 col-12 collapse-options-container">
@@ -228,7 +228,7 @@
                         </form>
 
 
-                        <div class="col-lg-12 collapse overflow-auto accordion-container" id="class-profile-assessments" aria-labelledby="turma-avaliacoes" data-parent="#class-profile-accordion">
+                        <div class="col-lg-12 collapse overflow-auto accordion-container" id="class-profile-assessments" aria-labelledby="classExam" data-parent="#class-profile-accordion">
 
                             <div class="accordion" id="class-assessments-accordion">
                                 <div class="col-lg-12 mb-4 mt-3">
@@ -251,7 +251,7 @@
 
                                     <div class="collapse show card" id="list-assessments" data-parent="#class-assessments-accordion">
 
-                                        <form class="mt-3 col-lg-11 mx-auto  text-dark" action="">
+                                        <form id="seekExam" class="mt-3 col-lg-11 mx-auto  text-dark" action="">
 
                                             <div class="form-row mt-3">
 
@@ -264,7 +264,7 @@
 
                                                     <label for="">Disciplina:</label>
 
-                                                    <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+                                                    <select  id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
 
                                                         <?php foreach ($this->view->disciplinesAlreadyAdded as $key => $discipline) { ?>
 
@@ -293,11 +293,7 @@
 
                                             </div>
 
-                                        </form>
-
-                                    
-
-                                        
+                                        </form>                         
 
                                         <div containerExamsList>
 
@@ -400,7 +396,7 @@
 
             <li class="list-group-item border-0" id="turma-disciplinas" aria-expanded="false" data-toggle="collapse" data-target="#class-profile-discipline"><a href="#"> <i class="far fa-list-alt mr-2"></i> Disciplinas</a></li>
 
-            <li class="list-group-item border-0" id="turma-avaliacoes" aria-expanded="false" data-toggle="collapse" data-target="#class-profile-assessments"><a href="#"><i class="fas fa-clipboard-list mr-2"></i> Avaliações </a></li>
+            <li class="list-group-item border-0" id="classExam" aria-expanded="false" data-toggle="collapse" data-target="#class-profile-assessments"><a href="#"><i class="fas fa-clipboard-list mr-2"></i> Avaliações </a></li>
 
             <li class="list-group-item border-0" id="mais" aria-expanded="false" data-toggle="collapse" data-target="#"><a href="#"><i class="fas fa-chart-line mr-2"></i> Análise </a></li>
 

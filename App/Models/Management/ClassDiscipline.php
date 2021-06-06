@@ -233,6 +233,20 @@ class ClassDiscipline extends Model
     }
 
 
+    public function delete()
+    {
+
+        $query = "DELETE FROM turma_disciplina WHERE turma_disciplina.id_turma_disciplina = :id ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':id', $this->__get('classDisciplineId'));
+
+        $stmt->execute();
+
+    }
+
+
     
 
 

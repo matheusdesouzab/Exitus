@@ -14,7 +14,7 @@
                     <i class="fas fa-check"></i>
                 </span>
 
-                <span idElement="#formExam<?= $this->view->examData[0]->exam_id ?>" routeDelete="/admin/gestao/disciplina/deletar" toastData="Disciplina Deletada" container="containerListDiscipline" routeList="/admin/gestao/disciplina/lista" class="mr-2 delete-data-icon">
+                <span idElement="#formExam<?= $this->view->examData[0]->exam_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/avaliacoes/deletar" toastData="Disciplina Deletada" routeData="#formExam<?= $this->view->examData[0]->exam_id ?>" container="containerExamsList" routeList="/admin/gestao/turma/perfil-turma/avaliacoes/lista" class="mr-2 delete-data-icon">
                     <i class="fas fa-ban"></i>
                 </span>
 
@@ -60,7 +60,7 @@
 
             <div class="form-group col-lg-3">
                 <label for="">Valor:</label>
-                <input class="form-control" formId="#formExam<?= $this->view->examData[0]->exam_id ?>" id="examValue" maxlength="" disabled value="<?= $this->view->examData[0]->exam_value ?>" type="text" name="examValue">
+                <input class="form-control" initialValue="<?= $this->view->examData[0]->exam_value ?>" formId="#formExam<?= $this->view->examData[0]->exam_id ?>" id="examValue" maxlength="" disabled value="<?= $this->view->examData[0]->exam_value ?>" type="text" name="examValue">
             </div>
 
         </div>
