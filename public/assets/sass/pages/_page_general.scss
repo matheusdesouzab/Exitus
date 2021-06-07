@@ -22,7 +22,7 @@
     }
 
 
-    #tableListExam td{
+    #tableListExam td {
         padding: 1.5px;
         text-align: center;
         font-size: 14px;
@@ -173,21 +173,22 @@
         }
     }
 
-
+    #toastContainer {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        max-width: 40vw;
+    }
 
     .toast {
         border-radius: 15px;
-        border: none;
         background-color: transparent !important;
-        box-shadow: none;
-
-        .fa-times{
-            font-size: 15px;
-            padding: 3px;
-        }
+        position: absolute;
+        z-index: 100000000;
 
         .toast-header {
-            border-radius: 15px;
+            border-radius: 5px;
+            padding: 10px 15px;
         }
     }
 

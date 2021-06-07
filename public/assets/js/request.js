@@ -73,13 +73,8 @@ function updateElement(form, route, dataToast) {
         type: 'POST',
         dataType: 'html',
         data: $formData,
-        success: data => {
-
-            showToast(dataToast, 'bg-primary')
-
-        },
+        success: data => showToast(dataToast, 'bg-primary'),
         error: erro => showToast('Houve um erro na requisição', 'bg-info')
-
     })
 }
 
@@ -89,9 +84,9 @@ function loadOptions(elements) {
 
     $.each(elements, i => {
 
-        let form = elements[i][3] == '' ? 'form' : elements[i][3];
+        let form = elements[i][3] == '' ? 'form' : elements[i][3]
 
-        let $data = $(`${elements[i][4]}`) || 'form'
+        let $data = $(`${elements[i][4]}`).serialize() || 'form'
 
         let $selectSituation = $(`${form} select[name="${elements[i][0]}"]`)
 
@@ -100,11 +95,9 @@ function loadOptions(elements) {
         $.ajax({
             url: elements[i][1],
             dataType: 'json',
-            data: $data.serialize(),
+            data: $data,
             type: 'GET',
             success: data => {
-
-                console.log(data)
 
                 $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
 
@@ -205,34 +198,51 @@ function showModal(formId, route, container, modal, type = 'normal') {
 
 function checkClass() {
 
-    let dados = $('#addClass')
+    let dados = $('#addClass').serialize()
 
     $.ajax({
         url: '/admin/gestao/turma/verificar-dados',
-        data: dados.serialize(),
+        data: dados,
         type: 'GET',
         success: data => {
 
             let situation = data.replace(/[^\d]+/g, '')
 
-            situation == 00 ? [$('#buttonAddClass').removeClass('disabled'),
-                $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid'),
-                $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
-            ] : ''
+            switch (situation) {
 
-            situation >= 10 ? [
-                $('#buttonAddClass').addClass('disabled'),
-                showToast('Sala e turno já adicionados', 'bg-info'),
-                $('#addClass #classRoom , #addClass #shift ').addClass('is-invalid'),
-                $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
-            ] : ''
+                case '01':
 
-            situation == 01 ? [
-                $('#buttonAddClass').addClass('disabled'),
-                showToast('Série e cédula já adicionadas', 'bg-info'),
-                $('#addClass #ballot , #addClass #series ').addClass('is-invalid'),
-                $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
-            ] : ''
+                    $('#buttonAddClass').addClass('disabled')
+
+                    showToast('Série e cédula já adicionadas', 'bg-info')
+
+                    $('#addClass #ballot , #addClass #series ').addClass('is-invalid')
+
+                    $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
+
+                    break
+
+                case '00':
+
+                    $('#buttonAddClass').removeClass('disabled')
+
+                    $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
+
+                    $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+
+                    break
+
+                default:
+
+                    $('#buttonAddClass').addClass('disabled')
+
+                    showToast('Sala e turno já adicionados', 'bg-info')
+
+                    $('#addClass #classRoom , #addClass #shift ').addClass('is-invalid')
+
+                    $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+
+            }
 
         },
         error: erro => console.log(erro)

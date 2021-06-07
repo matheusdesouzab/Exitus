@@ -63,14 +63,14 @@ function automaticDate() {
 }
 
 
-function showToast(description, background) {
+function showToast(description, background, delay = 3000) {
 
     $('.toast-data').text(description)
 
     $('.toast-header').removeClass('bg-success bg-danger bg-primary').addClass(background)
 
     $('#toastContainer').toast({
-        'delay': 3000
+        'delay': delay
     }).toast('show')
 
 }

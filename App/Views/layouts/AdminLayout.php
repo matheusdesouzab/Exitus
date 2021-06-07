@@ -23,6 +23,8 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 <body>
 
+
+
 	<div class="container-fluid">
 
 		<div class="row">
@@ -35,11 +37,21 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 				<?php require '../App/Views/admin/components/navbar.php' ?>
 
+
+				<div class="toast" id="toastContainer">
+					<div class="toast-header text-white">
+						<strong class="text-center mx-auto toast-data"></strong>
+					</div>
+				</div>
+
+
 				<?= $this->content() ?>
 
 			</div>
 		</div>
 	</div>
+
+
 
 </body>
 

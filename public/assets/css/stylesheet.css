@@ -768,18 +768,21 @@ select:disabled {
 #pagina .gif-loading img {
   width: 20%;
 }
+#pagina #toastContainer {
+  position: fixed;
+  right: 15px;
+  bottom: 0;
+  max-width: 40vw;
+}
 #pagina .toast {
   border-radius: 15px;
-  border: none;
   background-color: transparent !important;
-  box-shadow: none;
-}
-#pagina .toast .fa-times {
-  font-size: 15px;
-  padding: 3px;
+  position: absolute;
+  z-index: 100000000;
 }
 #pagina .toast .toast-header {
-  border-radius: 15px;
+  border-radius: 5px;
+  padding: 10px 15px;
 }
 
 #teacher-registration .registration-connection-line-in-stages {

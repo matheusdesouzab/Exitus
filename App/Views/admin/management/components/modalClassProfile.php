@@ -260,11 +260,15 @@
                                                     <input type="text" placeholder="Nome da avaliação" class="form-control">
                                                 </div>
 
+                                                <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
+
                                                 <div class="form-group col-lg-4">
 
                                                     <label for="">Disciplina:</label>
 
                                                     <select  id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+
+                                                    <option value="0">Todas</option>
 
                                                         <?php foreach ($this->view->disciplinesAlreadyAdded as $key => $discipline) { ?>
 
@@ -280,6 +284,8 @@
                                                     <label for="">Unidade:</label>
 
                                                     <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                    <option value="0">Todas</option>
 
                                                         <?php foreach ($this->view->unity as $key => $unity) { ?>
 
@@ -312,7 +318,7 @@
                                                 <div class="form-group col-lg-6">
 
                                                     <label for="">Descrição da avaliação:</label>
-                                                    <input class="form-control" name="examDescription" type="text">
+                                                    <input class="form-control" id="examDescription" name="examDescription" type="text">
 
                                                 </div>
 

@@ -444,6 +444,18 @@ class Route extends Bootstrap
 			'action' => 'examDelete'
 		);
 
+		$routes['adminExamSeek'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/buscar',
+			'controller' => 'AdminManagementController',
+			'action' => 'examSeek'
+		);
+
+		$routes['adminCheckExamName'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/avaliacoes/verificar-nome',
+			'controller' => 'AdminManagementController',
+			'action' => 'checkExamName'
+		);
+
 
 
 

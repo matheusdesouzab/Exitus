@@ -164,5 +164,32 @@ class Validation {
     }
 
 
+    checkRedundantName(route, form, button) {
+
+        let $form = $(`${form}`).serialize()
+
+        $.ajax({
+            url: route,
+            type: 'GET',
+            data: $form,
+            async: false,
+            dataType: 'json',
+            success: data => {
+
+                if (data[0] != null) {
+
+                    showToast('Nome já vinculado a uma avaliação nessa unidade', 'bg-info', 6000)
+
+                    $(button).addClass('disabled')
+
+                } else {
+
+                    $(button).removeClass('disabled')
+                }
+
+            }
+        })
+
+    }
 
 }

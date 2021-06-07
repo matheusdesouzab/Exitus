@@ -317,13 +317,16 @@ $(document).on('click', '#buttonAddExam', function (e) {
 
             if (sumNote >= 10) {
 
-                alert('Você chegou ao limite de nota')
+                showToast('Limite de nota atigindo', 'bg-info')
 
             } else {
 
                 addSinglePart('#addExam', '/admin/gestao/turma/perfil-turma/avaliacoes/inserir', 'Avaliação adicionada', false)
 
                 $('#addExam #examValue').val('0.0')
+                $('#addExam #examDescription').val('')
+                $('#addExam #realizeDate').val('')
+
             }
 
         }
@@ -355,6 +358,11 @@ $(document).on('click', '[data-target="#class-profile-assessments"]', function (
         ['disciplineClassId', '/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas', 'clean', '#seekExam', "#formClassId"]
     ])
 
+    $('#seekExam #disciplineClassId').append($('<option>', {
+        value: 0,
+        text: 'Todas'
+    }));
+
     loadListElements('containerExamsList', '/admin/gestao/turma/perfil-turma/avaliacoes/lista', '#formClassId')
 
 
@@ -368,7 +376,7 @@ $(document).on('click', '[data-target="#list-assessments"]', function (e) {
 })
 
 
-$(document).on('blur', '#addExam #disciplineClassId', function (e) {
+$(document).on('blur', '#addExam #disciplineClassId , #addExam #unity', function (e) {
 
     loadListElements('containerListExam', '/admin/gestao/turma/perfil-turma/avaliacoes/lista-recentes', '#addExam')
 
@@ -385,5 +393,19 @@ $(document).on('keyup', `#addExam #examValue`, function (e) {
 $(document).on('keyup', `#modalExam form #examValue`, function (e) {
 
     getSumNote($(this).attr('formId'), this, e, true, $(this).attr('initialValue'))
+
+})
+
+
+$(document).on('blur', '#seekExam #disciplineClassId , #seekExam #unity', function (e) {
+
+    loadListElements('containerExamsList', '/admin/gestao/turma/perfil-turma/avaliacoes/buscar', '#seekExam')
+
+})
+
+
+$(document).on('keyup', '#addExam #examDescription', function (e) {
+
+    validation.checkRedundantName('/admin/gestao/turma/perfil-turma/avaliacoes/verificar-nome', '#addExam', '#buttonAddExam')
 
 })

@@ -159,6 +159,78 @@ class Exam extends Model
         $stmt->bindValue(':examId', $this->__get('examId'));
 
         $stmt->execute();
+    }
 
+
+    public function seek()
+    {
+
+        $disciplineClassSituation = $this->__get('fk_id_discipline_class') == 0 ? ' ' : 'avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class AND';
+        $unityOperation = $this->__get('fk_id_exam_unity') == 0 ? '<>' : '=';
+
+        $query =
+
+            "SELECT 
+                
+            avaliacoes.id_avaliacao AS exam_id, 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name, 
+            avaliacoes.data_realizada AS realize_date, 
+            avaliacoes.valor_avaliacao AS exam_value, 
+            unidade.unidade AS unity
+            
+            FROM avaliacoes 
+            
+            LEFT JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+
+            WHERE avaliacoes.fk_id_unidade_avaliacao $unityOperation :fk_id_exam_unity AND turma.id_turma = :fk_id_class ";
+           
+        ;
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_exam_unity', $this->__get('fk_id_exam_unity'));
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        //$this->__get('fk_id_discipline_class') == 0 ? ' ' :  $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));   
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function checkName()
+    {
+
+        $query =
+
+            "SELECT 
+
+            avaliacoes.descricao_avaliacao 
+            
+            FROM avaliacoes 
+            
+            LEFT JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            
+            WHERE turma_disciplina.id_turma_disciplina = :fk_id_discipline_class
+            
+            AND avaliacoes.fk_id_unidade_avaliacao = :fk_id_exam_unity
+            
+            AND avaliacoes.descricao_avaliacao = :exam_description
+
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_exam_unity', $this->__get('fk_id_exam_unity'));
+        $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
+        $stmt->bindValue(':exam_description', $this->__get('examDescription'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 }
