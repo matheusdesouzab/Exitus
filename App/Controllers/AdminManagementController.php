@@ -430,7 +430,7 @@ class AdminManagementController extends Action
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
         $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
         $this->view->disciplineAll = $Discipline->disciplineAll();
-        $this->view->disciplinesAlreadyAdded = $ClassDiscipline->disciplinesAlreadyAdded();
+        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
@@ -559,14 +559,14 @@ class AdminManagementController extends Action
     }
 
 
-    public function disciplinesAlreadyAdded()
+    public function disciplinesClassAlreadyAdded()
     {
 
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
-        echo json_encode($ClassDiscipline->disciplinesAlreadyAdded());
+        echo json_encode($ClassDiscipline->disciplinesClassAlreadyAdded());
     }
 
 
@@ -640,6 +640,8 @@ class AdminManagementController extends Action
 
         $Exam->__set("fk_id_exam_unity", $_GET['unity']);
         $Exam->__set("fk_id_discipline_class", $_GET['disciplineClassId']);
+        $Exam->__set("examDescription", $_GET['examDescription']);
+        $Exam->__set("fk_id_class", $_GET['classId']);
 
         $this->view->listExam = $Exam->seek();
 

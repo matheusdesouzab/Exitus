@@ -380,21 +380,34 @@ $(document).on('blur', '#addExam #disciplineClassId , #addExam #unity', function
 
     loadListElements('containerListExam', '/admin/gestao/turma/perfil-turma/avaliacoes/lista-recentes', '#addExam')
 
+    $('#addExam #examValue').val('0.0')
+
 })
 
 
 $(document).on('keyup', `#addExam #examValue`, function (e) {
 
-    getSumNote(`#addExam`, this, e, false)
+    getNotesAlreadyAdded(`#addExam`, this, e , false)
 
 })
 
 
 $(document).on('keyup', `#modalExam form #examValue`, function (e) {
 
-    getSumNote($(this).attr('formId'), this, e, true, $(this).attr('initialValue'))
+    getNotesAlreadyAdded($(this).attr('formId'), this, e, true, $(this).attr('initialValue'))
 
 })
+
+
+$(document).on('keyup', '#addNote #examValue', function(e) {
+
+    var value = $('#addNote #exam').find(':selected').attr('noteValue')
+
+    getGrade(this , e , validation.round(value,1))
+
+})
+
+
 
 
 $(document).on('blur', '#seekExam #disciplineClassId , #seekExam #unity', function (e) {
@@ -402,6 +415,16 @@ $(document).on('blur', '#seekExam #disciplineClassId , #seekExam #unity', functi
     loadListElements('containerExamsList', '/admin/gestao/turma/perfil-turma/avaliacoes/buscar', '#seekExam')
 
 })
+
+
+$(document).on('keyup', '#seekExam #examDescription' , function(e){
+
+    if (timeout) clearTimeout(timeout)
+
+    timeout = setTimeout(() => seekElement('#seekExam', 'containerExamsList', '/admin/gestao/turma/perfil-turma/avaliacoes/buscar'), 1500)
+
+})
+
 
 
 $(document).on('keyup', '#addExam #examDescription', function (e) {

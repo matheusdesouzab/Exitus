@@ -38,6 +38,12 @@
 
                                 <div class="col-lg-10">
 
+                                    <form id="formClassId" action="">
+
+                                        <input type="hidden" value="<?= $this->view->studentProfile[0]->class_id ?>" name="classId">
+
+                                    </form>
+
                                     <?php foreach ($this->view->studentProfile as $key => $student) { ?>
 
                                         <form id="studentModal<?= $student->student_id ?>" class="" action="">
@@ -99,13 +105,14 @@
                                                         </div>
 
                                                         <select id="sex" name="sex" disabled class="form-control custom-select">
-                                                        <option value="<?= $student->student_sex_id ?>"><?= $student->student_sex ?></option>                                                          
+                                                            <option value="<?= $student->student_sex_id ?>"><?= $student->student_sex ?></option>
                                                             <?php foreach ($this->view->availableSex as $key => $sex) { ?>
-                                                            <?php if($sex->option_value != $student->student_sex_id){ ?>
-                                                                <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
-                                                            <?php }} ?>
+                                                                <?php if ($sex->option_value != $student->student_sex_id) { ?>
+                                                                    <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+                                                            <?php }
+                                                            } ?>
                                                         </select>
-                                                       
+
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
@@ -136,13 +143,14 @@
                                                         </div>
 
                                                         <select id="pcd" name="pcd" disabled class="form-control custom-select">
-                                                        <option value="<?= $student->student_pcd_id ?>"><?= $student->student_pcd ?></option>                                                          
+                                                            <option value="<?= $student->student_pcd_id ?>"><?= $student->student_pcd ?></option>
                                                             <?php foreach ($this->view->pcd as $key => $pcd) { ?>
-                                                            <?php if($pcd->option_value != $student->student_pcd_id){ ?>
-                                                                <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
-                                                            <?php }} ?>
+                                                                <?php if ($pcd->option_value != $student->student_pcd_id) { ?>
+                                                                    <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
+                                                            <?php }
+                                                            } ?>
                                                         </select>
-                                                       
+
                                                     </div>
 
                                                     <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
@@ -152,13 +160,14 @@
                                                         </div>
 
                                                         <select id="bloodType" name="bloodType" disabled class="form-control custom-select">
-                                                        <option value="<?= $student->blood_type_id ?>"><?= $student->blood_type ?></option>                                                          
+                                                            <option value="<?= $student->blood_type_id ?>"><?= $student->blood_type ?></option>
                                                             <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
-                                                            <?php if($bloodType->option_value != $student->blood_type_id){ ?>
-                                                                <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
-                                                            <?php }} ?>
+                                                                <?php if ($bloodType->option_value != $student->blood_type_id) { ?>
+                                                                    <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
+                                                            <?php }
+                                                            } ?>
                                                         </select>
-                                                        
+
                                                     </div>
 
                                                     <hr>
@@ -353,47 +362,6 @@
                                             </thead>
                                             <tbody>
 
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Prova em dupla</td>
-                                                    <td>1</td>
-
-                                                    <td>MATE</td>
-                                                    <td>20/12/2001</td>
-                                                    <td>4,0</td>
-                                                    <td>2,0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Prova em dupla</td>
-                                                    <td>1</td>
-
-                                                    <td>MATE</td>
-                                                    <td>20/12/2001</td>
-                                                    <td>4,0</td>
-                                                    <td>2,0</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Prova em dupla</td>
-                                                    <td>1</td>
-
-                                                    <td>MATE</td>
-                                                    <td>20/12/2001</td>
-                                                    <td>4,0</td>
-                                                    <td>2,0</td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Prova em dupla</td>
-                                                    <td>1</td>
-
-                                                    <td>MATE</td>
-                                                    <td>20/12/2001</td>
-                                                    <td>4,0</td>
-                                                    <td>2,0</td>
-                                                </tr>
 
                                             </tbody>
                                         </table>
@@ -405,33 +373,45 @@
 
                                 <div class="collapse card" id="add-reviews" data-parent="#accordion-ratings">
 
-                                    <form class="col-lg-12" action="">
+                                    <form id="addNote" class="col-lg-12" action="">
 
+                                    <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
+                                        <div class="form-row mt-3">
 
-                                        <div class="form-row mt-3 mb-3">
+                                            <div class="form-group col-lg-12">
 
-                                            <div class="form-group col-lg-7">
                                                 <label for="">Avaliações disponiveis:</label>
 
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Trabalho em grupo - Biologia - 4,0 - 1 Unidade</option>
-                                                    <option>Biologia</option>
-                                                    <option>Português</option>
-                                                    <option>Filosofia</option>
+                                                <?php $date = explode('-', $this->view->listAvailableExams[0]->realize_date) ?>
+
+                                                <select id="exam" value="exam" class="form-control custom-select" required>
+
+                                                    <?php foreach ($this->view->listAvailableExams as $key => $exam) { ?>
+
+                                                        <option noteValue="<?= $exam->exam_value ?>" value="<?= $exam->exam_id ?>">
+                                                            <?= $exam->exam_description ?> - da disciplina de <?= $exam->discipline_name ?> - da <?= $exam->unity ?> Unidade - no valor de <?= $exam->exam_value ?> pontos
+
+                                                        </option>
+
+                                                    <?php } ?>
+
                                                 </select>
 
                                             </div>
-                                            <div class="form-group col-lg-1">
+
+                                        </div>
+
+                                        <div class="form-row">
+
+                                            <div class="form-group col-lg-2">
                                                 <label for="">Nota:</label>
-
-                                                <input class="form-control" type="text" maxlength="3">
-
+                                                <input class="form-control" name="examValue" type="text" id="examValue">
                                             </div>
 
-                                            <div class="form-group col-lg-4">
+                                            <div class="form-group col-lg-3 ml-auto">
                                                 <label for="">&nbsp;</label>
-                                                <a class="btn btn-success w-100" href="">Adicionar nota da avaliação</a>
+                                                <a id="addNoteStudent" class="btn btn-success w-100" href="">Adicionar</a>
                                             </div>
 
                                         </div>
@@ -454,7 +434,7 @@
                 </div>
 
 
-                <div class="col-lg-12 collapse accordion-container overflow-auto" id="student-profile-newsletter" data-parent="#student-profile-accordion">
+                <div class=" col-lg-12 collapse accordion-container overflow-auto" id="student-profile-newsletter" data-parent="#student-profile-accordion">
 
                     <div class="row">
 

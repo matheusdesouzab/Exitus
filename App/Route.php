@@ -390,10 +390,10 @@ class Route extends Bootstrap
 			'action' => 'selectClassDiscipline'
 		);
 
-		$routes['adminDisciplinesAlreadyAdded'] = array(
+		$routes['adminDisciplinesClassAlreadyAdded'] = array(
 			'route' => '/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas',
 			'controller' => 'AdminManagementController',
-			'action' => 'disciplinesAlreadyAdded'
+			'action' => 'disciplinesClassAlreadyAdded'
 		);
 
 		$routes['adminDisciplineClassDelete'] = array(

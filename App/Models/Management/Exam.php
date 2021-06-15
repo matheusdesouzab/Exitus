@@ -165,7 +165,8 @@ class Exam extends Model
     public function seek()
     {
 
-        $disciplineClassSituation = $this->__get('fk_id_discipline_class') == 0 ? ' ' : 'avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class AND';
+        $disciplineClassSituation = $this->__get('fk_id_discipline_class') == 0 ? 'AND turma.id_turma = :fk_id_class AND' : ' AND avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class AND ';
+
         $unityOperation = $this->__get('fk_id_exam_unity') == 0 ? '<>' : '=';
 
         $query =
@@ -186,15 +187,21 @@ class Exam extends Model
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
             LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
 
-            WHERE avaliacoes.fk_id_unidade_avaliacao $unityOperation :fk_id_exam_unity AND turma.id_turma = :fk_id_class ";
-           
-        ;
+            WHERE avaliacoes.descricao_avaliacao LIKE :examDescription $disciplineClassSituation 
+            
+            avaliacoes.fk_id_unidade_avaliacao $unityOperation :fk_id_exam_unity 
+            
+        ";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_exam_unity', $this->__get('fk_id_exam_unity'));
-        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-        //$this->__get('fk_id_discipline_class') == 0 ? ' ' :  $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));   
+
+        $stmt->bindValue(':examDescription', "%" . $this->__get('examDescription') . "%", \PDO::PARAM_STR);
+
+        $this->__get('fk_id_discipline_class') == 0 ? $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'))  :
+
+            $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
 
         $stmt->execute();
 
@@ -232,5 +239,12 @@ class Exam extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function examsAvailableStudents()
+    {
+
+        
     }
 }

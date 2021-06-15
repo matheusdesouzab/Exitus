@@ -204,7 +204,7 @@ class ClassDiscipline extends Model
     }
 
 
-    public function disciplinesAlreadyAdded()
+    public function disciplinesClassAlreadyAdded()
     {
 
         $query = 

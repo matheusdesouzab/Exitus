@@ -224,7 +224,10 @@ class Student extends People
             numero_sala_aula.numero_sala_aula AS number_classroom , 
             situacao_aluno.situacao_aluno as student_situation , 
             endereco.id_endereco as address_id , 
-            telefone.id_telefone AS telephone_id
+            telefone.id_telefone AS telephone_id ,
+            turma.id_turma AS class_id,
+            matricula.id_matricula AS enrollmentId
+
 
             FROM aluno 
             

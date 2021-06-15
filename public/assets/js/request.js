@@ -250,7 +250,24 @@ function checkClass() {
 }
 
 
-function getSumNote(form, event, e, calculateWithCurrentGrade, currentGrade = '') {
+function getGrade(event, e, sumNote) { 
+
+    let code = (e.keyCode || e.which)
+
+    if (code == 37 || code == 38 || code == 39 || code == 40 || code == 8) return
+
+    let num = Number(event.value.replace(".", "."))
+
+    if (event.value.replace(".", "").length > 2) num = num * 100
+
+    let value = (num <= sumNote ? num : sumNote)
+
+    event.value = value.toFixed(1).replace(".", ".")
+
+}
+
+
+function getNotesAlreadyAdded(form, event, e , calculateWithCurrentGrade, currentGrade = '') {
 
     let $form = $(`${form}`).serialize()
 
@@ -259,35 +276,20 @@ function getSumNote(form, event, e, calculateWithCurrentGrade, currentGrade = ''
         url: "/admin/gestao/turma/perfil-turma/avaliacoes/soma-notas-unidade",
         data: $form,
         dataType: 'json',
+        async: false,
         success: response => {
 
             let sumNote = response[0].sum_notes || 0
 
-            if (calculateWithCurrentGrade == false) {
+            sumNote = (calculateWithCurrentGrade == false ? (10 - validation.round(sumNote, 1)) : validation.round(10 + (currentGrade - sumNote), 1) )
 
-                sumNote = (10 - validation.round(sumNote, 1))
-
-            } else {
-
-                sumNote = ((10 + validation.round(currentGrade, 1)) - validation.round(sumNote, 1))
-
-            }
-
-            var code = (e.keyCode || e.which)
-
-            if (code == 37 || code == 38 || code == 39 || code == 40 || code == 8) return
-
-            var num = Number(event.value.replace(".", "."))
-
-            if (event.value.replace(".", "").length > 2) num = num * 100
-
-            var value = (num <= sumNote ? num : sumNote)
-
-            event.value = value.toFixed(1).replace(".", ".")
+            getGrade(event, e, sumNote)
 
         },
-
         error: erro => console.log(erro)
 
     })
 }
+
+
+

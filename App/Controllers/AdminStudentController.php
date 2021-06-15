@@ -10,6 +10,7 @@ use App\Models\Student\StudentEnrollment;
 use App\Models\People\Address;
 use App\Models\People\Telephone;
 use App\Models\Management\ClassDiscipline;
+use App\Models\Management\Exam;
 use App\Tools\Tools;
 use MF\Controller\Action;
 use MF\Model\Container;
@@ -95,6 +96,7 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
+        $Exam = Container::getModel('Management\\Exam');
 
         $Student->__set('id', $_GET['id']);
 
@@ -102,6 +104,7 @@ class AdminStudentController extends Action
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->bloodType = $Student->bloodType();
+        $this->view->listAvailableExams = $Exam->examList('WHERE turma.id_turma = ' . $this->view->studentProfile[0]->class_id . ' ORDER BY disciplina.nome_disciplina ASC');
 
         $this->render('/components/modalStudentProfile', 'SimpleLayout');
     }
