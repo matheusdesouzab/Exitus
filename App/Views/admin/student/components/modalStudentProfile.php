@@ -376,29 +376,11 @@
                                     <form id="addNote" class="col-lg-12" action="">
 
                                     <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                    <input value="<?= $this->view->studentProfile[0]->class_id ?>" type="hidden" name="classId">
 
                                         <div class="form-row mt-3">
 
-                                            <div class="form-group col-lg-12">
-
-                                                <label for="">Avaliações disponiveis:</label>
-
-                                                <?php $date = explode('-', $this->view->listAvailableExams[0]->realize_date) ?>
-
-                                                <select id="exam" value="exam" class="form-control custom-select" required>
-
-                                                    <?php foreach ($this->view->listAvailableExams as $key => $exam) { ?>
-
-                                                        <option noteValue="<?= $exam->exam_value ?>" value="<?= $exam->exam_id ?>">
-                                                            <?= $exam->exam_description ?> - da disciplina de <?= $exam->discipline_name ?> - da <?= $exam->unity ?> Unidade - no valor de <?= $exam->exam_value ?> pontos
-
-                                                        </option>
-
-                                                    <?php } ?>
-
-                                                </select>
-
-                                            </div>
+                                            <div class="form-group col-lg-12" containerAvailableExam></div>
 
                                         </div>
 
@@ -406,12 +388,12 @@
 
                                             <div class="form-group col-lg-2">
                                                 <label for="">Nota:</label>
-                                                <input class="form-control" name="examValue" type="text" id="examValue">
+                                                <input class="form-control" value="0" name="noteValue" type="text" id="noteValue">
                                             </div>
 
                                             <div class="form-group col-lg-3 ml-auto">
                                                 <label for="">&nbsp;</label>
-                                                <a id="addNoteStudent" class="btn btn-success w-100" href="">Adicionar</a>
+                                                <a id="addNoteStudent" class="btn btn-success w-100">Adicionar</a>
                                             </div>
 
                                         </div>

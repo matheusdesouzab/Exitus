@@ -28,8 +28,8 @@ class Note extends Model
     public function insert()
     {
 
-        $query = 
-        
+        $query =
+
             "INSERT INTO nota_avaliacao (valor_nota , fk_id_avaliacao , fk_id_matricula_aluno) 
             
             VALUES 
@@ -48,7 +48,31 @@ class Note extends Model
     }
 
 
+    public function examsPerformed($operation = '')
+    {
 
+        $query =
+
+            "SELECT avaliacoes.id_avaliacao AS exam_id , avaliacoes.descricao_avaliacao AS exam_description , aluno.nome_aluno AS student_id , avaliacoes.valor_avaliacao AS exam_value , nota_avaliacao.valor_nota AS note_value 
+
+            FROM aluno 
+            
+            LEFT JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
+            LEFT JOIN nota_avaliacao ON(matricula.id_matricula = nota_avaliacao.fk_id_matricula_aluno) 
+            LEFT JOIN avaliacoes ON(nota_avaliacao.fk_id_avaliacao = avaliacoes.id_avaliacao)
+
+            $operation 
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 
 
 }

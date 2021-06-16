@@ -323,7 +323,7 @@ $(document).on('click', '#buttonAddExam', function (e) {
 
                 addSinglePart('#addExam', '/admin/gestao/turma/perfil-turma/avaliacoes/inserir', 'Avaliação adicionada', false)
 
-                $('#addExam #examValue').val('0.0')
+                $('#addExam #examValue').val('0')
                 $('#addExam #examDescription').val('')
                 $('#addExam #realizeDate').val('')
 
@@ -380,7 +380,7 @@ $(document).on('blur', '#addExam #disciplineClassId , #addExam #unity', function
 
     loadListElements('containerListExam', '/admin/gestao/turma/perfil-turma/avaliacoes/lista-recentes', '#addExam')
 
-    $('#addExam #examValue').val('0.0')
+    $('#addExam #examValue').val('0')
 
 })
 
@@ -399,9 +399,9 @@ $(document).on('keyup', `#modalExam form #examValue`, function (e) {
 })
 
 
-$(document).on('keyup', '#addNote #examValue', function(e) {
+$(document).on('keyup', '#addNote #noteValue', function(e) {
 
-    var value = $('#addNote #exam').find(':selected').attr('noteValue')
+    var value = $('#addNote #examId').find(':selected').attr('noteValue')
 
     getGrade(this , e , validation.round(value,1))
 
@@ -432,3 +432,29 @@ $(document).on('keyup', '#addExam #examDescription', function (e) {
     validation.checkRedundantName('/admin/gestao/turma/perfil-turma/avaliacoes/verificar-nome', '#addExam', '#buttonAddExam')
 
 })
+
+
+$(document).on('click', '#addNoteStudent', function(e) {
+
+    this.preventDefault
+
+    addSinglePart('#addNote' , '/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao' , 'Nota adicionada' , false)
+
+    loadListElements('containerAvailableExam', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', '#addNote')
+
+}) 
+
+
+$(document).on('click', '[data-target="#add-reviews"]' , function(e) {
+
+    loadListElements('containerAvailableExam', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', '#addNote')
+
+})
+
+
+$(document).on('change', '#addNote #examId', function(e){
+
+    $('#addNote #noteValue').val('0')
+
+})
+

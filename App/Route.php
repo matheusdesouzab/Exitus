@@ -456,6 +456,20 @@ class Route extends Bootstrap
 			'action' => 'checkExamName'
 		);
 
+		$routes['adminInsertExamNote'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao',
+			'controller' => 'AdminManagementController',
+			'action' => 'insertExamNote'
+		);
+
+		$routes['adminNotesNotAddedYet'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis',
+			'controller' => 'AdminManagementController',
+			'action' => 'notesNotAddedYet'
+		);
+
+
+
 
 
 

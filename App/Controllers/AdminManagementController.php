@@ -661,4 +661,35 @@ class AdminManagementController extends Action
 
         echo json_encode($Exam->checkName());
     }
+
+
+    public function insertExamNote()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+
+        $Note->__set("fk_id_student_enrollment", $_POST['enrollmentId']);
+        $Note->__set("noteValue", $_POST['noteValue']);
+        $Note->__set("fk_id_exam", $_POST['examId']);
+
+        $Note->insert();
+    }
+
+
+    public function notesNotAddedYet()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+        $Exam = Container::getModel('Management\\Exam');
+
+        $Note->__set('fk_id_student_enrollment' , $_GET['enrollmentId']);
+        $Exam->__set('fk_id_class', $_GET['classId']);
+
+        $this->view->listAddedNotes = $Note->examsPerformed("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
+        $this->view->classExams = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class'));
+
+        $this->render('/components/availableExamNotes', 'SimpleLayout');
+
+
+    }
 }
