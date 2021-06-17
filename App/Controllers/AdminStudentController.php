@@ -97,14 +97,20 @@ class AdminStudentController extends Action
 
         $Student = Container::getModel('Student\\Student');
         $Exam = Container::getModel('Management\\Exam');
+        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
         $Student->__set('id', $_GET['id']);
 
         $this->view->studentProfile = $Student->profile();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
+        $this->view->unity = $Exam->unity();
         $this->view->bloodType = $Student->bloodType();
         $this->view->listAvailableExams = $Exam->examList('WHERE turma.id_turma = ' . $this->view->studentProfile[0]->class_id . ' ORDER BY disciplina.nome_disciplina ASC');
+
+        $ClassDiscipline->__set("fk_id_class", $this->view->studentProfile[0]->class_id);
+
+        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
 
         $this->render('/components/modalStudentProfile', 'SimpleLayout');
     }

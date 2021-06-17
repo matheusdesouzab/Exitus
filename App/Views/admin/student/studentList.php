@@ -120,9 +120,35 @@
 
                         </table>
                     </div>
+                    <div class="modal fade modal-profile" id="profileStudentModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+                        <div class="modal-dialog">
+                            <div class="modal-content p-2">
+                                <div class="row">
+                                    <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
+                                        </button></div>
+                                </div>
+
+                                <div containerStudentProfileModal class="row modal-body"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modalNote" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
+            <div class="modal-dialog modal-lg modal-dialog-centered" id="">
+                <div class="modal-content" style="border-radius: 10px">
+
+                    <div class="modal-body">
+                        <div containerModalNote class="row"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 
     </div>

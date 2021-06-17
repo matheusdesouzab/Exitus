@@ -12,7 +12,7 @@ body {
 }
 
 html > body {
-  background-color: #E3ECF5;
+  background-color: #E5E7E9;
 }
 
 a {
@@ -500,7 +500,7 @@ select:disabled {
 }
 #painel-left .side-bar {
   margin-left: 150px;
-  background: #09023B;
+  background: #202125;
   transition: 0.7s;
   position: fixed;
   height: 100%;

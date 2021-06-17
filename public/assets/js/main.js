@@ -165,8 +165,23 @@ $(document).on('click', '#classe-table tbody tr', function () {
 })
 
 
-$(document).on('click', '#list-assessments tbody tr', function () {
+$(document).on('click', '#note-table tbody tr', function () {
 
+    $('#profileStudentModal .modal-body').css("opacity", "0.5")
+
+    showModal(this.id, '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/dados', 'containerModalNote', '#modalNote')
+})
+
+
+$(document).on('hide.bs.modal', '#modalNote', function (event) {
+
+    $('#profileStudentModal .modal-body').css("opacity", "1.0")
+
+})
+
+
+
+$(document).on('click', '#list-assessments tbody tr', function () {
 
     $('#profileClasseModal .modal-body').css("opacity", "0.5")
 
@@ -387,7 +402,7 @@ $(document).on('blur', '#addExam #disciplineClassId , #addExam #unity', function
 
 $(document).on('keyup', `#addExam #examValue`, function (e) {
 
-    getNotesAlreadyAdded(`#addExam`, this, e , false)
+    getNotesAlreadyAdded(`#addExam`, this, e, false)
 
 })
 
@@ -399,11 +414,11 @@ $(document).on('keyup', `#modalExam form #examValue`, function (e) {
 })
 
 
-$(document).on('keyup', '#addNote #noteValue', function(e) {
+$(document).on('keyup', '#addNote #noteValue', function (e) {
 
-    var value = $('#addNote #examId').find(':selected').attr('noteValue')
+    var value = $('#addNote #examName').find(':selected').attr('noteValue')
 
-    getGrade(this , e , validation.round(value,1))
+    getGrade(this, e, validation.round(value, 1))
 
 })
 
@@ -417,7 +432,14 @@ $(document).on('blur', '#seekExam #disciplineClassId , #seekExam #unity', functi
 })
 
 
-$(document).on('keyup', '#seekExam #examDescription' , function(e){
+$(document).on('blur', "#seekNoteExam #disciplineClassId , #seekNoteExam #unity", function(e){
+
+    loadListElements('containerListNote', '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar', '#seekNoteExam')
+
+})
+
+
+$(document).on('keyup', '#seekExam #examDescription', function (e) {
 
     if (timeout) clearTimeout(timeout)
 
@@ -425,7 +447,13 @@ $(document).on('keyup', '#seekExam #examDescription' , function(e){
 
 })
 
+$(document).on('keyup', '#seekNoteExam #examDescription', function (e) {
 
+    if (timeout) clearTimeout(timeout)
+
+    timeout = setTimeout(() => seekElement('#seekNoteExam', 'containerListNote', '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar'), 2000)
+
+})
 
 $(document).on('keyup', '#addExam #examDescription', function (e) {
 
@@ -434,27 +462,41 @@ $(document).on('keyup', '#addExam #examDescription', function (e) {
 })
 
 
-$(document).on('click', '#addNoteStudent', function(e) {
+$(document).on('click', '#addNoteStudent', function (e) {
 
     this.preventDefault
 
-    addSinglePart('#addNote' , '/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao' , 'Nota adicionada' , false)
+    if ($('#addNote #examName option').length == 0) {
 
-    loadListElements('containerAvailableExam', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', '#addNote')
+        showToast('Todas avaliações já atribuidas', 'bg-info')
 
-}) 
+    } else {
+
+        addSinglePart('#addNote', '/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao', 'Nota adicionada', false)
+
+        loadListElements('containerAvailableExam', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', '#addNote')
+
+        $('#addNote #noteValue').val('0')
+
+    }
+
+})
 
 
-$(document).on('click', '[data-target="#add-reviews"]' , function(e) {
+$(document).on('click', '[data-target="#add-reviews"]', function (e) {
 
     loadListElements('containerAvailableExam', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', '#addNote')
 
 })
 
 
-$(document).on('change', '#addNote #examId', function(e){
+$(document).on('change', '#addNote #examName', function (e) {
 
     $('#addNote #noteValue').val('0')
 
 })
 
+
+$(document).on('click', '[data-target="#student-profile-assessment"] , [data-target="#rating-list"]' , function(e){
+    loadListElements('containerListNote', '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes', '#addNote')
+})

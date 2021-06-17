@@ -9,7 +9,7 @@ foreach ($this->view->listAddedNotes as $key => $exam) {
 ?>
 
 
-<select id="examId" name="examId" class="form-control custom-select" required>
+<select id="examName" name="examName" class="form-control custom-select" required>
 
     <?php foreach ($this->view->classExams as $key => $exam) { ?>
 

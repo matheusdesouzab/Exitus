@@ -670,7 +670,7 @@ class AdminManagementController extends Action
 
         $Note->__set("fk_id_student_enrollment", $_POST['enrollmentId']);
         $Note->__set("noteValue", $_POST['noteValue']);
-        $Note->__set("fk_id_exam", $_POST['examId']);
+        $Note->__set("fk_id_exam", $_POST['examName']);
 
         $Note->insert();
     }
@@ -679,17 +679,60 @@ class AdminManagementController extends Action
     public function notesNotAddedYet()
     {
 
-        $Note = Container::getModel('Management\\Note');
         $Exam = Container::getModel('Management\\Exam');
 
-        $Note->__set('fk_id_student_enrollment' , $_GET['enrollmentId']);
+        $Exam->__set('fk_id_student_enrollment' , $_GET['enrollmentId']);
         $Exam->__set('fk_id_class', $_GET['classId']);
 
-        $this->view->listAddedNotes = $Note->examsPerformed("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
+        $this->view->listAddedNotes = $Exam->examlist("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Exam->__get('fk_id_student_enrollment'));
         $this->view->classExams = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class'));
 
         $this->render('/components/availableExamNotes', 'SimpleLayout');
 
+
+    }
+
+
+    public function noteList()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+
+        $Note->__set('fk_id_student_enrollment' , $_GET['enrollmentId']);
+
+        $this->view->listNote = $Note->list("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
+
+        $this->render('/components/noteList', 'SimpleLayout');
+
+    }
+
+    public function noteSeek()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+
+        $Note->__set("fk_id_exam_unity", $_GET['unity']);
+        $Note->__set("fk_id_discipline_class", $_GET['disciplineClassId']);
+        $Note->__set("examDescription", $_GET['examDescription']);
+        $Note->__set("fk_id_student_enrollment", $_GET['enrollmentId']);
+        $Note->__set("fk_id_class", $_GET['classId']);
+
+        $this->view->listNote = $Note->seek();
+
+        $this->render('/components/noteList', 'SimpleLayout'); 
+
+    }
+
+
+    public function noteData()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+        $Note->__set("noteId", $_GET['id']);
+
+        $this->view->noteData = $Note->list("WHERE nota_avaliacao.id_nota = ". $Note->__get('noteId'));
+
+        $this->render('/components/modalNote', 'SimpleLayout'); 
 
     }
 }

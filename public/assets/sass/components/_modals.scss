@@ -2,8 +2,6 @@
 
     .modal-registration-success {
 
-
-
         .fa-check-circle {
             @include icon-modal($color-green);
         }
@@ -25,8 +23,6 @@
             text-align: center;
             font-weight: 500;
         }
-
-
 
         .modal-registration-error {
 

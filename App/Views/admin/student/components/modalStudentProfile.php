@@ -1,4 +1,4 @@
-<div class="row p-3 d-flex justify-content-around col-lg-11 mx-auto bg-white" style="border-radius:15px">
+<div class="row p-3 d-flex justify-content-around col-lg-11 mx-auto" style="border-radius:15px">
 
     <div class="col-lg-9">
 
@@ -313,31 +313,53 @@
 
                                 <div class="collapse show card" id="rating-list" data-parent="#accordion-ratings">
 
-                                    <form class="mt-3 col-lg-11 mx-auto  text-dark" action="">
+                                    <form id="seekNoteExam" class="mt-3 col-lg-11 mx-auto  text-dark" action="">
+
+                                    <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
                                         <div class="form-row mt-3">
 
                                             <div class="form-group col-lg-6">
                                                 <label for="">Nome da avaliacão:</label>
-                                                <input type="text" placeholder="Nome da avaliação" class="form-control">
+                                                <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
                                             </div>
 
-                                            <div class="form-group col-lg-3">
-                                                <label for="inputState">Disciplina:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>Matemática</option>
-                                                    <option>Ensino Médio</option>
-                                                    <option>Técnico</option>
+                                            <input type="hidden" value="<?= $this->view->studentProfile[0]->class_id ?>" name="classId">
+                                           
+
+                                            <div class="form-group col-lg-4">
+
+                                                <label for="">Disciplina:</label>
+
+                                                <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+
+                                                    <option value="0">Todas</option>
+
+                                                    <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+
+                                                        <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                    <?php } ?>
+
                                                 </select>
+
                                             </div>
 
-                                            <div class="form-group col-lg-3">
-                                                <label for="inputState">UE referente:</label>
-                                                <select id="inputState" class="form-control custom-select" required>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
+                                            <div class="form-group col-lg-2">
+                                                <label for="">Unidade:</label>
+
+                                                <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                    <option value="0">Todas</option>
+
+                                                    <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                        <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                    <?php } ?>
+
                                                 </select>
+
                                             </div>
 
                                         </div>
@@ -348,22 +370,17 @@
 
                                     <div class="table-responsive">
 
-                                        <table class="table col-lg-11 col-sm-10 mx-auto table-borderless table-hover">
+                                        <table class="table col-lg-11 col-sm-10 mx-auto table-borderless table-hover" id="note-table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Id</th>
                                                     <th scope="col">Avaliação</th>
-                                                    <th scope="col">UE</th>
                                                     <th scope="col">Disciplina</th>
-                                                    <th scope="col">Data</th>
+                                                    <th scope="col">UE</th>
                                                     <th scope="col">Valor AV</th>
                                                     <th scope="col">Nota AV</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-
-
-                                            </tbody>
+                                            <tbody containerListNote></tbody>
                                         </table>
                                     </div>
 
@@ -375,8 +392,8 @@
 
                                     <form id="addNote" class="col-lg-12" action="">
 
-                                    <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
-                                    <input value="<?= $this->view->studentProfile[0]->class_id ?>" type="hidden" name="classId">
+                                        <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                        <input value="<?= $this->view->studentProfile[0]->class_id ?>" type="hidden" name="classId">
 
                                         <div class="form-row mt-3">
 
@@ -387,7 +404,7 @@
                                         <div class="form-row">
 
                                             <div class="form-group col-lg-2">
-                                                <label for="">Nota:</label>
+                                                <label for="">Nota obtida:</label>
                                                 <input class="form-control" value="0" name="noteValue" type="text" id="noteValue">
                                             </div>
 

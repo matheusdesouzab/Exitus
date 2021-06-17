@@ -468,6 +468,24 @@ class Route extends Bootstrap
 			'action' => 'notesNotAddedYet'
 		);
 
+		$routes['adminNoteList'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes',
+			'controller' => 'AdminManagementController',
+			'action' => 'noteList'
+		);
+
+		$routes['adminNoteSeek'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar',
+			'controller' => 'AdminManagementController',
+			'action' => 'noteSeek'
+		);
+
+		$routes['adminNoteData'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/dados',
+			'controller' => 'AdminManagementController',
+			'action' => 'noteData'
+		);
+
 
 
 

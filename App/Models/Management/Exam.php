@@ -106,7 +106,7 @@ class Exam extends Model
             avaliacoes.fk_id_unidade_avaliacao AS fk_id_exam_unity,
             turma_disciplina.id_turma_disciplina AS fk_id_discipline_class ,
             professor.nome_professor AS teacher_name ,
-            turma.id_turma AS class_id
+            turma.id_turma AS class_id 
             
             FROM avaliacoes 
             
@@ -114,7 +114,7 @@ class Exam extends Model
             LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
             LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
-            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)       
             
             $operation
             
@@ -178,7 +178,9 @@ class Exam extends Model
             disciplina.nome_disciplina AS discipline_name, 
             avaliacoes.data_realizada AS realize_date, 
             avaliacoes.valor_avaliacao AS exam_value, 
-            unidade.unidade AS unity
+            unidade.unidade AS unity ,
+            turma.id_turma AS class_id 
+            
             
             FROM avaliacoes 
             
