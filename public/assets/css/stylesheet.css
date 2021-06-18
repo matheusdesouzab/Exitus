@@ -12,7 +12,7 @@ body {
 }
 
 html > body {
-  background-color: #E5E7E9;
+  background-color: #F2F7FB;
 }
 
 a {
@@ -500,7 +500,7 @@ select:disabled {
 }
 #painel-left .side-bar {
   margin-left: 150px;
-  background: #202125;
+  background: #263544;
   transition: 0.7s;
   position: fixed;
   height: 100%;
@@ -637,7 +637,7 @@ select:disabled {
 #pagina .collapse-options-container span:hover .fa-plus-circle {
   color: #ffffff;
 }
-#pagina .collapse-options-container > [aria-expanded=true] span {
+#pagina .collapse-options-container [aria-expanded=true] span {
   background: #007BFF;
   color: #ffffff;
   border: none;

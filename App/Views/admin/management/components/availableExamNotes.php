@@ -8,6 +8,7 @@ foreach ($this->view->listAddedNotes as $key => $exam) {
 
 ?>
 
+<h2></h2>
 
 <select id="examName" name="examName" class="form-control custom-select" required>
 

@@ -414,6 +414,13 @@ $(document).on('keyup', `#modalExam form #examValue`, function (e) {
 })
 
 
+$(document).on('keyup', `#modalNote form #noteValue`, function (e) {
+
+    getGrade(this, e, validation.round($(this).attr('initialValue'), 1))
+
+})
+
+
 $(document).on('keyup', '#addNote #noteValue', function (e) {
 
     var value = $('#addNote #examName').find(':selected').attr('noteValue')

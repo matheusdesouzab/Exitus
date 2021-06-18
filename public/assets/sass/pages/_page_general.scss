@@ -87,7 +87,9 @@
         }
     }
 
-    .collapse-options-container>[aria-expanded="true"] {
+    .collapse-options-container{
+    
+    [aria-expanded="true"] {
 
         span {
             background: $color-blue;
@@ -95,6 +97,10 @@
             border: none;
         }
     }
+
+    
+
+}
 
 
     // All edges of images ( Todas as bordas das imagens )

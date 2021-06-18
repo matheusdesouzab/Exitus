@@ -679,12 +679,13 @@ class AdminManagementController extends Action
     public function notesNotAddedYet()
     {
 
+        $Note = Container::getModel('Management\\Note');
         $Exam = Container::getModel('Management\\Exam');
 
-        $Exam->__set('fk_id_student_enrollment' , $_GET['enrollmentId']);
+        $Note->__set('fk_id_student_enrollment' , $_GET['enrollmentId']);
         $Exam->__set('fk_id_class', $_GET['classId']);
 
-        $this->view->listAddedNotes = $Exam->examlist("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Exam->__get('fk_id_student_enrollment'));
+        $this->view->listAddedNotes = $Note->examsPerformed("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
         $this->view->classExams = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class'));
 
         $this->render('/components/availableExamNotes', 'SimpleLayout');

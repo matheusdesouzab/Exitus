@@ -24,9 +24,6 @@
 
         <div class="form-row mb-2 mt-3">
 
-            <input type="hidden" name="disciplineClassId" value="<?= $this->view->noteData[0]->fk_id_discipline_class ?>">
-            <input type="hidden" name="classId" value="<?= $this->view->noteData[0]->class_id ?>">
-
             <div class="form-group col-lg-6">
                 <label for="">Descrição da avaliação:</label>
                 <input class="form-control" disabled value="<?= $this->view->noteData[0]->exam_description ?>" type="text" name="examDescription" id="" style="pointer-events:none">
@@ -34,24 +31,24 @@
 
             <div class="form-group col-lg-4">
                 <label for="">Disciplina:</label>
-                <input class="form-control" maxlength="4" disabled value="<?= $this->view->noteData[0]->discipline_name ?>" type="text" name="" id="" style="pointer-events:none">
+                <input class="form-control" maxlength="4" disabled value="<?= $this->view->noteData[0]->discipline_name ?>" type="text" name="disciplineClassId" id="" style="pointer-events:none">
             </div>
 
             <div class="form-group col-lg-2">
                 <label for="">Unidade:</label>
-                <input class="form-control" maxlength="4" disabled value="<?= $this->view->noteData[0]->unity ?>" type="text" name="" id="" style="pointer-events:none">
+                <input class="form-control" maxlength="4" disabled value="<?= $this->view->noteData[0]->unity ?>" type="text" name="unity" id="" style="pointer-events:none">
             </div>
 
         </div>
 
         <div class="form-row mb-2 mt-3">
 
-            <div class="form-group col-lg-3">
+            <div class="form-group col-lg-4">
                 <label for="">Data realizada:</label>
                 <input class="form-control" maxlength="4" disabled value="<?= $this->view->noteData[0]->realize_date ?>" type="date" name="realizeDate" id="" style="pointer-events:none">
             </div>
 
-            <div class="form-group col-lg-5">
+            <div class="form-group col-lg-4">
                 <label for="">Professor:</label>
                 <input class="form-control" maxlength="4" disabled value="<?= $this->view->noteData[0]->teacher_name ?>" type="text" name="" id="" style="pointer-events:none">
             </div>
@@ -63,7 +60,7 @@
 
             <div class="form-group col-lg-2">
                 <label for="">Nota aluno:</label>
-                <input class="form-control" initialValue="<?= $this->view->noteData[0]->note_value ?>" formId="#formNote<?= $this->view->noteData[0]->note_id ?>" id="examValue" maxlength="" disabled value="<?= $this->view->noteData[0]->note_value ?>" type="text" name="examValue">
+                <input class="form-control" initialValue="<?= $this->view->noteData[0]->exam_value ?>" formId="#formNote<?= $this->view->noteData[0]->note_id ?>" id="noteValue" maxlength="" disabled value="<?= $this->view->noteData[0]->note_value ?>" type="text" name="noteValue">
             </div>
 
         </div>
