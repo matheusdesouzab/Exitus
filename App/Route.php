@@ -486,6 +486,18 @@ class Route extends Bootstrap
 			'action' => 'noteData'
 		);
 
+		$routes['adminNoteUpdate'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/atualizar',
+			'controller' => 'AdminManagementController',
+			'action' => 'noteUpdate'
+		);
+
+		$routes['adminNoteDelete'] = array(
+			'route' => '/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/deletar',
+			'controller' => 'AdminManagementController',
+			'action' => 'noteDelete'
+		);
+
 
 
 

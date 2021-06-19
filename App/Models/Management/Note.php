@@ -65,7 +65,8 @@ class Note extends Exam
             nota_avaliacao.id_nota AS note_id ,
             avaliacoes.id_avaliacao AS exam_id ,
             avaliacoes.data_realizada AS realize_date ,
-            professor.nome_professor AS teacher_name
+            professor.nome_professor AS teacher_name ,
+            matricula.id_matricula AS enrollment_id
       
             FROM avaliacoes
             
@@ -167,5 +168,34 @@ class Note extends Exam
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function update()
+    {
+
+        $query = "UPDATE nota_avaliacao SET nota_avaliacao.valor_nota = :note_value WHERE nota_avaliacao.id_nota = :note_id ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':note_value' , $this->__get('noteValue'));
+        $stmt->bindValue(':note_id' , $this->__get('noteId'));
+
+        $stmt->execute();
+
+    }
+
+
+    public function delete()
+    {
+
+        $query = "DELETE FROM nota_avaliacao WHERE nota_avaliacao.id_nota = :note_id ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':note_id' , $this->__get('noteId'));
+
+        $stmt->execute();
+
     }
 }

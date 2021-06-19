@@ -22,7 +22,7 @@ class AdminTeacherController extends Action
         $this->view->pcd = $People->pcd();
         $this->view->bloodType = $People->bloodType();
 
-        $this->render('teacherRegistration', 'AdminLayout');
+        $this->render('teacher/teacherRegistration', 'AdminLayout');
     }
 
 
@@ -74,7 +74,7 @@ class AdminTeacherController extends Action
 
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
 
-        $this->render('/components/teacherListing', 'SimpleLayout');
+        $this->render('teacher/components/teacherListing', 'SimpleLayout');
 
     }
 
@@ -92,7 +92,7 @@ class AdminTeacherController extends Action
         $this->view->bloodType = $Teacher->bloodType();
         $this->view->availableClass = $Classe->availableListClass();
 
-        $this->render('teacherList', 'AdminLayout');
+        $this->render('teacher/teacherList', 'AdminLayout');
     }
 
 
@@ -105,7 +105,7 @@ class AdminTeacherController extends Action
 
         $this->view->typeTeacherList = 'normal';
 
-        $this->render('/components/teacherListing', 'SimpleLayout');
+        $this->render('teacher/components/teacherListing', 'SimpleLayout');
     }
 
 
@@ -124,7 +124,7 @@ class AdminTeacherController extends Action
         $this->view->bloodType = $Teacher->bloodType();
         $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
 
-        $this->render('/components/modalTeacherProfile', 'SimpleLayout');
+        $this->render('teacher/components/modalTeacherProfile', 'SimpleLayout');
     }
 
 
@@ -172,7 +172,7 @@ class AdminTeacherController extends Action
         $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
 
 
-        $this->render('/components/modalTeacherProfile', 'SimpleLayout'); 
+        $this->render('teacher/components/modalTeacherProfile', 'SimpleLayout'); 
     }
 
 

@@ -30,7 +30,7 @@ class AdminStudentController extends Action
         $this->view->bloodType = $Student->bloodType();
         $this->view->availableClass = $Classe->availableListClass();
 
-        $this->render('studentRegistration', 'AdminLayout');
+        $this->render('student/studentRegistration', 'AdminLayout');
     }
 
 
@@ -50,7 +50,7 @@ class AdminStudentController extends Action
         $this->view->availableSeries = $Classe->availableSeries();
         $this->view->typeStudentList = 'normal';
 
-        $this->render('studentList', 'AdminLayout');
+        $this->render('student/studentList', 'AdminLayout');
     }
 
 
@@ -62,7 +62,7 @@ class AdminStudentController extends Action
         $this->view->listStudent = $Student->list();
         $this->view->typeStudentList = 'normal';
 
-        $this->render('/components/studentListing', 'SimpleLayout');
+        $this->render('student/components/studentListing', 'SimpleLayout');
     }
 
 
@@ -73,7 +73,7 @@ class AdminStudentController extends Action
 
         $this->view->listClass = $Classe->availableListClass();
         
-        $this->render('/components/classesList', 'SimpleLayout');
+        $this->render('student/components/classesList', 'SimpleLayout');
     }
 
 
@@ -88,7 +88,7 @@ class AdminStudentController extends Action
         $this->view->listStudent = $Student->seek($_GET['course'], $_GET['shift'], $_GET['series']);
         $this->view->typeStudentList = 'normal';
 
-        $this->render('/components/studentListing', 'SimpleLayout');
+        $this->render('student/components/studentListing', 'SimpleLayout');
     }
 
 
@@ -112,7 +112,7 @@ class AdminStudentController extends Action
 
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
 
-        $this->render('/components/modalStudentProfile', 'SimpleLayout');
+        $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }
 
 
@@ -155,7 +155,7 @@ class AdminStudentController extends Action
         $this->view->pcd = $Student->pcd();
         $this->view->bloodType = $Student->bloodType();
 
-        $this->render('/components/modalStudentProfile', 'SimpleLayout'); 
+        $this->render('student/components/modalStudentProfile', 'SimpleLayout'); 
     }
 
 

@@ -12,7 +12,7 @@ class AdminManagementController extends Action
 
     public function managementGeneral()
     {
-        $this->render('/pages/generalManagement', 'AdminLayout');
+        $this->render('management/pages/generalManagement', 'AdminLayout');
     }
 
 
@@ -27,7 +27,7 @@ class AdminManagementController extends Action
         $this->view->listSchoolTerm = $SchoolTerm->list();
         $this->view->listSchoolTermStates = $SchoolTerm->listSchoolTermStates();
 
-        $this->render('/pages/schoolTermManagement', 'AdminLayout');
+        $this->render('management/pages/schoolTermManagement', 'AdminLayout');
     }
 
 
@@ -67,7 +67,7 @@ class AdminManagementController extends Action
         $this->view->listSchoolTerm = $SchoolTerm->list();
         $this->view->listSchoolTermStates = $SchoolTerm->listSchoolTermStates();
 
-        $this->render('/components/schoolTermsList', 'SimpleLayout');
+        $this->render('management/components/schoolTermsList', 'SimpleLayout');
     }
 
 
@@ -106,7 +106,7 @@ class AdminManagementController extends Action
 
         $this->view->listClassRoom = $ClassRoom->list();
 
-        $this->render('/pages/classroomManagement', 'AdminLayout');
+        $this->render('management/pages/classroomManagement', 'AdminLayout');
     }
 
 
@@ -149,7 +149,7 @@ class AdminManagementController extends Action
 
         $this->view->listClassRoom = $ClassRoom->list();
 
-        $this->render('/components/classroomsList', 'SimpleLayout');
+        $this->render('management/components/classroomsList', 'SimpleLayout');
     }
 
 
@@ -181,7 +181,7 @@ class AdminManagementController extends Action
 
         $this->view->listCourse = $Course->list();
 
-        $this->render('/pages/courseManagement', 'AdminLayout');
+        $this->render('management/pages/courseManagement', 'AdminLayout');
     }
 
 
@@ -204,7 +204,7 @@ class AdminManagementController extends Action
 
         $this->view->listCourse = $Course->list();
 
-        $this->render('/components/coursesList', 'SimpleLayout');
+        $this->render('management/components/coursesList', 'SimpleLayout');
     }
 
 
@@ -251,7 +251,7 @@ class AdminManagementController extends Action
         $this->view->listDiscipline = $Discipline->list();
         $this->view->listModality = $Discipline->listDisciplineModality();
 
-        $this->render('/pages/disciplineManagement', 'AdminLayout');
+        $this->render('management/pages/disciplineManagement', 'AdminLayout');
     }
 
 
@@ -275,7 +275,7 @@ class AdminManagementController extends Action
 
         $this->view->listDiscipline = $Discipline->list();
 
-        $this->render('/components/disciplinesList', 'SimpleLayout');
+        $this->render('management/components/disciplinesList', 'SimpleLayout');
     }
 
 
@@ -303,7 +303,7 @@ class AdminManagementController extends Action
 
         $this->view->listDiscipline = $Discipline->seekDiscipline();
 
-        $this->render('/components/disciplinesList', 'SimpleLayout');
+        $this->render('management/components/disciplinesList', 'SimpleLayout');
     }
 
 
@@ -317,7 +317,7 @@ class AdminManagementController extends Action
         $this->view->discipline = $Discipline->disciplineData();
         $this->view->listDisciplineModality = $Discipline->listDisciplineModality();
 
-        $this->render('/components/disciplineModal', 'SimpleLayout');
+        $this->render('management/components/disciplineModal', 'SimpleLayout');
     }
 
 
@@ -351,7 +351,7 @@ class AdminManagementController extends Action
         $this->view->availableClassRoom = $ClassRoom->activeClassroom();
         $this->view->activeSchoolTerm = $SchoolTerm->active();
 
-        $this->render('/pages/classeManagement', 'AdminLayout');
+        $this->render('management/pages/classeManagement', 'AdminLayout');
     }
 
 
@@ -394,7 +394,7 @@ class AdminManagementController extends Action
 
         $this->view->listClass = $Classe->list();
 
-        $this->render('/components/classList', 'SimpleLayout');
+        $this->render('management/components/classList', 'SimpleLayout');
     }
 
 
@@ -409,7 +409,7 @@ class AdminManagementController extends Action
 
         $this->view->listClass = $Classe->seekClass();
 
-        $this->render('/components/classList', 'SimpleLayout');
+        $this->render('management/components/classList', 'SimpleLayout');
     }
 
 
@@ -440,7 +440,7 @@ class AdminManagementController extends Action
         $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Classe->__get('classId'));
 
 
-        $this->render('/components/modalClassProfile', 'SimpleLayout');
+        $this->render('management/components/modalClassProfile', 'SimpleLayout');
     }
 
 
@@ -472,7 +472,7 @@ class AdminManagementController extends Action
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
         $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
 
-        $this->render('/components/disciplineClass', 'SimpleLayout');
+        $this->render('management/components/disciplineClass', 'SimpleLayout');
     }
 
 
@@ -498,7 +498,7 @@ class AdminManagementController extends Action
         $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
         $this->view->disciplineAll = $Discipline->disciplineAll();
 
-        $this->render('/components/disciplineSelect', 'SimpleLayout');
+        $this->render('management/components/disciplineSelect', 'SimpleLayout');
     }
 
 
@@ -511,7 +511,7 @@ class AdminManagementController extends Action
 
         $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class'));
 
-        $this->render('/components/examList', 'SimpleLayout');
+        $this->render('management/components/examList', 'SimpleLayout');
     }
 
 
@@ -527,7 +527,7 @@ class AdminManagementController extends Action
 
         $this->view->typeListExam = 'recent';
 
-        $this->render('/components/examList', 'SimpleLayout');
+        $this->render('management/components/examList', 'SimpleLayout');
     }
 
 
@@ -606,7 +606,7 @@ class AdminManagementController extends Action
 
         $this->view->examData = $Exam->examList("WHERE avaliacoes.id_avaliacao = " . $Exam->__get('examId'));
 
-        $this->render('/components/modalExam', 'SimpleLayout');
+        $this->render('management/components/modalExam', 'SimpleLayout');
     }
 
 
@@ -645,7 +645,7 @@ class AdminManagementController extends Action
 
         $this->view->listExam = $Exam->seek();
 
-        $this->render('/components/examList', 'SimpleLayout');
+        $this->render('management/components/examList', 'SimpleLayout');
     }
 
 
@@ -682,15 +682,13 @@ class AdminManagementController extends Action
         $Note = Container::getModel('Management\\Note');
         $Exam = Container::getModel('Management\\Exam');
 
-        $Note->__set('fk_id_student_enrollment' , $_GET['enrollmentId']);
+        $Note->__set('fk_id_student_enrollment', $_GET['enrollmentId']);
         $Exam->__set('fk_id_class', $_GET['classId']);
 
         $this->view->listAddedNotes = $Note->examsPerformed("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
         $this->view->classExams = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class'));
 
-        $this->render('/components/availableExamNotes', 'SimpleLayout');
-
-
+        $this->render('management/components/availableExamNotes', 'SimpleLayout');
     }
 
 
@@ -699,12 +697,11 @@ class AdminManagementController extends Action
 
         $Note = Container::getModel('Management\\Note');
 
-        $Note->__set('fk_id_student_enrollment' , $_GET['enrollmentId']);
+        $Note->__set('fk_id_student_enrollment', $_GET['enrollmentId']);
 
         $this->view->listNote = $Note->list("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
 
-        $this->render('/components/noteList', 'SimpleLayout');
-
+        $this->render('management/components/noteList', 'SimpleLayout');
     }
 
     public function noteSeek()
@@ -720,8 +717,7 @@ class AdminManagementController extends Action
 
         $this->view->listNote = $Note->seek();
 
-        $this->render('/components/noteList', 'SimpleLayout'); 
-
+        $this->render('management/components/noteList', 'SimpleLayout');
     }
 
 
@@ -731,9 +727,31 @@ class AdminManagementController extends Action
         $Note = Container::getModel('Management\\Note');
         $Note->__set("noteId", $_GET['id']);
 
-        $this->view->noteData = $Note->list("WHERE nota_avaliacao.id_nota = ". $Note->__get('noteId'));
+        $this->view->noteData = $Note->list("WHERE nota_avaliacao.id_nota = " . $Note->__get('noteId'));
 
-        $this->render('/components/modalNote', 'SimpleLayout'); 
+        $this->render('management/components/modalNote', 'SimpleLayout');
+    }
 
+
+    public function noteUpdate()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+
+        $Note->__set("noteId", $_POST['noteId']);
+        $Note->__set("noteValue", $_POST['noteValue']);
+
+        $Note->update();
+    }
+
+
+    public function noteDelete()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+
+        $Note->__set("noteId", $_POST['noteId']);
+
+        $Note->delete();
     }
 }

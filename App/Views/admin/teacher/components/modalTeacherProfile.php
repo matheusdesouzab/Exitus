@@ -427,8 +427,6 @@
 
         <li class="list-group-item border-0" id="nota" data-toggle="collapse" aria-expanded="false" data-target="#student-profile-assessment"><a href="#"> <i class="far fa-list-alt mr-2"></i> Avaliações</a></li>
 
-
-
     </ul>
 
 </div>

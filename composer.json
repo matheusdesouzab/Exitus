@@ -1,12 +1,14 @@
 {
-	"name": "miniframework",
+	"name": "Web_Gest",
 	"require": {
 		"php": ">= 7.0"
 	},
 	"authors": [
 		{
-			"name": "Jorge Sant Ana",
-			"email": "jorge@teste.com.br"
+			"name": "Matheus de Souza"
+		},
+		{
+			"name": "João Pedro"
 		}
 	],
 	"autoload": {
