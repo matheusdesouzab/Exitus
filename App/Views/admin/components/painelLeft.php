@@ -1,51 +1,58 @@
-<div id="painel-left" class="col-sm-2  d-flex justify-content-center">
+<div id="left-panel" class="row">
 
-    <ul class="side-bar">
+    <nav id="sidebar">
 
-        <div class="logo">
-            <img src="/assets/img/logo-completo.png" alt="">
-        </div>
+        <div class="sidebar-header">Web Gest</div>
 
-        <li class="link-collapse link-return">
-            <a class="bars-xs" href="#">
-                <i class="fas fa-chevron-circle-left mr-2"></i> <span>Retorna</span>
-            </a>
-        </li>
+        <ul class="sidebar-lists">
+
+            <p>Menu principal</p>
+
+            <li><a href="#"><i class="fas fa-globe"></i> &nbsp;Home</a></li>
+
+            <li data-toggle="collapse" href="#student" role="button" aria-expanded="false" aria-controls="student" class="active link-collapse">
+                <a><i class="fas fa-users"></i>Alunos<i class="fas fa-angle-right"></i></a>
+            </li>
+
+            <div class="collapse" id="student">
+                <li><a href='/admin/aluno/cadastro'>Cadastrar aluno</a></li>
+                <li><a href='/admin/aluno/lista'>Buscar aluno</a></li>
+            </div>
+
+            <li data-toggle="collapse" href="#teacher" role="button" aria-expanded="false" aria-controls="teacher" class="active link-collapse">
+                <a><i class="fas fa-chalkboard-teacher"></i>Docente<i class="fas fa-angle-right"></i></a>
+            </li>
+
+            <div class="collapse" id="teacher">
+                <li><a href='/admin/aluno/cadastro'>Cadastrar docente</a></li>
+                <li><a href='/admin/aluno/lista'>Buscar docente</a></li>
+            </div>
+
+            <li data-toggle="collapse" href="#management" role="button" aria-expanded="false" aria-controls="management" class="active link-collapse">
+                <a><i class="fas fa-boxes"></i>Gestão geral<i class="fas fa-angle-right"></i></a>
+            </li>
+
+            <div class="collapse" id="management">
+                <li><a href='/admin/gestao/periodo-letivo'>Gestão do periodo letivo</a></li>
+                <li><a href='/admin/gestao/sala'>Gestão da sala</a></li>
+                <li><a href='/admin/gestao/disciplina'>Gestão da disciplina</a></li>
+                <li><a href='/admin/gestao/curso'>Gestão do curso</a></li>
+                <li><a href='/admin/gestao/turma'>Gestão da turma</a></li>
+            </div>
+
+            <li><a href=""><i class="fas fa-cog"></i>Configurações</a></li>
 
 
 
-        <li class="link-collapse">
-            <a href="/home"><i class="fas fa-globe mr-2"></i> <span>Visão Geral</span>
-            </a>
-        </li>
-
-        <li class="link-collapse">
-            <a href='/admin/gestao'>
-                <i class="fab fa-buffer mr-2"></i><span> Gestão</span>
-            </a>
-        </li>
-
-        <li data-toggle="collapse" href="#alunos" role="button" aria-expanded="false" aria-controls="alunos" class="active link-collapse"><a><i class="fas fa-users mr-2"></i> <span class="mr-5">Alunos</span><i class="fas fa-angle-right ml-5"></i></a></li>
-
-        <div class="collapse" id="alunos">
-            <li><a href='/admin/aluno/cadastro'><span>Cadastra aluno</span></a></li>
-            <li><a href='/admin/aluno/lista'><span>Lista de alunos</span></a></li>
-        </div>
-
-        <li data-toggle="collapse" href="#professores" role="button" aria-expanded="false" aria-controls="professores" class="active link-collapse"><a><i class="fas fa-id-card-alt mr-2"></i> <span class="mr-3">Professores</span> <i class="fas fa-angle-right" style="margin-left: 52px;"></i></a></li>
-
-        <div class="collapse" id="professores">
-            <li><a href='/admin/professor/cadastro'><span>Cadastra professor(a)</span></a></li>
-            <li><a href='/admin/professor/lista'><span>Lista professor</span></a></li>
-        </div>
 
 
-        <h5 class="mb-3 mt-3">Controle de dados</h5>
 
-        <li class="link-collapse"><a href=""><i class="fas fa-chart-pie mr-2"></i> <span>Analise de dados</span></a></li>
 
-        <li class="link-collapse"><a href=""><i class="fas fa-cog mr-2"></i> <span>Configurações</span> </a></li>
 
-    </ul>
+
+
+        </ul>
+
+    </nav>
 
 </div>

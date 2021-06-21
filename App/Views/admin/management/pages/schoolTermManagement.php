@@ -4,27 +4,37 @@
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-school-term">
 
-            <div class="col-lg-12 mb-3 mt-3">
+            <div class="row d-flex align-items-center mt-3 mb-1">
 
-                <div class="row d-flex align-items-center">
+                <div class="col-lg-6">
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <h5>Gestão dos períodos letivos</h5>
                     </div>
 
-                    <div class="col-lg-6 collapse-options-container">
-
-                        <a href="#" class="font-weight-bold" id="collapseListSchoolTerm" aria-expanded="true" data-toggle="collapse" data-target="#list-terms">
-                            <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Períodos</span>
-                        </a>
-
-                        <a href="#" class="collapsed font-weight-bold" id="collapseAddSchoolTerm" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term">
-                            <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
-                        </a>
-
-                    </div>
                 </div>
+
+                <div class="col-lg-6 collapse-options-container ">
+
+                    <a href="#" class="font-weight-bold" id="collapseListSchoolTerm" aria-expanded="true" data-toggle="collapse" data-target="#list-terms">
+                        <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Períodos</span>
+                    </a>
+
+                    <a href="#" class="collapsed font-weight-bold" id="collapseAddSchoolTerm" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term">
+                        <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+                    </a>
+
+                </div>
+
+                <nav class="col-lg-12" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Gestão geral</a></li>
+                        <li class="breadcrumb-item active">Período letivo</li>
+                    </ol>
+                </nav>
             </div>
+
+
 
             <div class="col-lg-12">
 

@@ -1,101 +1,110 @@
-// Painel Left 
+#left-panel {
 
-#painel-left {
-
-    transition: 1s width;
+    display: flex;
     width: 100%;
-    z-index: 2;
+    font-family: Semi-bold;
 
-    li {
+    #sidebar {
+        width: 16.5vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 999;
+        background-color: #17152E;
+        overflow: auto;
 
-        @include side-bar-li(10px, left, 40px, transparet, $color-smooth-blue, none);
-
-        a {
-            @include side-bar-a(12, $color-white, 0);
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
         }
 
-    }
-
-    .link-return{
-        display: none;
-    }
-
-    h5 {
-        color: $color-white;
-        text-align: left;
-        padding-left: 40px;
-        font-size: 13px;
-        margin-top: 15px;
-    }
-
-    .link-collapse:hover {
-        background-color: $color-smooth-blue;
-        border-left: 0px;
-    }
-
-    .collapse li {
-
-        border-left: 20px solid #FAFAFF;
-
-        @include side-bar-li(10px, left, 40px, $color-smooth-blue, $color-black, 20px solid $color-extra-light-blue);
-
-        a{
-            padding: 10px;
+        &::-webkit-scrollbar {
+            width: 5px;
+            background-color: #F5F5F5;
         }
 
-    }
-
-    .side-bar {
-        margin-left: 150px;
-        @include side-bar(240px);
-        
-
-        .logo {
-            @include side-bar-logo(90px, 0px, 20px auto);
-        }
-    }
-
-    .side-bar-responsivo {
-
-        display: none;
-
-        /* @include side-bar(180px);
-
-        .link-collapse span,
-        .fa-angle-down {
-            display: none;
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #555;
         }
 
-        .navbar-brand {
-            margin-left: 50px;
+        .sidebar-header {
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
-        li {
-            @include side-bar-li(10px, center, 70px, transparet, $color-dark-blue, none);
-        }
+        .sidebar-lists {
 
-        h5 {
-            display: none;
-        }
+            p {
+                color: white;
+                font-weight: bold;
+                font-size: 13px;
+                margin-bottom: 10px;
+                padding: 10px 25px;
+            }
 
-        .logo {
-            @include side-bar-logo(100px, 60px, 20px auto);
-        }
+            i.fas {
+                color: #A8A8A8;
+                margin-right: 1.5vw;
+            }
 
-        .link-collapse a {
-            @include side-bar-a(15, $color-white, 10px);
-        }
-
-        .collapse {
+            .fa-angle-right {
+                position: absolute;
+                right: 0;
+                margin-top: 6px;
+            }
 
             a {
-                font-size: 10px;
+                color: #CDCDCD;
+                font-weight: 300;
+                font-size: 12px;
+                width: 100%;
+                transition: 1s;
+
+                &:hover{
+                    color:white;
+                }
             }
 
             li {
-                border-left: 0px;
+                margin-top: 0.5vw;
+                padding: 8px 30px;
+
+                &:hover {
+                    background-color: #222D3B;
+                }
             }
-        } */
+
+            .collapse {
+
+                li {
+                    background-color: #222D3B;
+                    padding: 15px 25px;
+                    margin-top: 0;
+                    transition: 1s;
+                    width: 100%;
+                    border-left: 5px solid #6418c3;
+
+                    &:hover {
+                        background-color: #6418c3;
+                    }
+                }
+
+                a {
+                    display: block;
+                    transition: 1s;
+                    text-align: center;
+                    color: white;
+                }
+            }
+        }
     }
 
 }

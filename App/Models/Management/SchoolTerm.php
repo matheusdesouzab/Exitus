@@ -26,12 +26,24 @@ class SchoolTerm extends Model
     }
 
 
-    public function endSchoolTerm()
+    public function disableActiveSchoolTerm()
     {
 
         if ($this->__get('fk_id_school_term_situation') == 1) {
 
-            $query = 'UPDATE periodo_letivo SET fk_id_situacao_periodo_letivo = 2 WHERE periodo_letivo.id_ano_letivo != 0';
+            $query =
+
+                "UPDATE periodo_letivo SET fk_id_situacao_periodo_letivo = CASE 
+
+                 WHEN fk_id_situacao_periodo_letivo = 1 THEN 2
+
+                 ELSE fk_id_situacao_periodo_letivo
+
+                 END
+                
+                 WHERE id_ano_letivo != 0
+                
+            ";
 
             $stmt = $this->db->prepare($query)->execute();
         }
@@ -41,18 +53,17 @@ class SchoolTerm extends Model
     public function insert()
     {
 
-        $this->endSchoolTerm();
+        $this->disableActiveSchoolTerm();
 
         $query =
 
             "INSERT INTO periodo_letivo 
 
-            (data_inicio,data_fim, fk_id_situacao_periodo_letivo, fk_id_ano_letivo) 
+                (data_inicio, data_fim, fk_id_situacao_periodo_letivo, fk_id_ano_letivo) 
 
             VALUES 
 
-            (:startDate,:endDate, :fk_id_school_term_situation, :fk_id_school_year)
-            
+                (:startDate, :endDate, :fk_id_school_term_situation, :fk_id_school_year)          
         ";
 
         $stmt = $this->db->prepare($query);
@@ -85,21 +96,26 @@ class SchoolTerm extends Model
     public function update()
     {
 
-        $this->endSchoolTerm();
-
-        $active = $this->active();
-
-        $active[0]->option_value ==  $this->__get('schoolTermId') ? $this->__set('fk_id_school_term_situation', 1) : '';
+        $this->disableActiveSchoolTerm();
 
         $query =
 
             "UPDATE periodo_letivo SET 
-            
-            data_inicio = :startDate , 
-            data_fim = :endDate , 
-            fk_id_situacao_periodo_letivo = :fk_id_school_term_situation 
 
-            WHERE periodo_letivo.id_ano_letivo = :schoolTermId
+             periodo_letivo.data_inicio = :startDate ,
+             periodo_letivo.data_fim = :endDate ,
+            
+             periodo_letivo.fk_id_situacao_periodo_letivo = CASE
+
+             WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 1 THEN 1
+            
+             ELSE :fk_id_school_term_situation
+            
+             END
+
+             
+            
+             WHERE periodo_letivo.id_ano_letivo = :schoolTermId
         
         ";
 
@@ -118,11 +134,20 @@ class SchoolTerm extends Model
     public function delete()
     {
 
-        $active = $this->active();
 
-        $active[0]->option_value ==  $this->__get('schoolTermId') ? $this->__set('schoolTermId', '0')  : '';
+        $query =
 
-        $query = "DELETE FROM periodo_letivo WHERE id_ano_letivo = :id ";
+            "DELETE FROM periodo_letivo 
+            
+            WHERE id_ano_letivo = CASE 
+            
+            WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 1 THEN 0 
+            
+            ELSE :id 
+            
+            END
+        
+        ";
 
         $stmt = $this->db->prepare($query);
 

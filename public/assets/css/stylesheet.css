@@ -7,12 +7,11 @@
 html,
 body {
   height: 100%;
-  color: #09023B;
-  transition: 0.6s;
+  color: #2b2b2f;
 }
 
 html > body {
-  background-color: #F2F7FB;
+  background-color: #F9F9F9;
 }
 
 a {
@@ -61,12 +60,6 @@ button {
   outline: none;
 }
 
-input:disabled,
-select:disabled {
-  background: #F4F6F6;
-  border: 1px solid #e4d9ff;
-}
-
 @font-face {
   font-family: Extra-light;
   src: url(../../../assets/fonts/Montserrat-ExtraLight.ttf);
@@ -113,12 +106,7 @@ select:disabled {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: #ffffff;
   transition: 0.5s;
-}
-#pagina .card .card-title {
-  font-size: 15px;
-}
-#pagina .card .card-value {
-  font-size: 25px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 #pagina .card .card-body {
   padding: 15px;
@@ -348,10 +336,19 @@ select:disabled {
   border-radius: 10px;
 }
 
-#pagina .form-control:valid {
+#pagina form {
+  border-radius: 10px;
+}
+#pagina form input:disabled,
+#pagina form select:disabled {
+  background-color: #F4F6F6;
+  cursor: no-drop;
+  border: none;
+}
+#pagina form .form-control:valid {
   border: 2px solid #e4d9ff;
 }
-#pagina .form-control:invalid {
+#pagina form .form-control:invalid {
   border: 2px solid #F2DCD6;
 }
 
@@ -360,7 +357,7 @@ select:disabled {
   color: #506177;
   font-size: 15px;
   border-radius: 10px;
-  background: #e5e5e5;
+  background: #F4F6F6;
   padding: 10px;
 }
 #pagina .edit-data-icon:hover {
@@ -380,7 +377,7 @@ select:disabled {
   color: #506177;
   font-size: 15px;
   border-radius: 10px;
-  background: #e5e5e5;
+  background: #F4F6F6;
   padding: 10px;
   pointer-events: none;
 }
@@ -401,7 +398,7 @@ select:disabled {
   color: #506177;
   font-size: 15px;
   border-radius: 10px;
-  background: #e5e5e5;
+  background: #F4F6F6;
   padding: 10px;
   pointer-events: none;
 }
@@ -422,7 +419,7 @@ select:disabled {
   color: #506177;
   font-size: 15px;
   border-radius: 10px;
-  background: #e5e5e5;
+  background: #F4F6F6;
   padding: 10px;
 }
 #pagina .printer-icon:hover {
@@ -444,115 +441,92 @@ select:disabled {
   color: green;
 }
 
-#painel-left {
-  transition: 1s width;
+#left-panel {
+  display: flex;
   width: 100%;
-  z-index: 2;
+  font-family: Semi-bold;
 }
-#painel-left li {
-  padding: 10px;
-  text-align: left;
-  padding-left: 40px;
-  transition: background-color 0.8s;
-  background-size: 0% 100%;
-  background-color: transparet;
-}
-#painel-left li:hover {
-  background-color: #273469;
-  border-left: none;
-}
-#painel-left li a {
-  font-size: 12;
-  font-weight: bold;
-  color: #ffffff;
-  text-decoration: none;
-  padding-bottom: 0;
-}
-#painel-left .link-return {
-  display: none;
-}
-#painel-left h5 {
-  color: #ffffff;
-  text-align: left;
-  padding-left: 40px;
-  font-size: 13px;
-  margin-top: 15px;
-}
-#painel-left .link-collapse:hover {
-  background-color: #273469;
-  border-left: 0px;
-}
-#painel-left .collapse li {
-  border-left: 20px solid #FAFAFF;
-  padding: 10px;
-  text-align: left;
-  padding-left: 40px;
-  transition: background-color 0.8s;
-  background-size: 0% 100%;
-  background-color: #273469;
-}
-#painel-left .collapse li:hover {
-  background-color: #283339;
-  border-left: 20px solid #e4d9ff;
-}
-#painel-left .collapse li a {
-  padding: 10px;
-}
-#painel-left .side-bar {
-  margin-left: 150px;
-  background: #263544;
-  transition: 0.7s;
+#left-panel #sidebar {
+  width: 16.5vw;
   position: fixed;
-  height: 100%;
-  width: 240px;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background-color: #17152E;
+  overflow: auto;
 }
-#painel-left .side-bar .logo {
-  width: 90px;
-  padding-left: 0px;
-  margin: 20px auto;
+#left-panel #sidebar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
 }
-#painel-left .side-bar .logo img {
+#left-panel #sidebar::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+#left-panel #sidebar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+#left-panel #sidebar .sidebar-header {
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#left-panel #sidebar .sidebar-lists p {
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 10px;
+  padding: 10px 25px;
+}
+#left-panel #sidebar .sidebar-lists i.fas {
+  color: #A8A8A8;
+  margin-right: 1.5vw;
+}
+#left-panel #sidebar .sidebar-lists .fa-angle-right {
+  position: absolute;
+  right: 0;
+  margin-top: 6px;
+}
+#left-panel #sidebar .sidebar-lists a {
+  color: #CDCDCD;
+  font-weight: 300;
+  font-size: 12px;
   width: 100%;
+  transition: 1s;
 }
-#painel-left .side-bar-responsivo {
-  display: none;
-  /* @include side-bar(180px);
-
-  .link-collapse span,
-  .fa-angle-down {
-      display: none;
-  }
-
-  .navbar-brand {
-      margin-left: 50px;
-  }
-
-  li {
-      @include side-bar-li(10px, center, 70px, transparet, $color-dark-blue, none);
-  }
-
-  h5 {
-      display: none;
-  }
-
-  .logo {
-      @include side-bar-logo(100px, 60px, 20px auto);
-  }
-
-  .link-collapse a {
-      @include side-bar-a(15, $color-white, 10px);
-  }
-
-  .collapse {
-
-      a {
-          font-size: 10px;
-      }
-
-      li {
-          border-left: 0px;
-      }
-  } */
+#left-panel #sidebar .sidebar-lists a:hover {
+  color: white;
+}
+#left-panel #sidebar .sidebar-lists li {
+  margin-top: 0.5vw;
+  padding: 8px 30px;
+}
+#left-panel #sidebar .sidebar-lists li:hover {
+  background-color: #222D3B;
+}
+#left-panel #sidebar .sidebar-lists .collapse li {
+  background-color: #222D3B;
+  padding: 15px 25px;
+  margin-top: 0;
+  transition: 1s;
+  width: 100%;
+  border-left: 5px solid #6418c3;
+}
+#left-panel #sidebar .sidebar-lists .collapse li:hover {
+  background-color: #6418c3;
+}
+#left-panel #sidebar .sidebar-lists .collapse a {
+  display: block;
+  transition: 1s;
+  text-align: center;
+  color: white;
 }
 
 #pagina .main-container {
@@ -755,9 +729,6 @@ select:disabled {
 #pagina .school-term-active .update-data-icon:hover .fa-plus-circle {
   color: #ffffff;
 }
-#pagina .school-term-active :disabled {
-  background-color: #ffffff;
-}
 #pagina .school-term-active input {
   font-weight: bold;
   color: #09023B;
@@ -783,6 +754,14 @@ select:disabled {
 #pagina .toast .toast-header {
   border-radius: 5px;
   padding: 10px 15px;
+}
+#pagina .breadcrumb {
+  background-color: transparent;
+  margin-top: -10px;
+}
+#pagina .breadcrumb .breadcrumb-item {
+  font-weight: bold;
+  font-size: 14px;
 }
 
 #teacher-registration .registration-connection-line-in-stages {

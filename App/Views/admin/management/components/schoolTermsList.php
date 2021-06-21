@@ -4,11 +4,11 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
     foreach ($this->view->listSchoolTerm as $i => $schoolTerm) { ?>
 
-        <form id="formSchoolTerm<?= $schoolTerm->school_term_id ?>" class="card mb-3" action="" style='<?= $schoolTerm->fk_id_situation_school_term == 1 ? "border-left: 5px solid blue" : "" ?>'>
+        <form id="formSchoolTerm<?= $schoolTerm->school_term_id ?>" class="card mb-4" action="" style='<?= $schoolTerm->fk_id_situation_school_term == 1 ? "border-left: 5px solid blue" : "" ?>'>
 
             <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
 
-                <div class="col-lg-8 font-weight-bold mudar-de-cor">Ano letivo <?= $schoolTerm->school_year ?></div>
+                <div class="col-lg-8 font-weight-bold mudar-de-cor">Período letivo do ano de <?= $schoolTerm->school_year ?></div>
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
@@ -26,7 +26,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                     <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" routeDelete="/admin/gestao/periodo-letivo/deletar" toastData="Periodo Letivo Deletado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 delete-data-icon">
 
-                        <i class="fas fa-ban"></i>
+                    <i class="fas fa-trash-alt"></i>
 
                     </span>
 

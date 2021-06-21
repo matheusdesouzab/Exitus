@@ -1,9 +1,10 @@
 @mixin side-bar($width) {
-    background: #263544;
+    background: white;
     transition: 0.7s;
     position: fixed;
     height: 100%;
     width: $width;
+    box-shadow: 0px 0px 5px #e5e5e5
 }
 
 
@@ -26,7 +27,7 @@
 @mixin side-bar-a($font-size, $color, $padding-bottom) {
     font-size: $font-size;
     font-weight: bold;
-    color: $color;
+    color: #505050;
     text-decoration: none;
     padding-bottom: $padding-bottom;
 }

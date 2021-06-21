@@ -439,7 +439,7 @@ $(document).on('blur', '#seekExam #disciplineClassId , #seekExam #unity', functi
 })
 
 
-$(document).on('blur', "#seekNoteExam #disciplineClassId , #seekNoteExam #unity", function(e){
+$(document).on('blur', "#seekNoteExam #disciplineClassId , #seekNoteExam #unity", function (e) {
 
     loadListElements('containerListNote', '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar', '#seekNoteExam')
 
@@ -504,6 +504,8 @@ $(document).on('change', '#addNote #examName', function (e) {
 })
 
 
-$(document).on('click', '[data-target="#student-profile-assessment"] , [data-target="#rating-list"]' , function(e){
+$(document).on('click', '[data-target="#student-profile-assessment"] , [data-target="#rating-list"]', function (e) {
     loadListElements('containerListNote', '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes', '#addNote')
 })
+
+

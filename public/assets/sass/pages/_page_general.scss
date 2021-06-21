@@ -87,20 +87,20 @@
         }
     }
 
-    .collapse-options-container{
-    
-    [aria-expanded="true"] {
+    .collapse-options-container {
 
-        span {
-            background: $color-blue;
-            color: $color-white;
-            border: none;
+        [aria-expanded="true"] {
+
+            span {
+                background: $color-blue;
+                color: $color-white;
+                border: none;
+            }
         }
+
+
+
     }
-
-    
-
-}
 
 
     // All edges of images ( Todas as bordas das imagens )
@@ -158,9 +158,7 @@
             border: 2px solid $color-white;
         }
 
-        :disabled {
-            background-color: $color-white;
-        }
+       
 
         input {
             font-weight: bold;
@@ -198,6 +196,14 @@
         }
     }
 
+    .breadcrumb {
+        background-color: transparent;
+        margin-top: -10px;
 
+        .breadcrumb-item{
+            font-weight: bold;
+            font-size: 14px;
+        }
+    }
 
 }

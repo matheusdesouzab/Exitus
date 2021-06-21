@@ -7,12 +7,11 @@
 html,
 body {
     height: 100%;
-    color: $color-dark-blue;
-    transition: 0.6s;
+    color: #2b2b2f;
 }
 
 html>body {
-    background-color: #F2F7FB;
+    background-color: #F9F9F9;
 }
 
 a {
@@ -69,8 +68,3 @@ button {
     outline: none;
 }
 
-input:disabled,
-select:disabled {
-    background: $color-pure-gray;
-    border: 1px solid $color-extra-light-blue;
-}

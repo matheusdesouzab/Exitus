@@ -1,21 +1,21 @@
 #pagina {
 
     .edit-data-icon {
-        @include icon-card($color-dark-gray, $color-blue, $color-smooth-gray);
+        @include icon-card($color-dark-gray, $color-blue, #F4F6F6);
     }
 
     .update-data-icon {
-        @include icon-card($color-dark-gray, $color-green, $color-smooth-gray);
+        @include icon-card($color-dark-gray, $color-green, #F4F6F6);
         pointer-events: none;
     }
 
     .delete-data-icon {
-        @include icon-card($color-dark-gray, $color-red, $color-smooth-gray);
+        @include icon-card($color-dark-gray, $color-red, #F4F6F6);
         pointer-events: none;
     }
     
     .printer-icon {
-        @include icon-card($color-dark-gray, $color-blue, $color-smooth-gray);
+        @include icon-card($color-dark-gray, $color-blue, #F4F6F6);
     }
 
     .unregistered-unit-icon {

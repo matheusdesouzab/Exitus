@@ -1,6 +1,15 @@
 #pagina {
 
-    
+    form {
+
+        border-radius: 10px;
+
+        input:disabled,
+        select:disabled {
+            background-color: #F4F6F6;
+            cursor: no-drop;
+            border: none;
+        }
 
         .form-control:valid {
             border: 2px solid $color-extra-light-blue;
@@ -9,7 +18,6 @@
         .form-control:invalid {
             border: 2px solid $color-extra-light-red;
         }
-
-    
+    }
 
 }
