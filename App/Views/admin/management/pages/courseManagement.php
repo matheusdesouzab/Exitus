@@ -4,29 +4,36 @@
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-course">
 
-            <div class="col-lg-12 mb-3 mt-3">
-                <div class="row d-flex align-items-center">
-                    <div class="col-lg-6">
-                        <h5>Gestão dos cursos</h5>
-                    </div>
+            <div class="row mt-3 mb-1">
 
-                    <div class="col-lg-6 collapse-options-container">
+                <h5 class="col-lg-6">Gestão dos cursos</h5>
 
-                        <a class="font-weight-bold" aria-expanded="true" id="collapseListCourse" data-toggle="collapse" data-target="#list-courses">
+                <div class="col-lg-6 collapse-options-container">
 
-                            <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Cursos</span>
-                            
-                        </a>
+                    <a class="font-weight-bold" aria-expanded="true" id="collapseListCourse" data-toggle="collapse" data-target="#list-courses">
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-course">
+                        <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Cursos</span>
 
-                            <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
-                            
-                        </a>
+                    </a>
 
-                    </div>
+                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-course">
+
+                        <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+
+                    </a>
+
                 </div>
+
+                <nav class="col-lg-12 p-0" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/admin/gestao">Gestão geral</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cursos</li>
+                    </ol>
+                </nav>
+
+
             </div>
+
 
             <div class="col-lg-12">
 
@@ -49,13 +56,11 @@
 
                                 <div class="col-lg-12">
 
-                                    <form id="addCourse" class="card mt-3 was-validated" action="" role="form">
+                                    <form id="addCourse" class="card was-validated" action="" role="form">
 
-                                        <div class="row mt-2 form-row col-lg-11 mx-auto">
-                                            <div class="font-weight-bold col-lg-12">Adicionar novo curso:</div>
-                                        </div>
+                                    <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar novo curso:</div>
 
-                                        <div class="form-row mt-4 mb-2 form-row col-lg-11 mx-auto">
+                                        <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
                                             <div class="form-group col-lg-7">
                                                 <label for="courseName">Nome do curso:</label>
                                                 <input class="form-control is-valid" value="" type="text" name="courseName" id="courseName" required>
@@ -77,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+            </div>
             </div>
         </div>
     </div>

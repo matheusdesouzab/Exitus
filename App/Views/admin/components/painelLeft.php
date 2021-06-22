@@ -8,7 +8,7 @@
 
             <p>Menu principal</p>
 
-            <li><a href="#"><i class="fas fa-globe"></i> &nbsp;Home</a></li>
+            <li><a href="#"><i class="fas fa-globe"></i>Home</a></li>
 
             <li data-toggle="collapse" href="#student" role="button" aria-expanded="false" aria-controls="student" class="active link-collapse">
                 <a><i class="fas fa-users"></i>Alunos<i class="fas fa-angle-right"></i></a>
@@ -28,27 +28,9 @@
                 <li><a href='/admin/aluno/lista'>Buscar docente</a></li>
             </div>
 
-            <li data-toggle="collapse" href="#management" role="button" aria-expanded="false" aria-controls="management" class="active link-collapse">
-                <a><i class="fas fa-boxes"></i>Gestão geral<i class="fas fa-angle-right"></i></a>
-            </li>
-
-            <div class="collapse" id="management">
-                <li><a href='/admin/gestao/periodo-letivo'>Gestão do periodo letivo</a></li>
-                <li><a href='/admin/gestao/sala'>Gestão da sala</a></li>
-                <li><a href='/admin/gestao/disciplina'>Gestão da disciplina</a></li>
-                <li><a href='/admin/gestao/curso'>Gestão do curso</a></li>
-                <li><a href='/admin/gestao/turma'>Gestão da turma</a></li>
-            </div>
+            <li><a href="/admin/gestao"><i class="fas fa-boxes"></i>Gestão geral</a></li>
 
             <li><a href=""><i class="fas fa-cog"></i>Configurações</a></li>
-
-
-
-
-
-
-
-
 
 
         </ul>

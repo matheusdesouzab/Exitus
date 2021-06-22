@@ -51,7 +51,6 @@
             border-bottom: 1px solid $color-extra-light-blue;
         }
 
-        @include all-edges-of-images(3px);
 
         .modal-body>.row:nth-child(1) {
             @include card(10px, $color-pure-gray, 1px solid $color-smooth-gray);

@@ -6,9 +6,10 @@
 
         input:disabled,
         select:disabled {
-            background-color: #F4F6F6;
+            background-color: $color-pure-gray;
             cursor: no-drop;
-            border: none;
+            border: none;    
+            color: #09023B;
         }
 
         .form-control:valid {
@@ -19,5 +20,4 @@
             border: 2px solid $color-extra-light-red;
         }
     }
-
 }

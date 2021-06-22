@@ -4,15 +4,9 @@
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-school-term">
 
-            <div class="row d-flex align-items-center mt-3 mb-1">
+            <div class="row mt-3 mb-1">
 
-                <div class="col-lg-6">
-
-                    <div class="col-lg-12">
-                        <h5>Gestão dos períodos letivos</h5>
-                    </div>
-
-                </div>
+                <h5 class="col-lg-6">Gestão dos períodos letivos</h5>
 
                 <div class="col-lg-6 collapse-options-container ">
 
@@ -26,10 +20,10 @@
 
                 </div>
 
-                <nav class="col-lg-12" aria-label="breadcrumb">
+                <nav class="col-lg-12 p-0" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Gestão geral</a></li>
-                        <li class="breadcrumb-item active">Período letivo</li>
+                        <li class="breadcrumb-item"><a href="/admin/gestao">Gestão geral</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Período letivo</li>
                     </ol>
                 </nav>
             </div>
@@ -43,6 +37,7 @@
                     <div class="col-lg-12">
 
                         <div class="collapse show" id="list-terms" data-parent="#accordion-school-term">
+                        
                             <div class="row">
                                 <div containerListSchoolTerm class="col-lg-12">
                                     <?php require '../App/Views/admin/management/components/schoolTermsList.php' ?>
@@ -54,15 +49,13 @@
 
                             <div class="row">
 
-                                <div class="col-lg-12 card ">
+                                <div class="col-lg-12">
 
-                                    <form id="addSchoolTerm" class="col-11 mx-auto mt-3 mb-3">
+                                    <form id="addSchoolTerm" class="card">
 
-                                        <div class="row mt-2">
-                                            <div class="font-weight-bold col-lg-12">Adicionar novo período letivo:</div>
-                                        </div>
+                                        <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar novo período letivo:</div>
 
-                                        <div class="form-row mt-4 mb-2">
+                                        <div class="form-row col-lg-11 mx-auto mb-2 mt-4">
 
                                             <div class="form-group col-lg-2">
                                                 <label for="schoolYear">Ano:</label>

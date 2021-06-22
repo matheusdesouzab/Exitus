@@ -12,7 +12,7 @@
                     Sala de aula número <?= $classRoom->classroom_number ?>
                 </div>
 
-                <div class="col-lg-4 d-flex justify-content-end mt-2">
+                <div class="col-lg-4 d-flex justify-content-end option-icon-group mt-2">
 
                     <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" formGroup="containerListClassRoom" class="mr-2 edit-data-icon">
                         <i class="fas fa-edit"></i>

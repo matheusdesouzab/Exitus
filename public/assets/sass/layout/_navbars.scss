@@ -2,7 +2,9 @@
     
     background-color: $color-white;
     transition: 0.7s;
-    z-index: 1;
+    position: fixed;
+    z-index: 3;
+    
 
     .navbar-brand{
         font-weight:bold;

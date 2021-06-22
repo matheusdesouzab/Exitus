@@ -6,7 +6,7 @@ if (count($this->view->listCourse) >= 1) {
 
         <form id="formCourse<?= $course->course_id ?>" class="card mb-4" action="">
 
-            <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
+            <div class="form-row d-flex align-items-center col-lg-11 mx-auto option-icon-group">
 
                 <input type="hidden" name="courseId" value="<?= $course->course_id ?>">
 

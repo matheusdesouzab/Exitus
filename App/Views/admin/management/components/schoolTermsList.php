@@ -1,14 +1,29 @@
 <?php
 
+$schoolPeriodSituation = null;
+
 if (count($this->view->listSchoolTerm) >= 1) {
 
     foreach ($this->view->listSchoolTerm as $i => $schoolTerm) { ?>
 
-        <form id="formSchoolTerm<?= $schoolTerm->school_term_id ?>" class="card mb-4" action="" style='<?= $schoolTerm->fk_id_situation_school_term == 1 ? "border-left: 5px solid blue" : "" ?>'>
+        <?php if ($schoolTerm->fk_id_situation_school_term == 1) {
 
-            <div class="form-row col-lg-11 mx-auto d-flex align-items-center">
+            $schoolPeriodSituation = "school-term-active";
 
-                <div class="col-lg-8 font-weight-bold mudar-de-cor">Período letivo do ano de <?= $schoolTerm->school_year ?></div>
+        } else if ($schoolTerm->fk_id_situation_school_term == 2) {
+
+            $schoolPeriodSituation = "school-term-finished";
+
+        } else {
+
+            $schoolPeriodSituation = "school-term-scheduled";
+        } ?>
+
+        <form id="formSchoolTerm<?= $schoolTerm->school_term_id ?>" class="card mb-4 <?= $schoolPeriodSituation ?>">
+
+            <div class="form-row col-lg-11 mx-auto d-flex align-items-center option-icon-group">
+
+                <div class="col-lg-8 font-weight-bold">Período letivo do ano de <?= $schoolTerm->school_year ?></div>
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
@@ -26,7 +41,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                     <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" routeDelete="/admin/gestao/periodo-letivo/deletar" toastData="Periodo Letivo Deletado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 delete-data-icon">
 
-                    <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-trash-alt"></i>
 
                     </span>
 
@@ -61,7 +76,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
                                 <option value="<?= $situation->option_value ?>"><?= $situation->option_text ?></option>
                         <?php }
                         } ?>
-                        
+
                     </select>
 
                 </div>

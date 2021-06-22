@@ -1,10 +1,26 @@
 #pagina {
 
-    // Main container ( Recipiente principal )
-
-
     .main-container {
         margin-top: 80px;
+        overflow: auto;
+    }
+
+    .school-term-active {
+        border-left: 5px solid $color-green;
+    }
+
+    .school-term-finished {
+        border-left: 6px solid $color-smooth-gray;
+    }
+
+    .school-term-scheduled {
+        border-left: 5px solid $color-blue;
+    }
+
+    .option-icon-group {
+        span {
+            transition: 0.5s;
+        }
     }
 
 
@@ -79,7 +95,7 @@
         margin-bottom: 15px;
 
         span {
-            @include icon-card(none, $color-blue, $color-white);
+            @include icon-card(none, #6619c3, $color-white);
             padding-left: 20px;
             padding-right: 20px;
             border: 1px solid $color-smooth-gray;
@@ -92,7 +108,7 @@
         [aria-expanded="true"] {
 
             span {
-                background: $color-blue;
+                background: #6619c3;
                 color: $color-white;
                 border: none;
             }
@@ -105,8 +121,6 @@
 
     // All edges of images ( Todas as bordas das imagens )
 
-
-    @include all-edges-of-images(5px);
 
     .horizontal-control-list {
 
@@ -127,48 +141,6 @@
 
     }
 
-    .note-red {
-        @include note-state($color-red);
-    }
-
-    .note-green {
-        @include note-state($color-green);
-    }
-
-    .note-blue {
-        @include note-state($color-blue);
-    }
-
-    .note-golden {
-        @include note-state($color-golden);
-    }
-
-    .school-term-active {
-        background-color: $color-dark-gray;
-        color: white;
-        opacity: 0.7;
-
-        .edit-data-icon {
-            @include icon-card($color-dark-gray, $color-blue, $color-white);
-            border: 2px solid $color-white;
-        }
-
-        .update-data-icon {
-            @include icon-card($color-dark-gray, $color-green, $color-white);
-            border: 2px solid $color-white;
-        }
-
-       
-
-        input {
-            font-weight: bold;
-            color: $color-dark-blue;
-        }
-
-        label {
-            color: $color-white;
-        }
-    }
 
     .gif-loading {
 
@@ -200,7 +172,7 @@
         background-color: transparent;
         margin-top: -10px;
 
-        .breadcrumb-item{
+        .breadcrumb-item {
             font-weight: bold;
             font-size: 14px;
         }
