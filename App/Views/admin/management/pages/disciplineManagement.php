@@ -29,9 +29,9 @@
 
                 <div class="row mb-3">
 
-                    <div class="collapse col-lg-12 show" id="list-subjects" data-parent="#discipline-accordion">
+                    <div class="col-lg-12">
 
-                        <div class="row card">
+                        <div class="collapse card show" id="list-subjects" data-parent="#discipline-accordion">
 
                             <form class="mb-3 mt-3 text-dark col-lg-11 mx-auto" id="seekDiscipline" action="">
 
@@ -90,59 +90,60 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
 
 
 
-                    <div class="collapse col-lg-12" id="add-discipline" data-parent="#discipline-accordion">
+                        <div class="collapse" id="add-discipline" data-parent="#discipline-accordion">
 
-                        <div class="row">
+                            <div class="row">
 
-                            <div class="col-lg-12">
+                                <div class="col-lg-12">
 
-                                <form id="addDiscipline" class="card mt-3 was-validated" action="">
+                                    <form id="addDiscipline" class="card was-validated" action="">
 
-                                    <div class="form-row mt-2 col-lg-11 mx-auto">
-                                        <div class="font-weight-bold col-lg-12">Adicionar nova disciplina:</div>
-                                    </div>
-
-                                    <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
-
-                                        <div class="form-group col-lg-4">
-                                            <label for="">Nome da disciplina:</label>
-                                            <input class="form-control is-valid" value="" type="text" name="disciplineName" id="" required>
+                                        <div class="form-row mt-2 col-lg-11 mx-auto">
+                                            <div class="font-weight-bold col-lg-12">Adicionar nova disciplina:</div>
                                         </div>
 
-                                        <div class="form-group col-lg-2">
-                                            <label for="">Sigla:</label>
-                                            <input class="form-control is-valid" maxlength="10" value="" type="text" name="acronym" id="" required>
+                                        <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
+
+                                            <div class="form-group col-lg-4">
+                                                <label for="">Nome da disciplina:</label>
+                                                <input class="form-control is-valid" value="" type="text" name="disciplineName" id="" required>
+                                            </div>
+
+                                            <div class="form-group col-lg-2">
+                                                <label for="">Sigla:</label>
+                                                <input class="form-control is-valid" maxlength="10" value="" type="text" name="acronym" id="" required>
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+
+                                                <label for="inputState">Modalidade:</label>
+
+                                                <select id="inputState" name="modalityAdd" class="form-control custom-select is-valid" required>
+
+                                                    <?php foreach ($this->view->listModality as $key => $modality) { ?>
+
+                                                        <option value="<?= $modality->option_value ?>"><?= $modality->option_text ?></option>
+
+                                                    <?php } ?>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="">&nbsp;</label>
+                                                <a id="buttonAddDiscipline" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
+                                            </div>
+
                                         </div>
 
-                                        <div class="form-group col-lg-3">
-
-                                            <label for="inputState">Modalidade:</label>
-
-                                            <select id="inputState" name="modalityAdd" class="form-control custom-select is-valid" required>
-
-                                                <?php foreach ($this->view->listModality as $key => $modality) { ?>
-
-                                                    <option value="<?= $modality->option_value ?>"><?= $modality->option_text ?></option>
-
-                                                <?php } ?>
-
-                                            </select>
-
-                                        </div>
-
-                                        <div class="form-group col-lg-3">
-                                            <label for="">&nbsp;</label>
-                                            <a id="buttonAddDiscipline" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
-                                        </div>
-
-                                    </div>
-
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

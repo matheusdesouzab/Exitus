@@ -2,35 +2,38 @@
 
     <div class="row main-container">
 
-        <div class="col-lg-12 accordion" id="class-accordion">
+        <div class="col-lg-11 mx-auto accordion" id="class-accordion">
 
-            <div class="col-lg-11 mx-auto mb-4 mt-3">
+            <div class="row mt-3 mb-1">
 
-                <div class="row d-flex align-items-center">
+                <h5 class="col-lg-6">Gestão das turmas</h5>
 
-                    <div class="col-lg-6">
-                        <h5>Gestão das turmas</h5>
-                    </div>
+                <div class="col-lg-6 collapse-options-container">
 
-                    <div class="col-lg-6 collapse-options-container">
+                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" id="collapseListClass" data-target="#class-list">
+                        <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span>
+                    </a>
 
-                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" id="collapseListClass" data-target="#class-list">
-                            <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Turmas</span>
-                        </a>
+                    <a class="collapsed font-weight-bold" aria-expanded="false" id="collapseAddClass" data-toggle="collapse" data-target="#add-class">
+                        <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+                    </a>
 
-                        <a class="collapsed font-weight-bold" aria-expanded="false" id="collapseAddClass" data-toggle="collapse" data-target="#add-class">
-                            <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
-                        </a>
-
-                    </div>
                 </div>
+
+                <nav class="col-lg-12 p-0" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/admin/gestao">Gestão geral</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Turmas</li>
+                    </ol>
+                </nav>
+
             </div>
 
             <div class="col-lg-12">
 
                 <div class="row mb-3">
 
-                    <div class="col-lg-11 mx-auto">
+                    <div class="col-lg-12">
                         <div class="collapse show card" id="class-list" data-parent="#class-accordion">
                             <div class="row">
                                 <div class="col-lg-11 mx-auto">

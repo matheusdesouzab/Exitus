@@ -58,7 +58,7 @@
 
                                     <form id="addCourse" class="card was-validated" action="" role="form">
 
-                                    <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar novo curso:</div>
+                                        <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar novo curso:</div>
 
                                         <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
                                             <div class="form-group col-lg-7">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
             </div>
         </div>
     </div>

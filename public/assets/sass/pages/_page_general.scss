@@ -2,7 +2,7 @@
 
     .main-container {
         margin-top: 80px;
-        overflow: auto;
+
     }
 
     .school-term-active {
@@ -20,6 +20,80 @@
     .option-icon-group {
         span {
             transition: 0.5s;
+        }
+    }
+
+    .registration-in-stages {
+
+        label {
+            text-align: left;
+            display: block;
+        }
+
+        form .form-row [data-toggle="collapse"] {
+            background-color: $color-blue;
+
+            .fa-angle-right{
+                margin-left: 10px;
+            }
+
+            &:hover>.fa-angle-right {
+                margin-right: 5px;
+                transition: 0.5 else;
+            }
+        }
+
+        .connection-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 5vh;
+            height: 3px;
+            margin: auto;
+            width: 75%;
+            background-color: $color-extra-light-blue;
+        }
+
+        .registration-header-by-step {
+            display: flex;
+            justify-content: space-around;
+
+            .container-option {
+
+                z-index: 2;
+
+                >.collapsed {
+                    background-color: $color-extra-light-blue;
+                    color: $color-black;
+                }
+
+                a {
+                    color: white;
+                    width: 35px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 35px;
+                    margin: auto;
+                    background-color: $color-blue;
+                    border-radius: 50%;
+
+                    span {
+                        text-align: center;
+                        font-weight: 500;
+                    }
+                }
+
+                p {
+                    display: block;
+                    color: $color-black;
+                    font-weight: 500;
+                    margin-top: 5px;
+                    font-size: 13px;
+                }
+
+
+            }
         }
     }
 
@@ -42,47 +116,6 @@
         padding: 1.5px;
         text-align: center;
         font-size: 14px;
-    }
-
-
-    // Registration in stages  ( Cadastro por etapas )
-
-
-    .registration-session-in-stages {
-        display: table;
-        width: 100%;
-        position: relative;
-    }
-
-    .registration-in-stages {
-
-        display: table-cell;
-        text-align: center;
-        position: relative;
-        z-index: 1000;
-
-        p {
-            margin-top: 10px;
-            z-index: 1000;
-            font-size: 2.3vh;
-            font-weight: 500;
-            color: $color-dark-blue;
-        }
-
-    }
-
-    .registration-by-content-step {
-        display: table-row;
-    }
-
-    .registration-connection-line-in-stages {
-        @include connection-line-in-stages(71%);
-        background-image: linear-gradient(to left, $color-smooth-gray 50%, $color-smooth-gray 50%);
-    }
-
-    .registration-in-stages a.collapsed {
-        color: $color-black;
-        background-color: $color-extra-light-blue;
     }
 
 

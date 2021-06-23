@@ -6,7 +6,7 @@
 
 html {
   height: 100%;
-  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 html > body {
@@ -44,7 +44,7 @@ table th {
 }
 table td {
   line-height: 30px;
-  color: #283339;
+  color: #080809;
   font-size: 14px;
   font-weight: 500;
 }
@@ -161,7 +161,7 @@ button {
   width: 1350px;
   margin-top: -30px;
   height: 630px;
-  background-color: #283339;
+  background-color: #080809;
 }
 #pagina .modal-profile .input-group input {
   border: none;
@@ -478,7 +478,6 @@ button {
 
 #pagina .main-container {
   margin-top: 80px;
-  overflow: auto;
 }
 #pagina .school-term-active {
   border-left: 5px solid #28A745;
@@ -492,6 +491,63 @@ button {
 #pagina .option-icon-group span {
   transition: 0.5s;
 }
+#pagina .registration-in-stages label {
+  text-align: left;
+  display: block;
+}
+#pagina .registration-in-stages form .form-row [data-toggle=collapse] {
+  background-color: #6619c3;
+}
+#pagina .registration-in-stages form .form-row [data-toggle=collapse] .fa-angle-right {
+  margin-left: 10px;
+}
+#pagina .registration-in-stages form .form-row [data-toggle=collapse]:hover > .fa-angle-right {
+  margin-right: 5px;
+  transition: 0.5 else;
+}
+#pagina .registration-in-stages .connection-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5vh;
+  height: 3px;
+  margin: auto;
+  width: 75%;
+  background-color: #e4d9ff;
+}
+#pagina .registration-in-stages .registration-header-by-step {
+  display: flex;
+  justify-content: space-around;
+}
+#pagina .registration-in-stages .registration-header-by-step .container-option {
+  z-index: 2;
+}
+#pagina .registration-in-stages .registration-header-by-step .container-option > .collapsed {
+  background-color: #e4d9ff;
+  color: #080809;
+}
+#pagina .registration-in-stages .registration-header-by-step .container-option a {
+  color: white;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  margin: auto;
+  background-color: #6619c3;
+  border-radius: 50%;
+}
+#pagina .registration-in-stages .registration-header-by-step .container-option a span {
+  text-align: center;
+  font-weight: 500;
+}
+#pagina .registration-in-stages .registration-header-by-step .container-option p {
+  display: block;
+  color: #080809;
+  font-weight: 500;
+  margin-top: 5px;
+  font-size: 13px;
+}
 #pagina .accordion-container {
   height: 520px;
   width: 890px;
@@ -504,43 +560,6 @@ button {
   padding: 1.5px;
   text-align: center;
   font-size: 14px;
-}
-#pagina .registration-session-in-stages {
-  display: table;
-  width: 100%;
-  position: relative;
-}
-#pagina .registration-in-stages {
-  display: table-cell;
-  text-align: center;
-  position: relative;
-  z-index: 1000;
-}
-#pagina .registration-in-stages p {
-  margin-top: 10px;
-  z-index: 1000;
-  font-size: 2.3vh;
-  font-weight: 500;
-  color: #09023B;
-}
-#pagina .registration-by-content-step {
-  display: table-row;
-}
-#pagina .registration-connection-line-in-stages {
-  height: 2px;
-  background: #e5e5e5;
-  margin: auto;
-  position: absolute;
-  width: 71%;
-  left: 0;
-  right: 0;
-  top: 15%;
-  z-index: 1;
-  background-image: linear-gradient(to left, #e5e5e5 50%, #e5e5e5 50%);
-}
-#pagina .registration-in-stages a.collapsed {
-  color: #283339;
-  background-color: #e4d9ff;
 }
 #pagina .collapse-options-container {
   display: flex;
@@ -600,10 +619,10 @@ button {
 #pagina .horizontal-control-list [aria-expanded=false] {
   background: #e5e5e5;
   border-radius: 5px;
-  color: #283339;
+  color: #080809;
 }
 #pagina .horizontal-control-list [aria-expanded=false] a {
-  color: #283339;
+  color: #080809;
   font-weight: bold;
 }
 #pagina .gif-loading img {
@@ -950,7 +969,7 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   font-weight: bold;
 }
 #navbar-top .fa-bars {
-  color: #283339;
+  color: #080809;
 }
 #navbar-top a.bars-xs {
   display: none;
