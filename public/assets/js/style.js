@@ -49,6 +49,7 @@ function getLocation() {
     } else {
 
         $('#zipCode').removeClass('is-valid')
+        $('.zipCode-info').remove()
         $('#zipCodeField').append('<small class="text-danger text-center zipCode-info">Formato Invalido</small>')
     }
 }

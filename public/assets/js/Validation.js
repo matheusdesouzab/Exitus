@@ -1,5 +1,17 @@
 class Validation {
 
+    randCode() {
+
+        var randPassword = Array(6).fill("0123456789").map(function (x) {
+
+                return x[Math.floor(Math.random() * x.length)]
+            }
+
+        ).join('').replace(/(\d{3})(\d{3})/, "$1.$2")
+
+        return randPassword
+    }
+
     cpfAlreadyInformed() {
 
         let state = false
@@ -63,6 +75,7 @@ class Validation {
         } else {
 
             $(`#${element}`).removeClass('is-valid')
+            $(`.${elementInfo}`).remove()
             $(classField).append(`<small class="text-danger text-center ${elementInfo} ">Formato Inválido</small>`)
         }
 
@@ -128,10 +141,12 @@ class Validation {
     }
 
 
-    checkAllFields(form, totalFields, button) {
+    checkAllFields(form, totalFields, button, container, successMassage, errorMessage) {
 
         let inputs = $(`${form} .form-control`)
         let photo = $('#profilePhoto')
+
+        $(`[${container}]`).text('')
 
         let size = null
 
@@ -139,7 +154,20 @@ class Validation {
 
             !photo.hasClass('is-valid') && $('.photo-info').length == 0 ? size += 1 : ''
 
-        totalFields == size ? $(button).prop("disabled", false) : $(button).prop("disabled", true)
+        if (totalFields == size) {
+
+            $(button).prop("disabled", false)
+
+            $(`[${container}]`).append(successMassage)
+
+            $('[accessCode]').text('').append(this.randCode())
+
+        } else {
+
+            $(button).prop("disabled", true)
+
+            $(`[${container}]`).append(errorMessage)
+        }
 
     }
 

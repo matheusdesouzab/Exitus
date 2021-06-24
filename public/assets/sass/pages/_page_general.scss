@@ -30,16 +30,11 @@
             display: block;
         }
 
-        form .form-row [data-toggle="collapse"] {
+        form [data-toggle="collapse"] {
             background-color: $color-blue;
 
             .fa-angle-right{
                 margin-left: 10px;
-            }
-
-            &:hover>.fa-angle-right {
-                margin-right: 5px;
-                transition: 0.5 else;
             }
         }
 
@@ -47,7 +42,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            top: 5vh;
+            top: 6vh;
             height: 3px;
             margin: auto;
             width: 75%;
@@ -95,6 +90,14 @@
 
             }
         }
+    }
+
+    #teacher-registration{
+
+        .connection-line {
+            width: 68%;
+        }
+
     }
 
 

@@ -24,8 +24,8 @@
             </li>
 
             <div class="collapse" id="teacher">
-                <li><a href='/admin/aluno/cadastro'>Cadastrar docente</a></li>
-                <li><a href='/admin/aluno/lista'>Buscar docente</a></li>
+                <li><a href='/admin/professor/cadastro'>Cadastrar docente</a></li>
+                <li><a href='/admin/professor/lista'>Buscar docente</a></li>
             </div>
 
             <li><a href="/admin/gestao"><i class="fas fa-boxes"></i>Gestão geral</a></li>

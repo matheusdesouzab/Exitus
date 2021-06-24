@@ -4,11 +4,11 @@
 
         <h5 class="col-lg-12 mb-4 mt-3 ml-5">Cadastrar aluno</h5>
 
-        <div class="card col-lg-10 mx-auto mb-4 accordion" id="student-record-accordion">
+        <div class="card col-lg-10 mx-auto mb-4" id="student-record-accordion">
 
             <div class="registration-in-stages mb-2 accordion">
 
-                <div class="registration-header-by-step">
+                <div class="registration-header-by-step mt-2">
 
                     <div class="connection-line"></div>
 
@@ -59,7 +59,7 @@
 
                                 <div id="cpfField" class="form-group col-md-4">
                                     <label for="cpf">CPF:</label>
-                                    <input type="text" id="cpf" value="" minlength="14" name="cpf" class="form-control" placeholder="" required>
+                                    <input type="text" id="cpf" value="" minlength="14" name="cpf" class="form-control" placeholder="000.000.000-00" required>
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -148,7 +148,7 @@
 
                                 <div id="zipCodeField" class="form-group col-md-3">
                                     <label for="zipCode">CEP:</label>
-                                    <input type="text" id="zipCode" value="" class="form-control" name="zipCode" minlength="9" required>
+                                    <input type="text" id="zipCode" value="" class="form-control" name="zipCode" minlength="9" placeholder="00000-000" required>
                                 </div>
 
                                 <div class="form-group col-md-5">
@@ -177,9 +177,8 @@
                                 </div>
 
                                 <div id="telephoneField" class="form-group col-md-4">
-                                    <label for="telephone">Contato:</label>
-                                    <input type="tel" id="telephone" value="" class="form-control" name="telephoneNumber" placeholder="" required>
-
+                                    <label for="telephoneNumber">Contato:</label>
+                                    <input type="tel" id="telephoneNumber" value="" class="form-control" name="telephoneNumber" placeholder="(00) 00000-0000" required>
                                 </div>
 
                             </div>
@@ -291,47 +290,24 @@
 
                             <div class="row">
 
-                                <h5 class="mt-2 col-lg-12 text-left">Finalizando a matricula</h5>
+                                <h5 class="mt-2 col-lg-12 text-left">Finalizando a matricula de <span givenName></span></h5>
 
-                                <p class="col-lg-12 mb-4">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p>
-
-                                <p class="col-lg-12 font-weight-bold"><i class="fas text-info fa-info-circle mr-2"></i> Informe ao aluno seu código de acesso do portal do aluno</p>
-
-                                <div class="col-lg-12 mt-4 mb-3 text-center font-weight-bold">
-
-                                    <div class="row">
-
-                                        <p class="card col-lg-6 mx-auto">865.786-12</p>
-
-                                    </div>
-
-                                </div>
+                                <div containerStudentRegistrationStatus class="col-lg-12"></div>
 
                                 <div class="col-lg-12">
 
-                                    <div class="row">
+                                    <div class="row d-flex justify-content-between">
 
-                                        <p class="col-lg-12 ml-auto text-right"> <button id="buttonAddStudent" disabled class="btn btn-success w-25">Cadastra aluno (a)</button></p>
+                                        <p class=""><a type="button" data-toggle="collapse" data-target="#student-registration-class" class="btn bg-secondary text-white collapsed ml-3" href=""><i class="fas fa-angle-left mr-3"></i> Voltar</a></p>
+
+                                        <p class=""> <button id="buttonAddStudent" disabled class="btn btn-success">Cadastra aluno (a)</button></p>
 
                                     </div>
 
+
                                 </div>
 
-                                <!--  <div class="row">
-
-                            <button id="buttonAddStudent" disabled class="btn btn-success col-lg-6 w-100 mr-auto">Cadastra aluno (a)</button>
-
-                            </div> -->
-
-
-
                             </div>
-
-
-
-
-
-
 
                         </div>
                     </div>

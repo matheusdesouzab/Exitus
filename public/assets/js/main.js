@@ -270,7 +270,7 @@ $(document).on('keypress', '#cpf', e => $(e.target).mask('000.000.000-00'))
 
 $(document).on('keypress', '#zipCode', e => $(e.target).mask('00000-000'))
 
-$(document).on('keypress', '#telephone', e => $(e.target).mask(('(00) 00000-0000')))
+$(document).on('keypress', '#telephoneNumber', e => $(e.target).mask(('(00) 00000-0000')))
 
 
 $('#zipCode').on('blur', getLocation)
@@ -303,7 +303,7 @@ address.forEach(element => $(element).on('blur', e => validation.validateByConte
 
 $('#cpf').on('blur', e => validation.cpfState(e.target.value))
 
-$('#telephone').on('blur', e => validation.validateBySize(e.target.id, 11, '#telephoneField', 'telephone-info'))
+$('#telephoneNumber').on('blur', e => validation.validateBySize(e.target.id, 11, '#telephoneField', 'telephone-info'))
 
 
 $('#profilePhoto').change(function () {
@@ -312,8 +312,9 @@ $('#profilePhoto').change(function () {
 })
 
 
-$('[data-target="#student-registration-class"]').on('click', () => validation.checkAllFields('#addStudent', 18, '#buttonAddStudent'))
-$('#teacherAddressOthers .form-control').on('blur', () => validation.checkAllFields('#addTeacher', 15, '#buttonAddTeacher'))
+
+
+
 
 
 
@@ -509,3 +510,20 @@ $(document).on('click', '[data-target="#student-profile-assessment"] , [data-tar
 })
 
 
+
+$('[data-target="#student-registration-finishing"]').on('click', function (e) {
+
+    let name = $('#name').val().split(" ", 1)
+    $('[givenName]').text('').text(name[0])
+
+    validation.checkAllFields('#addStudent', 18, '#buttonAddStudent', 'containerStudentRegistrationStatus', `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao aluno seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
+})
+
+
+$('[data-target="#teacher-registration-finishing"]').on('click', function (e) {
+
+    let name = $('#name').val().split(" ", 1)
+    $('[givenName]').text('').text(name[0])
+
+    validation.checkAllFields('#addTeacher', 15, '#buttonAddTeacher', 'containerTeacherRegistrationStatus', `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao professor seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
+})
