@@ -2,13 +2,9 @@
 
     <div class="row main-container">
 
-        <div class="col-lg-11 mx-auto">
+            <h5 class="col-11 mx-auto mb-4 mt-3">Buscar docente</h5>
 
-            <h5 class="col-12 mb-4">Lista de professores(a)</h5>
-
-            <div class="col-lg-12">
-
-                <div class="card p-3 mb-3">
+                <div class="p-3 mb-3 card col-lg-10 mx-auto">
 
                     <form class="col-lg-11 accordion mx-auto mt-3" id="advanced-search-accordion">
 
@@ -98,5 +94,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+  

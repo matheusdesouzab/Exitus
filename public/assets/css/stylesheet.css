@@ -126,166 +126,257 @@ button {
   color: white;
 }
 
-#pagina .modal-registration-success .fa-check-circle {
-  margin-top: 30px;
-  font-size: 100px;
-  color: #28A745;
-  justify-content: space-around;
+#pagina {
+  /* 
+  .modal-profile {
+
+      z-index: 1300;
+
+      .modal-content {
+          margin-left: -415px;
+          width: 1350px;
+          margin-top: -30px;
+          height: 630px;
+          background-color: $color-black;
+      } 
+
+      .input-group input{
+          border: none;          
+          border-bottom: 1px solid $color-extra-light-blue;
+      }
+
+
+      .modal-body>.row:nth-child(1) {
+          @include card(10px, $color-pure-gray, 1px solid $color-smooth-gray);
+          margin-top: -10px;
+      }
+
+      input:disabled
+      {
+          background: $color-pure-gray;
+          border: 1px solid $color-extra-light-blue;
+      }
+
+      h5 {
+          font-size: 17px;
+      }
+
+      a {
+          text-decoration: none;
+      }
+
+      .fa-edit,
+      .fa-check {
+          color: $color-dark-gray;
+      }
+
+      img {
+          border-radius: 50%;
+      }
+
+      .close:focus {
+          outline: none;
+          box-shadow: none;
+      }
+
+      .side-collapse-options {
+
+          .list-group {
+              margin-top: 20px;
+          }
+
+          border-radius: 10px;
+          border: 0;
+          background: $color-dark-gray;
+
+          @include list-group-item;
+
+          @include aria-expanded-false-and-true($color-white, $color-smooth-blue, transparent, $color-white, 10px);
+
+      }
+
+      .option-list {
+          display: flex;
+          justify-content: flex-end;
+      }
+
+      .horizontal-control-list {
+          display: none;
+      }
+
+      b {
+          color: $color-dark-gray;
+      }
+
+      .input-group-prepend span {
+          font-weight: bold;
+          color: $color-dark-blue;
+      }
+
+      .input-group-text {
+          background-color: transparent;
+          border: none;
+          font-weight: bold;
+      }
+
+      .input-group {
+          padding-left: 0;
+          margin-bottom: 13px;
+      }
+
+      img {
+          display: flex;
+          justify-content: center;
+      }
+
+
+      #student-profile-newsletter {
+
+          h5 {
+              text-transform: initial;
+          }
+
+          text-transform: uppercase;
+          font-size: 13px;
+
+          .th-rowspan-2 div {
+              margin-top: -50px;
+          }
+
+          table {
+              width: 1200px;
+          }
+
+          b {
+              font-weight: 700;
+          }
+
+          td,
+          th {
+              font-size: 13px;
+          }
+
+      }
+
+  } */
 }
-#pagina .modal-add {
-  margin-top: 40px;
-}
-#pagina .modal-add .modal-content {
-  border: none;
-  background-color: #ffffff;
-  border-radius: 10px;
-}
-#pagina .modal-add .modal-header {
-  font-weight: bold;
-}
-#pagina .modal-add .modal-text {
-  margin-top: 30px;
-  text-align: center;
-  font-weight: 500;
-}
-#pagina .modal-add .modal-registration-error .fa-times-circle {
-  margin-top: 30px;
-  font-size: 100px;
-  color: #DC3545;
-  justify-content: space-around;
+#pagina .modal {
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari 9+ */
+  backdrop-filter: blur(5px);
+  /* Chrome and Opera */
+  background-color: rgba(255, 255, 255, 0.3);
 }
 #pagina .modal-profile {
-  z-index: 1300;
+  /*  input:disabled {
+          background: $color-pure-gray;
+          border: 1px solid $color-extra-light-blue;
+      }
+
+      h5 {
+          font-size: 17px;
+      }
+
+      a {
+          text-decoration: none;
+      }
+
+      .fa-edit,
+      .fa-check {
+          color: $color-dark-gray;
+      }
+
+      img {
+          border-radius: 50%;
+      }
+
+      .close:focus {
+          outline: none;
+          box-shadow: none;
+      }
+
+      .side-collapse-options {
+
+          .list-group {
+              margin-top: 20px;
+          }
+
+          border-radius: 10px;
+          background: $color-dark-gray;
+
+          @include list-group-item;
+
+          @include aria-expanded-false-and-true($color-white, $color-smooth-blue, transparent, $color-white, 10px);
+
+      }
+
+      .option-list {
+          display: flex;
+          justify-content: flex-end;
+      }
+
+      .horizontal-control-list {
+          display: none;
+      }
+
+      b {
+          color: $color-dark-gray;
+      }
+
+      .input-group-prepend span {
+          font-weight: bold;
+          color: $color-dark-blue;
+      }
+
+      .input-group-text {
+          background-color: transparent;
+          border: none;
+          font-weight: bold;
+      }
+
+      .input-group {
+          padding-left: 0;
+          margin-bottom: 13px;
+      }
+
+      img {
+          display: flex;
+          justify-content: center;
+      } */
 }
 #pagina .modal-profile .modal-content {
-  margin-left: -415px;
-  width: 1350px;
-  margin-top: -30px;
-  height: 630px;
-  background-color: #080809;
+  border-radius: 15px;
 }
-#pagina .modal-profile .input-group input {
-  border: none;
-  border-bottom: 1px solid #e4d9ff;
-}
-#pagina .modal-profile .modal-body > .row:nth-child(1) {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  background-color: #E5E7E9;
-  margin-top: -10px;
-}
-#pagina .modal-profile input:disabled {
-  background: #E5E7E9;
-  border: 1px solid #e4d9ff;
-}
-#pagina .modal-profile h5 {
-  font-size: 17px;
-}
-#pagina .modal-profile a {
-  text-decoration: none;
-}
-#pagina .modal-profile .fa-edit,
-#pagina .modal-profile .fa-check {
-  color: #506177;
+#pagina .modal-profile h4 {
+  font-family: Bold;
 }
 #pagina .modal-profile img {
   border-radius: 50%;
+  width: 7vw;
 }
-#pagina .modal-profile .close:focus {
-  outline: none;
-  box-shadow: none;
-}
-#pagina .modal-profile .side-collapse-options {
-  border-radius: 10px;
-  border: 0;
-  background: #506177;
-}
-#pagina .modal-profile .side-collapse-options .list-group {
-  margin-top: 20px;
-}
-#pagina .modal-profile .side-collapse-options .list-group-item {
-  border: none;
-  background: transparent;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-#pagina .modal-profile .side-collapse-options .list-group-item:hover {
-  background: #ffffff;
-  border-radius: 10px;
-  color: #273469;
-}
-#pagina .modal-profile .side-collapse-options .list-group-item:hover a {
-  color: #273469;
-  font-weight: bold;
-}
-#pagina .modal-profile .side-collapse-options [aria-expanded=true] {
-  background: #ffffff;
-  border-radius: 10px;
-  color: #273469;
-}
-#pagina .modal-profile .side-collapse-options [aria-expanded=true] a {
-  color: #273469;
-  font-weight: bold;
-}
-#pagina .modal-profile .side-collapse-options [aria-expanded=false] {
-  background: transparent;
-  border-radius: 10px;
-  color: #ffffff;
-}
-#pagina .modal-profile .side-collapse-options [aria-expanded=false] a {
-  color: #ffffff;
-  font-weight: bold;
-}
-#pagina .modal-profile .option-list {
-  display: flex;
-  justify-content: flex-end;
-}
-#pagina .modal-profile .horizontal-control-list {
-  display: none;
-}
-#pagina .modal-profile b {
-  color: #506177;
-}
-#pagina .modal-profile .input-group-prepend span {
-  font-weight: bold;
-  color: #09023B;
-}
-#pagina .modal-profile .input-group-text {
+#pagina .modal-profile #list-tab > a.active {
+  border-bottom: 3px solid #6619c3;
+  color: #080809;
   background-color: transparent;
+}
+#pagina .modal-profile #list-tab .list-group-item {
+  padding: 10px;
   border: none;
+  color: #506177;
   font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 2px solid #e5e5e5;
+  text-align: center;
 }
-#pagina .modal-profile .input-group {
-  padding-left: 0;
-  margin-bottom: 13px;
+#pagina .modal-profile #list-tab .list-group-item:hover {
+  border-bottom: 3px solid #6619c3;
+  color: #080809;
 }
-#pagina .modal-profile img {
-  display: flex;
-  justify-content: center;
-}
-#pagina .modal-profile #student-profile-newsletter {
-  text-transform: uppercase;
-  font-size: 13px;
-}
-#pagina .modal-profile #student-profile-newsletter h5 {
-  text-transform: initial;
-}
-#pagina .modal-profile #student-profile-newsletter .th-rowspan-2 div {
-  margin-top: -50px;
-}
-#pagina .modal-profile #student-profile-newsletter table {
-  width: 1200px;
-}
-#pagina .modal-profile #student-profile-newsletter b {
-  font-weight: 700;
-}
-#pagina .modal-profile #student-profile-newsletter td,
-#pagina .modal-profile #student-profile-newsletter th {
-  font-size: 13px;
-}
-#pagina #profileTeacherModal input:disabled, #pagina #profileTeacherModal select:disabled, #pagina #profileStudentModal input:disabled, #pagina #profileStudentModal select:disabled {
+#pagina #profileTeacherModal input:disabled,
+#pagina #profileTeacherModal select:disabled,
+#pagina #profileStudentModal input:disabled,
+#pagina #profileStudentModal select:disabled {
   background-color: transparent;
   font-weight: bold;
   border: none;
@@ -549,8 +640,7 @@ button {
   width: 68%;
 }
 #pagina .accordion-container {
-  height: 520px;
-  width: 890px;
+  height: 87vh;
 }
 #pagina .accordion-container::-webkit-scrollbar {
   width: 0;

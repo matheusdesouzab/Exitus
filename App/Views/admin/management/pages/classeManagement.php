@@ -175,15 +175,13 @@
 
                             <div class="row">
 
-                                <div class="col-lg-12 card">
+                                <div class="col-lg-12">
 
-                                    <form class="col-lg-11 mx-auto mt-3" id="addClass" action="">
+                                    <form class="col-lg-12 card" id="addClass" action="">
 
-                                        <div class="form-row mt-2 d-flex justify-content-between">
-                                            <div class="font-weight-bold col-11">Adicionar nova turma:</div>
-                                        </div>
+                                    <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar nova turma:</div>
 
-                                        <div class="form-row mt-4 mb-2">
+                                        <div class="form-row col-lg-11 mx-auto mb-2 mt-4">
 
                                             <div class="form-group col-lg-2">
 
@@ -251,7 +249,7 @@
 
                                         </div>
 
-                                        <div class="form-row">
+                                        <div class="form-row col-lg-11 mb-3 mx-auto">
 
                                             <div class="form-group col-lg-2">
 

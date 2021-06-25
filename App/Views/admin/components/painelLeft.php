@@ -11,7 +11,7 @@
             <li><a href="#"><i class="fas fa-globe"></i>Home</a></li>
 
             <li data-toggle="collapse" href="#student" role="button" aria-expanded="false" aria-controls="student" class="active link-collapse">
-                <a><i class="fas fa-users"></i>Alunos<i class="fas fa-angle-right"></i></a>
+                <a><i class="fas fa-users"></i>Aluno<i class="fas fa-angle-right"></i></a>
             </li>
 
             <div class="collapse" id="student">

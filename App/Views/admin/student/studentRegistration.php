@@ -2,7 +2,7 @@
 
     <div class="row main-container">
 
-        <h5 class="col-lg-12 mb-4 mt-3 ml-5">Cadastrar aluno</h5>
+        <h5 class="col-11 mx-auto mb-4 mt-3">Cadastrar aluno</h5>
 
         <div class="card col-lg-10 mx-auto mb-4" id="student-record-accordion">
 

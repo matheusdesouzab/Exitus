@@ -2,7 +2,7 @@
 
     <div class="row main-container">
 
-        <h5 class="col-lg-12 mb-4 mt-3 ml-5">Cadastrar docente</h5>
+        <h5 class="col-11 mx-auto mb-4 mt-3">Cadastrar docente</h5>
 
         <div class="card col-lg-10 mx-auto mb-4" id="teacher-record-accordion">
 
@@ -218,7 +218,7 @@
 
                             <div class="row">
 
-                                <h5 class="mt-2 col-lg-12 text-left">Finalizando o cadastro de </h5>
+                                <h5 class="mt-2 col-lg-12 text-left">Finalizando o cadastro de <span givenName></span></h5>
 
                                 <div containerTeacherRegistrationStatus class="col-lg-12"></div>
 
