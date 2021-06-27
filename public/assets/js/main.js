@@ -248,7 +248,7 @@ $(document).on('click', '.delete-data-icon', function () {
 //* Student 
 
 
-$("#buttonAddStudent").click(() => addMultipleParts(this, '/admin/aluno/cadstro/inserir'))
+$("#buttonAddStudent").click(() => addMultipleParts(this, '/admin/aluno/cadastro/inserir'))
 
 
 $('#seekStudent input[name="name"]').keyup(function (e) {
@@ -527,3 +527,45 @@ $('[data-target="#teacher-registration-finishing"]').on('click', function (e) {
 
     validation.checkAllFields('#addTeacher', 15, '#buttonAddTeacher', 'containerTeacherRegistrationStatus', `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao professor seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
 })
+
+
+
+
+$(document).on('click', "#profilePhotoModal img", function () {
+
+    let file = document.getElementById('profilePhoto')
+
+    file.click()
+
+})
+
+$(document).on('change', "#profilePhotoModal #profilePhoto", function () {
+
+    let file = document.getElementById('profilePhoto')
+
+    validation.imagePreview(file, "#profilePhotoModal img")
+
+    $('#updateImg').attr('disabled', false)
+
+})
+
+
+$(document).on('click', '#updateImg', (e) => {
+
+    e.preventDefault()
+
+    addMultipleParts($('#formUpdateProfilePhoto')[0], '/admin/aluno/lista/perfil-aluno/atualizar-foto')
+
+    loadListElements('containerStudentProfileModal', '/admin/aluno/lista/perfil-aluno', '#formUpdateProfilePhoto')
+
+    loadListElements('containerListStudent', '/admin/aluno/lista/listagem')
+
+})
+
+
+$(document).on('shown.bs.modal', '#profileStudentModal', function () {
+    //To relate the z-index make sure backdrop and modal are siblings
+    $(this).before($('.modal-backdrop'));
+    //Now set z-index of modal greater than backdrop
+    $(this).css("z-index", parseInt($('.modal-backdrop').css('z-index')) + 1);
+});

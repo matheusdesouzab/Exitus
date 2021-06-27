@@ -91,14 +91,14 @@ class Validation {
     }
 
 
-    imagePreview(input) {
+    imagePreview(input , container) {
 
         if (input.files && input.files[0]) {
 
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#visualizarimagem').attr('src', e.target.result);
+                $(container).attr('src', e.target.result);
             };
 
             reader.readAsDataURL(input.files[0]);

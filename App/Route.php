@@ -57,6 +57,12 @@ class Route extends Bootstrap
 				'controller' => 'AdminStudentController',
 				'action' => 'updateStudentProfile'
 			); 
+
+			$routes['adminUpdateProfilePicture'] = array(
+				'route' => '/admin/aluno/lista/perfil-aluno/atualizar-foto',
+				'controller' => 'AdminStudentController',
+				'action' => 'updateProfilePicture'
+			); 
 			
 
 			// People 

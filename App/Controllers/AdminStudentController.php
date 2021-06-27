@@ -72,7 +72,7 @@ class AdminStudentController extends Action
         $Classe = Container::getModel('Management\\Classe');
 
         $this->view->listClass = $Classe->availableListClass();
-        
+
         $this->render('student/components/classesList', 'SimpleLayout');
     }
 
@@ -99,7 +99,7 @@ class AdminStudentController extends Action
         $Exam = Container::getModel('Management\\Exam');
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
-        $Student->__set('id', $_GET['id']);
+        $Student->__set('id', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
         $this->view->studentProfile = $Student->profile();
         $this->view->availableSex = $Student->availableSex();
@@ -122,7 +122,7 @@ class AdminStudentController extends Action
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Student = Container::getModel('Student\\Student');
-        
+
         $Address->__set('addressId', $_POST['addressId']);
         $Address->__set('district', $_POST['district']);
         $Address->__set('address', $_POST['address']);
@@ -131,7 +131,7 @@ class AdminStudentController extends Action
         $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
 
         $Telephone->__set('telephoneId', $_POST['telephoneId']);
-        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber'])); 
+        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
 
         $Student->__set('name', $_POST['name']);
         $Student->__set('birthDate', $_POST['birthDate']);
@@ -142,7 +142,7 @@ class AdminStudentController extends Action
         $Student->__set('fatherName', $_POST['fatherName']);
         $Student->__set('fk_id_sex', $_POST['sex']);
         $Student->__set('fk_id_blood_type', $_POST['bloodType']);
-        $Student->__set('fk_id_pcd', $_POST['pcd']);   
+        $Student->__set('fk_id_pcd', $_POST['pcd']);
         $Student->__set('id', $_POST['studentId']);
 
 
@@ -155,7 +155,7 @@ class AdminStudentController extends Action
         $this->view->pcd = $Student->pcd();
         $this->view->bloodType = $Student->bloodType();
 
-        $this->render('student/components/modalStudentProfile', 'SimpleLayout'); 
+        $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }
 
 
@@ -208,5 +208,22 @@ class AdminStudentController extends Action
 
 
         header('Location: /admin/aluno/cadastro');
+    }
+
+
+    public function updateProfilePicture()
+    {
+
+        $Student = Container::getModel('Student\\Student');
+
+        $Tool = new Tools();
+
+        empty($_GET['oldPhoto']) ? '' : unlink('../public/assets/img/studentProfilePhotos/' . $_POST['oldPhoto']);
+
+        $Tool->image($Student, '../public/assets/img/studentProfilePhotos/');
+
+        $Student->__set('id', $_POST['id']);
+
+        $Student->updateProfilePicture();
     }
 }

@@ -250,7 +250,6 @@
 
                                             $totalVacancies = $class->class_capacity - $class->student_total;
 
-
                                             $newName = $class->series_acronym . ' ' . $class->ballot . ' - ' . $class->course . ' - ' . $class->shift . ' - Sala: ' . $class->classroom_number . ' - ' . 'Vagas: ' . $totalVacancies;
 
                                         ?>

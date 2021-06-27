@@ -258,4 +258,17 @@ class Student extends People
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
+
+
+    public function updateProfilePicture(){
+
+        $query = "UPDATE aluno SET aluno.foto_perfil_aluno = :profilePhoto WHERE aluno.id_aluno = :id";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':profilePhoto', $this->__get('profilePhoto'));
+        $stmt->bindValue(':id', $this->__get('id'));
+
+        $stmt->execute();
+    }
 }

@@ -1,19 +1,20 @@
 function addMultipleParts(form, route) {
 
-    let formData = new FormData(this)
+    let formData = new FormData(form)
 
-    $.ajax({
+   $.ajax({
         url: route,
         dataType: 'html',
         type: 'POST',
         data: formData,
+        enctype: 'multipart/form-data',
         cache: false,
         contentType: false,
         processData: false,
-        success: data => console.log('Tudo ok'),
+        success: data => console.log(data),
         error: error => console.log(error)
 
-    })
+    }) 
 }
 
 
@@ -141,6 +142,7 @@ function loadListElements(container, route, form = '') {
         success: data => {
 
             $('.loading').remove()
+            
             $container.append(data)
 
         },

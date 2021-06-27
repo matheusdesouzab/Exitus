@@ -96,26 +96,27 @@
 
                         <?php require '../App/Views/admin/student/components/studentListing.php' ?>
 
-                        <div class="modal fade modal-profile" id="profileStudentModal" aria-hidden="true">
+                    </tbody>
 
-                            <div class="modal-dialog  modal-xl">
-                                <div class="modal-content">
-                                    <div class="row">
-                                        <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
-                                            </button></div>
-                                    </div>
+                    <div class="modal fade modal-profile" id="profileStudentModal" data-backdrop="static" data-keyboard="false" tabindex="-1"  aria-hidden="true">
 
-                                    <div containerStudentProfileModal class="modal-body"></div>
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileStudentModal">
+                                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                        </button></div>
                                 </div>
+
+                                <div containerStudentProfileModal class="modal-body"></div>
                             </div>
                         </div>
-                    </tbody>
+                    </div>
 
                 </table>
             </div>
 
-           
+
         </div>
     </div>
 

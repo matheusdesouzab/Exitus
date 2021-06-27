@@ -126,140 +126,6 @@ button {
   color: white;
 }
 
-#pagina {
-  /* 
-  .modal-profile {
-
-      z-index: 1300;
-
-      .modal-content {
-          margin-left: -415px;
-          width: 1350px;
-          margin-top: -30px;
-          height: 630px;
-          background-color: $color-black;
-      } 
-
-      .input-group input{
-          border: none;          
-          border-bottom: 1px solid $color-extra-light-blue;
-      }
-
-
-      .modal-body>.row:nth-child(1) {
-          @include card(10px, $color-pure-gray, 1px solid $color-smooth-gray);
-          margin-top: -10px;
-      }
-
-      input:disabled
-      {
-          background: $color-pure-gray;
-          border: 1px solid $color-extra-light-blue;
-      }
-
-      h5 {
-          font-size: 17px;
-      }
-
-      a {
-          text-decoration: none;
-      }
-
-      .fa-edit,
-      .fa-check {
-          color: $color-dark-gray;
-      }
-
-      img {
-          border-radius: 50%;
-      }
-
-      .close:focus {
-          outline: none;
-          box-shadow: none;
-      }
-
-      .side-collapse-options {
-
-          .list-group {
-              margin-top: 20px;
-          }
-
-          border-radius: 10px;
-          border: 0;
-          background: $color-dark-gray;
-
-          @include list-group-item;
-
-          @include aria-expanded-false-and-true($color-white, $color-smooth-blue, transparent, $color-white, 10px);
-
-      }
-
-      .option-list {
-          display: flex;
-          justify-content: flex-end;
-      }
-
-      .horizontal-control-list {
-          display: none;
-      }
-
-      b {
-          color: $color-dark-gray;
-      }
-
-      .input-group-prepend span {
-          font-weight: bold;
-          color: $color-dark-blue;
-      }
-
-      .input-group-text {
-          background-color: transparent;
-          border: none;
-          font-weight: bold;
-      }
-
-      .input-group {
-          padding-left: 0;
-          margin-bottom: 13px;
-      }
-
-      img {
-          display: flex;
-          justify-content: center;
-      }
-
-
-      #student-profile-newsletter {
-
-          h5 {
-              text-transform: initial;
-          }
-
-          text-transform: uppercase;
-          font-size: 13px;
-
-          .th-rowspan-2 div {
-              margin-top: -50px;
-          }
-
-          table {
-              width: 1200px;
-          }
-
-          b {
-              font-weight: 700;
-          }
-
-          td,
-          th {
-              font-size: 13px;
-          }
-
-      }
-
-  } */
-}
 #pagina .modal {
   -webkit-backdrop-filter: blur(10px);
   /* Safari 9+ */
@@ -267,120 +133,109 @@ button {
   /* Chrome and Opera */
   background-color: rgba(255, 255, 255, 0.3);
 }
+#pagina .modal-backdrop {
+  display: none !important;
+}
 #pagina .modal-profile {
-  /*  input:disabled {
-          background: $color-pure-gray;
-          border: 1px solid $color-extra-light-blue;
-      }
-
-      h5 {
-          font-size: 17px;
-      }
-
-      a {
-          text-decoration: none;
-      }
-
-      .fa-edit,
-      .fa-check {
-          color: $color-dark-gray;
-      }
-
-      img {
-          border-radius: 50%;
-      }
-
-      .close:focus {
-          outline: none;
-          box-shadow: none;
-      }
-
-      .side-collapse-options {
-
-          .list-group {
-              margin-top: 20px;
-          }
-
-          border-radius: 10px;
-          background: $color-dark-gray;
-
-          @include list-group-item;
-
-          @include aria-expanded-false-and-true($color-white, $color-smooth-blue, transparent, $color-white, 10px);
-
-      }
-
-      .option-list {
-          display: flex;
-          justify-content: flex-end;
-      }
-
-      .horizontal-control-list {
-          display: none;
-      }
-
-      b {
-          color: $color-dark-gray;
-      }
-
-      .input-group-prepend span {
-          font-weight: bold;
-          color: $color-dark-blue;
-      }
-
-      .input-group-text {
-          background-color: transparent;
-          border: none;
-          font-weight: bold;
-      }
-
-      .input-group {
-          padding-left: 0;
-          margin-bottom: 13px;
-      }
-
-      img {
-          display: flex;
-          justify-content: center;
-      } */
+  overflow-y: hidden;
+}
+#pagina .modal-profile button {
+  outline: none;
+}
+#pagina .modal-profile #profilePhotoModal img {
+  width: 250px;
+  height: 250px;
+}
+#pagina .modal-profile #profilePhotoModal img:hover {
+  transform: none;
+}
+#pagina .modal-profile #profilePhotoModal .modal-content {
+  border-radius: 15px;
+  border: 2px solid #e5e5e5;
+  background-color: white;
+}
+#pagina .modal-profile #profilePhotoModal input[type=file] {
+  display: none;
 }
 #pagina .modal-profile .modal-content {
   border-radius: 15px;
+  background-color: #F9F9F9;
 }
 #pagina .modal-profile h4 {
   font-family: Bold;
 }
 #pagina .modal-profile img {
   border-radius: 50%;
-  width: 7vw;
+  width: 80px;
+  height: 80px;
+  transition: all 0.9s ease;
+  object-position: top;
+  object-fit: cover;
+  cursor: pointer;
 }
-#pagina .modal-profile #list-tab > a.active {
-  border-bottom: 3px solid #6619c3;
-  color: #080809;
+#pagina .modal-profile img:hover {
+  transform: scale(1.1);
+}
+#pagina .modal-profile .tab-content {
+  border-radius: 15px;
+  background-color: white;
+  height: 77vh;
+  overflow-x: auto;
+  border: 1px solid #e5e5e5;
+}
+#pagina .modal-profile .tab-content::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+#pagina .modal-profile .tab-content form input,
+#pagina .modal-profile .tab-content form select {
   background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #e4d9ff;
+}
+#pagina .modal-profile .tab-content form input:disabled,
+#pagina .modal-profile .tab-content form select:disabled {
+  border: none;
+  font-weight: 500;
+  padding-left: 0;
+  cursor: context-menu;
+  color: #506177;
+}
+#pagina .modal-profile .tab-content form {
+  position: absolute;
+}
+#pagina .modal-profile .tab-content form .input-group {
+  margin-bottom: 10px;
+}
+#pagina .modal-profile .tab-content form .input-group-text {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+}
+#pagina .modal-profile #list-tab {
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+}
+#pagina .modal-profile #list-tab a.active {
+  color: #080809;
+  background-color: #e5e5e5;
 }
 #pagina .modal-profile #list-tab .list-group-item {
-  padding: 10px;
   border: none;
+  padding: 10px;
+  transition: all 0.4s ease;
+  border-radius: 0px;
   color: #506177;
+  border-radius: 10px;
   font-weight: bold;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 5px;
+  background-color: transparent;
   text-align: center;
 }
 #pagina .modal-profile #list-tab .list-group-item:hover {
-  border-bottom: 3px solid #6619c3;
   color: #080809;
-}
-#pagina #profileTeacherModal input:disabled,
-#pagina #profileTeacherModal select:disabled,
-#pagina #profileStudentModal input:disabled,
-#pagina #profileStudentModal select:disabled {
-  background-color: transparent;
-  font-weight: bold;
-  border: none;
-  padding-left: 0px;
+  background-color: #e5e5e5;
 }
 #pagina #modal-discipline .modal-content {
   border: none;
