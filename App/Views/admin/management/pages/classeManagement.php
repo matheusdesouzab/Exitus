@@ -123,21 +123,6 @@
                                         </table>
                                     </div>
 
-                                    <div class="modal fade" id="modalErrorDisciplineClass" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
-                                        <div class="modal-dialog" id="">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Erro em adicionar disciplina</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Confira se todos os campos estão preenchidos
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div class="modal fade" id="modalExam" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
                                         <div class="modal-dialog modal-lg modal-dialog-centered" id="">
@@ -150,20 +135,22 @@
                                         </div>
                                     </div>
 
-                                    <div class="modal fade modal-profile" id="profileClasseModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal fade modal-profile" id="profileClasseModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
-                                        <div class="modal-dialog">
-                                            <div class="modal-content p-2">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
                                                 <div class="row">
-                                                    <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
+                                                    <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileClasseModal">
+                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
                                                         </button></div>
                                                 </div>
 
-                                                <div containerClasseProfileModal class="row modal-body"></div>
+                                                <div containerClasseProfileModal class="modal-body"></div>
                                             </div>
                                         </div>
                                     </div>
+
+
 
 
 
@@ -179,7 +166,7 @@
 
                                     <form class="col-lg-12 card" id="addClass" action="">
 
-                                    <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar nova turma:</div>
+                                        <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar nova turma:</div>
 
                                         <div class="form-row col-lg-11 mx-auto mb-2 mt-4">
 

@@ -130,7 +130,8 @@ class ClassDiscipline extends Model
             turma_disciplina.id_turma_disciplina AS discipline_class_id ,
             numero_sala_aula.numero_sala_aula AS classroom_number , 
             disciplina.nome_disciplina AS discipline_name ,
-            numero_sala_aula.numero_sala_aula AS classroom_number , 
+            turma.id_turma AS class_id ,
+            turma_disciplina.fk_id_turma AS fk_id_class ,
 
             (SELECT COUNT(turma_disciplina.id_turma_disciplina) 
 

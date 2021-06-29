@@ -176,5 +176,23 @@ class AdminTeacherController extends Action
     }
 
 
+    public function updateTeacherProfilePicture()
+    {
+
+        $Teacher = Container::getModel('Teacher\\Teacher');
+
+        $Tool = new Tools();
+
+        empty($_GET['oldPhoto']) ? '' : unlink('../public/assets/img/teacherProfilePhotos/' . $_POST['oldPhoto']);
+
+        $Tool->image($Teacher, '../public/assets/img/teacherProfilePhotos/');
+
+        $Teacher->__set('id', $_POST['id']);
+
+        $Teacher->updateProfilePicture();
+
+    }
+
+
 
 }

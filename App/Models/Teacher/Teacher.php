@@ -189,5 +189,16 @@ class Teacher extends People
     }
 
 
+    public function updateProfilePicture(){
+
+        $query = "UPDATE professor SET professor.foto_perfil_professor = :profilePhoto WHERE professor.id_professor = :id";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':profilePhoto', $this->__get('profilePhoto'));
+        $stmt->bindValue(':id', $this->__get('id'));
+
+        $stmt->execute();
+    }
     
 }

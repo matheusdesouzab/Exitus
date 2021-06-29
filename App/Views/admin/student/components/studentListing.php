@@ -9,38 +9,17 @@
                 <img src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
 
-            <?php
-
-            $cpf = $student->student_cpf;
-
-            $formattedCpf = substr($cpf, 0, 3) . "." . substr($cpf, 3, 3) . "." . substr($cpf, 6, 3) . "-" . substr($cpf, -2);
-
-            ?>
-
             <td class="text-left"><?= $student->student_name ?></td>
-            <td><?= $formattedCpf ?></td>
 
             <?php if ($this->view->typeStudentList != 'class' && isset($this->view->typeStudentList)) { ?>
 
                 <td><?= $student->acronym_series . ' ' . $student->class_ballot  . ' - ' . $student->course . ' - ' . $student->shift ?></td>
 
-                <td>
-                    <div class="row d-flex justify-content-center ">
-                        <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                        <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                        <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                    </div>
-                </td>
+                <td>0</td>
 
             <?php } else { ?>
 
-                <td>
-                    <div class="row text-center d-flex justify-content-center mt-3">
-                        <div class="col-2 registered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                        <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                        <div class="col-2 unregistered-unit-icon"><i class="fas fa-check-circle"></i></div>
-                    </div>
-                </td>
+                <td>0</td>
 
 
 

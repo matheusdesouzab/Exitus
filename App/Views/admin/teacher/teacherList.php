@@ -81,11 +81,11 @@
             </div>
 
             <div class="modal modal-profile fade" id="profileTeacherModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-xl">
                     <div class="modal-content p-2">
                         <div class="row">
                             <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true"><i class="fas fa-times-circle text-white mr-3 mt-2"></i></span>
+                                    <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
                                 </button></div>
                         </div>
 

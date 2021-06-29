@@ -211,7 +211,7 @@ class AdminStudentController extends Action
     }
 
 
-    public function updateProfilePicture()
+    public function updateStudentProfilePicture()
     {
 
         $Student = Container::getModel('Student\\Student');

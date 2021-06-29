@@ -550,7 +550,7 @@ $(document).on('change', "#profilePhotoModal #profilePhoto", function () {
 })
 
 
-$(document).on('click', '#updateImg', (e) => {
+$(document).on('click', '#profileStudentModal #updateImg', (e) => {
 
     e.preventDefault()
 
@@ -560,10 +560,30 @@ $(document).on('click', '#updateImg', (e) => {
 
     loadListElements('containerListStudent', '/admin/aluno/lista/listagem')
 
+    showToast('Foto do perfil atualizada', 'bg-success')
+
 })
 
 
-$(document).on('shown.bs.modal', '#profileStudentModal', function () {
+$(document).on('click', '#profileTeacherModal #updateImg', (e) => {
+
+    e.preventDefault()
+
+    addMultipleParts($('#formUpdateProfilePhoto')[0], '/admin/professor/lista/perfil-professor/atualizar-foto')
+
+    loadListElements('containerTeacherProfileModal', '/admin/professor/lista/perfil-professor', '#formUpdateProfilePhoto')
+
+    loadListElements('containerListTeacher', '/admin/professor/lista/listagem')
+
+    showToast('Foto do perfil atualizada', 'bg-success')
+
+})
+
+
+
+
+
+$(document).on('shown.bs.modal', '#profileStudentModal , #profileTeacherModal', function () {
     //To relate the z-index make sure backdrop and modal are siblings
     $(this).before($('.modal-backdrop'));
     //Now set z-index of modal greater than backdrop

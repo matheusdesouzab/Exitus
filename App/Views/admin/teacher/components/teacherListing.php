@@ -12,16 +12,6 @@
 
             <td class="text-left"><?= $teacher->teacher_name ?></td>
 
-            <?php
-
-            $cpf = $teacher->teacher_cpf;
-
-            $formattedCpf = substr($cpf, 0, 3) . "." . substr($cpf, 3, 3) . "." . substr($cpf, 6, 3) . "-" . substr($cpf, -2);
-
-            ?>
-
-            <td><?= $formattedCpf ?></td>
-
             <?php if ($this->view->typeTeacherList != 'class' && isset($this->view->typeTeacherList)) { ?>
 
                 <td>43</td>

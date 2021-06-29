@@ -2,50 +2,65 @@
 
     <div class="row main-container">
 
-        <h5 class="col-11 mx-auto mb-4 mt-3">Buscar aluno</h5>
+        <div class="col-lg-11 mx-auto " id="advanced-search-accordion">
 
-        <div class="p-3 mb-3 card col-lg-10 mx-auto" id="advanced-search-accordion">
+            <div class="row mt-3 mb-1">
 
-            <form class="col-lg-11 accordion mx-auto mt-3" id="seekStudent">
+                 <h5 class="col-lg-12">Buscar aluno</h5>
 
-                <div class="form-row">
+                 <nav class="col-lg-12 p-0" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/admin/gestao">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Buscar aluno</li>
+                    </ol>
+                </nav>
 
-                    <div class="form-group col-12 col-lg-5">
-                        <label for="">Aluno:</label>
-                        <input class="form-control" type="text" value="" name="name" placeholder="Nome do aluno">
-                    </div>
+            </div>
 
-                    <div class="form-group col-12 col-lg-4">
-                        <label for="">Curso:</label>
-                        <select class="form-control custom-select" name="course" id="course">
-                            <option value="0">Todos</option>
-                            <?php foreach ($this->view->availableCourse as $key => $course) { ?>
+            <div class="col-lg-12">
 
-                                <option value="<?= $course->option_value ?>"><?= $course->option_text ?></option>
+            <div class="row card">
 
-                            <?php } ?>
-                        </select>
-                    </div>
+                <form class="col-lg-11 accordion mx-auto mt-3" id="seekStudent">
 
-                    <div class="form-group col-12 col-lg-2">
-                        <label for="">Turno:</label>
-                        <select class="form-control custom-select" name="shift" id="shift">
-                            <option value="0">Todos</option>
-                            <?php foreach ($this->view->availableShift as $key => $shift) { ?>
-                                <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
-                            <?php } ?>
-                        </select>
-                    </div>
+                    <div class="form-row">
 
-
-                    <div class="form-group col-2 col-lg-1">
-                        <label for="">&nbsp;</label><br>
-                        <div>
-                            <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
+                        <div class="form-group col-12 col-lg-5">
+                            <label for="">Aluno:</label>
+                            <input class="form-control" type="text" value="" name="name" placeholder="Nome do aluno">
                         </div>
-                    </div>
 
-                </div>
+                        <div class="form-group col-12 col-lg-4">
+                            <label for="">Curso:</label>
+                            <select class="form-control custom-select" name="course" id="course">
+                                <option value="0">Todos</option>
+                                <?php foreach ($this->view->availableCourse as $key => $course) { ?>
+
+                                    <option value="<?= $course->option_value ?>"><?= $course->option_text ?></option>
+
+                                <?php } ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-12 col-lg-2">
+                            <label for="">Turno:</label>
+                            <select class="form-control custom-select" name="shift" id="shift">
+                                <option value="0">Todos</option>
+                                <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+                                    <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group col-2 col-lg-1">
+                            <label for="">&nbsp;</label><br>
+                            <div>
+                                <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
 
                 <div id="activate-advanced-search-accordion" class="collapse" data-parent="#advanced-search-accordion">
 
@@ -88,7 +103,7 @@
                             <th colspan="2" scope="col">Nome do aluno</th>
                             <th scope="col">CPF</th>
                             <th scope="col">Turma</th>
-                            <th scope="col">Unidade Cadastrada</th>
+                            <th scope="col">Média atual</th>
                         </tr>
                     </thead>
 
@@ -115,8 +130,9 @@
 
                 </table>
             </div>
+            </div>
 
-
+            </div>
         </div>
     </div>
 

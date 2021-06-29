@@ -24,11 +24,11 @@
 
                 <div class="col-lg-12 mt-5 ">
 
-                    <div class="row card p-3 text-secondary ">
+                    <div class="row card p-3 text-secondary main-sheet">
 
-                        <span class="col-lg-12 text-center font-weight-bold">Matheus de Souza Barbosa</span>
+                        <span class="col-lg-12"><?= $student->student_name ?></span>
 
-                        <span class="col-lg-12 mt-2 text-center font-weight-bold"><?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift_name ?></span>
+                        <span class="col-lg-12 mt-2"><?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift_name ?></span>
 
                     </div>
 

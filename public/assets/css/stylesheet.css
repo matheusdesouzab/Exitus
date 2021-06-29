@@ -11,7 +11,7 @@ html {
 }
 
 html > body {
-  background-color: #F9F9F9;
+  background-color: #F4DBF1;
   color: #2b2b2f;
 }
 
@@ -110,7 +110,7 @@ button {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: #ffffff;
   transition: 0.5s;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 #pagina .card .card-body {
   padding: 15px;
@@ -128,10 +128,11 @@ button {
 
 #pagina .modal {
   -webkit-backdrop-filter: blur(10px);
-  /* Safari 9+ */
   backdrop-filter: blur(5px);
-  /* Chrome and Opera */
   background-color: rgba(255, 255, 255, 0.3);
+}
+#pagina .card-title {
+  font-family: Bold;
 }
 #pagina .modal-backdrop {
   display: none !important;
@@ -141,6 +142,11 @@ button {
 }
 #pagina .modal-profile button {
   outline: none;
+}
+#pagina .modal-profile .main-sheet span {
+  text-align: center;
+  font-family: Semi-bold;
+  font-size: 13px;
 }
 #pagina .modal-profile #profilePhotoModal img {
   width: 250px;
@@ -159,7 +165,18 @@ button {
 }
 #pagina .modal-profile .modal-content {
   border-radius: 15px;
-  background-color: #F9F9F9;
+  background-color: #e9ebfa;
+}
+#pagina .modal-profile .modal-content .card {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+#pagina .modal-profile .modal-content .card .teacher-class-title {
+  font-family: Semi-bold;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+#pagina .modal-profile .modal-content span.badge {
+  background-color: #6619c3;
 }
 #pagina .modal-profile h4 {
   font-family: Bold;
@@ -201,9 +218,6 @@ button {
   cursor: context-menu;
   color: #506177;
 }
-#pagina .modal-profile .tab-content form {
-  position: absolute;
-}
 #pagina .modal-profile .tab-content form .input-group {
   margin-bottom: 10px;
 }
@@ -218,29 +232,43 @@ button {
   border-radius: 10px;
 }
 #pagina .modal-profile #list-tab a.active {
-  color: #080809;
-  background-color: #e5e5e5;
+  color: white;
+  background-color: #6619c3;
 }
 #pagina .modal-profile #list-tab .list-group-item {
   border: none;
   padding: 10px;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease;
   border-radius: 0px;
+  font-weight: 500;
   color: #506177;
   border-radius: 10px;
-  font-weight: bold;
   margin-bottom: 5px;
+  font-weight: bold;
   background-color: transparent;
   text-align: center;
 }
 #pagina .modal-profile #list-tab .list-group-item:hover {
   color: #080809;
-  background-color: #e5e5e5;
+  background-color: #6619c3;
+  color: white;
 }
 #pagina #modal-discipline .modal-content {
   border: none;
   background-color: #ffffff;
   border-radius: 10px;
+}
+#pagina #profileClasseModal form input,
+#pagina #profileClasseModal form select {
+  background-color: #ffffff;
+  border-bottom: none;
+  border: 2px solid #e4d9ff;
+}
+#pagina #profileClasseModal form input:disabled,
+#pagina #profileClasseModal form select:disabled {
+  background-color: #E5E7E9;
+  border-bottom: none;
+  padding-left: 10px;
 }
 
 #pagina form {
@@ -596,30 +624,6 @@ button {
 #pagina .breadcrumb .breadcrumb-item {
   font-weight: bold;
   font-size: 14px;
-}
-
-#teacher-registration .registration-connection-line-in-stages {
-  height: 2px;
-  background: #e5e5e5;
-  margin: auto;
-  position: absolute;
-  width: 51%;
-  left: 0;
-  right: 0;
-  top: 15%;
-  z-index: 1;
-  margin-left: 21%;
-}
-
-#class img {
-  width: 50px;
-}
-#class .modal table td {
-  line-height: 50px;
-}
-#class table td {
-  justify-content: center;
-  line-height: 35px;
 }
 
 @media (max-width: 576px) {
