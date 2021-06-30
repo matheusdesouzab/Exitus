@@ -10,7 +10,7 @@
 
                 <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Disciplinas</a>
 
-                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Observações</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Avaliações</a>
 
                 <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Analise</a>
 
@@ -22,9 +22,9 @@
 
                 <div class="row card p-3 text-secondary main-sheet">
 
-                    <span class="col-lg-12">00</span>
+                    <span class="col-lg-12"><?= $this->view->classData[0]->series_acronym ?>ª <?= $this->view->classData[0]->ballot ?> <?= $this->view->classData[0]->course ?> <?= $this->view->classData[0]->shift ?></span>
 
-                    <span class="col-lg-12 mt-2">99</span>
+                    <span class="col-lg-12 mt-2">Período letivo 2021</span>
 
                 </div>
 
@@ -67,21 +67,13 @@
 
                                 <div class="row mb-3">
 
-                                    <div class="col-lg-12">
-                                        <div class="collapse show card" id="students-list" data-parent="#accordion-class-data">
+                                        <div class="collapse show card col-lg-12" id="students-list" data-parent="#accordion-class-data">
                                             <div class="row">
                                                 <div class="col-lg-12 table-responsive">
 
-                                                    <table class="table table-hover mt-3 table-borderless">
+                                                    <table class="table col-lg-12 table-hover mt-3 table-borderless ">
 
-                                                        <thead>
-                                                            <tr>
-                                                                <th colspan="2" scope="col">Nome do aluno</th>
-                                                                <th scope="col">Média atual</th>
-                                                            </tr>
-                                                        </thead>
-
-                                                        <tbody containerListStudent>
+                                                        <tbody containerListStudent class="">
 
                                                             <?php require '../App/Views/admin/student/components/studentListing.php' ?>
 
@@ -94,22 +86,12 @@
 
                                         </div>
 
-
-
-
-                                        <div class="collapse card" id="teacher-list" data-parent="#accordion-class-data">
+                                        <div class="collapse col-lg-12 card" id="teacher-list" data-parent="#accordion-class-data">
                                             <div class="row">
                                                 <div class="col-lg-12 table-responsive">
-                                                    <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto">
+                                                    <table class="table col-lg-12 table-hover mt-3 table-borderless ">
 
-                                                        <thead>
-                                                            <tr>
-                                                                <th colspan="2" scope="col">Nome do docente</th>
-                                                                <th scope="col">Disciplina lecionada</th>
-                                                            </tr>
-                                                        </thead>
-
-                                                        <tbody containerListTeacher>
+                                                        <tbody containerListTeacher class="">
 
                                                             <?php require '../App/Views/admin/teacher/components/teacherListing.php' ?>
 
@@ -122,8 +104,6 @@
                                             </div>
 
                                         </div>
-
-                                    </div>
 
                                 </div>
 
@@ -201,9 +181,11 @@
 
                                                 <input type="hidden" name="classId" value="<?= $this->view->classId ?>">
 
-                                                <div containerSelectDiscipline class="form-group col-lg-5">
+                                                <div class="form-group col-lg-5">
 
-                                                    <?php require '../App/Views/admin/management/components/disciplineSelect.php' ?>
+                                                    <label for="">Disciplina</label>
+
+                                                    <select id="availableSubjects" name="availableSubjects" class="form-control custom-select" required></select>
 
                                                 </div>
 

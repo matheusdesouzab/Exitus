@@ -112,9 +112,7 @@ class SchoolTerm extends Model
              ELSE :fk_id_school_term_situation
             
              END
-
-             
-            
+        
              WHERE periodo_letivo.id_ano_letivo = :schoolTermId
         
         ";

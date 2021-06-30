@@ -4,7 +4,8 @@
 
         <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
-        <tr id="aluno<?= $student->student_id ?>">
+        <tr class=" id="aluno<?= $student->student_id ?>" style="">
+
             <td class="text-right">
                 <img src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
@@ -19,9 +20,7 @@
 
             <?php } else { ?>
 
-                <td>0</td>
-
-
+                <td><?= $student->student_state ?></td>
 
             <?php } ?>
 
@@ -31,7 +30,7 @@
     <?php } ?>
 
     <tr class="mt-4">
-        <td class="font-weight-bold" colspan="5" style="background-color: #F9F8F8;"><?= count($this->view->listStudent) ?> alunos retornados <i class="fas fa-history ml-2"></i></td>
+        <td class="font-weight-bold" colspan="5"><?= count($this->view->listStudent) ?> alunos listados <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 <?php } else { ?>

@@ -115,11 +115,14 @@ class Student extends People
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS class_ballot , 
             curso.sigla AS course , 
-            turno.nome_turno AS shift 
+            turno.nome_turno AS shift ,
+            situacao_aluno AS student_state
+
             
             FROM aluno 
             
             LEFT JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
+            LEFT JOIN situacao_aluno ON(matricula.fk_id_situacao_aluno = situacao_aluno.id_stuacao_aluno)
             LEFT JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
             LEFT JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
             LEFT JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 

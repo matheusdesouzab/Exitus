@@ -110,23 +110,29 @@ $('[data-target="#students-list"]').on('click', function () {
 })
 
 
+
 $(document).on('click', '#buttonAddClassDiscipline', function () {
 
 
-    if ($('#addClassDiscipline #discipline option').length == 0 || $('#addClassDiscipline #teacher option').length == 0) {
+    if ($('#addClassDiscipline #availableSubjects option').length == 0 || $('#addClassDiscipline #teacher option').length == 0) {
 
-        $("#modalErrorDisciplineClass").modal("show")
+        showToast('Já adicionada', 'bg-info')
 
     } else {
 
         addSinglePart('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', false)
 
-        loadListElements('containerSelectDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', '#addClassDiscipline')
-
-        loadListElements('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', '#formClassId')
+        loadOptions([
+            ['availableSubjects', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', 'clean', '#addClassDiscipline', "#formClassId"]
+        ])
 
     }
 
+})
+
+
+$(document).on('click', '[data-target="#list-discipline"]', function(e){
+    loadListElements('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', "#formClassId")
 })
 
 
@@ -178,7 +184,6 @@ $(document).on('hide.bs.modal', '#modalNote', function (event) {
     $('#profileStudentModal .modal-body').css("opacity", "1.0")
 
 })
-
 
 
 $(document).on('click', '#list-assessments tbody tr', function () {
@@ -353,7 +358,9 @@ $(document).on('click', '#buttonAddExam', function (e) {
 
 $(document).on('click', '[data-target="#add-discipline"]', function (e) {
 
-    loadListElements('containerSelectDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', '#addClassDiscipline')
+     loadOptions([
+        ['availableSubjects', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', 'clean', '#addClassDiscipline', "#formClassId"]
+    ])
 
 })
 

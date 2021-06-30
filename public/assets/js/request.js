@@ -100,6 +100,8 @@ function loadOptions(elements) {
             type: 'GET',
             success: data => {
 
+                console.log(data)
+
                 $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
 
             },

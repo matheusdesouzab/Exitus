@@ -28,8 +28,8 @@ class ClassDiscipline extends Model
     public function insert()
     {
 
-        $query = 
-        
+        $query =
+
             "INSERT INTO turma_disciplina
 
             (fk_id_professor, fk_id_disciplina, fk_id_turma) 
@@ -53,8 +53,8 @@ class ClassDiscipline extends Model
     public function listTeachersClass()
     {
 
-        $query = 
-        
+        $query =
+
             "SELECT 
 
             professor.id_professor AS teacher_id , 
@@ -92,16 +92,14 @@ class ClassDiscipline extends Model
     public function update()
     {
 
-        $query = 
-        
+        $query =
+
             "UPDATE turma_disciplina SET 
 
             fk_id_professor = :fk_id_teacher, 
             fk_id_disciplina = :fk_id_discipline 
 
-            WHERE turma_disciplina.id_turma_disciplina = :classDisciplineId"
-        
-        ;
+            WHERE turma_disciplina.id_turma_disciplina = :classDisciplineId";
 
         $stmt = $this->db->prepare($query);
 
@@ -116,8 +114,8 @@ class ClassDiscipline extends Model
     public function subjectsThatTeacherTeaches()
     {
 
-        $query = 
-        
+        $query =
+
             "SELECT 
             
             professor.id_professor AS teacher_id , 
@@ -166,20 +164,22 @@ class ClassDiscipline extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':id' , $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':id', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
-
     }
 
 
-    public function disciplinesNotYetAdded()
+    public function subjectAailableClass()
     {
 
-        $query = 
-        
+
+        $disciplineAll = $this->speedingUp("SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina");
+
+        $disciplineAlreadyAdded =
+
             "SELECT 
             
             disciplina.id_disciplina AS option_value , 
@@ -194,22 +194,38 @@ class ClassDiscipline extends Model
             
         ";
 
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare($disciplineAlreadyAdded);
 
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
 
         $stmt->execute();
 
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        $stmt = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
+        $disciplineVector = [];
+        $availableDiscipline = [];
+
+        foreach ($stmt as $key => $discipline) {
+            array_push($disciplineVector, $discipline->option_value);
+        }
+
+        foreach ($disciplineAll as $key => $discipline) {
+
+            if (!in_array($discipline->option_value, $disciplineVector)) {
+
+                array_push($availableDiscipline, array("option_value" => $discipline->option_value, "option_text" => $discipline->option_text));
+            }
+        }
+
+        return $availableDiscipline;
     }
 
 
     public function disciplinesClassAlreadyAdded()
     {
 
-        $query = 
-        
+        $query =
+
             "SELECT 
             
             turma_disciplina.id_turma_disciplina AS option_value , 
@@ -230,7 +246,6 @@ class ClassDiscipline extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
-
     }
 
 
@@ -244,14 +259,5 @@ class ClassDiscipline extends Model
         $stmt->bindValue(':id', $this->__get('classDisciplineId'));
 
         $stmt->execute();
-
     }
-
-
-    
-
-
-
-
-
 }

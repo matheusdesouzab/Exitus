@@ -428,7 +428,6 @@ class AdminManagementController extends Action
 
         $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('classId'));
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
         $this->view->disciplineAll = $Discipline->disciplineAll();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->typeStudentList = "class";
@@ -451,11 +450,10 @@ class AdminManagementController extends Action
 
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacher']);
         $ClassDiscipline->__set("fk_id_class", $_POST['classId']);
-        $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
+        $ClassDiscipline->__set("fk_id_discipline", $_POST['availableSubjects']);
 
         $ClassDiscipline->insert();
 
-        $this->view->typeTeacherList = 'class';
     }
 
 
@@ -470,7 +468,6 @@ class AdminManagementController extends Action
 
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
 
         $this->render('management/components/disciplineClass', 'SimpleLayout');
     }
@@ -491,14 +488,10 @@ class AdminManagementController extends Action
     {
 
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
-        $Discipline = Container::getModel('Management\\Discipline');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
-        $this->view->disciplineAvailable = $ClassDiscipline->disciplinesNotYetAdded();
-        $this->view->disciplineAll = $Discipline->disciplineAll();
-
-        $this->render('management/components/disciplineSelect', 'SimpleLayout');
+        echo json_encode($ClassDiscipline->subjectAailableClass());
     }
 
 
