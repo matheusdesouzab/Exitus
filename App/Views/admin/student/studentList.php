@@ -2,26 +2,11 @@
 
     <div class="row main-container">
 
-        <div class="col-lg-11 mx-auto " id="advanced-search-accordion">
+         <h5 class="col-lg-11 mx-auto mb-4 mt-3">Buscar aluno</h5>
 
-            <div class="row mt-3 mb-1">
+            <div class="col-lg-10 accordion mx-auto card mb-3" id="advanced-search-accordion">
 
-                 <h5 class="col-lg-12">Buscar aluno</h5>
-
-                 <nav class="col-lg-12 p-0" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/admin/gestao">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Buscar aluno</li>
-                    </ol>
-                </nav>
-
-            </div>
-
-            <div class="col-lg-12">
-
-            <div class="row card">
-
-                <form class="col-lg-11 accordion mx-auto mt-3" id="seekStudent">
+                <form class="accordion mx-auto mt-3 col-lg-11" id="seekStudent">
 
                     <div class="form-row">
 
@@ -96,14 +81,14 @@
 
             <div class="table-responsive">
 
-                <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto" id="student-table">
+                <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto"  id="student-table">
 
                     <thead>
                         <tr>
                             <th colspan="2" scope="col">Nome do aluno</th>
                             <th scope="col">CPF</th>
-                            <th scope="col">Turma</th>
-                            <th scope="col">Média atual</th>
+                            <th scope="col">Turma atual</th>
+                            <th scope="col">Média</th>
                         </tr>
                     </thead>
 

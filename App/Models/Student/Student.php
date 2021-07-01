@@ -121,15 +121,15 @@ class Student extends People
             
             FROM aluno 
             
-            LEFT JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
-            LEFT JOIN situacao_aluno ON(matricula.fk_id_situacao_aluno = situacao_aluno.id_stuacao_aluno)
-            LEFT JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
-            LEFT JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
-            LEFT JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
-            LEFT JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
-            LEFT JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
-            LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
-            LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
+            INNER JOIN situacao_aluno ON(matricula.fk_id_situacao_aluno = situacao_aluno.id_stuacao_aluno)
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
             $operation
             

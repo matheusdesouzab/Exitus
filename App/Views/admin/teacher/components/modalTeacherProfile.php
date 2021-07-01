@@ -4,11 +4,23 @@
 
         <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 card">
 
             <div class="row d-flex align-items-space-between">
 
-                <div class="list-group p-3 card col-lg-12" id="list-tab" role="tablist">
+                <div class="col-lg-12">
+
+                    <div class="row p-3 text-secondary main-sheet">
+
+                        <img class="mx-auto mb-3" src='<?= $teacher->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->teacher_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"' data-toggle="modal" data-target="#profilePhotoModal">
+
+                        <span class="col-lg-12"><?= $teacher->teacher_name ?></span>
+
+                        <span class="col-lg-12 mt-2"> <?= count($this->view->subjectsThatTeacherTeaches) ?> disciplinas ativas</span>
+
+                    </div>
+
+                <div class="list-group p-3 pt-0 col-lg-12" id="list-tab" role="tablist">
 
                     <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><span>Dados do docente</span></a>
 
@@ -19,17 +31,7 @@
 
                 </div>
 
-                <div class="col-lg-12 mt-5 ">
-
-                    <div class="row card p-3 text-secondary main-sheet">
-
-                        <span class="col-lg-12"><?= $teacher->teacher_name ?></span>
-
-                        <span class="col-lg-12 mt-2"> <?= count($this->view->subjectsThatTeacherTeaches) ?> disciplinas ativas</span>
-
-                    </div>
-
-                </div>
+            </div>
 
                 <div class="modal fade border border-dark" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
                     <div class="modal-dialog">
@@ -100,7 +102,7 @@
 
                             <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
 
-                                <div class="col-lg-9">
+                                <div class="col-lg-12">
 
                                     <div class="row d-flex align-items-center">
 
@@ -117,13 +119,6 @@
                                     </div>
 
                                 </div>
-
-
-
-                                <div class="col-lg-3">
-                                    <img class="mx-auto" src='<?= $teacher->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->teacher_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"' data-toggle="modal" data-target="#profilePhotoModal">
-                                </div>
-
 
                             </div>
 
@@ -198,7 +193,7 @@
 
                             </div>
 
-                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                            <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Tipo sanguíneo:</span>
@@ -253,7 +248,7 @@
                                 <input type="text" id="address" name="address" disabled class="form-control" value="<?= $teacher->teacher_address ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
 
-                            <div class="input-group d-flex justify-content-start col-lg-12 flex-nowrap">
+                            <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Contato:</span>
                                 </div>

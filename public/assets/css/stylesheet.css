@@ -148,6 +148,10 @@ button {
   font-family: Semi-bold;
   font-size: 13px;
 }
+#pagina .modal-profile .main-sheet img {
+  width: 100px;
+  height: 100px;
+}
 #pagina .modal-profile #profilePhotoModal img {
   width: 250px;
   height: 250px;
@@ -230,10 +234,16 @@ button {
   background-color: white;
   border: 1px solid #e5e5e5;
   border-radius: 10px;
+  overflow: auto;
+  height: 254px;
 }
 #pagina .modal-profile #list-tab a.active {
   color: white;
   background-color: #6619c3;
+}
+#pagina .modal-profile #list-tab::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 #pagina .modal-profile #list-tab .list-group-item {
   border: none;
@@ -359,13 +369,13 @@ button {
 
 #left-panel {
   display: flex;
-  width: 100%;
   font-family: Semi-bold;
 }
 #left-panel #sidebar {
   width: 16.5vw;
   position: fixed;
   top: 0;
+  transition: all 0.7s ease;
   left: 0;
   height: 100vh;
   z-index: 2;
@@ -388,7 +398,7 @@ button {
   background-color: #555;
 }
 #left-panel #sidebar .sidebar-header {
-  color: white;
+  color: #ffffff;
   padding: 12px;
   text-align: center;
   font-size: 16px;
@@ -396,7 +406,7 @@ button {
   margin-bottom: 10px;
 }
 #left-panel #sidebar .sidebar-lists p {
-  color: white;
+  color: #ffffff;
   font-weight: bold;
   font-size: 13px;
   margin-bottom: 10px;
@@ -419,7 +429,7 @@ button {
   display: block;
 }
 #left-panel #sidebar .sidebar-lists a:hover {
-  color: white;
+  color: #ffffff;
 }
 #left-panel #sidebar .sidebar-lists li {
   margin-top: 0.5vw;
@@ -430,7 +440,7 @@ button {
   background-color: #202124;
 }
 #left-panel #sidebar .sidebar-lists .collapse li {
-  background-color: black;
+  background-color: #080809;
   padding: 15px 25px;
   margin-top: 0;
   transition: 1s;
@@ -439,16 +449,45 @@ button {
 }
 #left-panel #sidebar .sidebar-lists .collapse li:hover {
   background-color: #2C2D32;
-  border-left: 5px solid white;
+  border-left: 5px solid #ffffff;
 }
 #left-panel #sidebar .sidebar-lists .collapse li:hover > a {
-  color: white;
+  color: #ffffff;
 }
 #left-panel #sidebar .sidebar-lists .collapse a {
   display: block;
   transition: 1s;
   text-align: center;
   color: #C4C4C4;
+}
+
+.sidebar-responsive #left-panel #sidebar {
+  width: 8.2vw;
+  background-color: #09023B;
+}
+.sidebar-responsive #left-panel #sidebar .dropdown:hover > .dropdown-menu {
+  display: block;
+}
+.sidebar-responsive #left-panel #sidebar .sidebar-header {
+  display: none;
+}
+.sidebar-responsive #left-panel #sidebar .sidebar-lists a span.link-name,
+.sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fa-angle-right {
+  display: none !important;
+}
+.sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fas {
+  font-size: 17px;
+  margin-right: 0px;
+  color: #ffffff;
+  padding: 10px 5px;
+  text-align: center;
+  display: block;
+}
+.sidebar-responsive #left-panel #sidebar p {
+  display: none;
+}
+.sidebar-responsive #left-panel #sidebar li {
+  padding: 10px 0px;
 }
 
 #pagina .main-container {

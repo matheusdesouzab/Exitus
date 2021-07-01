@@ -24,7 +24,6 @@
 
             <td><?= $formattedCpf ?></td>
 
-                <td>43</td>
                 <td><?= $teacher->teacher_sex ?></td>
                 <td><?= $teacher->total_discipline ?></td>
 
@@ -38,7 +37,7 @@
     <?php } ?>
 
     <tr class="mt-4">
-        <td class="font-weight-bold" colspan="6"><?= count($this->view->listTeacher) ?> docentes listados <i class="fas fa-history ml-2"></i></td>
+        <td class="font-weight-bold" colspan="6"  style="pointer-events:none"><?= count($this->view->listTeacher) ?> docentes listados <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 <?php } else { ?>

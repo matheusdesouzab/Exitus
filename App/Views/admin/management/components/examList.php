@@ -32,13 +32,14 @@
 
                 <?php } ?>
 
-                <?php if(isset($this->view->typeListExam) && $this->view->typeListExam[0] != 'recent') { ?>
+                <?php if (isset($this->view->typeListExam) && $this->view->typeListExam[0] != 'recent') { ?>
 
-                <tr class="mt-4">
-                    <td colspan="5"> <i class="far fa-sticky-note mr-3"></i> <?= $sum ?> pontos já atribuidos na <?= $this->view->listExam[0]->unity ?> unidade de <?= $this->view->listExam[0]->discipline_name ?> ( Restam <?= 10 - $sum ?> )</td>
-                </tr>
+                    <tr class="mt-5">
+                        <td class="" colspan="5"> <i class="far fa-sticky-note mr-3"></i> <?= $sum ?> pontos já atribuidos na <?= $this->view->listExam[0]->unity ?> unidade de <?= $this->view->listExam[0]->discipline_name ?> ( Restam <?= 10 - $sum ?> )</td>
+                    </tr>
 
-            <?php }} else { ?>
+                <?php }
+            } else { ?>
 
                 <tr class="mt-4">
                     <td colspan="5" style="pointer-events:none">Nenhuma avaliação encrontada</td>

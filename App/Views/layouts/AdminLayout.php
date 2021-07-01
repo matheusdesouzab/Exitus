@@ -23,8 +23,6 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 <body>
 
-
-
 	<div class="container-fluid">
 
 		<div class="row">

@@ -1,6 +1,6 @@
-<section id="schoolTerm">
+<section id="schoolTerm ">
 
-    <div class="row main-container ">
+    <div class="row main-container">
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-school-term">
 

@@ -4,27 +4,15 @@
 
         <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 card">
 
             <div class="row d-flex align-items-space-between">
 
-                <div class="list-group p-3 card col-lg-12" id="list-tab" role="tablist">
+                <div class="col-lg-12">
 
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><span>Dados do aluno</span></a>
+                    <div class="row p-3 text-secondary main-sheet">
 
-                    <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Boletim</a>
-
-                    <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Observações</a>
-
-                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Análise</a>
-
-                    <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Outros</a>
-
-                </div>
-
-                <div class="col-lg-12 mt-5 ">
-
-                    <div class="row card p-3 text-secondary main-sheet">
+                        <img class="mx-auto mb-3" src='<?= $student->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->student_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
                         <span class="col-lg-12"><?= $student->student_name ?></span>
 
@@ -32,9 +20,23 @@
 
                     </div>
 
+                    <div class="list-group p-3 pt-0 col-lg-12" id="list-tab" role="tablist">
+
+                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><span>Dados do aluno</span></a>
+
+                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Boletim</a>
+
+                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Observações</a>
+
+                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Análise</a>
+
+                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Histórico</a>
+
+                    </div>
+
                 </div>
 
-                <div class="modal fade border border-dark" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
+                <div class="modal fade" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header border-0">
@@ -46,7 +48,7 @@
                                 </div>
                             </div>
 
-                            <div class="modal-body">
+                            <div class="modal-body mb-3">
 
                                 <div class="container-img col-lg-12 d-flex justify-content-center">
 
@@ -76,9 +78,7 @@
 
                             </div>
 
-                            <div class="modal-footer d-flex justify-content-start">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Retornar</button>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
 
                             <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
 
-                                <div class="col-lg-9">
+                                <div class="col-lg-12">
 
                                     <div class="row d-flex align-items-center">
 
@@ -119,12 +119,6 @@
 
                                     </div>
 
-                                </div>
-
-
-
-                                <div class="col-lg-3">
-                                    <img class="mx-auto" src='<?= $student->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->student_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"' data-toggle="modal" data-target="#profilePhotoModal">
                                 </div>
 
 

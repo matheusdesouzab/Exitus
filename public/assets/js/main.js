@@ -123,12 +123,14 @@ $(document).on('click', '#buttonAddClassDiscipline', function () {
         addSinglePart('#addClassDiscipline', '/admin/gestao/turma/perfil-turma/turma-disciplina/inserir', 'Disciplina adicionada', false)
 
         loadOptions([
-            ['availableSubjects', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', 'clean', '#addClassDiscipline', "#formClassId"]
+            ['availableSubjects', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', 'clean', '#addClassDiscipline', "#formClassId"],
+            ['disciplineClassId', '/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas', 'clean', '#seekExam', "#formClassId"]
         ])
 
     }
 
 })
+
 
 
 $(document).on('click', '[data-target="#list-discipline"]', function(e){
@@ -374,7 +376,7 @@ $(document).on('click', "[data-target='#add-assessments']", function (e) {
 })
 
 
-$(document).on('click', '[data-target="#class-profile-assessments"]', function (e) {
+$(document).on('click', '#list-exam-list', function (e) {
 
     loadOptions([
         ['disciplineClassId', '/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas', 'clean', '#addExam', "#formClassId"],

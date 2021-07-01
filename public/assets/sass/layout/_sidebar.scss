@@ -1,13 +1,13 @@
 #left-panel {
 
     display: flex;
-    width: 100%;
     font-family: Semi-bold;
 
     #sidebar {
         width: 16.5vw;
         position: fixed;
         top: 0;
+        transition: all 0.7s ease;
         left: 0;
         height: 100vh;
         z-index: 2;
@@ -34,7 +34,7 @@
         }
 
         .sidebar-header {
-            color: white;
+            color: $color-white;
             padding: 12px;
             text-align: center;
             font-size: 16px;
@@ -45,7 +45,7 @@
         .sidebar-lists {
 
             p {
-                color: white;
+                color: $color-white;
                 font-weight: bold;
                 font-size: 13px;
                 margin-bottom: 10px;
@@ -71,7 +71,7 @@
                 display: block;
 
                 &:hover {
-                    color: white;
+                    color: $color-white;
                 }
             }
 
@@ -88,7 +88,7 @@
             .collapse {
 
                 li {
-                    background-color: black;
+                    background-color: $color-black;
                     padding: 15px 25px;
                     margin-top: 0;
                     transition: 1s;
@@ -97,10 +97,10 @@
 
                     &:hover {
                         background-color: #2C2D32;
-                        border-left: 5px solid white;
+                        border-left: 5px solid $color-white;
 
                         >a {
-                            color: white;
+                            color: $color-white;
                         }
                     }
                 }
@@ -113,6 +113,58 @@
                 }
             }
         }
+    }
+
+}
+
+.sidebar-responsive {
+
+    #left-panel {
+
+        #sidebar {
+
+            .dropdown:hover>.dropdown-menu {
+                display: block;
+            }
+
+            width: 8.2vw;
+            background-color: $color-dark-blue;
+
+            .sidebar-header {
+                display: none;
+            }
+
+            .sidebar-lists {
+
+                a {
+
+                    span.link-name,
+                    i.fa-angle-right {
+                        display: none !important;
+                    }
+
+                    i.fas {
+                        font-size: 17px;
+                        margin-right: 0px;
+                        color: $color-white;
+                        padding: 10px 5px;
+                        text-align: center;
+                        display: block;
+                    }
+
+                }
+            }
+
+            p {
+                display: none;
+            }
+
+            li {
+                padding: 10px 0px;
+            }
+
+        }
+
     }
 
 }

@@ -23,10 +23,16 @@
         }
 
         .main-sheet{
+
             span{
                 text-align: center;
                 font-family: Semi-bold;
                 font-size: 13px;
+            }
+
+            img{
+                width: 100px;
+                height: 100px;                  
             }
         }
 
@@ -146,6 +152,13 @@
             background-color: white;
             border: 1px solid #e5e5e5;
             border-radius: 10px;
+            overflow: auto;
+            height: 254px;
+
+            &::-webkit-scrollbar {
+                width: 0px;
+                background: transparent;
+            }
 
             .list-group-item {
                 border: none;
