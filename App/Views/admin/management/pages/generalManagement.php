@@ -1,4 +1,4 @@
-<div id="general-management">
+<section id="general-management">
 
     <div class="row main-container">
 
@@ -62,6 +62,4 @@
         </div>
 
     </div>
-</div>
-
-</div>
+</section>

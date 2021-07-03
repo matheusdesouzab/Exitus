@@ -4,33 +4,38 @@
 
         <div class="col-lg-11 mx-auto accordion" id="accordion-course">
 
-            <div class="row mt-3 mb-1">
+            <div class="row mt-3 page-header">
 
-                <h5 class="col-lg-6">Gestão dos cursos</h5>
+                <div class="col-11 col-lg-12 mx-auto">
 
-                <div class="col-lg-6 collapse-options-container">
+                    <div class="row">
 
-                    <a class="font-weight-bold" aria-expanded="true" id="collapseListCourse" data-toggle="collapse" data-target="#list-courses">
+                        <h5 class="col-lg-6">Gestão dos cursos</h5>
 
-                        <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Cursos</span>
+                        <div class="col-lg-6 collapse-options-container">
 
-                    </a>
+                            <a class="font-weight-bold" aria-expanded="true" id="collapseListCourse" data-toggle="collapse" data-target="#list-courses">
 
-                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-course">
+                                <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Cursos</span>
 
-                        <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+                            </a>
 
-                    </a>
+                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-course">
 
+                                <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+
+                            </a>
+
+                        </div>
+
+                        <nav class="col-lg-12 p-0" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/admin/gestao">Gestão geral</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Cursos</li>
+                            </ol>
+                        </nav>
+                    </div>
                 </div>
-
-                <nav class="col-lg-12 p-0" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/admin/gestao">Gestão geral</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Cursos</li>
-                    </ol>
-                </nav>
-
 
             </div>
 

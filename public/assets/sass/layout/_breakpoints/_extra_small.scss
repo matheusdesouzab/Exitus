@@ -1,239 +1,172 @@
 @media (max-width:576px) {
 
-    body {
+    body#admin {
 
-        #painel-left {
-            z-index: 120000000;
-        }
-    
-        font-size: 2vh;
-        width: 100%;
-    
         .panel-side {
             display: none;
         }
 
-        .panel-side-xs {
+        #pagina {
 
-            display: block;
-
-            #painel-left>.side-bar {
-
-                li:nth-child(2) {
-                    display: block;
-                }
-
-                width: 50%;
-                margin-left: -50vw;
-
-                .bars-xs {
-                    color: $color-white;
-                }
-
-                img {
-                    width: 80%;
-                }
-
-                .fa-angle-down {
-                    display: none;
-                }
-
-                h5 {
-                    font-size: 2vw;
-                }
-
-                li,
-                h5 {
-                    margin-left: -5vw;
-                }
-
-                .link-collapse a,
-                .collapse li a {
-                    font-size: 2.5vw;
-                }
-
-                .collapse li {
-                    border-left: 5px solid $color-white;
-                }
-            }
-        }
-    }
-
-    #navbar-top {
-
-        .navbar-toggler .fa-bars {
-            font-size: 20px;
-        }
-
-        #bars {
-            display: none;
-        }
-
-        a.bars-xs {
-            display: block;
-        }
-
-        .navbar-toggler {
-            display: none;
-        }
-
-        .navbar-nav{
-            display: none;
-        }
-    }
-
-
-    #pagina {
-
-        .fa-times-circle{
-            margin-bottom: 10px;
-        }
-
-        table {
-            width: 700px;
-        }
-
-        .collapse-option {
-
-            margin-top: 30px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-
-            span {
-                font-size: 3vw;
-                padding: 10px;
+            div.option-icon-group span {
+                margin-top: 15px;
             }
 
-        }
-
-        h5 {
-            font-size: 5vw;
-        }
-
-        .main-container {
-            margin-top: 80px;
-        }
-
-        .registration-session-in-stages {
-
-            .registration-in-stages p {
-                font-size: 2.5vw;
+            .main-container {
+                margin-top: 60px;
+                margin-bottom: 60px;
             }
 
-        }
-
-        .collapse-options-container {
-            margin-top: 20px;
-            margin-bottom: 20px;
-
-            span {
-                padding: 10px;
-                font-size: 2.5vw;
-            }
-        }
-
-        .modal-profile {
-
-            .collapse-option {
-
-                .fa-user-friends,
-                .fa-chalkboard-teacher,
-                .fa-boxes,
-                .fa-plus-circle {
-                    display: none;
-                }
-            }
-
-            h5 {
+            form {
                 font-size: 4vw;
             }
 
-            .input-group-text,
-            input {
-                font-size: 3vw;
-            }
+            .page-header {
 
-            .horizontal-control-list{
-                display: flex;
-            }
-
-            .accordion-container {
-                overflow: auto;
-                height: 520px;
-                width: 85vw;
-                margin: auto;
-            }
-
-            .modal-content {
-                width: 100%;
-                margin: auto;
-                margin-top: 10px;
-                height: 100%;
-                overflow: auto;
-
-           /*      #collapse-alunos,
-                #collapse-professores,
-                #collapse-disciplinas {
-
-                    table {
-                        width: 500px;
-
-                        img {
-                            width: 35px;
-                        }
-
-                        th,
-                        td {
-                            line-height: 35px;
-                            font-size: 2.5vw;
-                        }
-                    }
+                h5 {
+                    font-size: 4vw;
                 }
 
-                #collapse-perfil-aluno-opcoes-dados {
-
-                    img {
-                        margin: auto;
-                    }
-
-                    .card {
-                        font-size: 3vw;
-                    }
-                } */
-
-                #student-profile-assessment {
-
-                    table {
-
-                        width: 500px;
-
-                        td,
-                        th, input{
-                            font-size: 2.5vw;
-                        }
-                    }
-
-                    
-
+                .collapse-options-container span {
+                    margin-bottom: 10px;
+                    margin-top: 20px;
+                    display: inline-block;
+                    font-size: 3vw !important;
                 }
 
-                .side-collapse-options {
+            }
+
+
+            #navbar-top {
+
+                .navbar-toggler .fa-bars {
+                    font-size: 20px;
+                }
+
+                #bars {
                     display: none;
                 }
 
-                .option-list {
-                    display: flex;
-                    justify-content: flex-end;
-                    margin: 15px 0px 15px 0px;
+                a.bars-xs {
+                    display: block;
                 }
 
+                .navbar-toggler {
+                    display: none;
+                }
+
+                .navbar-nav {
+                    display: none;
+                }
+            }
+
+            #navbarBottom {
+                display: block;
+                border-top-right-radius: 15px;
+                padding: 2px;
+                border-top-left-radius: 15px;
+                background-color: $color-white;
+                box-shadow: 0 -2px 2px -2px #333;
+                display: flex;
+                justify-content: center;
+
+                ul {
+                    display: flex;
+                    justify-content: space-around;
+                    width: 100%;
+                    margin-top: 10px;
+
+                    i.fas,
+                    i.bi {
+                        font-size: 18px;
+                        color: $color-blue;
+                    }
+
+                }
+            }
+
+            section#discipline {
+                table {
+                    width: 600px;
+                }
+            }
+
+            section#class {
+                table {
+                    width: 600px;
+                }
+            }
+
+
+            .modal-profile {
+
+                overflow-y: auto;
+
+                table td {
+                    font-size: 3.5vw;
+                }
+
+                .main-sheet {
+                    order: 1;
+                    display: flex;
+                    justify-content: center;
+                    border-radius: 10px;
+                    margin-bottom: 15px;
+
+                    span {
+                        font-size: 2.5vw;
+                    }
+                }
+
+                h5 {
+                    font-size: 4vw;
+                }
+
+                .container-list-group {
+                    order: 2;
+                    padding: 5px;
+                    overflow: auto;
+                    display: flex;
+
+                    nav {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-around;
+                        width: 700px;
+                        padding: 10px;
+                        flex-grow: 1;
+                        overflow: auto;
+                        padding-bottom: 0;
+
+                        ul {
+                            display: flex;
+                            justify-content: space-around;
+                            flex-grow: 1;
+
+                            a{
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+
+                }
+
+                .collapse-options-container {
+                    margin-top: 20px;
+                    font-size: 10px;
+
+                    span {
+                        font-size: 2vw;
+                    
+                    }
+                }
+
+                .main-content {
+                    margin-top: 20px;
+                }
 
             }
 
         }
-
     }
-
-
 }

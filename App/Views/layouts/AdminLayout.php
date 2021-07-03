@@ -18,10 +18,11 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+	<link href="/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
 
-<body>
+<body id="admin">
 
 	<div class="container-fluid">
 
@@ -43,6 +44,8 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 
 				<?= $this->content() ?>
+
+				<?php require '../App/Views/admin/components/navbarBottom.php' ?>
 
 			</div>
 		</div>

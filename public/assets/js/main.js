@@ -292,6 +292,15 @@ $('#zipCode').on('blur', getLocation)
 $("#bars").on("click", sideState)
 
 
+$('.sidebar-lists [data-toggle="collapse"]').on('click', function(e){
+
+    let link = (`[aria-controls="${$(this).attr('href')}"]`).replace("#", "")
+
+    $(`#sidebar ${link} [fa-angle-right]`).toggleClass('fa-angle-down fa-angle-right')
+
+})
+
+
 $('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
 
 

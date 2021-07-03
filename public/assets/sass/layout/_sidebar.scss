@@ -52,12 +52,12 @@
                 padding: 10px 25px;
             }
 
-            i.fas {
+            i.fas , i.bi {
                 color: #C4C4C4;
                 margin-right: 1.5vw;
             }
 
-            .fa-angle-right {
+            .fa-angle-right, .fa-angle-down {
                 position: absolute;
                 right: 0;
                 margin-top: 0.5vh;
@@ -123,12 +123,8 @@
 
         #sidebar {
 
-            .dropdown:hover>.dropdown-menu {
-                display: block;
-            }
-
             width: 8.2vw;
-            background-color: $color-dark-blue;
+            background-color: $color-black;
 
             .sidebar-header {
                 display: none;
@@ -139,11 +135,11 @@
                 a {
 
                     span.link-name,
-                    i.fa-angle-right {
+                    i.fa-angle-right,i.fa-angle-down {
                         display: none !important;
                     }
 
-                    i.fas {
+                    i.fas , i.bi{
                         font-size: 17px;
                         margin-right: 0px;
                         color: $color-white;

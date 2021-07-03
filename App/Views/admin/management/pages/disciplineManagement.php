@@ -4,7 +4,11 @@
 
         <div class="col-lg-11 mx-auto accordion" id="discipline-accordion">
 
-            <div class="row mt-3 mb-1">
+            <div class="row mt-3 page-header">
+
+            <div class="col-11 col-lg-12 mx-auto">
+
+            <div class="row">
 
                 <h5 class="col-lg-6">Gestão das disciplinas</h5>
 
@@ -23,6 +27,8 @@
                     </ol>
                 </nav>
 
+            </div>
+            </div>
             </div>
 
             <div class="col-lg-12">
@@ -151,7 +157,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 

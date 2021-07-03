@@ -13,7 +13,7 @@ if (count($this->view->listDiscipline) >= 1) {
     <?php } ?>
 
     <tr class="mt-4">
-        <td colspan="5" style="background-color: #ECECEC;"><?= count($this->view->listDiscipline) ?> disciplinas retornadas</td>
+        <td class="font-weight-bold" colspan="5"  style="pointer-events:none"><?= count($this->view->listDiscipline) ?> disciplinas listadas <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 <?php } else { ?>

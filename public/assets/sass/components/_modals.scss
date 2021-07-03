@@ -6,11 +6,11 @@
         background-color: rgba(255, 255, 255, 0.3);
     }
 
-    .card-title{
+    .card-title {
         font-family: Bold;
     }
 
-    .modal-backdrop{
+    .modal-backdrop {
         display: none !important;
     }
 
@@ -22,17 +22,17 @@
             outline: none;
         }
 
-        .main-sheet{
+        .main-sheet {
 
-            span{
+            span {
                 text-align: center;
                 font-family: Semi-bold;
                 font-size: 13px;
             }
 
-            img{
+            img {
                 width: 100px;
-                height: 100px;                  
+                height: 100px;
             }
         }
 
@@ -61,25 +61,60 @@
 
         .modal-content {
             border-radius: 15px;
-            background-color:#e9ebfa;
+            background-color: #e9ebfa;
 
-            .card{
+            .card {
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
-                .teacher-class-title{
+                .teacher-class-title {
                     font-family: Semi-bold;
                     margin-bottom: 15px;
                     font-size: 15px;
                 }
             }
 
-            span.badge{
+            span.badge {
                 background-color: $color-blue;
             }
         }
 
         h4 {
             font-family: Bold;
+        }
+
+        .container-list-group {
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+            padding: 10px;
+
+            nav {
+                padding: 10px 15px;
+                padding-bottom: 0;
+                width: 90%;
+                margin: auto;
+
+                ul {
+
+                    a {
+                        border-radius: 10px;
+                        padding: 10px 15px;
+                        color: $color-dark-gray;
+                        font-size: 13px;
+                        text-align: center;
+                        display: block;
+                        font-size: 15px;
+                        margin-bottom: 10px;
+                        font-family: Bold;
+                    }
+
+                    [aria-expanded="true"] {
+                        background: #6619c3;
+                        color: $color-white;
+                        border: none;
+                    }
+                }
+            }
+
         }
 
         img {
@@ -96,7 +131,7 @@
             }
         }
 
-        .tab-content {
+        .main-content {
             border-radius: 15px;
             background-color: white;
             height: 77vh;
@@ -140,47 +175,6 @@
             }
         }
 
-
-
-        #list-tab {
-
-            a.active {
-                color: white;
-                background-color: $color-blue;
-            }
-
-            background-color: white;
-            border: 1px solid #e5e5e5;
-            border-radius: 10px;
-            overflow: auto;
-            height: 254px;
-
-            &::-webkit-scrollbar {
-                width: 0px;
-                background: transparent;
-            }
-
-            .list-group-item {
-                border: none;
-                padding: 10px;
-                transition: all 0.2s ease;
-                border-radius: 0px;
-                font-weight: 500;
-                color: $color-dark-gray;
-                border-radius: 10px;
-                margin-bottom: 5px;
-                font-weight: bold;
-                background-color: transparent;
-                text-align: center;
-
-                &:hover {
-                    color: $color-black;
-                    background-color: $color-blue;
-                    color: white;
-
-                }
-            }
-        }
     }
 
 
@@ -190,7 +184,7 @@
 
     }
 
-    #profileClasseModal{
+    #profileClasseModal {
 
         form input,
         form select {
@@ -207,4 +201,7 @@
         }
 
     }
+
+
+
 }

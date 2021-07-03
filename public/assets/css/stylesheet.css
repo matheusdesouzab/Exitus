@@ -185,6 +185,33 @@ button {
 #pagina .modal-profile h4 {
   font-family: Bold;
 }
+#pagina .modal-profile .container-list-group {
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 10px;
+}
+#pagina .modal-profile .container-list-group nav {
+  padding: 10px 15px;
+  padding-bottom: 0;
+  width: 90%;
+  margin: auto;
+}
+#pagina .modal-profile .container-list-group nav ul a {
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: #506177;
+  font-size: 13px;
+  text-align: center;
+  display: block;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-family: Bold;
+}
+#pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
+  background: #6619c3;
+  color: #ffffff;
+  border: none;
+}
 #pagina .modal-profile img {
   border-radius: 50%;
   width: 80px;
@@ -197,71 +224,38 @@ button {
 #pagina .modal-profile img:hover {
   transform: scale(1.1);
 }
-#pagina .modal-profile .tab-content {
+#pagina .modal-profile .main-content {
   border-radius: 15px;
   background-color: white;
   height: 77vh;
   overflow-x: auto;
   border: 1px solid #e5e5e5;
 }
-#pagina .modal-profile .tab-content::-webkit-scrollbar {
+#pagina .modal-profile .main-content::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
-#pagina .modal-profile .tab-content form input,
-#pagina .modal-profile .tab-content form select {
+#pagina .modal-profile .main-content form input,
+#pagina .modal-profile .main-content form select {
   background-color: transparent;
   border: none;
   border-bottom: 3px solid #e4d9ff;
 }
-#pagina .modal-profile .tab-content form input:disabled,
-#pagina .modal-profile .tab-content form select:disabled {
+#pagina .modal-profile .main-content form input:disabled,
+#pagina .modal-profile .main-content form select:disabled {
   border: none;
   font-weight: 500;
   padding-left: 0;
   cursor: context-menu;
   color: #506177;
 }
-#pagina .modal-profile .tab-content form .input-group {
+#pagina .modal-profile .main-content form .input-group {
   margin-bottom: 10px;
 }
-#pagina .modal-profile .tab-content form .input-group-text {
+#pagina .modal-profile .main-content form .input-group-text {
   background-color: white;
   border: none;
   font-weight: bold;
-}
-#pagina .modal-profile #list-tab {
-  background-color: white;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  overflow: auto;
-  height: 254px;
-}
-#pagina .modal-profile #list-tab a.active {
-  color: white;
-  background-color: #6619c3;
-}
-#pagina .modal-profile #list-tab::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-#pagina .modal-profile #list-tab .list-group-item {
-  border: none;
-  padding: 10px;
-  transition: all 0.2s ease;
-  border-radius: 0px;
-  font-weight: 500;
-  color: #506177;
-  border-radius: 10px;
-  margin-bottom: 5px;
-  font-weight: bold;
-  background-color: transparent;
-  text-align: center;
-}
-#pagina .modal-profile #list-tab .list-group-item:hover {
-  color: #080809;
-  background-color: #6619c3;
-  color: white;
 }
 #pagina #modal-discipline .modal-content {
   border: none;
@@ -301,7 +295,6 @@ button {
 #pagina .edit-data-icon {
   cursor: pointer;
   color: #506177;
-  font-size: 15px;
   border-radius: 10px;
   background: #E5E7E9;
   padding: 10px;
@@ -321,7 +314,6 @@ button {
 #pagina .update-data-icon {
   cursor: pointer;
   color: #506177;
-  font-size: 15px;
   border-radius: 10px;
   background: #E5E7E9;
   padding: 10px;
@@ -342,7 +334,6 @@ button {
 #pagina .delete-data-icon {
   cursor: pointer;
   color: #506177;
-  font-size: 15px;
   border-radius: 10px;
   background: #E5E7E9;
   padding: 10px;
@@ -412,11 +403,11 @@ button {
   margin-bottom: 10px;
   padding: 10px 25px;
 }
-#left-panel #sidebar .sidebar-lists i.fas {
+#left-panel #sidebar .sidebar-lists i.fas, #left-panel #sidebar .sidebar-lists i.bi {
   color: #C4C4C4;
   margin-right: 1.5vw;
 }
-#left-panel #sidebar .sidebar-lists .fa-angle-right {
+#left-panel #sidebar .sidebar-lists .fa-angle-right, #left-panel #sidebar .sidebar-lists .fa-angle-down {
   position: absolute;
   right: 0;
   margin-top: 0.5vh;
@@ -463,19 +454,16 @@ button {
 
 .sidebar-responsive #left-panel #sidebar {
   width: 8.2vw;
-  background-color: #09023B;
-}
-.sidebar-responsive #left-panel #sidebar .dropdown:hover > .dropdown-menu {
-  display: block;
+  background-color: #080809;
 }
 .sidebar-responsive #left-panel #sidebar .sidebar-header {
   display: none;
 }
 .sidebar-responsive #left-panel #sidebar .sidebar-lists a span.link-name,
-.sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fa-angle-right {
+.sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fa-angle-right, .sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fa-angle-down {
   display: none !important;
 }
-.sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fas {
+.sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fas, .sidebar-responsive #left-panel #sidebar .sidebar-lists a i.bi {
   font-size: 17px;
   margin-right: 0px;
   color: #ffffff;
@@ -490,32 +478,35 @@ button {
   padding: 10px 0px;
 }
 
-#pagina .main-container {
+#admin #pagina .main-container {
   margin-top: 80px;
 }
-#pagina .school-term-active {
+#admin #pagina #navbarBottom {
+  display: none;
+}
+#admin #pagina .school-term-active {
   border-left: 5px solid #28A745;
 }
-#pagina .school-term-finished {
+#admin #pagina .school-term-finished {
   border-left: 6px solid #e5e5e5;
 }
-#pagina .school-term-scheduled {
+#admin #pagina .school-term-scheduled {
   border-left: 5px solid #6619c3;
 }
-#pagina .option-icon-group span {
+#admin #pagina .option-icon-group span {
   transition: 0.5s;
 }
-#pagina .registration-in-stages label {
+#admin #pagina .registration-in-stages label {
   text-align: left;
   display: block;
 }
-#pagina .registration-in-stages form [data-toggle=collapse] {
+#admin #pagina .registration-in-stages form [data-toggle=collapse] {
   background-color: #6619c3;
 }
-#pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right {
+#admin #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right {
   margin-left: 10px;
 }
-#pagina .registration-in-stages .connection-line {
+#admin #pagina .registration-in-stages .connection-line {
   position: absolute;
   left: 0;
   right: 0;
@@ -525,18 +516,18 @@ button {
   width: 75%;
   background-color: #e4d9ff;
 }
-#pagina .registration-in-stages .registration-header-by-step {
+#admin #pagina .registration-in-stages .registration-header-by-step {
   display: flex;
   justify-content: space-around;
 }
-#pagina .registration-in-stages .registration-header-by-step .container-option {
+#admin #pagina .registration-in-stages .registration-header-by-step .container-option {
   z-index: 2;
 }
-#pagina .registration-in-stages .registration-header-by-step .container-option > .collapsed {
+#admin #pagina .registration-in-stages .registration-header-by-step .container-option > .collapsed {
   background-color: #e4d9ff;
   color: #080809;
 }
-#pagina .registration-in-stages .registration-header-by-step .container-option a {
+#admin #pagina .registration-in-stages .registration-header-by-step .container-option a {
   color: white;
   width: 35px;
   display: flex;
@@ -547,290 +538,241 @@ button {
   background-color: #6619c3;
   border-radius: 50%;
 }
-#pagina .registration-in-stages .registration-header-by-step .container-option a span {
+#admin #pagina .registration-in-stages .registration-header-by-step .container-option a span {
   text-align: center;
   font-weight: 500;
 }
-#pagina .registration-in-stages .registration-header-by-step .container-option p {
+#admin #pagina .registration-in-stages .registration-header-by-step .container-option p {
   display: block;
   color: #080809;
   font-weight: 500;
   margin-top: 5px;
   font-size: 13px;
 }
-#pagina #teacher-registration .connection-line {
+#admin #pagina #teacher-registration .connection-line {
   width: 68%;
 }
-#pagina .accordion-container {
+#admin #pagina .accordion-container {
   height: 87vh;
 }
-#pagina .accordion-container::-webkit-scrollbar {
+#admin #pagina .accordion-container::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
-#pagina #tableListExam td {
+#admin #pagina #tableListExam td {
   padding: 1.5px;
   text-align: center;
   font-size: 14px;
 }
-#pagina .collapse-options-container {
+#admin #pagina .collapse-options-container {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 15px;
 }
-#pagina .collapse-options-container span {
+#admin #pagina .collapse-options-container span {
   cursor: pointer;
   color: none;
-  font-size: 15px;
   border-radius: 10px;
   background: #ffffff;
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
+  font-size: 15px;
   border: 1px solid #e5e5e5;
   color: #506177;
 }
-#pagina .collapse-options-container span:hover {
+#admin #pagina .collapse-options-container span:hover {
   color: #ffffff;
   background-color: #6619c3;
 }
-#pagina .collapse-options-container span:hover .fa-edit,
-#pagina .collapse-options-container span:hover .fa-print,
-#pagina .collapse-options-container span:hover .fa-check,
-#pagina .collapse-options-container span:hover .fa-ban,
-#pagina .collapse-options-container span:hover .fa-boxes,
-#pagina .collapse-options-container span:hover .fa-plus-circle {
+#admin #pagina .collapse-options-container span:hover .fa-edit,
+#admin #pagina .collapse-options-container span:hover .fa-print,
+#admin #pagina .collapse-options-container span:hover .fa-check,
+#admin #pagina .collapse-options-container span:hover .fa-ban,
+#admin #pagina .collapse-options-container span:hover .fa-boxes,
+#admin #pagina .collapse-options-container span:hover .fa-plus-circle {
   color: #ffffff;
 }
-#pagina .collapse-options-container [aria-expanded=true] span {
+#admin #pagina .collapse-options-container [aria-expanded=true] span {
   background: #6619c3;
   color: #ffffff;
   border: none;
 }
-#pagina .horizontal-control-list {
+#admin #pagina .horizontal-control-list {
   background-color: #e5e5e5;
   margin: 10px;
   display: none;
 }
-#pagina .horizontal-control-list .list-group-item {
+#admin #pagina .horizontal-control-list .list-group-item {
   border: 0px;
   padding: 10px;
 }
-#pagina .horizontal-control-list a {
+#admin #pagina .horizontal-control-list a {
   font-size: 2vw;
 }
-#pagina .horizontal-control-list [aria-expanded=true] {
+#admin #pagina .horizontal-control-list [aria-expanded=true] {
   background: #6619c3;
   border-radius: 5px;
   color: #ffffff;
 }
-#pagina .horizontal-control-list [aria-expanded=true] a {
+#admin #pagina .horizontal-control-list [aria-expanded=true] a {
   color: #ffffff;
   font-weight: bold;
 }
-#pagina .horizontal-control-list [aria-expanded=false] {
+#admin #pagina .horizontal-control-list [aria-expanded=false] {
   background: #e5e5e5;
   border-radius: 5px;
   color: #080809;
 }
-#pagina .horizontal-control-list [aria-expanded=false] a {
+#admin #pagina .horizontal-control-list [aria-expanded=false] a {
   color: #080809;
   font-weight: bold;
 }
-#pagina .gif-loading img {
+#admin #pagina .gif-loading img {
   width: 20%;
 }
-#pagina #toastContainer {
+#admin #pagina #toastContainer {
   position: fixed;
   right: 15px;
   bottom: 0;
   max-width: 40vw;
 }
-#pagina .toast {
+#admin #pagina .toast {
   border-radius: 15px;
   background-color: transparent !important;
   position: absolute;
   z-index: 100000000;
 }
-#pagina .toast .toast-header {
+#admin #pagina .toast .toast-header {
   border-radius: 5px;
   padding: 10px 15px;
 }
-#pagina .breadcrumb {
+#admin #pagina .breadcrumb {
   background-color: transparent;
   margin-top: -10px;
 }
-#pagina .breadcrumb .breadcrumb-item {
+#admin #pagina .breadcrumb .breadcrumb-item {
   font-weight: bold;
   font-size: 14px;
 }
 
 @media (max-width: 576px) {
-  body {
-    font-size: 2vh;
-    width: 100%;
-  }
-  body #painel-left {
-    z-index: 120000000;
-  }
-  body .panel-side {
+  body#admin .panel-side {
     display: none;
   }
-  body .panel-side-xs {
-    display: block;
+  body#admin #pagina div.option-icon-group span {
+    margin-top: 15px;
   }
-  body .panel-side-xs #painel-left > .side-bar {
-    width: 50%;
-    margin-left: -50vw;
+  body#admin #pagina .main-container {
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
-  body .panel-side-xs #painel-left > .side-bar li:nth-child(2) {
-    display: block;
+  body#admin #pagina form {
+    font-size: 4vw;
   }
-  body .panel-side-xs #painel-left > .side-bar .bars-xs {
-    color: #ffffff;
+  body#admin #pagina .page-header h5 {
+    font-size: 4vw;
   }
-  body .panel-side-xs #painel-left > .side-bar img {
-    width: 80%;
+  body#admin #pagina .page-header .collapse-options-container span {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 3vw !important;
   }
-  body .panel-side-xs #painel-left > .side-bar .fa-angle-down {
-    display: none;
-  }
-  body .panel-side-xs #painel-left > .side-bar h5 {
-    font-size: 2vw;
-  }
-  body .panel-side-xs #painel-left > .side-bar li,
-body .panel-side-xs #painel-left > .side-bar h5 {
-    margin-left: -5vw;
-  }
-  body .panel-side-xs #painel-left > .side-bar .link-collapse a,
-body .panel-side-xs #painel-left > .side-bar .collapse li a {
-    font-size: 2.5vw;
-  }
-  body .panel-side-xs #painel-left > .side-bar .collapse li {
-    border-left: 5px solid #ffffff;
-  }
-
-  #navbar-top .navbar-toggler .fa-bars {
+  body#admin #pagina #navbar-top .navbar-toggler .fa-bars {
     font-size: 20px;
   }
-  #navbar-top #bars {
+  body#admin #pagina #navbar-top #bars {
     display: none;
   }
-  #navbar-top a.bars-xs {
+  body#admin #pagina #navbar-top a.bars-xs {
     display: block;
   }
-  #navbar-top .navbar-toggler {
+  body#admin #pagina #navbar-top .navbar-toggler {
     display: none;
   }
-  #navbar-top .navbar-nav {
+  body#admin #pagina #navbar-top .navbar-nav {
     display: none;
   }
-
-  #pagina .fa-times-circle {
-    margin-bottom: 10px;
-  }
-  #pagina table {
-    width: 700px;
-  }
-  #pagina .collapse-option {
-    margin-top: 30px;
-    margin-bottom: 20px;
+  body#admin #pagina #navbarBottom {
+    display: block;
+    border-top-right-radius: 15px;
+    padding: 2px;
+    border-top-left-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 2px -2px #333;
     display: flex;
     justify-content: center;
   }
-  #pagina .collapse-option span {
-    font-size: 3vw;
-    padding: 10px;
+  body#admin #pagina #navbarBottom ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
   }
-  #pagina h5 {
-    font-size: 5vw;
+  body#admin #pagina #navbarBottom ul i.fas,
+body#admin #pagina #navbarBottom ul i.bi {
+    font-size: 18px;
+    color: #6619c3;
   }
-  #pagina .main-container {
-    margin-top: 80px;
+  body#admin #pagina section#discipline table {
+    width: 600px;
   }
-  #pagina .registration-session-in-stages .registration-in-stages p {
+  body#admin #pagina section#class table {
+    width: 600px;
+  }
+  body#admin #pagina .modal-profile {
+    overflow-y: auto;
+  }
+  body#admin #pagina .modal-profile table td {
+    font-size: 3.5vw;
+  }
+  body#admin #pagina .modal-profile .main-sheet {
+    order: 1;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  body#admin #pagina .modal-profile .main-sheet span {
     font-size: 2.5vw;
   }
-  #pagina .collapse-options-container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  #pagina .collapse-options-container span {
-    padding: 10px;
-    font-size: 2.5vw;
-  }
-  #pagina .modal-profile .collapse-option .fa-user-friends,
-#pagina .modal-profile .collapse-option .fa-chalkboard-teacher,
-#pagina .modal-profile .collapse-option .fa-boxes,
-#pagina .modal-profile .collapse-option .fa-plus-circle {
-    display: none;
-  }
-  #pagina .modal-profile h5 {
+  body#admin #pagina .modal-profile h5 {
     font-size: 4vw;
   }
-  #pagina .modal-profile .input-group-text,
-#pagina .modal-profile input {
-    font-size: 3vw;
-  }
-  #pagina .modal-profile .horizontal-control-list {
+  body#admin #pagina .modal-profile .container-list-group {
+    order: 2;
+    padding: 5px;
+    overflow: auto;
     display: flex;
   }
-  #pagina .modal-profile .accordion-container {
-    overflow: auto;
-    height: 520px;
-    width: 85vw;
-    margin: auto;
-  }
-  #pagina .modal-profile .modal-content {
-    width: 100%;
-    margin: auto;
-    margin-top: 10px;
-    height: 100%;
-    overflow: auto;
-    /*      #collapse-alunos,
-         #collapse-professores,
-         #collapse-disciplinas {
-
-             table {
-                 width: 500px;
-
-                 img {
-                     width: 35px;
-                 }
-
-                 th,
-                 td {
-                     line-height: 35px;
-                     font-size: 2.5vw;
-                 }
-             }
-         }
-
-         #collapse-perfil-aluno-opcoes-dados {
-
-             img {
-                 margin: auto;
-             }
-
-             .card {
-                 font-size: 3vw;
-             }
-         } */
-  }
-  #pagina .modal-profile .modal-content #student-profile-assessment table {
-    width: 500px;
-  }
-  #pagina .modal-profile .modal-content #student-profile-assessment table td,
-#pagina .modal-profile .modal-content #student-profile-assessment table th, #pagina .modal-profile .modal-content #student-profile-assessment table input {
-    font-size: 2.5vw;
-  }
-  #pagina .modal-profile .modal-content .side-collapse-options {
-    display: none;
-  }
-  #pagina .modal-profile .modal-content .option-list {
+  body#admin #pagina .modal-profile .container-list-group nav {
     display: flex;
-    justify-content: flex-end;
-    margin: 15px 0px 15px 0px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 700px;
+    padding: 10px;
+    flex-grow: 1;
+    overflow: auto;
+    padding-bottom: 0;
+  }
+  body#admin #pagina .modal-profile .container-list-group nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+  }
+  body#admin #pagina .modal-profile .container-list-group nav ul a {
+    margin-bottom: 0;
+  }
+  body#admin #pagina .modal-profile .collapse-options-container {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+  body#admin #pagina .modal-profile .collapse-options-container span {
+    font-size: 2vw;
+  }
+  body#admin #pagina .modal-profile .main-content {
+    margin-top: 20px;
   }
 }
 @media (max-width: 768px) and (min-width: 577px) {

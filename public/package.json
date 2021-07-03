@@ -18,6 +18,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "bootstrap": "^4.5.3",
+    "bootstrap-icons": "^1.5.0",
     "chart.js": "^2.9.4",
     "jquery": "^3.5.1",
     "jquery-mask-plugin": "^1.14.16"

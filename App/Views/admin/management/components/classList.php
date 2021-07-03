@@ -16,7 +16,7 @@ if (count($this->view->listClass) >= 1) {
     <?php } ?>
 
     <tr class="mt-4">
-        <td colspan="5" style="background-color: #ECECEC;"><?= count($this->view->listClass) ?> turmas retornadas</td>
+        <td colspan="5" class="font-weight-bold" style="pointer-events:none"><?= count($this->view->listClass) ?> turmas listadas <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 <?php } else { ?>
