@@ -4,7 +4,7 @@
 
          <h5 class="col-lg-11 mx-auto mb-4 mt-3">Buscar aluno</h5>
 
-            <div class="col-lg-10 accordion mx-auto card mb-3" id="advanced-search-accordion">
+            <div class="col-lg-10 col-11 accordion mx-auto card mb-3" id="advanced-search-accordion">
 
                 <form class="accordion mx-auto mt-3 col-lg-11" id="seekStudent">
 
@@ -118,8 +118,7 @@
             </div>
 
             </div>
-        </div>
-    </div>
+    
 
     <div class="modal fade" id="modalNote" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
         <div class="modal-dialog modal-lg modal-dialog-centered" id="">

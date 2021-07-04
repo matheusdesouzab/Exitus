@@ -193,7 +193,7 @@ button {
 #pagina .modal-profile .container-list-group nav {
   padding: 10px 15px;
   padding-bottom: 0;
-  width: 90%;
+  width: 97%;
   margin: auto;
 }
 #pagina .modal-profile .container-list-group nav ul a {
@@ -203,9 +203,14 @@ button {
   font-size: 13px;
   text-align: center;
   display: block;
-  font-size: 15px;
-  margin-bottom: 10px;
+  font-size: 13px;
+  margin-bottom: 7px;
   font-family: Bold;
+  transition: all 0.2s ease;
+}
+#pagina .modal-profile .container-list-group nav ul a:hover {
+  background: #6619c3;
+  color: #ffffff;
 }
 #pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
   background: #6619c3;
@@ -219,6 +224,7 @@ button {
   transition: all 0.9s ease;
   object-position: top;
   object-fit: cover;
+  margin-top: 15px;
   cursor: pointer;
 }
 #pagina .modal-profile img:hover {
@@ -234,6 +240,9 @@ button {
 #pagina .modal-profile .main-content::-webkit-scrollbar {
   width: 0;
   background: transparent;
+}
+#pagina .modal-profile .main-content .row:nth-child(1) {
+  margin-top: 15px;
 }
 #pagina .modal-profile .main-content form input,
 #pagina .modal-profile .main-content form select {
@@ -660,6 +669,19 @@ button {
   body#admin .panel-side {
     display: none;
   }
+  body#admin .panel-side #left-panel #sidebar {
+    z-index: 100000000;
+    overflow: hidden;
+    width: 60vw;
+  }
+  body#admin .panel-side #left-panel #sidebar i.fas {
+    margin-right: 15px;
+  }
+  body#admin .panel-side #left-panel #sidebar .sidebar-header span {
+    position: absolute;
+    left: 15;
+    margin-top: 5px;
+  }
   body#admin #pagina div.option-icon-group span {
     margin-top: 15px;
   }
@@ -694,6 +716,9 @@ button {
   body#admin #pagina #navbar-top .navbar-nav {
     display: none;
   }
+  body#admin #pagina section#list-students table {
+    width: 800px;
+  }
   body#admin #pagina #navbarBottom {
     display: block;
     border-top-right-radius: 15px;
@@ -713,7 +738,7 @@ button {
   body#admin #pagina #navbarBottom ul i.fas,
 body#admin #pagina #navbarBottom ul i.bi {
     font-size: 18px;
-    color: #6619c3;
+    color: #506177;
   }
   body#admin #pagina section#discipline table {
     width: 600px;
@@ -721,21 +746,41 @@ body#admin #pagina #navbarBottom ul i.bi {
   body#admin #pagina section#class table {
     width: 600px;
   }
+  body#admin #pagina #main-accordion {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  body#admin #pagina #main-accordion .row.card {
+    box-shadow: none;
+    border: none;
+  }
   body#admin #pagina .modal-profile {
     overflow-y: auto;
   }
+  body#admin #pagina .modal-profile table {
+    width: 200px;
+  }
   body#admin #pagina .modal-profile table td {
-    font-size: 3.5vw;
+    font-size: 3vw;
+  }
+  body#admin #pagina .modal-profile img {
+    width: 25vw;
+    height: 25vw;
+    margin-bottom: 5px;
   }
   body#admin #pagina .modal-profile .main-sheet {
     order: 1;
     display: flex;
+    border-radius: 10px;
+    background-color: #E5E7E9;
     justify-content: center;
     border-radius: 10px;
     margin-bottom: 15px;
   }
   body#admin #pagina .modal-profile .main-sheet span {
     font-size: 2.5vw;
+    color: #506177;
   }
   body#admin #pagina .modal-profile h5 {
     font-size: 4vw;
@@ -745,12 +790,16 @@ body#admin #pagina #navbarBottom ul i.bi {
     padding: 5px;
     overflow: auto;
     display: flex;
+    border: none;
+    border-bottom: 2px solid #e5e5e5;
+    border-radius: 0px;
+    padding-bottom: 0;
   }
   body#admin #pagina .modal-profile .container-list-group nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 700px;
+    width: 400px;
     padding: 10px;
     flex-grow: 1;
     overflow: auto;
@@ -763,6 +812,14 @@ body#admin #pagina #navbarBottom ul i.bi {
   }
   body#admin #pagina .modal-profile .container-list-group nav ul a {
     margin-bottom: 0;
+    border-bottom: 2px solid white;
+    border-radius: 0px;
+    font-size: 2.5vw;
+  }
+  body#admin #pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
+    border-bottom: 2px solid #6619c3;
+    background-color: transparent;
+    color: #506177;
   }
   body#admin #pagina .modal-profile .collapse-options-container {
     margin-top: 20px;
@@ -772,7 +829,10 @@ body#admin #pagina #navbarBottom ul i.bi {
     font-size: 2vw;
   }
   body#admin #pagina .modal-profile .main-content {
-    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  body#admin #pagina .modal-profile .main-content .row:nth-child(1) {
+    margin-top: 10px;
   }
 }
 @media (max-width: 768px) and (min-width: 577px) {

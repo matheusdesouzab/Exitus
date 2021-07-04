@@ -2,7 +2,7 @@
 
     <nav id="sidebar">
 
-        <div class="sidebar-header">Web Gest</div>
+        <div class="sidebar-header"><span><i class="fas fa-chevron-circle-left text-white"></i></span> Web Gest</div>
 
         <ul class="sidebar-lists">
 

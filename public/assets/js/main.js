@@ -301,7 +301,10 @@ $('.sidebar-lists [data-toggle="collapse"]').on('click', function(e){
 })
 
 
-$('.bars-xs').on('click', e => $('.container-fluid .row div:nth-child(1)').toggleClass('panel-side-xs panel-side'))
+$('.bars-xs , .sidebar-header span').on('click', function(e){
+
+    $(".panel-side").is(":hidden") ? $(".panel-side").show() : $(".panel-side").hide()
+})
 
 
 //? Validation

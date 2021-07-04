@@ -4,7 +4,27 @@
 
         .panel-side {
             display: none;
+
+            #left-panel {
+                #sidebar {
+                    z-index: 100000000;
+                    overflow: hidden;
+                    width: 60vw;
+
+                    i.fas{
+                        margin-right: 15px;
+                    }
+
+                    .sidebar-header span{
+                        position: absolute;
+                        left: 15;
+                        margin-top: 5px;
+                    }
+                }
+            }
+
         }
+
 
         #pagina {
 
@@ -60,6 +80,12 @@
                 }
             }
 
+            section#list-students {
+                table {
+                    width: 800px;
+                }
+            }
+
             #navbarBottom {
                 display: block;
                 border-top-right-radius: 15px;
@@ -79,7 +105,7 @@
                     i.fas,
                     i.bi {
                         font-size: 18px;
-                        color: $color-blue;
+                        color: $color-dark-gray;
                     }
 
                 }
@@ -97,24 +123,48 @@
                 }
             }
 
+            #main-accordion {
+                background-color: white;
+                padding: 10px;
+                border-radius: 15px;
+
+                .row.card {
+                    box-shadow: none;
+                    border: none;
+                }
+            }
+
 
             .modal-profile {
 
                 overflow-y: auto;
 
-                table td {
-                    font-size: 3.5vw;
+                table {
+                    width: 200px;
+
+                    td {
+                        font-size: 3vw;
+                    }
+                }
+
+                img {
+                    width: 25vw;
+                    height: 25vw;
+                    margin-bottom: 5px;
                 }
 
                 .main-sheet {
                     order: 1;
                     display: flex;
+                    border-radius: 10px;
+                    background-color: $color-pure-gray;
                     justify-content: center;
                     border-radius: 10px;
                     margin-bottom: 15px;
 
                     span {
                         font-size: 2.5vw;
+                        color: $color-dark-gray;
                     }
                 }
 
@@ -122,17 +172,23 @@
                     font-size: 4vw;
                 }
 
+
+
                 .container-list-group {
                     order: 2;
                     padding: 5px;
                     overflow: auto;
                     display: flex;
+                    border: none;
+                    border-bottom: 2px solid #e5e5e5;
+                    border-radius: 0px;
+                    padding-bottom: 0;
 
                     nav {
                         display: flex;
                         flex-wrap: wrap;
                         justify-content: space-around;
-                        width: 700px;
+                        width: 400px;
                         padding: 10px;
                         flex-grow: 1;
                         overflow: auto;
@@ -143,8 +199,18 @@
                             justify-content: space-around;
                             flex-grow: 1;
 
-                            a{
+                            a {
                                 margin-bottom: 0;
+                                border-bottom: 2px solid white;
+                                border-radius: 0px;
+                                font-size: 2.5vw;
+
+                            }
+
+                            [aria-expanded="true"] {
+                                border-bottom: 2px solid $color-blue;
+                                background-color: transparent;
+                                color: $color-dark-gray;
                             }
                         }
                     }
@@ -157,12 +223,16 @@
 
                     span {
                         font-size: 2vw;
-                    
+
                     }
                 }
 
                 .main-content {
-                    margin-top: 20px;
+                    margin-bottom: 20px;
+
+                    .row:nth-child(1) {
+                        margin-top: 10px;
+                    }
                 }
 
             }

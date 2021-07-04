@@ -90,7 +90,7 @@
             nav {
                 padding: 10px 15px;
                 padding-bottom: 0;
-                width: 90%;
+                width: 97%;
                 margin: auto;
 
                 ul {
@@ -102,9 +102,15 @@
                         font-size: 13px;
                         text-align: center;
                         display: block;
-                        font-size: 15px;
-                        margin-bottom: 10px;
+                        font-size: 13px;
+                        margin-bottom: 7px;
                         font-family: Bold;
+                        transition: all 0.2s ease;
+
+                        &:hover{
+                            background: #6619c3;
+                            color: $color-white;
+                        }
                     }
 
                     [aria-expanded="true"] {
@@ -124,6 +130,7 @@
             transition: all 0.9s ease;
             object-position: top;
             object-fit: cover;
+            margin-top: 15px;
             cursor: pointer;
 
             &:hover {
@@ -141,6 +148,10 @@
             &::-webkit-scrollbar {
                 width: 0;
                 background: transparent;
+            }
+
+            .row:nth-child(1){
+                margin-top: 15px;
             }
 
             form input,

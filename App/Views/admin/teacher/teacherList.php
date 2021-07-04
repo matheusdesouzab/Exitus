@@ -1,10 +1,10 @@
-<div id="list-employees">
+<section id="list-teacher">
 
     <div class="row main-container">
 
         <h5 class="col-lg-11 mx-auto mb-3 mt-3">Buscar docente</h5>
 
-        <div class="col-lg-10 accordion mx-auto card mb-3" id="advanced-search-accordion">
+        <div class="col-lg-10 accordion col-11 mx-auto card mb-3" id="advanced-search-accordion">
 
             <form class="accordion mx-auto col-lg-11 mt-3" id="">
 
@@ -92,4 +92,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>
