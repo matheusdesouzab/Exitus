@@ -484,14 +484,14 @@ class AdminManagementController extends Action
     }
 
 
-    public function SelectClassDiscipline()
+    public function subjectAvailableClass()
     {
 
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
-        echo json_encode($ClassDiscipline->subjectAailableClass());
+        echo json_encode($ClassDiscipline->subjectAvailableClass());
     }
 
 
@@ -673,15 +673,12 @@ class AdminManagementController extends Action
     {
 
         $Note = Container::getModel('Management\\Note');
-        $Exam = Container::getModel('Management\\Exam');
 
         $Note->__set('fk_id_student_enrollment', $_GET['enrollmentId']);
-        $Exam->__set('fk_id_class', $_GET['classId']);
+        $Note->__set('fk_id_class', $_GET['classId']);
 
-        $this->view->listAddedNotes = $Note->examsPerformed("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
-        $this->view->classExams = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class'));
-
-        $this->render('management/components/availableExamNotes', 'SimpleLayout');
+        echo json_encode($Note->notesNotAddedYet());
+  
     }
 
 

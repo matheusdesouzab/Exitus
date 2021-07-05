@@ -48,6 +48,7 @@ table td {
   color: #080809;
   font-size: 14px;
   font-weight: 500;
+  border: 2px solid red;
 }
 table img {
   border-radius: 50%;
@@ -126,6 +127,28 @@ button {
   color: white;
 }
 
+#pagina {
+  /*  #profileClasseModal {
+
+       #accordion-data-student{
+
+       form input,
+       form select {
+
+           background-color: $color-white;
+           border-bottom: none;
+           border: 2px solid $color-extra-light-blue;
+
+           &:disabled {
+               background-color: $color-pure-gray;
+               border-bottom: none;
+               padding-left: 10px;
+           }
+       }
+   }
+
+   } */
+}
 #pagina .modal {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(5px);
@@ -224,7 +247,6 @@ button {
   transition: all 0.9s ease;
   object-position: top;
   object-fit: cover;
-  margin-top: 15px;
   cursor: pointer;
 }
 #pagina .modal-profile img:hover {
@@ -244,14 +266,14 @@ button {
 #pagina .modal-profile .main-content .row:nth-child(1) {
   margin-top: 15px;
 }
-#pagina .modal-profile .main-content form input,
-#pagina .modal-profile .main-content form select {
+#pagina .modal-profile .main-content #accordion-data-student form input,
+#pagina .modal-profile .main-content #accordion-data-student form select {
   background-color: transparent;
   border: none;
   border-bottom: 3px solid #e4d9ff;
 }
-#pagina .modal-profile .main-content form input:disabled,
-#pagina .modal-profile .main-content form select:disabled {
+#pagina .modal-profile .main-content #accordion-data-student form input:disabled,
+#pagina .modal-profile .main-content #accordion-data-student form select:disabled {
   border: none;
   font-weight: 500;
   padding-left: 0;
@@ -270,18 +292,6 @@ button {
   border: none;
   background-color: #ffffff;
   border-radius: 10px;
-}
-#pagina #profileClasseModal form input,
-#pagina #profileClasseModal form select {
-  background-color: #ffffff;
-  border-bottom: none;
-  border: 2px solid #e4d9ff;
-}
-#pagina #profileClasseModal form input:disabled,
-#pagina #profileClasseModal form select:disabled {
-  background-color: #E5E7E9;
-  border-bottom: none;
-  padding-left: 10px;
 }
 
 #pagina form {
@@ -405,6 +415,9 @@ button {
   font-weight: bold;
   margin-bottom: 10px;
 }
+#left-panel #sidebar .sidebar-header span {
+  display: none;
+}
 #left-panel #sidebar .sidebar-lists p {
   color: #ffffff;
   font-weight: bold;
@@ -525,18 +538,18 @@ button {
   width: 75%;
   background-color: #e4d9ff;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step {
+#admin #pagina .registration-in-stages .registration-header-by-step .row {
   display: flex;
   justify-content: space-around;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .container-option {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option {
   z-index: 2;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .container-option > .collapsed {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option > .collapsed {
   background-color: #e4d9ff;
   color: #080809;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .container-option a {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a {
   color: white;
   width: 35px;
   display: flex;
@@ -547,11 +560,11 @@ button {
   background-color: #6619c3;
   border-radius: 50%;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .container-option a span {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a span {
   text-align: center;
   font-weight: 500;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .container-option p {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
   display: block;
   color: #080809;
   font-weight: 500;
@@ -833,6 +846,18 @@ body#admin #pagina #navbarBottom ul i.bi {
   }
   body#admin #pagina .modal-profile .main-content .row:nth-child(1) {
     margin-top: 10px;
+  }
+  body#admin #pagina #student-registration .registration-in-stages .connection-line {
+    width: 80vw;
+  }
+  body#admin #pagina #student-registration .registration-in-stages .registration-header-by-step {
+    overflow: auto;
+    display: block;
+  }
+  body#admin #pagina #student-registration .registration-in-stages .registration-header-by-step .row {
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
   }
 }
 @media (max-width: 768px) and (min-width: 577px) {

@@ -328,7 +328,7 @@
 
                                 <div class="form-row">
 
-                                    <div class="form-group col-lg-4">
+                                    <div class="form-group col-lg-5">
                                         <label for="">Data de realização:</label>
                                         <input class="form-control" name="realizeDate" id="realizeDate" type="date">
                                     </div>
@@ -353,7 +353,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-lg-4 ml-auto">
+                                    <div class="form-group col-lg-3 ml-auto">
                                         <label for="">&nbsp;</label>
                                         <a id="buttonAddExam" class="btn btn-success w-100">Adicionar</a>
                                     </div>

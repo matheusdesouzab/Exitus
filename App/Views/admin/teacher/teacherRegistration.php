@@ -4,11 +4,13 @@
 
         <h5 class="col-11 mx-auto mb-4 mt-3">Cadastrar docente</h5>
 
-        <div class="card col-lg-10 mx-auto mb-4" id="teacher-record-accordion">
+        <div class="card col-lg-10 col-11 mx-auto mb-4" id="teacher-record-accordion">
 
             <div class="registration-in-stages mb-2 accordion">
 
                 <div class="registration-header-by-step mt-2">
+
+                <div class="row">
 
                     <div class="connection-line"></div>
 
@@ -33,6 +35,8 @@
                         <a type="button" class="collapsed" data-toggle="collapse" data-target="#teacher-registration-finishing"><span>3</span></a>
 
                         <p>Finalizando</p>
+
+                    </div>
 
                     </div>
 
@@ -214,21 +218,21 @@
 
                     <div class="row collapse" id="teacher-registration-finishing" data-parent="#teacher-record-accordion">
 
-                        <div class="col-lg-10 mx-auto">
+                        <div class="col-lg-10 col-11 mx-auto">
 
                             <div class="row">
 
-                                <h5 class="mt-2 col-lg-12 text-left">Finalizando o cadastro de <span givenName></span></h5>
+                                <h5 class="mt-2 col-lg-12 col-11 mx-auto">Finalizando o cadastro <span givenName></span></h5>
 
-                                <div containerTeacherRegistrationStatus class="col-lg-12"></div>
+                                <div containerTeacherRegistrationStatus class="col-lg-12 col-11 mx-auto"></div>
 
-                                <div class="col-lg-12 mt-3">
+                                <div class="col-lg-12">
 
                                     <div class="row d-flex justify-content-between">
 
-                                        <p class=""><a type="button" data-toggle="collapse" data-target="#teacher-registration-address-and-others" class="btn bg-secondary text-white collapsed ml-3" href=""><i class="fas fa-angle-left mr-3"></i> Voltar</a></p>
+                                        <a type="button" data-toggle="collapse" data-target="#teacher-registration-address-and-others" class="btn bg-secondary text-white collapsed ml-3" href=""><i class="fas fa-angle-left mr-3"></i> Voltar</a>
 
-                                        <p class=""> <button id="buttonAddTeacher" disabled class="btn btn-success">Cadastrar professor (a)</button></p>
+                                        <button id="buttonAddTeacher" disabled class="btn btn-success">Cadastrar docente</button>
 
                                     </div>
 

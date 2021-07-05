@@ -272,7 +272,4 @@ class Exam extends Model
     }
 
 
-    public function examsAvailableStudents()
-    {
-    }
 }

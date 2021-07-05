@@ -130,7 +130,6 @@
             transition: all 0.9s ease;
             object-position: top;
             object-fit: cover;
-            margin-top: 15px;
             cursor: pointer;
 
             &:hover {
@@ -154,6 +153,8 @@
                 margin-top: 15px;
             }
 
+            #accordion-data-student{
+
             form input,
             form select {
 
@@ -170,6 +171,8 @@
                     color: $color-dark-gray;
                 }
             }
+
+        }
 
 
             form {
@@ -195,7 +198,9 @@
 
     }
 
-    #profileClasseModal {
+   /*  #profileClasseModal {
+
+        #accordion-data-student{
 
         form input,
         form select {
@@ -210,8 +215,9 @@
                 padding-left: 10px;
             }
         }
-
     }
+
+    } */
 
 
 

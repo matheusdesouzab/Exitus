@@ -110,7 +110,7 @@ class AdminStudentController extends Action
 
         $ClassDiscipline->__set("fk_id_class", $this->view->studentProfile[0]->class_id);
 
-        /* $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded(); */
+        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded(); 
 
         $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }

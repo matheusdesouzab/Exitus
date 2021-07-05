@@ -11,17 +11,19 @@
                     overflow: hidden;
                     width: 60vw;
 
-                    i.fas{
+                    i.fas {
                         margin-right: 15px;
                     }
 
-                    .sidebar-header span{
+                    .sidebar-header span {
                         position: absolute;
                         left: 15;
                         margin-top: 5px;
                     }
                 }
             }
+
+
 
         }
 
@@ -235,6 +237,29 @@
                     }
                 }
 
+            }
+
+
+            #student-registration {
+
+                .registration-in-stages {
+
+                    .connection-line{
+                        width: 80vw;
+                    }
+
+                    .registration-header-by-step {
+                        overflow: auto;
+                        display: block;
+
+                        .row {
+                            width: 600px;
+                            display: flex;
+                            justify-content: space-around;
+                        }
+                    }
+
+                }
             }
 
         }

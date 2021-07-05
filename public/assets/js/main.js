@@ -445,9 +445,13 @@ $(document).on('keyup', `#modalNote form #noteValue`, function (e) {
 
 $(document).on('keyup', '#addNote #noteValue', function (e) {
 
-    var value = $('#addNote #examName').find(':selected').attr('noteValue')
 
-    getGrade(this, e, validation.round(value, 1))
+    let noteValue = $('#addNote #examDescription :selected').text().split(' - ')
+    noteValue[3] = noteValue[3].replace('pontos', '').replace('décimos', '')
+
+    console.log(noteValue[3])
+
+    getGrade(this, e, validation.round(parseFloat(noteValue[3]), 1))
 
 })
 
@@ -512,9 +516,11 @@ $(document).on('click', '#addNoteStudent', function (e) {
 })
 
 
-$(document).on('click', '[data-target="#add-reviews"]', function (e) {
+$(document).on('click', '#student-exam [data-target="#add-reviews"]', function (e) {
 
-    loadListElements('containerAvailableExam', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', '#addNote')
+    loadOptions([
+        ['examDescription', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', 'clean', '#addNote', "#addNote"]
+    ])
 
 })
 
@@ -535,7 +541,7 @@ $(document).on('click', '[data-target="#student-profile-assessment"] , [data-tar
 $('[data-target="#student-registration-finishing"]').on('click', function (e) {
 
     let name = $('#name').val().split(" ", 1)
-    $('[givenName]').text('').text(name[0])
+    $('#name').val() == '' ? '' : $('[givenName]').text(`de ${name[0]}`)
 
     validation.checkAllFields('#addStudent', 18, '#buttonAddStudent', 'containerStudentRegistrationStatus', `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao aluno seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
 })
@@ -544,7 +550,7 @@ $('[data-target="#student-registration-finishing"]').on('click', function (e) {
 $('[data-target="#teacher-registration-finishing"]').on('click', function (e) {
 
     let name = $('#name').val().split(" ", 1)
-    $('[givenName]').text('').text(name[0])
+    $('#name').val() == '' ? '' : $('[givenName]').text(`de ${name[0]}`)
 
     validation.checkAllFields('#addTeacher', 15, '#buttonAddTeacher', 'containerTeacherRegistrationStatus', `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao professor seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
 })

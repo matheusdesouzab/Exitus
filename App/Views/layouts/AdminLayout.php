@@ -45,7 +45,7 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 				<?= $this->content() ?>
 
-				<?php require '../App/Views/admin/components/navbarBottom.php' ?>
+				<?php /* require '../App/Views/admin/components/navbarBottom.php' */ ?>
 
 			</div>
 		</div>

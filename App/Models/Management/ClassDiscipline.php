@@ -172,7 +172,7 @@ class ClassDiscipline extends Model
     }
 
 
-    public function subjectAailableClass()
+    public function subjectAvailableClass()
     {
 
 
@@ -182,8 +182,7 @@ class ClassDiscipline extends Model
 
             "SELECT 
             
-            disciplina.id_disciplina AS option_value , 
-            disciplina.nome_disciplina AS option_text 
+            disciplina.id_disciplina AS option_value
             
             FROM disciplina
 
@@ -202,16 +201,16 @@ class ClassDiscipline extends Model
 
         $stmt = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
-        $disciplineVector = [];
+        $allSubjectsId = [];
         $availableDiscipline = [];
 
         foreach ($stmt as $key => $discipline) {
-            array_push($disciplineVector, $discipline->option_value);
-        }
-
+            array_push($allSubjectsId, $discipline->option_value);
+        } 
+ 
         foreach ($disciplineAll as $key => $discipline) {
 
-            if (!in_array($discipline->option_value, $disciplineVector)) {
+            if (!in_array($discipline->option_value, $allSubjectsId)) {
 
                 array_push($availableDiscipline, array("option_value" => $discipline->option_value, "option_text" => $discipline->option_text));
             }
