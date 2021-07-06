@@ -208,11 +208,18 @@ function checkClass() {
         url: '/admin/gestao/turma/verificar-dados',
         data: dados,
         type: 'GET',
+        dataType:'json',
         success: data => {
 
-            let situation = data.replace(/[^\d]+/g, '')
+            let stateClass = []
 
-            switch (situation) {
+            $.each(data, i => stateClass.push(data[i].result))
+
+            stateClass = stateClass.toString().replace(',','')
+
+            console.log(stateClass)
+
+            switch (stateClass) {
 
                 case '01':
 
@@ -226,7 +233,7 @@ function checkClass() {
 
                     break
 
-                case '00':
+                case '0':
 
                     $('#buttonAddClass').removeClass('disabled')
 
@@ -246,7 +253,7 @@ function checkClass() {
 
                     $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
 
-            }
+            } 
 
         },
         error: erro => console.log(erro)

@@ -27,12 +27,12 @@ class ClassRoom extends Model
     public function insert()
     {
 
-        $query = 'INSERT INTO sala(fk_id_numero_sala, capacidade_alunos) VALUES (:fk_id_classroom_number, :studentCapacity)';
+        $query = "INSERT INTO sala(fk_id_numero_sala, capacidade_alunos) VALUES (:fk_id_classroom_number, :studentCapacity)";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':fk_id_classroom_number', $this->__get('fk_id_classroom_number'));
-        $stmt->bindValue(':studentCapacity', $this->__get('studentCapacity'));
+        $stmt->bindValue(":fk_id_classroom_number", $this->__get("fk_id_classroom_number"));
+        $stmt->bindValue(":studentCapacity", $this->__get("studentCapacity"));
 
         $stmt->execute();
     }
@@ -60,12 +60,12 @@ class ClassRoom extends Model
     public function update()
     {
 
-        $query = 'UPDATE sala SET capacidade_alunos = :studentCapacity WHERE id_sala = :classroomId';
+        $query = "UPDATE sala SET capacidade_alunos = :studentCapacity WHERE id_sala = :classroomId";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':studentCapacity', $this->__get('studentCapacity'));
-        $stmt->bindValue(':classroomId', $this->__get('classroomId'));
+        $stmt->bindValue(":studentCapacity", $this->__get("studentCapacity"));
+        $stmt->bindValue(":classroomId", $this->__get("classroomId"));
 
         $stmt->execute();
     }
@@ -74,11 +74,11 @@ class ClassRoom extends Model
     public function delete()
     {
 
-        $query = 'DELETE FROM sala WHERE sala.id_sala = :classroomId';
+        $query = "DELETE FROM sala WHERE sala.id_sala = :classroomId";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':classroomId', $this->__get('classroomId'));
+        $stmt->bindValue(":classroomId", $this->__get("classroomId"));
 
         $stmt->execute();
     }

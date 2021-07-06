@@ -204,6 +204,8 @@ class Validation {
             dataType: 'json',
             success: data => {
 
+                console.log(data)
+
                 if (data[0] != null) {
 
                     showToast('Nome já vinculado a uma avaliação nessa unidade', 'bg-info', 6000)

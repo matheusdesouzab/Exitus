@@ -27,12 +27,12 @@ class Course extends Model
     public function insert()
     {
 
-        $query = 'INSERT INTO curso(nome_curso, sigla) VALUES (:courseName, :acronym);';
+        $query = "INSERT INTO curso(nome_curso, sigla) VALUES (:courseName, :acronym)";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':courseName', $this->__get('courseName'));
-        $stmt->bindValue(':acronym', $this->__get('acronym'));
+        $stmt->bindValue(":courseName", $this->__get("courseName"));
+        $stmt->bindValue(":acronym", $this->__get("acronym"));
 
         $stmt->execute();
     }
@@ -58,11 +58,11 @@ class Course extends Model
     public function delete()
     {
 
-        $query = 'DELETE FROM curso WHERE curso.id_curso = :courseId';
+        $query = "DELETE FROM curso WHERE curso.id_curso = :courseId";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':courseId', $this->__get('courseId'));
+        $stmt->bindValue(":courseId", $this->__get("courseId"));
 
         $stmt->execute();
     }
@@ -71,13 +71,13 @@ class Course extends Model
     public function update()
     {
 
-        $query = 'UPDATE curso SET nome_curso = :courseName , sigla = :acronym WHERE curso.id_curso = :courseId';
+        $query = "UPDATE curso SET nome_curso = :courseName , sigla = :acronym WHERE curso.id_curso = :courseId";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':courseName', $this->__get('courseName'));
-        $stmt->bindValue(':acronym', $this->__get('acronym'));
-        $stmt->bindValue(':courseId', $this->__get('courseId'));
+        $stmt->bindValue(":courseName", $this->__get("courseName"));
+        $stmt->bindValue(":acronym", $this->__get("acronym"));
+        $stmt->bindValue(":courseId", $this->__get("courseId"));
 
         $stmt->execute();
     }

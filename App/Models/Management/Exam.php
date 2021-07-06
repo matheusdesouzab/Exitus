@@ -110,11 +110,11 @@ class Exam extends Model
             
             FROM avaliacoes 
             
-            LEFT JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
-            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
-            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
-            LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
-            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)       
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)       
             
             $operation
             
@@ -174,9 +174,6 @@ class Exam extends Model
     }
 
 
-
-
-
     public function delete()
     {
 
@@ -193,10 +190,6 @@ class Exam extends Model
     public function seek()
     {
 
-        $disciplineClassSituation = $this->__get('fk_id_discipline_class') == 0 ? 'AND turma.id_turma = :fk_id_class AND' : ' AND avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class AND ';
-
-        $unityOperation = $this->__get('fk_id_exam_unity') == 0 ? '<>' : '=';
-
         $query =
 
             "SELECT 
@@ -207,20 +200,27 @@ class Exam extends Model
             avaliacoes.data_realizada AS realize_date, 
             avaliacoes.valor_avaliacao AS exam_value, 
             unidade.unidade AS unity ,
-            turma.id_turma AS class_id 
-            
+            turma.id_turma AS class_id         
             
             FROM avaliacoes 
             
-            LEFT JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
-            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
-            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
-            LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
 
-            WHERE avaliacoes.descricao_avaliacao LIKE :examDescription $disciplineClassSituation 
-            
-            avaliacoes.fk_id_unidade_avaliacao $unityOperation :fk_id_exam_unity 
-            
+            WHERE avaliacoes.descricao_avaliacao LIKE :examDescription 
+
+            AND
+
+            CASE WHEN :fk_id_discipline_class = 0 THEN turma.id_turma = :fk_id_class ELSE avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class END
+
+            AND
+
+            CASE WHEN :fk_id_exam_unity = 0 THEN avaliacoes.fk_id_unidade_avaliacao <> :fk_id_exam_unity ELSE avaliacoes.fk_id_unidade_avaliacao = :fk_id_exam_unity
+
+            END
+                 
         ";
 
         $stmt = $this->db->prepare($query);
@@ -229,9 +229,9 @@ class Exam extends Model
 
         $stmt->bindValue(':examDescription', "%" . $this->__get('examDescription') . "%", \PDO::PARAM_STR);
 
-        $this->__get('fk_id_discipline_class') == 0 ? $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'))  :
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
 
-            $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
+        $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
 
         $stmt->execute();
 

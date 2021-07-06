@@ -692,6 +692,7 @@ button {
   }
   body#admin .panel-side #left-panel #sidebar .sidebar-header span {
     position: absolute;
+    display: block;
     left: 15;
     margin-top: 5px;
   }
@@ -802,7 +803,7 @@ body#admin #pagina #navbarBottom ul i.bi {
     order: 2;
     padding: 5px;
     overflow: auto;
-    display: flex;
+    display: block;
     border: none;
     border-bottom: 2px solid #e5e5e5;
     border-radius: 0px;
@@ -812,7 +813,7 @@ body#admin #pagina #navbarBottom ul i.bi {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    width: 400px;
+    width: 450px;
     padding: 10px;
     flex-grow: 1;
     overflow: auto;

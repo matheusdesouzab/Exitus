@@ -133,7 +133,7 @@ $(document).on('click', '#buttonAddClassDiscipline', function () {
 
 
 
-$(document).on('click', '[data-target="#list-discipline"]', function(e){
+$(document).on('click', '[data-target="#list-discipline"]', function (e) {
     loadListElements('containerListDisciplineClass', '/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma', "#formClassId")
 })
 
@@ -292,7 +292,7 @@ $('#zipCode').on('blur', getLocation)
 $("#bars").on("click", sideState)
 
 
-$('.sidebar-lists [data-toggle="collapse"]').on('click', function(e){
+$('.sidebar-lists [data-toggle="collapse"]').on('click', function (e) {
 
     let link = (`[aria-controls="${$(this).attr('href')}"]`).replace("#", "")
 
@@ -301,7 +301,7 @@ $('.sidebar-lists [data-toggle="collapse"]').on('click', function(e){
 })
 
 
-$('.bars-xs , .sidebar-header span').on('click', function(e){
+$('.bars-xs , .sidebar-header span').on('click', function (e) {
 
     $(".panel-side").is(":hidden") ? $(".panel-side").show() : $(".panel-side").hide()
 })
@@ -372,7 +372,7 @@ $(document).on('click', '#buttonAddExam', function (e) {
 
 $(document).on('click', '[data-target="#add-discipline"]', function (e) {
 
-     loadOptions([
+    loadOptions([
         ['availableSubjects', '/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas', 'clean', '#addClassDiscipline', "#formClassId"]
     ])
 
@@ -445,11 +445,8 @@ $(document).on('keyup', `#modalNote form #noteValue`, function (e) {
 
 $(document).on('keyup', '#addNote #noteValue', function (e) {
 
-
     let noteValue = $('#addNote #examDescription :selected').text().split(' - ')
     noteValue[3] = noteValue[3].replace('pontos', '').replace('décimos', '')
-
-    console.log(noteValue[3])
 
     getGrade(this, e, validation.round(parseFloat(noteValue[3]), 1))
 
@@ -499,7 +496,7 @@ $(document).on('click', '#addNoteStudent', function (e) {
 
     this.preventDefault
 
-    if ($('#addNote #examName option').length == 0) {
+    if ($('#addNote #examDescription option').length == 0) {
 
         showToast('Todas avaliações já atribuidas', 'bg-info')
 
@@ -507,7 +504,9 @@ $(document).on('click', '#addNoteStudent', function (e) {
 
         addSinglePart('#addNote', '/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao', 'Nota adicionada', false)
 
-        loadListElements('containerAvailableExam', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', '#addNote')
+        loadOptions([
+            ['examDescription', '/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis', 'clean', '#addNote', "#addNote"]
+        ])
 
         $('#addNote #noteValue').val('0')
 
@@ -532,8 +531,8 @@ $(document).on('change', '#addNote #examName', function (e) {
 })
 
 
-$(document).on('click', '[data-target="#student-profile-assessment"] , [data-target="#rating-list"]', function (e) {
-    loadListElements('containerListNote', '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes', '#addNote')
+$(document).on('click', '[data-target="#student-exam"], [data-target="#rating-list"]', function (e) {
+    loadListElements('containerListNote', '/admin/gestao/turma/perfil-turma/aluno/lista-notas', '#addNote')
 })
 
 
@@ -605,9 +604,6 @@ $(document).on('click', '#profileTeacherModal #updateImg', (e) => {
     showToast('Foto do perfil atualizada', 'bg-success')
 
 })
-
-
-
 
 
 $(document).on('shown.bs.modal', '#profileStudentModal , #profileTeacherModal', function () {

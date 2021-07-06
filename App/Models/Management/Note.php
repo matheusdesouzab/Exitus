@@ -128,11 +128,6 @@ class Note extends Exam
     public function seek()
     {
 
-
-        $unityOperation = $this->__get('fk_id_exam_unity') == 0 ? '<>' : '=';
-
-        $disciplineClassSituation = $this->__get('fk_id_discipline_class') == 0 ? 'AND turma.id_turma = :fk_id_class AND' : ' AND avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class AND ';
-
         $query =
 
             "SELECT 
@@ -154,9 +149,15 @@ class Note extends Exam
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
 
-            WHERE avaliacoes.descricao_avaliacao LIKE :examDescription $disciplineClassSituation
-            
-            avaliacoes.fk_id_unidade_avaliacao $unityOperation :fk_id_exam_unity 
+            WHERE avaliacoes.descricao_avaliacao LIKE :examDescription 
+
+            AND
+
+            CASE WHEN :fk_id_discipline_class = 0 THEN turma.id_turma = :fk_id_class ELSE avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class END
+
+            AND
+
+            CASE WHEN :fk_id_exam_unity = 0 THEN avaliacoes.fk_id_unidade_avaliacao <> :fk_id_exam_unity ELSE avaliacoes.fk_id_unidade_avaliacao = :fk_id_exam_unity END
 
             AND matricula.id_matricula = :fk_id_student_enrollment
                   
@@ -167,11 +168,8 @@ class Note extends Exam
         $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
         $stmt->bindValue(':examDescription', "%" . $this->__get('examDescription') . "%", \PDO::PARAM_STR);
         $stmt->bindValue(':fk_id_exam_unity', $this->__get('fk_id_exam_unity'));
-
-        $this->__get('fk_id_discipline_class') == 0 ? $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'))  :
-
-            $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
-
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
 
         $stmt->execute();
 
@@ -243,12 +241,11 @@ class Note extends Exam
             avaliacoes.id_avaliacao AS exam_id
 
             FROM avaliacoes
+			
+            LEFT JOIN nota_avaliacao ON(avaliacoes.id_avaliacao = nota_avaliacao.fk_id_avaliacao)
+            LEFT JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula) 
 
-            LEFT JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
-            LEFT JOIN nota_avaliacao ON(matricula.id_matricula = nota_avaliacao.fk_id_matricula_aluno) 
-            LEFT JOIN avaliacoes ON(nota_avaliacao.fk_id_avaliacao = avaliacoes.id_avaliacao)
-
-            WHERE nota_avaliacao.fk_id_matricula_aluno = :;
+            WHERE nota_avaliacao.fk_id_matricula_aluno = :fk_id_student_enrollment;
 
         ";
 
@@ -271,7 +268,7 @@ class Note extends Exam
 
                 $pointsOrTenths = $exam->exam_value > 1 ? " pontos" : " décimos";
 
-                $description = $exam->discipline_name.' - '. $exam->exam_description .' - '. $exam->unity .' unidade - '. $exam->exam_value.$pointsOrTenths;
+                $description = $exam->discipline_name . ' - ' . $exam->exam_description . ' - ' . $exam->unity . ' unidade - ' . $exam->exam_value . $pointsOrTenths;
 
                 array_push($availableNote, array("option_value" => $exam->exam_id, "option_text" => $description));
             }

@@ -99,7 +99,9 @@ class ClassDiscipline extends Model
             fk_id_professor = :fk_id_teacher, 
             fk_id_disciplina = :fk_id_discipline 
 
-            WHERE turma_disciplina.id_turma_disciplina = :classDisciplineId";
+            WHERE turma_disciplina.id_turma_disciplina = :classDisciplineId
+            
+        ";
 
         $stmt = $this->db->prepare($query);
 
@@ -155,8 +157,7 @@ class ClassDiscipline extends Model
             LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
             LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)         
             LEFT JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
-            LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel)
-            
+            LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel)       
 
             WHERE professor.id_professor = :id AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
         

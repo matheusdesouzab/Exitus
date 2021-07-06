@@ -484,7 +484,7 @@ class Route extends Bootstrap
 			);
 
 			$routes['adminNoteList'] = array(
-				'route' => '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes',
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/lista-notas',
 				'controller' => 'AdminManagementController',
 				'action' => 'noteList'
 			);

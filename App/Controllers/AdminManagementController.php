@@ -663,7 +663,7 @@ class AdminManagementController extends Action
 
         $Note->__set("fk_id_student_enrollment", $_POST['enrollmentId']);
         $Note->__set("noteValue", $_POST['noteValue']);
-        $Note->__set("fk_id_exam", $_POST['examName']);
+        $Note->__set("fk_id_exam", $_POST['examDescription']);
 
         $Note->insert();
     }

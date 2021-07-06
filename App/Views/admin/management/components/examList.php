@@ -34,7 +34,7 @@
 
                 <?php if (isset($this->view->typeListExam) && $this->view->typeListExam[0] != 'recent') { ?>
 
-                    <tr class="mt-5">
+                    <tr>
                         <td class="" colspan="5"> <i class="far fa-sticky-note mr-3"></i> <?= $sum ?> pontos já atribuidos na <?= $this->view->listExam[0]->unity ?> unidade de <?= $this->view->listExam[0]->discipline_name ?> ( Restam <?= 10 - $sum ?> )</td>
                     </tr>
 

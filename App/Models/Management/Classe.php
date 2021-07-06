@@ -39,18 +39,18 @@ class Classe extends Model
 
             VALUES 
 
-            (:fk_id_shift, :fk_id_classroom, :fk_id_school_term, :fk_id_ballot, :fk_id_course , :fk_id_series);
+            (:fk_id_shift, :fk_id_classroom, :fk_id_school_term, :fk_id_ballot, :fk_id_course , :fk_id_series)
             
         ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':fk_id_shift', $this->__get('fk_id_shift'));
-        $stmt->bindValue(':fk_id_classroom', $this->__get('fk_id_classroom'));
-        $stmt->bindValue(':fk_id_course', $this->__get('fk_id_course'));
-        $stmt->bindValue(':fk_id_school_term', $this->__get('fk_id_school_term'));
-        $stmt->bindValue(':fk_id_ballot', $this->__get('fk_id_ballot'));
-        $stmt->bindValue(':fk_id_series', $this->__get('fk_id_series'));
+        $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
+        $stmt->bindValue(":fk_id_classroom", $this->__get("fk_id_classroom"));
+        $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
+        $stmt->bindValue(":fk_id_school_term", $this->__get("fk_id_school_term"));
+        $stmt->bindValue(":fk_id_ballot", $this->__get("fk_id_ballot"));
+        $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
 
         $stmt->execute();
     }
@@ -61,7 +61,7 @@ class Classe extends Model
 
         $query =
 
-            'UPDATE turma SET 
+            "UPDATE turma SET 
 
             fk_id_turno = :fk_id_shift , 
             fk_id_sala = :fk_id_classroom , 
@@ -72,17 +72,17 @@ class Classe extends Model
 
             WHERE id_turma = :classId
         
-        ';
+        ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':fk_id_shift', $this->__get('fk_id_shift'));
-        $stmt->bindValue(':fk_id_classroom', $this->__get('fk_id_classroom'));
-        $stmt->bindValue(':fk_id_course', $this->__get('fk_id_course'));
-        $stmt->bindValue(':fk_id_school_term', $this->__get('fk_id_school_term'));
-        $stmt->bindValue(':fk_id_ballot', $this->__get('fk_id_ballot'));
-        $stmt->bindValue(':fk_id_series', $this->__get('fk_id_series'));
-        $stmt->bindValue(':classId', $this->__get('classId'));
+        $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
+        $stmt->bindValue(":fk_id_classroom", $this->__get("fk_id_classroom"));
+        $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
+        $stmt->bindValue(":fk_id_school_term", $this->__get("fk_id_school_term"));
+        $stmt->bindValue(":fk_id_ballot", $this->__get("fk_id_ballot"));
+        $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
+        $stmt->bindValue(":classId", $this->__get("classId"));
 
         $stmt->execute();
     }
@@ -92,7 +92,7 @@ class Classe extends Model
     {
 
         return $this->speedingUp(
-            "SELECT turno.id_turno AS option_value , turno.nome_turno AS option_text FROM turno;"
+            "SELECT turno.id_turno AS option_value , turno.nome_turno AS option_text FROM turno"
         );
     }
 
@@ -101,7 +101,7 @@ class Classe extends Model
     {
 
         return $this->speedingUp(
-            "SELECT cedula_turma.id_cedula_turma AS option_value , cedula_turma.cedula AS option_text FROM cedula_turma;"
+            "SELECT cedula_turma.id_cedula_turma AS option_value , cedula_turma.cedula AS option_text FROM cedula_turma"
         );
     }
 
@@ -110,7 +110,7 @@ class Classe extends Model
     {
 
         return $this->speedingUp(
-            "SELECT serie.id_serie AS option_value , serie.sigla AS option_text FROM serie;"
+            "SELECT serie.id_serie AS option_value , serie.sigla AS option_text FROM serie"
         );
     }
 
@@ -118,9 +118,9 @@ class Classe extends Model
     public function checkClass()
     {
 
-        $stmt = $this->db->prepare(
+        $query =
 
-            "SELECT * 
+            "SELECT COUNT(*) AS result
 
             FROM turma 
 
@@ -128,19 +128,11 @@ class Classe extends Model
 
             AND turma.fk_id_turno = :fk_id_shift 
 
-            AND turma.fk_id_periodo_letivo = :fk_id_school_term"
+            AND turma.fk_id_periodo_letivo = :fk_id_school_term
 
-        );
+            UNION
 
-        $stmt->bindValue(':fk_id_classroom', $this->__get('fk_id_classroom'));
-        $stmt->bindValue(':fk_id_shift', $this->__get('fk_id_shift'));
-        $stmt->bindValue(':fk_id_school_term', $this->__get('fk_id_school_term'));
-
-        $stmt->execute();
-
-        $stmt2 = $this->db->prepare(
-
-            "SELECT * 
+            SELECT COUNT(*) AS result
 
             FROM turma 
 
@@ -150,30 +142,28 @@ class Classe extends Model
 
             AND turma.fk_id_curso = :fk_id_course 
 
-            AND turma.fk_id_periodo_letivo = :fk_id_school_term"
+            AND turma.fk_id_periodo_letivo = :fk_id_school_term
+            
+        ";
 
-        );
+        $stmt = $this->db->prepare($query);
 
-        $stmt2->bindValue(':fk_id_series', $this->__get('fk_id_series'));
-        $stmt2->bindValue(':fk_id_ballot', $this->__get('fk_id_ballot'));
-        $stmt2->bindValue(':fk_id_course', $this->__get('fk_id_course'));
-        $stmt2->bindValue(':fk_id_school_term', $this->__get('fk_id_school_term'));
+        $stmt->bindValue(":fk_id_classroom", $this->__get("fk_id_classroom"));
+        $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
+        $stmt->bindValue(":fk_id_school_term", $this->__get("fk_id_school_term"));
+        $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
+        $stmt->bindValue(":fk_id_ballot", $this->__get("fk_id_ballot"));
+        $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
+        $stmt->bindValue(":fk_id_school_term", $this->__get("fk_id_school_term"));
 
-        $stmt2->execute();
+        $stmt->execute();
 
-        return $situation = [
-            [count($stmt->fetchAll(\PDO::FETCH_ASSOC))],
-            [count($stmt2->fetchAll(\PDO::FETCH_ASSOC))]
-        ];
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
     public function seekClass()
     {
-
-        $shiftOperation = $this->__get('fk_id_shift') == 0 ? '<>' : '=';
-        $courseOperation = $this->__get('fk_id_course') == 0 ? '<>' : '=';
-        $seriesOperation = $this->__get('fk_id_series') == 0 ? '<>' : '=';
 
         $query =
 
@@ -195,25 +185,35 @@ class Classe extends Model
             INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
             INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
             INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
-            INNER JOIN sala ON(turma.fk_id_sala = sala.fk_id_numero_sala) 
-            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula) 
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
             
-            WHERE turma.fk_id_curso $courseOperation :fk_id_course
+            WHERE 
 
-            AND turma.fk_id_serie $seriesOperation :fk_id_series 
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
 
-            AND turma.fk_id_turno $shiftOperation :fk_id_shift
+            AND
+            
+            CASE WHEN :fk_id_course = 0 THEN turma.fk_id_curso <> :fk_id_course ELSE turma.fk_id_curso = :fk_id_course END 
+            
+            AND
+            
+            CASE WHEN :fk_id_series = 0 THEN turma.fk_id_serie <> :fk_id_series ELSE turma.fk_id_serie = :fk_id_series END 
+            
+            AND
+
+            CASE WHEN :fk_id_shift = 0 THEN turma.fk_id_turno <> :fk_id_shift ELSE turma.fk_id_turno = :fk_id_shift END 
         
         ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':fk_id_course', $this->__get('fk_id_course'));
-        $stmt->bindValue(':fk_id_series', $this->__get('fk_id_series'));
-        $stmt->bindValue(':fk_id_shift', $this->__get('fk_id_shift'));
+        $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
+        $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
+        $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
 
         $stmt->execute();
 
@@ -244,8 +244,8 @@ class Classe extends Model
             INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
             INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
             INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
-            INNER JOIN sala ON(turma.fk_id_sala = sala.fk_id_numero_sala) 
-            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula) 
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)

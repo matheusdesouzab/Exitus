@@ -42,9 +42,9 @@ class Discipline extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':disciplineName', $this->__get('disciplineName'));
-        $stmt->bindValue(':acronym', $this->__get('acronym'));
-        $stmt->bindValue(':fk_id_modality', $this->__get('fk_id_modality'));
+        $stmt->bindValue(":disciplineName", $this->__get("disciplineName"));
+        $stmt->bindValue(":acronym", $this->__get("acronym"));
+        $stmt->bindValue(":fk_id_modality", $this->__get("fk_id_modality"));
 
         $stmt->execute();
     }
@@ -75,7 +75,7 @@ class Discipline extends Model
 
         $query =
 
-            'SELECT 
+            "SELECT 
             
             disciplina.id_disciplina AS discipline_id , 
             disciplina.nome_disciplina AS discipline_name , 
@@ -89,11 +89,11 @@ class Discipline extends Model
             
             WHERE disciplina.id_disciplina = :disciplineId
             
-        ';
+        ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':disciplineId', $this->__get('disciplineId'));
+        $stmt->bindValue(":disciplineId", $this->__get("disciplineId"));
 
         $stmt->execute();
 
@@ -120,24 +120,24 @@ class Discipline extends Model
     public function update()
     {
 
-        $query = 
-        
-            'UPDATE disciplina SET 
+        $query =
+
+            "UPDATE disciplina SET 
             
             nome_disciplina = :disciplineName , 
             sigla_disciplina = :acronym , 
             fk_id_modalidade_disciplina = :fk_id_modality 
             
-            WHERE disciplina.id_disciplina = :disciplineId'
+            WHERE disciplina.id_disciplina = :disciplineId
             
-        ;
+        ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':disciplineId', $this->__get('disciplineId'));
-        $stmt->bindValue(':disciplineName', $this->__get('disciplineName'));
-        $stmt->bindValue(':acronym', $this->__get('acronym'));
-        $stmt->bindValue(':fk_id_modality', $this->__get('fk_id_modality'));
+        $stmt->bindValue(":disciplineId", $this->__get("disciplineId"));
+        $stmt->bindValue(":disciplineName", $this->__get("disciplineName"));
+        $stmt->bindValue(":acronym", $this->__get("acronym"));
+        $stmt->bindValue(":fk_id_modality", $this->__get("fk_id_modality"));
 
         $stmt->execute();
     }
@@ -146,10 +146,8 @@ class Discipline extends Model
     public function seekDiscipline()
     {
 
-        $this->__get('fk_id_modality') == 0 ? $operation = '<>' : $operation = '=';
+        $query =
 
-        $query = 
-        
             "SELECT 
             
             disciplina.id_disciplina AS discipline_id , 
@@ -163,14 +161,20 @@ class Discipline extends Model
             
             WHERE disciplina.nome_disciplina LIKE :disciplineName 
             
-            AND disciplina.fk_id_modalidade_disciplina $operation :fk_id_modality
+            AND
+
+            CASE WHEN :fk_id_modality = 0 THEN disciplina.fk_id_modalidade_disciplina <> :fk_id_modality
+
+            ELSE disciplina.fk_id_modalidade_disciplina = :fk_id_modality
+            
+            END
         
         ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':disciplineName', "%" . $this->__get('disciplineName') . "%", \PDO::PARAM_STR);
-        $stmt->bindValue(':fk_id_modality', $this->__get('fk_id_modality'));
+        $stmt->bindValue(":disciplineName", "%" . $this->__get("disciplineName") . "%", \PDO::PARAM_STR);
+        $stmt->bindValue(":fk_id_modality", $this->__get("fk_id_modality"));
 
         $stmt->execute();
 
@@ -181,9 +185,9 @@ class Discipline extends Model
     public function delete()
     {
 
-        $query = 'DELETE FROM disciplina WHERE disciplina.id_disciplina = :disciplineId';
+        $query = "DELETE FROM disciplina WHERE disciplina.id_disciplina = :disciplineId";
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':disciplineId', $this->__get('disciplineId'));
+        $stmt->bindValue(":disciplineId", $this->__get("disciplineId"));
 
         $stmt->execute();
     }
@@ -195,6 +199,5 @@ class Discipline extends Model
         return $this->speedingUp(
             "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina;"
         );
-        
     }
 }
