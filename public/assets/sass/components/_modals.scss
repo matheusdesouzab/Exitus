@@ -153,7 +153,7 @@
                 margin-top: 15px;
             }
 
-            #accordion-data-student{
+            #accordion-data-student , #accordion-data-teacher {
 
             form input,
             form select {
@@ -192,13 +192,15 @@
     }
 
 
-    #modal-discipline {
+    .simple-modal {
 
-        @include modal-content($color-white, 10px);
+        .modal-content {
+            border-radius: 15px;
+        }
 
     }
 
-   /*  #profileClasseModal {
+   #profileClasseModal {
 
         #accordion-data-student{
 
@@ -217,7 +219,7 @@
         }
     }
 
-    } */
+    } 
 
 
 

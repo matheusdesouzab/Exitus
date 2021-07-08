@@ -81,11 +81,15 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
+        $Classe = Container::getModel('Management\\Classe');
 
         $Student->__set('name', $_GET['name']);
         $Student->__set('fk_id_sex', $_GET['sex']);
+        $Classe->__set('fk_id_course', $_GET['course']);
+        $Classe->__set('fk_id_series', $_GET['series']);
+        $Classe->__set('fk_id_shift', $_GET['shift']);
 
-        $this->view->listStudent = $Student->seek($_GET['course'], $_GET['shift'], $_GET['series']);
+        $this->view->listStudent = $Student->seek($Classe);
         $this->view->typeStudentList = 'normal';
 
         $this->render('student/components/studentListing', 'SimpleLayout');

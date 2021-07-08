@@ -10,43 +10,43 @@
 
                 <div class="registration-header-by-step mt-2">
 
-                <div class="row">
+                    <div class="row">
 
-                    <div class="connection-line"></div>
+                        <div class="connection-line"></div>
 
-                    <div class="container-option">
+                        <div class="container-option">
 
-                        <a type="button" class="" data-toggle="collapse" data-target="#student-registration-initial-data"><span>1</span></a>
+                            <a type="button" class="" data-toggle="collapse" data-target="#student-registration-initial-data"><span>1</span></a>
 
-                        <p>Dados pessoais</p>
+                            <p>Dados pessoais</p>
+
+                        </div>
+
+                        <div class="container-option">
+
+                            <a type="button" class="collapsed" data-toggle="collapse" data-target="#student-registration-address-and-others"><span>2</span></a>
+
+                            <p>Localidade e outros</p>
+
+                        </div>
+
+                        <div class="container-option">
+
+                            <a type="button" class="collapsed" data-toggle="collapse" data-target="#student-registration-class"><span>3</span></a>
+
+                            <p>Turma de destino</p>
+
+                        </div>
+
+                        <div class="container-option">
+
+                            <a type="button" class="collapsed" data-toggle="collapse" data-target="#student-registration-finishing"><span>4</span></a>
+
+                            <p>Finalizando</p>
+
+                        </div>
 
                     </div>
-
-                    <div class="container-option">
-
-                        <a type="button" class="collapsed" data-toggle="collapse" data-target="#student-registration-address-and-others"><span>2</span></a>
-
-                        <p>Localidade e outros</p>
-
-                    </div>
-
-                    <div class="container-option">
-
-                        <a type="button" class="collapsed" data-toggle="collapse" data-target="#student-registration-class"><span>3</span></a>
-
-                        <p>Turma de destino</p>
-
-                    </div>
-
-                    <div class="container-option">
-
-                        <a type="button" class="collapsed" data-toggle="collapse" data-target="#student-registration-finishing"><span>4</span></a>
-
-                        <p>Finalizando</p>
-
-                    </div>
-
-                </div>
 
                 </div>
 
@@ -246,7 +246,7 @@
 
                                 <div class="form-group col-md-12">
                                     <label for="class">Turma</label>
-                                    <select id="class" name="class" class="form-control custom-select is-valid">
+                                    <select id="class" name="class" class="form-control custom-select <?= count($this->view->availableClass) == 0 ? 'is-invalid' : 'is-valid' ?>">
 
                                         <?php
 
@@ -254,7 +254,7 @@
 
                                             $totalVacancies = $class->class_capacity - $class->student_total;
 
-                                            $newName = $class->series_acronym . ' ' . $class->ballot . ' - ' . $class->course . ' - ' . $class->shift . ' - Sala: ' . $class->classroom_number . ' - ' . 'Vagas: ' . $totalVacancies;
+                                            $newName = $class->series_acronym . 'ª  ' . $class->ballot . ' - Técnico em ' . $class->course . ' - ' . $class->shift . ' - Sala: ' . $class->classroom_number . ' - ' . 'Vagas: ' . $totalVacancies;
 
                                         ?>
                                             <?php if ($totalVacancies >= 1) { ?>

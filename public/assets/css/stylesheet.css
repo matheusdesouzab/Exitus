@@ -91,17 +91,9 @@ button {
   font-family: Supreme-bold;
   src: url(./../../assets/fonts/Montserrat-Black.ttf);
 }
-#pagina {
-  /* .round-button {
-      width: 30px;
-      height: 30px;
-      text-align: center;
-      padding: 7px;
-      font-size: 12px;
-      border-radius: 15px;
-      background-color: $color-blue;
-      color: $color-white;
-  } */
+#pagina .main-button {
+  background-color: #6619c3;
+  font-weight: 500;
 }
 
 #pagina .card {
@@ -127,28 +119,6 @@ button {
   color: white;
 }
 
-#pagina {
-  /*  #profileClasseModal {
-
-       #accordion-data-student{
-
-       form input,
-       form select {
-
-           background-color: $color-white;
-           border-bottom: none;
-           border: 2px solid $color-extra-light-blue;
-
-           &:disabled {
-               background-color: $color-pure-gray;
-               border-bottom: none;
-               padding-left: 10px;
-           }
-       }
-   }
-
-   } */
-}
 #pagina .modal {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(5px);
@@ -267,13 +237,15 @@ button {
   margin-top: 15px;
 }
 #pagina .modal-profile .main-content #accordion-data-student form input,
-#pagina .modal-profile .main-content #accordion-data-student form select {
+#pagina .modal-profile .main-content #accordion-data-student form select, #pagina .modal-profile .main-content #accordion-data-teacher form input,
+#pagina .modal-profile .main-content #accordion-data-teacher form select {
   background-color: transparent;
   border: none;
   border-bottom: 3px solid #e4d9ff;
 }
 #pagina .modal-profile .main-content #accordion-data-student form input:disabled,
-#pagina .modal-profile .main-content #accordion-data-student form select:disabled {
+#pagina .modal-profile .main-content #accordion-data-student form select:disabled, #pagina .modal-profile .main-content #accordion-data-teacher form input:disabled,
+#pagina .modal-profile .main-content #accordion-data-teacher form select:disabled {
   border: none;
   font-weight: 500;
   padding-left: 0;
@@ -288,10 +260,20 @@ button {
   border: none;
   font-weight: bold;
 }
-#pagina #modal-discipline .modal-content {
-  border: none;
+#pagina .simple-modal .modal-content {
+  border-radius: 15px;
+}
+#pagina #profileClasseModal #accordion-data-student form input,
+#pagina #profileClasseModal #accordion-data-student form select {
   background-color: #ffffff;
-  border-radius: 10px;
+  border-bottom: none;
+  border: 2px solid #e4d9ff;
+}
+#pagina #profileClasseModal #accordion-data-student form input:disabled,
+#pagina #profileClasseModal #accordion-data-student form select:disabled {
+  background-color: #E5E7E9;
+  border-bottom: none;
+  padding-left: 10px;
 }
 
 #pagina form {
@@ -317,6 +299,7 @@ button {
   border-radius: 10px;
   background: #E5E7E9;
   padding: 10px;
+  transition: all 0.2s ease;
 }
 #pagina .edit-data-icon:hover {
   color: #ffffff;
@@ -336,6 +319,7 @@ button {
   border-radius: 10px;
   background: #E5E7E9;
   padding: 10px;
+  transition: all 0.2s ease;
   pointer-events: none;
 }
 #pagina .update-data-icon:hover {
@@ -356,6 +340,7 @@ button {
   border-radius: 10px;
   background: #E5E7E9;
   padding: 10px;
+  transition: all 0.2s ease;
   pointer-events: none;
 }
 #pagina .delete-data-icon:hover {
@@ -597,6 +582,7 @@ button {
   border-radius: 10px;
   background: #ffffff;
   padding: 10px;
+  transition: all 0.2s ease;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 15px;

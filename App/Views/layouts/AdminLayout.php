@@ -65,9 +65,15 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
+<script src="/assets/js/Tools.js"></script>
+
 <script src="/assets/js/request.js"></script>
 
 <script src="/assets/js/Validation.js"></script>
+
+<script src="/assets/js/Application.js"></script>
+
+<script src="/assets/js/Management.js"></script>
 
 <script src="/assets/js/style.js"></script>
 

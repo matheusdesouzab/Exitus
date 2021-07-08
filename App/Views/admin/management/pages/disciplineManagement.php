@@ -6,29 +6,29 @@
 
             <div class="row mt-3 page-header">
 
-            <div class="col-11 col-lg-12 mx-auto">
+                <div class="col-11 col-lg-12 mx-auto">
 
-            <div class="row">
+                    <div class="row">
 
-                <h5 class="col-lg-6">Gestão das disciplinas</h5>
+                        <h5 class="col-lg-6">Gestão das disciplinas</h5>
 
-                <div class="col-lg-6 collapse-options-container">
+                        <div class="col-lg-6 collapse-options-container">
 
-                    <a class="font-weight-bold" id="collapseListDiscipline" aria-expanded="true" data-toggle="collapse" data-target="#list-subjects"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
+                            <a class="font-weight-bold" id="collapseListDiscipline" aria-expanded="true" data-toggle="collapse" data-target="#list-subjects"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
 
-                    <a class="collapsed font-weight-bold" id="collapseAddDiscipline" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                            <a class="collapsed font-weight-bold" id="collapseAddDiscipline" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
+                        </div>
+
+                        <nav class="col-lg-12 p-0" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/admin/gestao">Gestão geral</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Disciplinas</li>
+                            </ol>
+                        </nav>
+
+                    </div>
                 </div>
-
-                <nav class="col-lg-12 p-0" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/admin/gestao">Gestão geral</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Disciplinas</li>
-                    </ol>
-                </nav>
-
-            </div>
-            </div>
             </div>
 
             <div class="col-lg-12">
@@ -68,11 +68,11 @@
 
                             </form>
 
-                            <hr class="col-11 mx-auto">
+                            <hr class="col-10 mx-auto">
 
                             <div class="table-responsive">
 
-                                <table class="table table-hover table-borderless">
+                                <table class="table table-hover col-lg-11 mx-auto table-borderless">
                                     <thead>
                                         <tr>
                                             <th scope="col">Nome da disciplina</th>
@@ -86,10 +86,14 @@
                                 </table>
                             </div>
 
-                            <div class="modal fade" id="modalDiscipline" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade simple-modal" id="modalDiscipline" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg mt-5">
                                     <div class="modal-content">
-
+                                        <div class="row">
+                                            <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileClasseModal">
+                                                    <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                                </button></div>
+                                        </div>
                                         <div class="modal-body">
                                             <div containerModal class="row"></div>
                                         </div>

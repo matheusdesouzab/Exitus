@@ -29,7 +29,7 @@ if (count($this->view->listCourse) >= 1) {
 
                     <span idElement="#formCourse<?= $course->course_id ?>" routeDelete="/admin/gestao/curso/deletar" toastData="Curso Atualizado" container="containerListCourse" routeList="/admin/gestao/curso/lista" class="mr-2 delete-data-icon">
                     
-                        <i class="fas fa-ban"></i>
+                        <i class="fas fa-trash-alt"></i>
                     
                     </span>
 

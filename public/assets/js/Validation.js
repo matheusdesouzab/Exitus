@@ -1,17 +1,5 @@
 class Validation {
 
-    randCode() {
-
-        var randPassword = Array(6).fill("0123456789").map(function (x) {
-
-                return x[Math.floor(Math.random() * x.length)]
-            }
-
-        ).join('').replace(/(\d{3})(\d{3})/, "$1.$2")
-
-        return randPassword
-    }
-
     cpfAlreadyInformed() {
 
         let state = false
@@ -91,21 +79,6 @@ class Validation {
     }
 
 
-    imagePreview(input , container) {
-
-        if (input.files && input.files[0]) {
-
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $(container).attr('src', e.target.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-
     validateImage() {
 
         let photo = $('#profilePhoto')
@@ -160,7 +133,7 @@ class Validation {
 
             $(`[${container}]`).append(successMassage)
 
-            $('[accessCode]').text('').append(this.randCode())
+            $('[accessCode]').text('').append(management.randCode())
 
         } else {
 
@@ -169,26 +142,6 @@ class Validation {
             $(`[${container}]`).append(errorMessage)
         }
 
-    }
-
-    round(num, places) {
-
-        if (!("" + num).includes("e")) {
-
-            return +(Math.round(num + "e+" + places) + "e-" + places)
-
-        } else {
-
-            let arr = ("" + num).split("e");
-
-            let sig = ""
-
-            if (+arr[1] + places > 0) {
-                sig = "+";
-            }
-
-            return +(Math.round(+arr[0] + "e" + sig + (+arr[1] + places)) + "e-" + places);
-        }
     }
 
 

@@ -23,7 +23,7 @@
                     </span>
 
                     <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" routeDelete="/admin/gestao/sala/deletar" toastData="Periodo Letivo Atualizado" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 delete-data-icon">
-                        <i class="fas fa-ban"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </span>
 
                 </div>

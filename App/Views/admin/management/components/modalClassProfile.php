@@ -225,7 +225,7 @@
 
                             <div class="col-lg-7 col-12 collapse-options-container">
 
-                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-assessments"><span class="mr-2 "><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
+                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2 "><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
 
                                 <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
 
@@ -235,7 +235,7 @@
 
                     <div class="col-lg-12">
 
-                        <div class="collapse show card" id="list-assessments" data-parent="#class-assessments-accordion">
+                        <div class="collapse show card" id="list-exam" data-parent="#class-assessments-accordion">
 
                             <form id="seekExam" class="text-dark col-lg-11 mx-auto" action="">
 

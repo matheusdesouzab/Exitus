@@ -4,9 +4,9 @@
 
         <div class="col-lg-12">
 
-            <div class="form-row modal-header">
-                <div discipline class="col-lg-6 mt-2 font-weight-bold"><?= $this->view->discipline[0]->discipline_name ?></div>
-                <div class="col-lg-6 d-flex justify-content-end">
+            <div class="row modal-header d-flex justify-content-between">
+                <h5 discipline class="col-lg-6 font-weight-bold pl-0"><?= $this->view->discipline[0]->discipline_name ?></h5>
+                <div class="col-lg-6 d-flex justify-content-end pr-0">
 
                     <span idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" class="mr-2 edit-data-icon">
                         <i class="fas fa-edit"></i>
@@ -17,7 +17,7 @@
                     </span>
 
                     <span idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" routeDelete="/admin/gestao/disciplina/deletar" toastData="Disciplina Deletada" container="containerListDiscipline" routeList="/admin/gestao/disciplina/lista" class="mr-2 delete-data-icon">
-                        <i class="fas fa-ban"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </span>
 
                     </div>
@@ -62,7 +62,7 @@
 
                 <div class="form-row d-flex justify-content-end modal-links-alternativos mt-3 mb-3">
 
-                <a class="btn btn-info" data-dismiss="modal" href=""><i class="fas fa-arrow-alt-circle-right mr-2"></i> Retornar a sessão</a>
+                <a class="btn main-button text-white" data-dismiss="modal" href="">Retornar a sessão</a>
 
             </div>
                 

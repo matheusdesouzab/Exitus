@@ -26,8 +26,8 @@ class Student extends People
     public function insert()
     {
 
-        $query = 
-        
+        $query =
+
             "INSERT INTO aluno 
             
             (nome_aluno, cpf_aluno, data_nascimento_aluno, naturalidade_aluno, foto_perfil_aluno,nacionalidade_aluno, nome_mae,nome_pai, fk_id_sexo_aluno,fk_id_tipo_sanguineo_aluno, fk_id_aluno_pcd, fk_id_endereco_aluno, fk_id_telefone_aluno) 
@@ -62,9 +62,9 @@ class Student extends People
 
     public function update()
     {
-        
-        $query = 
-        
+
+        $query =
+
             "UPDATE aluno SET 
             
             nome_aluno = :studentName , 
@@ -97,7 +97,6 @@ class Student extends People
         $stmt->bindValue(':id', $this->__get('id'));
 
         $stmt->execute();
-
     }
 
 
@@ -117,7 +116,6 @@ class Student extends People
             curso.sigla AS course , 
             turno.nome_turno AS shift ,
             situacao_aluno AS student_state
-
             
             FROM aluno 
             
@@ -138,16 +136,12 @@ class Student extends People
     }
 
 
-    public function seek($course, $shift, $series)
+    public function seek($classe)
     {
 
-        $this->__get('fk_id_sex') == 0 ? $operationSex = '<>' : $operationSex = '=';
-        $course == 0 ? $operationCourse = '<>' : $operationCourse = '=';
-        $shift == 0 ? $operationShift = '<>' : $operationShift = '=';
-        $series == 0 ? $operationSeries = '<>' : $operationSeries = '=';
 
-        $query = 
-        
+        $query =
+
             "SELECT 
             
             aluno.id_aluno AS student_id , 
@@ -167,23 +161,36 @@ class Student extends People
             INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
             INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
             INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
-            
-            WHERE aluno.fk_id_sexo_aluno $operationSex :sex 
 
-            AND curso.id_curso $operationCourse $course 
+            WHERE
 
-            AND aluno.nome_aluno LIKE :studentName 
+            CASE WHEN :fk_id_sex = 0 THEN aluno.fk_id_sexo_aluno <> :fk_id_sex ELSE aluno.fk_id_sexo_aluno = :fk_id_sex END
+
+            AND
+
+            CASE WHEN :fk_id_course = 0 THEN curso.id_curso <> :fk_id_course ELSE curso.id_curso = :fk_id_course END
+
+            AND 
+
+            CASE WHEN :fk_id_shift = 0 THEN turno.id_turno <> :fk_id_shift ELSE turno.id_turno = :fk_id_shift END
             
-            AND turno.id_turno $operationShift $shift 
-            
-            AND serie.id_serie $operationSeries $series
+            AND
+
+            CASE WHEN :fk_id_series = 0 THEN serie.id_serie <> :fk_id_series ELSE serie.id_serie = :fk_id_series END
+
+            AND
+
+            aluno.nome_aluno LIKE :studentName 
         
         ";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':studentName', "%" . $this->__get('name') . "%", \PDO::PARAM_STR);
-        $stmt->bindValue(':sex', $this->__get('fk_id_sex'));
+        $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
+        $stmt->bindValue(':fk_id_course', $classe->__get('fk_id_course'));
+        $stmt->bindValue(':fk_id_shift', $classe->__get('fk_id_shift'));
+        $stmt->bindValue(':fk_id_series', $classe->__get('fk_id_series'));
 
         $stmt->execute();
 
@@ -194,8 +201,8 @@ class Student extends People
     public function profile()
     {
 
-        $query = 
-        
+        $query =
+
             "SELECT 
             
             aluno.id_aluno AS student_id , 
@@ -231,7 +238,6 @@ class Student extends People
             turma.id_turma AS class_id,
             matricula.id_matricula AS enrollmentId
 
-
             FROM aluno 
             
             INNER JOIN sexo ON(aluno.fk_id_sexo_aluno = sexo.id_sexo) 
@@ -263,7 +269,8 @@ class Student extends People
     }
 
 
-    public function updateProfilePicture(){
+    public function updateProfilePicture()
+    {
 
         $query = "UPDATE aluno SET aluno.foto_perfil_aluno = :profilePhoto WHERE aluno.id_aluno = :id";
 

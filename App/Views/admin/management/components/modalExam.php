@@ -15,7 +15,7 @@
                 </span>
 
                 <span idElement="#formExam<?= $this->view->examData[0]->exam_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/avaliacoes/deletar" toastData="Avaliação deletada" routeData="#formExam<?= $this->view->examData[0]->exam_id ?>" container="containerExamsList" routeList="/admin/gestao/turma/perfil-turma/avaliacoes/lista" class="mr-2 delete-data-icon">
-                    <i class="fas fa-ban"></i>
+                    <i class="fas fa-trash-alt"></i>
                 </span>
 
             </div>

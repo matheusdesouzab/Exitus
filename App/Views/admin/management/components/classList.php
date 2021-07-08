@@ -23,7 +23,7 @@ if (count($this->view->listClass) >= 1) {
 <?php } else { ?>
 
     <tr class="mt-4">
-        <td colspan="4" style="pointer-events:none">Nenhuma turma adicionada</td>
+        <td colspan="5" style="pointer-events:none">Nenhuma turma encontrada</td>
     </tr>
 
 

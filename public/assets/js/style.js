@@ -55,23 +55,6 @@ function getLocation() {
 }
 
 
-function automaticDate() {
-
-    let $schoolYear = $('#addSchoolTerm select[name="schoolYear"]').find(":selected").text()
-
-    $('#addSchoolTerm input[name="startDate"]').prop('value', `${$schoolYear}-02-01`)
-    $('#addSchoolTerm input[name="endDate"]').prop('value', `${$schoolYear}-12-01`)
-}
 
 
-function showToast(description, background, delay = 3000) {
 
-    $('.toast-data').text(description)
-
-    $('.toast-header').removeClass('bg-success bg-danger bg-primary').addClass(background)
-
-    $('#toastContainer').toast({
-        'delay': delay
-    }).toast('show')
-
-}

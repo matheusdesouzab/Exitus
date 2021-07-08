@@ -15,7 +15,7 @@
                 </span>
 
                 <span idElement="#formNote<?= $this->view->noteData[0]->note_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/deletar" toastData="Avaliação deletada" routeData="#formNote<?= $this->view->noteData[0]->note_id ?>" container="containerListNote" routeList="/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes" class="mr-2 delete-data-icon">
-                    <i class="fas fa-ban"></i>
+                    <i class="fas fa-trash-alt"></i>
                 </span>
 
             </div>
