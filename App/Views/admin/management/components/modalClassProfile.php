@@ -160,7 +160,7 @@
 
                                         <div class="form-row mt-3">
 
-                                            <div class="form-group col-lg-7">
+                                            <div class="form-group col-lg-6">
 
                                                 <label for="">Professor:</label>
 
@@ -178,7 +178,7 @@
 
                                             <input type="hidden" name="classId" value="<?= $this->view->classId ?>">
 
-                                            <div class="form-group col-lg-5">
+                                            <div class="form-group col-lg-6">
 
                                                 <label for="">Disciplina</label>
 
@@ -192,7 +192,7 @@
 
                                             <div class="form-group col-lg-5">
                                                 <label for="">&nbsp;</label>
-                                                <a id="buttonAddClassDiscipline" class="btn btn-success w-100">Adicionar disciplina</a>
+                                                <button id="buttonAddClassDiscipline" class="btn btn-success w-100">Adicionar disciplina</button>
                                             </div>
 
                                         </div>
@@ -233,11 +233,11 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 card">
 
-                        <div class="collapse show card" id="list-exam" data-parent="#class-assessments-accordion">
+                        <div class="collapse show" id="list-exam" data-parent="#class-assessments-accordion">
 
-                            <form id="seekExam" class="text-dark col-lg-11 mx-auto" action="">
+                            <form id="seekExam" class="text-dark col-lg-12 mx-auto mt-3" action="">
 
                                 <div class="form-row mt-3">
 
@@ -287,6 +287,7 @@
 
                             </form>
 
+
                             <div containerExamsList class="">
 
                                 <?php require '../App/Views/admin/management/components/examList.php' ?>
@@ -295,7 +296,7 @@
 
                         </div>
 
-                        <div class="collapse card" id="add-assessments" data-parent="#class-assessments-accordion">
+                        <div class="collapse" id="add-assessments" data-parent="#class-assessments-accordion">
 
                             <form id="addExam" class="col-lg-11 mx-auto" action="">
 
@@ -375,6 +376,8 @@
                     <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
 
                 </form>
+
+              
 
             </div>
         </div>

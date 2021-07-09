@@ -1,12 +1,4 @@
-<?php
 
-/* $url = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], '/') + 1);
-
-$title = preg_split('/(?=[A-Z])/', $url);
-
-$title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
-
-?>
 
 <html lang="pt-br">
 
@@ -66,8 +58,6 @@ $title = count($title) >= 2 ? $title[1] . ' ' . $title[2] : $title; */
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
 <script src="/assets/js/Tools.js"></script>
-
-<script src="/assets/js/request.js"></script>
 
 <script src="/assets/js/Validation.js"></script>
 

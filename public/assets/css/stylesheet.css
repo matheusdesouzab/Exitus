@@ -138,7 +138,7 @@ button {
 }
 #pagina .modal-profile .main-sheet span {
   text-align: center;
-  font-family: Semi-bold;
+  font-family: Bold;
   font-size: 13px;
 }
 #pagina .modal-profile .main-sheet img {
@@ -179,9 +179,11 @@ button {
   font-family: Bold;
 }
 #pagina .modal-profile .container-list-group {
-  border: 1px solid #e5e5e5;
   border-radius: 10px;
   padding: 10px;
+  padding-top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 #pagina .modal-profile .container-list-group nav {
   padding: 10px 15px;
@@ -212,8 +214,9 @@ button {
 }
 #pagina .modal-profile img {
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 95px;
+  height: 95px;
+  margin-top: 10px;
   transition: all 0.9s ease;
   object-position: top;
   object-fit: cover;
@@ -260,17 +263,31 @@ button {
   border: none;
   font-weight: bold;
 }
+#pagina .modal-profile .modal-sidebar {
+  height: 77vh;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: white;
+}
 #pagina .simple-modal .modal-content {
   border-radius: 15px;
 }
-#pagina #profileClasseModal #accordion-data-student form input,
-#pagina #profileClasseModal #accordion-data-student form select {
+#pagina #profileClassModal img {
+  margin-top: 0px;
+}
+#pagina #profileClassModal #accordion-data-student form input,
+#pagina #profileClassModal #accordion-data-student form select {
   background-color: #ffffff;
   border-bottom: none;
   border: 2px solid #e4d9ff;
 }
-#pagina #profileClasseModal #accordion-data-student form input:disabled,
-#pagina #profileClasseModal #accordion-data-student form select:disabled {
+#pagina #profileClassModal #accordion-data-student form input:disabled,
+#pagina #profileClassModal #accordion-data-student form select:disabled {
   background-color: #E5E7E9;
   border-bottom: none;
   padding-left: 10px;
@@ -567,7 +584,7 @@ button {
   background: transparent;
 }
 #admin #pagina #tableListExam td {
-  padding: 1.5px;
+  margin: 3px;
   text-align: center;
   font-size: 14px;
 }
@@ -777,6 +794,7 @@ body#admin #pagina #navbarBottom ul i.bi {
     justify-content: center;
     border-radius: 10px;
     margin-bottom: 15px;
+    margin-top: 15px;
   }
   body#admin #pagina .modal-profile .main-sheet span {
     font-size: 2.5vw;
@@ -834,6 +852,15 @@ body#admin #pagina #navbarBottom ul i.bi {
   body#admin #pagina .modal-profile .main-content .row:nth-child(1) {
     margin-top: 10px;
   }
+  body#admin #pagina .modal-profile .modal-sidebar {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: white;
+    box-shadow: none;
+    height: 50vh;
+  }
   body#admin #pagina #student-registration .registration-in-stages .connection-line {
     width: 80vw;
   }
@@ -845,6 +872,9 @@ body#admin #pagina #navbarBottom ul i.bi {
     width: 600px;
     display: flex;
     justify-content: space-around;
+  }
+  body#admin #pagina #profileStudentModal .container-list-group nav {
+    width: 600px;
   }
 }
 @media (max-width: 768px) and (min-width: 577px) {

@@ -26,7 +26,7 @@
 
             span {
                 text-align: center;
-                font-family: Semi-bold;
+                font-family: Bold;
                 font-size: 13px;
             }
 
@@ -83,9 +83,11 @@
         }
 
         .container-list-group {
-            border: 1px solid #e5e5e5;
             border-radius: 10px;
             padding: 10px;
+            padding-top: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
 
             nav {
                 padding: 10px 15px;
@@ -125,8 +127,9 @@
 
         img {
             border-radius: 50%;
-            width: 80px;
-            height: 80px;
+            width: 95px;
+            height: 95px;
+            margin-top: 10px;
             transition: all 0.9s ease;
             object-position: top;
             object-fit: cover;
@@ -189,6 +192,15 @@
             }
         }
 
+
+        .modal-sidebar{
+            height: 77vh;
+            background-color: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 15px;
+            @include card(10px, white, 1px solid #e5e5e5);
+        }
+
     }
 
 
@@ -200,7 +212,12 @@
 
     }
 
-   #profileClasseModal {
+   #profileClassModal {
+
+
+    img{
+        margin-top: 0px;
+    }
 
         #accordion-data-student{
 

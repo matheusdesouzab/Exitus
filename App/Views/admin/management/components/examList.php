@@ -2,7 +2,7 @@
 
 <div class="table-responsive">
 
-    <table class="table table-hover col-lg-11 mx-auto table-borderless" id="tableListExam">
+    <table class="table table-hover col-lg-12 mx-auto table-borderless" id="tableListExam">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -42,7 +42,7 @@
             } else { ?>
 
                 <tr class="mt-4">
-                    <td colspan="5" style="pointer-events:none">Nenhuma avaliação encrontada</td>
+                    <td colspan="5" style="pointer-events:none">Nenhuma avaliação encrontada <i class="fas fa-history ml-2"></i></td>
                 </tr>
 
             <?php } ?>

@@ -153,7 +153,6 @@ class Validation {
             url: route,
             type: 'GET',
             data: $form,
-            async: false,
             dataType: 'json',
             success: data => {
 

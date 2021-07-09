@@ -254,7 +254,7 @@
 
                                             $totalVacancies = $class->class_capacity - $class->student_total;
 
-                                            $newName = $class->series_acronym . 'ª  ' . $class->ballot . ' - Técnico em ' . $class->course . ' - ' . $class->shift . ' - Sala: ' . $class->classroom_number . ' - ' . 'Vagas: ' . $totalVacancies;
+                                            $newName = $class->series_acronym . 'ª  ' . $class->ballot . ' - Técnico em ' . $class->course . ' - ' . $class->shift . ' - Sala ' . $class->classroom_number . ' - ' . $totalVacancies . ' Vagas restantes';
 
                                         ?>
                                             <?php if ($totalVacancies >= 1) { ?>

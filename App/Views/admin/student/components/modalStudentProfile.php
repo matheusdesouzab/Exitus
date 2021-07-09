@@ -4,18 +4,25 @@
 
         <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
-        <div class="col-lg-3 col-11 mx-auto">
+        <div class="col-lg-3 col-11 mx-auto modal-sidebar">
 
-            <div class="row card">
+            <div class="row">
 
                 <div class="col-lg-12">
 
                     <div class="row">
 
-                        <img class="mx-auto mb-3" src='<?= $student->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->student_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
+                        <img class="mx-auto mb-2" src='<?= $student->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->student_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
-                        <div class="col-lg-12 main-sheet">
+                        <div class="col-lg-12 main-sheet d-block d-sm-none">
                             <div class="row p-3"><span class="col-lg-12"><?= $student->student_name ?> - <?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift_name ?></span></div>
+                        </div>
+
+                        <div class="col-lg-12 main-sheet d-none d-sm-block">
+                            <div class="row p-3">
+                                <span class="col-lg-12"><?= $student->student_name ?></span>
+                                <span class="col-lg-12"><?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift_name ?></span>
+                            </div>
                         </div>
 
                     </div>
@@ -35,6 +42,8 @@
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Boletim</a>
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Observações</a>
+
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Análise</a>
 
                                 </ul>
 
@@ -133,35 +142,35 @@
                         </div>
 
 
-                        <div class="input-group d-flex col-12 col-lg-9 mt-2 flex-nowrap">
+                        <div class="input-group d-flex col-12 col-lg-11 mt-2 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Nome:</span>
                             </div>
                             <input type="text" id="name" name="name" disabled class="form-control" value="<?= $student->student_name ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-12 col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-12 col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Nome da mãe:</span>
                             </div>
                             <input type="text" id="motherName" name="motherName" disabled class="form-control" value="<?= $student->student_mother ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Nome do pai:</span>
                             </div>
                             <input type="text" id="fatherName" name="fatherName" disabled class="form-control" value="<?= $student->student_father ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">CPF:</span>
                             </div>
                             <input type="text" onload="this.value = this.value.mask('000.000.000-00')" id="cpf" name="cpf" disabled class="form-control" value="<?= $student->student_cpf ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
 
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Sexo:</span>
@@ -178,28 +187,28 @@
 
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
                             </div>
                             <input type="text" id="nationality" name="nationality" disabled class="form-control" value="<?= $student->student_nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Naturalidade:</span>
                             </div>
                             <input type="text" id="naturalness" name="naturalness" disabled class="form-control" value="<?= $student->student_naturalness ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Data de Nascimento:</span>
                             </div>
                             <input type="date" id="birthDate" name="birthDate" disabled class="form-control" value="<?= $student->student_birth_date ?>" max="2006-01-31" min="1940-01-31" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
 
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">PcD:</span>
@@ -216,7 +225,7 @@
 
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
 
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Tipo sanguíneo:</span>
@@ -235,42 +244,42 @@
 
                         <h5 class="mt-5 mb-3 ml-4">Endereço e contato:</h5>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">CEP:</span>
                             </div>
                             <input type="text" id="zipCode" name="zipCode" disabled class="form-control" value="<?= $student->student_zipCode ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">UF:</span>
                             </div>
                             <input type="text" id="uf" name="uf" disabled class="form-control" value="<?= $student->student_uf ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Município:</span>
                             </div>
                             <input type="text" id="county" name="county" disabled class="form-control" value="<?= $student->student_county ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Bairro:</span>
                             </div>
                             <input type="text" id="district" name="district" disabled class="form-control" value="<?= $student->student_district ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Endereço:</span>
                             </div>
                             <input type="text" id="address" name="address" disabled class="form-control" value="<?= $student->student_address ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Telefone</span>
                             </div>
@@ -279,14 +288,14 @@
 
                         <h5 class="mt-5 mb-3 ml-4">Curso e turma:</h5>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Situação do aluno:</span>
                             </div>
                             <input type="text" disabled class="form-control" value="<?= $student->student_situation ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Turma:</span>
                             </div>
@@ -323,17 +332,19 @@
                                 </div>
                             </div>
 
+                            
+
                             <div class="col-lg-12">
 
-                                <div class="collapse show card" id="rating-list" data-parent="#accordion-ratings">
+                                <div class="collapse show" id="rating-list" data-parent="#accordion-ratings">
 
-                                    <form id="seekNoteExam" class="mt-3 col-lg-11 mx-auto  text-dark" action="">
+                                    <form id="seekNoteExam" class="mt-3 col-lg-12 text-dark" action="">
 
                                         <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
                                         <div class="form-row mt-3">
 
-                                            <div class="form-group col-lg-6">
+                                            <div class="form-group col-lg-5">
                                                 <label for="">Nome da avaliacão:</label>
                                                 <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
                                             </div>
@@ -359,7 +370,7 @@
 
                                             </div>
 
-                                            <div class="form-group col-lg-2">
+                                            <div class="form-group col-lg-3">
                                                 <label for="">Unidade:</label>
 
                                                 <select id="unity" class="form-control custom-select" name="unity" required>
@@ -384,7 +395,7 @@
 
                                     <div class="table-responsive">
 
-                                        <table class="table col-lg-11 col-sm-10 mx-auto table-borderless table-hover" id="note-table">
+                                        <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover" id="note-table">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Avaliação</th>
@@ -412,6 +423,7 @@
                                         <div class="form-row mt-3">
 
                                             <div class="form-group col-lg-12">
+                                                <label for="">Avaliações disponíveis</label>
 
                                                 <select id="examDescription" name="examDescription" class="form-control custom-select" required></select>
                                             
@@ -421,14 +433,14 @@
 
                                         <div class="form-row">
 
-                                            <div class="form-group col-lg-4">
-                                                <label for="">Nota obtida:</label>
+                                            <div class="form-group col-lg-2">
+                                                <label for="">Nota:</label>
                                                 <input class="form-control" value="0" name="noteValue" type="text" id="noteValue">
                                             </div>
 
                                             <div class="form-group col-lg-3 ml-auto">
                                                 <label for="">&nbsp;</label>
-                                                <a id="addNoteStudent" class="btn btn-success w-100">Adicionar</a>
+                                                <button id="buttonAddNoteStudent" class="btn btn-success w-100">Adicionar</button>
                                             </div>
 
                                         </div>

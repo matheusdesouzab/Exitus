@@ -97,7 +97,7 @@ class Management {
             error: erro => tools.showToast('Tente novamente mais tarde', 'bg-info')
         })
     }
-    
+
 
     randCode() {
 
@@ -110,5 +110,35 @@ class Management {
 
         return randPassword
     }
+
+
+    checkAvailableOptions(element, button, message, optionRoute , data) {
+
+        setTimeout(() => {
+
+            let select = element.split(" ")
+
+            if ($(`${element} option`).length == 0) {
+
+                $(`${element}`).append($("<option>", {
+                    value: 0,
+                    text: message
+                }))
+
+                $(button).attr('disabled', true)
+
+            } else {
+
+                application.loadOptions([
+                    [select[1], optionRoute, "clean", select[0], data]
+                ])
+
+                $(button).attr('disabled', false)
+
+            }
+
+        }, 1000)
+    }
+
 
 }

@@ -19,7 +19,7 @@ if (count($this->view->listDiscipline) >= 1) {
 <?php } else { ?>
 
     <tr class="mt-4">
-        <td colspan="3" style="pointer-events:none">Nenhuma disciplina adicionada</td>
+        <td colspan="3" style="pointer-events:none">Nenhuma disciplina adicionada <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 <?php } ?>

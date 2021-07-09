@@ -650,7 +650,6 @@ class AdminManagementController extends Action
         $Exam->__set("fk_id_exam_unity", $_GET['unity']);
         $Exam->__set("fk_id_discipline_class", $_GET['disciplineClassId']);
         $Exam->__set("examDescription", $_GET['examDescription']);
-        $Exam->__set("fk_id_class", $_GET['classId']);
 
         echo json_encode($Exam->checkName());
     }

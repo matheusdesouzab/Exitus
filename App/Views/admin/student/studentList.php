@@ -2,50 +2,50 @@
 
     <div class="row main-container">
 
-         <h5 class="col-lg-11 mx-auto mb-4 mt-3">Buscar aluno</h5>
+        <h5 class="col-lg-11 mx-auto mb-4 mt-3">Buscar aluno</h5>
 
-            <div class="col-lg-10 col-11 accordion mx-auto card mb-3" id="advanced-search-accordion">
+        <div class="col-lg-10 col-11 accordion mx-auto card mb-3" id="advanced-search-accordion">
 
-                <form class="accordion mx-auto mt-3 col-lg-11" id="seekStudent">
+            <form class="accordion mx-auto mt-3 col-lg-11" id="seekStudent">
 
-                    <div class="form-row">
+                <div class="form-row">
 
-                        <div class="form-group col-12 col-lg-5">
-                            <label for="">Aluno:</label>
-                            <input class="form-control" type="text" value="" name="name" placeholder="Nome do aluno">
-                        </div>
-
-                        <div class="form-group col-12 col-lg-4">
-                            <label for="">Curso:</label>
-                            <select class="form-control custom-select" name="course" id="course">
-                                <option value="0">Todos</option>
-                                <?php foreach ($this->view->availableCourse as $key => $course) { ?>
-
-                                    <option value="<?= $course->option_value ?>"><?= $course->option_text ?></option>
-
-                                <?php } ?>
-                            </select>
-                        </div>
-
-                        <div class="form-group col-12 col-lg-2">
-                            <label for="">Turno:</label>
-                            <select class="form-control custom-select" name="shift" id="shift">
-                                <option value="0">Todos</option>
-                                <?php foreach ($this->view->availableShift as $key => $shift) { ?>
-                                    <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group col-2 col-lg-1">
-                            <label for="">&nbsp;</label><br>
-                            <div>
-                                <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
-                            </div>
-                        </div>
-
+                    <div class="form-group col-12 col-lg-4">
+                        <label for="">Aluno:</label>
+                        <input class="form-control" type="text" value="" name="name" placeholder="Nome do aluno">
                     </div>
+
+                    <div class="form-group col-12 col-lg-5">
+                        <label for="">Curso:</label>
+                        <select class="form-control custom-select" name="course" id="course">
+                            <option value="0">Todos</option>
+                            <?php foreach ($this->view->availableCourse as $key => $course) { ?>
+
+                                <option value="<?= $course->option_value ?>"><?= $course->option_text ?></option>
+
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-12 col-lg-2">
+                        <label for="">Turno:</label>
+                        <select class="form-control custom-select" name="shift" id="shift">
+                            <option value="0">Todos</option>
+                            <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+                                <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group col-2 col-lg-1">
+                        <label for="">&nbsp;</label><br>
+                        <div>
+                            <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
+                        </div>
+                    </div>
+
+                </div>
 
                 <div id="activate-advanced-search-accordion" class="collapse" data-parent="#advanced-search-accordion">
 
@@ -81,7 +81,7 @@
 
             <div class="table-responsive">
 
-                <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto"  id="student-table">
+                <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto" id="student-table">
 
                     <thead>
                         <tr>
@@ -98,7 +98,7 @@
 
                     </tbody>
 
-                    <div class="modal fade modal-profile" id="profileStudentModal" data-backdrop="static" data-keyboard="false" tabindex="-1"  aria-hidden="true">
+                    <div class="modal fade modal-profile" id="profileStudentModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
                         <div class="modal-dialog modal-xl">
                             <div class="modal-content">
@@ -115,15 +115,19 @@
 
                 </table>
             </div>
-            </div>
+        </div>
 
-            </div>
-    
+    </div>
 
-    <div class="modal fade" id="modalNote" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
+
+    <div class="modal fade simple-modal" id="modalNote" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
         <div class="modal-dialog modal-lg modal-dialog-centered" id="">
             <div class="modal-content" style="border-radius: 10px">
-
+                <div class="row">
+                    <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileClasseModal">
+                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                        </button></div>
+                </div>
                 <div class="modal-body">
                     <div containerModalNote class="row"></div>
                 </div>
