@@ -7,7 +7,7 @@ use MF\Model\Model;
 class StudentEnrollment extends Model
 {
 
-    private $fk_student_situation;
+    private $fk_id_student_situation;
     private $fk_id_class;
     private $fk_id_school_term;
     private $fk_id_student;
@@ -36,7 +36,7 @@ class StudentEnrollment extends Model
             
             VALUES 
 
-            (:fk_id_student, :fk_id_class, :fk_student_situation, :fk_id_school_term)
+            (:fk_id_student, :fk_id_class, :fk_id_student_situation, :fk_id_school_term)
         
         ";
 
@@ -44,7 +44,7 @@ class StudentEnrollment extends Model
 
         $stmt->bindValue(':fk_id_student', $this->__get('fk_id_student'));
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-        $stmt->bindValue(':fk_student_situation', $this->__get('fk_student_situation'));
+        $stmt->bindValue(':fk_id_student_situation', $this->__get('fk_id_student_situation'));
         $stmt->bindValue(':fk_id_school_term', $this->__get('fk_id_school_term'));
 
         $stmt->execute();

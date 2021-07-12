@@ -513,8 +513,11 @@ class Route extends Bootstrap
 				'action' => 'noteDelete'
 			);
 
-
-
+			$routes['loginTeacherPortal'] = array(
+				'route' => '/portal-docente/login',
+				'controller' => 'TeacherPortalController',
+				'action' => 'login'
+			);
 
 
 

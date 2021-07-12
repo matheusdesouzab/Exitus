@@ -35,7 +35,7 @@ class Exam extends Model
 
             "INSERT INTO avaliacoes 
 
-            (descricao_avaliacao , valor_avaliacao	, data_realizada , fk_id_unidade_avaliacao , fk_turma_disciplina_avaliacao)
+            (descricao_avaliacao , valor_avaliacao	, data_realizada , fk_id_unidade_avaliacao , fk_id_turma_disciplina_avaliacao)
 
             VALUES
 
@@ -75,7 +75,7 @@ class Exam extends Model
             
             WHERE avaliacoes.fk_id_unidade_avaliacao = :fk_id_exam_unity
 
-            AND avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class
+            AND avaliacoes.fk_id_turma_disciplina_avaliacao = :fk_id_discipline_class
             
         ";
 
@@ -110,7 +110,7 @@ class Exam extends Model
             
             FROM avaliacoes 
             
-            INNER JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
@@ -204,7 +204,7 @@ class Exam extends Model
             
             FROM avaliacoes 
             
-            INNER JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
@@ -213,7 +213,7 @@ class Exam extends Model
 
             AND
 
-            CASE WHEN :fk_id_discipline_class = 0 THEN turma.id_turma = :fk_id_class ELSE avaliacoes.fk_turma_disciplina_avaliacao = :fk_id_discipline_class END
+            CASE WHEN :fk_id_discipline_class = 0 THEN turma.id_turma = :fk_id_class ELSE avaliacoes.fk_id_turma_disciplina_avaliacao = :fk_id_discipline_class END
 
             AND
 
@@ -250,7 +250,7 @@ class Exam extends Model
             
             FROM avaliacoes 
             
-            LEFT JOIN turma_disciplina ON(avaliacoes.fk_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            LEFT JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
             
             WHERE turma_disciplina.id_turma_disciplina = :fk_id_discipline_class
             

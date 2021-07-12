@@ -226,6 +226,8 @@
 
                                 <div containerTeacherRegistrationStatus class="col-lg-12 col-11 mx-auto"></div>
 
+                                <input type="hidden" name="accessCode" id="accessCode" value="">
+
                                 <div class="col-lg-12">
 
                                     <div class="row d-flex justify-content-between">

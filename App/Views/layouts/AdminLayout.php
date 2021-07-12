@@ -57,16 +57,16 @@
 
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
-<script src="/assets/js/Tools.js"></script>
+<script src="/assets/js/utilities/Tools.js"></script>
 
-<script src="/assets/js/Validation.js"></script>
+<script src="/assets/js/utilities/Validation.js"></script>
 
-<script src="/assets/js/Application.js"></script>
+<script src="/assets/js/utilities/Application.js"></script>
 
-<script src="/assets/js/Management.js"></script>
+<script src="/assets/js/utilities/Management.js"></script>
 
-<script src="/assets/js/style.js"></script>
+<script src="/assets/js/utilities/style.js"></script>
 
-<script src="/assets/js/main.js"></script>
+<script src="/assets/js/admin/main.js"></script>
 
 </html>

@@ -39,20 +39,20 @@ class AdminTeacherController extends Action
         $Address->__set('address', $_POST['address']);
         $Address->__set('uf', $_POST['uf']);
         $Address->__set('county', $_POST['county']);
-        $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
 
         $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
+        $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
+        $Teacher->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
+        $Teacher->__set('cpf', $Tool->formatElement($_POST['cpf']));
+        $Tool->image($Teacher, '../public/assets/img/teacherProfilePhotos/');
 
         $Teacher->__set('name', $_POST['name']);
         $Teacher->__set('birthDate', $_POST['birthDate']);
-        $Teacher->__set('cpf', $Tool->formatElement($_POST['cpf']));
-        $Tool->image($Teacher, '../public/assets/img/teacherProfilePhotos/');
         $Teacher->__set('naturalness', $_POST['naturalness']);
-        $Teacher->__set('nationality', $_POST['nationality']);
+        $Teacher->__set('nationality', $_POST['nationality']);     
         $Teacher->__set('fk_id_sex', $_POST['sex']);
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
-
 
         $Teacher->__set('fk_id_telephone', $Telephone->insert());
         $Teacher->__set('fk_id_address', $Address->insert());

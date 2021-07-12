@@ -14,6 +14,7 @@ class People extends Model
     protected $naturalness; 
     protected $nationality;
     protected $profilePhoto;
+    protected $accessCode;
     protected $fk_id_sex;
     protected $fk_id_blood_type;
     protected $fk_id_pcd;

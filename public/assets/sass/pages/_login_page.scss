@@ -1,0 +1,74 @@
+#login {
+
+    .container-login {
+        border-radius: 15px;
+        margin-top: 40px;
+        background-image: linear-gradient(to bottom, $color-blue 0, $color-blue 50%, white 50%);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        height: 86.4vh;
+
+        .sidebar-primary {
+            background-color: $color-blue;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .sidebar-secondary {
+            background-color: white;
+            border-bottom-right-radius: 15px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 15px;
+
+            form {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                padding: 5px;
+                border: 1px solid #e5e5e5;
+                box-sizing: border-box;
+                border-radius: 15px;
+                margin-bottom: 80px;
+                margin-top: 80px;
+
+                .form-control:focus {
+                    border:none;
+                    border-bottom: 2px solid $color-blue;
+                    box-shadow: none;
+                    transition: all 0.6s ease;
+                }
+
+                input {
+                    border: none;
+                    border-radius: 0px;
+                    border-bottom: 2px solid $color-extra-light-blue;
+                }
+
+                h5 {
+                    color: $color-dark-gray;
+                    font-size: 20px;
+                    margin-left: 20px;
+                    padding: 15px;
+                }
+
+                label {
+                    font-weight: bold;
+                    font-size: 17px;
+                }
+
+                .form-body {
+                    background-color: white;
+                    border-radius: 25px;
+                    padding: 20px 15px;
+
+                    button {
+                        background-color: $color-blue;
+                        font-weight: bold;
+                        color: white;
+                    }
+
+                }
+
+            }
+        }
+    }
+
+}

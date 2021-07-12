@@ -681,6 +681,66 @@ button {
   font-size: 14px;
 }
 
+#login .container-login {
+  border-radius: 15px;
+  margin-top: 40px;
+  background-image: linear-gradient(to bottom, #6619c3 0, #6619c3 50%, white 50%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  height: 86.4vh;
+}
+#login .container-login .sidebar-primary {
+  background-color: #6619c3;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 50px;
+}
+#login .container-login .sidebar-secondary {
+  background-color: white;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 15px;
+}
+#login .container-login .sidebar-secondary form {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 5px;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+#login .container-login .sidebar-secondary form .form-control:focus {
+  border: none;
+  border-bottom: 2px solid #6619c3;
+  box-shadow: none;
+  transition: all 0.6s ease;
+}
+#login .container-login .sidebar-secondary form input {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #e4d9ff;
+}
+#login .container-login .sidebar-secondary form h5 {
+  color: #506177;
+  font-size: 20px;
+  margin-left: 20px;
+  padding: 15px;
+}
+#login .container-login .sidebar-secondary form label {
+  font-weight: bold;
+  font-size: 17px;
+}
+#login .container-login .sidebar-secondary form .form-body {
+  background-color: white;
+  border-radius: 25px;
+  padding: 20px 15px;
+}
+#login .container-login .sidebar-secondary form .form-body button {
+  background-color: #6619c3;
+  font-weight: bold;
+  color: white;
+}
+
 @media (max-width: 576px) {
   body#admin .panel-side {
     display: none;

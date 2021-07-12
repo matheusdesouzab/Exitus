@@ -12,7 +12,7 @@
 
                         <ul>
 
-                            <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data">Dados da turma</a>
+                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data">Dados da turma</a>
 
                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion">Disciplinas</a>
 
@@ -298,7 +298,7 @@
 
                         <div class="collapse" id="add-assessments" data-parent="#class-assessments-accordion">
 
-                            <form id="addExam" class="col-lg-11 mx-auto" action="">
+                            <form id="addExam" class="col-lg-11 mx-auto">
 
                                 <div class="form-row mt-3">
 
@@ -356,7 +356,7 @@
 
                                     <div class="form-group col-lg-3 ml-auto">
                                         <label for="">&nbsp;</label>
-                                        <a id="buttonAddExam" class="btn btn-success w-100">Adicionar</a>
+                                        <button id="buttonAddExam" class="btn btn-success w-100">Adicionar</button>
                                     </div>
 
                                 </div>

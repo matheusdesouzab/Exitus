@@ -29,11 +29,11 @@ class Teacher extends People
         
             "INSERT INTO professor 
             
-            (nome_professor, cpf_professor, data_nascimento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_endereco_professor, fk_id_telefone_professor)
+            (nome_professor, cpf_professor, data_imento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso)
 
             VALUES 
             
-            (:teacherName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address,:fk_id_telephone)
+            (:teacherName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address,:fk_id_telephone , :accessCode)
         
         ";
 
@@ -50,6 +50,7 @@ class Teacher extends People
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
         $stmt->bindValue(':fk_id_address', $this->__get('fk_id_address'));
         $stmt->bindValue(':fk_id_telephone', $this->__get('fk_id_telephone'));
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
 
         $stmt->execute();
 
