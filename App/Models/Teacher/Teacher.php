@@ -25,11 +25,11 @@ class Teacher extends People
     public function insert()
     {
 
-        $query = 
-        
+        $query =
+
             "INSERT INTO professor 
             
-            (nome_professor, cpf_professor, data_imento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso)
+            (nome_professor, cpf_professor, data_nascimento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso)
 
             VALUES 
             
@@ -96,8 +96,8 @@ class Teacher extends People
     public function profile()
     {
 
-        $query = 
-        
+        $query =
+
             "SELECT 
             
             professor.id_professor AS teacher_id , 
@@ -126,7 +126,7 @@ class Teacher extends People
             FROM professor 
             
             LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor) 
-            LEFT JOIN endereco ON(endereco.id_endereco = professor.fk_endereco_professor) 
+            LEFT JOIN endereco ON(endereco.id_endereco = professor.fk_id_endereco_professor) 
             LEFT JOIN telefone ON(telefone.id_telefone = professor.fk_id_telefone_professor) 
             LEFT JOIN tipo_sanguineo ON(tipo_sanguineo.id_tipo_sanguineo = professor.fk_id_tipo_sanguineo_professor) 
             LEFT JOIN pcd ON(pcd.id_pcd = professor.fk_id_pcd_professor) 
@@ -148,8 +148,8 @@ class Teacher extends People
     public function update()
     {
 
-        $query = 
-        
+        $query =
+
             "UPDATE professor SET 
             
             nome_professor = :teacherName , 
@@ -190,7 +190,8 @@ class Teacher extends People
     }
 
 
-    public function updateProfilePicture(){
+    public function updateProfilePicture()
+    {
 
         $query = "UPDATE professor SET professor.foto_perfil_professor = :profilePhoto WHERE professor.id_professor = :id";
 
@@ -201,5 +202,115 @@ class Teacher extends People
 
         $stmt->execute();
     }
-    
+
+
+    public function login()
+    {
+
+        $query = "SELECT id_professor AS teacher_id , nome_professor AS teacher_name FROM professor WHERE codigo_acesso = :accessCode AND nome_professor = :teacherName";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
+        $stmt->bindValue(':teacherName', $this->__get('teacherName'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function teacherClasses()
+    {
+
+        $query =
+
+            "SELECT DISTINCT 
+
+            turma.id_turma AS class_id ,
+            serie.sigla AS series_acronym , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift , 
+            numero_sala_aula.numero_sala_aula AS classroom_number , 
+            periodo_disponivel.ano_letivo AS school_term ,
+            
+            (SELECT COUNT(turma_disciplina.fk_id_professor) FROM professor LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor) WHERE professor.id_professor = :teacherId AND turma_disciplina.fk_id_turma = turma.id_turma ) AS discipline_total ,
+            
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
+            
+            FROM turma 
+            
+            INNER JOIN turma_disciplina ON(turma.id_turma = turma_disciplina.fk_id_turma) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            
+            WHERE professor.id_professor = :teacherId
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':teacherId', $this->__get('id'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function seekTeacherClasses($class)
+    {
+
+        $query =
+
+            "SELECT DISTINCT 
+
+            turma.id_turma AS class_id ,
+            serie.sigla AS series_acronym , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift , 
+            numero_sala_aula.numero_sala_aula AS classroom_number , 
+            periodo_disponivel.ano_letivo AS school_term ,
+            
+            (SELECT COUNT(turma_disciplina.fk_id_professor) FROM professor LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor) WHERE professor.id_professor = :teacherId AND turma_disciplina.fk_id_turma = turma.id_turma ) AS discipline_total ,
+            
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
+            
+            FROM turma 
+            
+            INNER JOIN turma_disciplina ON(turma.id_turma = turma_disciplina.fk_id_turma) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            
+            WHERE professor.id_professor = :teacherId AND
+
+            CASE WHEN :fk_id_course = 0 THEN curso.id_curso <> :fk_id_course ELSE curso.id_curso = :fk_id_course END
+
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':teacherId', $this->__get('id'));
+        $stmt->bindValue(':fk_id_course', $class->__get('fk_id_course'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 }

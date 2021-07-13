@@ -379,6 +379,134 @@ button {
   color: green;
 }
 
+.class-profile {
+  margin-top: 15px;
+}
+.class-profile img {
+  margin-top: 0px;
+}
+.class-profile #accordion-data-student form input,
+.class-profile #accordion-data-student form select {
+  background-color: #ffffff;
+  border-bottom: none;
+  border: 2px solid #e4d9ff;
+}
+.class-profile #accordion-data-student form input:disabled,
+.class-profile #accordion-data-student form select:disabled {
+  background-color: #E5E7E9;
+  border-bottom: none;
+  padding-left: 10px;
+}
+.class-profile button {
+  outline: none;
+}
+.class-profile .main-sheet span {
+  text-align: center;
+  font-family: Bold;
+  font-size: 13px;
+}
+.class-profile .main-sheet img {
+  width: 100px;
+  height: 100px;
+}
+.class-profile h4 {
+  font-family: Bold;
+}
+.class-profile .container-list-group {
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.class-profile .container-list-group nav {
+  padding: 10px 15px;
+  padding-bottom: 0;
+  width: 97%;
+  margin: auto;
+}
+.class-profile .container-list-group nav ul a {
+  padding: 10px 15px;
+  color: #506177;
+  font-size: 13px;
+  text-align: center;
+  display: block;
+  font-size: 13px;
+  margin-bottom: 7px;
+  font-family: Bold;
+  transition: all 0.2s ease;
+}
+.class-profile .container-list-group nav ul a:hover {
+  border-left: 5px solid #6619c3;
+}
+.class-profile .container-list-group nav ul [aria-expanded=true] {
+  border-left: 5px solid #6619c3;
+}
+.class-profile img {
+  border-radius: 50%;
+  width: 95px;
+  height: 95px;
+  margin-top: 10px;
+  transition: all 0.9s ease;
+  object-position: top;
+  object-fit: cover;
+  cursor: pointer;
+}
+.class-profile img:hover {
+  transform: scale(1.1);
+}
+.class-profile .main-content {
+  border-radius: 15px;
+  background-color: white;
+  height: 95vh;
+  overflow-x: auto;
+  border: 1px solid #e5e5e5;
+}
+.class-profile .main-content::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+.class-profile .main-content .row:nth-child(1) {
+  margin-top: 15px;
+}
+.class-profile .main-content #accordion-data-student form input,
+.class-profile .main-content #accordion-data-student form select,
+.class-profile .main-content #accordion-data-teacher form input,
+.class-profile .main-content #accordion-data-teacher form select {
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid #e4d9ff;
+}
+.class-profile .main-content #accordion-data-student form input:disabled,
+.class-profile .main-content #accordion-data-student form select:disabled,
+.class-profile .main-content #accordion-data-teacher form input:disabled,
+.class-profile .main-content #accordion-data-teacher form select:disabled {
+  border: none;
+  font-weight: 500;
+  padding-left: 0;
+  cursor: context-menu;
+  color: #506177;
+}
+.class-profile .main-content form .input-group {
+  margin-bottom: 10px;
+}
+.class-profile .main-content form .input-group-text {
+  background-color: white;
+  border: none;
+  font-weight: bold;
+}
+.class-profile .modal-sidebar {
+  height: 77vh;
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  background-color: white;
+}
+
 #left-panel {
   display: flex;
   font-family: Semi-bold;
@@ -502,35 +630,35 @@ button {
   padding: 10px 0px;
 }
 
-#admin #pagina .main-container {
+#admin #pagina .main-container, #teacherPortal #pagina .main-container {
   margin-top: 80px;
 }
-#admin #pagina #navbarBottom {
+#admin #pagina #navbarBottom, #teacherPortal #pagina #navbarBottom {
   display: none;
 }
-#admin #pagina .school-term-active {
+#admin #pagina .school-term-active, #teacherPortal #pagina .school-term-active {
   border-left: 5px solid #28A745;
 }
-#admin #pagina .school-term-finished {
+#admin #pagina .school-term-finished, #teacherPortal #pagina .school-term-finished {
   border-left: 6px solid #e5e5e5;
 }
-#admin #pagina .school-term-scheduled {
+#admin #pagina .school-term-scheduled, #teacherPortal #pagina .school-term-scheduled {
   border-left: 5px solid #6619c3;
 }
-#admin #pagina .option-icon-group span {
+#admin #pagina .option-icon-group span, #teacherPortal #pagina .option-icon-group span {
   transition: 0.5s;
 }
-#admin #pagina .registration-in-stages label {
+#admin #pagina .registration-in-stages label, #teacherPortal #pagina .registration-in-stages label {
   text-align: left;
   display: block;
 }
-#admin #pagina .registration-in-stages form [data-toggle=collapse] {
+#admin #pagina .registration-in-stages form [data-toggle=collapse], #teacherPortal #pagina .registration-in-stages form [data-toggle=collapse] {
   background-color: #6619c3;
 }
-#admin #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right {
+#admin #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right, #teacherPortal #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right {
   margin-left: 10px;
 }
-#admin #pagina .registration-in-stages .connection-line {
+#admin #pagina .registration-in-stages .connection-line, #teacherPortal #pagina .registration-in-stages .connection-line {
   position: absolute;
   left: 0;
   right: 0;
@@ -540,18 +668,18 @@ button {
   width: 75%;
   background-color: #e4d9ff;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .row {
+#admin #pagina .registration-in-stages .registration-header-by-step .row, #teacherPortal #pagina .registration-in-stages .registration-header-by-step .row {
   display: flex;
   justify-content: space-around;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option, #teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option {
   z-index: 2;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option > .collapsed {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option > .collapsed, #teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option > .collapsed {
   background-color: #e4d9ff;
   color: #080809;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a, #teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option a {
   color: white;
   width: 35px;
   display: flex;
@@ -562,38 +690,38 @@ button {
   background-color: #6619c3;
   border-radius: 50%;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a span {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a span, #teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option a span {
   text-align: center;
   font-weight: 500;
 }
-#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
+#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p, #teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
   display: block;
   color: #080809;
   font-weight: 500;
   margin-top: 5px;
   font-size: 13px;
 }
-#admin #pagina #teacher-registration .connection-line {
+#admin #pagina #teacher-registration .connection-line, #teacherPortal #pagina #teacher-registration .connection-line {
   width: 68%;
 }
-#admin #pagina .accordion-container {
+#admin #pagina .accordion-container, #teacherPortal #pagina .accordion-container {
   height: 87vh;
 }
-#admin #pagina .accordion-container::-webkit-scrollbar {
+#admin #pagina .accordion-container::-webkit-scrollbar, #teacherPortal #pagina .accordion-container::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
-#admin #pagina #tableListExam td {
+#admin #pagina #tableListExam td, #teacherPortal #pagina #tableListExam td {
   margin: 3px;
   text-align: center;
   font-size: 14px;
 }
-#admin #pagina .collapse-options-container {
+#admin #pagina .collapse-options-container, #teacherPortal #pagina .collapse-options-container {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 15px;
 }
-#admin #pagina .collapse-options-container span {
+#admin #pagina .collapse-options-container span, #teacherPortal #pagina .collapse-options-container span {
   cursor: pointer;
   color: none;
   border-radius: 10px;
@@ -606,7 +734,7 @@ button {
   border: 1px solid #e5e5e5;
   color: #506177;
 }
-#admin #pagina .collapse-options-container span:hover {
+#admin #pagina .collapse-options-container span:hover, #teacherPortal #pagina .collapse-options-container span:hover {
   color: #ffffff;
   background-color: #6619c3;
 }
@@ -615,68 +743,73 @@ button {
 #admin #pagina .collapse-options-container span:hover .fa-check,
 #admin #pagina .collapse-options-container span:hover .fa-ban,
 #admin #pagina .collapse-options-container span:hover .fa-boxes,
-#admin #pagina .collapse-options-container span:hover .fa-plus-circle {
+#admin #pagina .collapse-options-container span:hover .fa-plus-circle, #teacherPortal #pagina .collapse-options-container span:hover .fa-edit,
+#teacherPortal #pagina .collapse-options-container span:hover .fa-print,
+#teacherPortal #pagina .collapse-options-container span:hover .fa-check,
+#teacherPortal #pagina .collapse-options-container span:hover .fa-ban,
+#teacherPortal #pagina .collapse-options-container span:hover .fa-boxes,
+#teacherPortal #pagina .collapse-options-container span:hover .fa-plus-circle {
   color: #ffffff;
 }
-#admin #pagina .collapse-options-container [aria-expanded=true] span {
+#admin #pagina .collapse-options-container [aria-expanded=true] span, #teacherPortal #pagina .collapse-options-container [aria-expanded=true] span {
   background: #6619c3;
   color: #ffffff;
   border: none;
 }
-#admin #pagina .horizontal-control-list {
+#admin #pagina .horizontal-control-list, #teacherPortal #pagina .horizontal-control-list {
   background-color: #e5e5e5;
   margin: 10px;
   display: none;
 }
-#admin #pagina .horizontal-control-list .list-group-item {
+#admin #pagina .horizontal-control-list .list-group-item, #teacherPortal #pagina .horizontal-control-list .list-group-item {
   border: 0px;
   padding: 10px;
 }
-#admin #pagina .horizontal-control-list a {
+#admin #pagina .horizontal-control-list a, #teacherPortal #pagina .horizontal-control-list a {
   font-size: 2vw;
 }
-#admin #pagina .horizontal-control-list [aria-expanded=true] {
+#admin #pagina .horizontal-control-list [aria-expanded=true], #teacherPortal #pagina .horizontal-control-list [aria-expanded=true] {
   background: #6619c3;
   border-radius: 5px;
   color: #ffffff;
 }
-#admin #pagina .horizontal-control-list [aria-expanded=true] a {
+#admin #pagina .horizontal-control-list [aria-expanded=true] a, #teacherPortal #pagina .horizontal-control-list [aria-expanded=true] a {
   color: #ffffff;
   font-weight: bold;
 }
-#admin #pagina .horizontal-control-list [aria-expanded=false] {
+#admin #pagina .horizontal-control-list [aria-expanded=false], #teacherPortal #pagina .horizontal-control-list [aria-expanded=false] {
   background: #e5e5e5;
   border-radius: 5px;
   color: #080809;
 }
-#admin #pagina .horizontal-control-list [aria-expanded=false] a {
+#admin #pagina .horizontal-control-list [aria-expanded=false] a, #teacherPortal #pagina .horizontal-control-list [aria-expanded=false] a {
   color: #080809;
   font-weight: bold;
 }
-#admin #pagina .gif-loading img {
+#admin #pagina .gif-loading img, #teacherPortal #pagina .gif-loading img {
   width: 20%;
 }
-#admin #pagina #toastContainer {
+#admin #pagina #toastContainer, #teacherPortal #pagina #toastContainer {
   position: fixed;
   right: 15px;
   bottom: 0;
   max-width: 40vw;
 }
-#admin #pagina .toast {
+#admin #pagina .toast, #teacherPortal #pagina .toast {
   border-radius: 15px;
   background-color: transparent !important;
   position: absolute;
   z-index: 100000000;
 }
-#admin #pagina .toast .toast-header {
+#admin #pagina .toast .toast-header, #teacherPortal #pagina .toast .toast-header {
   border-radius: 5px;
   padding: 10px 15px;
 }
-#admin #pagina .breadcrumb {
+#admin #pagina .breadcrumb, #teacherPortal #pagina .breadcrumb {
   background-color: transparent;
   margin-top: -10px;
 }
-#admin #pagina .breadcrumb .breadcrumb-item {
+#admin #pagina .breadcrumb .breadcrumb-item, #teacherPortal #pagina .breadcrumb .breadcrumb-item {
   font-weight: bold;
   font-size: 14px;
 }

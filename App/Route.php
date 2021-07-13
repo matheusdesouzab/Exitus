@@ -513,11 +513,44 @@ class Route extends Bootstrap
 				'action' => 'noteDelete'
 			);
 
+			$routes['IndexTeacherPortal'] = array(
+				'route' => '/portal-docente',
+				'controller' => 'TeacherPortalController',
+				'action' => 'index'
+			);
+
 			$routes['loginTeacherPortal'] = array(
 				'route' => '/portal-docente/login',
 				'controller' => 'TeacherPortalController',
-				'action' => 'login'
+				'action' => 'auth'
 			);
+
+			$routes['homeTeacherPortal'] = array(
+				'route' => '/portal-docente/home',
+				'controller' => 'TeacherPortalController',
+				'action' => 'home'
+			);
+
+			$routes['teacherClassesTeacherPortal'] = array(
+				'route' => '/portal-docente/turmas',
+				'controller' => 'TeacherPortalController',
+				'action' => 'teacherClasses'
+			);
+
+			$routes['seekTeacherClasses'] = array(
+				'route' => '/portal-docente/turmas/buscar',
+				'controller' => 'TeacherPortalController',
+				'action' => 'seekTeacherClasses'
+			);
+
+			$routes['closeSessionTeacherPortal'] = array(
+				'route' => '/portal-docente/sair',
+				'controller' => 'TeacherPortalController',
+				'action' => 'closeSession'
+			);
+
+			
+
 
 
 

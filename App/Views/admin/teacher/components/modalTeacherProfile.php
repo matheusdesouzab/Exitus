@@ -111,6 +111,8 @@
                         <input type="hidden" value="<?= $teacher->teacher_id ?>" name="teacherId">
                         <input type="hidden" value="<?= $teacher->telephone_id_teacher ?>" name="telephoneId">
                         <input type="hidden" value="<?= $teacher->address_id_teacher ?>" name="addressId">
+                        <input type="hidden" value="<?= $teacher->address_id_teacher ?>" name="classId">
+
 
                         <div class="row mb-3 ml-2 d-flex align-items-center">
 

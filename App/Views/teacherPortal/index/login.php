@@ -1,52 +1,84 @@
-<div class="row">
+<html lang="pt-br">
 
-    <div class="col-lg-10 mx-auto container-login">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Web Gest </title>
+
+    <link rel="stylesheet" href="/assets/css/stylesheet.css">
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+
+<body id="login">
+
+    <div class="container-fluid">
 
         <div class="row">
 
-            <div class="col-lg-5 sidebar-primary p-4">
+            <div class="col-lg-10 mx-auto container-login">
 
                 <div class="row">
 
-                    <h5 class="col-lg-12 text-white">Portal do Docente</h5>
+                    <div class="col-lg-5 sidebar-primary p-4">
 
-                </div>
+                        <div class="row">
 
-            </div>
-
-            <div class="col-lg-7 sidebar-secondary">
-
-                <div class="row">
-
-                    <form id="teacherLogin" class="col-lg-9 mx-auto" action="">
-
-                        <div class="form-row mt-2 form-body">
-
-                            <div class="form-group col-lg-10 mx-auto">
-                                <label for="name">Nome completo:</label>
-                                <input type="text" class="form-control" id="name" placeholder="">
-                            </div>
-
-                            <div class="form-group col-lg-10 mx-auto mt-4">
-                                <label for="accessCode">Código de acesso:</label>
-                                <input type="text" class="form-control" maxlength="7" id="accessCode" placeholder="000.000">
-                            </div>
-
-                            <div class="form-group col-lg-10 mx-auto">
-                                <label for="exampleFormControlInput1">&nbsp;</label>
-                                <button class="w-100 btn">Entrar</button>
-                                <small class="text-center text-info d-block mt-3 font-weight-bold">Esqueceu a senha?</small>
-                            </div>
+                            <h5 class="col-lg-12 text-white">Portal do Docente</h5>
 
                         </div>
 
-                    </form>
+                    </div>
 
+                    <div class="col-lg-7 sidebar-secondary">
+
+                        <div class="row">
+
+                            <form id="teacherLogin" class="col-lg-9 mx-auto" action="/portal-docente/login" method="POST">
+
+                                <div class="form-row mt-2 form-body">
+
+                                    <div class="form-group col-lg-10 mx-auto">
+                                        <label for="name">Nome completo:</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                    </div>
+
+                                    <div class="form-group col-lg-10 mx-auto mt-4">
+                                        <label for="accessCode">Código de acesso:</label>
+                                        <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="000.000">
+                                    </div>
+
+                                    <div class="form-group col-lg-10 mx-auto">
+                                        <label for="exampleFormControlInput1">&nbsp;</label>
+                                        <button class="w-100 btn">Entrar</button>
+                                        <small class="text-center text-info d-block mt-3 font-weight-bold">Esqueceu a senha?</small>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
+
         </div>
 
     </div>
 
-</div>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+
+    <script src="/assets/js/teacherPortal/main.js"></script>
+
+</body>

@@ -136,7 +136,6 @@ class AdminTeacherController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
-        $ClassDiscipline->__set("fk_id_class", $_POST['classId']);
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
         
         $Address->__set('addressId', $_POST['addressId']);
@@ -158,7 +157,6 @@ class AdminTeacherController extends Action
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);   
         $Teacher->__set('id', $_POST['teacherId']);
-
 
         $Telephone->update();
         $Address->update();
