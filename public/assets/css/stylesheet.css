@@ -1199,12 +1199,13 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
 #navbar-top a.bars-xs {
   display: none;
 }
-#navbar-top .foto-usuario {
-  width: 35px;
-}
-#navbar-top .foto-usuario img {
-  width: 100%;
+#navbar-top img {
   border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-position: top;
+  object-fit: cover;
+  cursor: pointer;
 }
 #navbar-top #navbarDropdown {
   color: #506177;

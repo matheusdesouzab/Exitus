@@ -428,7 +428,6 @@ class AdminManagementController extends Action
 
         $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('classId'));
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplineAll = $Discipline->disciplineAll();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
@@ -436,8 +435,12 @@ class AdminManagementController extends Action
         $this->view->unity = $Exam->unity();
         $this->view->classData = $Classe->list("AND turma.id_turma = " . $Classe->__get('classId'));
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
-        $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Classe->__get('classId'));
 
+        if (!isset($_SESSION)) session_start();
+
+        $teacher_id = isset($_SESSION['teacher_id']) ? $_SESSION['teacher_id'] : 0;
+
+        $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class') . " AND CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END");
 
         $this->render('management/components/modalClassProfile', 'SimpleLayout');
     }
@@ -453,7 +456,6 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_discipline", $_POST['availableSubjects']);
 
         $ClassDiscipline->insert();
-
     }
 
 
@@ -502,7 +504,11 @@ class AdminManagementController extends Action
 
         $Exam->__set("fk_id_class", $_GET['classId']);
 
-        $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class'));
+        if (!isset($_SESSION)) session_start();
+
+        $teacher_id = isset($_SESSION['teacher_id']) ? $_SESSION['teacher_id'] : 0;
+
+        $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class') . " AND CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END");
 
         $this->render('management/components/examList', 'SimpleLayout');
     }
@@ -558,6 +564,8 @@ class AdminManagementController extends Action
         $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+
+        if (!isset($_SESSION)) session_start();
 
         echo json_encode($ClassDiscipline->disciplinesClassAlreadyAdded());
     }
@@ -677,7 +685,6 @@ class AdminManagementController extends Action
         $Note->__set('fk_id_class', $_GET['classId']);
 
         echo json_encode($Note->notesNotAddedYet());
-  
     }
 
 

@@ -207,7 +207,7 @@ class Teacher extends People
     public function login()
     {
 
-        $query = "SELECT id_professor AS teacher_id , nome_professor AS teacher_name FROM professor WHERE codigo_acesso = :accessCode AND nome_professor = :teacherName";
+        $query = "SELECT id_professor AS teacher_id , nome_professor AS teacher_name , professor.foto_perfil_professor AS teacher_photo FROM professor WHERE codigo_acesso = :accessCode AND nome_professor = :teacherName";
 
         $stmt = $this->db->prepare($query);
 
@@ -302,12 +302,22 @@ class Teacher extends People
 
             CASE WHEN :fk_id_course = 0 THEN curso.id_curso <> :fk_id_course ELSE curso.id_curso = :fk_id_course END
 
+            AND
+
+            CASE WHEN :fk_id_series = 0 THEN serie.id_serie <> :fk_id_series ELSE serie.id_serie = :fk_id_series END
+
+            AND
+
+            CASE WHEN :fk_id_shift = 0 THEN turno.id_turno <> :fk_id_shift ELSE turno.id_turno = :fk_id_shift END
+
         ";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':teacherId', $this->__get('id'));
         $stmt->bindValue(':fk_id_course', $class->__get('fk_id_course'));
+        $stmt->bindValue(':fk_id_series', $class->__get('fk_id_series'));
+        $stmt->bindValue(':fk_id_shift', $class->__get('fk_id_shift'));
 
         $stmt->execute();
 

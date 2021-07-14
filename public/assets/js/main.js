@@ -200,7 +200,7 @@ $(document).on("click", "#profileClassModal [data-target='#list-discipline']", f
 })
 
 
-$(document).on("click", "#profileClassModal [data-target='#list-exam']", function (e) {
+$(document).on("click", "#profileClassModal [data-target='#list-exam'] , #profileClassModal [data-target='#class-profile-assessments'] ", function (e) {
 
     application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/lista", "#formClassId")
 
@@ -664,3 +664,43 @@ $(".bars-xs , .sidebar-header span").on("click", function (e) {
 
 
 $("#bars").on("click", sideState)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$("#teacherLogin #accessCode").on("keypress", e => $(e.target).mask("000.000"))
+
+$("#teacherPortal #class tbody tr").on('click', function(e){
+
+    application.showModal(this.id, "/admin/gestao/turma/perfil-turma", "containerClasseProfileModal", "#profileClassModal")
+
+})
+
+$("#teacherPortal #seekClass .custom-select").change(() => application.seekElement("#seekClass", "containerListClass", "/portal-docente/turmas/buscar"))

@@ -1,4 +1,12 @@
-<?php isset($_SESSION['teacher_id']) ? '' : header('Location: /portal-docente') ?>
+<?php 
+
+isset($_SESSION['teacher']['id']) ? '' : header('Location: /portal-docente');
+
+if (!isset($_SESSION)) session_start();
+
+unset($_SESSION['admin_id']);
+
+?> 
 
 <html lang="pt-br">
 
@@ -65,6 +73,6 @@
 
 <script src="/assets/js/utilities/style.js"></script>
 
-<script src="/assets/js/teacherPortal/main.js"></script>
+<script src="/assets/js/main.js"></script>
 
 </html>

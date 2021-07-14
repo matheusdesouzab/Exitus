@@ -1,4 +1,10 @@
+<?php
 
+if (!isset($_SESSION)) session_start();
+
+$_SESSION['admin_id'] = 1;
+
+?>
 
 <html lang="pt-br">
 
@@ -67,6 +73,6 @@
 
 <script src="/assets/js/utilities/style.js"></script>
 
-<script src="/assets/js/admin/main.js"></script>
+<script src="/assets/js/main.js"></script>
 
 </html>

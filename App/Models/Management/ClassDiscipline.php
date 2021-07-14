@@ -207,8 +207,8 @@ class ClassDiscipline extends Model
 
         foreach ($stmt as $key => $discipline) {
             array_push($allSubjectsId, $discipline->option_value);
-        } 
- 
+        }
+
         foreach ($disciplineAll as $key => $discipline) {
 
             if (!in_array($discipline->option_value, $allSubjectsId)) {
@@ -224,6 +224,8 @@ class ClassDiscipline extends Model
     public function disciplinesClassAlreadyAdded()
     {
 
+        $teacher_id = isset($_SESSION['teacher_id']) ? $_SESSION['teacher_id'] : 0;
+
         $query =
 
             "SELECT 
@@ -235,7 +237,9 @@ class ClassDiscipline extends Model
             
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
             
-            WHERE turma_disciplina.fk_id_turma = :fk_id_class
+            WHERE turma_disciplina.fk_id_turma = :fk_id_class AND
+
+            CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END
             
         ";
 

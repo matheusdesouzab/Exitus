@@ -32,10 +32,9 @@ class TeacherPortalController extends Action
             header('Location: /portal-docente?error=true');
         } else {
 
-            session_start();
+            if (!isset($_SESSION)) session_start();
 
-            $_SESSION['teacher_id'] = $auth[0]->teacher_id;
-            $_SESSION['teacher_name'] = $auth[0]->teacher_name;
+            $_SESSION['teacher'] = ['id' => $auth[0]->teacher_id , 'name' => $auth[0]->teacher_name , 'profilePhoto' => $auth[0]->teacher_photo];
 
             header('Location: /portal-docente/home');
         }
@@ -45,7 +44,7 @@ class TeacherPortalController extends Action
     public function home()
     {
 
-        session_start();
+        if (!isset($_SESSION)) session_start();
 
         print_r($_SESSION);
     }
@@ -60,9 +59,9 @@ class TeacherPortalController extends Action
         $ClassRoom = Container::getModel('Management\\ClassRoom');
         $SchoolTerm = Container::getModel('Management\\SchoolTerm');
 
-        session_start();
+        if (!isset($_SESSION)) session_start();
 
-        $Teacher->__set('id', $_SESSION['teacher_id']);
+        $Teacher->__set('id', $_SESSION['teacher']['id']);
 
         $this->view->teacherClasses = $Teacher->teacherClasses();
         $this->view->listClass = $Classe->list();
@@ -72,8 +71,6 @@ class TeacherPortalController extends Action
         $this->view->availableCourse = $Course->availableCourse();
         $this->view->availableClassRoom = $ClassRoom->activeClassroom();
         $this->view->activeSchoolTerm = $SchoolTerm->active();
-
-        session_abort();
 
         $this->render('management/pages/listClass', 'TeacherPortalLayout', 'TeacherPortal');
     }
@@ -90,15 +87,13 @@ class TeacherPortalController extends Action
         $Classe->__set('fk_id_series', $_GET['series']);
         $Classe->__set('fk_id_series', $_GET['series']);
         
-        session_start();
+        if (!isset($_SESSION)) session_start();
 
-        $Teacher->__set('id', $_SESSION['teacher_id']);
-
-        session_abort();
+        $Teacher->__set('id', $_SESSION['teacher']['id']);
 
         $this->view->teacherClasses = $Teacher->seekTeacherClasses($Classe);
 
-        $this->render('management/pages/listClass', 'TeacherPortalLayout', 'TeacherPortal');
+        $this->render('management/components/classListing', 'SimpleLayout', 'TeacherPortal');
 
     }
 
@@ -106,8 +101,9 @@ class TeacherPortalController extends Action
     public function closeSession()
     {
 
-        session_start();
-        session_destroy();
+        if (!isset($_SESSION)) session_start();
+
+        unset($_SESSION['teacher']);
 
         header('Location: /portal-docente');
     }

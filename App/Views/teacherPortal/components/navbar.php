@@ -12,19 +12,17 @@
 		<ul class="navbar-nav ml-auto">
 
 			<li class="nav-item">
-				<div class="foto-usuario">
-					<img src="/assets/img/foto-perfil-1.png" alt="">
+				<div class="">
+					<img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
 				</div>
 
 			</li>
 
-			<?php session_start() ?>
-
 			<li class="nav-item dropdown mr-5">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<?= $_SESSION['teacher_name'] ?>
+					<?= $_SESSION['teacher']['name'] ?>
 				</a>
-				<?php session_abort() ?>
+
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="#">Configurações</a>
 					<a class="dropdown-item" href="#">Another action</a>

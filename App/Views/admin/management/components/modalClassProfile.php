@@ -1,7 +1,5 @@
 <div class="row mb-4 d-flex justify-content-around" id="main-accordion">
 
-
-
     <div class="col-lg-3 col-11 mx-auto">
 
         <div class="row card">
@@ -16,7 +14,17 @@
 
                             <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data">Dados da turma</a>
 
-                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion">Disciplinas</a>
+                            <?php
+
+                            if (!isset($_SESSION)) session_start();
+
+                            if (isset($_SESSION['admin_id'])) {
+
+                            ?>
+
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion">Disciplinas</a>
+
+                            <?php } ?>
 
                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Avaliações</a>
 
@@ -292,6 +300,8 @@
 
                             <div containerExamsList class="">
 
+                            <?php print_r($this->view->listExam) ?>
+
                                 <?php require '../App/Views/admin/management/components/examList.php' ?>
 
                             </div>
@@ -379,7 +389,7 @@
 
                 </form>
 
-              
+
 
             </div>
         </div>
