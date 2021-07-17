@@ -30,8 +30,6 @@
 
             <?php } else { ?>
 
-
-
                 <td><?= $student->student_state ?></td>
 
             <?php } ?>

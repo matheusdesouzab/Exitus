@@ -700,6 +700,21 @@ class AdminManagementController extends Action
         $this->render('management/components/noteList', 'SimpleLayout');
     }
 
+
+    public function noteListClass()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+
+        $Note->__set('fk_id_class', $_GET['classId']);
+
+        $this->view->listNote = $Note->list("WHERE turma_disciplina.fk_id_turma = " . $Note->__get('fk_id_class'));
+        $this->view->listNoteType = 'class';
+
+        $this->render('management/components/noteList', 'SimpleLayout');
+    }
+    
+
     public function noteSeek()
     {
 
@@ -712,6 +727,24 @@ class AdminManagementController extends Action
         $Note->__set("fk_id_class", $_GET['classId']);
 
         $this->view->listNote = $Note->seek();
+
+        $this->render('management/components/noteList', 'SimpleLayout');
+    }
+
+
+    public function noteSeekClass()
+    {
+
+        $Note = Container::getModel('Management\\Note');
+
+        $Note->__set("fk_id_exam_unity", $_GET['unity']);
+        $Note->__set("fk_id_discipline_class", $_GET['disciplineClassId']);
+        $Note->__set("examDescription", $_GET['examDescription']);
+        $Note->__set("fk_id_student_enrollment", 0);
+        $Note->__set("fk_id_class", $_GET['classId']);
+
+        $this->view->listNote = $Note->seek($_GET['orderBy']);
+        $this->view->listNoteType = 'class';
 
         $this->render('management/components/noteList', 'SimpleLayout');
     }

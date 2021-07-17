@@ -42,7 +42,7 @@ class AdminStudentController extends Action
         $Classe = Container::getModel('Management\\Classe');
         $Student = Container::getModel('Student\\Student');
 
-        $this->view->listStudent = $Student->list('WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1');
+        $this->view->listStudent = $Student->list();
         $this->view->availableCourse = $Course->availableCourse();
         $this->view->availableClass = $Classe->availableListClass();
         $this->view->availableSex = $Student->availableSex();

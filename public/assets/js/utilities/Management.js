@@ -137,7 +137,7 @@ class Management {
 
             }
 
-        }, 2000)
+        }, 3000)
 
         load()
     }

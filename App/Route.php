@@ -13,6 +13,25 @@ class Route extends Bootstrap
 		// Admin routes
 
 
+			$routes['admin'] = array(
+				'route' => '/admin',
+				'controller' => 'AdminController',
+				'action' => 'index'
+			);
+
+			$routes['adminLogin'] = array(
+				'route' => '/admin/login',
+				'controller' => 'AdminController',
+				'action' => 'auth'
+			);
+
+			$routes['adminExit'] = array(
+				'route' => '/admin/sair',
+				'controller' => 'AdminController',
+				'action' => 'exit'
+			);
+
+
 			// Student 
 
 
@@ -489,10 +508,22 @@ class Route extends Bootstrap
 				'action' => 'noteList'
 			);
 
+			$routes['adminNoteListClass'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/lista-notas',
+				'controller' => 'AdminManagementController',
+				'action' => 'noteListClass'
+			);
+
 			$routes['adminNoteSeek'] = array(
 				'route' => '/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar',
 				'controller' => 'AdminManagementController',
 				'action' => 'noteSeek'
+			);
+
+			$routes['adminNoteSeekClass'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/lista-notas/buscar',
+				'controller' => 'AdminManagementController',
+				'action' => 'noteSeekClass'
 			);
 
 			$routes['adminNoteData'] = array(

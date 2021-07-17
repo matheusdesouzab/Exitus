@@ -10,33 +10,33 @@
 
                 <div class="registration-header-by-step mt-2">
 
-                <div class="row">
+                    <div class="row">
 
-                    <div class="connection-line"></div>
+                        <div class="connection-line"></div>
 
-                    <div class="container-option">
+                        <div class="container-option">
 
-                        <a type="button" class="" data-toggle="collapse" data-target="#teacher-registration-initial-data"><span>1</span></a>
+                            <a type="button" class="" data-toggle="collapse" data-target="#teacher-registration-initial-data"><span>1</span></a>
 
-                        <p>Dados pessoais</p>
+                            <p>Dados pessoais</p>
 
-                    </div>
+                        </div>
 
-                    <div class="container-option">
+                        <div class="container-option">
 
-                        <a type="button" class="collapsed" data-toggle="collapse" data-target="#teacher-registration-address-and-others"><span>2</span></a>
+                            <a type="button" class="collapsed" data-toggle="collapse" data-target="#teacher-registration-address-and-others"><span>2</span></a>
 
-                        <p>Localidade e outros</p>
+                            <p>Localidade e outros</p>
 
-                    </div>
+                        </div>
 
-                    <div class="container-option">
+                        <div class="container-option">
 
-                        <a type="button" class="collapsed" data-toggle="collapse" data-target="#teacher-registration-finishing"><span>3</span></a>
+                            <a type="button" class="collapsed" data-toggle="collapse" data-target="#teacher-registration-finishing"><span>3</span></a>
 
-                        <p>Finalizando</p>
+                            <p>Finalizando</p>
 
-                    </div>
+                        </div>
 
                     </div>
 
@@ -117,7 +117,7 @@
                                     <div id="photoField" class="form-group col-md-8">
                                         <label for="">&nbsp;</label>
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
+                                            <input type="file" accept="image/*" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
                                             <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do professor</label>
 
                                         </div>
@@ -180,9 +180,9 @@
                                     </div>
 
                                     <div id="telephoneField" class="form-group col-md-4">
-                                    <label for="telephoneNumber">Contato:</label>
-                                    <input type="tel" id="telephoneNumber" value="" class="form-control" name="telephoneNumber" placeholder="(00) 00000-0000" required>
-                                </div>
+                                        <label for="telephoneNumber">Contato:</label>
+                                        <input type="tel" id="telephoneNumber" value="" class="form-control" name="telephoneNumber" placeholder="(00) 00000-0000" required>
+                                    </div>
 
                                     <div class="form-group col-md-3">
 
@@ -198,6 +198,15 @@
                                         </select>
 
                                     </div>
+                                </div>
+
+                                <div class="form-row">
+
+                                    <div class="form-group col-md-12">
+                                        <label for="email">Email do docente:</label>
+                                        <input name="email" id="email" type="email" class="form-control" placeholder="" required>
+                                    </div>
+
                                 </div>
 
                                 <div class="form-row d-flex justify-content-end">

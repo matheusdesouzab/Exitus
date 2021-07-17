@@ -28,6 +28,8 @@
 
                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Avaliações</a>
 
+                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history">Histórico de notas</a>
+
                         </ul>
 
                     </nav>
@@ -300,7 +302,7 @@
 
                             <div containerExamsList class="">
 
-                            <?php print_r($this->view->listExam) ?>
+                                <?php print_r($this->view->listExam) ?>
 
                                 <?php require '../App/Views/admin/management/components/examList.php' ?>
 
@@ -389,9 +391,115 @@
 
                 </form>
 
+            </div>
+
+            <div class="col-lg-11 mx-auto collapse" id="class-note-history" data-parent="#main-accordion">
+
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <h5>Notas das avaliações</h5>
+                    </div>
+
+                    <form id="seekNoteExam" class="text-dark col-lg-12 mt-3 accordion" action="">
+
+                        <div class="form-row mt-3">
+
+                            <div class="form-group col-lg-5">
+                                <label for="">Descrição:</label>
+                                <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
+                            </div>
+
+                            <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
+
+                            <div class="form-group col-lg-5">
+
+                                <label for="">Disciplina:</label>
+
+                                <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+
+                                    <option value="0">Todas</option>
+
+                                    <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+
+                                        <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                    <?php } ?>
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group col-lg-2">
+                                <label for="">&nbsp;</label>
+
+                                <div>
+                                    <a class="btn btn-light w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-filter"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="activate-advanced-search-accordion" class="collapse" data-parent="#seekNoteExam">
+
+                            <div class="form-row">
+
+                                <div class="form-group col-lg-2">
+                                    <label for="">Unidade:</label>
+
+                                    <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                        <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                            <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                        <?php } ?>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group col-lg-4">
+
+                                    <label for="">Ordem de busca</label>
+
+                                    <select id="orderBy" class="form-control custom-select" name="orderBy" required>
+
+                                        <option value="DESC">Melhores notas</option>
+                                        <option value="ASC">Menores notas</option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                    <hr class="col-lg-10 mx-auto">
+
+                    <div class="col-lg-12 table-responsive">
+
+                        <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover" id="note-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" colspan="2">Nome do aluno</th>
+                                    <th scope="col">Descrição da avaliação</th>
+                                    <th scope="col">Disciplina</th>
+                                    <th scope="col">Resultado</th>
+                                </tr>
+                            </thead>
+                            <tbody containerListNote></tbody>
+                        </table>
+                    </div>
+
+                </div>
 
 
             </div>
+
         </div>
     </div>
 </div>

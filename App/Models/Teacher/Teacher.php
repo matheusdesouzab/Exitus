@@ -29,11 +29,11 @@ class Teacher extends People
 
             "INSERT INTO professor 
             
-            (nome_professor, cpf_professor, data_nascimento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso)
+            (nome_professor, cpf_professor, data_nascimento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso , email_professor , fk_id_professor_hierarquia_funcao)
 
             VALUES 
             
-            (:teacherName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address,:fk_id_telephone , :accessCode)
+            (:teacherName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address,:fk_id_telephone , :accessCode , :email , :fk_id_hierarchy_function)
         
         ";
 
@@ -45,12 +45,14 @@ class Teacher extends People
         $stmt->bindValue(':naturalness', $this->__get('naturalness'));
         $stmt->bindValue(':profilePhoto', $this->__get('profilePhoto'));
         $stmt->bindValue(':nationality', $this->__get('nationality'));
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
+        $stmt->bindValue(':email', $this->__get('email'));
         $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
         $stmt->bindValue(':fk_id_blood_type', $this->__get('fk_id_blood_type'));
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
         $stmt->bindValue(':fk_id_address', $this->__get('fk_id_address'));
         $stmt->bindValue(':fk_id_telephone', $this->__get('fk_id_telephone'));
-        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
+        $stmt->bindValue(':fk_id_hierarchy_function', $this->__get('fk_id_hierarchy_function'));
 
         $stmt->execute();
 
@@ -207,12 +209,25 @@ class Teacher extends People
     public function login()
     {
 
-        $query = "SELECT id_professor AS teacher_id , nome_professor AS teacher_name , professor.foto_perfil_professor AS teacher_photo FROM professor WHERE codigo_acesso = :accessCode AND nome_professor = :teacherName";
+        $query = 
+        
+            "SELECT 
+            
+            id_professor AS teacher_id , 
+            nome_professor AS teacher_name , 
+            professor.foto_perfil_professor AS teacher_photo ,
+            fk_id_professor_hierarquia_funcao AS hierarchy_function
+            
+            FROM professor 
+            
+            WHERE codigo_acesso = :accessCode AND nome_professor = :teacherName
+        
+        ";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':accessCode', $this->__get('accessCode'));
-        $stmt->bindValue(':teacherName', $this->__get('teacherName'));
+        $stmt->bindValue(':teacherName', $this->__get('name'));
 
         $stmt->execute();
 

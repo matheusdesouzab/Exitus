@@ -1,8 +1,8 @@
-<?php
+<?php 
 
 if (!isset($_SESSION)) session_start();
 
-$_SESSION['admin_id'] = 1;
+isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
 ?>
 

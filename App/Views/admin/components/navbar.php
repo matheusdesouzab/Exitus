@@ -10,21 +10,10 @@
 		<ul class="navbar-nav ml-auto">
 
 			<li class="nav-item">
-				<div class="foto-usuario">
-					<img src="/assets/img/foto-perfil-1.png" alt="">
+				<div class="">
+					<img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
 				</div>
 
-			</li>
-			<li class="nav-item dropdown mr-5">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Matheus de Souza
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#">Configurações</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Encerra sessão</a>
-				</div>
 			</li>
 		</ul>
 	</div>

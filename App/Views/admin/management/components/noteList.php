@@ -2,15 +2,29 @@
 
     foreach ($this->view->listNote as $i => $note) { ?>
 
+        <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
+
         <tr id="note<?= $note->note_id ?>">
-            <td><?= $note->exam_description ?></td>
+
+            <?php if ($this->view->listNoteType == 'class') { ?>
+
+                <td class="text-right">
+                    <img src='<?= $note->student_profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->student_profilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                </td>
+
+                <td class="text-left">
+                    <?= $note->student_name ?>
+                </td>
+
+            <?php } ?>
+
+            <td><?= $note->exam_description ?> - <?= $note->unity ?> unidade</td>
             <td><?= $note->discipline_name ?></td>
-            <td><?= $note->unity ?></td>
-            <td><?= $note->exam_value ?></td>
-            <td><?= $note->note_value ?></td>
+            <td><?= $note->note_value ?> / <?= $note->exam_value ?></td>
         </tr>
 
-<?php }} else { ?>
+    <?php }
+} else { ?>
 
     <tr class="mt-4">
         <td colspan="5" style="pointer-events:none">Nenhuma avaliação encrontada <i class="fas fa-history ml-2"></i></td>

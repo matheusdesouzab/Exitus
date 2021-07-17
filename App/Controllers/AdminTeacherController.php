@@ -50,9 +50,11 @@ class AdminTeacherController extends Action
         $Teacher->__set('birthDate', $_POST['birthDate']);
         $Teacher->__set('naturalness', $_POST['naturalness']);
         $Teacher->__set('nationality', $_POST['nationality']);     
+        $Teacher->__set('email', $_POST['email']);     
         $Teacher->__set('fk_id_sex', $_POST['sex']);
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
+        $Teacher->__set('fk_id_hierarchy_function', 3);
 
         $Teacher->__set('fk_id_telephone', $Telephone->insert());
         $Teacher->__set('fk_id_address', $Address->insert());

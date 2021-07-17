@@ -15,12 +15,13 @@ class People extends Model
     protected $nationality;
     protected $profilePhoto;
     protected $accessCode;
+    protected $email;
+    protected $fk_id_hierarchy_function;
     protected $fk_id_sex;
     protected $fk_id_blood_type;
     protected $fk_id_pcd;
     protected $fk_id_address;
     protected $fk_id_telephone;
-
 
     public function __get($att)
 	{

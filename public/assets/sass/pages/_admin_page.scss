@@ -120,10 +120,28 @@
         }
 
 
-        #tableListExam td {
+        #tableListExam 
+        {
+            font-size: 15px;
+            td {
             margin: 3px;
             text-align: center;
-            font-size: 14px;
+        }
+    }
+
+
+        #note-table{
+            width: 1000px;
+            font-size: 15px;
+
+            td,th{
+                text-align: left;
+            }
+        }
+
+
+        #seekNoteExam a{
+            border: 1px solid $color-smooth-gray;
         }
 
 

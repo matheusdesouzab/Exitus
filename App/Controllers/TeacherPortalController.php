@@ -34,9 +34,16 @@ class TeacherPortalController extends Action
 
             if (!isset($_SESSION)) session_start();
 
-            $_SESSION['teacher'] = ['id' => $auth[0]->teacher_id , 'name' => $auth[0]->teacher_name , 'profilePhoto' => $auth[0]->teacher_photo];
+            $_SESSION['Teacher'] = [
 
-            header('Location: /portal-docente/home');
+                'id' => $auth[0]->teacher_id,
+                'name' => $auth[0]->teacher_name,
+                'profilePhoto' => $auth[0]->teacher_photo,
+                'hierarchyFunction' => $auth[0]->hierarchy_function
+
+            ];
+
+            header('Location: /portal-docente/turmas');
         }
     }
 
@@ -86,7 +93,7 @@ class TeacherPortalController extends Action
         $Classe->__set('fk_id_shift', $_GET['shift']);
         $Classe->__set('fk_id_series', $_GET['series']);
         $Classe->__set('fk_id_series', $_GET['series']);
-        
+
         if (!isset($_SESSION)) session_start();
 
         $Teacher->__set('id', $_SESSION['teacher']['id']);
@@ -94,16 +101,15 @@ class TeacherPortalController extends Action
         $this->view->teacherClasses = $Teacher->seekTeacherClasses($Classe);
 
         $this->render('management/components/classListing', 'SimpleLayout', 'TeacherPortal');
-
     }
 
 
-    public function closeSession()
+    public function exit()
     {
 
         if (!isset($_SESSION)) session_start();
 
-        unset($_SESSION['teacher']);
+        unset($_SESSION['Teacher']);
 
         header('Location: /portal-docente');
     }

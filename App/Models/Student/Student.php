@@ -120,7 +120,7 @@ class Student extends People
             FROM aluno 
             
             INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
-            INNER JOIN situacao_aluno ON(matricula.fk_id_situacao_aluno = situacao_aluno.id_stuacao_aluno)
+            INNER JOIN situacao_aluno ON(matricula.fk_id_situacao_aluno = situacao_aluno.id_situacao_aluno)
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
             INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
             INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
@@ -246,7 +246,7 @@ class Student extends People
             INNER JOIN telefone ON(aluno.fk_id_telefone_aluno = telefone.id_telefone) 
             INNER JOIN endereco ON(aluno.fk_id_endereco_aluno = endereco.id_endereco) 
             INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
-            INNER JOIN situacao_aluno ON(matricula.fk_id_situacao_aluno = situacao_aluno.id_stuacao_aluno) 
+            INNER JOIN situacao_aluno ON(matricula.fk_id_situacao_aluno = situacao_aluno.id_situacao_aluno) 
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
             INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
             INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 

@@ -223,13 +223,6 @@ $(document).on("blur", "#profileClassModal #seekExam #disciplineClassId , #seekE
 })
 
 
-$(document).on("change", "#seekNoteExam #disciplineClassId , #seekNoteExam #unity", function (e) {
-
-    application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar", "#seekNoteExam")
-
-})
-
-
 $(document).on("click", "#profileClassModal list-exam-list", function (e) {
 
     application.loadOptions([
@@ -467,11 +460,30 @@ $(document).on("keyup", "#seekNoteExam #examDescription", function (e) {
 })
 
 
+$(document).on("keyup", "#seekNoteExam #examDescription", function (e) {
+
+    if (timeout) clearTimeout(timeout)
+
+    timeout = setTimeout(() => application.seekElement("#seekNoteExam", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar"), 1500)
+
+})
+
+
+$(document).on('change', "#seekNoteExam select", function (e){
+    
+    application.seekElement("#seekNoteExam", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar")
+
+})
+
+
 $("#seekClass .custom-select").change(() => application.seekElement("#seekClass", "containerListClass", "/admin/gestao/turma/buscar"))
 
 $("#seekDiscipline select[name='seekModality']").change(() => application.seekElement("#seekDiscipline", "containerListDiscipline", "/admin/gestao/disciplina/buscar"))
 
 $("#seekStudent select").change(() => application.seekElement("#seekStudent", "containerListStudent", "/admin/aluno/lista/buscar"))
+
+
+
 
 
 /////////////////////////////////////////////////////////////////////////
@@ -480,7 +492,7 @@ $("#seekStudent select").change(() => application.seekElement("#seekStudent", "c
 //* Validation session
 
 
-let commonElements = ["#name , #birthDate", "#naturalness", "#nationality", "#motherName", "#fatherName", "#county", "#district", "#address", "#uf"]
+let commonElements = ["#name , #birthDate", "#naturalness", "#nationality", "#motherName", "#fatherName", "#county", "#district", "#address", "#uf" , "#email"]
 
 commonElements.forEach(element => $(element).on("blur", e => validation.validateByContent(e.target.id)))
 
@@ -582,7 +594,7 @@ $("[data-target='#teacher-registration-finishing']").on("click", function (e) {
     let name = $("#name").val().split(" ", 1)
     $("#name").val() == "" ? "" : $("[givenName]").text(`de ${name[0]}`)
 
-    validation.checkAllFields("#addTeacher", 15, "#buttonAddTeacher", "containerTeacherRegistrationStatus", `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao professor seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
+    validation.checkAllFields("#addTeacher", 16, "#buttonAddTeacher", "containerTeacherRegistrationStatus", `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao professor seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
 })
 
 
@@ -695,7 +707,7 @@ $("#bars").on("click", sideState)
 
 
 
-$("#teacherLogin #accessCode").on("keypress", e => $(e.target).mask("000.000"))
+$("#accessCode").on("keypress", e => $(e.target).mask("000.000"))
 
 $("#teacherPortal #class tbody tr").on('click', function(e){
 
@@ -704,3 +716,10 @@ $("#teacherPortal #class tbody tr").on('click', function(e){
 })
 
 $("#teacherPortal #seekClass .custom-select").change(() => application.seekElement("#seekClass", "containerListClass", "/portal-docente/turmas/buscar"))
+
+
+$(document).on('click', "#profileClassModal [data-target='#class-note-history']" , function(e){
+
+    application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas", "#formClassId")
+
+})

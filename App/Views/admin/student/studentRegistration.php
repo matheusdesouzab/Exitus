@@ -210,7 +210,7 @@
                                     <label for="">&nbsp;</label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
-                                        <label class="custom-file-label" for="profilePhoto" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
+                                        <label class="custom-file-label" for="profilePhoto" accept="image/*" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
 
                                     </div>
                                 </div>

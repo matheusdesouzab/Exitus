@@ -711,10 +711,22 @@ button {
   width: 0;
   background: transparent;
 }
+#admin #pagina #tableListExam, #teacherPortal #pagina #tableListExam {
+  font-size: 15px;
+}
 #admin #pagina #tableListExam td, #teacherPortal #pagina #tableListExam td {
   margin: 3px;
   text-align: center;
-  font-size: 14px;
+}
+#admin #pagina #note-table, #teacherPortal #pagina #note-table {
+  width: 1000px;
+  font-size: 15px;
+}
+#admin #pagina #note-table td, #admin #pagina #note-table th, #teacherPortal #pagina #note-table td, #teacherPortal #pagina #note-table th {
+  text-align: left;
+}
+#admin #pagina #seekNoteExam a, #teacherPortal #pagina #seekNoteExam a {
+  border: 1px solid #e5e5e5;
 }
 #admin #pagina .collapse-options-container, #teacherPortal #pagina .collapse-options-container {
   display: flex;
