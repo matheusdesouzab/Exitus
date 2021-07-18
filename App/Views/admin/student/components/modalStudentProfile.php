@@ -15,13 +15,13 @@
                         <img class="mx-auto mb-2" src='<?= $student->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->student_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
                         <div class="col-lg-12 main-sheet d-block d-sm-none">
-                            <div class="row p-3"><span class="col-lg-12"><?= $student->student_name ?> - <?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift_name ?></span></div>
+                            <div class="row p-3"><span class="col-lg-12"><?= $student->student_name ?> - <?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift ?></span></div>
                         </div>
 
                         <div class="col-lg-12 main-sheet d-none d-sm-block">
                             <div class="row p-3">
                                 <span class="col-lg-12"><?= $student->student_name ?></span>
-                                <span class="col-lg-12"><?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift_name ?></span>
+                                <span class="col-lg-12"><?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift ?></span>
                             </div>
                         </div>
 
@@ -242,6 +242,13 @@
 
                         </div>
 
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">Email</span>
+                            </div>
+                            <input id="email" name="email" type="text" disabled class="form-control" value="<?= $student->email?>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+
                         <h5 class="mt-5 mb-3 ml-4">Endereço e contato:</h5>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
@@ -299,7 +306,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Turma:</span>
                             </div>
-                            <input type="text" disabled class="form-control" value="<?= $student->acronym_series ?> <?= $student->ballot ?> -  <?= $student->course ?> - <?= $student->shift_name ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" disabled class="form-control" value="<?= $student->acronym_series ?> <?= $student->ballot ?> -  <?= $student->course ?> - <?= $student->shift ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
                     <?php } ?>

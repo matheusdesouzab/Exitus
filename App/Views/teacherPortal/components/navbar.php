@@ -13,15 +13,13 @@
 
 			<li class="nav-item">
 				<div class="">
-					<img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
+					<img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
 				</div>
 
 			</li>
 
 			<li class="nav-item dropdown mr-5">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<?= $_SESSION['teacher']['name'] ?>
-				</a>
+				
 
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="#">Configurações</a>

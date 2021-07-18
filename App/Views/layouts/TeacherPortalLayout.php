@@ -1,10 +1,8 @@
 <?php 
 
-isset($_SESSION['teacher']['id']) ? '' : header('Location: /portal-docente');
-
 if (!isset($_SESSION)) session_start();
 
-unset($_SESSION['admin_id']);
+isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 
 ?> 
 

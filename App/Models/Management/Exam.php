@@ -14,6 +14,7 @@ class Exam extends Model
     private $fk_id_exam_unity;
     private $fk_id_discipline_class;
     private $fk_id_class;
+    private $fk_id_teacher;
 
 
     public function __get($att)
@@ -217,9 +218,11 @@ class Exam extends Model
 
             AND
 
-            CASE WHEN :fk_id_exam_unity = 0 THEN avaliacoes.fk_id_unidade_avaliacao <> :fk_id_exam_unity ELSE avaliacoes.fk_id_unidade_avaliacao = :fk_id_exam_unity
+            CASE WHEN :fk_id_exam_unity = 0 THEN avaliacoes.fk_id_unidade_avaliacao <> :fk_id_exam_unity ELSE avaliacoes.fk_id_unidade_avaliacao = :fk_id_exam_unity END
 
-            END
+            AND
+
+            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> :fk_id_teacher ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
                  
         ";
 
@@ -232,6 +235,8 @@ class Exam extends Model
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
 
         $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
+
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
 

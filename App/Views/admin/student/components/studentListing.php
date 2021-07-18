@@ -24,13 +24,13 @@
 
                 <td><?= $formattedCpf ?></td>
 
-                <td><?= $student->acronym_series . ' ' . $student->class_ballot  . ' - ' . $student->course . ' - ' . $student->shift ?></td>
+                <td><?= $student->acronym_series . ' ' . $student->ballot  . ' - ' . $student->course . ' - ' . $student->shift ?></td>
 
                 <td>0</td>
 
             <?php } else { ?>
 
-                <td><?= $student->student_state ?></td>
+                <td><?= $student->student_situation ?></td>
 
             <?php } ?>
 

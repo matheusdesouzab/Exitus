@@ -426,6 +426,10 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_class", $_GET['id']);
         $Classe->__set('classId', $_GET['id']);
 
+        if (!isset($_SESSION)) session_start();
+
+        $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0 );
+
         $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('classId'));
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
@@ -438,7 +442,7 @@ class AdminManagementController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $teacher_id = isset($_SESSION['teacher_id']) ? $_SESSION['teacher_id'] : 0;
+        $teacher_id = isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0;
 
         $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class') . " AND CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END");
 
@@ -506,7 +510,7 @@ class AdminManagementController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $teacher_id = isset($_SESSION['teacher_id']) ? $_SESSION['teacher_id'] : 0;
+        $teacher_id = isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0;
 
         $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class') . " AND CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END");
 
@@ -566,6 +570,8 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
         if (!isset($_SESSION)) session_start();
+
+        $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0 );
 
         echo json_encode($ClassDiscipline->disciplinesClassAlreadyAdded());
     }
@@ -643,6 +649,10 @@ class AdminManagementController extends Action
         $Exam->__set("fk_id_discipline_class", $_GET['disciplineClassId']);
         $Exam->__set("examDescription", $_GET['examDescription']);
         $Exam->__set("fk_id_class", $_GET['classId']);
+
+        if (!isset($_SESSION)) session_start();
+
+        $Exam->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         $this->view->listExam = $Exam->seek();
 

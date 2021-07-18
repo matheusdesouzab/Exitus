@@ -170,7 +170,7 @@
 
                             <div class="form-row">
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label for="address">Endereço:</label>
                                     <input type="text" id="address" value="" class="form-control" name="address" placeholder="" required>
                                 </div>
@@ -180,14 +180,10 @@
                                     <input type="text" id="uf" class="form-control" value="" maxlength="2" name="uf" placeholder="" required>
                                 </div>
 
-                                <div id="telephoneField" class="form-group col-md-4">
+                                <div id="telephoneField" class="form-group col-md-3">
                                     <label for="telephoneNumber">Contato:</label>
                                     <input type="tel" id="telephoneNumber" value="" class="form-control" name="telephoneNumber" placeholder="(00) 00000-0000" required>
                                 </div>
-
-                            </div>
-
-                            <div class="form-row">
 
                                 <div class="form-group col-md-3">
 
@@ -205,12 +201,21 @@
 
                                 </div>
 
+                            </div>
 
-                                <div id="photoField" class="form-group col-md-8">
+                            <div class="form-row">
+
+                                <div id="emailField" class="form-group col-md-5">
+                                    <label for="email">Email do aluno:</label>
+                                    <input name="email" id="email" type="email" class="form-control" placeholder="" required>
+                                </div>
+
+
+                                <div id="photoField" class="form-group col-md-6">
                                     <label for="">&nbsp;</label>
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input form-control" name="profilePhoto" id="profilePhoto">
-                                        <label class="custom-file-label" for="profilePhoto" accept="image/*" data-browse="Arquivo">Selecionar uma foto para o perfil do aluno</label>
+                                        <label class="custom-file-label" for="profilePhoto" accept="image/*" data-browse="Arquivo">Selecionar uma foto</label>
 
                                     </div>
                                 </div>
@@ -293,9 +298,33 @@
 
                             <div class="row">
 
-                                <h5 class="mt-2 col-lg-12 col-11 mx-auto">Finalizando a matricula <span givenName></span></h5>
+                                <h5 class="mt-2 col-lg-12 col-11 mx-auto p-0">Finalizando a matricula <span givenName></span></h5>
 
-                                <div containerStudentRegistrationStatus class="col-lg-12 col-11 mx-auto"></div>
+                                <div class="row">
+
+                                        <div containerRegistrationSuccess class="col-lg-12">
+
+                                            <div class="row">
+
+                                                <p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p>
+
+                                                <p class="col-lg-12 p-0 font-weight-bold"><i class="fas text-info fa-info-circle mr-2"></i> Informe ao aluno seu código de acesso ao portal</p>
+
+                                                <p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div containerRegistrationError class="col-lg-12 p-0">
+
+                                            <p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p>
+
+                                        </div>
+
+                                        <input type="hidden" name="accessCode" id="accessCode" value="">
+
+                                    </div>
 
                                 <div class="col-lg-12">
 

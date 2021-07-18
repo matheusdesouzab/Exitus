@@ -574,10 +574,10 @@ class Route extends Bootstrap
 				'action' => 'seekTeacherClasses'
 			);
 
-			$routes['closeSessionTeacherPortal'] = array(
+			$routes['exitTeacherPortal'] = array(
 				'route' => '/portal-docente/sair',
 				'controller' => 'TeacherPortalController',
-				'action' => 'closeSession'
+				'action' => 'exit'
 			);
 
 			

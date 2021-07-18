@@ -120,7 +120,7 @@ class AdminTeacherController extends Action
         $Teacher->__set('id', $_GET['id']);
         $ClassDiscipline->__set('fk_id_teacher', $_GET['id']);
 
-        $this->view->teacherProfile = $Teacher->profile();
+        $this->view->teacherProfile = $Teacher->list("WHERE professor.id_professor = " . $Teacher->__get('id'));
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->bloodType = $Teacher->bloodType();
@@ -149,6 +149,7 @@ class AdminTeacherController extends Action
 
         $Telephone->__set('telephoneId', $_POST['telephoneId']);
         $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber'])); 
+        $Teacher->__set('email', $_POST['email']); 
 
         $Teacher->__set('name', $_POST['name']);
         $Teacher->__set('birthDate', $_POST['birthDate']);

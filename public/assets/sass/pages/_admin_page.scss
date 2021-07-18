@@ -236,5 +236,9 @@
             }
         }
 
+        [containerRegistrationSuccess] , [containerRegistrationError]{
+            display: none;
+        }
+
     }
 }

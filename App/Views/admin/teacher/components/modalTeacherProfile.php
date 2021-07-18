@@ -191,6 +191,13 @@
                         </div>
 
                         <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">Email:</span>
+                            </div>
+                            <input type="email" id="email" name="email" disabled class="form-control" value="<?= $teacher->email ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+
+                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
 
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">PcD:</span>

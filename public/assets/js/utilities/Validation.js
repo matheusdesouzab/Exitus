@@ -114,14 +114,16 @@ class Validation {
     }
 
 
-    checkAllFields(form, totalFields, button, container, successMassage, errorMessage) {
+    checkAllFields(form, totalFields, button) {
 
         let inputs = $(`${form} .form-control`)
         let photo = $('#profilePhoto')
-
-        $(`[${container}]`).text('')
+        let name = $("#name").val().split(" ", 1)
 
         let size = null
+
+        $('[containerRegistrationSuccess] , [containerRegistrationError]').hide()
+        $("#name").val() == "" ? "" : $("[givenName]").text(`de ${name[0]}`)
 
         $.each(inputs, (key, value) => $(value).hasClass('is-valid') ? size += 1 : '')
 
@@ -133,17 +135,18 @@ class Validation {
 
             $(button).prop("disabled", false)
 
-            $(`[${container}]`).append(successMassage)
-
             $('[accessCode]').text('').append(accessCode)
 
             $('form #accessCode').val(accessCode)
+
+            $('[containerRegistrationSuccess]').show()
 
         } else {
 
             $(button).prop("disabled", true)
 
-            $(`[${container}]`).append(errorMessage)
+            $('[containerRegistrationError]').show()
+
         }
 
     }
@@ -174,6 +177,31 @@ class Validation {
             }
         })
 
+    }
+
+
+    checkEmail(email) {
+
+        let result = /\S+@\S+\.\S+/
+        let message = ''
+
+        $('.email-info').remove()
+
+        if (!result.test(email)) {
+
+            message = "Formato inválido"
+
+            $("#email").removeClass('is-valid')
+
+            $('#emailField').append(`<small class="text-danger text-center email-info">${message}</small>`)
+
+        } else {
+
+            $('.email-info').remove()
+
+            $("#email").addClass('is-valid')
+
+        }
     }
 
 }

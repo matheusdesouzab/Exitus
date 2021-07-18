@@ -18,7 +18,7 @@
 
                             if (!isset($_SESSION)) session_start();
 
-                            if (isset($_SESSION['admin_id'])) {
+                            if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
 
                             ?>
 
@@ -461,12 +461,12 @@
 
                                 <div class="form-group col-lg-4">
 
-                                    <label for="">Ordem de busca</label>
+                                    <label for="">Ordenar por:</label>
 
                                     <select id="orderBy" class="form-control custom-select" name="orderBy" required>
 
-                                        <option value="DESC">Melhores notas</option>
-                                        <option value="ASC">Menores notas</option>
+                                        <option value="DESC">Maior nota</option>
+                                        <option value="ASC">Menor nota</option>
 
                                     </select>
 

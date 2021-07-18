@@ -224,8 +224,6 @@ class ClassDiscipline extends Model
     public function disciplinesClassAlreadyAdded()
     {
 
-        $teacher_id = isset($_SESSION['teacher_id']) ? $_SESSION['teacher_id'] : 0;
-
         $query =
 
             "SELECT 
@@ -239,13 +237,14 @@ class ClassDiscipline extends Model
             
             WHERE turma_disciplina.fk_id_turma = :fk_id_class AND
 
-            CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END
+            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
             
         ";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
 

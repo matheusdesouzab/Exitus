@@ -202,7 +202,7 @@
 
                                 <div class="form-row">
 
-                                    <div class="form-group col-md-12">
+                                    <div id="emailField" class="form-group col-md-12">
                                         <label for="email">Email do docente:</label>
                                         <input name="email" id="email" type="email" class="form-control" placeholder="" required>
                                     </div>
@@ -231,13 +231,40 @@
 
                             <div class="row">
 
-                                <h5 class="mt-2 col-lg-12 col-11 mx-auto">Finalizando o cadastro <span givenName></span></h5>
+                                <h5 class="mt-2 col-lg-12 col-11 p-0">Finalizando o cadastro <span givenName></span></h5>
 
-                                <div containerTeacherRegistrationStatus class="col-lg-12 col-11 mx-auto"></div>
+                                <div class="col-lg-12 col-11 mx-auto">
+
+                                    <div class="row">
+
+                                        <div containerRegistrationSuccess class="col-lg-12">
+
+                                            <div class="row">
+
+                                                <p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p>
+
+                                                <p class="col-lg-12 p-0 font-weight-bold"><i class="fas text-info fa-info-circle mr-2"></i> Informe ao professor seu código de acesso ao portal</p>
+
+                                                <p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div containerRegistrationError class="col-lg-12 p-0">
+
+                                            <p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
 
                                 <input type="hidden" name="accessCode" id="accessCode" value="">
 
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 p-0">
 
                                     <div class="row d-flex justify-content-between">
 

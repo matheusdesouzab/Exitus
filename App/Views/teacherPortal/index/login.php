@@ -1,3 +1,12 @@
+
+<?php
+
+if (!isset($_SESSION)) session_start();
+
+isset($_SESSION['Admin']) ? header('Location: /admin/gestao') : '' ;
+
+?>
+
 <html lang="pt-br">
 
 <head>

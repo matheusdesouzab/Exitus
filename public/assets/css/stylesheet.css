@@ -825,6 +825,9 @@ button {
   font-weight: bold;
   font-size: 14px;
 }
+#admin #pagina [containerRegistrationSuccess], #admin #pagina [containerRegistrationError], #teacherPortal #pagina [containerRegistrationSuccess], #teacherPortal #pagina [containerRegistrationError] {
+  display: none;
+}
 
 #login .container-login {
   border-radius: 15px;

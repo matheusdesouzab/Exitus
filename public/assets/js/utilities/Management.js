@@ -129,15 +129,13 @@ class Management {
 
             } else {
 
-                application.loadOptions([
-                    [select[1], optionRoute, "clean", select[0], data]
-                ])
+                $(`${element} option[value="0"]`).remove()
 
                 $(button).attr('disabled', false)
 
             }
 
-        }, 3000)
+        }, 4000)
 
         load()
     }

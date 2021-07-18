@@ -105,7 +105,7 @@ class AdminStudentController extends Action
 
         $Student->__set('id', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
-        $this->view->studentProfile = $Student->profile();
+        $this->view->studentProfile = $Student->list("WHERE aluno.id_aluno = " . $Student->__get('id'));
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->unity = $Exam->unity();
@@ -127,24 +127,29 @@ class AdminStudentController extends Action
         $Telephone = Container::getModel('People\Telephone');
         $Student = Container::getModel('Student\\Student');
 
+        $Tool = new Tools();
+
         $Address->__set('addressId', $_POST['addressId']);
         $Address->__set('district', $_POST['district']);
         $Address->__set('address', $_POST['address']);
         $Address->__set('uf', $_POST['uf']);
         $Address->__set('county', $_POST['county']);
-        $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
+        $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
 
         $Telephone->__set('telephoneId', $_POST['telephoneId']);
-        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
+        $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
+        $Student->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
 
         $Student->__set('name', $_POST['name']);
         $Student->__set('birthDate', $_POST['birthDate']);
-        $Student->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
+        $Student->__set('cpf', $Tool->formatElement($_POST['cpf']));
         $Student->__set('naturalness', $_POST['naturalness']);
         $Student->__set('nationality', $_POST['nationality']);
         $Student->__set('motherName', $_POST['motherName']);
         $Student->__set('fatherName', $_POST['fatherName']);
+        $Student->__set('email', $_POST['email']);
         $Student->__set('fk_id_sex', $_POST['sex']);
+        $Student->__set('fk_id_hierarchy_function', 4);
         $Student->__set('fk_id_blood_type', $_POST['bloodType']);
         $Student->__set('fk_id_pcd', $_POST['pcd']);
         $Student->__set('id', $_POST['studentId']);
@@ -176,16 +181,14 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
         $Enrollment = Container::getModel('Student\\StudentEnrollment');
 
-
         $Address->__set('district', $_POST['district']);
         $Address->__set('address', $_POST['address']);
         $Address->__set('uf', $_POST['uf']);
         $Address->__set('county', $_POST['county']);
         $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
 
-
         $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
-
+        $Student->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
 
         $Student->__set('name', $_POST['name']);
         $Student->__set('birthDate', $_POST['birthDate']);
@@ -195,6 +198,8 @@ class AdminStudentController extends Action
         $Student->__set('nationality', $_POST['nationality']);
         $Student->__set('motherName', $_POST['motherName']);
         $Student->__set('fatherName', $_POST['fatherName']);
+        $Student->__set('email', $_POST['email']);
+        $Student->__set('fk_id_hierarchy_function', 4);
         $Student->__set('fk_id_sex', $_POST['sex']);
         $Student->__set('fk_id_blood_type', $_POST['bloodType']);
         $Student->__set('fk_id_pcd', $_POST['pcd']);

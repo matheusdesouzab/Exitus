@@ -23,13 +23,14 @@ class TeacherPortalController extends Action
         $Tool = new Tools();
 
         $Teacher->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
-        $Teacher->__set('teacherName', $_POST['name']);
+        $Teacher->__set('name', $_POST['name']);
 
         $auth = $Teacher->login();
 
         if (count($auth) != 1) {
 
             header('Location: /portal-docente?error=true');
+
         } else {
 
             if (!isset($_SESSION)) session_start();
@@ -68,7 +69,7 @@ class TeacherPortalController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $Teacher->__set('id', $_SESSION['teacher']['id']);
+        $Teacher->__set('id', $_SESSION['Teacher']['id']);
 
         $this->view->teacherClasses = $Teacher->teacherClasses();
         $this->view->listClass = $Classe->list();
@@ -96,7 +97,7 @@ class TeacherPortalController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $Teacher->__set('id', $_SESSION['teacher']['id']);
+        $Teacher->__set('id', $_SESSION['Teacher']['id']);
 
         $this->view->teacherClasses = $Teacher->seekTeacherClasses($Classe);
 

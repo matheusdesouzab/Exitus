@@ -370,7 +370,7 @@ $(document).on("hide.bs.modal", "#modalNote", function (event) {
 })
 
 
-/* $(document).on("shown.bs.modal", "#profileStudentModal , #profileTeacherModal , #profileClassModal", function (e) {
+$(document).on("shown.bs.modal", "#profileStudentModal , #profileTeacherModal , #profileClassModal", function (e) {
 
     $(this).before($(".modal-backdrop"))
     $(this).css("z-index", parseInt($(".modal-backdrop").css("z-index")) + 1)
@@ -380,8 +380,7 @@ $(document).on("hide.bs.modal", "#modalNote", function (event) {
     $('#zipCode').mask('00000-000')
 
     $("#telephoneNumber").mask(('(00) 00000-0000'))
-}) */
-
+}) 
 /////////////////////////////////////////////////////////////////////////
 
 
@@ -505,6 +504,8 @@ $("#photoField #profilePhoto").change(function (e) {
     tools.imagePreview(this, "#profilePhotoModal img")
 })
 
+$('#email').on('blur', e => validation.checkEmail(e.target.value))
+
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -512,34 +513,42 @@ $("#photoField #profilePhoto").change(function (e) {
 //* Note and exam controllers session
 
 
-$(document).on("keyup", `#addExam #examValue`, function (e) {
+$(document).on("keypress", `#addExam #examValue`, function (e) {
 
-    management.getNotesAlreadyAdded(`#addExam`, this, e, false)
+    if (timeout) clearTimeout(timeout)
 
-})
-
-
-$(document).on("keyup", `#modalExam form #examValue`, function (e) {
-
-    management.getNotesAlreadyAdded($(this).attr("formId"), this, e, true, $(this).attr("initialValue"))
+    timeout = setTimeout(() =>  management.getNotesAlreadyAdded(`#addExam`, this, e, false), 500)
 
 })
 
 
-$(document).on("keyup", `#modalNote form #noteValue`, function (e) {
+$(document).on("keypress", `#modalExam form #examValue`, function (e) {
 
-    management.getGrade(this, e, tools.round($(this).attr("initialValue"), 1))
+    if (timeout) clearTimeout(timeout)
+
+    timeout = setTimeout(() =>  management.getNotesAlreadyAdded($(this).attr("formId"), this, e, true, $(this).attr("initialValue")), 500)
 
 })
 
 
-$(document).on("keyup", "#addNote #noteValue", function (e) {
+$(document).on("keypress", `#modalNote form #noteValue`, function (e) {
+
+    if (timeout) clearTimeout(timeout)
+
+    timeout = setTimeout(() =>  management.getGrade(this, e, tools.round($(this).attr("initialValue"), 1)), 500)
+
+})
+
+
+$(document).on("keypress", "#addNote #noteValue", function (e) {
 
     let dataVector = $("#addNote #examDescription :selected").text().split(" - ")
 
     let noteValue = dataVector[3].replace("pontos", "").replace("décimos", "")
 
-    management.getGrade(this, e, tools.round(parseFloat(noteValue), 1))
+    if (timeout) clearTimeout(timeout)
+
+    timeout = setTimeout(() =>  management.getGrade(this, e, tools.round(parseFloat(noteValue), 1)), 500)
 
 })
 
@@ -570,7 +579,7 @@ $(document).on("keypress", "#zipCode", e => $(e.target).mask("00000-000"))
 
 $(document).on("keypress", "#telephoneNumber", e => $(e.target).mask(("(00) 00000-0000")))
 
-$("input[name='acronym']").on("keyup", e => e.target.value = e.target.value.toUpperCase())
+$("input[name='acronym'] , input[name='uf']").on("keyup", e => e.target.value = e.target.value.toUpperCase())
 
 $("#zipCode").on("blur", getLocation)
 
@@ -582,19 +591,13 @@ $("#zipCode").on("blur", getLocation)
 
 $("[data-target='#student-registration-finishing']").on("click", function (e) {
 
-    let name = $("#name").val().split(" ", 1)
-    $("#name").val() == "" ? "" : $("[givenName]").text(`de ${name[0]}`)
-
-    validation.checkAllFields("#addStudent", 18, "#buttonAddStudent", "containerStudentRegistrationStatus", `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao aluno seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
+    validation.checkAllFields("#addStudent", 19, "#buttonAddStudent")
 })
 
 
 $("[data-target='#teacher-registration-finishing']").on("click", function (e) {
 
-    let name = $("#name").val().split(" ", 1)
-    $("#name").val() == "" ? "" : $("[givenName]").text(`de ${name[0]}`)
-
-    validation.checkAllFields("#addTeacher", 16, "#buttonAddTeacher", "containerTeacherRegistrationStatus", `<p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p><p class = "col-lg-12 p-0 font-weight-bold"><i class = "fas text-info fa-info-circle mr-2"></i> Informe ao professor seu código de acesso ao portal</p><div class="row d-flex justify-content-center "><p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p></div>`, `<p class="col-lg-12 mb-4 p-0">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p></div>`)
+    validation.checkAllFields("#addTeacher", 16, "#buttonAddTeacher")
 })
 
 

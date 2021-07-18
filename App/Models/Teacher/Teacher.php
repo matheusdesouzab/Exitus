@@ -60,7 +60,7 @@ class Teacher extends People
     }
 
 
-    public function list()
+    public function list($operation = '')
     {
 
         return $this->speedingUp(
@@ -82,28 +82,6 @@ class Teacher extends People
                                   
             professor.id_professor AS teacher_id , 
             professor.nome_professor AS teacher_name , 
-            professor.foto_perfil_professor AS profilePhoto , 
-            professor.cpf_professor AS teacher_cpf , 
-            sexo.sexo AS teacher_sex 
-            
-            FROM professor 
-            
-            LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)
-            LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)"
-
-        );
-    }
-
-
-    public function profile()
-    {
-
-        $query =
-
-            "SELECT 
-            
-            professor.id_professor AS teacher_id , 
-            professor.nome_professor AS teacher_name , 
             professor.cpf_professor AS teacher_cpf , 
             sexo.id_sexo AS teacher_sex_id , 
             sexo.sexo AS teacher_sex , 
@@ -123,27 +101,21 @@ class Teacher extends People
             endereco.uf AS teacher_uf , 
             endereco.municipio AS teacher_county , 
             endereco.id_endereco AS address_id_teacher , 
-            telefone.id_telefone AS telephone_id_teacher 
+            telefone.id_telefone AS telephone_id_teacher ,
+            email_professor AS email
             
             FROM professor 
             
-            LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor) 
+            LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)
+            LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)
             LEFT JOIN endereco ON(endereco.id_endereco = professor.fk_id_endereco_professor) 
             LEFT JOIN telefone ON(telefone.id_telefone = professor.fk_id_telefone_professor) 
             LEFT JOIN tipo_sanguineo ON(tipo_sanguineo.id_tipo_sanguineo = professor.fk_id_tipo_sanguineo_professor) 
             LEFT JOIN pcd ON(pcd.id_pcd = professor.fk_id_pcd_professor) 
-            
-            WHERE professor.id_professor = :id
-            
-        ";
 
-        $stmt = $this->db->prepare($query);
+            $operation "
 
-        $stmt->bindValue(':id', $this->__get('id'));
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        );
     }
 
 
@@ -161,7 +133,8 @@ class Teacher extends People
             fk_id_sexo_professor = :fk_id_sex , 
             fk_id_tipo_sanguineo_professor = :fk_id_blood_type, 
             fk_id_pcd_professor = :fk_id_pcd , 
-            data_nascimento_professor = :birthDate 
+            data_nascimento_professor = :birthDate ,
+            email_professor = :email
             
             WHERE id_professor = :id
         
@@ -178,6 +151,7 @@ class Teacher extends People
         $stmt->bindValue(':fk_id_blood_type', $this->__get('fk_id_blood_type'));
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
         $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':email', $this->__get('email'));
 
         $stmt->execute();
     }
