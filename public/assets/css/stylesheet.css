@@ -725,6 +725,9 @@ button {
 #admin #pagina #note-table td, #admin #pagina #note-table th, #teacherPortal #pagina #note-table td, #teacherPortal #pagina #note-table th {
   text-align: left;
 }
+#admin #pagina #profileStudentModal #note-table, #teacherPortal #pagina #profileStudentModal #note-table {
+  width: 700px;
+}
 #admin #pagina #seekNoteExam a, #teacherPortal #pagina #seekNoteExam a {
   border: 1px solid #e5e5e5;
 }
@@ -890,61 +893,61 @@ button {
 }
 
 @media (max-width: 576px) {
-  body#admin .panel-side {
+  body#admin .panel-side, body#teacherPortal .panel-side {
     display: none;
   }
-  body#admin .panel-side #left-panel #sidebar {
+  body#admin .panel-side #left-panel #sidebar, body#teacherPortal .panel-side #left-panel #sidebar {
     z-index: 100000000;
     overflow: hidden;
     width: 60vw;
   }
-  body#admin .panel-side #left-panel #sidebar i.fas {
+  body#admin .panel-side #left-panel #sidebar i.fas, body#teacherPortal .panel-side #left-panel #sidebar i.fas {
     margin-right: 15px;
   }
-  body#admin .panel-side #left-panel #sidebar .sidebar-header span {
+  body#admin .panel-side #left-panel #sidebar .sidebar-header span, body#teacherPortal .panel-side #left-panel #sidebar .sidebar-header span {
     position: absolute;
     display: block;
     left: 15;
     margin-top: 5px;
   }
-  body#admin #pagina div.option-icon-group span {
+  body#admin #pagina div.option-icon-group span, body#teacherPortal #pagina div.option-icon-group span {
     margin-top: 15px;
   }
-  body#admin #pagina .main-container {
+  body#admin #pagina .main-container, body#teacherPortal #pagina .main-container {
     margin-top: 60px;
     margin-bottom: 60px;
   }
-  body#admin #pagina form {
+  body#admin #pagina form, body#teacherPortal #pagina form {
     font-size: 4vw;
   }
-  body#admin #pagina .page-header h5 {
+  body#admin #pagina .page-header h5, body#teacherPortal #pagina .page-header h5 {
     font-size: 4vw;
   }
-  body#admin #pagina .page-header .collapse-options-container span {
+  body#admin #pagina .page-header .collapse-options-container span, body#teacherPortal #pagina .page-header .collapse-options-container span {
     margin-bottom: 10px;
     margin-top: 20px;
     display: inline-block;
     font-size: 3vw !important;
   }
-  body#admin #pagina #navbar-top .navbar-toggler .fa-bars {
+  body#admin #pagina #navbar-top .navbar-toggler .fa-bars, body#teacherPortal #pagina #navbar-top .navbar-toggler .fa-bars {
     font-size: 20px;
   }
-  body#admin #pagina #navbar-top #bars {
+  body#admin #pagina #navbar-top #bars, body#teacherPortal #pagina #navbar-top #bars {
     display: none;
   }
-  body#admin #pagina #navbar-top a.bars-xs {
+  body#admin #pagina #navbar-top a.bars-xs, body#teacherPortal #pagina #navbar-top a.bars-xs {
     display: block;
   }
-  body#admin #pagina #navbar-top .navbar-toggler {
+  body#admin #pagina #navbar-top .navbar-toggler, body#teacherPortal #pagina #navbar-top .navbar-toggler {
     display: none;
   }
-  body#admin #pagina #navbar-top .navbar-nav {
+  body#admin #pagina #navbar-top .navbar-nav, body#teacherPortal #pagina #navbar-top .navbar-nav {
     display: none;
   }
-  body#admin #pagina section#list-students table {
+  body#admin #pagina section#list-students table, body#teacherPortal #pagina section#list-students table {
     width: 800px;
   }
-  body#admin #pagina #navbarBottom {
+  body#admin #pagina #navbarBottom, body#teacherPortal #pagina #navbarBottom {
     display: block;
     border-top-right-radius: 15px;
     padding: 2px;
@@ -954,47 +957,48 @@ button {
     display: flex;
     justify-content: center;
   }
-  body#admin #pagina #navbarBottom ul {
+  body#admin #pagina #navbarBottom ul, body#teacherPortal #pagina #navbarBottom ul {
     display: flex;
     justify-content: space-around;
     width: 100%;
     margin-top: 10px;
   }
   body#admin #pagina #navbarBottom ul i.fas,
-body#admin #pagina #navbarBottom ul i.bi {
+body#admin #pagina #navbarBottom ul i.bi, body#teacherPortal #pagina #navbarBottom ul i.fas,
+body#teacherPortal #pagina #navbarBottom ul i.bi {
     font-size: 18px;
     color: #506177;
   }
-  body#admin #pagina section#discipline table {
+  body#admin #pagina section#discipline table, body#teacherPortal #pagina section#discipline table {
     width: 600px;
   }
-  body#admin #pagina section#class table {
+  body#admin #pagina section#class table, body#teacherPortal #pagina section#class table {
     width: 600px;
   }
-  body#admin #pagina #main-accordion {
+  body#admin #pagina #main-accordion-class, body#admin #pagina #main-accordion-student, body#teacherPortal #pagina #main-accordion-class, body#teacherPortal #pagina #main-accordion-student {
     background-color: white;
     padding: 10px;
     border-radius: 15px;
   }
-  body#admin #pagina #main-accordion .row.card {
+  body#admin #pagina #main-accordion-class .row.card, body#admin #pagina #main-accordion-student .row.card, body#teacherPortal #pagina #main-accordion-class .row.card, body#teacherPortal #pagina #main-accordion-student .row.card {
     box-shadow: none;
     border: none;
   }
-  body#admin #pagina .modal-profile {
+  body#admin #pagina .modal-profile, body#teacherPortal #pagina .modal-profile {
     overflow-y: auto;
   }
-  body#admin #pagina .modal-profile table {
+  body#admin #pagina .modal-profile table, body#teacherPortal #pagina .modal-profile table {
     width: 200px;
   }
-  body#admin #pagina .modal-profile table td {
+  body#admin #pagina .modal-profile table td, body#teacherPortal #pagina .modal-profile table td {
     font-size: 3vw;
   }
-  body#admin #pagina .modal-profile img {
+  body#admin #pagina .modal-profile img, body#teacherPortal #pagina .modal-profile img {
     width: 25vw;
     height: 25vw;
     margin-bottom: 5px;
   }
-  body#admin #pagina .modal-profile .main-sheet {
+  body#admin #pagina .modal-profile .main-sheet, body#teacherPortal #pagina .modal-profile .main-sheet {
     order: 1;
     display: flex;
     border-radius: 10px;
@@ -1004,14 +1008,14 @@ body#admin #pagina #navbarBottom ul i.bi {
     margin-bottom: 15px;
     margin-top: 15px;
   }
-  body#admin #pagina .modal-profile .main-sheet span {
+  body#admin #pagina .modal-profile .main-sheet span, body#teacherPortal #pagina .modal-profile .main-sheet span {
     font-size: 2.5vw;
     color: #506177;
   }
-  body#admin #pagina .modal-profile h5 {
+  body#admin #pagina .modal-profile h5, body#teacherPortal #pagina .modal-profile h5 {
     font-size: 4vw;
   }
-  body#admin #pagina .modal-profile .container-list-group {
+  body#admin #pagina .modal-profile .container-list-group, body#teacherPortal #pagina .modal-profile .container-list-group {
     order: 2;
     padding: 5px;
     overflow: auto;
@@ -1021,7 +1025,7 @@ body#admin #pagina #navbarBottom ul i.bi {
     border-radius: 0px;
     padding-bottom: 0;
   }
-  body#admin #pagina .modal-profile .container-list-group nav {
+  body#admin #pagina .modal-profile .container-list-group nav, body#teacherPortal #pagina .modal-profile .container-list-group nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -1031,36 +1035,36 @@ body#admin #pagina #navbarBottom ul i.bi {
     overflow: auto;
     padding-bottom: 0;
   }
-  body#admin #pagina .modal-profile .container-list-group nav ul {
+  body#admin #pagina .modal-profile .container-list-group nav ul, body#teacherPortal #pagina .modal-profile .container-list-group nav ul {
     display: flex;
     justify-content: space-around;
     flex-grow: 1;
   }
-  body#admin #pagina .modal-profile .container-list-group nav ul a {
+  body#admin #pagina .modal-profile .container-list-group nav ul a, body#teacherPortal #pagina .modal-profile .container-list-group nav ul a {
     margin-bottom: 0;
     border-bottom: 2px solid white;
     border-radius: 0px;
     font-size: 2.5vw;
   }
-  body#admin #pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
+  body#admin #pagina .modal-profile .container-list-group nav ul [aria-expanded=true], body#teacherPortal #pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
     border-bottom: 2px solid #6619c3;
     background-color: transparent;
     color: #506177;
   }
-  body#admin #pagina .modal-profile .collapse-options-container {
+  body#admin #pagina .modal-profile .collapse-options-container, body#teacherPortal #pagina .modal-profile .collapse-options-container {
     margin-top: 20px;
     font-size: 10px;
   }
-  body#admin #pagina .modal-profile .collapse-options-container span {
+  body#admin #pagina .modal-profile .collapse-options-container span, body#teacherPortal #pagina .modal-profile .collapse-options-container span {
     font-size: 2vw;
   }
-  body#admin #pagina .modal-profile .main-content {
+  body#admin #pagina .modal-profile .main-content, body#teacherPortal #pagina .modal-profile .main-content {
     margin-bottom: 20px;
   }
-  body#admin #pagina .modal-profile .main-content .row:nth-child(1) {
+  body#admin #pagina .modal-profile .main-content .row:nth-child(1), body#teacherPortal #pagina .modal-profile .main-content .row:nth-child(1) {
     margin-top: 10px;
   }
-  body#admin #pagina .modal-profile .modal-sidebar {
+  body#admin #pagina .modal-profile .modal-sidebar, body#teacherPortal #pagina .modal-profile .modal-sidebar {
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -1069,19 +1073,19 @@ body#admin #pagina #navbarBottom ul i.bi {
     box-shadow: none;
     height: 50vh;
   }
-  body#admin #pagina #student-registration .registration-in-stages .connection-line {
+  body#admin #pagina #student-registration .registration-in-stages .connection-line, body#teacherPortal #pagina #student-registration .registration-in-stages .connection-line {
     width: 80vw;
   }
-  body#admin #pagina #student-registration .registration-in-stages .registration-header-by-step {
+  body#admin #pagina #student-registration .registration-in-stages .registration-header-by-step, body#teacherPortal #pagina #student-registration .registration-in-stages .registration-header-by-step {
     overflow: auto;
     display: block;
   }
-  body#admin #pagina #student-registration .registration-in-stages .registration-header-by-step .row {
+  body#admin #pagina #student-registration .registration-in-stages .registration-header-by-step .row, body#teacherPortal #pagina #student-registration .registration-in-stages .registration-header-by-step .row {
     width: 600px;
     display: flex;
     justify-content: space-around;
   }
-  body#admin #pagina #profileStudentModal .container-list-group nav {
+  body#admin #pagina #profileStudentModal .container-list-group nav, body#teacherPortal #pagina #profileStudentModal .container-list-group nav {
     width: 600px;
   }
 }

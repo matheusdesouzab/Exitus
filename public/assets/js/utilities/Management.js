@@ -114,7 +114,7 @@ class Management {
 
     checkAvailableOptions(element, button, message, optionRoute, data) {
 
-        let load = setTimeout(() => {
+    /*     let load = setTimeout(() => {
 
             let select = element.split(" ")
 
@@ -129,7 +129,9 @@ class Management {
 
             } else {
 
-                $(`${element} option[value="0"]`).remove()
+                application.loadOptions([
+                    [select[1], optionRoute, "clean", select[0], data]
+                ])
 
                 $(button).attr('disabled', false)
 
@@ -137,7 +139,7 @@ class Management {
 
         }, 4000)
 
-        load()
+        load() */
     }
 
 

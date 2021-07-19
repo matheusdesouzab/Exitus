@@ -1,6 +1,6 @@
 @media (max-width:576px) {
 
-    body#admin {
+    body#admin , body#teacherPortal {
 
         .panel-side {
             display: none;
@@ -126,7 +126,7 @@
                 }
             }
 
-            #main-accordion {
+            #main-accordion-class , #main-accordion-student {
                 background-color: white;
                 padding: 10px;
                 border-radius: 15px;

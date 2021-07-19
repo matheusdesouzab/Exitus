@@ -46,25 +46,15 @@ $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
 
 $(document).on("click", "#profileStudentModal #buttonAddNoteStudent", function (e) {
 
-    if ($("#addNote #examDescription option").length == 0) {
+    application.addSinglePart("#addNote", "/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao", "Nota adicionada", false)
 
-        tools.showToast("Todas avaliações já atribuidas", "bg-info")
+    application.loadOptions([
+            ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote", "Todas avaliações já adicionadas" ,"#buttonAddNoteStudent"]
+    ])
 
-    } else {
+    $("#addNote #noteValue").val("0")
 
-        application.addSinglePart("#addNote", "/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao", "Nota adicionada", false)
-
-        application.loadOptions([
-            ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote"]
-        ])
-
-        $("#addNote #noteValue").val("0")
-
-        management.checkAvailableOptions("#addNote #examDescription", "#buttonAddNoteStudent", "Todas avaliações já foram atribuidas", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "#addNote")
-
-    }
-
-})
+}) 
 
 
 $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function () {
@@ -72,11 +62,12 @@ $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function
     application.addSinglePart("#addClassDiscipline", "/admin/gestao/turma/perfil-turma/turma-disciplina/inserir", "Disciplina adicionada", false)
 
     application.loadOptions([
-        ["availableSubjects", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId"],
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId"]
-    ])
 
-    management.checkAvailableOptions("#addClassDiscipline #availableSubjects", "#buttonAddClassDiscipline", "Todas disciplinas já adicionadas", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "#formClassId")
+        ["availableSubjects", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId" , "Todas disciplinas já adicionadas" , "#buttonAddClassDiscipline"],
+
+        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId" , "Nenhuma disciplina vincula a turma"]
+
+    ])
 
 })
 
@@ -88,7 +79,7 @@ $("#schoolTerm #buttonAddSchoolTerm").on("click", function () {
     application.addSinglePart("#addSchoolTerm", "/admin/gestao/periodo-letivo/inserir", "Período letivo adicionado")
 
     application.loadOptions([
-        ["schoolYear", "/admin/gestao/periodo-letivo/lista-anos-disponiveis", "clean", ""]
+        ["schoolYear", "/admin/gestao/periodo-letivo/lista-anos-disponiveis", "clean", "" , "Nenhum ano disponível" , "#buttonAddSchoolTerm"]
     ])
 
 })
@@ -99,7 +90,7 @@ $("#classRoom #buttonAddClassRoom").on("click", function () {
     application.addSinglePart("#addClassRoom", "/admin/gestao/sala/inserir", "Sala de aula adicionada")
 
     application.loadOptions([
-        ["classroomNumber", "/admin/gestao/sala/lista-numeros-disponiveis", "clean", ""]
+        ["classroomNumber", "/admin/gestao/sala/lista-numeros-disponiveis", "clean", "" , "Nenhuma sala disponível" , '#buttonAddClassRoom']
     ])
 
 })
@@ -226,17 +217,18 @@ $(document).on("blur", "#profileClassModal #seekExam #disciplineClassId , #seekE
 $(document).on("click", "#profileClassModal list-exam-list", function (e) {
 
     application.loadOptions([
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#addExam", "#formClassId"],
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId"]
+        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#addExam", "#formClassId", "Nenhuma disciplina vincula a turma" , "#buttonAddExam"],
+        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId", "Nenhuma disciplina vincula a turma"]
     ])
+
+    application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/lista", "#formClassId")
 
     $("#seekExam #disciplineClassId").append($("<option>", {
         value: 0,
         text: "Todas"
     }))
 
-    application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/lista", "#formClassId")
-
+   
 })
 
 
@@ -255,14 +247,14 @@ $(document).on("click", "#profileStudentModal [data-target='#student-exam'] , #p
 
 $("#schoolTerm #collapseAddSchoolTerm").on("click", function () {
     application.loadOptions([
-        ["schoolYear", "/admin/gestao/periodo-letivo/lista-anos-disponiveis", "clean", ""]
+        ["schoolYear", "/admin/gestao/periodo-letivo/lista-anos-disponiveis", "clean", "", "Nenhum ano disponível"]
     ])
 })
 
 
 $("#classRoom #collapseAddClassRoom").on("click", function () {
     application.loadOptions([
-        ["classroomNumber", "/admin/gestao/sala/lista-numeros-disponiveis", "clean", ""]
+        ["classroomNumber", "/admin/gestao/sala/lista-numeros-disponiveis", "clean", "" , "Não há mais sala disponíveis" , "#buttonAddClassRoom"]
     ])
 })
 
@@ -270,19 +262,15 @@ $("#classRoom #collapseAddClassRoom").on("click", function () {
 $(document).on("click", "#profileClassModal [data-target='#add-discipline']", function (e) {
 
     application.loadOptions([
-        ["availableSubjects", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId"]
+        ["availableSubjects", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId" , "Todas disciplinas já adicionadas" , "#buttonAddClassDiscipline"]
     ])
-
-    management.checkAvailableOptions("#addClassDiscipline #availableSubjects", "#buttonAddClassDiscipline", "Todas disciplinas já adicionadas", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "#formClassId")
-
-    management.checkAvailableOptions("#addNote #examDescription", "#buttonAddNoteStudent", "Todas avaliações já foram atribuidas", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "#addNote")
 
 })
 
 
 $(document).on("click", "#profileClassModal [data-target='#add-assessments']", function (e) {
     application.loadOptions([
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#addExam", "#formClassId"]
+        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#addExam", "#formClassId", "Nenhuma disciplina vinculada a turma", "#buttonAddExam"]
     ])
 })
 
@@ -290,10 +278,8 @@ $(document).on("click", "#profileClassModal [data-target='#add-assessments']", f
 $(document).on("click", "#profileStudentModal #student-exam [data-target='#add-reviews']", function (e) {
 
     application.loadOptions([
-        ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote"]
+        ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote" , "Todas avaliações já adicionadas", "#buttonAddNoteStudent", "#buttonAddNoteStudent"]
     ])
-
-    management.checkAvailableOptions("#addNote #examDescription", "#buttonAddNoteStudent", "Todas avaliações já foram atribuidas", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "#addNote")
 
 })
 
@@ -450,27 +436,33 @@ $(document).on("keyup", "#seekExam #examDescription", function (e) {
 })
 
 
-$(document).on("keyup", "#seekNoteExam #examDescription", function (e) {
+$(document).on("keyup", "#seekNoteExamStudent #examDescription", function (e) {
 
     if (timeout) clearTimeout(timeout)
 
-    timeout = setTimeout(() => application.seekElement("#seekNoteExam", "containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar"), 2000)
+    timeout = setTimeout(() => application.seekElement("#seekNoteExamStudent", "containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar"), 2000)
 
 })
 
 
-$(document).on("keyup", "#seekNoteExam #examDescription", function (e) {
+$(document).on("keyup", "#seekNoteExamClass #examDescription", function (e) {
 
     if (timeout) clearTimeout(timeout)
 
-    timeout = setTimeout(() => application.seekElement("#seekNoteExam", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar"), 1500)
+    timeout = setTimeout(() => application.seekElement("#seekNoteExamClass", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar"), 1500)
 
 })
 
 
-$(document).on('change', "#seekNoteExam select", function (e){
+$(document).on('change', "#seekNoteExamStudent select", function (e){
     
-    application.seekElement("#seekNoteExam", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar")
+    application.seekElement("#seekNoteExamStudent", "containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar")
+
+})
+
+$(document).on('change', "#seekNoteExamClass select", function (e){
+    
+    application.seekElement("#seekNoteExamClass", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar")
 
 })
 
@@ -480,8 +472,6 @@ $("#seekClass .custom-select").change(() => application.seekElement("#seekClass"
 $("#seekDiscipline select[name='seekModality']").change(() => application.seekElement("#seekDiscipline", "containerListDiscipline", "/admin/gestao/disciplina/buscar"))
 
 $("#seekStudent select").change(() => application.seekElement("#seekStudent", "containerListStudent", "/admin/aluno/lista/buscar"))
-
-
 
 
 

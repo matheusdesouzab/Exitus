@@ -440,8 +440,6 @@ class AdminManagementController extends Action
         $this->view->classData = $Classe->list("AND turma.id_turma = " . $Classe->__get('classId'));
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
 
-        if (!isset($_SESSION)) session_start();
-
         $teacher_id = isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0;
 
         $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class') . " AND CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END");
@@ -526,7 +524,7 @@ class AdminManagementController extends Action
         $Exam->__set("fk_id_exam_unity", $_GET['unity']);
         $Exam->__set("fk_id_discipline_class", $_GET['disciplineClassId']);
 
-        $this->view->listExam = $Exam->examList("WHERE avaliacoes.fk_id_unidade_avaliacao = " . $Exam->__get('fk_id_exam_unity') . " AND avaliacoes.fk_turma_disciplina_avaliacao = " . $Exam->__get('fk_id_discipline_class'));
+        $this->view->listExam = $Exam->examList("WHERE avaliacoes.fk_id_unidade_avaliacao = " . $Exam->__get('fk_id_exam_unity') . " AND avaliacoes.fk_id_turma_disciplina_avaliacao = " . $Exam->__get('fk_id_discipline_class'));
 
         $this->view->typeListExam = 'recent';
 
@@ -694,16 +692,26 @@ class AdminManagementController extends Action
         $Note->__set('fk_id_student_enrollment', $_GET['enrollmentId']);
         $Note->__set('fk_id_class', $_GET['classId']);
 
+        if (!isset($_SESSION)) session_start();
+
+        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
         echo json_encode($Note->notesNotAddedYet());
     }
 
 
-    public function noteList()
+    public function noteListStudent()
     {
 
         $Note = Container::getModel('Management\\Note');
 
         $Note->__set('fk_id_student_enrollment', $_GET['enrollmentId']);
+
+        $this->view->listNoteType = 'student';
+
+        if (!isset($_SESSION)) session_start();
+
+        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         $this->view->listNote = $Note->list("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
 
@@ -717,6 +725,10 @@ class AdminManagementController extends Action
         $Note = Container::getModel('Management\\Note');
 
         $Note->__set('fk_id_class', $_GET['classId']);
+
+        if (!isset($_SESSION)) session_start();
+
+        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         $this->view->listNote = $Note->list("WHERE turma_disciplina.fk_id_turma = " . $Note->__get('fk_id_class'));
         $this->view->listNoteType = 'class';
@@ -736,6 +748,12 @@ class AdminManagementController extends Action
         $Note->__set("fk_id_student_enrollment", $_GET['enrollmentId']);
         $Note->__set("fk_id_class", $_GET['classId']);
 
+        if (!isset($_SESSION)) session_start();
+
+        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
+        $this->view->listNoteType = 'student';
+
         $this->view->listNote = $Note->seek();
 
         $this->render('management/components/noteList', 'SimpleLayout');
@@ -753,7 +771,12 @@ class AdminManagementController extends Action
         $Note->__set("fk_id_student_enrollment", 0);
         $Note->__set("fk_id_class", $_GET['classId']);
 
+        if (!isset($_SESSION)) session_start();
+
+        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
         $this->view->listNote = $Note->seek($_GET['orderBy']);
+        
         $this->view->listNoteType = 'class';
 
         $this->render('management/components/noteList', 'SimpleLayout');

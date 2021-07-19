@@ -98,7 +98,22 @@ class Application {
                 type: 'GET',
                 success: data => {
 
-                    $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
+                    if (data.length > 0) {
+
+                        $.each(data, i => $selectSituation.append(`<option value="${data[i].option_value}">${data[i].option_text}</option>`))
+
+                        elements[i][6] != '' ? $(`${elements[i][6]}`).removeClass('disabled').attr("disabled", false) : ''
+
+                    } else {
+
+                        $(`${form} select[name="${elements[i][0]}"]`).append($("<option>", {
+                            value: 0,
+                            text: elements[i][5]
+                        }))
+
+                        elements[i][6] != '' ? $(`${elements[i][6]}`).addClass('disabled').attr("disabled", true) : ''
+
+                    }
 
                 },
 

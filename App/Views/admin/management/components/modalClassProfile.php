@@ -1,4 +1,4 @@
-<div class="row mb-4 d-flex justify-content-around" id="main-accordion">
+<div class="row mb-4 d-flex justify-content-around" id="main-accordion-class">
 
     <div class="col-lg-3 col-11 mx-auto">
 
@@ -61,7 +61,7 @@
 
         <div class="row">
 
-            <div class="col-lg-11 mx-auto collapse show" id="accordion-class-data" data-parent="#main-accordion">
+            <div class="col-lg-11 mx-auto collapse show" id="accordion-class-data" data-parent="#main-accordion-class">
 
                 <div class="col-lg-12 mb-4 mt-4">
                     <div class="row d-flex align-items-center">
@@ -129,7 +129,7 @@
             </div>
 
 
-            <div class="col-lg-11 mx-auto collapse" id="class-discipline-accordion" data-parent="#main-accordion">
+            <div class="col-lg-11 mx-auto collapse" id="class-discipline-accordion" data-parent="#main-accordion-class">
 
                 <div class="col-lg-12 mb-4 mt-4">
                     <div class="row d-flex align-items-center">
@@ -225,7 +225,7 @@
 
             </div>
 
-            <div class="col-lg-11 mx-auto collapse" id="class-profile-assessments" data-parent="#main-accordion">
+            <div class="col-lg-11 mx-auto collapse" id="class-profile-assessments" data-parent="#main-accordion-class">
 
                 <div class="accordion" id="class-assessments-accordion">
 
@@ -301,8 +301,6 @@
 
 
                             <div containerExamsList class="">
-
-                                <?php print_r($this->view->listExam) ?>
 
                                 <?php require '../App/Views/admin/management/components/examList.php' ?>
 
@@ -393,7 +391,7 @@
 
             </div>
 
-            <div class="col-lg-11 mx-auto collapse" id="class-note-history" data-parent="#main-accordion">
+            <div class="col-lg-11 mx-auto collapse" id="class-note-history" data-parent="#main-accordion-class">
 
                 <div class="row">
 
@@ -401,7 +399,7 @@
                         <h5>Notas das avaliações</h5>
                     </div>
 
-                    <form id="seekNoteExam" class="text-dark col-lg-12 mt-3 accordion" action="">
+                    <form id="seekNoteExamClass" class="text-dark col-lg-12 mt-3 accordion" action="">
 
                         <div class="form-row mt-3">
 

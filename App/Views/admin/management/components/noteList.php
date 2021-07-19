@@ -8,7 +8,7 @@
 
             <?php if ($this->view->listNoteType == 'class') { ?>
 
-                <td class="text-right">
+                <td class="text-left">
                     <img src='<?= $note->student_profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->student_profilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
                 </td>
 

@@ -162,6 +162,22 @@
                             </div>
                         </div>
 
+                        
+    <div class="modal fade simple-modal" id="modalNote" tabindex="6" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:100000">
+        <div class="modal-dialog modal-lg modal-dialog-centered" id="">
+            <div class="modal-content" style="border-radius: 10px">
+                <div class="row">
+                    <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileClasseModal">
+                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                        </button></div>
+                </div>
+                <div class="modal-body">
+                    <div containerModalNote class="row"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
                     </div>
                 </div>
             </div>

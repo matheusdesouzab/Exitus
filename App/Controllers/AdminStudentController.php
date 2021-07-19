@@ -112,6 +112,10 @@ class AdminStudentController extends Action
         $this->view->bloodType = $Student->bloodType();
         $this->view->listAvailableExams = $Exam->examList('WHERE turma.id_turma = ' . $this->view->studentProfile[0]->class_id . ' ORDER BY disciplina.nome_disciplina ASC');
 
+        if (!isset($_SESSION)) session_start();
+
+        $ClassDiscipline->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
         $ClassDiscipline->__set("fk_id_class", $this->view->studentProfile[0]->class_id);
 
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded(); 
@@ -138,7 +142,6 @@ class AdminStudentController extends Action
 
         $Telephone->__set('telephoneId', $_POST['telephoneId']);
         $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
-        $Student->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
 
         $Student->__set('name', $_POST['name']);
         $Student->__set('birthDate', $_POST['birthDate']);
@@ -149,11 +152,9 @@ class AdminStudentController extends Action
         $Student->__set('fatherName', $_POST['fatherName']);
         $Student->__set('email', $_POST['email']);
         $Student->__set('fk_id_sex', $_POST['sex']);
-        $Student->__set('fk_id_hierarchy_function', 4);
         $Student->__set('fk_id_blood_type', $_POST['bloodType']);
         $Student->__set('fk_id_pcd', $_POST['pcd']);
         $Student->__set('id', $_POST['studentId']);
-
 
         $Telephone->update();
         $Address->update();

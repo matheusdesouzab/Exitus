@@ -1,4 +1,4 @@
-<div class="row mb-4 d-flex justify-content-center" id="main-accordion">
+<div class="row mb-4 d-flex justify-content-center" id="main-accordion-student">
 
     <?php foreach ($this->view->studentProfile as $key => $student) { ?>
 
@@ -12,7 +12,7 @@
 
                     <div class="row">
 
-                        <img class="mx-auto mb-2" src='<?= $student->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->student_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
+                        <img class="mx-auto mb-2" src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
                         <div class="col-lg-12 main-sheet d-block d-sm-none">
                             <div class="row p-3"><span class="col-lg-12"><?= $student->student_name ?> - <?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift ?></span></div>
@@ -71,7 +71,7 @@
 
                                 <div class="container-img col-lg-12 d-flex justify-content-center">
 
-                                    <img class="mx-auto" src='<?= $student->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->student_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
+                                    <img class="mx-auto" src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
 
                                 </div>
 
@@ -81,7 +81,7 @@
 
                                     <input type="hidden" id="id" value="<?= $student->student_id ?>" name="id">
 
-                                    <input type="hidden" id="oldPhoto" name="oldPhoto" value="<?= $student->student_profile_photo ?>">
+                                    <input type="hidden" id="oldPhoto" name="oldPhoto" value="<?= $student->profilePhoto ?>">
 
                                     <div class="row">
 
@@ -110,7 +110,7 @@
 
             <div class="row">
 
-                <div class="col-lg-11 mx-auto collapse show" id="accordion-data-student" data-parent="#main-accordion">
+                <div class="col-lg-11 mx-auto collapse show" id="accordion-data-student" data-parent="#main-accordion-student">
 
                     <form id="studentModal<?= $student->student_id ?>" class="col-lg-12" action="">
 
@@ -126,6 +126,12 @@
 
                                     <h5 class="col-lg-8">Dados do aluno</h5>
 
+                                    <?php if (!isset($_SESSION)) session_start();
+
+                                    if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
+
+                                    ?>
+
                                     <div class="col-lg-4 d-flex justify-content-end">
 
                                         <span idElement="#studentModal<?= $student->student_id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
@@ -133,6 +139,8 @@
                                         <span idElement="#studentModal<?= $student->student_id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" container="containerListStudent" routeList="/admin/aluno/lista/listagem" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
                                     </div>
+
+                                    <?php } ?>
 
                                 </div>
 
@@ -148,6 +156,12 @@
                             </div>
                             <input type="text" id="name" name="name" disabled class="form-control" value="<?= $student->student_name ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
+
+                        <?php 
+                        
+                        if (!isset($_SESSION)) session_start();
+
+                        if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
 
                         <div class="input-group d-flex justify-content-start col-12 col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
@@ -225,6 +239,8 @@
 
                         </div>
 
+                        <?php } ?>
+
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
 
                             <div class="input-group-prepend">
@@ -250,6 +266,12 @@
                         </div>
 
                         <h5 class="mt-5 mb-3 ml-4">Endereço e contato:</h5>
+
+                        <?php 
+                        
+                        if (!isset($_SESSION)) session_start();
+
+                        if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
@@ -286,6 +308,8 @@
                             <input type="text" id="address" name="address" disabled class="form-control" value="<?= $student->student_address ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
+                        <?php } ?>
+
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Telefone</span>
@@ -316,7 +340,7 @@
 
                 </div>
 
-                <div class="col-lg-11 mx-auto collapse" id="student-exam" data-parent="#main-accordion">
+                <div class="col-lg-11 mx-auto collapse" id="student-exam" data-parent="#main-accordion-student">
 
                     <div class="col-lg-12 accordion" id="accordion-ratings">
 
@@ -345,7 +369,7 @@
 
                                 <div class="collapse show" id="rating-list" data-parent="#accordion-ratings">
 
-                                    <form id="seekNoteExam" class="mt-3 col-lg-12 text-dark" action="">
+                                    <form id="seekNoteExamStudent" class="mt-3 col-lg-12 text-dark" action="">
 
                                         <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
@@ -407,9 +431,7 @@
                                                 <tr>
                                                     <th scope="col">Avaliação</th>
                                                     <th scope="col">Disciplina</th>
-                                                    <th scope="col">UE</th>
-                                                    <th scope="col">Valor AV</th>
-                                                    <th scope="col">Nota AV</th>
+                                                    <th scope="col">Resultado</th>
                                                 </tr>
                                             </thead>
                                             <tbody containerListNote></tbody>

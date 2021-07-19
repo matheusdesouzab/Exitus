@@ -12,6 +12,7 @@ class Note extends Exam
     private $fk_id_exam;
     private $fk_id_student_enrollment;
     private $fk_id_class;
+    private $fk_id_teacher;
 
 
     public function __get($att)
@@ -81,6 +82,10 @@ class Note extends Exam
             
             $operation
 
+            AND
+
+            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
+
             ORDER BY nota_avaliacao.valor_nota DESC
             
         ";
@@ -88,6 +93,7 @@ class Note extends Exam
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
 
@@ -95,7 +101,7 @@ class Note extends Exam
     }
 
 
-    public function seek($orderBy = '')
+    public function seek($orderBy = 'ASC')
     {
 
         $query =
@@ -131,11 +137,15 @@ class Note extends Exam
 
             AND 
             
-            CASE WHEN :fk_id_student_enrollment = 0 THEN matricula.fk_id_aluno <> :fk_id_student_enrollment ELSE matricula.fk_id_aluno = :fk_id_student_enrollment END 
+            CASE WHEN :fk_id_student_enrollment = 0 THEN matricula.id_matricula <> :fk_id_student_enrollment ELSE matricula.id_matricula = :fk_id_student_enrollment END 
 
             AND
 
             CASE WHEN :fk_id_discipline_class = 0 THEN turma.id_turma = :fk_id_class ELSE avaliacoes.fk_id_turma_disciplina_avaliacao = :fk_id_discipline_class END
+
+            AND
+
+            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
 
             ORDER BY nota_avaliacao.valor_nota $orderBy
              
@@ -148,6 +158,7 @@ class Note extends Exam
         $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
         $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
 
@@ -203,11 +214,17 @@ class Note extends Exam
             LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
             
             WHERE turma_disciplina.fk_id_turma = :fk_id_class
+
+            AND
+
+            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> :fk_id_teacher ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
             
         ";
 
         $stmt = $this->db->prepare($allExamsClass);
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        
         $stmt->execute();
 
         $allExamsClass = $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -222,13 +239,19 @@ class Note extends Exam
 			
             LEFT JOIN nota_avaliacao ON(avaliacoes.id_avaliacao = nota_avaliacao.fk_id_avaliacao)
             LEFT JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula) 
+            LEFT JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
 
-            WHERE nota_avaliacao.fk_id_matricula_aluno = :fk_id_student_enrollment;
+            WHERE nota_avaliacao.fk_id_matricula_aluno = :fk_id_student_enrollment
+
+            AND
+
+            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> :fk_id_teacher ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
 
         ";
 
         $stmt = $this->db->prepare($allStudentExams);
         $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
         $stmt->execute();
 
         $allStudentExams = $stmt->fetchAll(\PDO::FETCH_OBJ);

@@ -119,7 +119,7 @@ class Student extends People
             sexo.sexo AS student_sex , 
             aluno.data_nascimento_aluno AS student_birth_date , 
             aluno.naturalidade_aluno AS student_naturalness , 
-            aluno.foto_perfil_aluno AS student_profile_photo , 
+            aluno.foto_perfil_aluno AS profilePhoto , 
             aluno.nacionalidade_aluno AS student_nacionality , 
             aluno.nome_mae AS student_mother , 
             aluno.nome_pai AS student_father , 
