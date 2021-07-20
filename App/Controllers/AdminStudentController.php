@@ -236,4 +236,35 @@ class AdminStudentController extends Action
 
         $Student->updateProfilePicture();
     }
+
+
+    public function observationInsert()
+    {
+
+        $Observation = Container::getModel('Student\\Observation');
+
+        $Observation->__set('observationDescription' , $_POST['description']);
+        $Observation->__set('fk_id_discipline_class' , $_POST['disciplineClassId']);
+        $Observation->__set('fk_id_enrollment' , $_POST['enrollmentId']);
+        $Observation->__set('fk_id_unity' , $_POST['unity']);
+
+        $Observation->insert();
+
+    }
+
+
+    public function observationList()
+    {
+
+        $Observation = Container::getModel('Student\\Observation');
+
+        $Observation->__set('fk_id_enrollment' , $_GET['enrollmentId']);
+
+        $this->view->listObservation = $Observation->list();
+
+        $this->render("student/components/observationList" , "SimpleLayout");
+
+
+
+    }
 }

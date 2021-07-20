@@ -194,7 +194,7 @@
 
                                                 <label for="">Disciplina</label>
 
-                                                <select id="availableSubjects" name="availableSubjects" class="form-control custom-select" required></select>
+                                                <select id="disciplineClassId" name="disciplineClassId" class="form-control custom-select" required></select>
 
                                             </div>
 

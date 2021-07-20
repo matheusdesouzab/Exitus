@@ -63,7 +63,7 @@ $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function
 
     application.loadOptions([
 
-        ["availableSubjects", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId" , "Todas disciplinas já adicionadas" , "#buttonAddClassDiscipline"],
+        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId" , "Todas disciplinas já adicionadas" , "#buttonAddClassDiscipline"],
 
         ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId" , "Nenhuma disciplina vincula a turma"]
 
@@ -131,6 +131,15 @@ $("#buttonAddStudent").on("click", function (e) {
 $("#buttonAddTeacher").on("click", function (e) {
 
     application.addMultipleParts(this, "/admin/professor/cadastro/inserir")
+
+})
+
+
+$(document).on('click', "#buttonAddObservationStudent" , function(e){
+
+    application.addSinglePart("#addObservation", "/admin/gestao/turma/perfil-turma/aluno/obervacoes/insert", "Observação adicionada", "")
+
+    $("#addObservation #description").val('')
 
 })
 
@@ -217,8 +226,8 @@ $(document).on("blur", "#profileClassModal #seekExam #disciplineClassId , #seekE
 $(document).on("click", "#profileClassModal list-exam-list", function (e) {
 
     application.loadOptions([
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#addExam", "#formClassId", "Nenhuma disciplina vincula a turma" , "#buttonAddExam"],
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId", "Nenhuma disciplina vincula a turma"]
+        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "", "#formClassId", "Nenhuma disciplina vincula a turma" , "#buttonAddExam"],
+
     ])
 
     application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/lista", "#formClassId")
@@ -235,6 +244,13 @@ $(document).on("click", "#profileClassModal list-exam-list", function (e) {
 $(document).on("click", "#profileStudentModal [data-target='#student-exam'] , #profileStudentModal [data-target='#rating-list']", function (e) {
 
     application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-notas", "#addNote")
+
+})
+
+
+$(document).on("click", "#profileStudentModal [data-target='#class-profile-observation']", function (e) {
+
+    application.loadListElements("containerObservation", "/admin/gestao/turma/perfil-turma/aluno/obervacoes/lista", "#addObservation")
 
 })
 
@@ -262,7 +278,7 @@ $("#classRoom #collapseAddClassRoom").on("click", function () {
 $(document).on("click", "#profileClassModal [data-target='#add-discipline']", function (e) {
 
     application.loadOptions([
-        ["availableSubjects", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId" , "Todas disciplinas já adicionadas" , "#buttonAddClassDiscipline"]
+        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId" , "Todas disciplinas já adicionadas" , "#buttonAddClassDiscipline"]
     ])
 
 })
@@ -328,9 +344,16 @@ $(document).on("click", "#profileClassModal #list-exam tbody tr", function () {
 
 
 $('.modal').on('shown.bs.modal', function (event) {
+
     var idx = ($('.modal:visible').length) - 1; // raise backdrop after animation.
     $('.modal-backdrop').not('.stacked').css('z-index', 1039 + (10 * idx));
     $('.modal-backdrop').not('.stacked').addClass('stacked');
+
+    $('#cpf').mask('000.000.000-00')
+
+    $('#zipCode').mask('00000-000')
+
+    $("#telephoneNumber").mask(('(00) 00000-0000'))
 })
 
 
@@ -355,7 +378,7 @@ $(document).on("hide.bs.modal", "#modalNote", function (event) {
 
 })
 
-
+/* 
 $(document).on("shown.bs.modal", "#profileStudentModal , #profileTeacherModal , #profileClassModal", function (e) {
 
     $(this).before($(".modal-backdrop"))
@@ -366,7 +389,7 @@ $(document).on("shown.bs.modal", "#profileStudentModal , #profileTeacherModal , 
     $('#zipCode').mask('00000-000')
 
     $("#telephoneNumber").mask(('(00) 00000-0000'))
-}) 
+})  */
 /////////////////////////////////////////////////////////////////////////
 
 

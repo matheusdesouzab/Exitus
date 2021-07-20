@@ -41,7 +41,7 @@
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Boletim</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Observações</a>
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">Observações</a>
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Análise</a>
 
@@ -132,13 +132,13 @@
 
                                     ?>
 
-                                    <div class="col-lg-4 d-flex justify-content-end">
+                                        <div class="col-lg-4 d-flex justify-content-end">
 
-                                        <span idElement="#studentModal<?= $student->student_id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                            <span idElement="#studentModal<?= $student->student_id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                                        <span idElement="#studentModal<?= $student->student_id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" container="containerListStudent" routeList="/admin/aluno/lista/listagem" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                            <span idElement="#studentModal<?= $student->student_id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" container="containerListStudent" routeList="/admin/aluno/lista/listagem" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
-                                    </div>
+                                        </div>
 
                                     <?php } ?>
 
@@ -157,87 +157,87 @@
                             <input type="text" id="name" name="name" disabled class="form-control" value="<?= $student->student_name ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
-                        <?php 
-                        
+                        <?php
+
                         if (!isset($_SESSION)) session_start();
 
                         if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
 
-                        <div class="input-group d-flex justify-content-start col-12 col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Nome da mãe:</span>
-                            </div>
-                            <input type="text" id="motherName" name="motherName" disabled class="form-control" value="<?= $student->student_mother ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Nome do pai:</span>
-                            </div>
-                            <input type="text" id="fatherName" name="fatherName" disabled class="form-control" value="<?= $student->student_father ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">CPF:</span>
-                            </div>
-                            <input type="text" onload="this.value = this.value.mask('000.000.000-00')" id="cpf" name="cpf" disabled class="form-control" value="<?= $student->student_cpf ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Sexo:</span>
+                            <div class="input-group d-flex justify-content-start col-12 col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Nome da mãe:</span>
+                                </div>
+                                <input type="text" id="motherName" name="motherName" disabled class="form-control" value="<?= $student->student_mother ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
 
-                            <select id="sex" name="sex" disabled class="form-control custom-select">
-                                <option value="<?= $student->student_sex_id ?>"><?= $student->student_sex ?></option>
-                                <?php foreach ($this->view->availableSex as $key => $sex) { ?>
-                                    <?php if ($sex->option_value != $student->student_sex_id) { ?>
-                                        <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
-                                <?php }
-                                } ?>
-                            </select>
-
-                        </div>
-
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
-                            </div>
-                            <input type="text" id="nationality" name="nationality" disabled class="form-control" value="<?= $student->student_nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Naturalidade:</span>
-                            </div>
-                            <input type="text" id="naturalness" name="naturalness" disabled class="form-control" value="<?= $student->student_naturalness ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Data de Nascimento:</span>
-                            </div>
-                            <input type="date" id="birthDate" name="birthDate" disabled class="form-control" value="<?= $student->student_birth_date ?>" max="2006-01-31" min="1940-01-31" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">PcD:</span>
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Nome do pai:</span>
+                                </div>
+                                <input type="text" id="fatherName" name="fatherName" disabled class="form-control" value="<?= $student->student_father ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
 
-                            <select id="pcd" name="pcd" disabled class="form-control custom-select">
-                                <option value="<?= $student->student_pcd_id ?>"><?= $student->student_pcd ?></option>
-                                <?php foreach ($this->view->pcd as $key => $pcd) { ?>
-                                    <?php if ($pcd->option_value != $student->student_pcd_id) { ?>
-                                        <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
-                                <?php }
-                                } ?>
-                            </select>
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">CPF:</span>
+                                </div>
+                                <input type="text" onload="this.value = this.value.mask('000.000.000-00')" id="cpf" name="cpf" disabled class="form-control" value="<?= $student->student_cpf ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div>
 
-                        </div>
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Sexo:</span>
+                                </div>
+
+                                <select id="sex" name="sex" disabled class="form-control custom-select">
+                                    <option value="<?= $student->student_sex_id ?>"><?= $student->student_sex ?></option>
+                                    <?php foreach ($this->view->availableSex as $key => $sex) { ?>
+                                        <?php if ($sex->option_value != $student->student_sex_id) { ?>
+                                            <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+                                    <?php }
+                                    } ?>
+                                </select>
+
+                            </div>
+
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
+                                </div>
+                                <input type="text" id="nationality" name="nationality" disabled class="form-control" value="<?= $student->student_nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div>
+
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Naturalidade:</span>
+                                </div>
+                                <input type="text" id="naturalness" name="naturalness" disabled class="form-control" value="<?= $student->student_naturalness ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div>
+
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Data de Nascimento:</span>
+                                </div>
+                                <input type="date" id="birthDate" name="birthDate" disabled class="form-control" value="<?= $student->student_birth_date ?>" max="2006-01-31" min="1940-01-31" aria-label="Username" aria-describedby="addon-wrapping">
+                            </div>
+
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">PcD:</span>
+                                </div>
+
+                                <select id="pcd" name="pcd" disabled class="form-control custom-select">
+                                    <option value="<?= $student->student_pcd_id ?>"><?= $student->student_pcd ?></option>
+                                    <?php foreach ($this->view->pcd as $key => $pcd) { ?>
+                                        <?php if ($pcd->option_value != $student->student_pcd_id) { ?>
+                                            <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
+                                    <?php }
+                                    } ?>
+                                </select>
+
+                            </div>
 
                         <?php } ?>
 
@@ -262,51 +262,51 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Email</span>
                             </div>
-                            <input id="email" name="email" type="text" disabled class="form-control" value="<?= $student->email?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input id="email" name="email" type="text" disabled class="form-control" value="<?= $student->email ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
                         <h5 class="mt-5 mb-3 ml-4">Endereço e contato:</h5>
 
-                        <?php 
-                        
+                        <?php
+
                         if (!isset($_SESSION)) session_start();
 
                         if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
 
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">CEP:</span>
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">CEP:</span>
+                                </div>
+                                <input type="text" id="zipCode" name="zipCode" disabled class="form-control" value="<?= $student->student_zipCode ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
-                            <input type="text" id="zipCode" name="zipCode" disabled class="form-control" value="<?= $student->student_zipCode ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">UF:</span>
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">UF:</span>
+                                </div>
+                                <input type="text" id="uf" name="uf" disabled class="form-control" value="<?= $student->student_uf ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
-                            <input type="text" id="uf" name="uf" disabled class="form-control" value="<?= $student->student_uf ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Município:</span>
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Município:</span>
+                                </div>
+                                <input type="text" id="county" name="county" disabled class="form-control" value="<?= $student->student_county ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
-                            <input type="text" id="county" name="county" disabled class="form-control" value="<?= $student->student_county ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Bairro:</span>
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Bairro:</span>
+                                </div>
+                                <input type="text" id="district" name="district" disabled class="form-control" value="<?= $student->student_district ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
-                            <input type="text" id="district" name="district" disabled class="form-control" value="<?= $student->student_district ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Endereço:</span>
+                            <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Endereço:</span>
+                                </div>
+                                <input type="text" id="address" name="address" disabled class="form-control" value="<?= $student->student_address ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
-                            <input type="text" id="address" name="address" disabled class="form-control" value="<?= $student->student_address ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
 
                         <?php } ?>
 
@@ -363,7 +363,7 @@
                                 </div>
                             </div>
 
-                            
+
 
                             <div class="col-lg-12">
 
@@ -455,7 +455,7 @@
                                                 <label for="">Avaliações disponíveis</label>
 
                                                 <select id="examDescription" name="examDescription" class="form-control custom-select" required></select>
-                                            
+
                                             </div>
 
                                         </div>
@@ -485,7 +485,110 @@
                     </div>
                 </div>
 
-            </div>
+                <div class="col-lg-11 mx-auto collapse" id="class-profile-observation" data-parent="#main-accordion-student">
 
+
+                    <div class="col-lg-12 accordion" id="accordion-observation">
+
+                        <div class="row">
+
+                            <div class="col-lg-12 mb-3">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-lg-5">
+                                        <h5>Observações</h5>
+                                    </div>
+
+                                    <div class="col-lg-7 collapse-options-container">
+
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#observation-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Observações</span></a>
+
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-observation"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-lg-12">
+
+                                <div class="collapse show" id="observation-list" data-parent="#accordion-observation">
+
+                                    <div containerObservation></div>
+
+                                </div>
+
+                                <div class="collapse card" id="add-observation" data-parent="#accordion-observation">
+
+                                    <form id="addObservation" class="col-lg-12" action="">
+
+                                        <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+
+                                        <div class="form-row mt-3">
+
+                                            <div class="form-group col-lg-12">
+                                                <label for="">Descrição da observação</label>
+                                                <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row">
+
+                                        <div class="form-group col-lg-5">
+
+                                                <label for="">Disciplina:</label>
+
+                                                <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+
+                                                    <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+
+                                                        <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                    <?php } ?>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+                                                <label for="">Unidade:</label>
+
+                                                <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                    <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                        <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                    <?php } ?>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-3 ml-auto">
+                                                <label for="">&nbsp;</label>
+                                                <a id="buttonAddObservationStudent" class="btn btn-success w-100">Adicionar</a>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-</div>

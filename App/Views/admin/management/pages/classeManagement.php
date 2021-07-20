@@ -163,6 +163,7 @@
                                         </div>
                                     </div>
 
+
                                     <div class="modal fade modal-profile" id="profileClassModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
                                         <div class="modal-dialog modal-xl">

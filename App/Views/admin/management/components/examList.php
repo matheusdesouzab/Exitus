@@ -5,7 +5,6 @@
     <table class="table table-hover col-lg-12 mx-auto table-borderless" id="tableListExam">
         <thead>
             <tr>
-                <th scope="col">Id</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Disciplina</th>
                 <th scope="col">UE</th>
@@ -21,7 +20,6 @@
                 foreach ($this->view->listExam as $i => $exam) { ?>
 
                     <tr id="exam<?= $exam->exam_id ?>">
-                        <td><?= $exam->exam_id ?></td>
                         <td><?= $exam->exam_description ?></td>
                         <td><?= $exam->discipline_name ?></td>
                         <td><?= $exam->unity ?></td>
