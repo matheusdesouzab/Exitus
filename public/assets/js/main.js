@@ -248,7 +248,7 @@ $(document).on("click", "#profileStudentModal [data-target='#student-exam'] , #p
 })
 
 
-$(document).on("click", "#profileStudentModal [data-target='#class-profile-observation']", function (e) {
+$(document).on("click", "#profileStudentModal [data-target='#class-profile-observation'] , #profileStudentModal [data-target='#observation-list']", function (e) {
 
     application.loadListElements("containerObservation", "/admin/gestao/turma/perfil-turma/aluno/obervacoes/lista", "#addObservation")
 

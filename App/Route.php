@@ -556,6 +556,18 @@ class Route extends Bootstrap
 				'action' => 'observationList'
 			);
 
+			$routes['adminObservationUpdate'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/obervacoes/atualizar',
+				'controller' => 'AdminStudentController',
+				'action' => 'observationUpdate'
+			);
+
+			$routes['adminObservationDelete'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/obervacoes/deletar',
+				'controller' => 'AdminStudentController',
+				'action' => 'observationDelete'
+			);
+
 			$routes['IndexTeacherPortal'] = array(
 				'route' => '/portal-docente',
 				'controller' => 'TeacherPortalController',

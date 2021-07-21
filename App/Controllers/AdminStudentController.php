@@ -118,7 +118,7 @@ class AdminStudentController extends Action
 
         $ClassDiscipline->__set("fk_id_class", $this->view->studentProfile[0]->class_id);
 
-        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded(); 
+        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
 
         $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }
@@ -243,13 +243,12 @@ class AdminStudentController extends Action
 
         $Observation = Container::getModel('Student\\Observation');
 
-        $Observation->__set('observationDescription' , $_POST['description']);
-        $Observation->__set('fk_id_discipline_class' , $_POST['disciplineClassId']);
-        $Observation->__set('fk_id_enrollment' , $_POST['enrollmentId']);
-        $Observation->__set('fk_id_unity' , $_POST['unity']);
+        $Observation->__set('observationDescription', $_POST['description']);
+        $Observation->__set('fk_id_discipline_class', $_POST['disciplineClassId']);
+        $Observation->__set('fk_id_enrollment', $_POST['enrollmentId']);
+        $Observation->__set('fk_id_unity', $_POST['unity']);
 
         $Observation->insert();
-
     }
 
 
@@ -258,13 +257,36 @@ class AdminStudentController extends Action
 
         $Observation = Container::getModel('Student\\Observation');
 
-        $Observation->__set('fk_id_enrollment' , $_GET['enrollmentId']);
+        if (!isset($_SESSION)) session_start();
+
+        $Observation->__set('fk_id_enrollment', $_GET['enrollmentId']);
+        $Observation->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         $this->view->listObservation = $Observation->list();
 
-        $this->render("student/components/observationList" , "SimpleLayout");
+        $this->render("student/components/observationList", "SimpleLayout");
+    }
 
 
+    public function observationUpdate()
+    {
 
+        $Observation = Container::getModel('Student\\Observation');
+
+        $Observation->__set('id', $_POST['id']);
+        $Observation->__set('observationDescription', $_POST['description']);
+
+        $Observation->update();
+    }
+
+
+    public function observationDelete()
+    {
+
+        $Observation = Container::getModel('Student\\Observation');
+
+        $Observation->__set('id', $_POST['id']);
+
+        $Observation->delete();
     }
 }

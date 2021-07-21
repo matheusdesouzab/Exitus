@@ -455,7 +455,7 @@ class AdminManagementController extends Action
 
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacher']);
         $ClassDiscipline->__set("fk_id_class", $_POST['classId']);
-        $ClassDiscipline->__set("fk_id_discipline", $_POST['availableSubjects']);
+        $ClassDiscipline->__set("fk_id_discipline", $_POST['disciplineClassId']);
 
         $ClassDiscipline->insert();
     }

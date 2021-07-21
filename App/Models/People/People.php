@@ -7,7 +7,6 @@ use MF\Model\Model;
 class People extends Model
 {
 
-    protected $id;
     protected $name;
     protected $cpf;
     protected $birthDate;

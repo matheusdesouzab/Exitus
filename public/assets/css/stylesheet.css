@@ -633,6 +633,13 @@ button {
 #admin #pagina .main-container, #teacherPortal #pagina .main-container {
   margin-top: 80px;
 }
+#admin #pagina .miniature-photo img, #teacherPortal #pagina .miniature-photo img {
+  width: 40px;
+  height: 45px;
+  object-position: top;
+  object-fit: cover;
+  border: none;
+}
 #admin #pagina #navbarBottom, #teacherPortal #pagina #navbarBottom {
   display: none;
 }

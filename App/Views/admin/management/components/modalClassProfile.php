@@ -438,7 +438,7 @@
 
                         </div>
 
-                        <div id="activate-advanced-search-accordion" class="collapse" data-parent="#seekNoteExam">
+                        <div id="activate-advanced-search-accordion" class="collapse" data-parent="#seekNoteExamClass">
 
                             <div class="form-row">
 
