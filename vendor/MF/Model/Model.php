@@ -8,7 +8,6 @@ abstract class Model
 	protected $db;
 	protected $id;
 	
-
 	public function __construct(\PDO $db)
 	{
 		$this->db = $db;

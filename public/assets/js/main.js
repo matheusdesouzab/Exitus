@@ -49,12 +49,12 @@ $(document).on("click", "#profileStudentModal #buttonAddNoteStudent", function (
     application.addSinglePart("#addNote", "/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao", "Nota adicionada", false)
 
     application.loadOptions([
-            ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote", "Todas avaliações já adicionadas" ,"#buttonAddNoteStudent"]
+        ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote", "Todas avaliações já adicionadas", "#buttonAddNoteStudent"]
     ])
 
     $("#addNote #noteValue").val("0")
 
-}) 
+})
 
 
 $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function () {
@@ -63,9 +63,9 @@ $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function
 
     application.loadOptions([
 
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId" , "Todas disciplinas já adicionadas" , "#buttonAddClassDiscipline"],
+        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId", "Todas disciplinas já adicionadas", "#buttonAddClassDiscipline"],
 
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId" , "Nenhuma disciplina vincula a turma"]
+        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId", "Nenhuma disciplina vincula a turma"]
 
     ])
 
@@ -79,7 +79,7 @@ $("#schoolTerm #buttonAddSchoolTerm").on("click", function () {
     application.addSinglePart("#addSchoolTerm", "/admin/gestao/periodo-letivo/inserir", "Período letivo adicionado")
 
     application.loadOptions([
-        ["schoolYear", "/admin/gestao/periodo-letivo/lista-anos-disponiveis", "clean", "" , "Nenhum ano disponível" , "#buttonAddSchoolTerm"]
+        ["schoolYear", "/admin/gestao/periodo-letivo/lista-anos-disponiveis", "clean", "", "Nenhum ano disponível", "#buttonAddSchoolTerm"]
     ])
 
 })
@@ -90,7 +90,7 @@ $("#classRoom #buttonAddClassRoom").on("click", function () {
     application.addSinglePart("#addClassRoom", "/admin/gestao/sala/inserir", "Sala de aula adicionada")
 
     application.loadOptions([
-        ["classroomNumber", "/admin/gestao/sala/lista-numeros-disponiveis", "clean", "" , "Nenhuma sala disponível" , '#buttonAddClassRoom']
+        ["classroomNumber", "/admin/gestao/sala/lista-numeros-disponiveis", "clean", "", "Nenhuma sala disponível", '#buttonAddClassRoom']
     ])
 
 })
@@ -135,11 +135,22 @@ $("#buttonAddTeacher").on("click", function (e) {
 })
 
 
-$(document).on('click', "#buttonAddObservationStudent" , function(e){
+$(document).on('click', "#buttonAddObservationStudent", function (e) {
 
     application.addSinglePart("#addObservation", "/admin/gestao/turma/perfil-turma/aluno/obervacoes/insert", "Observação adicionada", "")
 
     $("#addObservation #description").val('')
+
+})
+
+
+$(document).on('click', "#buttonAddLackStudent", function (e) {
+
+    application.addSinglePart("#addLack", "/admin/gestao/turma/perfil-turma/aluno/faltas/inserir", "Falta adicionada", "")
+
+    management.availableLack()
+
+    $("#addLack #totalLack").val('')
 
 })
 
@@ -207,7 +218,7 @@ $(document).on("click", "#profileClassModal [data-target='#list-exam'] , #profil
 })
 
 
-$(document).on("blur", "#profileClassModal #addExam #disciplineClassId , #addExam #unity", function (e) {
+$(document).on("blur", "#profileClassModal #addExam #disciplineClass , #addExam #unity", function (e) {
 
     application.loadListElements("containerListExam", "/admin/gestao/turma/perfil-turma/avaliacoes/lista-recentes", "#addExam")
 
@@ -216,7 +227,7 @@ $(document).on("blur", "#profileClassModal #addExam #disciplineClassId , #addExa
 })
 
 
-$(document).on("blur", "#profileClassModal #seekExam #disciplineClassId , #seekExam #unity", function (e) {
+$(document).on("blur", "#profileClassModal #seekExam #disciplineClass , #seekExam #unity", function (e) {
 
     application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/buscar", "#seekExam")
 
@@ -226,18 +237,18 @@ $(document).on("blur", "#profileClassModal #seekExam #disciplineClassId , #seekE
 $(document).on("click", "#profileClassModal list-exam-list", function (e) {
 
     application.loadOptions([
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "", "#formClassId", "Nenhuma disciplina vincula a turma" , "#buttonAddExam"],
+        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "", "#formClassId", "Nenhuma disciplina vincula a turma", "#buttonAddExam"],
 
     ])
 
     application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/lista", "#formClassId")
 
-    $("#seekExam #disciplineClassId").append($("<option>", {
+    $("#seekExam #disciplineClass").append($("<option>", {
         value: 0,
         text: "Todas"
     }))
 
-   
+
 })
 
 
@@ -251,6 +262,13 @@ $(document).on("click", "#profileStudentModal [data-target='#student-exam'] , #p
 $(document).on("click", "#profileStudentModal [data-target='#class-profile-observation'] , #profileStudentModal [data-target='#observation-list']", function (e) {
 
     application.loadListElements("containerObservation", "/admin/gestao/turma/perfil-turma/aluno/obervacoes/lista", "#addObservation")
+
+})
+
+
+$(document).on("click", "#profileStudentModal [data-target='#class-profile-lack'], #profileStudentModal [data-target='#lack-list']", function (e) {
+
+    application.loadListElements("containerLack", "/admin/gestao/turma/perfil-turma/aluno/faltas/lista", "#addLack")
 
 })
 
@@ -270,7 +288,7 @@ $("#schoolTerm #collapseAddSchoolTerm").on("click", function () {
 
 $("#classRoom #collapseAddClassRoom").on("click", function () {
     application.loadOptions([
-        ["classroomNumber", "/admin/gestao/sala/lista-numeros-disponiveis", "clean", "" , "Não há mais sala disponíveis" , "#buttonAddClassRoom"]
+        ["classroomNumber", "/admin/gestao/sala/lista-numeros-disponiveis", "clean", "", "Não há mais sala disponíveis", "#buttonAddClassRoom"]
     ])
 })
 
@@ -278,7 +296,7 @@ $("#classRoom #collapseAddClassRoom").on("click", function () {
 $(document).on("click", "#profileClassModal [data-target='#add-discipline']", function (e) {
 
     application.loadOptions([
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId" , "Todas disciplinas já adicionadas" , "#buttonAddClassDiscipline"]
+        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId", "Todas disciplinas já adicionadas", "#buttonAddClassDiscipline"]
     ])
 
 })
@@ -286,7 +304,7 @@ $(document).on("click", "#profileClassModal [data-target='#add-discipline']", fu
 
 $(document).on("click", "#profileClassModal [data-target='#add-assessments']", function (e) {
     application.loadOptions([
-        ["disciplineClassId", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#addExam", "#formClassId", "Nenhuma disciplina vinculada a turma", "#buttonAddExam"]
+        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#addExam", "#formClassId", "Nenhuma disciplina vinculada a turma", "#buttonAddExam"]
     ])
 })
 
@@ -294,8 +312,15 @@ $(document).on("click", "#profileClassModal [data-target='#add-assessments']", f
 $(document).on("click", "#profileStudentModal #student-exam [data-target='#add-reviews']", function (e) {
 
     application.loadOptions([
-        ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote" , "Todas avaliações já adicionadas", "#buttonAddNoteStudent", "#buttonAddNoteStudent"]
+        ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote", "Todas avaliações já adicionadas", "#buttonAddNoteStudent", "#buttonAddNoteStudent"]
     ])
+
+})
+
+
+$(document).on("change", "#profileStudentModal #addLack select", function (e) {
+
+    management.availableLack()
 
 })
 
@@ -308,6 +333,14 @@ $(document).on("click", "#profileStudentModal #student-exam [data-target='#add-r
 
 $(document).on("click", "#discipline tr", function () {
     application.showModal(this.id, "/admin/gestao/disciplina/dados", "containerModal", "#modalDiscipline")
+})
+
+
+$(document).on("click", "#lack-table tr", function () {
+
+    application.showModal(this.id, "/admin/gestao/turma/perfil-turma/aluno/faltas/dados", "containerModalLack", "#modalLack")
+
+
 })
 
 
@@ -342,7 +375,7 @@ $(document).on("click", "#profileClassModal #list-exam tbody tr", function () {
 
 })
 
-
+/* 
 $('.modal').on('shown.bs.modal', function (event) {
 
     var idx = ($('.modal:visible').length) - 1; // raise backdrop after animation.
@@ -355,7 +388,24 @@ $('.modal').on('shown.bs.modal', function (event) {
 
     $("#telephoneNumber").mask(('(00) 00000-0000'))
 })
+ */
 
+$('.modal').on('show.bs.modal', function (event) {
+    var idx = $('.modal:visible').length;
+    $(this).css('z-index', 1040 + (10 * idx));
+});
+$('.modal').on('shown.bs.modal', function (event) {
+    var idx = ($('.modal:visible').length) - 1; // raise backdrop after animation.
+    $('.modal-backdrop').not('.stacked').css('z-index', 1039 + (10 * idx));
+    $('.modal-backdrop').not('.stacked').addClass('stacked');
+});
+$('.modal').on('hidden.bs.modal', function (event) {
+    if ($('.modal:visible').length > 0) {
+        setTimeout(function () {
+            $(document.body).addClass('modal-open');
+        }, 0);
+    }
+});
 
 
 $(document).on("click", "#profileClassModal #students-list tbody tr", function (e) {
@@ -378,18 +428,7 @@ $(document).on("hide.bs.modal", "#modalNote", function (event) {
 
 })
 
-/* 
-$(document).on("shown.bs.modal", "#profileStudentModal , #profileTeacherModal , #profileClassModal", function (e) {
 
-    $(this).before($(".modal-backdrop"))
-    $(this).css("z-index", parseInt($(".modal-backdrop").css("z-index")) + 1)
-
-    $('#cpf').mask('000.000.000-00')
-
-    $('#zipCode').mask('00000-000')
-
-    $("#telephoneNumber").mask(('(00) 00000-0000'))
-})  */
 /////////////////////////////////////////////////////////////////////////
 
 
@@ -477,14 +516,14 @@ $(document).on("keyup", "#seekNoteExamClass #examDescription", function (e) {
 })
 
 
-$(document).on('change', "#seekNoteExamStudent select", function (e){
-    
+$(document).on('change', "#seekNoteExamStudent select", function (e) {
+
     application.seekElement("#seekNoteExamStudent", "containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar")
 
 })
 
-$(document).on('change', "#seekNoteExamClass select", function (e){
-    
+$(document).on('change', "#seekNoteExamClass select", function (e) {
+
     application.seekElement("#seekNoteExamClass", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar")
 
 })
@@ -504,7 +543,7 @@ $("#seekStudent select").change(() => application.seekElement("#seekStudent", "c
 //* Validation session
 
 
-let commonElements = ["#name , #birthDate", "#naturalness", "#nationality", "#motherName", "#fatherName", "#county", "#district", "#address", "#uf" , "#email"]
+let commonElements = ["#name , #birthDate", "#naturalness", "#nationality", "#motherName", "#fatherName", "#county", "#district", "#address", "#uf", "#email"]
 
 commonElements.forEach(element => $(element).on("blur", e => validation.validateByContent(e.target.id)))
 
@@ -530,7 +569,7 @@ $(document).on("keypress", `#addExam #examValue`, function (e) {
 
     if (timeout) clearTimeout(timeout)
 
-    timeout = setTimeout(() =>  management.getNotesAlreadyAdded(`#addExam`, this, e, false), 500)
+    timeout = setTimeout(() => management.getNotesAlreadyAdded(`#addExam`, this, e, false), 500)
 
 })
 
@@ -539,7 +578,7 @@ $(document).on("keypress", `#modalExam form #examValue`, function (e) {
 
     if (timeout) clearTimeout(timeout)
 
-    timeout = setTimeout(() =>  management.getNotesAlreadyAdded($(this).attr("formId"), this, e, true, $(this).attr("initialValue")), 500)
+    timeout = setTimeout(() => management.getNotesAlreadyAdded($(this).attr("formId"), this, e, true, $(this).attr("initialValue")), 500)
 
 })
 
@@ -548,7 +587,7 @@ $(document).on("keypress", `#modalNote form #noteValue`, function (e) {
 
     if (timeout) clearTimeout(timeout)
 
-    timeout = setTimeout(() =>  management.getGrade(this, e, tools.round($(this).attr("initialValue"), 1)), 500)
+    timeout = setTimeout(() => management.getGrade(this, e, tools.round($(this).attr("initialValue"), 1)), 500)
 
 })
 
@@ -561,7 +600,7 @@ $(document).on("keypress", "#addNote #noteValue", function (e) {
 
     if (timeout) clearTimeout(timeout)
 
-    timeout = setTimeout(() =>  management.getGrade(this, e, tools.round(parseFloat(noteValue), 1)), 500)
+    timeout = setTimeout(() => management.getGrade(this, e, tools.round(parseFloat(noteValue), 1)), 500)
 
 })
 
@@ -591,6 +630,8 @@ $(document).on("keypress", "#cpf", e => $(e.target).mask("000.000.000-00"))
 $(document).on("keypress", "#zipCode", e => $(e.target).mask("00000-000"))
 
 $(document).on("keypress", "#telephoneNumber", e => $(e.target).mask(("(00) 00000-0000")))
+
+$(document).on("keypress", "#totalLack", e => $(e.target).mask(("00")))
 
 $("input[name='acronym'] , input[name='uf']").on("keyup", e => e.target.value = e.target.value.toUpperCase())
 
@@ -725,7 +766,7 @@ $("#bars").on("click", sideState)
 
 $("#accessCode").on("keypress", e => $(e.target).mask("000.000"))
 
-$("#teacherPortal #class tbody tr").on('click', function(e){
+$("#teacherPortal #class tbody tr").on('click', function (e) {
 
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma", "containerClasseProfileModal", "#profileClassModal")
 
@@ -734,7 +775,7 @@ $("#teacherPortal #class tbody tr").on('click', function(e){
 $("#teacherPortal #seekClass .custom-select").change(() => application.seekElement("#seekClass", "containerListClass", "/portal-docente/turmas/buscar"))
 
 
-$(document).on('click', "#profileClassModal [data-target='#class-note-history']" , function(e){
+$(document).on('click', "#profileClassModal [data-target='#class-note-history']", function (e) {
 
     application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas", "#formClassId")
 

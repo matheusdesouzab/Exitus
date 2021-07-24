@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Management;
+namespace App\Models\Admin;
 
 use MF\Model\Model;
 
 class ClassDiscipline extends Model
 {
 
-    private $classDisciplineId;
     private $fk_id_teacher;
     private $fk_id_discipline;
     private $fk_id_class;
@@ -99,7 +98,7 @@ class ClassDiscipline extends Model
             fk_id_professor = :fk_id_teacher, 
             fk_id_disciplina = :fk_id_discipline 
 
-            WHERE turma_disciplina.id_turma_disciplina = :classDisciplineId
+            WHERE turma_disciplina.id_turma_disciplina = :id
             
         ";
 
@@ -107,7 +106,7 @@ class ClassDiscipline extends Model
 
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
         $stmt->bindValue(':fk_id_discipline', $this->__get('fk_id_discipline'));
-        $stmt->bindValue(':classDisciplineId', $this->__get('classDisciplineId'));
+        $stmt->bindValue(':id', $this->__get('id'));
 
         $stmt->execute();
     }
@@ -259,7 +258,7 @@ class ClassDiscipline extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':id', $this->__get('classDisciplineId'));
+        $stmt->bindValue(':id', $this->__get('id'));
 
         $stmt->execute();
     }

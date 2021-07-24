@@ -8,7 +8,7 @@ if (count($this->view->listTeacher) >= 1) {
 
             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
-                <input type="hidden" name="disciplineClassId" value="<?= $discipline->discipline_class_id ?>">
+                <input type="hidden" name="disciplineClass" value="<?= $discipline->discipline_class_id ?>">
                 <input type="hidden" name="classId" value="<?= $discipline->class_id ?>">
 
                 <div class=" col-lg-8 font-weight-bold">Disciplina de <?= $discipline->discipline_name ?>

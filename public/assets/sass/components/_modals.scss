@@ -1,5 +1,18 @@
 #pagina {
 
+    #profileStudentModal {
+
+        .container-list-group {
+            height: 40vh;
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+                width: 0;
+                background: transparent;
+            }
+        }
+    }
+
     .modal {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(5px);
@@ -98,7 +111,6 @@
                 ul {
 
                     a {
-                        border-radius: 10px;
                         padding: 10px 15px;
                         color: $color-dark-gray;
                         font-size: 13px;
@@ -109,23 +121,24 @@
                         font-family: Bold;
                         transition: all 0.2s ease;
 
-                        &:hover{
-                            background: #6619c3;
-                            color: $color-white;
+                        &:hover {
+                            background: #f9f8f8;
+                            color: $color-black;
+                            border-left: 4px solid $color-blue;
                         }
                     }
 
                     [aria-expanded="true"] {
-                        background: #6619c3;
-                        color: $color-white;
-                        border: none;
+                        background: #f9f8f8;
+                        color: $color-black;
+                        border-left: 4px solid $color-blue;
                     }
                 }
             }
 
         }
 
-        img {
+        .modal-sidebar img {
             border-radius: 50%;
             width: 95px;
             height: 95px;
@@ -152,30 +165,31 @@
                 background: transparent;
             }
 
-            .row:nth-child(1){
+            .row:nth-child(1) {
                 margin-top: 15px;
             }
 
-            #accordion-data-student , #accordion-data-teacher {
+            #accordion-data-student,
+            #accordion-data-teacher {
 
-            form input,
-            form select {
+                form input,
+                form select {
 
-                background-color: transparent;
-                border: none;
-                border-bottom: 3px solid $color-extra-light-blue;
-
-                &:disabled {
-
+                    background-color: transparent;
                     border: none;
-                    font-weight: 500;
-                    padding-left: 0;
-                    cursor: context-menu;
-                    color: $color-dark-gray;
-                }
-            }
+                    border-bottom: 3px solid $color-extra-light-blue;
 
-        }
+                    &:disabled {
+
+                        border: none;
+                        font-weight: 500;
+                        padding-left: 0;
+                        cursor: context-menu;
+                        color: $color-dark-gray;
+                    }
+                }
+
+            }
 
 
             form {
@@ -193,7 +207,7 @@
         }
 
 
-        .modal-sidebar{
+        .modal-sidebar {
             height: 77vh;
             background-color: white;
             border: 1px solid #e5e5e5;
@@ -212,31 +226,31 @@
 
     }
 
-   #profileClassModal {
+    #profileClassModal {
 
 
-    img{
-        margin-top: 0px;
-    }
+        img {
+            margin-top: 0px;
+        }
 
-        #accordion-data-student{
+        #accordion-data-student {
 
-        form input,
-        form select {
+            form input,
+            form select {
 
-            background-color: $color-white;
-            border-bottom: none;
-            border: 2px solid $color-extra-light-blue;
-
-            &:disabled {
-                background-color: $color-pure-gray;
+                background-color: $color-white;
                 border-bottom: none;
-                padding-left: 10px;
+                border: 2px solid $color-extra-light-blue;
+
+                &:disabled {
+                    background-color: $color-pure-gray;
+                    border-bottom: none;
+                    padding-left: 10px;
+                }
             }
         }
-    }
 
-    } 
+    }
 
 
 

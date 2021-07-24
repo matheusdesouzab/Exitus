@@ -43,6 +43,8 @@
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">Observações</a>
 
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">Faltas</a>
+
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Análise</a>
 
                                 </ul>
@@ -387,7 +389,7 @@
 
                                                 <label for="">Disciplina:</label>
 
-                                                <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+                                                <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
 
                                                     <option value="0">Todas</option>
 
@@ -487,7 +489,6 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="class-profile-observation" data-parent="#main-accordion-student">
 
-
                     <div class="col-lg-12 accordion" id="accordion-observation">
 
                         <div class="row">
@@ -536,11 +537,11 @@
 
                                         <div class="form-row">
 
-                                        <div class="form-group col-lg-5">
+                                            <div class="form-group col-lg-5">
 
                                                 <label for="">Disciplina:</label>
 
-                                                <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+                                                <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
 
                                                     <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
 
@@ -562,6 +563,19 @@
                                                         <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
 
                                                     <?php } ?>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-4">
+
+                                                <label for="">Ordenar por:</label>
+
+                                                <select id="orderBy" class="form-control custom-select" name="orderBy" required>
+
+                                                    <option value="DESC">Maior nota</option>
+                                                    <option value="ASC">Menor nota</option>
 
                                                 </select>
 
@@ -590,5 +604,197 @@
 
                 </div>
 
+                <div class="col-lg-11 mx-auto collapse" id="class-profile-lack" data-parent="#main-accordion-student">
+
+                    <div class="col-lg-12 accordion" id="accordion-lack">
+
+                        <div class="col-lg-12 mb-3">
+                            <div class="row d-flex align-items-center">
+                                <div class="col-lg-5">
+                                    <h5>Faltas do aluno</h5>
+                                </div>
+
+                                <div class="col-lg-7 collapse-options-container">
+
+                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#lack-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Faltas</span></a>
+
+                                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-lack"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+
+                            <div class="row mb-3">
+
+                                <div class="col-lg-12">
+
+                                    <div class="collapse show card" id="lack-list" data-parent="#accordion-lack">
+
+                                        <div clas="row">
+
+                                            <form id="seekNoteExamStudent" class="mt-3 col-lg-12 text-dark" action="">
+
+                                                <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+
+                                                <div class="form-row mt-3">
+
+
+                                                    <div class="form-group col-lg-5">
+
+                                                        <label for="">Disciplina:</label>
+
+                                                        <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
+
+                                                            <option value="0">Todas</option>
+
+                                                            <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+
+                                                                <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                            <?php } ?>
+
+                                                        </select>
+
+                                                    </div>
+
+                                                    <div class="form-group col-lg-3">
+                                                        <label for="">Unidade:</label>
+
+                                                        <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                            <option value="0">Todas</option>
+
+                                                            <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                                <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                            <?php } ?>
+
+                                                        </select>
+
+                                                    </div>
+
+                                                    <div class="form-group col-lg-4">
+
+                                                        <label for="">Ordenar por:</label>
+
+                                                        <select id="orderBy" class="form-control custom-select" name="orderBy" required>
+
+                                                            <option value="DESC">Maiores faltas</option>
+                                                            <option value="ASC">Menores faltas</option>
+
+                                                        </select>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </form>
+
+                                            <hr class="col-lg-11 mx-auto">
+
+                                            <div class="table-responsive">
+
+                                                <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover" id="lack-table">
+
+                                                    <thead>
+
+                                                        <tr>
+                                                            <th scope="col">Disciplina</th>
+                                                            <th scope="col">Unidade</th>
+                                                            <th scope="col">Faltas</th>
+                                                        </tr>
+
+                                                    </thead>
+
+                                                    <tbody containerLack></tbody>
+
+                                                </table>
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="collapse card" id="add-lack" data-parent="#accordion-lack">
+
+                                        <form id="addLack" action="" class="col-lg-12">
+
+                                            <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+
+                                            <div class="form-row mt-3">
+
+                                                <div class="form-group col-lg-6">
+
+                                                    <label for="">Disciplina:</label>
+
+                                                    <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
+
+                                                        <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+
+                                                            <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                        <?php } ?>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <div class="form-group col-lg-3">
+
+                                                    <label for="">Unidade:</label>
+                                                    <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                        <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                            <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                        <?php } ?>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <div class="form-group col-lg-3">
+
+                                                    <label for="">Faltas:</label>
+                                                    <input type="text" class="form-control" name="totalLack" id="totalLack">
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-row">
+
+                                                <div class="form-group col-lg-3 ml-auto">
+                                                    <label for="">&nbsp;</label>
+                                                    <a id="buttonAddLackStudent" class="btn btn-success w-100 disabled">Adicionar</a>
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
             </div>
         </div>
+
+       

@@ -1,16 +1,7 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
-use App\Models\Student\Student;
-use App\Models\Management\Classe;
-use App\Models\Management\SchoolTerm;
-use App\Models\Management\Course;
-use App\Models\Student\StudentEnrollment;
-use App\Models\People\Address;
-use App\Models\People\Telephone;
-use App\Models\Management\ClassDiscipline;
-use App\Models\Management\Exam;
 use App\Tools\Tools;
 use MF\Controller\Action;
 use MF\Model\Container;
@@ -23,7 +14,7 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Classe = Container::getModel('Management\\Classe');
+        $Classe = Container::getModel('Admin\\Classe');
 
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
@@ -38,8 +29,8 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Course = Container::getModel('Management\\Course');
-        $Classe = Container::getModel('Management\\Classe');
+        $Course = Container::getModel('Admin\\Course');
+        $Classe = Container::getModel('Admin\\Classe');
         $Student = Container::getModel('Student\\Student');
 
         $this->view->listStudent = $Student->list();
@@ -69,7 +60,7 @@ class AdminStudentController extends Action
     public function availableListClass()
     {
 
-        $Classe = Container::getModel('Management\\Classe');
+        $Classe = Container::getModel('Admin\\Classe');
 
         $this->view->listClass = $Classe->availableListClass();
 
@@ -81,7 +72,7 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Classe = Container::getModel('Management\\Classe');
+        $Classe = Container::getModel('Admin\\Classe');
 
         $Student->__set('name', $_GET['name']);
         $Student->__set('fk_id_sex', $_GET['sex']);
@@ -100,8 +91,8 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Exam = Container::getModel('Management\\Exam');
-        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
+        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
 
         $Student->__set('id', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
@@ -172,7 +163,7 @@ class AdminStudentController extends Action
     public function studentInsert()
     {
 
-        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
+        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
         $activeSchoolTerm = $SchoolTerm->active();
 
         $Tool = new Tools();
@@ -238,55 +229,5 @@ class AdminStudentController extends Action
     }
 
 
-    public function observationInsert()
-    {
-
-        $Observation = Container::getModel('Student\\Observation');
-
-        $Observation->__set('observationDescription', $_POST['description']);
-        $Observation->__set('fk_id_discipline_class', $_POST['disciplineClassId']);
-        $Observation->__set('fk_id_enrollment', $_POST['enrollmentId']);
-        $Observation->__set('fk_id_unity', $_POST['unity']);
-
-        $Observation->insert();
-    }
-
-
-    public function observationList()
-    {
-
-        $Observation = Container::getModel('Student\\Observation');
-
-        if (!isset($_SESSION)) session_start();
-
-        $Observation->__set('fk_id_enrollment', $_GET['enrollmentId']);
-        $Observation->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-
-        $this->view->listObservation = $Observation->list();
-
-        $this->render("student/components/observationList", "SimpleLayout");
-    }
-
-
-    public function observationUpdate()
-    {
-
-        $Observation = Container::getModel('Student\\Observation');
-
-        $Observation->__set('id', $_POST['id']);
-        $Observation->__set('observationDescription', $_POST['description']);
-
-        $Observation->update();
-    }
-
-
-    public function observationDelete()
-    {
-
-        $Observation = Container::getModel('Student\\Observation');
-
-        $Observation->__set('id', $_POST['id']);
-
-        $Observation->delete();
-    }
+    
 }

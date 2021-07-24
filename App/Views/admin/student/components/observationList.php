@@ -13,9 +13,13 @@
 
                 <div class="col-lg-8 font-weight-bold">
 
-                    <div class="row d-flex align-items-end">
-                        <div class="col-lg-2 miniature-photo"> <img class="" src='<?= $observation->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $observation->teacherProfilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
-                        <div class="col-lg-10 ">Danilo Xaier</div>
+                    <?php $shift = substr($observation->shift, 0, 1) ?>
+
+                    <div class="row d-flex align-items-center">
+                        <div class="col-2 miniature-photo">
+                            <img class="" src='<?= $observation->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $observation->teacherProfilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                        </div>
+                        <div class="col-10"><?= $observation->teacherName ?></div>
                     </div>
 
                 </div>
@@ -44,15 +48,22 @@
 
                 $dateTime = explode(' ', $observation->sendDate);
                 $data = explode('-', $dateTime[0]);
-                $data = $data[2] . '-' . $data[1] . '-' . $data[0];
+                $data = $data[2] . '/' . $data[1] . '/' . $data[0];
                 $time = substr($dateTime[1], 0, -3);
 
                 ?>
 
                 <div class="form-group col-lg-12">
                     <label for=""><?= $observation->disciplineName ?> - <?= $observation->unity ?> unidade :</label>
-                    <textarea class="form-control mb-3" name="description" disabled id="description" rows="3"><?= $observation->observationDescription ?></textarea>
-                    <small class="font-weight-bold"><i class="fas fa-history mr-2"></i> Realizada em <?= $data ?> as <?= $time ?> </small>
+                    <textarea class="form-control mb-3 mt-2" name="description" disabled id="description" rows="3"><?= $observation->observationDescription ?></textarea>
+
+                    <div class="">
+                        <div class="row">
+                            <small class="col-lg-5 font-weight-bold"><?= $observation->course ?>-<?= $observation->series_acronym ?><?= $shift ?>-<?= $observation->ballot ?> </small>
+                            <small class="col-lg-7 text-right font-weight-bold"> <i class="fas fa-history mr-2"></i> Realizada em <?= $data ?> as <?= $time ?></small>
+                        </div>
+
+                    </div>
                 </div>
 
 

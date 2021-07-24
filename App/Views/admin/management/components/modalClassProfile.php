@@ -194,7 +194,7 @@
 
                                                 <label for="">Disciplina</label>
 
-                                                <select id="disciplineClassId" name="disciplineClassId" class="form-control custom-select" required></select>
+                                                <select id="disciplineClass" name="disciplineClass" class="form-control custom-select" required></select>
 
                                             </div>
 
@@ -264,7 +264,7 @@
 
                                         <label for="">Disciplina:</label>
 
-                                        <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+                                        <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
 
                                             <option value="0">Todas</option>
 
@@ -325,7 +325,7 @@
 
                                         <label for="">Disciplina:</label>
 
-                                        <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+                                        <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
 
                                             <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
 
@@ -414,7 +414,7 @@
 
                                 <label for="">Disciplina:</label>
 
-                                <select id="disciplineClassId" class="form-control custom-select" name="disciplineClassId" required>
+                                <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
 
                                     <option value="0">Todas</option>
 

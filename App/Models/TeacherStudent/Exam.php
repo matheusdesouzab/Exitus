@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Management;
+namespace App\Models\TeacherStudent;
 
 use MF\Model\Model;
 
 class Exam extends Model
 {
 
-    private $examId;
     private $examDescription;
     private $examValue;
     private $realizedDate;
@@ -127,9 +126,9 @@ class Exam extends Model
     public function update()
     {
 
-        $currentValueNote = "SELECT avaliacoes.valor_avaliacao AS exam_value FROM avaliacoes WHERE avaliacoes.id_avaliacao = :examId ";
+        $currentValueNote = "SELECT avaliacoes.valor_avaliacao AS exam_value FROM avaliacoes WHERE avaliacoes.id_avaliacao = :id ";
         $stmt = $this->db->prepare($currentValueNote);
-        $stmt->bindValue(':examId', $this->__get('examId'));
+        $stmt->bindValue(':id', $this->__get('id'));
         $stmt->execute();
         $currentValueNote = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
@@ -142,13 +141,13 @@ class Exam extends Model
 
                 SET nota_avaliacao.valor_nota = ROUND( (nota_avaliacao.valor_nota / " . $currentValueNote[0]->exam_value . ") * " . $this->__get('examValue') . " , 1 )
 
-                WHERE nota_avaliacao.fk_id_avaliacao = :examId
+                WHERE nota_avaliacao.fk_id_avaliacao = :id
                 
             ";
 
             $stmt = $this->db->prepare($updateNotes);
 
-            $stmt->bindValue(':examId', $this->__get('examId'));
+            $stmt->bindValue(':id', $this->__get('id'));
             $stmt->execute();
         }
 
@@ -160,7 +159,7 @@ class Exam extends Model
             avaliacoes.valor_avaliacao = :examValue ,
             avaliacoes.descricao_avaliacao = :examDescription 
 
-            WHERE avaliacoes.id_avaliacao = :examId          
+            WHERE avaliacoes.id_avaliacao = :id          
             
         ";
 
@@ -169,7 +168,7 @@ class Exam extends Model
         $stmt->bindValue(':examDescription', $this->__get('examDescription'));
         $stmt->bindValue(':examValue', $this->__get('examValue'));
         $stmt->bindValue(':realizeDate', $this->__get('realizeDate'));
-        $stmt->bindValue(':examId', $this->__get('examId'));
+        $stmt->bindValue(':id', $this->__get('id'));
 
         $stmt->execute();
     }
@@ -178,11 +177,11 @@ class Exam extends Model
     public function delete()
     {
 
-        $query = "DELETE FROM avaliacoes WHERE avaliacoes.id_avaliacao = :examId";
+        $query = "DELETE FROM avaliacoes WHERE avaliacoes.id_avaliacao = :id";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':examId', $this->__get('examId'));
+        $stmt->bindValue(':id', $this->__get('id'));
 
         $stmt->execute();
     }

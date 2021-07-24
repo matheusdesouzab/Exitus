@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\TeacherPortal;
 
 use MF\Controller\Action;
 use MF\Model\Container;
@@ -62,10 +62,10 @@ class TeacherPortalController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $Classe = Container::getModel('Management\\Classe');
-        $Course = Container::getModel('Management\\Course');
-        $ClassRoom = Container::getModel('Management\\ClassRoom');
-        $SchoolTerm = Container::getModel('Management\\SchoolTerm');
+        $Classe = Container::getModel('Admin\\Classe');
+        $Course = Container::getModel('Admin\\Course');
+        $ClassRoom = Container::getModel('Admin\\ClassRoom');
+        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
 
         if (!isset($_SESSION)) session_start();
 
@@ -87,7 +87,7 @@ class TeacherPortalController extends Action
     public function seekTeacherClasses()
     {
 
-        $Classe = Container::getModel('Management\\Classe');
+        $Classe = Container::getModel('Admin\\Classe');
         $Teacher = Container::getModel('Teacher\\Teacher');
 
         $Classe->__set('fk_id_course', $_GET['course']);

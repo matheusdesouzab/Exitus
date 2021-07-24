@@ -26,7 +26,7 @@
 
             <input type="hidden" name="examId" value="<?= $this->view->examData[0]->exam_id ?>">
             <input type="hidden" name="unity" value="<?= $this->view->examData[0]->fk_id_exam_unity ?>">
-            <input type="hidden" name="disciplineClassId" value="<?= $this->view->examData[0]->fk_id_discipline_class ?>">
+            <input type="hidden" name="disciplineClass" value="<?= $this->view->examData[0]->fk_id_discipline_class ?>">
             <input type="hidden" name="classId" value="<?= $this->view->examData[0]->class_id ?>">
 
             <div class="form-group col-lg-6">

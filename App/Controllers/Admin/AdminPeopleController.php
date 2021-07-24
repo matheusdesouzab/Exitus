@@ -1,10 +1,8 @@
 <?php
 
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
-use App\Models\People\People;
-use App\Tools\Validation;
 use MF\Controller\Action;
 use MF\Model\Container;
 

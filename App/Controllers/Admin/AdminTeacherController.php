@@ -2,10 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\Teacher\Teacher;
-use App\Models\People\Address;
-use App\Models\People\Telephone;
-use App\Models\Management\ClassDiscipline;
 use App\Tools\Tools;
 use MF\Controller\Action;
 use MF\Model\Container;
@@ -69,7 +65,7 @@ class AdminTeacherController extends Action
     public function listTeacherClass()
     {
 
-        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
         $this->view->typeTeacherList = 'class';
@@ -85,7 +81,7 @@ class AdminTeacherController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $Classe = Container::getModel('Management\\Classe');
+        $Classe = Container::getModel('Admin\\Classe');
 
         $this->view->listTeacher = $Teacher->list();
         $this->view->availableSex = $Teacher->availableSex();
@@ -115,7 +111,7 @@ class AdminTeacherController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $ClassDiscipline =  Container::getModel('Management\\ClassDiscipline');
+        $ClassDiscipline =  Container::getModel('Admin\\ClassDiscipline');
 
         $Teacher->__set('id', $_GET['id']);
         $ClassDiscipline->__set('fk_id_teacher', $_GET['id']);
@@ -136,7 +132,7 @@ class AdminTeacherController extends Action
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $ClassDiscipline = Container::getModel('Management\\ClassDiscipline');
+        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
 
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
         

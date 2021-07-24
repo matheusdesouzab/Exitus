@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use MF\Controller\Action;
 use MF\Model\Container;

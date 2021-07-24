@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Student;
+namespace App\Models\TeacherStudent;
 
 use MF\Model\Model;
 
@@ -64,7 +64,12 @@ class Observation extends Model
             professor.foto_perfil_professor AS teacherProfilePhoto ,
             unidade.unidade AS unity ,
             disciplina.nome_disciplina AS disciplineName ,
-            observacao_aluno.fk_id_matricula_observacao AS enrollmentId
+            observacao_aluno.fk_id_matricula_observacao AS enrollmentId ,
+            serie.sigla AS series_acronym , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,  
+            periodo_disponivel.ano_letivo AS school_term
 
             FROM observacao_aluno
 
@@ -72,12 +77,21 @@ class Observation extends Model
             INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
             INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
             INNER JOIN unidade ON(observacao_aluno.fk_id_unidade = unidade.id_unidade)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
             WHERE observacao_aluno.fk_id_matricula_observacao = :fk_id_enrollment
 
             AND
 
             CASE WHEN :fk_id_teacher = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :fk_id_teacher END
+
+            ORDER BY observacao_aluno.data_envio DESC
    
         ";
 

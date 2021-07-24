@@ -5,7 +5,8 @@
         border-radius: 10px;
 
         input:disabled,
-        select:disabled {
+        select:disabled,
+        textarea:disabled {
             background-color: $color-pure-gray;
             cursor: no-drop;
             border: none;    
@@ -18,6 +19,11 @@
 
         .form-control:invalid {
             border: 2px solid $color-extra-light-red;
+        }
+
+        textarea{
+            padding: 10px 15px;
+            border-radius: 10px;
         }
 
     }

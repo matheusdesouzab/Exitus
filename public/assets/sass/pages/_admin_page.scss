@@ -8,11 +8,11 @@
 
         .miniature-photo img{
             width: 40px; 
-            height: 45px; 
+            height: 40px; 
             object-position:top; 
             object-fit: cover;
-            border: none;
-            
+            border: none;   
+            border-radius: 50%;      
         }
 
         #navbarBottom {

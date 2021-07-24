@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Models\Management;
+namespace App\Models\TeacherStudent;
 
-use App\Models\Management\Exam;
+use App\Models\TeacherStudent\Exam;
 
 class Note extends Exam
 {
 
-    private $noteId;
     private $noteValue;
     private $fk_id_exam;
     private $fk_id_student_enrollment;
-    private $fk_id_class;
-    private $fk_id_teacher;
 
 
     public function __get($att)
@@ -174,7 +171,7 @@ class Note extends Exam
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':note_value', $this->__get('noteValue'));
-        $stmt->bindValue(':note_id', $this->__get('noteId'));
+        $stmt->bindValue(':note_id', $this->__get('id'));
 
         $stmt->execute();
     }
@@ -187,7 +184,7 @@ class Note extends Exam
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':note_id', $this->__get('noteId'));
+        $stmt->bindValue(':note_id', $this->__get('id'));
 
         $stmt->execute();
     }

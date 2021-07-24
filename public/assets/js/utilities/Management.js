@@ -112,34 +112,32 @@ class Management {
     }
 
 
-    checkAvailableOptions(element, button, message, optionRoute, data) {
+    availableLack() {
 
-    /*     let load = setTimeout(() => {
+        let $form = $("#addLack").serialize()
 
-            let select = element.split(" ")
+        $.ajax({
+            url: "/admin/gestao/turma/perfil-turma/aluno/faltas/disponiveis",
+            type: "GET",
+            dataType: "json",
+            data: $form,
+            success: data => {
 
-            if ($(`${element} option`).length == 0) {
+                if (data.length != 1) {
 
-                $(`${element}`).append($("<option>", {
-                    value: 0,
-                    text: message
-                }))
+                    $("#buttonAddLackStudent").removeClass('disabled')
 
-                $(button).attr('disabled', true)
+                } else {
 
-            } else {
+                    $("#buttonAddLackStudent").addClass('disabled')
 
-                application.loadOptions([
-                    [select[1], optionRoute, "clean", select[0], data]
-                ])
+                    tools.showToast("Falta já adicionada", "bg-info")
+                }
 
-                $(button).attr('disabled', false)
+            },
+            error: error => tools.showToast('errro', 'bg-info')
 
-            }
-
-        }, 4000)
-
-        load() */
+        })
     }
 
 
