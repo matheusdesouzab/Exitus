@@ -108,12 +108,7 @@
                                 <div class="col-lg-12 table-responsive">
                                     <table class="table col-lg-12 table-hover mt-3 table-borderless ">
 
-                                        <tbody containerListTeacher class="">
-
-                                            <?php require '../App/Views/admin/teacher/components/teacherListing.php' ?>
-
-                                        </tbody>
-
+                                        <tbody containerListTeacherClass class=""></tbody>
 
                                     </table>
                                 </div>

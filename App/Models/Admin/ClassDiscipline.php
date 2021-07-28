@@ -7,7 +7,7 @@ use MF\Model\Model;
 class ClassDiscipline extends Model
 {
 
-    private $fk_id_teacher;
+    private $fk_id_teacher = 0;
     private $fk_id_discipline;
     private $fk_id_class;
 
@@ -74,13 +74,13 @@ class ClassDiscipline extends Model
 
             WHERE disciplina.nome_disciplina IS NOT NULL 
             
-            AND turma_disciplina.fk_id_turma = :id
+            AND turma_disciplina.fk_id_turma = :fk_id_class
         
         ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':id', $this->__get('fk_id_class'));
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
 
         $stmt->execute();
 
@@ -158,13 +158,13 @@ class ClassDiscipline extends Model
             LEFT JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
             LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel)       
 
-            WHERE professor.id_professor = :id AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+            WHERE professor.id_professor = :fk_id_teacher AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
         
         ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':id', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
 

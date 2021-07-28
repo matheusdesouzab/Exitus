@@ -634,7 +634,7 @@
 
                                         <div clas="row">
 
-                                            <form id="seekNoteExamStudent" class="mt-3 col-lg-12 text-dark" action="">
+                                            <form id="seekLackStudent" class="mt-3 col-lg-12 text-dark" action="">
 
                                                 <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
@@ -709,7 +709,7 @@
 
                                                     </thead>
 
-                                                    <tbody containerLack></tbody>
+                                                    <tbody containerListLack></tbody>
 
                                                 </table>
 

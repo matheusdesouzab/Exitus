@@ -186,6 +186,8 @@ class Application {
             },
             success: data => {
 
+                console.log(data)
+
                 $container.append(data)
 
                 $(modal).modal("show")

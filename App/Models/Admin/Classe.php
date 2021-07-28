@@ -7,7 +7,7 @@ use MF\Model\Model;
 class Classe extends Model
 {
 
-    private $classId;
+    private $classId = 0;
     private $fk_id_shift;
     private $fk_id_classroom;
     private $fk_id_course;
@@ -221,10 +221,10 @@ class Classe extends Model
     }
 
 
-    public function list($operation = "")
+    public function list()
     {
 
-        return $this->speedingUp(
+        $query = 
 
             "SELECT 
 
@@ -252,10 +252,21 @@ class Classe extends Model
             
             WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1
 
-            $operation
-            
-            "
-        );
+            AND
+
+            CASE WHEN :classId = 0 THEN turma.id_turma <> :classId ELSE turma.id_turma = :classId END
+       
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(":classId", $this->__get("classId"));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+
+
     }
 
     public function availableListClass()

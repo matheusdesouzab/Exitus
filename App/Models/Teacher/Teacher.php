@@ -7,6 +7,7 @@ use App\Models\People\People;
 class Teacher extends People
 {
 
+    private $teacherId = 0;
     private $fk_id_class;
 
 
@@ -60,10 +61,10 @@ class Teacher extends People
     }
 
 
-    public function list($operation = '')
+    public function list()
     {
 
-        return $this->speedingUp(
+        $query =
 
             "SELECT DISTINCT
 
@@ -113,9 +114,17 @@ class Teacher extends People
             LEFT JOIN tipo_sanguineo ON(tipo_sanguineo.id_tipo_sanguineo = professor.fk_id_tipo_sanguineo_professor) 
             LEFT JOIN pcd ON(pcd.id_pcd = professor.fk_id_pcd_professor) 
 
-            $operation "
+            WHERE CASE WHEN :teacherId = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :teacherId END
 
-        );
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
@@ -136,7 +145,7 @@ class Teacher extends People
             data_nascimento_professor = :birthDate ,
             email_professor = :email
             
-            WHERE id_professor = :id
+            WHERE id_professor = :teacherId
         
         ";
 
@@ -150,7 +159,7 @@ class Teacher extends People
         $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
         $stmt->bindValue(':fk_id_blood_type', $this->__get('fk_id_blood_type'));
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
         $stmt->bindValue(':email', $this->__get('email'));
 
         $stmt->execute();
@@ -174,7 +183,7 @@ class Teacher extends People
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':profilePhoto', $this->__get('profilePhoto'));
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
 
         $stmt->execute();
     }
@@ -183,8 +192,8 @@ class Teacher extends People
     public function login()
     {
 
-        $query = 
-        
+        $query =
+
             "SELECT 
             
             id_professor AS teacher_id , 
@@ -247,7 +256,7 @@ class Teacher extends People
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':teacherId', $this->__get('id'));
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
 
         $stmt->execute();
 
@@ -303,7 +312,7 @@ class Teacher extends People
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':teacherId', $this->__get('id'));
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
         $stmt->bindValue(':fk_id_course', $class->__get('fk_id_course'));
         $stmt->bindValue(':fk_id_series', $class->__get('fk_id_series'));
         $stmt->bindValue(':fk_id_shift', $class->__get('fk_id_shift'));

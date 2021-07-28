@@ -4,9 +4,9 @@
 
         <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
 
-        <div class="col-lg-3 col-11 mx-auto">
+        <div class="col-lg-3 col-11 mx-auto modal-sidebar">
 
-            <div class="row card">
+            <div class="row">
 
                 <div class="col-lg-12">
 

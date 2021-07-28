@@ -1,6 +1,4 @@
-<form id="formNote<?= $this->view->lackData[0]->lackId ?>" class="col-lg-11 mx-auto mb-4" action="">
-
-<?php print_r($this->view->lackData) ?>
+<form id="formLack<?= $this->view->lackData[0]->lackId ?>" class="col-lg-11 mx-auto mb-4" action="">
 
     <div class="col-lg-12">
 
@@ -8,16 +6,12 @@
             <H5 discipline class="col-lg-6 pl-0">Registro de falta</H5>
             <div class="col-lg-6 d-flex justify-content-end pr-0">
 
-                <span idElement="#formNote<?= $this->view->lackData[0]->lackId ?>" class="mr-2 edit-data-icon">
+                <span idElement="#formLack<?= $this->view->lackData[0]->lackId ?>" class="mr-2 edit-data-icon">
                     <i class="fas fa-edit"></i>
                 </span>
 
-                <span idElement="#formNote<?= $this->view->lackData[0]->lackId ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/atualizar" toastData="Nota atualizada" container="containerListNote" routeList="/admin/gestao/turma/perfil-turma/aluno/lista-notas" class="mr-2 update-data-icon" routeData="#formNote<?= $this->view->lackData[0]->lackId ?>">
+                <span idElement="#formLack<?= $this->view->lackData[0]->lackId ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/faltas/atualizar" toastData="Falta atualizada" container="containerListLack" routeList="/admin/gestao/turma/perfil-turma/aluno/faltas/lista" class="mr-2 update-data-icon" routeData="#formLack<?= $this->view->lackData[0]->lackId ?>">
                     <i class="fas fa-check"></i>
-                </span>
-
-                <span idElement="#formNote<?= $this->view->lackData[0]->lackId ?>" routeDelete="/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/deletar" toastData="Avaliação deletada" routeData="#formNote<?= $this->view->lackData[0]->lackId ?>" container="containerListNote" routeList="/admin/gestao/turma/perfil-turma/aluno/lista-notas" class="mr-2 delete-data-icon">
-                    <i class="fas fa-trash-alt"></i>
                 </span>
 
             </div>
@@ -26,7 +20,8 @@
 
         <div class="form-row mb-2 mt-3">
 
-            <input type="hidden" name="noteId" value="<?= $this->view->lackData[0]->lackId ?>">
+            <input type="hidden" name="id" value="<?= $this->view->lackData[0]->lackId ?>">
+            <input type="hidden" name="enrollmentId" value="<?= $this->view->lackData[0]->enrollmentId?>">
 
             <div class="form-group col-lg-6">
                 <label for="">Disciplina:</label>
@@ -40,7 +35,7 @@
 
             <div class="form-group col-lg-2">
                 <label for="">Faltas:</label>
-                <input class="form-control" maxlength="4" disabled value="<?= $this->view->lackData[0]->totaLack ?>" type="text" name="" id="" style="pointer-events:none">
+                <input class="form-control" maxlength="4" disabled value="<?= $this->view->lackData[0]->totalLack ?>" type="text" name="totalLack" id="" >
             </div>
 
         </div>

@@ -40,9 +40,9 @@ class AdminTeacherStudentController extends Action
 
         $Exam = Container::getModel('TeacherStudent\\Exam');
 
-        $Exam->__set('id', $_GET['id']);
+        $Exam->__set('examId', $_GET['id']);
 
-        $this->view->examData = $Exam->examList("WHERE avaliacoes.id_avaliacao = " . $Exam->__get('examId'));
+        $this->view->examData = $Exam->list();
 
         $this->render('management/components/modalExam', 'SimpleLayout');
     }
@@ -53,7 +53,7 @@ class AdminTeacherStudentController extends Action
 
         $Exam = Container::getModel('TeacherStudent\\Exam');
 
-        $Exam->__set('id', $_POST['examId']);
+        $Exam->__set('examId', $_POST['examId']);
         $Exam->__set('examDescription', $_POST['examDescription']);
         $Exam->__set('realizeDate', $_POST['realizeDate']);
         $Exam->__set('examValue', $_POST['examValue']);
@@ -66,7 +66,7 @@ class AdminTeacherStudentController extends Action
     {
 
         $Exam = Container::getModel('TeacherStudent\\Exam');
-        $Exam->__set('id', $_POST['examId']);
+        $Exam->__set('examId', $_POST['examId']);
         $Exam->delete();
     }
 
@@ -109,13 +109,12 @@ class AdminTeacherStudentController extends Action
 
         $Exam = Container::getModel('TeacherStudent\\Exam');
 
-        $Exam->__set("fk_id_class", $_GET['classId']);
-
         if (!isset($_SESSION)) session_start();
 
-        $teacher_id = isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0;
+        $Exam->__set("fk_id_class", $_GET['classId']);
+        $Exam->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
-        $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class') . " AND CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END");
+        $this->view->listExam = $Exam->list();
 
         $this->render('management/components/examList', 'SimpleLayout');
     }
@@ -129,7 +128,7 @@ class AdminTeacherStudentController extends Action
         $Exam->__set("fk_id_exam_unity", $_GET['unity']);
         $Exam->__set("fk_id_discipline_class", $_GET['disciplineClass']);
 
-        $this->view->listExam = $Exam->examList("WHERE avaliacoes.fk_id_unidade_avaliacao = " . $Exam->__get('fk_id_exam_unity') . " AND avaliacoes.fk_id_turma_disciplina_avaliacao = " . $Exam->__get('fk_id_discipline_class'));
+        $this->view->listExam = $Exam->recents();
 
         $this->view->typeListExam = 'recent';
 
@@ -166,20 +165,30 @@ class AdminTeacherStudentController extends Action
     }
 
 
+    public function noteData()
+    {
+
+        $Note = Container::getModel('TeacherStudent\\Note');
+        $Note->__set("noteId", $_GET['id']);
+
+        $this->view->noteData = $Note->list();
+
+        $this->render('student/components/modalNote', 'SimpleLayout');
+    }
+
+
     public function noteListStudent()
     {
 
         $Note = Container::getModel('TeacherStudent\\Note');
 
-        $Note->__set('fk_id_student_enrollment', $_GET['enrollmentId']);
-
-        $this->view->listNoteType = 'student';
-
         if (!isset($_SESSION)) session_start();
 
+        $Note->__set('fk_id_student_enrollment', $_GET['enrollmentId']);
         $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
-        $this->view->listNote = $Note->list("WHERE nota_avaliacao.fk_id_matricula_aluno = " . $Note->__get('fk_id_student_enrollment'));
+        $this->view->listNoteType = 'student';
+        $this->view->listNote = $Note->list();
 
         $this->render('student/components/noteList', 'SimpleLayout');
     }
@@ -190,13 +199,12 @@ class AdminTeacherStudentController extends Action
 
         $Note = Container::getModel('TeacherStudent\\Note');
 
-        $Note->__set('fk_id_class', $_GET['classId']);
-
         if (!isset($_SESSION)) session_start();
 
+        $Note->__set('fk_id_class', $_GET['classId']);
         $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
-        $this->view->listNote = $Note->list("WHERE turma_disciplina.fk_id_turma = " . $Note->__get('fk_id_class'));
+        $this->view->listNote = $Note->list();
         $this->view->listNoteType = 'class';
 
         $this->render('student/components/noteList', 'SimpleLayout');
@@ -219,7 +227,6 @@ class AdminTeacherStudentController extends Action
         $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         $this->view->listNoteType = 'student';
-
         $this->view->listNote = $Note->seek();
 
         $this->render('student/components/noteList', 'SimpleLayout');
@@ -242,22 +249,9 @@ class AdminTeacherStudentController extends Action
         $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         $this->view->listNote = $Note->seek($_GET['orderBy']);
-
         $this->view->listNoteType = 'class';
 
         $this->render('student/components/noteList', 'SimpleLayout');
-    }
-
-
-    public function noteData()
-    {
-
-        $Note = Container::getModel('TeacherStudent\\Note');
-        $Note->__set("id", $_GET['id']);
-
-        $this->view->noteData = $Note->list("WHERE nota_avaliacao.id_nota = " . $Note->__get('noteId'));
-
-        $this->render('student/components/modalNote', 'SimpleLayout');
     }
 
 
@@ -266,7 +260,7 @@ class AdminTeacherStudentController extends Action
 
         $Note = Container::getModel('TeacherStudent\\Note');
 
-        $Note->__set("id", $_POST['noteId']);
+        $Note->__set("noteId", $_POST['noteId']);
         $Note->__set("noteValue", $_POST['noteValue']);
 
         $Note->update();
@@ -278,10 +272,11 @@ class AdminTeacherStudentController extends Action
 
         $Note = Container::getModel('TeacherStudent\\Note');
 
-        $Note->__set("id", $_POST['noteId']);
+        $Note->__set("noteId", $_POST['noteId']);
 
         $Note->delete();
     }
+
 
     public function observationInsert()
     {
@@ -355,6 +350,9 @@ class AdminTeacherStudentController extends Action
 
         $Lack = Container::getModel('TeacherStudent\\Lack');
 
+        if (!isset($_SESSION)) session_start();
+
+        $Lack->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
         $Lack->__set('fk_id_enrollment', $_GET['enrollmentId']);
 
         $this->view->lackList = $Lack->list();
@@ -381,11 +379,42 @@ class AdminTeacherStudentController extends Action
 
         $Lack = Container::getModel('TeacherStudent\\Lack');
 
-        $Lack->__set('id', $_GET['id']);
-        $Lack->__set('fk_id_enrollment', 0);
+        $Lack->__set('lackId', $_GET['id']);
 
         $this->view->lackData = $Lack->list();
 
         $this->render('student/components/modalLack', 'SimpleLayout');
+    }
+
+
+    public function lackUpdate()
+    {
+
+        $Lack = Container::getModel('TeacherStudent\\Lack');
+
+        $Lack->__set('lackId', $_POST['id']);
+        $Lack->__set('totalLack', $_POST['totalLack']);
+
+        $Lack->update();
+    }
+
+
+    public function lackSeek()
+    {
+
+        $Lack = Container::getModel('TeacherStudent\\Lack');
+
+        if (!isset($_SESSION)) session_start();
+
+        $Lack->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $Lack->__set('fk_id_unity', $_GET['unity']);
+        $Lack->__set('fk_id_discipline_class', $_GET['disciplineClass']);
+        $Lack->__set('fk_id_enrollment', $_GET['enrollmentId']);
+
+        $this->view->lackList = $Lack->seek($_GET['orderBy']);
+
+        $this->render('student/components/lackList', 'SimpleLayout');
+
+
     }
 }

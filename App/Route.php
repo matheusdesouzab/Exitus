@@ -592,6 +592,18 @@ class Route extends Bootstrap
 				'action' => 'lackData'
 			);
 
+			$routes['adminLackUpdate'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/faltas/atualizar',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'lackUpdate'
+			);
+
+			$routes['adminLackSeek'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/faltas/buscar',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'lackSeek'
+			);
+
 
 			// ---------------------------------
 			

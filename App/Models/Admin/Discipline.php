@@ -7,7 +7,7 @@ use MF\Model\Model;
 class Discipline extends Model
 {
 
-    private $disciplineId;
+    private $disciplineId = 0;
     private $disciplineName;
     private $acronym;
     private $fk_id_modality;
@@ -53,26 +53,6 @@ class Discipline extends Model
     public function list()
     {
 
-        return $this->speedingUp(
-
-            "SELECT 
-            
-            disciplina.id_disciplina AS discipline_id , 
-            disciplina.nome_disciplina AS discipline_name , 
-            modalidade_disciplina.modalidade_disciplina AS discipline_modality , 
-            disciplina.sigla_disciplina AS acronym 
-            
-            FROM disciplina 
-            
-            INNER JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina)"
-
-        );
-    }
-
-
-    public function disciplineData()
-    {
-
         $query =
 
             "SELECT 
@@ -80,15 +60,17 @@ class Discipline extends Model
             disciplina.id_disciplina AS discipline_id , 
             disciplina.nome_disciplina AS discipline_name , 
             modalidade_disciplina.modalidade_disciplina AS discipline_modality , 
-            disciplina.fk_id_modalidade_disciplina AS modality_id , 
-            disciplina.sigla_disciplina AS acronym  
+            disciplina.sigla_disciplina AS acronym ,
+            modalidade_disciplina.id_modalidade_disciplina AS modality_id
             
             FROM disciplina 
             
-            INNER JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina) 
+            INNER JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina)
+
+            WHERE 
             
-            WHERE disciplina.id_disciplina = :disciplineId
-            
+            CASE WHEN :disciplineId = 0 THEN disciplina.id_disciplina <> 0 ELSE disciplina.id_disciplina = :disciplineId END
+
         ";
 
         $stmt = $this->db->prepare($query);
@@ -98,6 +80,7 @@ class Discipline extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+
     }
 
 

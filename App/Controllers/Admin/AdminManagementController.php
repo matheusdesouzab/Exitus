@@ -312,7 +312,7 @@ class AdminManagementController extends Action
 
         $Discipline->__set('disciplineId', $_GET['id']);
 
-        $this->view->discipline = $Discipline->disciplineData();
+        $this->view->discipline = $Discipline->list();
         $this->view->listDisciplineModality = $Discipline->listDisciplineModality();
 
         $this->render('management/components/disciplineModal', 'SimpleLayout');
@@ -415,32 +415,24 @@ class AdminManagementController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Teacher = Container::getModel('Teacher\\Teacher');
-        $Discipline = Container::getModel('Admin\\Discipline');
         $Classe = Container::getModel('Admin\\Classe');
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
         $Exam = Container::getModel('TeacherStudent\\Exam');
 
-        $ClassDiscipline->__set("fk_id_class", $_GET['id']);
-        $Classe->__set('classId', $_GET['id']);
-
         if (!isset($_SESSION)) session_start();
 
+        $ClassDiscipline->__set("fk_id_class", $_GET['id']);
         $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $Classe->__set('classId', $_GET['id']);
+        $Student->__set("fk_id_class", $_GET['id']);
 
-        $this->view->listStudent = $Student->list("WHERE turma.id_turma = " . $Classe->__get('classId'));
-        $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
+        $this->view->listStudent = $Student->list();
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
         $this->view->unity = $Exam->unity();
-        $this->view->classData = $Classe->list("AND turma.id_turma = " . $Classe->__get('classId'));
+        $this->view->classData = $Classe->list();
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
-
-        $teacher_id = isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0;
-
-        $this->view->listExam = $Exam->examList("WHERE turma_disciplina.fk_id_turma = " . $Exam->__get('fk_id_class') . " AND CASE WHEN $teacher_id = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = $teacher_id END");
 
         $this->render('management/components/modalClassProfile', 'SimpleLayout');
     }

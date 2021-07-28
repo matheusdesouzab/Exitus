@@ -196,10 +196,10 @@ $("#class #collapseListClass").on("click", function (e) {
 })
 
 
-$(document).on("click", "#profileClassModal [data-target='#accordion-class-data']", function (e) {
+$(document).on("click", "#profileClassModal [data-target='#teacher-list']", function (e) {
 
-    application.loadListElements(".modal containerListTeacher", "/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma", "#formClassId")
-    application.loadListElements(".modal containerListStudent", "/admin/aluno/lista/listagem", "#formClassId")
+    application.loadListElements("containerListTeacherClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/professores-turma", "#formClassId")
+    application.loadListElements("containerListStudentClass", "/admin/aluno/lista/listagem", "#formClassId")
 
 })
 
@@ -268,7 +268,7 @@ $(document).on("click", "#profileStudentModal [data-target='#class-profile-obser
 
 $(document).on("click", "#profileStudentModal [data-target='#class-profile-lack'], #profileStudentModal [data-target='#lack-list']", function (e) {
 
-    application.loadListElements("containerLack", "/admin/gestao/turma/perfil-turma/aluno/faltas/lista", "#addLack")
+    application.loadListElements("containerListLack", "/admin/gestao/turma/perfil-turma/aluno/faltas/lista", "#addLack")
 
 })
 
@@ -337,10 +337,7 @@ $(document).on("click", "#discipline tr", function () {
 
 
 $(document).on("click", "#lack-table tr", function () {
-
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma/aluno/faltas/dados", "containerModalLack", "#modalLack")
-
-
 })
 
 
@@ -361,44 +358,29 @@ $(document).on("click", "#classe-table tbody tr", function () {
 
 $(document).on("click", "#note-table tbody tr", function () {
 
-    $("#profileStudentModal .modal-body").css("opacity", "0.5")
-
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/dados", "containerModalNote", "#modalNote")
 })
 
 
 $(document).on("click", "#profileClassModal #list-exam tbody tr", function () {
 
-    $("#profileClassModal .modal-body").css("opacity", "0.5")
-
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma/avaliacoes/dados", "containerModalExam", "#modalExam")
 
 })
 
-/* 
-$('.modal').on('shown.bs.modal', function (event) {
 
-    var idx = ($('.modal:visible').length) - 1; // raise backdrop after animation.
-    $('.modal-backdrop').not('.stacked').css('z-index', 1039 + (10 * idx));
-    $('.modal-backdrop').not('.stacked').addClass('stacked');
-
-    $('#cpf').mask('000.000.000-00')
-
-    $('#zipCode').mask('00000-000')
-
-    $("#telephoneNumber").mask(('(00) 00000-0000'))
-})
- */
 
 $('.modal').on('show.bs.modal', function (event) {
     var idx = $('.modal:visible').length;
     $(this).css('z-index', 1040 + (10 * idx));
-});
+})
+
 $('.modal').on('shown.bs.modal', function (event) {
     var idx = ($('.modal:visible').length) - 1; // raise backdrop after animation.
     $('.modal-backdrop').not('.stacked').css('z-index', 1039 + (10 * idx));
     $('.modal-backdrop').not('.stacked').addClass('stacked');
-});
+})
+
 $('.modal').on('hidden.bs.modal', function (event) {
     if ($('.modal:visible').length > 0) {
         setTimeout(function () {
@@ -413,21 +395,6 @@ $(document).on("click", "#profileClassModal #students-list tbody tr", function (
     application.showModal(this.id, "/admin/aluno/lista/perfil-aluno", "containerStudentProfileModal", "#profileStudentModal")
 
 })
-
-
-$(document).on("hide.bs.modal", "#modalExam", function (event) {
-
-    $("#profileClassModal .modal-body").css("opacity", "1.0")
-
-})
-
-
-$(document).on("hide.bs.modal", "#modalNote", function (event) {
-
-    $("#profileStudentModal .modal-body").css("opacity", "1.0")
-
-})
-
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -535,7 +502,9 @@ $("#seekDiscipline select[name='seekModality']").change(() => application.seekEl
 
 $("#seekStudent select").change(() => application.seekElement("#seekStudent", "containerListStudent", "/admin/aluno/lista/buscar"))
 
-
+$(document).on("change", "#seekLackStudent select", function(e){
+    application.loadListElements("containerListLack", "/admin/gestao/turma/perfil-turma/aluno/faltas/buscar", "#seekLackStudent")
+})
 
 /////////////////////////////////////////////////////////////////////////
 

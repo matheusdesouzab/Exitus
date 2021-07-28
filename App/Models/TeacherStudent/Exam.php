@@ -7,13 +7,14 @@ use MF\Model\Model;
 class Exam extends Model
 {
 
+    private $examId = 0;
     private $examDescription;
     private $examValue;
-    private $realizedDate;
-    private $fk_id_exam_unity;
-    private $fk_id_discipline_class;
-    private $fk_id_class;
-    private $fk_id_teacher;
+    private $realizeDate;
+    private $fk_id_exam_unity = 0;
+    private $fk_id_discipline_class = 0;
+    private $fk_id_class = 0;
+    private $fk_id_teacher = 0;
 
 
     public function __get($att)
@@ -90,10 +91,10 @@ class Exam extends Model
     }
 
 
-    public function examList($operation = '')
+    public function list()
     {
 
-        return $this->speedingUp(
+        $query =
 
             "SELECT 
             
@@ -116,19 +117,38 @@ class Exam extends Model
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
             INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)       
             
-            $operation
+            WHERE 
             
-        "
-        );
+            CASE WHEN :examId = 0 THEN avaliacoes.id_avaliacao <> 0 ELSE avaliacoes.id_avaliacao = :examId END
+
+            AND
+
+            CASE WHEN :fk_id_teacher = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :fk_id_teacher END
+
+            AND
+
+            CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> 0 ELSE turma.id_turma = :fk_id_class END
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':examId', $this->__get('examId'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
     public function update()
     {
 
-        $currentValueNote = "SELECT avaliacoes.valor_avaliacao AS exam_value FROM avaliacoes WHERE avaliacoes.id_avaliacao = :id ";
+        $currentValueNote = "SELECT avaliacoes.valor_avaliacao AS exam_value FROM avaliacoes WHERE avaliacoes.id_avaliacao = :examId ";
         $stmt = $this->db->prepare($currentValueNote);
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':examId', $this->__get('examId'));
         $stmt->execute();
         $currentValueNote = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
@@ -141,13 +161,13 @@ class Exam extends Model
 
                 SET nota_avaliacao.valor_nota = ROUND( (nota_avaliacao.valor_nota / " . $currentValueNote[0]->exam_value . ") * " . $this->__get('examValue') . " , 1 )
 
-                WHERE nota_avaliacao.fk_id_avaliacao = :id
+                WHERE nota_avaliacao.fk_id_avaliacao = :examId
                 
             ";
 
             $stmt = $this->db->prepare($updateNotes);
 
-            $stmt->bindValue(':id', $this->__get('id'));
+            $stmt->bindValue(':examId', $this->__get('examId'));
             $stmt->execute();
         }
 
@@ -159,7 +179,7 @@ class Exam extends Model
             avaliacoes.valor_avaliacao = :examValue ,
             avaliacoes.descricao_avaliacao = :examDescription 
 
-            WHERE avaliacoes.id_avaliacao = :id          
+            WHERE avaliacoes.id_avaliacao = :examId          
             
         ";
 
@@ -168,7 +188,7 @@ class Exam extends Model
         $stmt->bindValue(':examDescription', $this->__get('examDescription'));
         $stmt->bindValue(':examValue', $this->__get('examValue'));
         $stmt->bindValue(':realizeDate', $this->__get('realizeDate'));
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':examId', $this->__get('examId'));
 
         $stmt->execute();
     }
@@ -177,11 +197,11 @@ class Exam extends Model
     public function delete()
     {
 
-        $query = "DELETE FROM avaliacoes WHERE avaliacoes.id_avaliacao = :id";
+        $query = "DELETE FROM avaliacoes WHERE avaliacoes.id_avaliacao = :examId";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':examId', $this->__get('id'));
 
         $stmt->execute();
     }
@@ -228,13 +248,9 @@ class Exam extends Model
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_exam_unity', $this->__get('fk_id_exam_unity'));
-
         $stmt->bindValue(':examDescription', "%" . $this->__get('examDescription') . "%", \PDO::PARAM_STR);
-
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-
         $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
-
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
@@ -276,4 +292,41 @@ class Exam extends Model
     }
 
 
+    public function recents()
+    {
+
+        $query =
+
+            "SELECT 
+
+            avaliacoes.id_avaliacao AS exam_id,
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name,  
+            avaliacoes.valor_avaliacao AS exam_value, 
+            unidade.unidade AS unity       
+            
+            FROM avaliacoes 
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+
+            WHERE unidade.id_unidade = :fk_id_exam_unity
+
+            AND
+
+            turma_disciplina.id_turma_disciplina = :fk_id_discipline_class
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_exam_unity', $this->__get('fk_id_exam_unity'));
+        $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 }

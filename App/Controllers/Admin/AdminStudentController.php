@@ -61,9 +61,7 @@ class AdminStudentController extends Action
     {
 
         $Classe = Container::getModel('Admin\\Classe');
-
         $this->view->listClass = $Classe->availableListClass();
-
         $this->render('student/components/classesList', 'SimpleLayout');
     }
 
@@ -94,19 +92,17 @@ class AdminStudentController extends Action
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
 
-        $Student->__set('id', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
+        $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
-        $this->view->studentProfile = $Student->list("WHERE aluno.id_aluno = " . $Student->__get('id'));
+        $this->view->studentProfile = $Student->list();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->unity = $Exam->unity();
         $this->view->bloodType = $Student->bloodType();
-        $this->view->listAvailableExams = $Exam->examList('WHERE turma.id_turma = ' . $this->view->studentProfile[0]->class_id . ' ORDER BY disciplina.nome_disciplina ASC');
 
         if (!isset($_SESSION)) session_start();
 
         $ClassDiscipline->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-
         $ClassDiscipline->__set("fk_id_class", $this->view->studentProfile[0]->class_id);
 
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
@@ -145,7 +141,7 @@ class AdminStudentController extends Action
         $Student->__set('fk_id_sex', $_POST['sex']);
         $Student->__set('fk_id_blood_type', $_POST['bloodType']);
         $Student->__set('fk_id_pcd', $_POST['pcd']);
-        $Student->__set('id', $_POST['studentId']);
+        $Student->__set('studentId', $_POST['studentId']);
 
         $Telephone->update();
         $Address->update();
@@ -198,15 +194,12 @@ class AdminStudentController extends Action
         $Student->__set('fk_id_telephone', $Telephone->insert());
         $Student->__set('fk_id_address', $Address->insert());
 
-
         $Enrollment->__set('fk_id_student_situation', 1);
         $Enrollment->__set('fk_id_student', $Student->insert());
         $Enrollment->__set('fk_id_class', $_POST['class']);
         $Enrollment->__set('fk_id_school_term', $activeSchoolTerm[0]->option_value);
 
-
         $Enrollment->insert();
-
 
         header('Location: /admin/aluno/cadastro');
     }
@@ -216,18 +209,14 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-
         $Tool = new Tools();
 
         empty($_GET['oldPhoto']) ? '' : unlink('../public/assets/img/studentProfilePhotos/' . $_POST['oldPhoto']);
 
         $Tool->image($Student, '../public/assets/img/studentProfilePhotos/');
 
-        $Student->__set('id', $_POST['id']);
+        $Student->__set('studentId', $_POST['id']);
 
         $Student->updateProfilePicture();
     }
-
-
-    
 }

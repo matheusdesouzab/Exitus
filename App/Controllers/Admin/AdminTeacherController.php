@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
 use App\Tools\Tools;
 use MF\Controller\Action;
@@ -45,8 +45,8 @@ class AdminTeacherController extends Action
         $Teacher->__set('name', $_POST['name']);
         $Teacher->__set('birthDate', $_POST['birthDate']);
         $Teacher->__set('naturalness', $_POST['naturalness']);
-        $Teacher->__set('nationality', $_POST['nationality']);     
-        $Teacher->__set('email', $_POST['email']);     
+        $Teacher->__set('nationality', $_POST['nationality']);
+        $Teacher->__set('email', $_POST['email']);
         $Teacher->__set('fk_id_sex', $_POST['sex']);
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
@@ -58,7 +58,6 @@ class AdminTeacherController extends Action
         $Teacher->insert();
 
         header('Location: /admin/professor/cadastro');
-        
     }
 
 
@@ -73,7 +72,6 @@ class AdminTeacherController extends Action
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
 
         $this->render('teacher/components/teacherListing', 'SimpleLayout');
-
     }
 
 
@@ -100,7 +98,6 @@ class AdminTeacherController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
 
         $this->view->listTeacher = $Teacher->list();
-
         $this->view->typeTeacherList = 'normal';
 
         $this->render('teacher/components/teacherListing', 'SimpleLayout');
@@ -113,10 +110,10 @@ class AdminTeacherController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
         $ClassDiscipline =  Container::getModel('Admin\\ClassDiscipline');
 
-        $Teacher->__set('id', $_GET['id']);
+        $Teacher->__set('teacherId', $_GET['id']);
         $ClassDiscipline->__set('fk_id_teacher', $_GET['id']);
 
-        $this->view->teacherProfile = $Teacher->list("WHERE professor.id_professor = " . $Teacher->__get('id'));
+        $this->view->teacherProfile = $Teacher->list();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->bloodType = $Teacher->bloodType();
@@ -135,7 +132,7 @@ class AdminTeacherController extends Action
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
 
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
-        
+
         $Address->__set('addressId', $_POST['addressId']);
         $Address->__set('district', $_POST['district']);
         $Address->__set('address', $_POST['address']);
@@ -144,8 +141,8 @@ class AdminTeacherController extends Action
         $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
 
         $Telephone->__set('telephoneId', $_POST['telephoneId']);
-        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber'])); 
-        $Teacher->__set('email', $_POST['email']); 
+        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
+        $Teacher->__set('email', $_POST['email']);
 
         $Teacher->__set('name', $_POST['name']);
         $Teacher->__set('birthDate', $_POST['birthDate']);
@@ -154,7 +151,7 @@ class AdminTeacherController extends Action
         $Teacher->__set('nationality', $_POST['nationality']);
         $Teacher->__set('fk_id_sex', $_POST['sex']);
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
-        $Teacher->__set('fk_id_pcd', $_POST['pcd']);   
+        $Teacher->__set('fk_id_pcd', $_POST['pcd']);
         $Teacher->__set('id', $_POST['teacherId']);
 
         $Telephone->update();
@@ -169,7 +166,7 @@ class AdminTeacherController extends Action
         $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
 
 
-        $this->render('teacher/components/modalTeacherProfile', 'SimpleLayout'); 
+        $this->render('teacher/components/modalTeacherProfile', 'SimpleLayout');
     }
 
 
@@ -187,9 +184,5 @@ class AdminTeacherController extends Action
         $Teacher->__set('id', $_POST['id']);
 
         $Teacher->updateProfilePicture();
-
     }
-
-
-
 }

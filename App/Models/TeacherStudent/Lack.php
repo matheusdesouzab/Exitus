@@ -7,11 +7,12 @@ use MF\Model\Model;
 class Lack extends Model
 {
 
+    private $lackId = 0;
     private $totalLack;
     private $fk_id_discipline_class;
     private $fk_id_unity;
-    private $fk_id_enrollment;
-    private $fk_id_teacher;
+    private $fk_id_enrollment = 0;
+    private $fk_id_teacher = 0;
 
 
     public function __get($att)
@@ -58,7 +59,8 @@ class Lack extends Model
             falta_aluno.id_falta AS lackId , 
             falta_aluno.total_faltas AS totalLack , 
             disciplina.nome_disciplina AS disciplineName , 
-            unidade.unidade AS unity
+            unidade.unidade AS unity,
+            falta_aluno.fk_id_matricula_falta AS enrollmentId
 
             FROM falta_aluno
             
@@ -70,18 +72,25 @@ class Lack extends Model
 
             WHERE 
             
-            CASE WHEN :fk_id_enrollment >= 1 THEN falta_aluno.fk_id_matricula_falta = :fk_id_enrollment ELSE falta_aluno.fk_id_matricula_falta <> :fk_id_enrollment END
+            CASE WHEN :fk_id_enrollment >= 1 THEN falta_aluno.fk_id_matricula_falta = :fk_id_enrollment ELSE falta_aluno.fk_id_matricula_falta <> 0 END
 
             AND
 
-            CASE WHEN :id >= 1 THEN falta_aluno.id_falta = 1 ELSE falta_aluno.id_falta <> 0 END
+            CASE WHEN :lackId >= 1 THEN falta_aluno.id_falta = :lackId ELSE falta_aluno.id_falta <> 0 END
+
+            AND 
+            
+            CASE WHEN :fk_id_teacher >= 1 THEN turma_disciplina.fk_id_professor = :fk_id_teacher ELSE turma_disciplina.fk_id_professor <> 0 END
+
+            ORDER BY falta_aluno.total_faltas DESC
         
         ";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':lackId', $this->__get('lackId'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
 
@@ -117,6 +126,70 @@ class Lack extends Model
         $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
         $stmt->bindValue(':fk_id_unity', $this->__get('fk_id_unity'));
         $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function update()
+    {
+
+        $query = "UPDATE falta_aluno SET total_faltas = :totalLack WHERE falta_aluno.id_falta = :lackId";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':totalLack', $this->__get('totalLack'));
+        $stmt->bindValue(':lackId', $this->__get('lackId'));
+
+        $stmt->execute();
+    }
+
+
+    public function seek($orderBy = "")
+    {
+
+        $query =
+
+            "SELECT 
+            
+            falta_aluno.id_falta AS lackId , 
+            falta_aluno.total_faltas AS totalLack , 
+            disciplina.nome_disciplina AS disciplineName , 
+            unidade.unidade AS unity,
+            falta_aluno.fk_id_matricula_falta AS enrollmentId
+
+            FROM falta_aluno
+            
+            LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina)        
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)        
+            LEFT JOIN unidade ON(falta_aluno.fk_id_unidade_falta = unidade.id_unidade)
+
+            WHERE falta_aluno.fk_id_matricula_falta = :fk_id_enrollment
+
+            AND 
+            
+            CASE WHEN :fk_id_teacher >= 1 THEN turma_disciplina.fk_id_professor = :fk_id_teacher ELSE turma_disciplina.fk_id_professor <> 0 END
+
+            AND
+
+            CASE WHEN :fk_id_unity = 0 THEN unidade.id_unidade <> 0 ELSE unidade.id_unidade = :fk_id_unity END
+
+            AND
+
+            CASE WHEN :fk_id_discipline_class = 0 THEN turma_disciplina.id_turma_disciplina <> 0 ELSE turma_disciplina.id_turma_disciplina = :fk_id_discipline_class END
+
+            ORDER BY falta_aluno.total_faltas $orderBy
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+        $stmt->bindValue(':fk_id_unity', $this->__get('fk_id_unity'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
 
         $stmt->execute();
 

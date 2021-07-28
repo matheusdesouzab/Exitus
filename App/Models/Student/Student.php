@@ -7,8 +7,10 @@ use App\Models\People\People;
 class Student extends People
 {
 
+    private $studentId = 0;
     private $fatherName;
     private $motherName;
+    private $fk_id_class = 0;
 
 
     public function __get($att)
@@ -82,7 +84,7 @@ class Student extends People
             data_nascimento_aluno = :birthDate ,
             email_aluno = :email
             
-            WHERE id_aluno = :id 
+            WHERE id_aluno = :studentId 
         
         ";
 
@@ -98,17 +100,17 @@ class Student extends People
         $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
         $stmt->bindValue(':fk_id_blood_type', $this->__get('fk_id_blood_type'));
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':studentId', $this->__get('studentId'));
         $stmt->bindValue(':email', $this->__get('email'));
 
         $stmt->execute();
     }
 
 
-    public function list($operation = '')
+    public function list()
     {
 
-        return $this->speedingUp(
+        $query =
 
             "SELECT 
             
@@ -164,11 +166,24 @@ class Student extends People
             INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula)         
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+
+            WHERE CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> 0 ELSE turma.id_turma = :fk_id_class END
+
+            AND
+
+            CASE WHEN :studentId = 0 THEN aluno.id_aluno <> 0 ELSE aluno.id_aluno = :studentId END        
             
-            $operation
-            
-            ;"
-        );
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':studentId', $this->__get('studentId'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+
     }
 
 
@@ -237,12 +252,12 @@ class Student extends People
     public function updateProfilePicture()
     {
 
-        $query = "UPDATE aluno SET aluno.foto_perfil_aluno = :profilePhoto WHERE aluno.id_aluno = :id";
+        $query = "UPDATE aluno SET aluno.foto_perfil_aluno = :profilePhoto WHERE aluno.id_aluno = :studentId";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':profilePhoto', $this->__get('profilePhoto'));
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':studentId', $this->__get('studentId'));
 
         $stmt->execute();
     }

@@ -2,14 +2,18 @@
 
 namespace App\Models\TeacherStudent;
 
-use App\Models\TeacherStudent\Exam;
+use MF\Model\Model;
 
-class Note extends Exam
+class Note extends Model
 {
 
+    private $noteId = 0;
     private $noteValue;
     private $fk_id_exam;
-    private $fk_id_student_enrollment;
+    private $fk_id_student_enrollment = 0;
+    private $fk_id_teacher = 0;
+    private $fk_id_class = 0;
+    private $fk_id_discipline_class = 0;
 
 
     public function __get($att)
@@ -22,6 +26,10 @@ class Note extends Exam
     {
         return $this->$att = $newValue;
     }
+
+    private $select = 
+
+    "";
 
 
     public function insert()
@@ -47,7 +55,7 @@ class Note extends Exam
     }
 
 
-    public function list($operation = "")
+    public function list()
     {
 
         $query =
@@ -77,11 +85,21 @@ class Note extends Exam
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
             INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
             
-            $operation
+            WHERE
+
+            CASE WHEN :noteId = 0 THEN nota_avaliacao.id_nota <> 0 ELSE nota_avaliacao.id_nota = :noteId END
+
+            AND
+
+            CASE WHEN :fk_id_class = 0 THEN turma_disciplina.fk_id_turma <> 0 ELSE turma_disciplina.fk_id_turma = :fk_id_class END
 
             AND
 
             CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
+
+            AND
+
+            CASE WHEN :fk_id_student_enrollment = 0 THEN matricula.id_matricula <> :fk_id_student_enrollment ELSE matricula.id_matricula = :fk_id_student_enrollment END 
 
             ORDER BY nota_avaliacao.valor_nota DESC
             
@@ -89,8 +107,10 @@ class Note extends Exam
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
+        $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment')); 
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':noteId', $this->__get('noteId'));
 
         $stmt->execute();
 
