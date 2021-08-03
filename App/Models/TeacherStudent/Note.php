@@ -27,10 +27,6 @@ class Note extends Model
         return $this->$att = $newValue;
     }
 
-    private $select = 
-
-    "";
-
 
     public function insert()
     {
@@ -191,7 +187,7 @@ class Note extends Model
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':note_value', $this->__get('noteValue'));
-        $stmt->bindValue(':note_id', $this->__get('id'));
+        $stmt->bindValue(':note_id', $this->__get('noteId'));
 
         $stmt->execute();
     }
@@ -204,7 +200,7 @@ class Note extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':note_id', $this->__get('id'));
+        $stmt->bindValue(':note_id', $this->__get('noteId'));
 
         $stmt->execute();
     }

@@ -88,6 +88,12 @@ class Route extends Bootstrap
 				'controller' => 'Admin\\AdminTeacherController',
 				'action' => 'updateTeacherProfilePicture'
 			); 
+
+			$routes['adminStudentProfileBulletin'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/boletim',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'bulletin'
+			); 
 			
 
 			// People 
@@ -491,7 +497,7 @@ class Route extends Bootstrap
 			);
 
 			$routes['adminInsertExamNote'] = array(
-				'route' => '/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao',
+				'route' => '/boletim/adicionar-nota-avaliacao',
 				'controller' => 'Admin\\AdminTeacherStudentController',
 				'action' => 'insertExamNote'
 			);

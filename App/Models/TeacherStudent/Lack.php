@@ -60,7 +60,8 @@ class Lack extends Model
             falta_aluno.total_faltas AS totalLack , 
             disciplina.nome_disciplina AS disciplineName , 
             unidade.unidade AS unity,
-            falta_aluno.fk_id_matricula_falta AS enrollmentId
+            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS classId
 
             FROM falta_aluno
             

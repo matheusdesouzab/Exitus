@@ -24,6 +24,8 @@
 
             <td><?= $formattedCpf ?></td>
 
+            <td>0</td>
+
                 <td><?= $teacher->teacher_sex ?></td>
                 <td><?= $teacher->total_discipline ?></td>
 

@@ -91,7 +91,10 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+        $Lack = Container::getModel('TeacherStudent\\Lack');
 
+        $StudentEnrollment->__set('id', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
         $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
         $this->view->studentProfile = $Student->list();
@@ -99,13 +102,16 @@ class AdminStudentController extends Action
         $this->view->pcd = $Student->pcd();
         $this->view->unity = $Exam->unity();
         $this->view->bloodType = $Student->bloodType();
+        $this->view->bulletin = $StudentEnrollment->bulletin();
 
         if (!isset($_SESSION)) session_start();
 
         $ClassDiscipline->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
         $ClassDiscipline->__set("fk_id_class", $this->view->studentProfile[0]->class_id);
+        $Lack->__set('fk_id_enrollment', $this->view->studentProfile[0]->enrollmentId);
 
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
+        $this->view->lackList = $Lack->list();
 
         $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }

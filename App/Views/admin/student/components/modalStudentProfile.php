@@ -39,13 +39,12 @@
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">Avaliações</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Boletim</a>
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin">Boletim</a>
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">Observações</a>
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">Faltas</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Análise</a>
 
                                 </ul>
 
@@ -260,13 +259,7 @@
 
                         </div>
 
-                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Email</span>
-                            </div>
-                            <input id="email" name="email" type="text" disabled class="form-control" value="<?= $student->email ?>" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-
+                    
                         <h5 class="mt-5 mb-3 ml-4">Endereço e contato:</h5>
 
                         <?php
@@ -314,10 +307,18 @@
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Telefone</span>
+                                <span class="input-group-text" id="addon-wrapping">Telefone: </span>
                             </div>
                             <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $student->telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
+
+                        <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">Email: </span>
+                            </div>
+                            <input id="email" name="email" type="text" disabled class="form-control" value="<?= $student->email ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                        </div>
+
 
                         <h5 class="mt-5 mb-3 ml-4">Curso e turma:</h5>
 
@@ -568,18 +569,6 @@
 
                                             </div>
 
-                                            <div class="form-group col-lg-4">
-
-                                                <label for="">Ordenar por:</label>
-
-                                                <select id="orderBy" class="form-control custom-select" name="orderBy" required>
-
-                                                    <option value="DESC">Maior nota</option>
-                                                    <option value="ASC">Menor nota</option>
-
-                                                </select>
-
-                                            </div>
 
                                             <div class="form-group col-lg-3 ml-auto">
                                                 <label for="">&nbsp;</label>
@@ -598,9 +587,13 @@
 
                         </div>
 
-
-
                     </div>
+
+                </div>
+
+                <div class="col-lg-11 mx-auto collapse" id="class-profile-bulletin" data-parent="#main-accordion-student">
+
+                    <div containerBulletin class="row"></div>
 
                 </div>
 
@@ -725,6 +718,7 @@
                                         <form id="addLack" action="" class="col-lg-12">
 
                                             <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                            <input type="hidden" value="<?= $this->view->studentProfile[0]->class_id ?>" name="classId">
 
                                             <div class="form-row mt-3">
 
@@ -796,5 +790,3 @@
 
             </div>
         </div>
-
-       

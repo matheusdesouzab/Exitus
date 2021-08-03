@@ -44,6 +44,8 @@ class TeacherPortalController extends Action
 
             ];
 
+            session_cache_expire(200);
+
             header('Location: /portal-docente/turmas');
         }
     }
@@ -69,7 +71,7 @@ class TeacherPortalController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $Teacher->__set('id', $_SESSION['Teacher']['id']);
+        $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
 
         $this->view->teacherClasses = $Teacher->teacherClasses();
         $this->view->listClass = $Classe->list();

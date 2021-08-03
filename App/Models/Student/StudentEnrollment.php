@@ -11,25 +11,26 @@ class StudentEnrollment extends Model
     private $fk_id_class;
     private $fk_id_school_term;
     private $fk_id_student;
+    private $fk_id_teacher = 0;
 
 
     public function __get($att)
-	{
-		return $this->$att;
-	}
+    {
+        return $this->$att;
+    }
 
 
-	public function __set($att, $newValue)
-	{
-		return $this->$att = $newValue;
-	}
+    public function __set($att, $newValue)
+    {
+        return $this->$att = $newValue;
+    }
 
 
     public function insert()
     {
 
-        $query = 
-        
+        $query =
+
             "INSERT INTO matricula 
             
             (fk_id_aluno, fk_id_turma_matricula, fk_id_situacao_aluno, fk_id_periodo_letivo_matricula) 
@@ -49,22 +50,43 @@ class StudentEnrollment extends Model
 
         $stmt->execute();
     }
-    
 
-    public function delete()
+
+    public function bulletin()
     {
-        //
-    }
 
+        $query =
 
-    public function list()
-    {
-        //
-    }
+            "SELECT 
+ 
+            disciplina.nome_disciplina AS disciplineName , 
+            unidade.unidade AS unity,
+            SUM(nota_avaliacao.valor_nota) AS note ,
+            turma_disciplina.id_turma_disciplina AS classId
+            
+            FROM nota_avaliacao 
+            
+            LEFT JOIN avaliacoes ON(nota_avaliacao.fk_id_avaliacao = avaliacoes.id_avaliacao) 
+            LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            LEFT JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            LEFT JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula) 
+            LEFT JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno) 
+            
+            WHERE matricula.id_matricula = :id
 
+            AND CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
+            
+            GROUP BY unidade.unidade , disciplina.nome_disciplina
+        ";
 
-    public function update()
-    {
-        //
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

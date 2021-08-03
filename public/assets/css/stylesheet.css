@@ -48,7 +48,6 @@ table td {
   color: #080809;
   font-size: 14px;
   font-weight: 500;
-  border: 2px solid red;
 }
 table img {
   border-radius: 50%;
@@ -647,6 +646,10 @@ button {
 
 #admin #pagina .main-container, #teacherPortal #pagina .main-container {
   margin-top: 80px;
+}
+#admin #pagina #table-bulletin, #teacherPortal #pagina #table-bulletin {
+  font-size: 13px;
+  font-family: Bold;
 }
 #admin #pagina .miniature-photo img, #teacherPortal #pagina .miniature-photo img {
   width: 40px;

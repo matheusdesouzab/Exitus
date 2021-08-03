@@ -415,6 +415,28 @@ class AdminTeacherStudentController extends Action
 
         $this->render('student/components/lackList', 'SimpleLayout');
 
-
     }
+
+
+    public function bulletin()
+    {
+
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+        $Lack = Container::getModel('TeacherStudent\\Lack');
+        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
+
+        if (!isset($_SESSION)) session_start();
+
+        $StudentEnrollment->__set('id', $_GET['enrollmentId']);
+        $StudentEnrollment->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $Lack->__set('fk_id_enrollment', $_GET['enrollmentId']);
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+        $ClassDiscipline->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
+        $this->view->bulletin = $StudentEnrollment->bulletin();
+        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
+        $this->view->lackList = $Lack->list();
+
+        $this->render('student/components/bulletin', 'SimpleLayout'); 
+    } 
 }

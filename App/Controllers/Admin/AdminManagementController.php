@@ -418,6 +418,7 @@ class AdminManagementController extends Action
         $Classe = Container::getModel('Admin\\Classe');
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
         $Exam = Container::getModel('TeacherStudent\\Exam');
+        $Teacher = Container::getModel('Teacher\\Teacher');
 
         if (!isset($_SESSION)) session_start();
 
@@ -433,6 +434,8 @@ class AdminManagementController extends Action
         $this->view->unity = $Exam->unity();
         $this->view->classData = $Classe->list();
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
+        $this->view->teacherAvailable = $Teacher->teacherAvailable();
+        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
 
         $this->render('management/components/modalClassProfile', 'SimpleLayout');
     }

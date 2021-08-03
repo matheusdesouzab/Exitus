@@ -273,6 +273,13 @@ $(document).on("click", "#profileStudentModal [data-target='#class-profile-lack'
 })
 
 
+$(document).on("click", "#profileStudentModal [data-target='#class-profile-bulletin']", function(e){
+
+    application.loadListElements("containerBulletin", "/admin/gestao/turma/perfil-turma/aluno/boletim", "#addLack")
+
+})
+
+
 /////////////////////////////////////////////////////////////////////////
 
 
