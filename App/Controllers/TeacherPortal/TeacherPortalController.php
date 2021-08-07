@@ -44,7 +44,7 @@ class TeacherPortalController extends Action
 
             ];
 
-            session_cache_expire(200);
+            session_cache_expire(60);
 
             header('Location: /portal-docente/turmas');
         }

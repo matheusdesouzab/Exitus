@@ -152,7 +152,7 @@ class AdminTeacherController extends Action
         $Teacher->__set('fk_id_sex', $_POST['sex']);
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
-        $Teacher->__set('id', $_POST['teacherId']);
+        $Teacher->__set('teacherId', $_POST['teacherId']);
 
         $Telephone->update();
         $Address->update();
@@ -181,7 +181,7 @@ class AdminTeacherController extends Action
 
         $Tool->image($Teacher, '../public/assets/img/teacherProfilePhotos/');
 
-        $Teacher->__set('id', $_POST['id']);
+        $Teacher->__set('teacherId', $_POST['id']);
 
         $Teacher->updateProfilePicture();
     }

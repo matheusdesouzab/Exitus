@@ -12,27 +12,56 @@
 
 
     foreach ($this->view->bulletin as $y => $bulletin) {
-        if (array_key_exists($bulletin['disciplineName'], $disciplineId)) {
-            $disciplineId[$bulletin['disciplineName']]['notas'][] = $bulletin['note'];
+
+        if (array_key_exists($bulletin->disciplineName, $disciplineId)) {
+            if ($bulletin->unity == 1) {
+                $disciplineId[$bulletin->disciplineName]['notas']['I'] = $bulletin->note;
+            } else if ($bulletin->unity == 2) {
+                $disciplineId[$bulletin->disciplineName]['notas']['II'] = $bulletin->note;
+            } else if ($bulletin->unity == 3) {
+                $disciplineId[$bulletin->disciplineName]['notas']['III'] = $bulletin->note;
+            }
         }
     }
 
+
     foreach ($this->view->lackList as $y => $lack) {
+
         if (array_key_exists($lack->disciplineName, $disciplineId)) {
-            $disciplineId[$lack->disciplineName]['faltas'][] = $lack->totalLack;
+            if ($lack->unity == 1) {
+                $disciplineId[$lack->disciplineName]['faltas']['I'] = $lack->totalLack;
+            } else if ($bulletin->unity == 2) {
+                $disciplineId[$lack->disciplineName]['faltas']['II'] = $lack->totalLack;
+            } else if ($bulletin->unity == 3) {
+                $disciplineId[$lack->disciplineName]['faltas']['III'] = $lack->totalLack;
+            }
         }
     }
 
     ?>
 
 
-    <h5 class="col-lg-11 mx-auto mb-4">Boletim do aluno</h5>
+    <div class="col-lg-11 mx-auto mb-3">
 
-    <div class="table-responsive col-lg-11 mx-auto">
+        <div class="row d-flex align-items-center">
+
+            <h5 class="col-lg-8">Boletim do aluno</h5>
+
+            <div class="col-lg-4 d-flex justify-content-end">
+
+                <span id="printBuleetin" class="mr-2 printer-icon"><i class="fas fa-print"></i></span>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="table-responsive col-lg-11 mx-auto" id="bolletin-table">
 
         <table id="table-bulletin" class="table table-bordered mt-3 col-lg-12">
 
-            <thead class="thead-light">
+            <thead class="thead-light text-center">
 
                 <tr>
                     <th class="th-rowspan-2" rowspan="2" scope="col" style="vertical-align : middle;text-align:center;">Disciplinas</th>
@@ -56,14 +85,14 @@
 
                 <?php foreach ($disciplineId as $key => $discipline) { ?>
 
-                    <tr>
+                    <tr class="text-center">
                         <td><?= $discipline['disciplina'] ?></td>
-                        <td><?= isset($discipline['notas'][0]) ? round($discipline['notas'][0], 1) : '0' ?></td>
-                        <td><?= isset($discipline['faltas'][0]) ? $discipline['faltas'][0] : '0' ?></td>
-                        <td><?= isset($discipline['notas'][1]) ? round($discipline['notas'][1], 1) : '0' ?></td>
-                        <td><?= isset($discipline['faltas'][1]) ? $discipline['faltas'][1] : '0' ?></td>
-                        <td><?= isset($discipline['notas'][2]) ? round($discipline['notas'][2], 1) : '0' ?></td>
-                        <td><?= isset($discipline['faltas'][2]) ? $discipline['faltas'][2] : '0' ?></td>
+                        <td><?= isset($discipline['notas']['I']) ? round($discipline['notas']['I'], 1) : '0' ?></td>
+                        <td><?= isset($discipline['faltas']['I']) ? $discipline['faltas']['I'] : '0' ?></td>
+                        <td><?= isset($discipline['notas']['II']) ? round($discipline['notas']['II'], 1) : '0' ?></td>
+                        <td><?= isset($discipline['faltas']['II']) ? $discipline['faltas']['II'] : '0' ?></td>
+                        <td><?= isset($discipline['notas']['III']) ? round($discipline['notas']['III'], 1) : '0' ?></td>
+                        <td><?= isset($discipline['faltas']['III']) ? $discipline['faltas']['III'] : '0' ?></td>
                     </tr>
 
                 <?php } ?>

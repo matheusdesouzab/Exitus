@@ -1,0 +1,106 @@
+<?php
+
+namespace App\Models\TeacherStudent;
+
+use MF\Model\Model;
+
+class DisciplineAverage extends Model
+{
+
+    private $disciplineAverageId;
+    private $average;
+    private $fk_id_subtitle;
+    private $fk_id_discipline_class;
+    private $fk_id_enrollment;
+
+
+    public function __get($att)
+    {
+        return $this->$att;
+    }
+
+
+    public function __set($att, $newValue)
+    {
+        return $this->$att = $newValue;
+    }
+
+
+    public function insert()
+    {
+
+        $query =
+
+            "INSERT INTO media_disciplina
+            
+            (media, fk_id_turma_disciplina, fk_id_matricula_media, fk_id_legenda)
+
+            VALUES
+
+            (:average , :fk_id_discipline_class , :fk_id_enrollment , :fk_id_subtitle);              
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':average', $this->__get('average'));
+        $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+        $stmt->bindValue(':fk_id_subtitle', $this->__get('fk_id_subtitle'));
+
+        $stmt->execute();
+    }
+
+
+    public function disciplineFinalData()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            SUM(nota_avaliacao.valor_nota) AS note 
+            
+            FROM nota_avaliacao 
+            
+            LEFT JOIN avaliacoes ON(nota_avaliacao.fk_id_avaliacao = avaliacoes.id_avaliacao) 
+            LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            LEFT JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            LEFT JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)  
+            
+            WHERE matricula.id_matricula = :fk_id_enrollment AND turma_disciplina.id_turma_disciplina = :fk_id_discipline_class
+
+            UNION
+
+            SELECT 
+            
+            SUM(falta_aluno.total_faltas) AS lack 
+            
+            FROM falta_aluno 
+            
+            LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina) 
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            LEFT JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula) 
+            
+            WHERE matricula.id_matricula = :fk_id_enrollment AND turma_disciplina.id_turma_disciplina = :fk_id_discipline_class
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function availableSubtitles()
+    {
+
+        return $this->speedingUp("SELECT legenda.id_legenda AS option_value, legenda.legenda AS option_text FROM legenda");
+    }
+}

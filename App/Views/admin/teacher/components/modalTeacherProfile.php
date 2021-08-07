@@ -32,8 +32,6 @@
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-teacher-accordion">Turmas</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Observações</a>
-
                                 </ul>
 
                             </nav>
@@ -77,7 +75,7 @@
 
                                         <div class="col-lg-12 mt-3 d-flex justify-content-end">
 
-                                            <button id="updateImg" disabled class="btn btn-success">Atualizar foto</button>
+                                            <button id="updateImg" type="submit" disabled class="btn btn-success">Atualizar foto</button>
 
                                         </div>
 

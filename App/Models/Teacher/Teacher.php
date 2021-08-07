@@ -178,7 +178,7 @@ class Teacher extends People
     public function updateProfilePicture()
     {
 
-        $query = "UPDATE professor SET professor.foto_perfil_professor = :profilePhoto WHERE professor.id_professor = :id";
+        $query = "UPDATE professor SET professor.foto_perfil_professor = :profilePhoto WHERE professor.id_professor = :teacherId";
 
         $stmt = $this->db->prepare($query);
 

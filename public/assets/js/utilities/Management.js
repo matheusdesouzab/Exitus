@@ -141,4 +141,35 @@ class Management {
     }
 
 
+    disciplineFinalData() {
+
+        let $form = $('#addDisciplineFinalData').serialize()
+
+        $.ajax({
+            dataType: 'json',
+            type: 'get',
+            data: $form,
+            url: '/admin/gestao/turma/perfil-turma/aluno/medias-finais',
+            success: data => {
+
+                let note, lack
+
+                if (data.length == 1) {
+                    [note = 0, lack = 0]
+                } else {
+                    note = data[0].note == null ? 0 : (parseFloat(data[0].note) / 3).toFixed(1) 
+                    lack = data[1].note || 0
+                }
+
+                $("#average").val(`${note}`)
+
+                $('#addDisciplineFinalData #situation').val(`Média final: ${note} | Faltas totais: ${lack}`)
+
+            }
+
+        })
+
+    }
+
+
 }

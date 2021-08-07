@@ -128,6 +128,7 @@ $("#buttonAddStudent").on("click", function (e) {
 
 })
 
+
 $("#buttonAddTeacher").on("click", function (e) {
 
     application.addMultipleParts(this, "/admin/professor/cadastro/inserir")
@@ -151,6 +152,13 @@ $(document).on('click', "#buttonAddLackStudent", function (e) {
     management.availableLack()
 
     $("#addLack #totalLack").val('')
+
+})
+
+
+$(document).on("click", "#buttonAddDisciplineFinalData", function (e) {
+
+    application.addSinglePart("#addDisciplineFinalData", "/admin/gestao/turma/perfil-turma/aluno/medias-finais/inserir", "Média adicionada", "")
 
 })
 
@@ -273,10 +281,39 @@ $(document).on("click", "#profileStudentModal [data-target='#class-profile-lack'
 })
 
 
-$(document).on("click", "#profileStudentModal [data-target='#class-profile-bulletin']", function(e){
+$(document).on("click", "#profileStudentModal [data-target='#class-profile-bulletin']", function (e) {
 
     application.loadListElements("containerBulletin", "/admin/gestao/turma/perfil-turma/aluno/boletim", "#addLack")
 
+})
+
+
+$(document).on("click", "#printBuleetin", function (e) {
+
+    let myTable = document.getElementById('bolletin-table').innerHTML
+    var win = window.open('', '', 'height=700,width=700')
+    win.document.write('<html><head>')
+    win.document.write('<title>Boletim</title>')
+    win.document.write('<meta charset="utf-8">')
+    win.document.write('<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">')
+    win.document.write('</head>')
+    win.document.write('<body>')
+    win.document.write('<h2>Aluno: Matheus de Souza</h2>')
+    win.document.write(myTable)
+    win.document.write('</body></html>')
+    win.document.close()
+    win.print()
+
+})
+
+
+$(document).on("click", "[data-target='#add-disciplineFinalData']", function (e) {
+    management.disciplineFinalData()
+})
+
+
+$(document).on("change", "#addDisciplineFinalData .form-control", function (e) {
+    management.disciplineFinalData()
 })
 
 
@@ -509,7 +546,7 @@ $("#seekDiscipline select[name='seekModality']").change(() => application.seekEl
 
 $("#seekStudent select").change(() => application.seekElement("#seekStudent", "containerListStudent", "/admin/aluno/lista/buscar"))
 
-$(document).on("change", "#seekLackStudent select", function(e){
+$(document).on("change", "#seekLackStudent select", function (e) {
     application.loadListElements("containerListLack", "/admin/gestao/turma/perfil-turma/aluno/faltas/buscar", "#seekLackStudent")
 })
 
@@ -659,30 +696,26 @@ $(document).on("change", "#profilePhotoModal #profilePhoto", function () {
 
 $(document).on("click", "#profileStudentModal #updateImg", function (e) {
 
-    e.preventDefault()
-
     application.addMultipleParts($("#formUpdateProfilePhoto")[0], "/admin/aluno/lista/perfil-aluno/atualizar-foto")
 
-    application.loadListElements("containerStudentProfileModal", "/admin/aluno/lista/perfil-aluno", "#formUpdateProfilePhoto")
+    /* application.loadListElements("containerStudentProfileModal", "/admin/aluno/lista/perfil-aluno", "#formUpdateProfilePhoto")
 
-    application.loadListElements("containerListStudent", "/admin/aluno/lista/listagem")
+    application.loadListElements("containerListStudent", "/admin/aluno/lista/listagem") */
 
-    tools.showToast("Foto do perfil atualizada", "bg-success")
+    //tools.showToast("Foto do perfil atualizada", "bg-success")
 
 })
 
 
 $(document).on("click", "#profileTeacherModal #updateImg", function (e) {
 
-    e.preventDefault()
-
     application.addMultipleParts($("#formUpdateProfilePhoto")[0], "/admin/professor/lista/perfil-professor/atualizar-foto")
 
-    application.loadListElements("containerTeacherProfileModal", "/admin/professor/lista/perfil-professor", "#formUpdateProfilePhoto")
+    //application.loadListElements("containerTeacherProfileModal", "/admin/professor/lista/perfil-professor", "#formUpdateProfilePhoto")
 
-    application.loadListElements("containerListTeacher", "/admin/professor/lista/listagem")
+    //application.loadListElements("containerListTeacher", "/admin/professor/lista/listagem")
 
-    tools.showToast("Foto do perfil atualizada", "bg-success")
+    //tools.showToast("Foto do perfil atualizada", "bg-success")
 
 })
 
@@ -709,34 +742,6 @@ $(".bars-xs , .sidebar-header span").on("click", function (e) {
 
 
 $("#bars").on("click", sideState)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

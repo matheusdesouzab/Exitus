@@ -1,6 +1,7 @@
 @media (max-width:576px) {
 
-    body#admin , body#teacherPortal {
+    body#admin,
+    body#teacherPortal {
 
         .panel-side {
             display: none;
@@ -126,7 +127,8 @@
                 }
             }
 
-            #main-accordion-class , #main-accordion-student {
+            #main-accordion-class,
+            #main-accordion-student {
                 background-color: white;
                 padding: 10px;
                 border-radius: 15px;
@@ -238,7 +240,7 @@
                     }
                 }
 
-                .modal-sidebar{
+                .modal-sidebar {
                     @include card(10px, white, none);
                     box-shadow: none;
                     height: 50vh;
@@ -273,8 +275,20 @@
             #profileStudentModal {
 
                 .container-list-group {
+
                     nav {
-                        width: 600px;
+                        width: 800px;
+
+                        ul {
+
+                            a {
+                                border-left: none;
+                            }
+
+                            [aria-expanded="true"] {
+                                border-left: none;
+                            }
+                        }
                     }
                 }
             }

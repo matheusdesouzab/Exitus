@@ -93,6 +93,7 @@ class AdminStudentController extends Action
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Lack = Container::getModel('TeacherStudent\\Lack');
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
 
         $StudentEnrollment->__set('id', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
         $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
@@ -112,6 +113,7 @@ class AdminStudentController extends Action
 
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->lackList = $Lack->list();
+        $this->view->listSubtitles = $DisciplineAverage->availableSubtitles();
 
         $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }

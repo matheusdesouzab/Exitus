@@ -610,6 +610,18 @@ class Route extends Bootstrap
 				'action' => 'lackSeek'
 			);
 
+			$routes['adminDisciplineFinalData'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/medias-finais',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'disciplineFinalData'
+			);
+
+			$routes['adminDisciplineFinalDataInsert'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/medias-finais/inserir',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'disciplineFinalDataInsert'
+			);
+
 
 			// ---------------------------------
 			

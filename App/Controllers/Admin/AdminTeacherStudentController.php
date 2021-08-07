@@ -414,7 +414,6 @@ class AdminTeacherStudentController extends Action
         $this->view->lackList = $Lack->seek($_GET['orderBy']);
 
         $this->render('student/components/lackList', 'SimpleLayout');
-
     }
 
 
@@ -437,6 +436,35 @@ class AdminTeacherStudentController extends Action
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->lackList = $Lack->list();
 
-        $this->render('student/components/bulletin', 'SimpleLayout'); 
-    } 
+        $this->render('student/components/bulletin', 'SimpleLayout');
+    }
+
+
+    public function disciplineFinalDataInsert()
+    {
+
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+
+        $DisciplineAverage->__set('fk_id_enrollment', $_POST['enrollmentId']);
+        $DisciplineAverage->__set('fk_id_discipline_class', $_POST['disciplineClass']);
+        $DisciplineAverage->__set('fk_id_subtitle', $_POST['subtitle']);
+        $DisciplineAverage->__set('average', $_POST['average']);
+
+        $DisciplineAverage->insert();
+
+    }
+
+
+    public function disciplineFinalData()
+    {
+
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+
+        $DisciplineAverage->__set('fk_id_enrollment', $_GET['enrollmentId']);
+        $DisciplineAverage->__set('fk_id_discipline_class', $_GET['disciplineClass']);
+
+        echo json_encode($DisciplineAverage->disciplineFinalData());
+    }
+
+
 }

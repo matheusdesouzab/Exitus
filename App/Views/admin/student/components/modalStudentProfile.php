@@ -41,9 +41,11 @@
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin">Boletim</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">Observações</a>
-
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">Faltas</a>
+
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData">Média final</a>
+
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">Observações</a>
 
 
                                 </ul>
@@ -88,7 +90,7 @@
 
                                         <div class="col-lg-12 mt-3 d-flex justify-content-end">
 
-                                            <button id="updateImg" disabled class="btn btn-success">Atualizar foto</button>
+                                            <button id="updateImg" type='submit' disabled class="btn btn-success">Atualizar foto</button>
 
                                         </div>
 
@@ -259,7 +261,7 @@
 
                         </div>
 
-                    
+
                         <h5 class="mt-5 mb-3 ml-4">Endereço e contato:</h5>
 
                         <?php
@@ -488,9 +490,112 @@
                     </div>
                 </div>
 
+                <div class="col-lg-11 mx-auto collapse" id="class-profile-disciplineFinalData" data-parent="#main-accordion-student">
+
+                    <div class="col-lg-12 accordion" id="accordion-disciplineFinalData">
+
+                        <div class="row">
+
+                            <div class="col-lg-12 mb-3">
+
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-lg-5">
+                                        <h5>Médias finais</h5>
+                                    </div>
+
+                                    <div class="col-lg-7 collapse-options-container">
+
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#disciplineFinalData-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Médias</span></a>
+
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-disciplineFinalData"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-12">
+
+                                <div class="collapse show" id="disciplineFinalData-list" data-parent="#accordion-disciplineFinalData">
+
+                                    <div>lista</div>
+
+                                </div>
+
+                                <div class="collapse card" id="add-disciplineFinalData" data-parent="#accordion-disciplineFinalData">
+
+                                    <form id="addDisciplineFinalData" class="col-lg-12" action="">
+
+                                        <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                        <input value="" type="hidden" name="average" id="average">
+
+                                        <div class="form-row">
+
+                                            <div class="form-group col-lg-6">
+
+                                                <label for="">Disciplina:</label>
+
+                                                <select id="disciplineClass" class="form-control custom-select" name="disciplineClass">
+
+                                                    <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+
+                                                        <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                    <?php } ?>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-6">
+
+                                                <label for="">Situação:</label>
+
+                                                <input id="situation" disabled class="form-control" name="situation">
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-row">
+
+                                            <div class="form-group col-lg-6">
+
+                                                <label for="">Legenda: </label>
+
+                                                <select class="form-control custom-select" name="subtitle" id="subtitle" required>
+
+                                                    <?php foreach ($this->view->listSubtitles as $key => $subtitle) { ?>
+
+                                                        <option value="<?= $subtitle->option_value ?>"> <?= $subtitle->option_text ?> </option>
+
+                                                    <?php } ?>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-3 ml-auto">
+                                                <label for="">&nbsp;</label>
+                                                <a id="buttonAddDisciplineFinalData" class="btn btn-success w-100">Adicionar</a>
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="col-lg-11 mx-auto collapse" id="class-profile-observation" data-parent="#main-accordion-student">
 
-                    <div class="col-lg-12 accordion" id="accordion-observation">
+                    <div class="col-lg-12 accorfinal-data">
 
                         <div class="row">
 
@@ -591,7 +696,7 @@
 
                 </div>
 
-                <div class="col-lg-11 mx-auto collapse" id="class-profile-bulletin" data-parent="#main-accordion-student">
+                <div class="col-11 mx-auto collapse" id="class-profile-bulletin" data-parent="#main-accordion-student">
 
                     <div containerBulletin class="row"></div>
 
@@ -781,8 +886,6 @@
 
                             </div>
                         </div>
-
-
 
                     </div>
 
