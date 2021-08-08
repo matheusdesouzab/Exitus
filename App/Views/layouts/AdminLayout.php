@@ -18,8 +18,6 @@ isset($_SESSION['Teacher']) ? header('Location: /portal-docente/turma') : '';
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-	<link href="/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
 
 
 </head>
@@ -77,7 +75,6 @@ isset($_SESSION['Teacher']) ? header('Location: /portal-docente/turma') : '';
 
 <script src="/assets/js/utilities/style.js"></script>
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
 
 <script src="/assets/js/main.js"></script>
 

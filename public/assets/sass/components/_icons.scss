@@ -18,6 +18,10 @@
         @include icon-card($color-dark-gray, $color-blue, $color-smooth-gray);
     }
 
+    .refesh-data-icon {
+        @include icon-card($color-dark-gray, $color-dark-gray, $color-smooth-gray);
+    }
+
 
     .unregistered-unit-icon {
         color: #BDC3C7;

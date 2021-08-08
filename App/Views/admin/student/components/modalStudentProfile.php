@@ -4,7 +4,7 @@
 
         <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
-        <div class="col-lg-3 col-11 mx-auto modal-sidebar">
+        <div class="col-md-3 col-11 mx-auto modal-sidebar">
 
             <div class="row">
 
@@ -109,7 +109,7 @@
 
         </div>
 
-        <div class="col-lg-8 card main-content col-11 mx-auto">
+        <div class="col-md-8 card main-content col-11 mx-auto">
 
             <div class="row">
 
@@ -518,7 +518,7 @@
 
                                 <div class="collapse show" id="disciplineFinalData-list" data-parent="#accordion-disciplineFinalData">
 
-                                    <div>lista</div>
+                                    <div class="col-lg-12" containerDisciplineAverageList></div>
 
                                 </div>
 

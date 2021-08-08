@@ -103,4 +103,64 @@ class DisciplineAverage extends Model
 
         return $this->speedingUp("SELECT legenda.id_legenda AS option_value, legenda.legenda AS option_text FROM legenda");
     }
+
+
+    public function list()
+    {
+
+        $query =
+
+            "SELECT 
+
+            media_disciplina.id_media_disciplina AS disciplineAvarageId,
+            disciplina.nome_disciplina AS disciplineName,
+            media_disciplina.media AS average,
+            legenda.legenda AS subtitle ,
+            turma_disciplina.id_turma_disciplina AS disciplineClass ,
+            matricula.id_matricula AS enrollmentId
+
+            FROM media_disciplina
+
+            LEFT JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina)
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            LEFT JOIN legenda ON(media_disciplina.fk_id_legenda = legenda.id_legenda)
+            LEFT JOIN matricula ON(media_disciplina.fk_id_matricula_media = matricula.id_matricula)
+
+            WHERE matricula.id_matricula = :fk_id_enrollment
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function disciplineMediaAlreadyAdded()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            id_media_disciplina AS id 
+            
+            FROM media_disciplina 
+            
+            WHERE fk_id_matricula_media = :fk_id_enrollment AND fk_id_turma_disciplina = :fk_id_discipline_class;
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 }

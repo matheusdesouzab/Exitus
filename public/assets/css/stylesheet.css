@@ -406,6 +406,26 @@ button {
 #pagina .printer-icon:hover .fa-plus-circle {
   color: #ffffff;
 }
+#pagina .refesh-data-icon {
+  cursor: pointer;
+  color: #506177;
+  border-radius: 10px;
+  background: #e5e5e5;
+  padding: 10px;
+  transition: all 0.2s ease;
+}
+#pagina .refesh-data-icon:hover {
+  color: #ffffff;
+  background-color: #506177;
+}
+#pagina .refesh-data-icon:hover .fa-edit,
+#pagina .refesh-data-icon:hover .fa-print,
+#pagina .refesh-data-icon:hover .fa-check,
+#pagina .refesh-data-icon:hover .fa-ban,
+#pagina .refesh-data-icon:hover .fa-boxes,
+#pagina .refesh-data-icon:hover .fa-plus-circle {
+  color: #ffffff;
+}
 #pagina .unregistered-unit-icon {
   color: #BDC3C7;
 }

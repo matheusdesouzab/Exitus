@@ -141,9 +141,11 @@ class Management {
     }
 
 
-    disciplineFinalData() {
+    disciplineFinalData(form) {
 
-        let $form = $('#addDisciplineFinalData').serialize()
+        let $form = $(form).serialize()
+
+        console.log('sim')
 
         $.ajax({
             dataType: 'json',
@@ -152,18 +154,20 @@ class Management {
             url: '/admin/gestao/turma/perfil-turma/aluno/medias-finais',
             success: data => {
 
+                console.log(data)
+
                 let note, lack
 
                 if (data.length == 1) {
                     [note = 0, lack = 0]
                 } else {
-                    note = data[0].note == null ? 0 : (parseFloat(data[0].note) / 3).toFixed(1) 
+                    note = data[0].note == null ? 0 : (parseFloat(data[0].note) / 3).toFixed(1)
                     lack = data[1].note || 0
                 }
 
-                $("#average").val(`${note}`)
+                $(`${form} #average`).val(`${note}`)
 
-                $('#addDisciplineFinalData #situation').val(`Média final: ${note} | Faltas totais: ${lack}`)
+                $(`${form} #situation`).val(`Média: ${note} | Faltas: ${lack}`)
 
             }
 
@@ -172,4 +176,25 @@ class Management {
     }
 
 
+    disciplineAverageAlreadyAdded() {
+
+        let $form = $('#addDisciplineFinalData').serialize()
+
+        $.ajax({
+            dataType: 'json',
+            type: 'get',
+            data: $form,
+            url: '/admin/gestao/turma/perfil-turma/aluno/medias-finais/disponiveis',
+            success: data => {
+
+                $('#buttonAddDisciplineFinalData').removeClass('disabled')
+
+                if (data.length == 1) {
+                    $('#buttonAddDisciplineFinalData').addClass('disabled')
+                    tools.showToast('Média já adicionada', 'bg-info')
+                }
+
+            }
+        })
+    }
 }

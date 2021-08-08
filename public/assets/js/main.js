@@ -160,6 +160,9 @@ $(document).on("click", "#buttonAddDisciplineFinalData", function (e) {
 
     application.addSinglePart("#addDisciplineFinalData", "/admin/gestao/turma/perfil-turma/aluno/medias-finais/inserir", "Média adicionada", "")
 
+    management.disciplineFinalData("#addDisciplineFinalData")
+    management.disciplineAverageAlreadyAdded()
+
 })
 
 
@@ -288,6 +291,13 @@ $(document).on("click", "#profileStudentModal [data-target='#class-profile-bulle
 })
 
 
+$(document).on("click", "#profileStudentModal [data-target='#class-profile-disciplineFinalData'], #profileStudentModal [data-target='#disciplineFinalData-list']", function (e) {
+
+    application.loadListElements("containerDisciplineAverageList", "/admin/gestao/turma/perfil-turma/aluno/medias-finais/lista", "#addDisciplineFinalData")
+
+})
+
+
 $(document).on("click", "#printBuleetin", function (e) {
 
     let myTable = document.getElementById('bolletin-table').innerHTML
@@ -308,12 +318,19 @@ $(document).on("click", "#printBuleetin", function (e) {
 
 
 $(document).on("click", "[data-target='#add-disciplineFinalData']", function (e) {
-    management.disciplineFinalData()
+    management.disciplineFinalData("#addDisciplineFinalData")
+    management.disciplineAverageAlreadyAdded()
 })
 
 
 $(document).on("change", "#addDisciplineFinalData .form-control", function (e) {
-    management.disciplineFinalData()
+    management.disciplineFinalData("#addDisciplineFinalData")
+    management.disciplineAverageAlreadyAdded()
+})
+
+
+$(document).on("click", ".refesh-data-icon", function(e){
+    management.disciplineFinalData($(this).attr('form'))
 })
 
 

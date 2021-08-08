@@ -451,7 +451,6 @@ class AdminTeacherStudentController extends Action
         $DisciplineAverage->__set('average', $_POST['average']);
 
         $DisciplineAverage->insert();
-
     }
 
 
@@ -467,4 +466,28 @@ class AdminTeacherStudentController extends Action
     }
 
 
+    public function disciplineAverageList()
+    {
+
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+        $DisciplineAverage->__set('fk_id_enrollment', $_GET['enrollmentId']);
+
+        $this->view->disciplineAverageList = $DisciplineAverage->list();
+        $this->view->listSubtitles = $DisciplineAverage->availableSubtitles();
+
+        $this->render('student/components/disciplineAverageList', 'SimpleLayout');
+    }
+
+
+    public function disciplineMediaAlreadyAdded()
+    {
+
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+        
+        $DisciplineAverage->__set('fk_id_enrollment', $_GET['enrollmentId']);
+        $DisciplineAverage->__set('fk_id_discipline_class', $_GET['disciplineClass']);
+
+        echo json_encode($DisciplineAverage->disciplineMediaAlreadyAdded());
+
+    }
 }

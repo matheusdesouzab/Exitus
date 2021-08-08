@@ -622,6 +622,18 @@ class Route extends Bootstrap
 				'action' => 'disciplineFinalDataInsert'
 			);
 
+			$routes['adminDisciplineAverageList'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/medias-finais/lista',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'disciplineAverageList'
+			);
+
+			$routes['adminDisciplineMediaAlreadyAdded'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/medias-finais/disponiveis',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'disciplineMediaAlreadyAdded'
+			);
+
 
 			// ---------------------------------
 			

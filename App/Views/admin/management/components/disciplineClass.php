@@ -4,15 +4,14 @@ if (count($this->view->listTeacher) >= 1) {
 
     foreach ($this->view->listTeacher as $key => $discipline) { ?>
 
-        <form id="formDisciplineClass<?= $discipline->discipline_class_id ?>" class="card mb-4 col-lg-12" action="">
+        <form id="formDisciplineClass<?= $discipline->discipline_class_id ?>" class="card mb-4" action="">
 
             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
                 <input type="hidden" name="disciplineClass" value="<?= $discipline->discipline_class_id ?>">
                 <input type="hidden" name="classId" value="<?= $discipline->class_id ?>">
 
-                <div class=" col-lg-8 font-weight-bold">Disciplina de <?= $discipline->discipline_name ?>
-                </div>
+                <div class=" col-lg-8 font-weight-bold">Disciplina de <?= $discipline->discipline_name ?></div>
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 

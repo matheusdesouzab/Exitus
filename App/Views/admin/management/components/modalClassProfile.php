@@ -151,7 +151,7 @@
 
                         <div class="col-lg-12">
                             <div class="collapse show" id="list-discipline" data-parent="#class-discipline-accordion">
-                                <div class="row" containerListDisciplineClass>
+                                <div class="col-lg-12" containerListDisciplineClass>
 
                                     <?php require '../App/Views/admin/management/components/disciplineClass.php' ?>
 
@@ -295,11 +295,7 @@
                             </form>
 
 
-                            <div containerExamsList class="">
-
-                                <?php require '../App/Views/admin/management/components/examList.php' ?>
-
-                            </div>
+                            <div containerExamsList class=""></div>
 
                         </div>
 
