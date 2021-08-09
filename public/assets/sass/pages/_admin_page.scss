@@ -1,23 +1,44 @@
-#admin , #teacherPortal{
+#admin,
+#teacherPortal {
 
     #pagina {
+
+        #profileClassModal {
+
+            #note-table {
+                width: 900px;
+                font-size: 15px;
+
+                td,
+                th {
+                    text-align: left;
+                }
+            }
+        }
+
+        #profileStudentModal {
+
+            #table-bulletin {
+                font-size: 13px;
+                width: 1000px;
+                font-family: Bold;
+                color: black;
+            }
+        }
 
         .main-container {
             margin-top: 80px;
         }
 
-        #table-bulletin{
-            font-size: 13px;
-            font-family: Bold;          
-        }
 
-        .miniature-photo img{
-            width: 40px; 
-            height: 40px; 
-            object-position:top; 
+
+        .miniature-photo img {
+            width: 40px;
+            height: 40px;
+            object-position: top;
             object-fit: cover;
-            border: none;   
-            border-radius: 50%;      
+            border: none;
+            border-radius: 50%;
         }
 
         #navbarBottom {
@@ -134,33 +155,18 @@
         }
 
 
-        #tableListExam 
-        {
+        #tableListExam {
             font-size: 15px;
+
             td {
-            margin: 3px;
-            text-align: center;
-        }
-    }
-
-
-        #note-table{
-            width: 1000px;
-            font-size: 15px;
-
-            td,th{
-                text-align: left;
-            }
-        }
-
-        #profileStudentModal{
-            #note-table{
-                width: 700px;
+                margin: 3px;
+                text-align: center;
             }
         }
 
 
-        #seekNoteExam a{
+
+        #seekNoteExam a {
             border: 1px solid $color-smooth-gray;
         }
 
@@ -256,7 +262,8 @@
             }
         }
 
-        [containerRegistrationSuccess] , [containerRegistrationError]{
+        [containerRegistrationSuccess],
+        [containerRegistrationError] {
             display: none;
         }
 

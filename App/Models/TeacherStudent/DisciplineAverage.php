@@ -116,8 +116,9 @@ class DisciplineAverage extends Model
             disciplina.nome_disciplina AS disciplineName,
             media_disciplina.media AS average,
             legenda.legenda AS subtitle ,
+            legenda.id_legenda AS subtitle_id ,
             turma_disciplina.id_turma_disciplina AS disciplineClass ,
-            matricula.id_matricula AS enrollmentId
+            matricula.id_matricula AS enrollmentId 
 
             FROM media_disciplina
 
@@ -162,5 +163,20 @@ class DisciplineAverage extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function update()
+    {
+
+        $query = "UPDATE media_disciplina SET fk_id_legenda = :fk_id_subtitle , media = :average WHERE media_disciplina.id_media_disciplina = :disciplineAverageId";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_subtitle', $this->__get('fk_id_subtitle'));
+        $stmt->bindValue(':average', $this->__get('average'));
+        $stmt->bindValue(':disciplineAverageId', $this->__get('disciplineAverageId'));
+
+        $stmt->execute();
     }
 }

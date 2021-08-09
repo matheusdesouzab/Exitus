@@ -38,6 +38,15 @@
         }
     }
 
+    foreach ($this->view->disciplineAverageList as $y => $discipline) {
+
+        if (array_key_exists($discipline->disciplineName, $disciplineId)) {
+            $disciplineId[$discipline->disciplineName]['mediaFinal']['nota'] = $discipline->average;
+            $disciplineId[$discipline->disciplineName]['mediaFinal']['situacao'] = $discipline->subtitle;
+        }
+    }
+
+
     ?>
 
 
@@ -57,17 +66,19 @@
     </div>
 
 
-    <div class="table-responsive col-lg-11 mx-auto" id="bolletin-table">
+    <div class="col-lg-11 mx-auto table-responsive">
 
-        <table id="table-bulletin" class="table table-bordered mt-3 col-lg-12">
+        <table id="table-bulletin" class="table table-bordered mt-3">
 
-            <thead class="thead-light text-center">
+            <thead class="text-center" style="background:#CCCCCC">
 
                 <tr>
-                    <th class="th-rowspan-2" rowspan="2" scope="col" style="vertical-align : middle;text-align:center;">Disciplinas</th>
+                    <th rowspan="2" scope="col" style="vertical-align : middle;text-align:center;">Disciplinas</th>
                     <th colspan="2" scope="col">UNIDADE I</th>
                     <th colspan="2" scope="col">UNIDADE II</th>
                     <th colspan="2" scope="col">UNIDADE III</th>
+                    <th rowspan="2" scope="col" style="vertical-align : middle;text-align:center;">Média final</th>
+                    <th rowspan="2" scope="col" style="vertical-align : middle;text-align:center;">Resultado final</th>
                 </tr>
 
                 <tr>
@@ -93,6 +104,8 @@
                         <td><?= isset($discipline['faltas']['II']) ? $discipline['faltas']['II'] : '0' ?></td>
                         <td><?= isset($discipline['notas']['III']) ? round($discipline['notas']['III'], 1) : '0' ?></td>
                         <td><?= isset($discipline['faltas']['III']) ? $discipline['faltas']['III'] : '0' ?></td>
+                        <td><?= isset($discipline['mediaFinal']['nota']) ? $discipline['mediaFinal']['nota'] : '0' ?></td>
+                        <td><?= isset($discipline['mediaFinal']['situacao']) ? $discipline['mediaFinal']['situacao'] : '' ?></td>
                     </tr>
 
                 <?php } ?>

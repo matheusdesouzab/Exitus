@@ -698,7 +698,7 @@
 
                 <div class="col-11 mx-auto collapse" id="class-profile-bulletin" data-parent="#main-accordion-student">
 
-                    <div containerBulletin class="row"></div>
+                    <div containerBulletin></div>
 
                 </div>
 

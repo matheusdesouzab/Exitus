@@ -471,7 +471,7 @@
 
                     <div class="col-lg-12 table-responsive">
 
-                        <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover" id="note-table">
+                        <table class="table table-borderless table-hover" id="note-table">
                             <thead>
                                 <tr>
                                     <th scope="col" colspan="2">Nome do aluno</th>

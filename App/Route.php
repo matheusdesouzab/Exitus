@@ -634,6 +634,12 @@ class Route extends Bootstrap
 				'action' => 'disciplineMediaAlreadyAdded'
 			);
 
+			$routes['adminDisciplineMediaUpdate'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/medias-finais/atualizar',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'disciplineMediaUpdate'
+			);
+
 
 			// ---------------------------------
 			

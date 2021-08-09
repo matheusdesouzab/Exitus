@@ -13,13 +13,10 @@ isset($_SESSION['Teacher']) ? header('Location: /portal-docente/turma') : '';
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title> Web Gest </title>
-
-	<link rel="stylesheet" href="/assets/css/stylesheet.css">
+	<title> Web Gest </title>	
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-
-
+	<link rel="stylesheet" href="/assets/css/stylesheet.css">
 </head>
 
 <body id="admin">

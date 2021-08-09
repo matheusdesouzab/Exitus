@@ -145,8 +145,6 @@ class Management {
 
         let $form = $(form).serialize()
 
-        console.log('sim')
-
         $.ajax({
             dataType: 'json',
             type: 'get',

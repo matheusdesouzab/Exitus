@@ -423,6 +423,7 @@ class AdminTeacherStudentController extends Action
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Lack = Container::getModel('TeacherStudent\\Lack');
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
 
         if (!isset($_SESSION)) session_start();
 
@@ -431,10 +432,12 @@ class AdminTeacherStudentController extends Action
         $Lack->__set('fk_id_enrollment', $_GET['enrollmentId']);
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
         $ClassDiscipline->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $DisciplineAverage->__set('fk_id_enrollment', $_GET['enrollmentId']);
 
         $this->view->bulletin = $StudentEnrollment->bulletin();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->lackList = $Lack->list();
+        $this->view->disciplineAverageList = $DisciplineAverage->list();
 
         $this->render('student/components/bulletin', 'SimpleLayout');
     }
@@ -483,11 +486,23 @@ class AdminTeacherStudentController extends Action
     {
 
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
-        
+
         $DisciplineAverage->__set('fk_id_enrollment', $_GET['enrollmentId']);
         $DisciplineAverage->__set('fk_id_discipline_class', $_GET['disciplineClass']);
 
         echo json_encode($DisciplineAverage->disciplineMediaAlreadyAdded());
+    }
 
+
+    public function disciplineMediaUpdate()
+    {
+
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+
+        $DisciplineAverage->__set('disciplineAverageId', $_POST['id']);
+        $DisciplineAverage->__set('fk_id_subtitle', $_POST['subtitle']);
+        $DisciplineAverage->__set('average', $_POST['average']);
+
+        $DisciplineAverage->update();
     }
 }
