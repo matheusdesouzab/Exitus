@@ -475,6 +475,10 @@ class AdminTeacherStudentController extends Action
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
         $DisciplineAverage->__set('fk_id_enrollment', $_GET['enrollmentId']);
 
+        if (!isset($_SESSION)) session_start();
+
+        $DisciplineAverage->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
         $this->view->disciplineAverageList = $DisciplineAverage->list();
         $this->view->listSubtitles = $DisciplineAverage->availableSubtitles();
 

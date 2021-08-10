@@ -66,7 +66,7 @@
     </div>
 
 
-    <div class="col-lg-11 mx-auto table-responsive">
+    <div class="col-lg-11 mx-auto table-responsive" id="table-bulletin-print">
 
         <table id="table-bulletin" class="table table-bordered mt-3">
 

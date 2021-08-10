@@ -300,7 +300,7 @@ $(document).on("click", "#profileStudentModal [data-target='#class-profile-disci
 
 $(document).on("click", "#printBuleetin", function (e) {
 
-    let myTable = document.getElementById('bolletin-table').innerHTML
+    let myTable = document.getElementById('table-bulletin-print').innerHTML
     var win = window.open('', '', 'height=700,width=700')
     win.document.write('<html><head>')
     win.document.write('<title>Boletim</title>')

@@ -5,7 +5,7 @@
 
         #profileClassModal {
 
-            #note-table {
+            #note-table-class {
                 width: 900px;
                 font-size: 15px;
 
@@ -22,7 +22,10 @@
                 font-size: 13px;
                 width: 1000px;
                 font-family: Bold;
-                color: black;
+
+                th{
+                    color: black;
+                }
             }
         }
 

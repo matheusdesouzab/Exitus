@@ -112,7 +112,6 @@
 
                                     <div class="table-responsive">
 
-
                                         <table class="table table-borderless table-hover" id="classe-table">
 
                                             <thead>

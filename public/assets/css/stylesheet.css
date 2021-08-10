@@ -556,15 +556,15 @@ button {
   padding: 10px 0px;
 }
 
-#admin #pagina #profileClassModal #note-table,
-#teacherPortal #pagina #profileClassModal #note-table {
+#admin #pagina #profileClassModal #note-table-class,
+#teacherPortal #pagina #profileClassModal #note-table-class {
   width: 900px;
   font-size: 15px;
 }
-#admin #pagina #profileClassModal #note-table td,
-#admin #pagina #profileClassModal #note-table th,
-#teacherPortal #pagina #profileClassModal #note-table td,
-#teacherPortal #pagina #profileClassModal #note-table th {
+#admin #pagina #profileClassModal #note-table-class td,
+#admin #pagina #profileClassModal #note-table-class th,
+#teacherPortal #pagina #profileClassModal #note-table-class td,
+#teacherPortal #pagina #profileClassModal #note-table-class th {
   text-align: left;
 }
 #admin #pagina #profileStudentModal #table-bulletin,
@@ -572,6 +572,9 @@ button {
   font-size: 13px;
   width: 1000px;
   font-family: Bold;
+}
+#admin #pagina #profileStudentModal #table-bulletin th,
+#teacherPortal #pagina #profileStudentModal #table-bulletin th {
   color: black;
 }
 #admin #pagina .main-container,

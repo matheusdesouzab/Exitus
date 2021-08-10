@@ -7,6 +7,7 @@ use MF\Model\Model;
 class StudentEnrollment extends Model
 {
 
+
     private $fk_id_student_situation;
     private $fk_id_class;
     private $fk_id_school_term;
@@ -52,6 +53,20 @@ class StudentEnrollment extends Model
     }
 
 
+    public function update()
+    {
+
+        $query = "UPDATE matricula SET matricula.fk_id_situacao_aluno = :fk_id_student_situation WHERE matricula.id_matricula = :id";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_student_situation', $this->__get('fk_id_student_situation'));
+        $stmt->bindValue(':id', $this->__get('id'));
+
+        $stmt->execute();
+    }
+
+
     public function bulletin()
     {
 
@@ -88,5 +103,12 @@ class StudentEnrollment extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function studentSituation()
+    {
+
+        return $this->speedingUp("SELECT id_situacao_aluno AS id , situacao_aluno AS student_situation FROM situacao_aluno");
     }
 }

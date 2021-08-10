@@ -95,7 +95,6 @@ class AdminStudentController extends Action
         $Lack = Container::getModel('TeacherStudent\\Lack');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
 
-        $StudentEnrollment->__set('id', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
         $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
         $this->view->studentProfile = $Student->list();
@@ -114,6 +113,7 @@ class AdminStudentController extends Action
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->lackList = $Lack->list();
         $this->view->listSubtitles = $DisciplineAverage->availableSubtitles();
+        $this->view->listStudentSituation = $StudentEnrollment->studentSituation();
 
         $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }
@@ -125,6 +125,7 @@ class AdminStudentController extends Action
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Student = Container::getModel('Student\\Student');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
 
         $Tool = new Tools();
 
@@ -149,18 +150,16 @@ class AdminStudentController extends Action
         $Student->__set('fk_id_sex', $_POST['sex']);
         $Student->__set('fk_id_blood_type', $_POST['bloodType']);
         $Student->__set('fk_id_pcd', $_POST['pcd']);
-        $Student->__set('studentId', $_POST['studentId']);
+        $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
+
+        $StudentEnrollment->__set('id', $_POST['enrollmentId']);
+        $StudentEnrollment->__set('fk_id_student_situation', $_POST['situationStudent']);
 
         $Telephone->update();
         $Address->update();
         $Student->update();
+        $StudentEnrollment->update();
 
-        $this->view->studentProfile = $Student->profile();
-        $this->view->availableSex = $Student->availableSex();
-        $this->view->pcd = $Student->pcd();
-        $this->view->bloodType = $Student->bloodType();
-
-        $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }
 
 

@@ -83,7 +83,7 @@ class Student extends People
             fk_id_aluno_pcd = :fk_id_pcd , 
             data_nascimento_aluno = :birthDate ,
             email_aluno = :email
-            
+         
             WHERE id_aluno = :studentId 
         
         ";
@@ -142,6 +142,7 @@ class Student extends People
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS number_classroom , 
             situacao_aluno.situacao_aluno as student_situation , 
+            situacao_aluno.id_situacao_aluno as student_situation_id , 
             endereco.id_endereco as address_id , 
             telefone.id_telefone AS telephone_id ,
             turma.id_turma AS class_id,

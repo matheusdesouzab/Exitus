@@ -18,7 +18,7 @@
 
             <?php } ?>
 
-            <td><?= $note->unity ?> UC - <?= $note->exam_description ?></td>
+            <td class="text-left"><?= $note->unity ?> unidade - <?= $note->exam_description ?></td>
             <td><?= $note->discipline_name ?></td>
             <td><?= $note->note_value ?> / <?= $note->exam_value ?></td>
         </tr>

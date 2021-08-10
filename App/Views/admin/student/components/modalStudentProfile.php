@@ -117,9 +117,10 @@
 
                     <form id="studentModal<?= $student->student_id ?>" class="col-lg-12" action="">
 
-                        <input type="hidden" value="<?= $student->student_id ?>" name="studentId">
+                        <input type="hidden" value="<?= $student->student_id ?>" name="id">
                         <input type="hidden" value="<?= $student->telephone_id ?>" name="telephoneId">
                         <input type="hidden" value="<?= $student->address_id ?>" name="addressId">
+                        <input value="<?= $student->enrollmentId ?>" type="hidden" name="enrollmentId">
 
                         <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
 
@@ -139,7 +140,7 @@
 
                                             <span idElement="#studentModal<?= $student->student_id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                                            <span idElement="#studentModal<?= $student->student_id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" container="containerListStudent" routeList="/admin/aluno/lista/listagem" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                            <span idElement="#studentModal<?= $student->student_id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" routeData="#studentModal<?= $student->student_id ?>" container="containerStudentProfileModal" routeList="/admin/aluno/lista/perfil-aluno" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
                                         </div>
 
@@ -328,7 +329,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Situação do aluno:</span>
                             </div>
-                            <input type="text" disabled class="form-control" value="<?= $student->student_situation ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            <select id="situationStudent" name="situationStudent" disabled class="form-control custom-select">
+                                <option value="<?= $student->student_situation_id?>"><?= $student->student_situation ?></option>
+                                <?php foreach ($this->view->listStudentSituation as $key => $situation) { ?>
+                                    <?php if ($situation->id != $student->student_situation_id) { ?>
+                                        <option value="<?= $situation->id?>"><?= $situation->student_situation ?></option>
+                                <?php }
+                                } ?>
+                            </select>
                         </div>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">

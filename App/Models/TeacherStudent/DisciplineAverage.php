@@ -12,6 +12,7 @@ class DisciplineAverage extends Model
     private $fk_id_subtitle;
     private $fk_id_discipline_class;
     private $fk_id_enrollment;
+    private $fk_id_teacher = 0;
 
 
     public function __get($att)
@@ -128,11 +129,18 @@ class DisciplineAverage extends Model
             LEFT JOIN matricula ON(media_disciplina.fk_id_matricula_media = matricula.id_matricula)
 
             WHERE matricula.id_matricula = :fk_id_enrollment
+
+            AND
+
+            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
+
+
         ";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
 
         $stmt->execute();
 
