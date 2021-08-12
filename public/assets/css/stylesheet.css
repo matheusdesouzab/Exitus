@@ -557,32 +557,67 @@ button {
 }
 
 #admin #pagina #profileClassModal #note-table-class,
-#teacherPortal #pagina #profileClassModal #note-table-class {
+#teacherPortal #pagina #profileClassModal #note-table-class, #studentPortal #pagina #profileClassModal #note-table-class {
   width: 900px;
   font-size: 15px;
 }
 #admin #pagina #profileClassModal #note-table-class td,
 #admin #pagina #profileClassModal #note-table-class th,
 #teacherPortal #pagina #profileClassModal #note-table-class td,
-#teacherPortal #pagina #profileClassModal #note-table-class th {
+#teacherPortal #pagina #profileClassModal #note-table-class th, #studentPortal #pagina #profileClassModal #note-table-class td,
+#studentPortal #pagina #profileClassModal #note-table-class th {
   text-align: left;
 }
+#admin #pagina nav#studentPortalNavbar,
+#teacherPortal #pagina nav#studentPortalNavbar, #studentPortal #pagina nav#studentPortalNavbar {
+  border-bottom: 1px solid #e5e5e5;
+  color: #8B8E90;
+  background-color: white;
+  font-family: Bold;
+  font-size: 13px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+#admin #pagina nav#studentPortalNavbar img,
+#teacherPortal #pagina nav#studentPortalNavbar img, #studentPortal #pagina nav#studentPortalNavbar img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-position: top;
+  object-fit: cover;
+  cursor: pointer;
+}
+#admin #pagina nav#studentPortalNavbar .fa-th,
+#teacherPortal #pagina nav#studentPortalNavbar .fa-th, #studentPortal #pagina nav#studentPortalNavbar .fa-th {
+  color: #8B8E90;
+  font-size: 25px;
+  margin-right: 30px;
+}
+#admin #pagina nav#studentPortalNavbar a,
+#teacherPortal #pagina nav#studentPortalNavbar a, #studentPortal #pagina nav#studentPortalNavbar a {
+  color: #8B8E90;
+  padding: 15px 25px;
+}
+#admin #pagina nav#studentPortalNavbar .navbar-brand,
+#teacherPortal #pagina nav#studentPortalNavbar .navbar-brand, #studentPortal #pagina nav#studentPortalNavbar .navbar-brand {
+  font-family: Bold;
+  font-size: 13px;
+}
 #admin #pagina #profileStudentModal #table-bulletin,
-#teacherPortal #pagina #profileStudentModal #table-bulletin {
+#teacherPortal #pagina #profileStudentModal #table-bulletin, #studentPortal #pagina #profileStudentModal #table-bulletin {
   font-size: 13px;
   width: 1000px;
   font-family: Bold;
 }
 #admin #pagina #profileStudentModal #table-bulletin th,
-#teacherPortal #pagina #profileStudentModal #table-bulletin th {
+#teacherPortal #pagina #profileStudentModal #table-bulletin th, #studentPortal #pagina #profileStudentModal #table-bulletin th {
   color: black;
 }
 #admin #pagina .main-container,
-#teacherPortal #pagina .main-container {
+#teacherPortal #pagina .main-container, #studentPortal #pagina .main-container {
   margin-top: 80px;
 }
 #admin #pagina .miniature-photo img,
-#teacherPortal #pagina .miniature-photo img {
+#teacherPortal #pagina .miniature-photo img, #studentPortal #pagina .miniature-photo img {
   width: 40px;
   height: 40px;
   object-position: top;
@@ -591,40 +626,40 @@ button {
   border-radius: 50%;
 }
 #admin #pagina #navbarBottom,
-#teacherPortal #pagina #navbarBottom {
+#teacherPortal #pagina #navbarBottom, #studentPortal #pagina #navbarBottom {
   display: none;
 }
 #admin #pagina .school-term-active,
-#teacherPortal #pagina .school-term-active {
+#teacherPortal #pagina .school-term-active, #studentPortal #pagina .school-term-active {
   border-left: 5px solid #28A745;
 }
 #admin #pagina .school-term-finished,
-#teacherPortal #pagina .school-term-finished {
+#teacherPortal #pagina .school-term-finished, #studentPortal #pagina .school-term-finished {
   border-left: 6px solid #e5e5e5;
 }
 #admin #pagina .school-term-scheduled,
-#teacherPortal #pagina .school-term-scheduled {
+#teacherPortal #pagina .school-term-scheduled, #studentPortal #pagina .school-term-scheduled {
   border-left: 5px solid #6619c3;
 }
 #admin #pagina .option-icon-group span,
-#teacherPortal #pagina .option-icon-group span {
+#teacherPortal #pagina .option-icon-group span, #studentPortal #pagina .option-icon-group span {
   transition: 0.5s;
 }
 #admin #pagina .registration-in-stages label,
-#teacherPortal #pagina .registration-in-stages label {
+#teacherPortal #pagina .registration-in-stages label, #studentPortal #pagina .registration-in-stages label {
   text-align: left;
   display: block;
 }
 #admin #pagina .registration-in-stages form [data-toggle=collapse],
-#teacherPortal #pagina .registration-in-stages form [data-toggle=collapse] {
+#teacherPortal #pagina .registration-in-stages form [data-toggle=collapse], #studentPortal #pagina .registration-in-stages form [data-toggle=collapse] {
   background-color: #6619c3;
 }
 #admin #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right,
-#teacherPortal #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right {
+#teacherPortal #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right, #studentPortal #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right {
   margin-left: 10px;
 }
 #admin #pagina .registration-in-stages .connection-line,
-#teacherPortal #pagina .registration-in-stages .connection-line {
+#teacherPortal #pagina .registration-in-stages .connection-line, #studentPortal #pagina .registration-in-stages .connection-line {
   position: absolute;
   left: 0;
   right: 0;
@@ -635,21 +670,21 @@ button {
   background-color: #e4d9ff;
 }
 #admin #pagina .registration-in-stages .registration-header-by-step .row,
-#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row {
+#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row, #studentPortal #pagina .registration-in-stages .registration-header-by-step .row {
   display: flex;
   justify-content: space-around;
 }
 #admin #pagina .registration-in-stages .registration-header-by-step .row .container-option,
-#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option {
+#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option, #studentPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option {
   z-index: 2;
 }
 #admin #pagina .registration-in-stages .registration-header-by-step .row .container-option > .collapsed,
-#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option > .collapsed {
+#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option > .collapsed, #studentPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option > .collapsed {
   background-color: #e4d9ff;
   color: #080809;
 }
 #admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a,
-#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option a {
+#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option a, #studentPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option a {
   color: white;
   width: 35px;
   display: flex;
@@ -661,12 +696,12 @@ button {
   border-radius: 50%;
 }
 #admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a span,
-#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option a span {
+#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option a span, #studentPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option a span {
   text-align: center;
   font-weight: 500;
 }
 #admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p,
-#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
+#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p, #studentPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
   display: block;
   color: #080809;
   font-weight: 500;
@@ -674,39 +709,39 @@ button {
   font-size: 13px;
 }
 #admin #pagina #teacher-registration .connection-line,
-#teacherPortal #pagina #teacher-registration .connection-line {
+#teacherPortal #pagina #teacher-registration .connection-line, #studentPortal #pagina #teacher-registration .connection-line {
   width: 68%;
 }
 #admin #pagina .accordion-container,
-#teacherPortal #pagina .accordion-container {
+#teacherPortal #pagina .accordion-container, #studentPortal #pagina .accordion-container {
   height: 87vh;
 }
 #admin #pagina .accordion-container::-webkit-scrollbar,
-#teacherPortal #pagina .accordion-container::-webkit-scrollbar {
+#teacherPortal #pagina .accordion-container::-webkit-scrollbar, #studentPortal #pagina .accordion-container::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
 #admin #pagina #tableListExam,
-#teacherPortal #pagina #tableListExam {
+#teacherPortal #pagina #tableListExam, #studentPortal #pagina #tableListExam {
   font-size: 15px;
 }
 #admin #pagina #tableListExam td,
-#teacherPortal #pagina #tableListExam td {
+#teacherPortal #pagina #tableListExam td, #studentPortal #pagina #tableListExam td {
   margin: 3px;
   text-align: center;
 }
 #admin #pagina #seekNoteExam a,
-#teacherPortal #pagina #seekNoteExam a {
+#teacherPortal #pagina #seekNoteExam a, #studentPortal #pagina #seekNoteExam a {
   border: 1px solid #e5e5e5;
 }
 #admin #pagina .collapse-options-container,
-#teacherPortal #pagina .collapse-options-container {
+#teacherPortal #pagina .collapse-options-container, #studentPortal #pagina .collapse-options-container {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 15px;
 }
 #admin #pagina .collapse-options-container span,
-#teacherPortal #pagina .collapse-options-container span {
+#teacherPortal #pagina .collapse-options-container span, #studentPortal #pagina .collapse-options-container span {
   cursor: pointer;
   color: none;
   border-radius: 10px;
@@ -720,7 +755,7 @@ button {
   color: #506177;
 }
 #admin #pagina .collapse-options-container span:hover,
-#teacherPortal #pagina .collapse-options-container span:hover {
+#teacherPortal #pagina .collapse-options-container span:hover, #studentPortal #pagina .collapse-options-container span:hover {
   color: #ffffff;
   background-color: #6619c3;
 }
@@ -735,89 +770,95 @@ button {
 #teacherPortal #pagina .collapse-options-container span:hover .fa-check,
 #teacherPortal #pagina .collapse-options-container span:hover .fa-ban,
 #teacherPortal #pagina .collapse-options-container span:hover .fa-boxes,
-#teacherPortal #pagina .collapse-options-container span:hover .fa-plus-circle {
+#teacherPortal #pagina .collapse-options-container span:hover .fa-plus-circle, #studentPortal #pagina .collapse-options-container span:hover .fa-edit,
+#studentPortal #pagina .collapse-options-container span:hover .fa-print,
+#studentPortal #pagina .collapse-options-container span:hover .fa-check,
+#studentPortal #pagina .collapse-options-container span:hover .fa-ban,
+#studentPortal #pagina .collapse-options-container span:hover .fa-boxes,
+#studentPortal #pagina .collapse-options-container span:hover .fa-plus-circle {
   color: #ffffff;
 }
 #admin #pagina .collapse-options-container [aria-expanded=true] span,
-#teacherPortal #pagina .collapse-options-container [aria-expanded=true] span {
+#teacherPortal #pagina .collapse-options-container [aria-expanded=true] span, #studentPortal #pagina .collapse-options-container [aria-expanded=true] span {
   background: #6619c3;
   color: #ffffff;
   border: none;
 }
 #admin #pagina .horizontal-control-list,
-#teacherPortal #pagina .horizontal-control-list {
+#teacherPortal #pagina .horizontal-control-list, #studentPortal #pagina .horizontal-control-list {
   background-color: #e5e5e5;
   margin: 10px;
   display: none;
 }
 #admin #pagina .horizontal-control-list .list-group-item,
-#teacherPortal #pagina .horizontal-control-list .list-group-item {
+#teacherPortal #pagina .horizontal-control-list .list-group-item, #studentPortal #pagina .horizontal-control-list .list-group-item {
   border: 0px;
   padding: 10px;
 }
 #admin #pagina .horizontal-control-list a,
-#teacherPortal #pagina .horizontal-control-list a {
+#teacherPortal #pagina .horizontal-control-list a, #studentPortal #pagina .horizontal-control-list a {
   font-size: 2vw;
 }
 #admin #pagina .horizontal-control-list [aria-expanded=true],
-#teacherPortal #pagina .horizontal-control-list [aria-expanded=true] {
+#teacherPortal #pagina .horizontal-control-list [aria-expanded=true], #studentPortal #pagina .horizontal-control-list [aria-expanded=true] {
   background: #6619c3;
   border-radius: 5px;
   color: #ffffff;
 }
 #admin #pagina .horizontal-control-list [aria-expanded=true] a,
-#teacherPortal #pagina .horizontal-control-list [aria-expanded=true] a {
+#teacherPortal #pagina .horizontal-control-list [aria-expanded=true] a, #studentPortal #pagina .horizontal-control-list [aria-expanded=true] a {
   color: #ffffff;
   font-weight: bold;
 }
 #admin #pagina .horizontal-control-list [aria-expanded=false],
-#teacherPortal #pagina .horizontal-control-list [aria-expanded=false] {
+#teacherPortal #pagina .horizontal-control-list [aria-expanded=false], #studentPortal #pagina .horizontal-control-list [aria-expanded=false] {
   background: #e5e5e5;
   border-radius: 5px;
   color: #080809;
 }
 #admin #pagina .horizontal-control-list [aria-expanded=false] a,
-#teacherPortal #pagina .horizontal-control-list [aria-expanded=false] a {
+#teacherPortal #pagina .horizontal-control-list [aria-expanded=false] a, #studentPortal #pagina .horizontal-control-list [aria-expanded=false] a {
   color: #080809;
   font-weight: bold;
 }
 #admin #pagina .gif-loading img,
-#teacherPortal #pagina .gif-loading img {
+#teacherPortal #pagina .gif-loading img, #studentPortal #pagina .gif-loading img {
   width: 20%;
 }
 #admin #pagina #toastContainer,
-#teacherPortal #pagina #toastContainer {
+#teacherPortal #pagina #toastContainer, #studentPortal #pagina #toastContainer {
   position: fixed;
   right: 15px;
   bottom: 0;
   max-width: 40vw;
 }
 #admin #pagina .toast,
-#teacherPortal #pagina .toast {
+#teacherPortal #pagina .toast, #studentPortal #pagina .toast {
   border-radius: 15px;
   background-color: transparent !important;
   position: absolute;
   z-index: 100000000;
 }
 #admin #pagina .toast .toast-header,
-#teacherPortal #pagina .toast .toast-header {
+#teacherPortal #pagina .toast .toast-header, #studentPortal #pagina .toast .toast-header {
   border-radius: 5px;
   padding: 10px 15px;
 }
 #admin #pagina .breadcrumb,
-#teacherPortal #pagina .breadcrumb {
+#teacherPortal #pagina .breadcrumb, #studentPortal #pagina .breadcrumb {
   background-color: transparent;
   margin-top: -10px;
 }
 #admin #pagina .breadcrumb .breadcrumb-item,
-#teacherPortal #pagina .breadcrumb .breadcrumb-item {
+#teacherPortal #pagina .breadcrumb .breadcrumb-item, #studentPortal #pagina .breadcrumb .breadcrumb-item {
   font-weight: bold;
   font-size: 14px;
 }
 #admin #pagina [containerRegistrationSuccess],
 #admin #pagina [containerRegistrationError],
 #teacherPortal #pagina [containerRegistrationSuccess],
-#teacherPortal #pagina [containerRegistrationError] {
+#teacherPortal #pagina [containerRegistrationError], #studentPortal #pagina [containerRegistrationSuccess],
+#studentPortal #pagina [containerRegistrationError] {
   display: none;
 }
 

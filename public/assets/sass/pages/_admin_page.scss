@@ -1,5 +1,5 @@
 #admin,
-#teacherPortal {
+#teacherPortal, #studentPortal {
 
     #pagina {
 
@@ -13,6 +13,41 @@
                 th {
                     text-align: left;
                 }
+            }
+        }
+
+
+        nav#studentPortalNavbar{
+            border-bottom: 1px solid #e5e5e5;
+            color: #8B8E90;
+            background-color: white;
+            font-family: Bold;
+            font-size: 13px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+            img {
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                object-position: top;
+                object-fit: cover;
+                cursor: pointer;
+            }
+
+            .fa-th{
+                color: #8B8E90;
+                font-size: 25px;
+                margin-right: 30px;
+            }
+
+            a{
+                color: #8B8E90;
+                padding: 15px 25px;
+            }
+
+            .navbar-brand{
+                font-family: Bold;
+                font-size: 13px;
             }
         }
 

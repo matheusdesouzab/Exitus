@@ -262,4 +262,51 @@ class Student extends People
 
         $stmt->execute();
     }
+
+
+    public function login()
+    {
+
+        $query =
+
+            "SELECT 
+
+            id_aluno AS student_id,
+            nome_aluno AS student_name,
+            foto_perfil_aluno AS student_photo,
+            fk_id_aluno_hierarquia_funcao AS hierarchy_function,
+            matricula.id_matricula AS enrollmentId ,
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.nome_curso AS course , 
+            turno.nome_turno AS shift ,
+            turma.id_turma AS classId
+            
+            FROM
+            
+            aluno
+
+            INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno)  
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)          
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+                                   
+            WHERE codigo_acesso = :accessCode AND nome_aluno = :studentName AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
+        $stmt->bindValue(':studentName', $this->__get('name'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
 }

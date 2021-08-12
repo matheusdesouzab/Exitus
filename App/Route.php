@@ -681,6 +681,34 @@ class Route extends Bootstrap
 			);
 
 			
+			// ---------------------------------
+
+
+			$routes['IndexStudentPortal'] = array(
+				'route' => '/portal-aluno',
+				'controller' => 'StudentPortal\\StudentPortalController',
+				'action' => 'index'
+			);
+
+			$routes['HomeStudentPortal'] = array(
+				'route' => '/portal-aluno/home',
+				'controller' => 'StudentPortal\\StudentPortalController',
+				'action' => 'home'
+			);
+
+			$routes['authStudentPortal'] = array(
+				'route' => '/portal-aluno/login',
+				'controller' => 'StudentPortal\\StudentPortalController',
+				'action' => 'auth'
+			);
+
+			$routes['exitStudentPortal'] = array(
+				'route' => '/portal-aluno/sair',
+				'controller' => 'StudentPortal\\StudentPortalController',
+				'action' => 'exit'
+			);
+
+			
 
 
 
