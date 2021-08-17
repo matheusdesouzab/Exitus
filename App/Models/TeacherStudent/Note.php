@@ -67,6 +67,7 @@ class Note extends Model
             avaliacoes.id_avaliacao AS exam_id ,
             avaliacoes.data_realizada AS realize_date ,
             professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo , 
             matricula.id_matricula AS enrollment_id ,
             aluno.nome_aluno AS student_name ,
             aluno.foto_perfil_aluno AS student_profilePhoto

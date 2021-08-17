@@ -39,9 +39,10 @@ class StudentPortalController extends Action
                 'id' => $auth[0]->student_id,
                 'name' => $auth[0]->student_name,
                 'profilePhoto' => $auth[0]->student_photo,
-                'hierarchyFunction' => $auth[0]->hierarchy_function ,
-                'enrollmentId' => $auth[0]->enrollmentId ,
-                'class' => $auth[0]->acronym_series.'ª '.$auth[0]->ballot.' - '.$auth[0]->course.' - '.$auth[0]->shift
+                'hierarchyFunction' => $auth[0]->hierarchy_function,
+                'enrollmentId' => $auth[0]->enrollmentId,
+                'class' => $auth[0]->acronym_series . 'ª ' . $auth[0]->ballot . ' - ' . $auth[0]->course . ' - ' . $auth[0]->shift,
+                'classId' => $auth[0]->classId
             ];
 
             session_cache_expire(400);
@@ -52,7 +53,15 @@ class StudentPortalController extends Action
 
     public function home()
     {
-        
+
+        $Note = Container::getModel('TeacherStudent\\Note');
+
+        if (!isset($_SESSION)) session_start();
+
+        $Note->__set('fk_id_student_enrollment', $_SESSION['Student']['enrollmentId']);
+        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
+        $this->view->listNote = $Note->list();
 
         $this->render("pages/home", "SimpleLayout", "studentPortal");
     }

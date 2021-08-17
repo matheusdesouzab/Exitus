@@ -427,12 +427,12 @@ class AdminTeacherStudentController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $StudentEnrollment->__set('id', $_GET['enrollmentId']);
+        $StudentEnrollment->__set('id', !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId']);
         $StudentEnrollment->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $Lack->__set('fk_id_enrollment', $_GET['enrollmentId']);
-        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+        $Lack->__set('fk_id_enrollment', !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId']);
+        $ClassDiscipline->__set("fk_id_class", !isset($_GET['classId']) ? $_SESSION['Student']['classId'] : $_GET['classId']);
         $ClassDiscipline->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $DisciplineAverage->__set('fk_id_enrollment', $_GET['enrollmentId']);
+        $DisciplineAverage->__set('fk_id_enrollment', !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId']);
 
         $this->view->bulletin = $StudentEnrollment->bulletin();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();

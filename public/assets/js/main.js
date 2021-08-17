@@ -46,7 +46,7 @@ $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
 
 $(document).on("click", "#profileStudentModal #buttonAddNoteStudent", function (e) {
 
-    application.addSinglePart("#addNote", "/admin/gestao/turma/perfil-turma/aluno/adicionar-nota-avaliacao", "Nota adicionada", false)
+    application.addSinglePart("#addNote", "/admin/gestao/turma/perfil-turma/aluno/boletim/adicionar-nota-avaliacao", "Nota adicionada", false)
 
     application.loadOptions([
         ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote", "Todas avaliações já adicionadas", "#buttonAddNoteStudent"]
@@ -288,6 +288,11 @@ $(document).on("click", "#profileStudentModal [data-target='#class-profile-bulle
 
     application.loadListElements("containerBulletin", "/admin/gestao/turma/perfil-turma/aluno/boletim", "#addLack")
 
+})
+
+
+$('#studentPortal  [data-target="#bulletin"]').on('click', function(e){
+    application.loadListElements("containerBulletin", "/admin/gestao/turma/perfil-turma/aluno/boletim")
 })
 
 

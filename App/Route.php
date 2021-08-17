@@ -497,7 +497,7 @@ class Route extends Bootstrap
 			);
 
 			$routes['adminInsertExamNote'] = array(
-				'route' => '/boletim/adicionar-nota-avaliacao',
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/boletim/adicionar-nota-avaliacao',
 				'controller' => 'Admin\\AdminTeacherStudentController',
 				'action' => 'insertExamNote'
 			);

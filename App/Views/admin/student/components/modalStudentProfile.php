@@ -603,7 +603,7 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="class-profile-observation" data-parent="#main-accordion-student">
 
-                    <div class="col-lg-12 accorfinal-data">
+                    <div class="col-lg-12" id="accordion-observation">
 
                         <div class="row">
 

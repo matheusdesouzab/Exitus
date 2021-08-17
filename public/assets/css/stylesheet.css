@@ -432,6 +432,16 @@ button {
 #pagina .registered-unit-icon {
   color: green;
 }
+#pagina .mural-icon {
+  padding: 10px;
+  border-radius: 20%;
+  font-size: 12px;
+}
+#pagina .events {
+  font-family: Bold;
+  font-size: 10px;
+  text-align: justify;
+}
 
 #left-panel {
   display: flex;
@@ -568,6 +578,11 @@ button {
 #studentPortal #pagina #profileClassModal #note-table-class th {
   text-align: left;
 }
+#admin #pagina .text-description,
+#teacherPortal #pagina .text-description, #studentPortal #pagina .text-description {
+  font-family: Bold;
+  font-size: 14px;
+}
 #admin #pagina nav#studentPortalNavbar,
 #teacherPortal #pagina nav#studentPortalNavbar, #studentPortal #pagina nav#studentPortalNavbar {
   border-bottom: 1px solid #e5e5e5;
@@ -600,7 +615,12 @@ button {
 #admin #pagina nav#studentPortalNavbar .navbar-brand,
 #teacherPortal #pagina nav#studentPortalNavbar .navbar-brand, #studentPortal #pagina nav#studentPortalNavbar .navbar-brand {
   font-family: Bold;
-  font-size: 13px;
+  font-size: 14px;
+}
+#admin #pagina nav#studentPortalNavbar [aria-expanded=true],
+#teacherPortal #pagina nav#studentPortalNavbar [aria-expanded=true], #studentPortal #pagina nav#studentPortalNavbar [aria-expanded=true] {
+  color: #6619c3;
+  border-bottom: 2px solid #6619c3;
 }
 #admin #pagina #profileStudentModal #table-bulletin,
 #teacherPortal #pagina #profileStudentModal #table-bulletin, #studentPortal #pagina #profileStudentModal #table-bulletin {

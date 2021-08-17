@@ -4,8 +4,6 @@ if (!isset($_SESSION)) session_start();
 
 isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
-isset($_SESSION['Teacher']) ? header('Location: /portal-docente/turma') : '';
-
 ?>
 
 <html lang="pt-br">

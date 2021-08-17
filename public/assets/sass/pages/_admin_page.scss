@@ -16,6 +16,11 @@
             }
         }
 
+        .text-description{
+            font-family: Bold;
+            font-size: 14px;
+        }
+
 
         nav#studentPortalNavbar{
             border-bottom: 1px solid #e5e5e5;
@@ -47,7 +52,12 @@
 
             .navbar-brand{
                 font-family: Bold;
-                font-size: 13px;
+                font-size: 14px;
+            }
+
+            [aria-expanded="true"]{
+                color: $color-blue;
+                border-bottom: 2px solid $color-blue;
             }
         }
 
