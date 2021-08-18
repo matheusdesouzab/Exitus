@@ -12,7 +12,7 @@ class Observation extends Model
     private $fk_id_discipline_class;
     private $fk_id_unity;
     private $fk_id_enrollment;
-    private $fk_id_teacher;
+    private $fk_id_teacher = 0;
     
 
     public function __get($att)
@@ -59,7 +59,7 @@ class Observation extends Model
             
             observacao_aluno.id_observacao AS observationId ,
             observacao_aluno.descricao AS observationDescription ,
-            observacao_aluno.data_envio AS sendDate ,
+            observacao_aluno.data_envio AS post_date ,
             professor.nome_professor AS teacherName ,
             professor.foto_perfil_professor AS teacherProfilePhoto ,
             unidade.unidade AS unity ,

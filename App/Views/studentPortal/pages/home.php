@@ -47,7 +47,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                             <div class="row mt-4 d-flex justify-content-between">
 
-                                <div class="col-lg-3">
+                                <div class="col-md-3">
 
                                     <div class="row card">
 
@@ -120,32 +120,83 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                 </div>
 
-                                <div class="col-lg-8">
+                                <div class="col-md-9">
 
                                     <div class="row">
 
-                                        <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
+                                        <?php
 
-                                        <?php foreach ($this->view->listNote as $key => $note) { ?>
+                                        $data = [];
+                                        $photoDir =  "/assets/img/teacherProfilePhotos/";
 
-                                            <div class="col-lg-12 card mb-3">
+                                        foreach ($this->view->listNote as $key => $note) {
+                                            $data['dados'][] = ['tipo' => 'note', 'value' => $note];
+                                        }
 
-                                                <div class="row">
+                                        foreach ($this->view->listObservation as $key => $observation) {
+                                            $data['dados'][] = ['tipo' => 'observation', 'value' => $observation];
+                                        }
 
-                                                    <div class="col-lg-2 d-flex justify-content-center align-items-center"><img src='<?= $note->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->teacher_profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                        foreach ($data['dados'] as $key => $part) {
+                                            $sort[$key] = strtotime($part['value']->post_date);
+                                        }
 
-                                                    <div class="col-lg-10">
+                                        array_multisort($sort, SORT_DESC, $data['dados']);
 
-                                                        <p class="mt-2 text-description mb-2"><?= $note->teacher_name ?> - <?= $note->exam_description ?> - <?= $note->unity ?> Unidade</p>
+                                        ?>
 
-                                                        <?php $data = explode('-',  $note->realize_date) ?>
+                                        <?php foreach ($data['dados'] as $key => $value) {
 
-                                                        <div class="col-lg-12 p-0">
-                                                            <div class="row">
-                                                                <div class="col-lg-8"><small class="font-weight-normal p-0">Você obteve <?= $note->note_value ?> de <?= $note->exam_value ?> </small></div>
-                                                                <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Realizado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                            if ($value['tipo'] == 'note') { ?>
+
+                                                <div class="col-lg-11 ml-auto card mb-3">
+
+                                                    <div class="row p-2">
+
+                                                        <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+
+                                                        <div class="col-lg-11">
+
+                                                            <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu sua nota em <?= $value['value']->exam_description ?> da <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
+
+                                                            <?php $data = explode('-',  $value['value']->post_date) ?>
+
+                                                            <div class="col-lg-12 p-0">
+                                                                <div class="row">
+                                                                    <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve <?= number_format($value['value']->note_value, 1, '.', '') ?> / <?= number_format($value['value']->exam_value, 1, '.', '') ?> </small></div>
+                                                                    <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                </div>
                                                             </div>
+
                                                         </div>
+
+                                                    </div>
+
+                                                </div>
+
+
+                                            <?php } else { ?>
+
+                                                <div class="col-lg-11 ml-auto card mb-3">
+
+                                                <div class="row p-2">
+
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-start"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+
+                                                    <div class="col-lg-11">
+
+                                                        <p class="mt-2 text-description mb-3">Você recebeu uma observação de <?= $value['value']->teacherName ?> referente a <?= $value['value']->unity ?> unidade de <?= $value['value']->disciplineName ?></p>
+
+                                                        <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observationDescription ?></textarea>
+
+                                                        <?php
+
+                                                        $dateTime = explode(' ', $value['value']->post_date);
+                                                        $data = explode('-', $dateTime[0]);
+
+                                                        ?>
+
+                                                        <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small>
 
                                                     </div>
 
@@ -153,7 +204,12 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                             </div>
 
-                                        <?php } ?>
+
+
+
+                                        <?php
+                                            }
+                                        } ?>
 
                                     </div>
 

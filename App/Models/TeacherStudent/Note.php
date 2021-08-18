@@ -70,7 +70,8 @@ class Note extends Model
             professor.foto_perfil_professor AS teacher_profile_photo , 
             matricula.id_matricula AS enrollment_id ,
             aluno.nome_aluno AS student_name ,
-            aluno.foto_perfil_aluno AS student_profilePhoto
+            aluno.foto_perfil_aluno AS student_profilePhoto ,
+            data_postagem AS post_date
       
             FROM avaliacoes
             

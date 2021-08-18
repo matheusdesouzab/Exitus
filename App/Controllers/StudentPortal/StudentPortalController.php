@@ -55,13 +55,15 @@ class StudentPortalController extends Action
     {
 
         $Note = Container::getModel('TeacherStudent\\Note');
+        $Observation = Container::getModel('TeacherStudent\\Observation');
 
         if (!isset($_SESSION)) session_start();
 
         $Note->__set('fk_id_student_enrollment', $_SESSION['Student']['enrollmentId']);
-        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $Observation->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
 
         $this->view->listNote = $Note->list();
+        $this->view->listObservation = $Observation->list();
 
         $this->render("pages/home", "SimpleLayout", "studentPortal");
     }

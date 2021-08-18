@@ -566,6 +566,13 @@ button {
   padding: 10px 0px;
 }
 
+#studentPortal textarea:disabled {
+  background: white;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
 #admin #pagina #profileClassModal #note-table-class,
 #teacherPortal #pagina #profileClassModal #note-table-class, #studentPortal #pagina #profileClassModal #note-table-class {
   width: 900px;
@@ -580,8 +587,8 @@ button {
 }
 #admin #pagina .text-description,
 #teacherPortal #pagina .text-description, #studentPortal #pagina .text-description {
-  font-family: Bold;
-  font-size: 14px;
+  font-family: Semi-bold;
+  font-size: 13px;
 }
 #admin #pagina nav#studentPortalNavbar,
 #teacherPortal #pagina nav#studentPortalNavbar, #studentPortal #pagina nav#studentPortalNavbar {

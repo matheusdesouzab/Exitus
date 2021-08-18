@@ -1,3 +1,13 @@
+#studentPortal{
+    textarea:disabled{
+        background:white;
+        border-radius: 10px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+}
+
+
 #admin,
 #teacherPortal, #studentPortal {
 
@@ -17,8 +27,8 @@
         }
 
         .text-description{
-            font-family: Bold;
-            font-size: 14px;
+            font-family: Semi-bold;
+            font-size: 13px;
         }
 
 
