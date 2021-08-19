@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 if (!isset($_SESSION)) session_start();
 
@@ -11,7 +11,7 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title> Web Gest </title>	
+	<title> Web Gest </title>
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
@@ -40,7 +40,21 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
 				<?= $this->content() ?>
 
-				<?php /* require '../App/Views/admin/components/navbarBottom.php' */ ?>
+				<div class="modal fade modal-profile" id="settingsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="row">
+								<div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#settingsModal">
+										<span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+									</button></div>
+							</div>
+
+							<div containerSettingsModal class="modal-body"></div>
+						</div>
+					</div>
+				</div>
+
 
 			</div>
 		</div>

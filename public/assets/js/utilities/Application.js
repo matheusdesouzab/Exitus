@@ -172,7 +172,7 @@ class Application {
 
     showModal(formId, route, container, modal) {
 
-        let id = formId.replace(/[^0-9]/g, '')
+        let id = formId == 0 ? '' : formId.replace(/[^0-9]/g, '')
 
         let $container = $(`[${container}]`)
 

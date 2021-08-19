@@ -434,6 +434,12 @@ $(document).on("click", "#profileClassModal #list-exam tbody tr", function () {
 
 })
 
+$(document).on("click", "#sidebar #settings", function () {
+
+    application.showModal(0, "/admin/configuracoes", "containerSettingsModal", "#settingsModal")
+
+})
+
 
 
 $('.modal').on('show.bs.modal', function (event) {

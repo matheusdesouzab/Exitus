@@ -49,6 +49,18 @@ class AdminController extends Action
     }
 
 
+    public function settings()
+    {
+
+        $Admin = Container::getModel('Admin\\Admin');
+
+        $this->view->unitControlList = $Admin->unitControlList();
+        $this->view->unitControlCurrent = $Admin->unitControlCurrent();
+
+        $this->render('settings', 'SimpleLayout');
+    }
+
+
     public function exit()
     {
 

@@ -697,3 +697,37 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-- -----------------------------------------------------
+-- Table `web_gest`.`Controle_Unidade`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `web_gest`.`Controle_Unidade` (
+  `id_controle_unidade` INT NOT NULL AUTO_INCREMENT,
+  `situacao` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_controle_unidade`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `web_gest`.`Configuracao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `web_gest`.`Configuracao` (
+  `id_configuracao` INT NOT NULL AUTO_INCREMENT,
+  `fk_id_controle_unidade` INT NOT NULL,
+  `fk_id_rematricula` INT NOT NULL,
+  PRIMARY KEY (`id_configuracao`),
+  INDEX `fk_id_controle_unidade_idx` (`fk_id_controle_unidade`),
+  INDEX `fk_id_rematricula_idx` (`fk_id_rematricula`),
+  CONSTRAINT `fk_id_controle_unidade`
+    FOREIGN KEY (`fk_id_controle_unidade`)
+    REFERENCES `web_gest`.`Controle_Unidade` (`id_controle_unidade`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_id_rematricula`
+    FOREIGN KEY (`fk_id_rematricula`)
+    REFERENCES `web_gest`.`Situacao_Abertura_Rematricula` (`id_situacao_abertura_rematricula`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;

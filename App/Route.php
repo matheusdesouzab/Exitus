@@ -708,6 +708,16 @@ class Route extends Bootstrap
 				'action' => 'exit'
 			);
 
+
+			// ---------------------------------
+
+
+			$routes['adminSettings'] = array(
+				'route' => '/admin/configuracoes',
+				'controller' => 'Admin\\AdminController',
+				'action' => 'settings'
+			);
+
 			
 
 

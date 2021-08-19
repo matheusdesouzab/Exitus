@@ -61,15 +61,17 @@ class Lack extends Model
             disciplina.nome_disciplina AS disciplineName , 
             unidade.unidade AS unity,
             falta_aluno.fk_id_matricula_falta AS enrollmentId ,
-            turma_disciplina.id_turma_disciplina AS classId
+            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto 
 
             FROM falta_aluno
             
-            LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina)
-            
-            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
-            
+            LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina)         
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)         
             LEFT JOIN unidade ON(falta_aluno.fk_id_unidade_falta = unidade.id_unidade)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
 
             WHERE 
             

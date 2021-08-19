@@ -119,7 +119,10 @@ class DisciplineAverage extends Model
             legenda.legenda AS subtitle ,
             legenda.id_legenda AS subtitle_id ,
             turma_disciplina.id_turma_disciplina AS disciplineClass ,
-            matricula.id_matricula AS enrollmentId 
+            matricula.id_matricula AS enrollmentId ,
+            media_disciplina.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto 
 
             FROM media_disciplina
 
@@ -127,6 +130,7 @@ class DisciplineAverage extends Model
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
             LEFT JOIN legenda ON(media_disciplina.fk_id_legenda = legenda.id_legenda)
             LEFT JOIN matricula ON(media_disciplina.fk_id_matricula_media = matricula.id_matricula)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
 
             WHERE matricula.id_matricula = :fk_id_enrollment
 

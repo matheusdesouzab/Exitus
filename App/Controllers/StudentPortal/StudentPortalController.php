@@ -56,14 +56,20 @@ class StudentPortalController extends Action
 
         $Note = Container::getModel('TeacherStudent\\Note');
         $Observation = Container::getModel('TeacherStudent\\Observation');
+        $Lack = Container::getModel('TeacherStudent\\Lack');
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
 
         if (!isset($_SESSION)) session_start();
 
         $Note->__set('fk_id_student_enrollment', $_SESSION['Student']['enrollmentId']);
         $Observation->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
+        $Lack->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
+        $DisciplineAverage->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
 
         $this->view->listNote = $Note->list();
         $this->view->listObservation = $Observation->list();
+        $this->view->lackList = $Lack->list();
+        $this->view->disciplineAverageList = $DisciplineAverage->list();
 
         $this->render("pages/home", "SimpleLayout", "studentPortal");
     }
