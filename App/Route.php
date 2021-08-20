@@ -718,6 +718,12 @@ class Route extends Bootstrap
 				'action' => 'settings'
 			);
 
+			$routes['adminSettingsUpdate'] = array(
+				'route' => '/admin/configuracoes/atualizar',
+				'controller' => 'Admin\\AdminController',
+				'action' => 'settingsUpdate'
+			);
+
 			
 
 

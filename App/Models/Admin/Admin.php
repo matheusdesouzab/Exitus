@@ -7,6 +7,18 @@ use App\Models\People\People;
 class Admin extends People
 {
 
+    public function __get($att)
+    {
+        return $this->$att;
+    }
+
+
+    public function __set($att, $newValue)
+    {
+        return $this->$att = $newValue;
+    }
+
+
     public function login()
     {
 
@@ -35,17 +47,4 @@ class Admin extends People
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
-
-    public function unitControlList()
-    {
-
-        return $this->speedingUp("SELECT id_controle_unidade AS option_value , situacao AS option_text FROM controle_unidade");
-    }
-
-
-    public function unitControlCurrent()
-    {
-
-        return $this->speedingUp("SELECT id_controle_unidade AS option_value , situacao AS option_text FROM configuracao LEFT JOIN controle_unidade ON(configuracao.fk_id_controle_unidade = controle_unidade.id_controle_unidade)");
-    }
 }

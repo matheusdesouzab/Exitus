@@ -52,12 +52,24 @@ class AdminController extends Action
     public function settings()
     {
 
-        $Admin = Container::getModel('Admin\\Admin');
+        $Settings = Container::getModel('Admin\\Settings');
 
-        $this->view->unitControlList = $Admin->unitControlList();
-        $this->view->unitControlCurrent = $Admin->unitControlCurrent();
+        $this->view->unitControlList = $Settings->unitControlList();
+        $this->view->unitControlCurrent = $Settings->unitControlCurrent();
 
         $this->render('settings', 'SimpleLayout');
+    }
+
+
+    public function settingsUpdate()
+    {
+
+        $Settings = Container::getModel('Admin\\Settings');
+
+        $Settings->__set('fk_id_control_unity', $_POST['controlUnity']);
+
+        $Settings->update();
+
     }
 
 

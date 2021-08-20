@@ -5,6 +5,7 @@ class Tools {
 
         $(`[${formGroup}] .form-control`).prop('disabled', true)
         $(`${activeForm} .form-control`).prop('disabled', false)
+        $(`${activeForm} .custom-control-input`).prop('disabled', false)
 
         $('.update-data-icon, .delete-data-icon').css("pointer-events", "none")
         $(`${activeForm} .update-data-icon, ${activeForm} .delete-data-icon`).css("pointer-events", "auto")
