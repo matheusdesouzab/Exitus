@@ -58,6 +58,7 @@ class StudentPortalController extends Action
         $Observation = Container::getModel('TeacherStudent\\Observation');
         $Lack = Container::getModel('TeacherStudent\\Lack');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+        $StudentRematrug = Container::getModel('Student\\StudentRematrug');
 
         if (!isset($_SESSION)) session_start();
 
@@ -70,8 +71,21 @@ class StudentPortalController extends Action
         $this->view->listObservation = $Observation->list();
         $this->view->lackList = $Lack->list();
         $this->view->disciplineAverageList = $DisciplineAverage->list();
+        $this->view->rematrugSituationList = $StudentRematrug->rematrugSituation();
 
         $this->render("pages/home", "SimpleLayout", "studentPortal");
+    }
+
+
+    public function rematrugInsert()
+    {
+
+        $StudentRematrug = Container::getModel('Student\\StudentRematrug');
+
+        $StudentRematrug->__set('fk_id_rematrug_situation', $_POST['rematrugSituation']);
+        $StudentRematrug->__set('fk_id_enrollmentId', $_POST['enrollmentId']);
+
+        $StudentRematrug->insert();
     }
 
 

@@ -708,6 +708,12 @@ class Route extends Bootstrap
 				'action' => 'exit'
 			);
 
+			$routes['RematrugStudentPortal'] = array(
+				'route' => '/portal-aluno/rematricular',
+				'controller' => 'StudentPortal\\StudentPortalController',
+				'action' => 'InsertRematrug'
+			);
+
 
 			// ---------------------------------
 

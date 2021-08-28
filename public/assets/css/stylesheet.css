@@ -1324,6 +1324,10 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
 #navbar-top .navbar-brand {
   font-weight: bold;
 }
+#navbar-top .fa-cog {
+  font-size: 20px;
+  color: #506177;
+}
 #navbar-top .fa-bars {
   color: #080809;
 }

@@ -68,6 +68,8 @@ class Application {
 
         let $formData = $(`${form}`).serialize()
 
+        console.log($formData)
+
         $.ajax({
             url: route,
             type: 'POST',

@@ -135,6 +135,12 @@ $("#buttonAddTeacher").on("click", function (e) {
 
 })
 
+$("#buttonAddRematrug").on("click", function (e) {
+
+    application.addSinglePart("#addRematrug", "/portal-aluno/rematricular", "")
+
+})
+
 
 $(document).on('click', "#buttonAddObservationStudent", function (e) {
 
@@ -434,12 +440,11 @@ $(document).on("click", "#profileClassModal #list-exam tbody tr", function () {
 
 })
 
-$(document).on("click", "#sidebar #settings", function () {
+$(document).on("click", "#navbar-top #settings", function () {
 
     application.showModal(0, "/admin/configuracoes", "containerSettingsModal", "#settingsModal")
 
 })
-
 
 
 $('.modal').on('show.bs.modal', function (event) {

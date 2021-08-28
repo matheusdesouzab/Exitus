@@ -63,7 +63,7 @@
 
                                         <span idElement="#formSettings" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                                       <span idElement="#formSettings" routeUpdate="/admin/configuracoes/atualizar" toastData="Dados atualizados" routeData="#formSettings" container="containerSettingsModal" routeList="/admin/configuracoes" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span> 
+                                       <span idElement="#formSettings" routeUpdate="/admin/configuracoes/atualizar" toastData="Configurações atualizadas" routeData="#formSettings" container="containerSettingsModal" routeList="/admin/configuracoes" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span> 
 
                                     </div>
 
@@ -75,7 +75,7 @@
 
                         <div class="form-group row">
                             <div class="custom-control custom-switch">
-                                <input type="checkbox" disabled class="custom-control-input" id="customSwitch1" checked>
+                                <input type="checkbox" name="rematriumControl" disabled class="custom-control-input" id="customSwitch1">
                                 <label class="custom-control-label" for="customSwitch1">Liberar rematrícula para os alunos</label>
                             </div>
                         </div>

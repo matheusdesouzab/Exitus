@@ -111,4 +111,5 @@ class StudentEnrollment extends Model
 
         return $this->speedingUp("SELECT id_situacao_aluno AS id , situacao_aluno AS student_situation FROM situacao_aluno");
     }
+
 }

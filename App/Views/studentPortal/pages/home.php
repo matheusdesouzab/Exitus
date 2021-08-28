@@ -153,6 +153,65 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         ?>
 
+                                        <div class="col-lg-11 ml-auto card mb-3">
+
+                                            <div class="row p-2">
+
+                                                <div class="col-lg-12">
+
+                                                    <div class="row d-flex align-items-center">
+
+                                                        <h5 class="col-lg-8">Rematrícula</h5>
+
+                                                        <div class="col-lg-4 d-flex justify-content-end align-items-center"><i class="fas fa-paperclip text-secondary"></i></div>
+
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                        <form action="" class="col-lg-12" id="addRematrug">
+
+                                                            <input type="hidden" name="enrollmentId" value="<?= $_SESSION['enrollmentId'] ?>">
+
+                                                            <div class="form-row mt-3 ">
+
+                                                                <div class="form-group col-lg-8">
+
+                                                                    <label for="">Você deseja se rematriculado ?</label><br>
+
+                                                                    <?php foreach($this->view->rematrugSituationList as $key => $value){ ?>
+
+                                                                    <div class="custom-control custom-radio custom-control-inline mt-3">
+                                                                        <input type="radio" id="rematricula" value="<?= $value->option->value ?>" name="rematrugSituation" class="custom-control-input">
+                                                                        <label class="custom-control-label" for=""><?= $value->option_text ?></label>
+                                                                    </div>
+
+                                                                    <?php } ?>
+
+                                                                </div>
+
+                                                                <div class="form-group col-lg-3 ml-auto">
+
+                                                                    <label for="">&nbsp;</label></br>
+
+                                                                    <button id="buttonAddRematrug" type="submit" class="btn main-button text-white w-100">Confirmar</button>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </form>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+
                                         <?php foreach ($data['dados'] as $key => $value) {
 
                                             if ($value['tipo'] == 'note') { ?>
@@ -251,7 +310,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                         <div class="col-lg-11">
 
-                                                            <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu a sua média final na disciplina de  <?= $value['value']->disciplineName ?></p>
+                                                            <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu a sua média final na disciplina de <?= $value['value']->disciplineName ?></p>
 
                                                             <?php $data = explode('-',  $value['value']->post_date) ?>
 
