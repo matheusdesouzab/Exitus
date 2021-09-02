@@ -347,7 +347,7 @@ class AdminManagementController extends Action
         $this->view->availableSeries = $Classe->availableSeries();
         $this->view->availableCourse = $Course->availableCourse();
         $this->view->availableClassRoom = $ClassRoom->activeClassroom();
-        $this->view->activeSchoolTerm = $SchoolTerm->active();
+        $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
 
         $this->render('management/pages/classeManagement', 'AdminLayout');
     }
@@ -425,7 +425,6 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_class", $_GET['id']);
         $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
         $Classe->__set('classId', $_GET['id']);
-        $Student->__set("fk_id_class", $_GET['id']);
 
         $this->view->listStudent = $Student->list();
         $this->view->typeStudentList = "class";
@@ -439,6 +438,25 @@ class AdminManagementController extends Action
 
         $this->render('management/components/modalClassProfile', 'SimpleLayout');
     }
+
+    public function listRematrugRequests()
+    {
+
+        $Classe = Container::getModel('Admin\\Classe');
+
+        $Classe->__set('classId', $_GET['classId']);
+
+        $Classe->__set('fk_id_ballot', $_GET['ballot']);
+        $Classe->__set('fk_id_classroom', $_GET['classroom']);
+        $Classe->__set('fk_id_course', $_GET['course']);
+        $Classe->__set('fk_id_shift', $_GET['shift']);
+        $Classe->__set('fk_id_series', $_GET['series']);
+
+        $this->view->nextClass = $Classe->nextClass();
+
+        $this->render('management/components/listRequestRematrung', 'SimpleLayout');
+    }
+
 
 
     public function classDisciplineInsert()

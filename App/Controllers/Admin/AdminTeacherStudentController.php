@@ -300,7 +300,6 @@ class AdminTeacherStudentController extends Action
         if (!isset($_SESSION)) session_start();
 
         $Observation->__set('fk_id_enrollment', $_GET['enrollmentId']);
-        $Observation->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         $this->view->listObservation = $Observation->list();
 

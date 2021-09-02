@@ -108,6 +108,8 @@ class SchoolTerm extends Model
              periodo_letivo.fk_id_situacao_periodo_letivo = CASE
 
              WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 1 THEN 1
+
+             WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 3 THEN 3
             
              ELSE :fk_id_school_term_situation
             
@@ -216,6 +218,27 @@ class SchoolTerm extends Model
              INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
              
              WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
+
+        );
+    }
+
+
+    public function activeScheduledSchoolTerm()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+
+             periodo_letivo.id_ano_letivo AS option_value , 
+             periodo_disponivel.ano_letivo AS option_text 
+
+             FROM periodo_letivo 
+             
+             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+             
+             WHERE situacao_periodo_letivo.id_situacao_periodo_letivo BETWEEN 1 AND 3"
 
         );
     }

@@ -12,7 +12,7 @@
 
                     <div class="row">
 
-                        <img class="mx-auto mb-3" src='<?= $teacher->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->teacher_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"' data-toggle="modal" data-target="#profilePhotoModal">
+                        <img class="mx-auto mb-3" src='<?= $teacher->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"' data-toggle="modal" data-target="#profilePhotoModal">
 
                         <div class="col-lg-12 main-sheet">
                             <div class="row p-3"><span class="col-lg-12"><?= $teacher->teacher_name ?> - <?= count($this->view->subjectsThatTeacherTeaches) ?> disciplinas ativas</span></div>
@@ -59,7 +59,7 @@
 
                                 <div class="container-img col-lg-12 d-flex justify-content-center">
 
-                                    <img class="mx-auto" src='<?= $teacher->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->teacher_profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
+                                    <img class="mx-auto" src='<?= $teacher->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
 
                                 </div>
 
@@ -69,7 +69,7 @@
 
                                     <input type="hidden" id="id" value="<?= $teacher->teacher_id ?>" name="id">
 
-                                    <input type="hidden" id="oldPhoto" name="oldPhoto" value="<?= $teacher->teacher_profile_photo ?>">
+                                    <input type="hidden" id="oldPhoto" name="oldPhoto" value="<?= $teacher->profilePhoto ?>">
 
                                     <div class="row">
 

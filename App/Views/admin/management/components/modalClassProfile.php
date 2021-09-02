@@ -30,11 +30,24 @@
 
                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history">Histórico de notas</a>
 
+                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">Rematrículas</a>
+
                         </ul>
 
                     </nav>
                 </div>
             </div>
+
+            <form action="" id="dataClass">
+
+                <input type="hidden" name="series" value="<?= $this->view->classData[0]->seriesId ?>">
+                <input type="hidden" name="ballot" value="<?= $this->view->classData[0]->ballotId ?>">
+                <input type="hidden" name="course" value="<?= $this->view->classData[0]->courseId ?>">
+                <input type="hidden" name="classroom" value="<?= $this->view->classData[0]->classroomId ?>">
+                <input type="hidden" name="shift" value="<?= $this->view->classData[0]->shiftId ?>">
+                <input type="hidden" name="classId" value="<?= $this->view->classData[0]->class_id ?>">
+
+            </form>
 
             <div class="col-lg-12">
 
@@ -134,9 +147,9 @@
 
                         <div class="col-lg-7 col-12 collapse-options-container">
 
-                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-discipline"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Disciplinas</span></a>
+                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-discipline"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Disciplinas</span></a>
 
-                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2 "><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2 "><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
 
 
                         </div>
@@ -232,9 +245,9 @@
 
                             <div class="col-lg-7 col-12 collapse-options-container">
 
-                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2 "><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
+                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
 
-                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
 
                             </div>
                         </div>
@@ -487,6 +500,46 @@
 
                 </div>
 
+
+            </div>
+
+            <div class="col-lg-11 mx-auto collapse" id="class-rematrug" data-parent="#main-accordion-class">
+
+
+                <div class="accordion" id="rematrug-accordion">
+
+                    <div class="col-lg-12 mb-4 mt-3">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-lg-5">
+                                <h5>Rematrículas</h5>
+                            </div>
+
+                            <div class="col-lg-7 col-12 collapse-options-container">
+
+                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rematrecules-received"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Recebidas</span></a>
+
+                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#finalized- rematrecules"><span class="mr-2"><i class="fas fa-check-circle mr-2"></i> Finalizadas</span></a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 card">
+
+                        <div class="collapse show" id="rematrecules-received" data-parent="#rematrug-accordion">
+
+                            <div containerRematrugRequests></div>
+
+                            
+
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
 
             </div>
 

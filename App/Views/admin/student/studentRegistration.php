@@ -2,9 +2,9 @@
 
     <div class="row main-container">
 
-        <h5 class="col-11 col-lg-11 mx-auto mb-4 mt-3">Cadastrar aluno</h5>
+        <h5 class="col-11 col-lg-11 p-0 mx-auto mb-4 mt-3">Cadastrar aluno</h5>
 
-        <div class="card col-lg-10 col-11 mx-auto mb-4" id="student-record-accordion">
+        <div class="card col-lg-11 col-11 mx-auto mb-4" id="student-record-accordion">
 
             <div class="registration-in-stages mb-2 accordion">
 
@@ -53,7 +53,7 @@
                 <form class="mt-3" id="addStudent" role="form" enctype="multipart/form-data" method="POST" action="/admin/aluno/cadastro/inserir">
 
                     <div class="row collapse show" id="student-registration-initial-data" data-parent="#student-record-accordion">
-                        <div class="col-lg-10 col-11 mt-2 mx-auto">
+                        <div class="col-11 mt-2 mx-auto">
                             <div class="form-row mt-1">
 
                                 <div class="form-group col-md-5">
@@ -146,7 +146,7 @@
                     </div>
 
                     <div class="row collapse" id="student-registration-address-and-others" data-parent="#student-record-accordion">
-                        <div class="col-lg-10 col-11 mx-auto">
+                        <div class=" col-11 mx-auto">
 
                             <div class="form-row mt-3">
 
@@ -245,7 +245,7 @@
                     </div>
 
                     <div class="row collapse" id="student-registration-class" data-parent="#student-record-accordion">
-                        <div class="col-lg-10 col-11 mx-auto">
+                        <div class="col-11 mx-auto">
 
                             <div class="form-row mt-3 mb-5">
 
@@ -294,11 +294,11 @@
 
                     <div class="row collapse" id="student-registration-finishing" data-parent="#student-record-accordion">
 
-                        <div class="col-lg-10 col-11 mx-auto">
+                        <div class="col-11 mx-auto">
 
                             <div class="row">
 
-                                <h5 class="mt-2 col-lg-12 p-0">Finalizando a matricula <span givenName></span></h5>
+                                <h5 class="mt-2 col-lg-11 p-0">Finalizando a matricula <span givenName></span></h5>
 
                                 <div containerRegistrationSuccess class="col-lg-12">
 
@@ -326,7 +326,7 @@
 
                                 <input type="hidden" name="accessCode" id="accessCode" value="">
 
-                                <div class="col-lg-12 p-0">
+                                <div class="col-lg-11 p-0">
 
                                     <div class="row d-flex justify-content-between">
 

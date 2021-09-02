@@ -144,7 +144,7 @@ $("#buttonAddRematrug").on("click", function (e) {
 
 $(document).on('click', "#buttonAddObservationStudent", function (e) {
 
-    application.addSinglePart("#addObservation", "/admin/gestao/turma/perfil-turma/aluno/obervacoes/insert", "Observação adicionada", "")
+    application.addSinglePart("#addObservation", "/admin/gestao/turma/perfil-turma/aluno/obervacoes/inserir", "Observação adicionada", "")
 
     $("#addObservation #description").val('')
 
@@ -231,6 +231,12 @@ $(document).on("click", "#profileClassModal [data-target='#list-discipline']", f
 $(document).on("click", "#profileClassModal [data-target='#list-exam'] , #profileClassModal [data-target='#class-profile-assessments'] ", function (e) {
 
     application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/lista", "#formClassId")
+
+})
+
+$(document).on("click", "#profileClassModal [data-target='#class-rematrug']", function (e) {
+
+    application.loadListElements("containerRematrugRequests", "/admin/gestao/turma/perfil-turma/solicitacoes-rematricula", "#dataClass")
 
 })
 

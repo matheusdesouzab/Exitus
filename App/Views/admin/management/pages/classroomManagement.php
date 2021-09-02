@@ -16,13 +16,13 @@
 
                             <a class="font-weight-bold" id="collapseListClassRoom" aria-expanded="true" data-toggle="collapse" data-target="#list-rooms">
 
-                                <span class="mr-2"><i class="fas fa-boxes mr-2"></i> Salas</span>
+                                <span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Salas</span>
 
                             </a>
 
                             <a class="collapsed font-weight-bold" id="collapseAddClassRoom" aria-expanded="false" data-toggle="collapse" data-target="#add-rooms">
 
-                                <span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span>
+                                <span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span>
 
                             </a>
 
@@ -40,9 +40,7 @@
             </div>
 
 
-            <div class="col-lg-12">
-
-                <div class="row d-flex justify-content-between mb-3">
+  
 
                     <div class="col-lg-12">
 
@@ -89,8 +87,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </div>
 
 </section>

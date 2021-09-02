@@ -153,6 +153,8 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         ?>
 
+                                        <?php if(count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1){ ?>
+
                                         <div class="col-lg-11 ml-auto card mb-3">
 
                                             <div class="row p-2">
@@ -171,7 +173,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                         <form action="" class="col-lg-12" id="addRematrug">
 
-                                                            <input type="hidden" name="enrollmentId" value="<?= $_SESSION['enrollmentId'] ?>">
+                                                            <input type="hidden" name="enrollmentId" value="<?= $_SESSION['Student']['enrollmentId'] ?>">
 
                                                             <div class="form-row mt-3 ">
 
@@ -182,8 +184,8 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                                     <?php foreach($this->view->rematrugSituationList as $key => $value){ ?>
 
                                                                     <div class="custom-control custom-radio custom-control-inline mt-3">
-                                                                        <input type="radio" id="rematricula" value="<?= $value->option->value ?>" name="rematrugSituation" class="custom-control-input">
-                                                                        <label class="custom-control-label" for=""><?= $value->option_text ?></label>
+                                                                        <input type="radio" id="rematricula<?= $value->option_value?>" value="<?= $value->option_value ?>" name="rematrugSituation" class="custom-control-input">
+                                                                        <label class="custom-control-label" for="rematricula<?= $value->option_value?>"><?= $value->option_text ?></label>
                                                                     </div>
 
                                                                     <?php } ?>
@@ -210,7 +212,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         </div>
 
-
+                                        <?php } ?>
 
                                         <?php foreach ($data['dados'] as $key => $value) {
 

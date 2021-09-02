@@ -59,7 +59,7 @@ class Observation extends Model
             
             observacao_aluno.id_observacao AS observationId ,
             observacao_aluno.descricao AS observationDescription ,
-            observacao_aluno.data_envio AS post_date ,
+            observacao_aluno.data_postagem AS post_date ,
             professor.nome_professor AS teacherName ,
             professor.foto_perfil_professor AS teacherProfilePhoto ,
             unidade.unidade AS unity ,
@@ -91,7 +91,7 @@ class Observation extends Model
 
             CASE WHEN :fk_id_teacher = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :fk_id_teacher END
 
-            ORDER BY observacao_aluno.data_envio DESC
+            ORDER BY observacao_aluno.data_postagem DESC
    
         ";
 

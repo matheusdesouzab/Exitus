@@ -1,4 +1,4 @@
-<div id="list-students">
+<section id="list-students">
 
     <div class="row main-container">
 
@@ -94,7 +94,7 @@
                                     <th colspan="2" scope="col">Nome do aluno</th>
                                     <th scope="col">CPF</th>
                                     <th scope="col">Turma</th>
-                                    <th scope="col">Unidade Cadastrada</th>
+                                    <th scope="col">Situação Atual</th>
                                 </tr>
                             </thead>
 
@@ -157,5 +157,4 @@
 
 
     </div>
-</div>
-</div>
+                                        </section>

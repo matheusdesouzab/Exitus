@@ -56,6 +56,8 @@ class AdminController extends Action
 
         $this->view->unitControlList = $Settings->unitControlList();
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
+        $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
+        $this->view->registrationControlOptions = $Settings->registrationControlOptions();
 
         $this->render('settings', 'SimpleLayout');
     }
@@ -67,6 +69,7 @@ class AdminController extends Action
         $Settings = Container::getModel('Admin\\Settings');
 
         $Settings->__set('fk_id_control_unity', $_POST['controlUnity']);
+        $Settings->__set('fk_id_control_rematrug', $_POST['controlRematrug']);
 
         $Settings->update();
 

@@ -1,3 +1,5 @@
+
+
 <?php if (count($this->view->listObservation) >= 1) { ?>
 
     <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
@@ -46,10 +48,7 @@
 
                 <?php
 
-                $dateTime = explode(' ', $observation->sendDate);
-                $data = explode('-', $dateTime[0]);
-                $data = $data[2] . '/' . $data[1] . '/' . $data[0];
-                $time = substr($dateTime[1], 0, -3);
+                $date = explode('-', $observation->post_date);
 
                 ?>
 
@@ -60,7 +59,7 @@
                     <div class="">
                         <div class="row">
                             <small class="col-lg-5 font-weight-bold"><?= $observation->course ?>-<?= $observation->series_acronym ?><?= $shift ?>-<?= $observation->ballot ?> </small>
-                            <small class="col-lg-7 text-right font-weight-bold"> <i class="fas fa-history mr-2"></i> Realizada em <?= $data ?> as <?= $time ?></small>
+                            <small class="col-lg-7 text-right font-weight-bold"> <i class="fas fa-history mr-2"></i> Realizada em <?= $date[2] ?> / <?= $date[1] ?></small>
                         </div>
 
                     </div>

@@ -1,16 +1,16 @@
 @mixin card($padding, $background, $border) {
     padding: $padding;
-    border-radius: 10px;
+    border-radius: 5px;
     border: $border;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     background-color: $background;
 }
 
-@mixin icon-card($color, $background-hover, $background) {
+@mixin icon-card($color, $background-hover, $background, $border-radius : 10px) {
 
     cursor: pointer;
     color: $color;
-    border-radius: 10px;
+    border-radius: $border-radius;
     background: $background;
     padding: 10px;
     transition: all 0.2s ease;

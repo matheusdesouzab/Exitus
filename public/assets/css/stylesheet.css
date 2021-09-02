@@ -11,7 +11,7 @@ html {
 }
 
 html > body {
-  background-color: #e9ebfa;
+  background-color: #E9EBFA;
   color: #2b2b2f;
 }
 
@@ -91,13 +91,16 @@ button {
   src: url(./../../assets/fonts/Montserrat-Black.ttf);
 }
 #pagina .main-button {
-  background-color: #6619c3;
+  background-color: #363C90;
   font-weight: 500;
+}
+#pagina .btn {
+  border-radius: 5px;
 }
 
 #pagina .card {
   padding: 15;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #e5e5e5;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: #ffffff;
@@ -109,7 +112,7 @@ button {
 }
 #pagina .card-form {
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: #506177;
@@ -180,7 +183,7 @@ button {
   font-size: 15px;
 }
 #pagina .modal-profile .modal-content span.badge {
-  background-color: #6619c3;
+  background-color: #363C90;
 }
 #pagina .modal-profile h4 {
   font-family: Bold;
@@ -212,12 +215,12 @@ button {
 #pagina .modal-profile .container-list-group nav ul a:hover {
   background: #f9f8f8;
   color: #080809;
-  border-left: 4px solid #6619c3;
+  border-left: 4px solid #363C90;
 }
 #pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
   background: #f9f8f8;
   color: #080809;
-  border-left: 4px solid #6619c3;
+  border-left: 4px solid #363C90;
 }
 #pagina .modal-profile .modal-sidebar img {
   border-radius: 50%;
@@ -278,7 +281,7 @@ button {
   border: 1px solid #e5e5e5;
   border-radius: 15px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid #e5e5e5;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   background-color: white;
@@ -334,7 +337,7 @@ button {
 }
 #pagina .edit-data-icon:hover {
   color: #ffffff;
-  background-color: #6619c3;
+  background-color: #363C90;
 }
 #pagina .edit-data-icon:hover .fa-edit,
 #pagina .edit-data-icon:hover .fa-print,
@@ -396,7 +399,7 @@ button {
 }
 #pagina .printer-icon:hover {
   color: #ffffff;
-  background-color: #6619c3;
+  background-color: #363C90;
 }
 #pagina .printer-icon:hover .fa-edit,
 #pagina .printer-icon:hover .fa-print,
@@ -455,7 +458,7 @@ button {
   left: 0;
   height: 100vh;
   z-index: 2;
-  background-color: #080809;
+  background-color: #0A0A0A;
   overflow: auto;
   box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 }
@@ -524,7 +527,7 @@ button {
   margin-top: 0;
   transition: 1s;
   width: 100%;
-  border-left: 5px solid #6619c3;
+  border-left: 5px solid #363C90;
 }
 #left-panel #sidebar .sidebar-lists .collapse li:hover {
   background-color: #2C2D32;
@@ -626,8 +629,8 @@ button {
 }
 #admin #pagina nav#studentPortalNavbar [aria-expanded=true],
 #teacherPortal #pagina nav#studentPortalNavbar [aria-expanded=true], #studentPortal #pagina nav#studentPortalNavbar [aria-expanded=true] {
-  color: #6619c3;
-  border-bottom: 2px solid #6619c3;
+  color: #363C90;
+  border-bottom: 2px solid #363C90;
 }
 #admin #pagina #profileStudentModal #table-bulletin,
 #teacherPortal #pagina #profileStudentModal #table-bulletin, #studentPortal #pagina #profileStudentModal #table-bulletin {
@@ -658,15 +661,15 @@ button {
 }
 #admin #pagina .school-term-active,
 #teacherPortal #pagina .school-term-active, #studentPortal #pagina .school-term-active {
-  border-left: 5px solid #28A745;
+  border-left: 8px solid #28A745;
 }
 #admin #pagina .school-term-finished,
 #teacherPortal #pagina .school-term-finished, #studentPortal #pagina .school-term-finished {
-  border-left: 6px solid #e5e5e5;
+  border-left: 8px solid #e5e5e5;
 }
 #admin #pagina .school-term-scheduled,
 #teacherPortal #pagina .school-term-scheduled, #studentPortal #pagina .school-term-scheduled {
-  border-left: 5px solid #6619c3;
+  border-left: 8px solid #363C90;
 }
 #admin #pagina .option-icon-group span,
 #teacherPortal #pagina .option-icon-group span, #studentPortal #pagina .option-icon-group span {
@@ -679,7 +682,7 @@ button {
 }
 #admin #pagina .registration-in-stages form [data-toggle=collapse],
 #teacherPortal #pagina .registration-in-stages form [data-toggle=collapse], #studentPortal #pagina .registration-in-stages form [data-toggle=collapse] {
-  background-color: #6619c3;
+  background-color: #363C90;
 }
 #admin #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right,
 #teacherPortal #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right, #studentPortal #pagina .registration-in-stages form [data-toggle=collapse] .fa-angle-right {
@@ -719,7 +722,7 @@ button {
   align-items: center;
   height: 35px;
   margin: auto;
-  background-color: #6619c3;
+  background-color: #363C90;
   border-radius: 50%;
 }
 #admin #pagina .registration-in-stages .registration-header-by-step .row .container-option a span,
@@ -771,7 +774,7 @@ button {
 #teacherPortal #pagina .collapse-options-container span, #studentPortal #pagina .collapse-options-container span {
   cursor: pointer;
   color: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background: #ffffff;
   padding: 10px;
   transition: all 0.2s ease;
@@ -784,7 +787,7 @@ button {
 #admin #pagina .collapse-options-container span:hover,
 #teacherPortal #pagina .collapse-options-container span:hover, #studentPortal #pagina .collapse-options-container span:hover {
   color: #ffffff;
-  background-color: #6619c3;
+  background-color: #363C90;
 }
 #admin #pagina .collapse-options-container span:hover .fa-edit,
 #admin #pagina .collapse-options-container span:hover .fa-print,
@@ -807,7 +810,7 @@ button {
 }
 #admin #pagina .collapse-options-container [aria-expanded=true] span,
 #teacherPortal #pagina .collapse-options-container [aria-expanded=true] span, #studentPortal #pagina .collapse-options-container [aria-expanded=true] span {
-  background: #6619c3;
+  background: #363C90;
   color: #ffffff;
   border: none;
 }
@@ -828,7 +831,7 @@ button {
 }
 #admin #pagina .horizontal-control-list [aria-expanded=true],
 #teacherPortal #pagina .horizontal-control-list [aria-expanded=true], #studentPortal #pagina .horizontal-control-list [aria-expanded=true] {
-  background: #6619c3;
+  background: #363C90;
   border-radius: 5px;
   color: #ffffff;
 }
@@ -892,12 +895,12 @@ button {
 #login .container-login {
   border-radius: 15px;
   margin-top: 40px;
-  background-image: linear-gradient(to bottom, #6619c3 0, #6619c3 50%, white 50%);
+  background-image: linear-gradient(to bottom, #363C90 0, #363C90 50%, white 50%);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   height: 86.4vh;
 }
 #login .container-login .sidebar-primary {
-  background-color: #6619c3;
+  background-color: #363C90;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 50px;
@@ -919,7 +922,7 @@ button {
 }
 #login .container-login .sidebar-secondary form .form-control:focus {
   border: none;
-  border-bottom: 2px solid #6619c3;
+  border-bottom: 2px solid #363C90;
   box-shadow: none;
   transition: all 0.6s ease;
 }
@@ -944,7 +947,7 @@ button {
   padding: 20px 15px;
 }
 #login .container-login .sidebar-secondary form .form-body button {
-  background-color: #6619c3;
+  background-color: #363C90;
   font-weight: bold;
   color: white;
 }
@@ -1142,7 +1145,7 @@ body#teacherPortal #pagina .modal-profile .container-list-group nav ul a {
   }
   body#admin #pagina .modal-profile .container-list-group nav ul [aria-expanded=true],
 body#teacherPortal #pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
-    border-bottom: 2px solid #6619c3;
+    border-bottom: 2px solid #363C90;
     background-color: transparent;
     color: #506177;
   }
@@ -1166,7 +1169,7 @@ body#teacherPortal #pagina .modal-profile .main-content .row:nth-child(1) {
   body#admin #pagina .modal-profile .modal-sidebar,
 body#teacherPortal #pagina .modal-profile .modal-sidebar {
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     background-color: white;

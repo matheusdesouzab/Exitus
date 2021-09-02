@@ -105,7 +105,7 @@ class Note extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment')); 
+        $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
         $stmt->bindValue(':noteId', $this->__get('noteId'));
@@ -239,7 +239,7 @@ class Note extends Model
         $stmt = $this->db->prepare($allExamsClass);
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
-        
+
         $stmt->execute();
 
         $allExamsClass = $stmt->fetchAll(\PDO::FETCH_OBJ);

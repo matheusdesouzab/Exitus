@@ -193,7 +193,7 @@ class Classe extends Model
             
             WHERE 
 
-            situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+            situacao_periodo_letivo.id_situacao_periodo_letivo BETWEEN 1 AND 3 
 
             AND
             
@@ -224,16 +224,21 @@ class Classe extends Model
     public function list()
     {
 
-        $query = 
+        $query =
 
             "SELECT 
 
             turma.id_turma as class_id , 
             serie.sigla AS series_acronym , 
+            serie.id_serie AS seriesId ,
             cedula_turma.cedula AS ballot , 
+            cedula_turma.id_cedula_turma AS ballotId ,
             curso.sigla AS course , 
+            curso.id_curso AS courseId,
             turno.nome_turno AS shift , 
+            turno.id_turno AS shiftId ,
             numero_sala_aula.numero_sala_aula AS classroom_number , 
+            sala.id_sala AS classroomId ,
             periodo_disponivel.ano_letivo AS school_term ,
 
             (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
@@ -250,7 +255,7 @@ class Classe extends Model
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
-            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo BETWEEN 1 AND 3
 
             AND
 
@@ -265,8 +270,6 @@ class Classe extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
-
-
     }
 
     public function availableListClass()
@@ -303,5 +306,98 @@ class Classe extends Model
             WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 AND turma.fk_id_serie = 1"
 
         );
+    }
+
+
+    public function listRematrugRequests()
+    {
+
+        $query =
+
+            "SELECT 
+
+            aluno.nome_aluno , 
+            aluno.foto_perfil_aluno , 
+            situacao_rematricula.situacao , 
+            situacao_aluno_ano_letivo.situacao_aluno , 
+            situacao_geral_aluno.situacao_geral 
+        
+            FROM matricula 
+            
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno) 
+            INNER JOIN rematricula ON(matricula.id_matricula = rematricula.fk_id_rematricula_aluno) 
+            INNER JOIN situacao_rematricula ON(rematricula.fk_id_situacao_rematricula = situacao_rematricula.id_situacao_rematricula) 
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_periodo_letivo_matricula = situacao_aluno_ano_letivo.id_situacao_aluno) 
+            INNER JOIN situacao_geral_aluno ON(aluno.fk_id_situacao_geral_aluno = situacao_geral_aluno.id_situacao_geral)
+
+            WHERE turma.id_turma = :classId
+
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(":classId", $this->__get("classId"));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function nextClass()
+    {
+
+        $query =
+
+            "SELECT 
+
+            turma.id_turma AS class_id , 
+            serie.sigla AS series_acronym , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift , 
+            numero_sala_aula.numero_sala_aula AS classroom_number , 
+            periodo_disponivel.ano_letivo AS school_term
+            
+            FROM turma
+            
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            
+            WHERE 
+            
+            turma.fk_id_turno = :fk_id_shift 
+            
+            AND turma.fk_id_curso = :fk_id_course
+            
+            AND CASE WHEN :fk_id_series = 1 THEN turma.fk_id_serie = 2 ELSE turma.fk_id_serie = 3 END
+            
+            AND turma.fk_id_sala = :fk_id_classroom 
+            
+            AND turma.fk_id_cedula = :fk_id_ballot
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 3
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
+        $stmt->bindValue(":fk_id_classroom", $this->__get("fk_id_classroom"));
+        $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
+        $stmt->bindValue(":fk_id_ballot", $this->__get("fk_id_ballot"));
+        $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 }

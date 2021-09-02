@@ -51,10 +51,6 @@
 
                     <form class="col-lg-11 mx-auto" action="" id="formSettings">
 
-                        <div class="row">
-
-                            <div class="col-lg-12">
-
                                 <div class="row d-flex align-items-center">
 
                                     <h5 class="col-lg-8 mb-3 p-0">Controles</h5>
@@ -63,21 +59,36 @@
 
                                         <span idElement="#formSettings" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                                       <span idElement="#formSettings" routeUpdate="/admin/configuracoes/atualizar" toastData="Configurações atualizadas" routeData="#formSettings" container="containerSettingsModal" routeList="/admin/configuracoes" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span> 
+                                        <span idElement="#formSettings" routeUpdate="/admin/configuracoes/atualizar" toastData="Configurações atualizadas" routeData="#formSettings" container="containerSettingsModal" routeList="/admin/configuracoes" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
                                     </div>
 
-                                </div>
+                            </div>
+
+                        <div class="form-group row mt-4 row d-flex align-items-center p-0">
+
+                            <label class="col-lg-5 p-0" for="">Situacao da rematrícula: </label>
+
+                            <div class="col-lg-7">
+
+                                <select class="custom-select form-control" disabled name="controlRematrug">
+
+                                    <option value="<?= $this->view->currentStatusRematrium[0]->option_value ?>"><?= $this->view->currentStatusRematrium[0]->option_text ?></option>
+
+                                    <?php foreach ($this->view->registrationControlOptions as $key => $value) { ?>
+
+                                        <?php if ($value->option_value != $this->view->currentStatusRematrium[0]->option_value) { ?>
+
+                                            <option value="<?= $value->option_value ?>"><?= $value->option_text ?></option>
+
+                                    <?php }
+                                    } ?>
+
+                                </select>
 
                             </div>
-                        </div>
 
 
-                        <div class="form-group row">
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" name="rematriumControl" disabled class="custom-control-input" id="customSwitch1">
-                                <label class="custom-control-label" for="customSwitch1">Liberar rematrícula para os alunos</label>
-                            </div>
                         </div>
 
                         <div class="form-group row d-flex align-items-center p-0">

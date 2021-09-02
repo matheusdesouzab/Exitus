@@ -551,7 +551,7 @@ class Route extends Bootstrap
 			);
 
 			$routes['adminNoteDelete'] = array(
-				'route' => '/admin/gestao/turma/perfil-turma/aluno/obervacoes/insert',
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/obervacoes/inserir',
 				'controller' => 'Admin\\AdminTeacherStudentController',
 				'action' => 'observationInsert'
 			);
@@ -639,6 +639,13 @@ class Route extends Bootstrap
 				'controller' => 'Admin\\AdminTeacherStudentController',
 				'action' => 'disciplineMediaUpdate'
 			);
+
+			$routes['adminListRematrugRequests'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/solicitacoes-rematricula',
+				'controller' => 'Admin\\AdminManagementController',
+				'action' => 'listRematrugRequests'
+			);
+
 
 
 			// ---------------------------------

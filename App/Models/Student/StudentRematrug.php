@@ -8,7 +8,7 @@ class StudentRematrug extends Model
 {
 
     private $fk_id_rematrug_situation;
-    private $fk_id_enrollmentId;
+    private $fk_id_enrollment;
 
 
     public function __get($att)
@@ -30,7 +30,7 @@ class StudentRematrug extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':enrollmentId', $this->__get('fk_id_enrollmentId'));
+        $stmt->bindValue(':enrollmentId', $this->__get('fk_id_enrollment'));
         $stmt->bindValue(':rematrugSituation', $this->__get('fk_id_rematrug_situation'));
 
         $stmt->execute();
@@ -41,4 +41,19 @@ class StudentRematrug extends Model
 
         return $this->speedingUp("SELECT situacao_rematricula.id_situacao_rematricula AS option_value , situacao_rematricula.situacao AS option_text FROM situacao_rematricula");
     }
+
+
+    public function checkForRegistration()
+    {
+
+        $query = "SELECT rematricula.id_rematricula FROM rematricula WHERE rematricula.fk_id_rematricula_aluno = :enrollmentId;";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':enrollmentId', $this->__get('fk_id_enrollment'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
 }

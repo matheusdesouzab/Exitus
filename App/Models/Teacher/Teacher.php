@@ -88,7 +88,7 @@ class Teacher extends People
             sexo.sexo AS teacher_sex , 
             professor.data_nascimento_professor AS teacher_birth_date , 
             professor.naturalidade_professor AS teacher_naturalness , 
-            professor.foto_perfil_professor AS teacher_profile_photo , 
+            professor.foto_perfil_professor AS profilePhoto , 
             professor.nacionalidade_professor AS teacher_nacionality , 
             tipo_sanguineo.tipo_sanguineo AS blood_type_teacher , 
             tipo_sanguineo.id_tipo_sanguineo AS blood_type_id_teacher , 
