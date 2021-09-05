@@ -122,6 +122,13 @@ $("#course #buttonAddCourse").on("click", function (e) {
 })
 
 
+$(document).on("click","#buttonAddRematrung", function (e) {
+
+    application.addSinglePart("#addRematrung", "/admin/gestao/turma/perfil-turma/rematricular", "Aluno rematrículado")
+
+})
+
+
 $("#buttonAddStudent").on("click", function (e) {
 
     application.addMultipleParts(this, "/admin/aluno/cadastro/inserir")
@@ -234,9 +241,17 @@ $(document).on("click", "#profileClassModal [data-target='#list-exam'] , #profil
 
 })
 
+
 $(document).on("click", "#profileClassModal [data-target='#class-rematrug']", function (e) {
 
     application.loadListElements("containerRematrugRequests", "/admin/gestao/turma/perfil-turma/solicitacoes-rematricula", "#dataClass")
+
+})
+
+
+$(document).on("click", "#profileClassModal [data-target='#finalized-rematrecules']", function (e) {
+
+    application.loadListElements("containerRematrugFinalized ", "/admin/gestao/turma/perfil-turma/rematricula/alunos-ja-matriculados", "#dataClass")
 
 })
 

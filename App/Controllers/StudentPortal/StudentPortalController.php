@@ -81,7 +81,7 @@ class StudentPortalController extends Action
     }
 
 
-    public function InsertRematrug()
+    public function sendRematriumRequest()
     {
 
         $StudentRematrug = Container::getModel('Student\\StudentRematrug');

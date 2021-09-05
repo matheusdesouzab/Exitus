@@ -646,6 +646,18 @@ class Route extends Bootstrap
 				'action' => 'listRematrugRequests'
 			);
 
+			$routes['adminStudentsAlreadyRegisteredNextYear'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/rematricula/alunos-ja-matriculados',
+				'controller' => 'Admin\\AdminManagementController',
+				'action' => 'studentsAlreadyRegisteredNextYear'
+			);
+
+			$routes['adminRematrug'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/rematricular',
+				'controller' => 'Admin\\AdminStudentController',
+				'action' => 'rematrug'
+			);
+
 
 
 			// ---------------------------------
@@ -718,7 +730,7 @@ class Route extends Bootstrap
 			$routes['RematrugStudentPortal'] = array(
 				'route' => '/portal-aluno/rematricular',
 				'controller' => 'StudentPortal\\StudentPortalController',
-				'action' => 'InsertRematrug'
+				'action' => 'sendRematriumRequest'
 			);
 
 

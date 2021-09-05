@@ -367,9 +367,9 @@
 
                                     <div class="col-lg-6 collapse-options-container">
 
-                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rating-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Avaliações</span></a>
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rating-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
 
-                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-reviews"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-reviews"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
 
 
                                     </div>
@@ -513,9 +513,9 @@
 
                                     <div class="col-lg-7 collapse-options-container">
 
-                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#disciplineFinalData-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Médias</span></a>
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#disciplineFinalData-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>  Médias</span></a>
 
-                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-disciplineFinalData"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-disciplineFinalData"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
 
                                     </div>
                                 </div>
@@ -615,9 +615,9 @@
 
                                     <div class="col-lg-7 collapse-options-container">
 
-                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#observation-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Observações</span></a>
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#observation-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Observações</span></a>
 
-                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-observation"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-observation"><span class="mr-2"><i class="fas fa-plus mr-2"></i>  Adicionar</span></a>
 
 
                                     </div>
@@ -722,9 +722,9 @@
 
                                 <div class="col-lg-7 collapse-options-container">
 
-                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#lack-list"><span class="mr-2"><i class="fas fa-boxes mr-2"></i> Faltas</span></a>
+                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#lack-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Faltas</span></a>
 
-                                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-lack"><span class="mr-2"><i class="fas fa-plus-circle mr-2"></i> Adicionar</span></a>
+                                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-lack"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
 
                                 </div>
                             </div>

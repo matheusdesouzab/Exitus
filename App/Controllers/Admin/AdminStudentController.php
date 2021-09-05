@@ -159,7 +159,6 @@ class AdminStudentController extends Action
         $Address->update();
         $Student->update();
         $StudentEnrollment->update();
-
     }
 
 
@@ -225,5 +224,19 @@ class AdminStudentController extends Action
         $Student->__set('studentId', $_POST['id']);
 
         $Student->updateProfilePicture();
+    }
+
+
+    public function rematrug()
+    {
+
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+
+        $StudentEnrollment->__set('fk_id_student_situation', 1);
+        $StudentEnrollment->__set('fk_id_student', $_POST['studentId']);
+        $StudentEnrollment->__set('fk_id_class', $_POST['classId']);
+        $StudentEnrollment->__set('fk_id_school_term', $_POST['schoolTermId']);
+
+        $StudentEnrollment->insert();
     }
 }

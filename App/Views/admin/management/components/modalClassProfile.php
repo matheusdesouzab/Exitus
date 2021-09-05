@@ -41,10 +41,7 @@
             <form action="" id="dataClass">
 
                 <input type="hidden" name="series" value="<?= $this->view->classData[0]->seriesId ?>">
-                <input type="hidden" name="ballot" value="<?= $this->view->classData[0]->ballotId ?>">
                 <input type="hidden" name="course" value="<?= $this->view->classData[0]->courseId ?>">
-                <input type="hidden" name="classroom" value="<?= $this->view->classData[0]->classroomId ?>">
-                <input type="hidden" name="shift" value="<?= $this->view->classData[0]->shiftId ?>">
                 <input type="hidden" name="classId" value="<?= $this->view->classData[0]->class_id ?>">
 
             </form>
@@ -516,21 +513,25 @@
 
                             <div class="col-lg-7 col-12 collapse-options-container">
 
-                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rematrecules-received"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Recebidas</span></a>
+                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rematrecules-received"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>Solicitações</span></a>
 
-                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#finalized- rematrecules"><span class="mr-2"><i class="fas fa-check-circle mr-2"></i> Finalizadas</span></a>
+                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#finalized-rematrecules"><span class="mr-2"><i class="fas fa-check-circle mr-2"></i> Status da turma</span></a>
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-lg-12 card">
+                    <div class="col-lg-12">
 
-                        <div class="collapse show" id="rematrecules-received" data-parent="#rematrug-accordion">
+                        <div class="collapse show col-lg-12" id="rematrecules-received" data-parent="#rematrug-accordion">
 
-                            <div containerRematrugRequests></div>
+                            <div containerRematrugRequests class="row"></div>                       
 
-                            
+                        </div>
+
+                        <div class="collapse col-lg-12" id="finalized-rematrecules" data-parent="#rematrug-accordion">
+
+                            <div containerRematrugFinalized class="row"></div>                       
 
                         </div>
 

@@ -425,6 +425,7 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_class", $_GET['id']);
         $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
         $Classe->__set('classId', $_GET['id']);
+        $Student->__set("fk_id_class", $_GET['id']);
 
         $this->view->listStudent = $Student->list();
         $this->view->typeStudentList = "class";
@@ -446,17 +447,31 @@ class AdminManagementController extends Action
 
         $Classe->__set('classId', $_GET['classId']);
 
-        $Classe->__set('fk_id_ballot', $_GET['ballot']);
-        $Classe->__set('fk_id_classroom', $_GET['classroom']);
         $Classe->__set('fk_id_course', $_GET['course']);
-        $Classe->__set('fk_id_shift', $_GET['shift']);
         $Classe->__set('fk_id_series', $_GET['series']);
 
         $this->view->nextClass = $Classe->nextClass();
+        $this->view->listRematrugRequests = $Classe->listRematrugRequests();
 
         $this->render('management/components/listRequestRematrung', 'SimpleLayout');
     }
 
+
+    public function studentsAlreadyRegisteredNextYear()
+    {
+
+        $Classe = Container::getModel('Admin\\Classe');
+        $Student = Container::getModel('Student\\Student');
+
+        $Classe->__set('fk_id_course', $_GET['course']);
+        $Classe->__set('fk_id_series', $_GET['series'] + 1);
+        $Student->__set('fk_id_class', $_GET['classId']);
+
+        $this->view->studentsAlreadyRegisteredNextYear = $Classe->studentsAlreadyRegisteredNextYear();
+        $this->view->listStudent = $Student->list();
+
+        $this->render('management/components/listStudentsAlreadyEnrolled', 'SimpleLayout');
+    }
 
 
     public function classDisciplineInsert()

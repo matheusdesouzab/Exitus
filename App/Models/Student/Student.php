@@ -107,7 +107,7 @@ class Student extends People
     }
 
 
-    public function list()
+    public function list($scholTermSituation = 1)
     {
 
         $query =
@@ -172,7 +172,9 @@ class Student extends People
 
             AND
 
-            CASE WHEN :studentId = 0 THEN aluno.id_aluno <> 0 ELSE aluno.id_aluno = :studentId END        
+            CASE WHEN :studentId = 0 THEN aluno.id_aluno <> 0 ELSE aluno.id_aluno = :studentId END       
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
             
         ";
 
@@ -184,7 +186,6 @@ class Student extends People
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
-
     }
 
 
@@ -312,4 +313,6 @@ class Student extends People
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
+
+   
 }

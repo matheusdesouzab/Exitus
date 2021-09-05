@@ -316,11 +316,14 @@ class Classe extends Model
 
             "SELECT 
 
-            aluno.nome_aluno , 
-            aluno.foto_perfil_aluno , 
-            situacao_rematricula.situacao , 
-            situacao_aluno_ano_letivo.situacao_aluno , 
-            situacao_geral_aluno.situacao_geral 
+            aluno.nome_aluno AS studentName , 
+            aluno.foto_perfil_aluno AS profilePhoto , 
+            aluno.id_aluno AS studentId,
+            situacao_rematricula.situacao AS rematrungSituation , 
+            situacao_aluno_ano_letivo.situacao_aluno AS studentSituationSchoolYear , 
+            situacao_geral_aluno.situacao_geral AS generalStudentSituation ,
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE aluno.id_aluno = matricula.fk_id_aluno) AS enrollmentTotal,
+            serie.id_serie AS seriesId
         
             FROM matricula 
             
@@ -328,6 +331,7 @@ class Classe extends Model
             INNER JOIN rematricula ON(matricula.id_matricula = rematricula.fk_id_rematricula_aluno) 
             INNER JOIN situacao_rematricula ON(rematricula.fk_id_situacao_rematricula = situacao_rematricula.id_situacao_rematricula) 
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie)
             INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_periodo_letivo_matricula = situacao_aluno_ano_letivo.id_situacao_aluno) 
             INNER JOIN situacao_geral_aluno ON(aluno.fk_id_situacao_geral_aluno = situacao_geral_aluno.id_situacao_geral)
 
@@ -352,13 +356,16 @@ class Classe extends Model
 
             "SELECT 
 
-            turma.id_turma AS class_id , 
-            serie.sigla AS series_acronym , 
+            turma.id_turma AS classId , 
+            serie.sigla AS series , 
             cedula_turma.cedula AS ballot , 
-            curso.sigla AS course , 
+            curso.nome_curso AS course , 
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS classroom_number , 
-            periodo_disponivel.ano_letivo AS school_term
+            periodo_disponivel.ano_letivo AS schoolYear,
+            sala.capacidade_alunos AS studentCapacity ,
+            periodo_letivo.id_ano_letivo AS schoolTermId,
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as studentTotal
             
             FROM turma
             
@@ -373,16 +380,10 @@ class Classe extends Model
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
             WHERE 
-            
-            turma.fk_id_turno = :fk_id_shift 
-            
-            AND turma.fk_id_curso = :fk_id_course
+
+            turma.fk_id_curso = :fk_id_course
             
             AND CASE WHEN :fk_id_series = 1 THEN turma.fk_id_serie = 2 ELSE turma.fk_id_serie = 3 END
-            
-            AND turma.fk_id_sala = :fk_id_classroom 
-            
-            AND turma.fk_id_cedula = :fk_id_ballot
 
             AND situacao_periodo_letivo.id_situacao_periodo_letivo = 3
             
@@ -390,10 +391,54 @@ class Classe extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
-        $stmt->bindValue(":fk_id_classroom", $this->__get("fk_id_classroom"));
         $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
-        $stmt->bindValue(":fk_id_ballot", $this->__get("fk_id_ballot"));
+        $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function studentsAlreadyRegisteredNextYear()
+    {
+
+        $query =
+
+            "SELECT 
+
+            aluno.nome_aluno AS studenName,
+            aluno.id_aluno AS studentId ,
+            turma.id_turma AS classId ,
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift 
+            
+            FROM 
+            
+            matricula
+            
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 3
+            
+            AND turma.fk_id_curso = :fk_id_course
+            
+            AND turma.fk_id_serie = :fk_id_series
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
         $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
 
         $stmt->execute();

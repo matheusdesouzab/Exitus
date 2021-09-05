@@ -45,82 +45,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                         <div class="col-lg-10 mx-auto">
 
-                            <div class="row mt-4 d-flex justify-content-between">
+                            <div class="row mt-4 d-flex justify-content-center">
 
-                                <div class="col-md-3">
+                              
 
-                                    <div class="row card">
-
-                                        <p class="text-center font-weight-bold">Lembretes</p>
-
-                                        <div class="col-lg-12 events mb-2">
-
-                                            <div class="row">
-
-                                                <div class="col-lg-3 d-flex align-items-center justify-content-center"><span class="mural-icon bg-success"><i class="fas fa-graduation-cap text-white"></i></span></div>
-                                                <div class="col-lg-9 d-flex align-items-center">Ano letivo chega ao fim em 24/12</div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="col-lg-12 events">
-
-                                            <div class="row">
-
-                                                <div class="col-lg-3 d-flex align-items-center justify-content-center"><span class="mural-icon bg-danger"><i class="fas fa-laptop-code text-white"></i></span></div>
-                                                <div class="col-lg-9 d-flex align-items-center">Feira tecnologística começa em 24/11 as 14:50</div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="col-lg-12 events mb-2">
-
-                                            <div class="row">
-
-                                                <div class="col-lg-3 d-flex align-items-center justify-content-center"><span class="mural-icon bg-primary"><i class="fas fa-users text-white"></i></span></div>
-                                                <div class="col-lg-9 d-flex align-items-center">Reunião de pai e mestres em 30/08 as 14:30</div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="col-lg-12 events">
-
-                                            <div class="row">
-
-                                                <div class="col-lg-3 d-flex align-items-center justify-content-center"><span class="mural-icon bg-info"><i class="fas fa-bus text-white"></i></span></div>
-                                                <div class="col-lg-9 d-flex align-items-center">Visita técnica a Chesf, em 29/08 as 14:30</div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <hr>
-
-                                        <div class="col-lg-12 events">
-
-                                            <div class="row">
-
-                                                <div class="col-lg-3 d-flex align-items-center justify-content-center"><span class="mural-icon bg-danger"><i class="fas fa-laptop-code text-white"></i></span></div>
-                                                <div class="col-lg-9 d-flex align-items-center">Semi-Info começa em 20/08 e vai até 25/08</div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-9">
+                                <div class="col-md-10">
 
                                     <div class="row">
 
@@ -145,64 +74,71 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                             $data['dados'][] = ['tipo' => 'disciplineAverage', 'value' => $disciplineAverage];
                                         }
 
-                                        foreach ($data['dados'] as $key => $part) {
-                                            $sort[$key] = strtotime($part['value']->post_date);
+                                        if (count($data) != 0) {
+
+                                            foreach ($data['dados'] as $key => $part) {
+                                                $sort[$key] = strtotime($part['value']->post_date);
+                                            }
+
+                                            array_multisort($sort, SORT_DESC, $data['dados']);
                                         }
 
-                                        array_multisort($sort, SORT_DESC, $data['dados']);
+
 
                                         ?>
 
-                                        <?php if(count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1){ ?>
+                                        <?php if (count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1) { ?>
 
-                                        <div class="col-lg-11 ml-auto card mb-3">
+                                            <div class="col-lg-11 ml-auto card mb-3">
 
-                                            <div class="row p-2">
+                                                <div class="row p-2">
 
-                                                <div class="col-lg-12">
+                                                    <div class="col-lg-12">
 
-                                                    <div class="row d-flex align-items-center">
+                                                        <div class="row d-flex align-items-center">
 
-                                                        <h5 class="col-lg-8">Rematrícula</h5>
+                                                            <h5 class="col-lg-8">Rematrícula</h5>
 
-                                                        <div class="col-lg-4 d-flex justify-content-end align-items-center"><i class="fas fa-paperclip text-secondary"></i></div>
+                                                            <div class="col-lg-4 d-flex justify-content-end align-items-center"><i class="fas fa-paperclip text-secondary"></i></div>
 
-                                                    </div>
+                                                        </div>
 
-                                                    <div class="row">
+                                                        <div class="row">
 
-                                                        <form action="" class="col-lg-12" id="addRematrug">
+                                                            <form action="" class="col-lg-12" id="addRematrug">
 
-                                                            <input type="hidden" name="enrollmentId" value="<?= $_SESSION['Student']['enrollmentId'] ?>">
+                                                                <input type="hidden" name="enrollmentId" value="<?= $_SESSION['Student']['enrollmentId'] ?>">
 
-                                                            <div class="form-row mt-3 ">
+                                                                <div class="form-row mt-3 ">
 
-                                                                <div class="form-group col-lg-8">
+                                                                    <div class="form-group col-lg-8">
 
-                                                                    <label for="">Você deseja se rematriculado ?</label><br>
+                                                                        <label for="">Você deseja se rematriculado ?</label><br>
 
-                                                                    <?php foreach($this->view->rematrugSituationList as $key => $value){ ?>
+                                                                        <?php foreach ($this->view->rematrugSituationList as $key => $value) { ?>
 
-                                                                    <div class="custom-control custom-radio custom-control-inline mt-3">
-                                                                        <input type="radio" id="rematricula<?= $value->option_value?>" value="<?= $value->option_value ?>" name="rematrugSituation" class="custom-control-input">
-                                                                        <label class="custom-control-label" for="rematricula<?= $value->option_value?>"><?= $value->option_text ?></label>
+                                                                            <div class="custom-control custom-radio custom-control-inline mt-3">
+                                                                                <input type="radio" id="rematricula<?= $value->option_value ?>" value="<?= $value->option_value ?>" name="rematrugSituation" class="custom-control-input">
+                                                                                <label class="custom-control-label" for="rematricula<?= $value->option_value ?>"><?= $value->option_text ?></label>
+                                                                            </div>
+
+                                                                        <?php } ?>
+
                                                                     </div>
 
-                                                                    <?php } ?>
+                                                                    <div class="form-group col-lg-3 ml-auto">
+
+                                                                        <label for="">&nbsp;</label></br>
+
+                                                                        <button id="buttonAddRematrug" type="submit" class="btn main-button text-white w-100">Confirmar</button>
+
+                                                                    </div>
 
                                                                 </div>
 
-                                                                <div class="form-group col-lg-3 ml-auto">
+                                                            </form>
 
-                                                                    <label for="">&nbsp;</label></br>
-
-                                                                    <button id="buttonAddRematrug" type="submit" class="btn main-button text-white w-100">Confirmar</button>
-
-                                                                </div>
-
-                                                            </div>
-
-                                                        </form>
+                                                        </div>
 
                                                     </div>
 
@@ -210,128 +146,134 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                             </div>
 
-                                        </div>
-
                                         <?php } ?>
 
-                                        <?php foreach ($data['dados'] as $key => $value) {
+                                        <?php if (count($data) != 0) { ?>
 
-                                            if ($value['tipo'] == 'note') { ?>
+                                            <?php foreach ($data['dados'] as $key => $value) {
 
-                                                <div class="col-lg-11 ml-auto card mb-3">
+                                                if ($value['tipo'] == 'note') { ?>
 
-                                                    <div class="row p-2">
+                                                    <div class="col-lg-11 ml-auto card mb-3">
 
-                                                        <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                        <div class="row p-2">
 
-                                                        <div class="col-lg-11">
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                            <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu sua nota em <?= $value['value']->exam_description ?> da <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
+                                                            <div class="col-lg-11">
 
-                                                            <?php $data = explode('-',  $value['value']->post_date) ?>
+                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu sua nota em <?= $value['value']->exam_description ?> da <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
 
-                                                            <div class="col-lg-12 p-0">
-                                                                <div class="row">
-                                                                    <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve <?= number_format($value['value']->note_value, 1, '.', '') ?> / <?= number_format($value['value']->exam_value, 1, '.', '') ?> </small></div>
-                                                                    <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                <?php $data = explode('-',  $value['value']->post_date) ?>
+
+                                                                <div class="col-lg-12 p-0">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve <?= number_format($value['value']->note_value, 1, '.', '') ?> / <?= number_format($value['value']->exam_value, 1, '.', '') ?> </small></div>
+                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                    </div>
                                                                 </div>
+
                                                             </div>
 
                                                         </div>
 
                                                     </div>
 
-                                                </div>
 
+                                                <?php } else if ($value['tipo'] == 'observation') { ?>
 
-                                            <?php } else if ($value['tipo'] == 'observation') { ?>
+                                                    <div class="col-lg-11 ml-auto card mb-3">
 
-                                                <div class="col-lg-11 ml-auto card mb-3">
+                                                        <div class="row p-2">
 
-                                                    <div class="row p-2">
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-start"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                        <div class="col-lg-1 d-flex justify-content-center align-items-start"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-lg-11">
 
-                                                        <div class="col-lg-11">
+                                                                <p class="mt-2 text-description mb-3">Você recebeu uma observação de <?= $value['value']->teacherName ?> referente a <?= $value['value']->unity ?> unidade de <?= $value['value']->disciplineName ?></p>
 
-                                                            <p class="mt-2 text-description mb-3">Você recebeu uma observação de <?= $value['value']->teacherName ?> referente a <?= $value['value']->unity ?> unidade de <?= $value['value']->disciplineName ?></p>
+                                                                <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observationDescription ?></textarea>
 
-                                                            <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observationDescription ?></textarea>
+                                                                <?php
 
-                                                            <?php
+                                                                $dateTime = explode(' ', $value['value']->post_date);
+                                                                $data = explode('-', $dateTime[0]);
 
-                                                            $dateTime = explode(' ', $value['value']->post_date);
-                                                            $data = explode('-', $dateTime[0]);
+                                                                ?>
 
-                                                            ?>
+                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small>
 
-                                                            <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small>
-
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            <?php } else if ($value['tipo'] == 'lack') { ?>
-
-                                                <div class="col-lg-11 ml-auto card mb-3">
-
-                                                    <div class="row p-2">
-
-                                                        <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
-
-                                                        <div class="col-lg-11">
-
-                                                            <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu suas faltas da <?= $value['value']->unity ?> unidade de <?= $value['value']->disciplineName ?></p>
-
-                                                            <?php $data = explode('-',  $value['value']->post_date) ?>
-
-                                                            <div class="col-lg-12 p-0">
-                                                                <div class="row">
-                                                                    <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve um total de <?= $value['value']->totalLack ?> faltas</small></div>
-                                                                    <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
-                                                                </div>
                                                             </div>
 
                                                         </div>
 
                                                     </div>
 
-                                                </div>
+                                                <?php } else if ($value['tipo'] == 'lack') { ?>
 
+                                                    <div class="col-lg-11 ml-auto card mb-3">
 
-                                            <?php } else if ($value['tipo'] == 'disciplineAverage') { ?>
+                                                        <div class="row p-2">
 
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                <div class="col-lg-11 ml-auto card mb-3">
+                                                            <div class="col-lg-11">
 
-                                                    <div class="row p-2">
+                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu suas faltas da <?= $value['value']->unity ?> unidade de <?= $value['value']->disciplineName ?></p>
 
-                                                        <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                                <?php $data = explode('-',  $value['value']->post_date) ?>
 
-                                                        <div class="col-lg-11">
-
-                                                            <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu a sua média final na disciplina de <?= $value['value']->disciplineName ?></p>
-
-                                                            <?php $data = explode('-',  $value['value']->post_date) ?>
-
-                                                            <div class="col-lg-12 p-0">
-                                                                <div class="row">
-                                                                    <div class="col-lg-8"><small class="font-weight-bold p-0">Sua média final foi de <?= number_format($value['value']->average, 1, '.', '') ?> - Você está <?= lcfirst($value['value']->subtitle) ?> na disciplina</small></div>
-                                                                    <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                <div class="col-lg-12 p-0">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve um total de <?= $value['value']->totalLack ?> faltas</small></div>
+                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                    </div>
                                                                 </div>
+
                                                             </div>
 
                                                         </div>
 
                                                     </div>
 
-                                                </div>
+
+                                                <?php } else if ($value['tipo'] == 'disciplineAverage') { ?>
 
 
-                                        <?php }
-                                        } ?>
+                                                    <div class="col-lg-11 ml-auto card mb-3">
+
+                                                        <div class="row p-2">
+
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+
+                                                            <div class="col-lg-11">
+
+                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu a sua média final na disciplina de <?= $value['value']->disciplineName ?></p>
+
+                                                                <?php $data = explode('-',  $value['value']->post_date) ?>
+
+                                                                <div class="col-lg-12 p-0">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-8"><small class="font-weight-bold p-0">Sua média final foi de <?= number_format($value['value']->average, 1, '.', '') ?> - Você está <?= lcfirst($value['value']->subtitle) ?> na disciplina</small></div>
+                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                            <?php }
+                                            }
+                                        } else { ?>
+
+
+                                            <div class="col-lg-11 ml-auto card mb-3">Nenhuma postagem até o momento</div>
+
+                                        <?php } ?>
 
                                     </div>
 
