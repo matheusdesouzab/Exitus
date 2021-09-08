@@ -34,7 +34,7 @@ class DisciplineAverage extends Model
 
             "INSERT INTO media_disciplina
             
-            (media, fk_id_turma_disciplina, fk_id_matricula_media, fk_id_legenda)
+            (nota_valor, fk_id_turma_disciplina, fk_id_matricula_media, fk_id_legenda)
 
             VALUES
 
@@ -115,7 +115,7 @@ class DisciplineAverage extends Model
 
             media_disciplina.id_media_disciplina AS disciplineAvarageId,
             disciplina.nome_disciplina AS disciplineName,
-            media_disciplina.media AS average,
+            media_disciplina.nota_valor AS average,
             legenda.legenda AS subtitle ,
             legenda.id_legenda AS subtitle_id ,
             turma_disciplina.id_turma_disciplina AS disciplineClass ,
@@ -137,7 +137,6 @@ class DisciplineAverage extends Model
             AND
 
             CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
-
 
         ";
 

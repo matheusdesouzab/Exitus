@@ -9,7 +9,7 @@
 
 
 	<div class="collapse navbar-collapse" id="navbarText">
-		<ul class="navbar-nav ml-auto">
+		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
 			<li class="nav-item">
 				<div class="">
@@ -18,16 +18,10 @@
 
 			</li>
 
-			<li class="nav-item dropdown mr-5">
-				
-
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#">Configurações</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Encerra sessão</a>
-				</div>
+			<li class="nav-item ml-4">
+				<a href="#" id="settingsTeacherPortal"><i class="fas fa-cog"></i></a>
 			</li>
+
 		</ul>
 	</div>
 </nav>

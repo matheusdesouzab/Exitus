@@ -274,6 +274,13 @@
                             <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $teacher->teacher_telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
+                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
+                            </div>
+                            <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $teacher->accessCode ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                        </div>
+
                     <?php } ?>
 
                     </form>

@@ -258,8 +258,15 @@
                                         <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
                                 <?php }
                                 } ?>
-                            </select>
+                            </select>                     
 
+                        </div>
+
+                        <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
+                            </div>
+                            <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $student->accessCode ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                         </div>
 
 
@@ -327,13 +334,13 @@
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Situação do aluno:</span>
+                                <span class="input-group-text" id="addon-wrapping">Situação atual no período letivo:</span>
                             </div>
                             <select id="situationStudent" name="situationStudent" disabled class="form-control custom-select">
-                                <option value="<?= $student->student_situation_id?>"><?= $student->student_situation ?></option>
+                                <option value="<?= $student->student_situation_id ?>"><?= $student->student_situation ?></option>
                                 <?php foreach ($this->view->listStudentSituation as $key => $situation) { ?>
                                     <?php if ($situation->id != $student->student_situation_id) { ?>
-                                        <option value="<?= $situation->id?>"><?= $situation->student_situation ?></option>
+                                        <option value="<?= $situation->id ?>"><?= $situation->student_situation ?></option>
                                 <?php }
                                 } ?>
                             </select>
@@ -345,6 +352,8 @@
                             </div>
                             <input type="text" disabled class="form-control" value="<?= $student->acronym_series ?> <?= $student->ballot ?> -  <?= $student->course ?> - <?= $student->shift ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
+
+                        
 
                     <?php } ?>
 
@@ -513,7 +522,7 @@
 
                                     <div class="col-lg-7 collapse-options-container">
 
-                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#disciplineFinalData-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>  Médias</span></a>
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#disciplineFinalData-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Médias</span></a>
 
                                         <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-disciplineFinalData"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
 
@@ -526,7 +535,7 @@
 
                                 <div class="collapse show" id="disciplineFinalData-list" data-parent="#accordion-disciplineFinalData">
 
-                                    <div class="col-lg-12" containerDisciplineAverageList></div>
+                                    <div class="" containerDisciplineAverageList></div>
 
                                 </div>
 
@@ -617,14 +626,12 @@
 
                                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#observation-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Observações</span></a>
 
-                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-observation"><span class="mr-2"><i class="fas fa-plus mr-2"></i>  Adicionar</span></a>
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-observation"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
 
 
                                     </div>
                                 </div>
                             </div>
-
-
 
                             <div class="col-lg-12">
 
@@ -736,7 +743,7 @@
 
                                 <div class="col-lg-12">
 
-                                    <div class="collapse show card" id="lack-list" data-parent="#accordion-lack">
+                                    <div class="collapse show" id="lack-list" data-parent="#accordion-lack">
 
                                         <div clas="row">
 

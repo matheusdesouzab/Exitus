@@ -126,6 +126,8 @@ $(document).on("click","#buttonAddRematrung", function (e) {
 
     application.addSinglePart("#addRematrung", "/admin/gestao/turma/perfil-turma/rematricular", "Aluno rematrículado")
 
+    application.loadListElements("containerRematrugRequests", "/admin/gestao/turma/perfil-turma/solicitacoes-rematricula", "#dataClass")
+
 })
 
 
@@ -467,6 +469,12 @@ $(document).on("click", "#navbar-top #settings", function () {
 
 })
 
+$(document).on("click", "#navbar-top #settingsTeacherPortal", function () {
+
+    application.showModal(0, "/portal-docente/configuracoes", "containerSettingsModal", "#settingsModal")
+
+})
+
 
 $('.modal').on('show.bs.modal', function (event) {
     var idx = $('.modal:visible').length;
@@ -752,12 +760,6 @@ $(document).on("click", "#profileStudentModal #updateImg", function (e) {
 
     application.addMultipleParts($("#formUpdateProfilePhoto")[0], "/admin/aluno/lista/perfil-aluno/atualizar-foto")
 
-    /* application.loadListElements("containerStudentProfileModal", "/admin/aluno/lista/perfil-aluno", "#formUpdateProfilePhoto")
-
-    application.loadListElements("containerListStudent", "/admin/aluno/lista/listagem") */
-
-    //tools.showToast("Foto do perfil atualizada", "bg-success")
-
 })
 
 
@@ -765,11 +767,12 @@ $(document).on("click", "#profileTeacherModal #updateImg", function (e) {
 
     application.addMultipleParts($("#formUpdateProfilePhoto")[0], "/admin/professor/lista/perfil-professor/atualizar-foto")
 
-    //application.loadListElements("containerTeacherProfileModal", "/admin/professor/lista/perfil-professor", "#formUpdateProfilePhoto")
+})
 
-    //application.loadListElements("containerListTeacher", "/admin/professor/lista/listagem")
 
-    //tools.showToast("Foto do perfil atualizada", "bg-success")
+$(document).on("click", "#settingsModal #updateImg", function (e) {
+
+    application.addMultipleParts($("#formUpdateProfilePhoto")[0], "/admin/configuracoes/atualizar-foto")
 
 })
 
@@ -807,7 +810,7 @@ $("#teacherPortal #class tbody tr").on('click', function (e) {
 
 })
 
-$("#teacherPortal #seekClass .custom-select").change(() => application.seekElement("#seekClass", "containerListClass", "/portal-docente/turmas/buscar"))
+$("#teacherPortal #seekClassTeacher .custom-select").change(() => application.seekElement("#seekClassTeacher", "containerListClass", "/portal-docente/turmas/buscar"))
 
 
 $(document).on('click', "#profileClassModal [data-target='#class-note-history']", function (e) {

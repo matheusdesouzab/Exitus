@@ -107,7 +107,7 @@ class Student extends People
     }
 
 
-    public function list($scholTermSituation = 1)
+    public function list($scholTermSituation = '= 1')
     {
 
         $query =
@@ -119,6 +119,7 @@ class Student extends People
             aluno.cpf_aluno AS student_cpf , 
             sexo.id_sexo AS student_sex_id , 
             sexo.sexo AS student_sex , 
+            aluno.codigo_acesso AS accessCode ,
             aluno.data_nascimento_aluno AS student_birth_date , 
             aluno.naturalidade_aluno AS student_naturalness , 
             aluno.foto_perfil_aluno AS profilePhoto , 
@@ -174,7 +175,7 @@ class Student extends People
 
             CASE WHEN :studentId = 0 THEN aluno.id_aluno <> 0 ELSE aluno.id_aluno = :studentId END       
 
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation
             
         ";
 

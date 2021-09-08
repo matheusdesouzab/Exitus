@@ -37,7 +37,7 @@
             </div>
 
 
-            <div class="col-lg-12 card">
+            <div class="col-lg-12 card mb-4">
 
                 <div class="collapse show" id="class-list" data-parent="#class-accordion">
                     <div class="row">
@@ -65,7 +65,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-lg-4">
+                                    <div class="form-group col-lg-2">
 
                                         <label for="series">Série:</label>
 
@@ -83,7 +83,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-lg-4">
+                                    <div class="form-group col-lg-3">
 
                                         <label for="shift">Turno</label>
 
@@ -96,6 +96,26 @@
                                                 <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
 
                                             <?php } ?>
+
+                                        </select>
+
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+
+                                        <label for="shift">Período Letivo</label>
+
+                                        <select id="schoolTerm" name="schoolTerm" class="form-control custom-select">
+
+                                            <option value="0">Todos</option>
+
+                                            <?php foreach ($this->view->activeSchoolTerm as $key => $schoolTerm) { ?>
+
+                                                <option value="<?= $schoolTerm->option_value ?>"><?= $schoolTerm->option_text ?> - <?= $schoolTerm->situation ?></option>
+
+                                            <?php } ?>
+
+
 
                                         </select>
 
@@ -313,7 +333,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-lg-2">
+                                    <div class="form-group col-lg-3">
 
                                         <label for="schoolTerm">Ano letivo:</label>
 
@@ -321,7 +341,7 @@
 
                                             <?php foreach ($this->view->activeSchoolTerm as $key => $schoolTerm) { ?>
 
-                                                <option value="<?= $schoolTerm->option_value ?>"><?= $schoolTerm->option_text ?></option>
+                                                <option value="<?= $schoolTerm->option_value ?>"><?= $schoolTerm->option_text ?> - <?= $schoolTerm->situation ?></option>
 
                                             <?php } ?>
 

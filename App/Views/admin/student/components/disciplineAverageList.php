@@ -1,5 +1,6 @@
 <?php
 
+
 if (count($this->view->disciplineAverageList) >= 1) {
 
     foreach ($this->view->disciplineAverageList as $key => $discipline) { ?>

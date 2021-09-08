@@ -693,6 +693,18 @@ class Route extends Bootstrap
 				'action' => 'seekTeacherClasses'
 			);
 
+			$routes['teacherPortalSettings'] = array(
+				'route' => '/portal-docente/configuracoes',
+				'controller' => 'TeacherPortal\\TeacherPortalController',
+				'action' => 'settings'
+			);
+
+			$routes['teacherPortalUpdate'] = array(
+				'route' => '/portal-docente/perfil/atualizar',
+				'controller' => 'TeacherPortal\\TeacherPortalController',
+				'action' => 'updateTeacherPortal'
+			);
+
 			$routes['exitTeacherPortal'] = array(
 				'route' => '/portal-docente/sair',
 				'controller' => 'TeacherPortal\\TeacherPortalController',
@@ -748,6 +760,18 @@ class Route extends Bootstrap
 				'controller' => 'Admin\\AdminController',
 				'action' => 'settingsUpdate'
 			);
+
+			$routes['adminUpdateAdminProfilePicture'] = array(
+				'route' => '/admin/configuracoes/atualizar-foto',
+				'controller' => 'Admin\\AdminController',
+				'action' => 'updateAdminProfilePicture'
+			); 
+
+			$routes['adminUpdate'] = array(
+				'route' => '/admin/configuracoes/perfil/atualizar',
+				'controller' => 'Admin\\AdminController',
+				'action' => 'adminUpdate'
+			); 
 
 			
 

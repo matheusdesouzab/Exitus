@@ -348,7 +348,7 @@ class AdminManagementController extends Action
         $this->view->availableCourse = $Course->availableCourse();
         $this->view->availableClassRoom = $ClassRoom->activeClassroom();
         $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
-
+        
         $this->render('management/pages/classeManagement', 'AdminLayout');
     }
 
@@ -404,6 +404,7 @@ class AdminManagementController extends Action
         $Classe->__set('fk_id_course', $_GET['course']);
         $Classe->__set('fk_id_shift', $_GET['shift']);
         $Classe->__set('fk_id_series', $_GET['series']);
+        $Classe->__set('fk_id_school_term', $_GET['schoolTerm']);
 
         $this->view->listClass = $Classe->seekClass();
 
@@ -427,12 +428,12 @@ class AdminManagementController extends Action
         $Classe->__set('classId', $_GET['id']);
         $Student->__set("fk_id_class", $_GET['id']);
 
-        $this->view->listStudent = $Student->list();
+        $this->view->listStudent = $Student->list('<> 0');
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
         $this->view->unity = $Exam->unity();
-        $this->view->classData = $Classe->list();
+        $this->view->classData = $Classe->list('<> 0');
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();

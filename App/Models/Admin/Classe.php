@@ -192,10 +192,6 @@ class Classe extends Model
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
             
             WHERE 
-
-            situacao_periodo_letivo.id_situacao_periodo_letivo BETWEEN 1 AND 3 
-
-            AND
             
             CASE WHEN :fk_id_course = 0 THEN turma.fk_id_curso <> :fk_id_course ELSE turma.fk_id_curso = :fk_id_course END 
             
@@ -206,6 +202,10 @@ class Classe extends Model
             AND
 
             CASE WHEN :fk_id_shift = 0 THEN turma.fk_id_turno <> :fk_id_shift ELSE turma.fk_id_turno = :fk_id_shift END 
+
+            AND
+
+            CASE WHEN :fk_id_school_term = 0 THEN  periodo_letivo.id_ano_letivo <> :fk_id_school_term ELSE periodo_letivo.id_ano_letivo = :fk_id_school_term END
         
         ";
 
@@ -214,6 +214,7 @@ class Classe extends Model
         $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
         $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
         $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
+        $stmt->bindValue(":fk_id_school_term", $this->__get("fk_id_school_term"));
 
         $stmt->execute();
 
@@ -221,7 +222,7 @@ class Classe extends Model
     }
 
 
-    public function list()
+    public function list($scholTermSituation = '= 1')
     {
 
         $query =
@@ -255,7 +256,7 @@ class Classe extends Model
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
-            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo BETWEEN 1 AND 3
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation 
 
             AND
 

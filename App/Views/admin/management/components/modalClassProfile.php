@@ -30,7 +30,17 @@
 
                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history">Histórico de notas</a>
 
-                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">Rematrículas</a>
+                            <?php
+
+                            if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
+
+                            ?>
+
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">Rematrículas</a>
+
+
+                            <?php } ?>
+
 
                         </ul>
 
@@ -250,7 +260,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-12 card">
+                    <div class="col-lg-12">
 
                         <div class="collapse show" id="list-exam" data-parent="#class-assessments-accordion">
 
@@ -310,9 +320,9 @@
 
                         </div>
 
-                        <div class="collapse" id="add-assessments" data-parent="#class-assessments-accordion">
+                        <div class="collapse card" id="add-assessments" data-parent="#class-assessments-accordion">
 
-                            <form id="addExam" class="col-lg-11 mx-auto">
+                            <form id="addExam" class="col-lg-12">
 
                                 <div class="form-row mt-3">
 
@@ -525,13 +535,13 @@
 
                         <div class="collapse show col-lg-12" id="rematrecules-received" data-parent="#rematrug-accordion">
 
-                            <div containerRematrugRequests class="row"></div>                       
+                            <div containerRematrugRequests class="row"></div>
 
                         </div>
 
                         <div class="collapse col-lg-12" id="finalized-rematrecules" data-parent="#rematrug-accordion">
 
-                            <div containerRematrugFinalized class="row"></div>                       
+                            <div containerRematrugFinalized class="row"></div>
 
                         </div>
 

@@ -30,7 +30,7 @@
 
             <li><a href="/admin/gestao"><i class="fas fa-boxes"></i><span class="link-name">Gestão geral</span></a></li>
 
-            <li><a href="/admin/sair"><i class="fas fa-broom"></i><span class="link-name">Sair da conta</span></a></li>
+            <li><a href="/admin/sair"><i class="fas fa-door-open"></i><span class="link-name">Sair da conta</span></a></li>
 
 
         </ul>

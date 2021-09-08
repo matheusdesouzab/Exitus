@@ -86,10 +86,11 @@ class Teacher extends People
             professor.cpf_professor AS teacher_cpf , 
             sexo.id_sexo AS teacher_sex_id , 
             sexo.sexo AS teacher_sex , 
+            professor.codigo_acesso AS accessCode ,
             professor.data_nascimento_professor AS teacher_birth_date , 
             professor.naturalidade_professor AS teacher_naturalness , 
             professor.foto_perfil_professor AS profilePhoto , 
-            professor.nacionalidade_professor AS teacher_nacionality , 
+            professor.nacionalidade_professor AS teacher_nationality , 
             tipo_sanguineo.tipo_sanguineo AS blood_type_teacher , 
             tipo_sanguineo.id_tipo_sanguineo AS blood_type_id_teacher , 
             pcd.pcd AS teacher_pcd , 
@@ -103,7 +104,10 @@ class Teacher extends People
             endereco.municipio AS teacher_county , 
             endereco.id_endereco AS address_id_teacher , 
             telefone.id_telefone AS telephone_id_teacher ,
-            email_professor AS email
+            email_professor AS email ,
+            professor.codigo_acesso AS accessCode ,
+            hierarquia_funcao.hierarquia_funcao AS hierarchyFunction ,
+            hierarquia_funcao.id_hierarquia_funcao AS hierarchyFunctionId 
             
             FROM professor 
             
@@ -113,6 +117,7 @@ class Teacher extends People
             LEFT JOIN telefone ON(telefone.id_telefone = professor.fk_id_telefone_professor) 
             LEFT JOIN tipo_sanguineo ON(tipo_sanguineo.id_tipo_sanguineo = professor.fk_id_tipo_sanguineo_professor) 
             LEFT JOIN pcd ON(pcd.id_pcd = professor.fk_id_pcd_professor) 
+            INNER JOIN hierarquia_funcao ON(professor.fk_id_professor_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao)
 
             WHERE CASE WHEN :teacherId = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :teacherId END
 
@@ -249,8 +254,13 @@ class Teacher extends People
             INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
             WHERE professor.id_professor = :teacherId
+
+            AND
+
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1
         
         ";
 
@@ -295,6 +305,7 @@ class Teacher extends People
             INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
             WHERE professor.id_professor = :teacherId AND
 
@@ -307,6 +318,10 @@ class Teacher extends People
             AND
 
             CASE WHEN :fk_id_shift = 0 THEN turno.id_turno <> :fk_id_shift ELSE turno.id_turno = :fk_id_shift END
+
+            AND
+
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1
 
         ";
 

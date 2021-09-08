@@ -12,7 +12,7 @@
 
 			<li class="nav-item">
 				<div class="">
-					<img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
+					<img src="/assets/img/adminProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
 				</div>
 
 			</li>

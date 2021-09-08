@@ -27,7 +27,7 @@
                             <div class="row">
                                 <div class="col-lg-11 mx-auto">
 
-                                    <form id="seekClass" class="mt-3 mb-3 text-dark" action="">
+                                    <form id="seekClassTeacher" class="mt-3 mb-3 text-dark" action="">
 
                                         <div class="form-row mt-3">
 
@@ -93,7 +93,7 @@
 
                                     <div class="table-responsive">
 
-                                        <table class="col-lg-11 mx-auto table table-borderless table-hover">
+                                        <table class="col-lg-12 table table-borderless table-hover">
 
                                             <thead>
 
