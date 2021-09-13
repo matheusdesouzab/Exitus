@@ -109,7 +109,7 @@ class StudentEnrollment extends Model
     public function studentSituation()
     {
 
-        return $this->speedingUp("SELECT id_situacao_aluno AS id , situacao_aluno AS student_situation FROM situacao_aluno");
+        return $this->speedingUp("SELECT id_situacao_aluno AS option_value , situacao_aluno AS option_text FROM situacao_aluno_ano_letivo");
     }
 
 }

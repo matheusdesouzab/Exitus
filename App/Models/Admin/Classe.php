@@ -235,6 +235,7 @@ class Classe extends Model
             cedula_turma.cedula AS ballot , 
             cedula_turma.id_cedula_turma AS ballotId ,
             curso.sigla AS course , 
+            curso.nome_curso AS courseName ,
             curso.id_curso AS courseId,
             turno.nome_turno AS shift , 
             turno.id_turno AS shiftId ,
@@ -384,7 +385,7 @@ class Classe extends Model
 
             turma.fk_id_curso = :fk_id_course
             
-            AND CASE WHEN :fk_id_series = 1 THEN turma.fk_id_serie = 2 ELSE turma.fk_id_serie = 3 END
+            AND turma.fk_id_serie BETWEEN :fk_id_series AND :fk_id_series_new
 
             AND situacao_periodo_letivo.id_situacao_periodo_letivo = 3
             
@@ -394,6 +395,7 @@ class Classe extends Model
 
         $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
         $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
+        $stmt->bindValue(":fk_id_series_new", $this->__get("fk_id_series") + 1);
 
         $stmt->execute();
 
@@ -433,7 +435,7 @@ class Classe extends Model
             
             AND turma.fk_id_curso = :fk_id_course
             
-            AND turma.fk_id_serie = :fk_id_series
+            AND turma.fk_id_serie = :fk_id_series 
         
         ";
 

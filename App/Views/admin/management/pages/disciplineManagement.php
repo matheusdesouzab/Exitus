@@ -32,7 +32,7 @@
             </div>
 
 
-            <div class="col-lg-12 card">
+            <div class="col-lg-12 card mb-4">
 
                 <div class="collapse show" id="list-subjects" data-parent="#discipline-accordion">
 

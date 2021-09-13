@@ -72,6 +72,14 @@ $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function
 })
 
 
+$(document).on('click', '#updateStudentPortalData', function(e){
+
+    application.updateElement("#formSettingsStudent", "/portal-aluno/configuracoes/atualizar", "Configurações atualizadas")
+    location.reload()
+
+})
+
+
 $("#schoolTerm #buttonAddSchoolTerm").on("click", function () {
 
     tools.automaticDate()
@@ -122,7 +130,7 @@ $("#course #buttonAddCourse").on("click", function (e) {
 })
 
 
-$(document).on("click","#buttonAddRematrung", function (e) {
+$(document).on("click", "#buttonAddRematrung", function (e) {
 
     application.addSinglePart("#addRematrung", "/admin/gestao/turma/perfil-turma/rematricular", "Aluno rematrículado")
 
@@ -320,7 +328,7 @@ $(document).on("click", "#profileStudentModal [data-target='#class-profile-bulle
 })
 
 
-$('#studentPortal  [data-target="#bulletin"]').on('click', function(e){
+$('#studentPortal  [data-target="#bulletin"]').on('click', function (e) {
     application.loadListElements("containerBulletin", "/admin/gestao/turma/perfil-turma/aluno/boletim")
 })
 
@@ -363,7 +371,7 @@ $(document).on("change", "#addDisciplineFinalData .form-control", function (e) {
 })
 
 
-$(document).on("click", ".refesh-data-icon", function(e){
+$(document).on("click", ".refesh-data-icon", function (e) {
     management.disciplineFinalData($(this).attr('form'))
 })
 
@@ -472,6 +480,24 @@ $(document).on("click", "#navbar-top #settings", function () {
 $(document).on("click", "#navbar-top #settingsTeacherPortal", function () {
 
     application.showModal(0, "/portal-docente/configuracoes", "containerSettingsModal", "#settingsModal")
+
+})
+
+
+$('#settingsModal , #profileStudentModal').on('show.bs.modal', function(e){
+     
+    $('#cpf').mask("000.000.000-00")
+    $('#zipCode').mask("00000-000")
+    $('#accessCode').mask("000.000")
+    $('#telephoneNumber').mask(("(00) 00000-0000"))
+    $('#totalLack').mask(("00"))
+    
+})
+
+
+$("#studentPortalNavbar img").on("click", function(e){
+
+    application.showModal(0, "/portal-aluno/configuracoes", "containerSettingsModal", "#settingsModal")
 
 })
 

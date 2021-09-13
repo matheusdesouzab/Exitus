@@ -64,7 +64,7 @@
 
                         <div class="row">
 
-                            <span class="col-12 mx-auto"><?= $this->view->classData[0]->series_acronym ?>ª <?= $this->view->classData[0]->ballot ?> <?= $this->view->classData[0]->course ?> <?= $this->view->classData[0]->shift ?> - Período letivo 2021</span>
+                            <span class="col-12 mx-auto"><?= $this->view->classData[0]->series_acronym ?>ª <?= $this->view->classData[0]->ballot ?> <?= $this->view->classData[0]->course ?> <?= $this->view->classData[0]->shift ?> - Período Letivo  <?= $this->view->classData[0]->school_term ?></span>
 
                         </div>
                     </div>

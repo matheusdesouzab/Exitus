@@ -1,4 +1,4 @@
-<div class="row mb-4 d-flex justify-content-around" id="main-accordion-class">
+<div class="row mb-4 d-flex justify-content-around" id="main-accordion-settings">
 
     <div class="col-lg-3 col-11 mx-auto modal-sidebar">
 
@@ -112,7 +112,7 @@
 
         <div class="row">
 
-            <div class="col-lg-11 mx-auto collapse" id="accordion-settings" data-parent="#main-accordion-class">
+            <div class="col-lg-11 mx-auto collapse" id="accordion-settings" data-parent="#main-accordion-settings">
 
                 <div class="row">
 
@@ -188,7 +188,7 @@
 
             <?php foreach ($this->view->Data as $key => $admin) { ?>
 
-                <div class="col-lg-11 mx-auto collapse show" id="accordion-data-admin" data-parent="#main-accordion-class">
+                <div class="col-lg-11 mx-auto collapse show" id="accordion-data-admin" data-parent="#main-accordion-settings">
 
                     <form id="adminDate<?= $admin->id ?>" class="col-lg-12" action="">
 

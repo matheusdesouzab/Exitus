@@ -282,7 +282,11 @@ class Note extends Model
 
             if (!in_array($exam->exam_id, $allExamId)) {
 
-                $pointsOrTenths = $exam->exam_value > 1 ? " pontos" : " décimos";
+                switch($exam->exam_value){
+                    case $exam->exam_value > 1: $pointsOrTenths = " pontos" ; break;
+                    case $exam->exam_value < 1: $pointsOrTenths = " décimos" ; break;
+                    case $exam->exam_value == 1: $pointsOrTenths = " ponto" ; break;
+                }
 
                 $description = $exam->discipline_name . ' - ' . $exam->exam_description . ' - ' . $exam->unity . ' unidade - ' . $exam->exam_value . $pointsOrTenths;
 

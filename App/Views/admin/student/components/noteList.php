@@ -26,7 +26,7 @@
     <?php } ?>
 
     <tr class="mt-4">
-        <td class="font-weight-bold" colspan="4" style="pointer-events:none"><?= count($this->view->listNote) ?> notas listados <i class="fas fa-history ml-2"></i></td>
+        <td class="font-weight-bold" colspan="4" style="pointer-events:none"><?= count($this->view->listNote) ?> notas listadas <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 

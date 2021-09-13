@@ -161,31 +161,6 @@ class Exam extends Model
     public function update()
     {
 
-        $currentValueNote = "SELECT avaliacoes.valor_avaliacao AS exam_value FROM avaliacoes WHERE avaliacoes.id_avaliacao = :examId ";
-        $stmt = $this->db->prepare($currentValueNote);
-        $stmt->bindValue(':examId', $this->__get('examId'));
-        $stmt->execute();
-        $currentValueNote = $stmt->fetchAll(\PDO::FETCH_OBJ);
-
-
-        if ($this->__get('examValue') != $currentValueNote[0]->exam_value) {
-
-            $updateNotes =
-
-                "UPDATE nota_avaliacao
-
-                SET nota_avaliacao.valor_nota = ROUND( (nota_avaliacao.valor_nota / " . $currentValueNote[0]->exam_value . ") * " . $this->__get('examValue') . " , 1 )
-
-                WHERE nota_avaliacao.fk_id_avaliacao = :examId
-                
-            ";
-
-            $stmt = $this->db->prepare($updateNotes);
-
-            $stmt->bindValue(':examId', $this->__get('examId'));
-            $stmt->execute();
-        }
-
         $query =
 
             "UPDATE avaliacoes SET

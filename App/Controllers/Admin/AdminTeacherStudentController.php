@@ -420,6 +420,7 @@ class AdminTeacherStudentController extends Action
     {
 
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+        $Student = Container::getModel('Student\\Student');
         $Lack = Container::getModel('TeacherStudent\\Lack');
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
@@ -432,11 +433,13 @@ class AdminTeacherStudentController extends Action
         $ClassDiscipline->__set("fk_id_class", !isset($_GET['classId']) ? $_SESSION['Student']['classId'] : $_GET['classId']);
         $ClassDiscipline->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
         $DisciplineAverage->__set('fk_id_enrollment', !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId']);
+        $Student->__set('fk_id_enrollmentId', !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId']);
 
         $this->view->bulletin = $StudentEnrollment->bulletin();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->lackList = $Lack->list();
         $this->view->disciplineAverageList = $DisciplineAverage->list();
+        $this->view->enrollmentId = $Student->list('<> 0');
 
         $this->render('student/components/bulletin', 'SimpleLayout');
     }

@@ -54,12 +54,14 @@ class StudentPortalController extends Action
     public function home()
     {
 
+        $Student = Container::getModel('Student\\Student');
         $Note = Container::getModel('TeacherStudent\\Note');
         $Observation = Container::getModel('TeacherStudent\\Observation');
         $Lack = Container::getModel('TeacherStudent\\Lack');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
         $StudentRematrug = Container::getModel('Student\\StudentRematrug');
         $Settings = Container::getModel('Admin\\Settings');
+        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
 
         if (!isset($_SESSION)) session_start();
 
@@ -68,6 +70,7 @@ class StudentPortalController extends Action
         $Lack->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
         $DisciplineAverage->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
         $StudentRematrug->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
+        $Student->__set('fk_id_enrollmentId', $_SESSION['Student']['enrollmentId']);
 
         $this->view->listNote = $Note->list();
         $this->view->listObservation = $Observation->list();
@@ -76,6 +79,8 @@ class StudentPortalController extends Action
         $this->view->rematrugSituationList = $StudentRematrug->rematrugSituation();
         $this->view->checkForRegistration = $StudentRematrug->checkForRegistration();
         $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
+        $this->view->schoolTermActive = $SchoolTerm->active();
+        $this->view->studentDataGeneral = $Student->list("<> 0");
 
         $this->render("pages/home", "SimpleLayout", "studentPortal");
     }
@@ -90,6 +95,46 @@ class StudentPortalController extends Action
         $StudentRematrug->__set('fk_id_enrollment', $_POST['enrollmentId']);
 
         $StudentRematrug->insert();
+    }
+
+
+    public function settings()
+    {
+
+
+        $Student = Container::getModel('Student\\Student');
+
+        if (!isset($_SESSION)) session_start();
+
+        $Student->__set('studentId', $_SESSION['Student']['id']);
+
+        $this->view->studentProfile = $Student->dataGeneral();
+        $this->view->availableSex = $Student->availableSex();
+        $this->view->pcd = $Student->pcd();
+        $this->view->bloodType = $Student->bloodType();
+        $this->view->studentEnrollment = $Student->list("<> 0");
+
+        $this->render('pages/settings', 'SimpleLayout', 'studentPortal');
+    }
+
+
+    public function updateSettings()
+    {
+
+        $Student = Container::getModel('Student\\Student');
+        $Classe = Container::getModel('Admin\\Classe');
+
+        if (!isset($_SESSION)) session_start();
+
+        $_SESSION['Student']['enrollmentId'] = $_POST['enrollmentId'];
+        $Student->__set('fk_id_enrollmentId',  $_SESSION['Student']['enrollmentId']);
+        $class = $Student->list('<> 0');
+
+        $_SESSION['Student']['classId'] = $class[0]->class_id;
+        $Classe->__set('classId', $class[0]->class_id);
+        $class0 = $Classe->list("<> 0");
+
+        $_SESSION['Student']['class'] = $class0[0]->seriesId . 'ª ' . $class0[0]->ballot . ' - ' . $class0[0]->courseName . ' - ' . $class0[0]->shift; 
     }
 
 

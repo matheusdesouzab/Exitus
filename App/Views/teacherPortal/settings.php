@@ -74,26 +74,6 @@
 
                     </div>
 
-                    <form id="formUpdateProfilePhoto" method="POST" enctype="multipart/form-data">
-
-                        <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" id="">
-
-                        <input type="hidden" id="id" value="<?= $this->view->Data[0]->teacher_id ?>" name="id">
-
-                        <input type="hidden" id="oldPhoto" name="oldPhoto" value="<?= $this->view->Data[0]->profilePhoto ?>">
-
-                        <div class="row">
-
-                            <div class="col-lg-12 mt-3 d-flex justify-content-end">
-
-                                <button id="updateImg" type='submit' disabled class="btn btn-success">Atualizar foto</button>
-
-                            </div>
-
-                        </div>
-
-                    </form>
-
                 </div>
 
 

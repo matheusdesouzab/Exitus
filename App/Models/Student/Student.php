@@ -11,6 +11,8 @@ class Student extends People
     private $fatherName;
     private $motherName;
     private $fk_id_class = 0;
+    private $fk_id_enrollmentId = 0;
+    private $fk_id_general_situation;
 
 
     public function __get($att)
@@ -82,7 +84,8 @@ class Student extends People
             fk_id_tipo_sanguineo_aluno = :fk_id_blood_type, 
             fk_id_aluno_pcd = :fk_id_pcd , 
             data_nascimento_aluno = :birthDate ,
-            email_aluno = :email
+            email_aluno = :email ,
+            fk_id_situacao_geral_aluno = :fk_id_general_situation
          
             WHERE id_aluno = :studentId 
         
@@ -102,6 +105,7 @@ class Student extends People
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
         $stmt->bindValue(':studentId', $this->__get('studentId'));
         $stmt->bindValue(':email', $this->__get('email'));
+        $stmt->bindValue(':fk_id_general_situation', $this->__get('fk_id_general_situation'));
 
         $stmt->execute();
     }
@@ -114,6 +118,73 @@ class Student extends People
 
             "SELECT 
             
+            aluno.id_aluno AS student_id , 
+            aluno.nome_aluno AS student_name , 
+            aluno.cpf_aluno AS student_cpf , 
+            aluno.foto_perfil_aluno AS profilePhoto , 
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            curso.nome_curso AS courseName ,
+            turno.nome_turno AS shift , 
+            numero_sala_aula.numero_sala_aula AS number_classroom , 
+            situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
+            situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
+            turma.id_turma AS class_id,
+            matricula.id_matricula AS enrollmentId ,
+            situacao_periodo_letivo.id_situacao_periodo_letivo AS schoolTermSituation ,
+            periodo_disponivel.ano_letivo AS schoolYear
+            
+            FROM aluno 
+
+            INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
+            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno) 
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula)         
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+
+            WHERE CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> 0 ELSE turma.id_turma = :fk_id_class END
+
+            AND
+
+            CASE WHEN :studentId = 0 THEN aluno.id_aluno <> 0 ELSE aluno.id_aluno = :studentId END       
+
+            AND 
+            
+            situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation
+
+            AND 
+
+            CASE WHEN :fk_id_enrollmentId = 0 THEN matricula.id_matricula <> 0 ELSE matricula.id_matricula = :fk_id_enrollmentId END
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':studentId', $this->__get('studentId'));
+        $stmt->bindValue(':fk_id_enrollmentId', $this->__get('fk_id_enrollmentId'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function dataGeneral()
+    {
+
+        $query =
+
+            "SELECT 
+                
             aluno.id_aluno AS student_id , 
             aluno.nome_aluno AS student_name , 
             aluno.cpf_aluno AS student_cpf , 
@@ -137,18 +208,12 @@ class Student extends People
             endereco.endereco AS student_address , 
             endereco.uf AS student_uf , 
             endereco.municipio AS student_county , 
-            serie.sigla AS acronym_series , 
-            cedula_turma.cedula AS ballot , 
-            curso.sigla AS course , 
-            turno.nome_turno AS shift , 
-            numero_sala_aula.numero_sala_aula AS number_classroom , 
-            situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
-            situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
             endereco.id_endereco as address_id , 
             telefone.id_telefone AS telephone_id ,
-            turma.id_turma AS class_id,
-            matricula.id_matricula AS enrollmentId,
-            email_aluno AS email
+            email_aluno AS email ,
+            situacao_geral_aluno.situacao_geral AS general_student_situation ,
+            situacao_geral_aluno.id_situacao_geral AS general_student_situation_id ,
+            hierarquia_funcao.hierarquia_funcao AS hierarchyFunction 
             
             FROM aluno 
 
@@ -156,33 +221,17 @@ class Student extends People
             INNER JOIN pcd ON(aluno.fk_id_aluno_pcd = pcd.id_pcd ) 
             INNER JOIN tipo_sanguineo ON(tipo_sanguineo.id_tipo_sanguineo = aluno.fk_id_tipo_sanguineo_aluno) 
             INNER JOIN telefone ON(aluno.fk_id_telefone_aluno = telefone.id_telefone) 
-            INNER JOIN endereco ON(aluno.fk_id_endereco_aluno = endereco.id_endereco) 
-            INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
-            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno) 
-            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
-            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
-            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
-            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
-            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
-            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
-            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula)         
-            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
-            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
-
-            WHERE CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> 0 ELSE turma.id_turma = :fk_id_class END
-
-            AND
-
-            CASE WHEN :studentId = 0 THEN aluno.id_aluno <> 0 ELSE aluno.id_aluno = :studentId END       
-
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation
+            INNER JOIN endereco ON(aluno.fk_id_endereco_aluno = endereco.id_endereco)
+            INNER JOIN situacao_geral_aluno ON(aluno.fk_id_situacao_geral_aluno = situacao_geral_aluno.id_situacao_geral)
+            INNER JOIN hierarquia_funcao ON(aluno.fk_id_aluno_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao)
+            
+            WHERE aluno.id_aluno = :id
             
         ";
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-        $stmt->bindValue(':studentId', $this->__get('studentId'));
+        $stmt->bindValue(':id', $this->__get('studentId'));
 
         $stmt->execute();
 
@@ -300,7 +349,11 @@ class Student extends People
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
                                    
-            WHERE codigo_acesso = :accessCode AND nome_aluno = :studentName AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+            WHERE codigo_acesso = :accessCode AND nome_aluno = :studentName
+            
+            ORDER BY serie.id_serie DESC
+            
+            LIMIT 1
         
         ";
 
@@ -315,5 +368,9 @@ class Student extends People
     }
 
 
-   
+    public function generalSituationStudent()
+    {
+
+        return $this->speedingUp("SELECT id_situacao_geral AS option_value , situacao_geral AS option_text FROM situacao_geral_aluno;");
+    }
 }

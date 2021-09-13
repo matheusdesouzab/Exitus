@@ -25,19 +25,50 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
             <div class="col-lg-12 p-0" id="studentPortal-accordion">
 
-                <nav id="studentPortalNavbar" class="navbar navbar-expand-lg col-lg-12 d-flex justify-content-between">
+                <nav id="studentPortalNavbar" class="navbar navbar-expand-lg">
 
-                    <b class="navbar-brand" href="#"><?= $_SESSION['Student']['class'] ?></b>
+                    <a class="navbar-brand" href="#"><?= $_SESSION['Student']['class'] ?></a>
 
-                    <div class="navbar-nav d-flex justify-content-center" style="margin-left:-18vw">
-                        <a class="nav-link" aria-expanded="true" href="#" data-toggle="collapse" data-target="#mural">Mural</a>
-                        <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin">Boletim</a>
-                        <a class="nav-link" href="/portal-aluno/sair">Ranking</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+
+                        <ul class="navbar-nav ml-auto d-flex align-items-center">
+                            <li class="nav-item active">
+                                <a class="nav-link" aria-expanded="true" href="#" data-toggle="collapse" data-target="#mural">Mural</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin">Boletim</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/portal-aluno/sair">Ranking</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img class="" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg"></a>
+                            </li>
+                        </ul>
+
                     </div>
-
-                    <img class="" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg">
-
                 </nav>
+                
+
+                <div class="modal fade modal-profile" id="settingsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+
+					<div class="modal-dialog modal-xl">
+						<div class="modal-content">
+							<div class="row">
+								<div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#settingsModal">
+										<span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+									</button></div>
+							</div>
+
+							<div containerSettingsModal class="modal-body"></div>
+						</div>
+					</div>
+				</div>
 
                 <div class="col-lg-12">
 
@@ -46,8 +77,6 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                         <div class="col-lg-10 mx-auto">
 
                             <div class="row mt-4 d-flex justify-content-center">
-
-                              
 
                                 <div class="col-md-10">
 
@@ -87,7 +116,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         ?>
 
-                                        <?php if (count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1) { ?>
+                                        <?php if (count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1 && $this->view->studentDataGeneral[0]->schoolTermSituation == 1) { ?>
 
                                             <div class="col-lg-11 ml-auto card mb-3">
 

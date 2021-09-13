@@ -4,7 +4,7 @@
 
         <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
-        <tr class="" id="aluno<?= $student->student_id ?>" style="">
+        <tr class="" id="aluno<?= $student->enrollmentId ?>" style="">
 
             <td class="text-right">
                 <img src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>

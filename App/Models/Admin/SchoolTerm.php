@@ -108,8 +108,6 @@ class SchoolTerm extends Model
              periodo_letivo.fk_id_situacao_periodo_letivo = CASE
 
              WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 1 THEN 1
-
-             WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 3 THEN 3
             
              ELSE :fk_id_school_term_situation
             

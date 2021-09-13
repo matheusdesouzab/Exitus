@@ -91,13 +91,18 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
+        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Lack = Container::getModel('TeacherStudent\\Lack');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
 
-        $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
+        $Student->__set('fk_id_enrollmentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
-        $this->view->studentProfile = $Student->list();
+        $this->view->studentDataEnrollment = $Student->list("<> 0");
+
+        $Student->__set('studentId', $this->view->studentDataEnrollment[0]->student_id);
+
+        $this->view->studentDataGeneral = $Student->dataGeneral();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->unity = $Exam->unity();
@@ -107,13 +112,15 @@ class AdminStudentController extends Action
         if (!isset($_SESSION)) session_start();
 
         $ClassDiscipline->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $ClassDiscipline->__set("fk_id_class", $this->view->studentProfile[0]->class_id);
-        $Lack->__set('fk_id_enrollment', $this->view->studentProfile[0]->enrollmentId);
+        $ClassDiscipline->__set("fk_id_class", $this->view->studentDataEnrollment[0]->class_id);
+        $Lack->__set('fk_id_enrollment', $this->view->studentDataEnrollment[0]->enrollmentId);
 
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->lackList = $Lack->list();
         $this->view->listSubtitles = $DisciplineAverage->availableSubtitles();
-        $this->view->listStudentSituation = $StudentEnrollment->studentSituation();
+        $this->view->studentSituation = $StudentEnrollment->studentSituation();
+        $this->view->schoolTermActive = $SchoolTerm->active();
+        $this->view->generalSituationStudent = $Student->generalSituationStudent();
 
         $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }
@@ -151,6 +158,7 @@ class AdminStudentController extends Action
         $Student->__set('fk_id_blood_type', $_POST['bloodType']);
         $Student->__set('fk_id_pcd', $_POST['pcd']);
         $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
+        $Student->__set('fk_id_general_situation', $_POST['situationStudentGeneral']);
 
         $StudentEnrollment->__set('id', $_POST['enrollmentId']);
         $StudentEnrollment->__set('fk_id_student_situation', $_POST['situationStudent']);

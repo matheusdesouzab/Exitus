@@ -465,7 +465,7 @@ class AdminManagementController extends Action
         $Student = Container::getModel('Student\\Student');
 
         $Classe->__set('fk_id_course', $_GET['course']);
-        $Classe->__set('fk_id_series', $_GET['series'] + 1);
+        $Classe->__set('fk_id_series', $_GET['series']);
         $Student->__set('fk_id_class', $_GET['classId']);
 
         $this->view->studentsAlreadyRegisteredNextYear = $Classe->studentsAlreadyRegisteredNextYear();

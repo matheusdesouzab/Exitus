@@ -171,7 +171,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
                             </div>
-                            <input type="text" id="nationality" name="nationality" disabled class="form-control" value="<?= $teacher->teacher_nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" id="nationality" name="nationality" disabled class="form-control" value="<?= $teacher->teacher_nationality ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
                         <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">

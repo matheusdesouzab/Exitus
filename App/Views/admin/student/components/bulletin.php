@@ -112,6 +112,17 @@
 
             </tbody>
 
+            <tfoot>
+
+                <tr>
+                    <td colspan="9" class="text-center">Situação do aluno(a): <?= $this->view->enrollmentId[0]->student_situation ?></td>
+                  
+                </tr>
+
+            </tfoot>
+
+            </tbody>
+
         </table>
 
     </div>

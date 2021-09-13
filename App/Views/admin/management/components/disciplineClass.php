@@ -26,7 +26,7 @@ if (count($this->view->listTeacher) >= 1) {
             </div>
 
             <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
-                <div class="form-group col-lg-5">
+                <div class="form-group col-lg-6">
                     <label for="">Professor:</label>
                     <select id="teacher" disabled name="teacher" class="form-control custom-select" required>
 
@@ -43,7 +43,7 @@ if (count($this->view->listTeacher) >= 1) {
 
 
                 </div>
-                <div class="form-group col-lg-7">
+                <div class="form-group col-lg-6">
                     <label for="">Disciplina:</label>
                     <select id="discipline" disabled name="discipline" class="form-control custom-select" required style="pointer-events:none">
 

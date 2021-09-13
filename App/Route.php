@@ -745,6 +745,18 @@ class Route extends Bootstrap
 				'action' => 'sendRematriumRequest'
 			);
 
+			$routes['StudentPortalSettings'] = array(
+				'route' => '/portal-aluno/configuracoes',
+				'controller' => 'StudentPortal\\StudentPortalController',
+				'action' => 'settings'
+			);
+
+			$routes['StudentPortalUpdateSettings'] = array(
+				'route' => '/portal-aluno/configuracoes/atualizar',
+				'controller' => 'StudentPortal\\StudentPortalController',
+				'action' => 'updateSettings'
+			);
+
 
 			// ---------------------------------
 

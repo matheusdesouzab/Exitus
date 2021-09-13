@@ -1,6 +1,6 @@
 <div class="row mb-4 d-flex justify-content-center" id="main-accordion-student">
 
-    <?php foreach ($this->view->studentProfile as $key => $student) { ?>
+    <?php foreach ($this->view->studentDataGeneral as $key => $student) { ?>
 
         <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
@@ -10,18 +10,29 @@
 
                 <div class="col-lg-12">
 
+
                     <div class="row">
 
                         <img class="mx-auto mb-2" src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
                         <div class="col-lg-12 main-sheet d-block d-sm-none">
-                            <div class="row p-3"><span class="col-lg-12"><?= $student->student_name ?> - <?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift ?></span></div>
+                            <div class="row p-3"><span class="col-lg-12"><?= $student->student_name ?> - <?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span></div>
                         </div>
 
                         <div class="col-lg-12 main-sheet d-none d-sm-block">
                             <div class="row p-3">
                                 <span class="col-lg-12"><?= $student->student_name ?></span>
-                                <span class="col-lg-12"><?= $student->acronym_series ?> <?= $student->ballot ?> - <?= $student->course ?> - <?= $student->shift ?></span>
+
+                                <?php if ($this->view->schoolTermActive[0]->option_value ==  $this->view->studentDataEnrollment[0]->schoolTermSituation) { ?>
+
+                                    <span class="col-lg-12"><?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span>
+
+                                <?php } else { ?>
+
+                                    <span class="col-lg-12"><?= $student->general_student_situation ?></span>
+
+                                <?php } ?>
+
                             </div>
                         </div>
 
@@ -37,15 +48,19 @@
 
                                     <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-student">Dados do aluno</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">Avaliações</a>
+                                    <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->schoolTermSituation) { ?>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin">Boletim</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">Avaliações</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">Faltas</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin">Boletim</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData">Média final</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">Faltas</a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">Observações</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData">Média final</a>
+
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">Observações</a>
+
+                                    <?php } ?>
 
 
                                 </ul>
@@ -120,7 +135,7 @@
                         <input type="hidden" value="<?= $student->student_id ?>" name="id">
                         <input type="hidden" value="<?= $student->telephone_id ?>" name="telephoneId">
                         <input type="hidden" value="<?= $student->address_id ?>" name="addressId">
-                        <input value="<?= $student->enrollmentId ?>" type="hidden" name="enrollmentId">
+                        <input value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
                         <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
 
@@ -136,7 +151,10 @@
 
                                     ?>
 
+                                        <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->schoolTermSituation) { ?>
+
                                         <div class="col-lg-4 d-flex justify-content-end">
+                                            
 
                                             <span idElement="#studentModal<?= $student->student_id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
@@ -144,7 +162,7 @@
 
                                         </div>
 
-                                    <?php } ?>
+                                    <?php }} ?>
 
                                 </div>
 
@@ -258,7 +276,7 @@
                                         <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
                                 <?php }
                                 } ?>
-                            </select>                     
+                            </select>
 
                         </div>
 
@@ -330,30 +348,45 @@
                         </div>
 
 
-                        <h5 class="mt-5 mb-3 ml-4">Curso e turma:</h5>
+                        <h5 class="mt-5 mb-3 ml-4">Status do aluno:</h5>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Situação atual no período letivo:</span>
+                                <span class="input-group-text" id="addon-wrapping">Situação atual na escola:</span>
                             </div>
-                            <select id="situationStudent" name="situationStudent" disabled class="form-control custom-select">
-                                <option value="<?= $student->student_situation_id ?>"><?= $student->student_situation ?></option>
-                                <?php foreach ($this->view->listStudentSituation as $key => $situation) { ?>
-                                    <?php if ($situation->id != $student->student_situation_id) { ?>
-                                        <option value="<?= $situation->id ?>"><?= $situation->student_situation ?></option>
+
+                            <select id="situationStudentGeneral" name="situationStudentGeneral" disabled class="form-control custom-select">
+                                <option value="<?= $student->general_student_situation_id ?>"> <?= $student->general_student_situation ?> </option>
+                                <?php foreach ( $this->view->generalSituationStudent as $key => $value) { ?>
+                                    <?php if ($value->option_value != $student->general_student_situation_id) { ?>
+                                        <option value="<?= $value->option_value ?>"><?= $value->option_text ?></option>
                                 <?php }
                                 } ?>
                             </select>
+
+                          
                         </div>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
+
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="addon-wrapping">Turma:</span>
+                                <span class="input-group-text" id="addon-wrapping">Situação atual no período letivo:</span>
                             </div>
-                            <input type="text" disabled class="form-control" value="<?= $student->acronym_series ?> <?= $student->ballot ?> -  <?= $student->course ?> - <?= $student->shift ?>" aria-label="Username" aria-describedby="addon-wrapping">
+
+                            <select id="situationStudent" name="situationStudent" disabled class="form-control custom-select">
+                                <option value="<?= $this->view->studentDataEnrollment[0]->student_situation_id ?>"><?= $this->view->studentDataEnrollment[0]->student_situation ?></option>
+                                <?php foreach ($this->view->studentSituation as $key => $value) { ?>
+                                    <?php if ($value->option_value != $this->view->studentDataEnrollment[0]->student_situation_id) { ?>
+                                        <option value="<?= $value->option_value ?>"><?= $value->option_text ?></option>
+                                <?php }
+                                } ?>
+                            </select>
+
+                           
                         </div>
 
-                        
+
 
                     <?php } ?>
 
@@ -393,7 +426,7 @@
 
                                     <form id="seekNoteExamStudent" class="mt-3 col-lg-12 text-dark" action="">
 
-                                        <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                        <input value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
                                         <div class="form-row mt-3">
 
@@ -402,7 +435,7 @@
                                                 <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
                                             </div>
 
-                                            <input type="hidden" value="<?= $this->view->studentProfile[0]->class_id ?>" name="classId">
+                                            <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->class_id ?>" name="classId">
 
 
                                             <div class="form-group col-lg-4">
@@ -468,8 +501,8 @@
 
                                     <form id="addNote" class="col-lg-12" action="">
 
-                                        <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
-                                        <input value="<?= $this->view->studentProfile[0]->class_id ?>" type="hidden" name="classId">
+                                        <input value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                        <input value="<?= $this->view->studentDataEnrollment[0]->class_id ?>" type="hidden" name="classId">
 
                                         <div class="form-row mt-3">
 
@@ -543,7 +576,7 @@
 
                                     <form id="addDisciplineFinalData" class="col-lg-12" action="">
 
-                                        <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                        <input value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
                                         <input value="" type="hidden" name="average" id="average">
 
                                         <div class="form-row">
@@ -645,7 +678,7 @@
 
                                     <form id="addObservation" class="col-lg-12" action="">
 
-                                        <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                        <input value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
                                         <div class="form-row mt-3">
 
@@ -749,7 +782,7 @@
 
                                             <form id="seekLackStudent" class="mt-3 col-lg-12 text-dark" action="">
 
-                                                <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                                <input value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
                                                 <div class="form-row mt-3">
 
@@ -837,8 +870,8 @@
 
                                         <form id="addLack" action="" class="col-lg-12">
 
-                                            <input value="<?= $this->view->studentProfile[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
-                                            <input type="hidden" value="<?= $this->view->studentProfile[0]->class_id ?>" name="classId">
+                                            <input value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
+                                            <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->class_id ?>" name="classId">
 
                                             <div class="form-row mt-3">
 
