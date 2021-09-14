@@ -7,8 +7,8 @@
             <tr>
                 <th scope="col">Descrição</th>
                 <th scope="col">Disciplina</th>
-                <th scope="col">UE</th>
-                <th scope="col">Valor</th>
+                <th class="text-center" scope="col">UE</th>
+                <th class="text-center" scope="col">Valor</th>
             </tr>
         </thead>
         <tbody>
@@ -22,18 +22,38 @@
                     <tr id="exam<?= $exam->exam_id ?>">
                         <td><?= $exam->exam_description ?></td>
                         <td><?= $exam->discipline_name ?></td>
-                        <td><?= $exam->unity ?></td>
-                        <td><?= $exam->exam_value ?></td>
+                        <td class="text-center"><?= $exam->unity ?></td>
+                        <td class="text-center"><?= $exam->exam_value ?></td>
                     </tr>
 
                     <?php $sum += $exam->exam_value ?>
 
                 <?php } ?>
 
-                <?php if (isset($this->view->typeListExam) && $this->view->typeListExam[0] != 'recent') { ?>
+                <tr class="mt-4">
+                    <td class="font-weight-bold" colspan="5" style="pointer-events:none"><?= count($this->view->listExam) ?> exames listados <i class="fas fa-history ml-2"></i></td>
+                </tr>
+
+                <?php if (isset($this->view->typeListExam) && $this->view->typeListExam[0] != 'recent') {
+
+                    $pointsOrTenths = '';
+
+                    switch ($sum) {
+                        case $sum > 1:
+                            $pointsOrTenths = " pontos";
+                            break;
+                        case $sum < 1:
+                            $pointsOrTenths = " décimos";
+                            break;
+                        case $sum == 1:
+                            $pointsOrTenths = " ponto";
+                            break;
+                    }
+
+                ?>
 
                     <tr>
-                        <td class="" colspan="5"> <i class="far fa-sticky-note mr-3"></i> <?= $sum ?> pontos já atribuidos na <?= $this->view->listExam[0]->unity ?> unidade de <?= $this->view->listExam[0]->discipline_name ?> ( Restam <?= 10 - $sum ?> )</td>
+                        <td class="" colspan="5"> <i class="far fa-sticky-note mr-3"></i> <?= $sum ?> pontos já atribuidos na <?= $this->view->listExam[0]->unity ?> unidade de <?= $this->view->listExam[0]->discipline_name ?> ( Restam <?= 10 - $sum ?> <?= $pointsOrTenths ?> )</td>
                     </tr>
 
                 <?php }

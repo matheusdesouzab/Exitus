@@ -459,6 +459,8 @@
 
                                     <select id="unity" class="form-control custom-select" name="unity" required>
 
+                                        <option value="0">Todas</option>
+
                                         <?php foreach ($this->view->unity as $key => $unity) { ?>
 
                                             <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
@@ -496,9 +498,8 @@
                             <thead>
                                 <tr>
                                     <th scope="col" colspan="2">Nome do aluno</th>
-                                    <th scope="col">Descrição da avaliação</th>
-                                    <th scope="col">Disciplina</th>
                                     <th scope="col">Resultado</th>
+                                    <th scope="col">Descrição da avaliação</th>
                                 </tr>
                             </thead>
                             <tbody containerListNote></tbody>

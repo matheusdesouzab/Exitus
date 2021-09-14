@@ -180,7 +180,7 @@ class DisciplineAverage extends Model
     public function update()
     {
 
-        $query = "UPDATE media_disciplina SET fk_id_legenda = :fk_id_subtitle , media = :average WHERE media_disciplina.id_media_disciplina = :disciplineAverageId";
+        $query = "UPDATE media_disciplina SET fk_id_legenda = :fk_id_subtitle , nota_valor = :average WHERE media_disciplina.id_media_disciplina = :disciplineAverageId";
 
         $stmt = $this->db->prepare($query);
 

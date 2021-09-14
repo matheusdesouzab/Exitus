@@ -30,9 +30,9 @@
         if (array_key_exists($lack->disciplineName, $disciplineId)) {
             if ($lack->unity == 1) {
                 $disciplineId[$lack->disciplineName]['faltas']['I'] = $lack->totalLack;
-            } else if ($bulletin->unity == 2) {
+            } else if ($lack->unity == 2) {
                 $disciplineId[$lack->disciplineName]['faltas']['II'] = $lack->totalLack;
-            } else if ($bulletin->unity == 3) {
+            } else if ($lack->unity == 3) {
                 $disciplineId[$lack->disciplineName]['faltas']['III'] = $lack->totalLack;
             }
         }

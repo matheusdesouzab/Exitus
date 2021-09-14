@@ -22,13 +22,19 @@
         #profileClassModal {
 
             #note-table-class {
-                width: 900px;
-                font-size: 15px;
+                width: 800px;
 
                 td,
                 th {
                     text-align: left;
+                    font-size: 12px;
                 }
+            }
+        }
+
+        #note-table{
+            td,th{
+                text-align: left;
             }
         }
 
@@ -222,9 +228,9 @@
         #tableListExam {
             font-size: 15px;
 
-            td {
+            td,th {
                 margin: 3px;
-                text-align: center;
+                text-align: left;
             }
         }
 

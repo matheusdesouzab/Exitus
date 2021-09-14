@@ -484,9 +484,8 @@
                                         <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover" id="note-table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Avaliação</th>
-                                                    <th scope="col">Disciplina</th>
                                                     <th scope="col">Resultado</th>
+                                                    <th scope="col">Avaliação</th>
                                                 </tr>
                                             </thead>
                                             <tbody containerListNote></tbody>

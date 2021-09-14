@@ -30,6 +30,7 @@ foreach ($studentsRematrung as $key => $value) {
     $value['status'] == 'Efetivada' ?  $studentsRematrungSuccess++ : '';
 }
 
+
 ?>
 
 <table class="table table-hover mt-3 table-borderless">

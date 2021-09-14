@@ -191,7 +191,7 @@ class Exam extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(':examId', $this->__get('id'));
+        $stmt->bindValue(':examId', $this->__get('examId'));
 
         $stmt->execute();
     }

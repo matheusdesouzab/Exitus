@@ -52,7 +52,7 @@ class Tools {
 
         $('.toast-data').text(description)
 
-        $('.toast-header').removeClass('bg-success bg-danger bg-primary').addClass(background)
+        $('.toast-header').removeClass('bg-success bg-danger bg-primary bg-info').addClass(background)
 
         $('#toastContainer').toast({
             'delay': delay

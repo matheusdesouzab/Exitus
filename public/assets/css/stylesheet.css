@@ -585,14 +585,19 @@ button {
 
 #admin #pagina #profileClassModal #note-table-class,
 #teacherPortal #pagina #profileClassModal #note-table-class, #studentPortal #pagina #profileClassModal #note-table-class {
-  width: 900px;
-  font-size: 15px;
+  width: 800px;
 }
 #admin #pagina #profileClassModal #note-table-class td,
 #admin #pagina #profileClassModal #note-table-class th,
 #teacherPortal #pagina #profileClassModal #note-table-class td,
 #teacherPortal #pagina #profileClassModal #note-table-class th, #studentPortal #pagina #profileClassModal #note-table-class td,
 #studentPortal #pagina #profileClassModal #note-table-class th {
+  text-align: left;
+  font-size: 12px;
+}
+#admin #pagina #note-table td, #admin #pagina #note-table th,
+#teacherPortal #pagina #note-table td,
+#teacherPortal #pagina #note-table th, #studentPortal #pagina #note-table td, #studentPortal #pagina #note-table th {
   text-align: left;
 }
 #admin #pagina .text-description,
@@ -762,10 +767,11 @@ button {
 #teacherPortal #pagina #tableListExam, #studentPortal #pagina #tableListExam {
   font-size: 15px;
 }
-#admin #pagina #tableListExam td,
-#teacherPortal #pagina #tableListExam td, #studentPortal #pagina #tableListExam td {
+#admin #pagina #tableListExam td, #admin #pagina #tableListExam th,
+#teacherPortal #pagina #tableListExam td,
+#teacherPortal #pagina #tableListExam th, #studentPortal #pagina #tableListExam td, #studentPortal #pagina #tableListExam th {
   margin: 3px;
-  text-align: center;
+  text-align: left;
 }
 #admin #pagina #seekNoteExam a,
 #teacherPortal #pagina #seekNoteExam a, #studentPortal #pagina #seekNoteExam a {
