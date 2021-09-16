@@ -1,21 +1,26 @@
-#studentPortal{
-    textarea:disabled{
-        background:white;
+#studentPortal {
+    textarea:disabled {
+        background: white;
         border-radius: 10px;
         font-weight: 500;
         font-size: 14px;
     }
 
-    [containerBulletin]{      
-        h5{
-            margin-top: 20px;
+    [containerBulletin] {
+        h5 {
+            margin-top: 30px;
         }
+    }
+
+    #pagina {
+        background-color: #f9f8f8 !important;
     }
 }
 
 
 #admin,
-#teacherPortal, #studentPortal {
+#teacherPortal,
+#studentPortal {
 
     #pagina {
 
@@ -32,19 +37,21 @@
             }
         }
 
-        #note-table{
-            td,th{
+        #note-table {
+
+            td,
+            th {
                 text-align: left;
             }
         }
 
-        .text-description{
+        .text-description {
             font-family: Semi-bold;
             font-size: 13px;
         }
 
 
-        nav#studentPortalNavbar{
+        nav#studentPortalNavbar {
             border-bottom: 1px solid #e5e5e5;
             color: #8B8E90;
             background-color: white;
@@ -61,23 +68,23 @@
                 cursor: pointer;
             }
 
-            .fa-th{
+            .fa-th {
                 color: #8B8E90;
                 font-size: 25px;
                 margin-right: 30px;
             }
 
-            a{
+            a {
                 color: #8B8E90;
                 padding: 5px 25px;
             }
 
-            .navbar-brand{
+            .navbar-brand {
                 font-family: Bold;
                 font-size: 14px;
             }
 
-            [aria-expanded="true"]{
+            [aria-expanded="true"] {
                 color: $color-blue;
                 border-bottom: 2px solid $color-blue;
             }
@@ -90,7 +97,7 @@
                 width: 1000px;
                 font-family: Bold;
 
-                th{
+                th {
                     color: black;
                 }
             }
@@ -100,9 +107,79 @@
             margin-top: 80px;
         }
 
+        #mural {
+
+            h5 {
+                font-size: 16px;
+            }
+
+            .main-content {
+                margin-bottom: 50px;
+                overflow: hidden;
+                border-radius: 10px;
+            }
+
+            .side-exams,.side-mural{
+                
+                &::-webkit-scrollbar {
+                    width: 10px;
+                }
+                 
+                &::-webkit-scrollbar-track {
+                    background-color: #ebebeb;
+                    -webkit-border-radius: 10px;
+                    border-radius: 10px;
+                }
+                
+                &::-webkit-scrollbar-thumb {
+                    -webkit-border-radius: 10px;
+                    border-radius: 10px;
+                    background: #6d6d6d; 
+                }
+            }
+
+            .side-exams {
+                height: 78vh;
+                width: 400px;
+                font-family: Bold;
+                font-size: 11px;
+                background-color: transparent;
+                border-radius: 10px;
+                overflow-y: auto;
+                overflow-x: hidden;           
+
+                .miniature-photo {
+                    width: 30px;
+                    height: 30px;
+                    border: 2px solid white;
+                }           
+
+                .exam-description {
+                    margin-top: 12px;
+                }
+
+                .exam-description-footer {
+                    margin-top: 10px;
+                    color: $color-black;
+                }
+
+                .name-teacher {
+                    font-size: 13px;
+                    color: $color-dark-gray;
+                }
 
 
-        .miniature-photo img {
+            }
+
+            .side-mural {
+                overflow-y: scroll;
+                height: 78vh;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .miniature-photo {
             width: 40px;
             height: 40px;
             object-position: top;
@@ -228,7 +305,8 @@
         #tableListExam {
             font-size: 15px;
 
-            td,th {
+            td,
+            th {
                 margin: 3px;
                 text-align: left;
             }

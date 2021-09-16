@@ -21,7 +21,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
     <div class="container-fluid">
 
-        <div id="pagina" class="row accordion">
+        <div id="pagina" class="row accordion bg-white">
 
             <div class="col-lg-12 p-0" id="studentPortal-accordion">
 
@@ -43,7 +43,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                 <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin">Boletim</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/portal-aluno/sair">Ranking</a>
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#statistics" href="#">Estatísticas</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
@@ -53,34 +53,121 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     </div>
                 </nav>
-                
+
 
                 <div class="modal fade modal-profile" id="settingsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
-					<div class="modal-dialog modal-xl">
-						<div class="modal-content">
-							<div class="row">
-								<div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#settingsModal">
-										<span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
-									</button></div>
-							</div>
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="row">
+                                <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#settingsModal">
+                                        <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                    </button></div>
+                            </div>
 
-							<div containerSettingsModal class="modal-body"></div>
-						</div>
-					</div>
-				</div>
+                            <div containerSettingsModal class="modal-body"></div>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="col-lg-12">
+                <div class="col-lg-12 mt-3">
 
                     <div class="collapse show mt-3" id="mural" data-parent="#studentPortal-accordion">
 
-                        <div class="col-lg-10 mx-auto">
+                        <div class="col-lg-11 mx-auto main-content">
 
-                            <div class="row mt-4 d-flex justify-content-center">
+                            <div class="row mt-4 d-flex justify-content-between ">
 
-                                <div class="col-md-10">
+                                <div class="col-md-3 side-exams">
+
+                                    <div class="row side-exams-content">
+
+                                        <?php
+
+                                        if (count($this->view->listExam) != 0) {
+
+                                            foreach ($this->view->listExam as $key => $part) {
+                                                $sort[$key] = strtotime($part->realize_date);
+                                            }
+
+                                            array_multisort($sort, SORT_DESC, $this->view->listExam);
+                                        }
+
+                                        $photoDir =  "/assets/img/teacherProfilePhotos/";
+
+                                        ?>
+
+
+                                        <?php
+
+                                        if (count($this->view->listExam) > 1) { ?>
+
+                                            <h5 class="p-2 col-lg-11">Atividades recentes</h5>
+
+                                            <?php foreach ($this->view->listExam as $key => $value) { ?>
+
+                                                <div class="col-lg-11 card mb-3">
+
+                                                    <div class="row d-flex justify-content-center align-items-center">
+
+                                                        <div class="col-lg-2"><img class="miniature-photo" src='<?= $value->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+
+                                                        <div class="col-lg-10 name-teacher"><?= $value->teacher_name ?></div>
+
+                                                    </div>
+
+                                                    <div class="row">
+
+                                                        <?php $data = explode('-', $value->realize_date);
+
+                                                        $pointsOrTenths = '';
+
+                                                        switch ($value->exam_value) {
+                                                            case $value->exam_value > 1:
+                                                                $pointsOrTenths = " pontos";
+                                                                break;
+                                                            case $value->exam_value < 1:
+                                                                $pointsOrTenths = " décimos";
+                                                                break;
+                                                            case $value->exam_value == 1:
+                                                                $pointsOrTenths = " ponto";
+                                                                break;
+                                                        }
+
+
+                                                        ?>
+
+                                                        <div class="col-lg-12 exam-description"><?= $value->discipline_name ?> - <?= $value->exam_description ?> - <?= $value->unity ?> ª Unidade </div>
+
+                                                    </div>
+
+                                                    <div class="row exam-description-footer">
+
+                                                        <div class="col-lg-6">Valor: <?= $value->exam_value ?> <?= $pointsOrTenths ?></div>
+
+                                                        <div class="col-lg-6">Data: <?= $data[2] ?>-<?= $data[1] ?>-<?= $data[0] ?></div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            <?php }
+                                        } else { ?>
+
+                                            <div class="col-lg-12 text-center">Nenhum exame até o momento</div>
+
+
+                                        <?php } ?>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-8 side-mural">
 
                                     <div class="row">
+
+                                        <h5 class="p-2 col-lg-11 ml-4">Postagens recentes</h5>
 
                                         <?php
 
@@ -118,7 +205,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         <?php if (count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1 && $this->view->studentDataGeneral[0]->schoolTermSituation == 1) { ?>
 
-                                            <div class="col-lg-11 ml-auto card mb-3">
+                                            <div class="col-lg-12 card mb-3">
 
                                                 <div class="row p-2">
 
@@ -183,11 +270,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                 if ($value['tipo'] == 'note') { ?>
 
-                                                    <div class="col-lg-11 ml-auto card mb-3">
+                                                    <div class="col-lg-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                             <div class="col-lg-11">
 
@@ -211,11 +298,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                 <?php } else if ($value['tipo'] == 'observation') { ?>
 
-                                                    <div class="col-lg-11 ml-auto card mb-3">
+                                                    <div class="col-lg-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-start"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-start"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                             <div class="col-lg-11">
 
@@ -240,11 +327,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                 <?php } else if ($value['tipo'] == 'lack') { ?>
 
-                                                    <div class="col-lg-11 ml-auto card mb-3">
+                                                    <div class="col-lg-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                             <div class="col-lg-11">
 
@@ -269,11 +356,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                 <?php } else if ($value['tipo'] == 'disciplineAverage') { ?>
 
 
-                                                    <div class="col-lg-11 ml-auto card mb-3">
+                                                    <div class="col-lg-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover; border-radius: 50%" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                             <div class="col-lg-11">
 
@@ -316,7 +403,13 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     <div class="collapse mt-3" id="bulletin" data-parent="#studentPortal-accordion">
 
-                        <div containerBulletin class="col-lg-10 mx-auto card"></div>
+                        <div containerBulletin class="col-lg-10 mx-auto card mb-4"></div>
+
+                    </div>
+
+                    <div class="collapse mt-3" id="statistics" data-parent="#studentPortal-accordion">
+
+                        999999999999
 
                     </div>
 

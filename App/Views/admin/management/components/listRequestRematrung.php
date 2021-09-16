@@ -18,9 +18,9 @@ $totalRequest = 0 ;
         <input type="hidden" value="<?= $this->view->nextClass[0]->schoolTermId ?>" name="schoolTermId"> 
         <input type="hidden" value="<?= $this->view->nextClass[0]->classId ?>" name="classId"> 
 
-        <div class="form-row d-flex align-items-center">
+        <div class="form-row d-flex justify-content-center align-items-center">
 
-            <div class="col-lg-8 font-weight-bold">
+            <div class="col-lg-9 font-weight-bold">
 
                 <div class="row d-flex align-items-center">
                     <div class="col-2 miniature-photo">
@@ -31,9 +31,9 @@ $totalRequest = 0 ;
 
             </div>
 
-            <div class="col-lg-3">
+            <div class="col-lg-2">
 
-                <div class="row d-flex justify-content-end">
+                <div class="row d-flex justify-content-start">
 
                     <b class="text-right"><?= $value->studentSituationSchoolYear ?></b>
 
@@ -45,7 +45,7 @@ $totalRequest = 0 ;
 
         <hr>
 
-        <div class="form-row mt-2">
+        <div class="form-row d-flex justify-content-center mt-2">
 
             <div class="form-group col-lg-2">
 
@@ -55,7 +55,7 @@ $totalRequest = 0 ;
 
             </div>
 
-            <div class="form-group col-lg-10">
+            <div class="form-group col-lg-9">
 
                 <label>Próxima turma do aluno:</label>
 
@@ -63,7 +63,7 @@ $totalRequest = 0 ;
 
                     <?php foreach ($this->view->nextClass as $key => $class) { ?>
 
-                        <option value="<?= $class->classId ?>"><?= $class->series ?> ª <?= $class->ballot ?> - Técnico em <?= $class->course ?> - <?= $class->shift ?> - <?= $class->schoolYear ?> - Vagas: <?= $class->studentCapacity - $class->studentTotal ?></option>
+                        <option value="<?= $class->classId ?>"><?= $class->series ?> ª <?= $class->ballot ?> - <?= $class->course ?> - <?= $class->shift ?> - <?= $class->schoolYear ?> - Vagas: <?= $class->studentCapacity - $class->studentTotal ?></option>
 
                     <?php } ?>
 
@@ -75,7 +75,7 @@ $totalRequest = 0 ;
 
         <div class="form-row">
 
-            <div class="form-group col-lg-12 d-flex justify-content-end">
+            <div class="form-group col-lg-11 ml-4 d-flex justify-content-end">
 
                 <a id="buttonAddRematrung" class="btn btn-success" href="#">Rematrícular aluno</a>
 

@@ -62,6 +62,7 @@ class StudentPortalController extends Action
         $StudentRematrug = Container::getModel('Student\\StudentRematrug');
         $Settings = Container::getModel('Admin\\Settings');
         $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
 
         if (!isset($_SESSION)) session_start();
 
@@ -71,6 +72,7 @@ class StudentPortalController extends Action
         $DisciplineAverage->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
         $StudentRematrug->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
         $Student->__set('fk_id_enrollmentId', $_SESSION['Student']['enrollmentId']);
+        $Exam->__set("fk_id_class", $_SESSION['Student']['classId']);
 
         $this->view->listNote = $Note->list();
         $this->view->listObservation = $Observation->list();
@@ -81,6 +83,7 @@ class StudentPortalController extends Action
         $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
         $this->view->schoolTermActive = $SchoolTerm->active();
         $this->view->studentDataGeneral = $Student->list("<> 0");
+        $this->view->listExam = $Exam->list();
 
         $this->render("pages/home", "SimpleLayout", "studentPortal");
     }

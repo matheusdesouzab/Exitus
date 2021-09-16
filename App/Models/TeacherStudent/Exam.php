@@ -122,7 +122,8 @@ class Exam extends Model
             avaliacoes.fk_id_unidade_avaliacao AS fk_id_exam_unity,
             turma_disciplina.id_turma_disciplina AS fk_id_discipline_class ,
             professor.nome_professor AS teacher_name ,
-            turma.id_turma AS class_id 
+            turma.id_turma AS class_id ,
+            professor.foto_perfil_professor AS profilePhoto
             
             FROM avaliacoes 
             
