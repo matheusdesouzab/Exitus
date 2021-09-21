@@ -24,6 +24,41 @@
 
     #pagina {
 
+        section#home{
+
+            .card{
+                border-radius: 5px;
+
+                td{
+                    font-size: 12px;
+                    font-family: Semi-bold;
+                    vertical-align:middle;
+                }
+
+                .miniature-photo{
+                    height: 30px;
+                    width: 30px;
+                }
+
+                .card-title{
+                    font-size: 13px;
+                    color: $color-dark-gray;
+                }
+
+                .total-student-enrolled{
+                    font-size: 16px;
+                    font-family: Bold;
+                }
+
+                .total-students-enrolled-today{
+                    font-size: 14px;
+                    color: $color-green;
+                    font-family: Semi-bold;
+                }
+            }
+
+        }
+
         #profileClassModal {
 
             #note-table-class {
@@ -57,6 +92,7 @@
             background-color: white;
             font-family: Bold;
             font-size: 13px;
+            box-sizing: border-box;
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
             img {
@@ -107,6 +143,25 @@
             margin-top: 80px;
         }
 
+        .side-exams,.side-mural,.side-students,.side-teachers{
+                
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+             
+            &::-webkit-scrollbar-track {
+                background-color: #ebebeb;
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                background:#ACBECC; 
+            }
+        }
+
         #mural {
 
             h5 {
@@ -117,25 +172,6 @@
                 margin-bottom: 50px;
                 overflow: hidden;
                 border-radius: 10px;
-            }
-
-            .side-exams,.side-mural{
-                
-                &::-webkit-scrollbar {
-                    width: 10px;
-                }
-                 
-                &::-webkit-scrollbar-track {
-                    background-color: #ebebeb;
-                    -webkit-border-radius: 10px;
-                    border-radius: 10px;
-                }
-                
-                &::-webkit-scrollbar-thumb {
-                    -webkit-border-radius: 10px;
-                    border-radius: 10px;
-                    background: #6d6d6d; 
-                }
             }
 
             .side-exams {
@@ -177,6 +213,22 @@
                 border-radius: 10px;
                 margin-bottom: 20px;
             }
+        }
+
+
+        #statistics{
+
+            .side-students, .side-teachers{
+                overflow-y: scroll;
+                overflow-x: hidden;
+                height: 80vh;
+
+                h5{
+                    margin-left: 3vw;
+                    margin-top: 15px;
+                }
+            }
+
         }
 
         .miniature-photo {

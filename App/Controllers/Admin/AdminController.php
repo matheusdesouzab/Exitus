@@ -15,6 +15,15 @@ class AdminController extends Action
         $this->render('index', 'SimpleLayout');
     }
 
+
+    public function home()
+    {
+
+        $this->render('home', 'AdminLayout');
+
+    }
+
+
     public function auth()
     {
 

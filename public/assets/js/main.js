@@ -844,3 +844,9 @@ $(document).on('click', "#profileClassModal [data-target='#class-note-history']"
     application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas", "#formClassId")
 
 })
+
+
+
+
+
+

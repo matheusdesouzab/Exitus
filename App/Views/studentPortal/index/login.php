@@ -1,4 +1,10 @@
+<?php
 
+session_start();
+
+isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '' ;
+
+?>
 
 <html lang="pt-br">
 

@@ -8,7 +8,7 @@
 
             <p>Menu principal</p>
 
-            <li><a href="#"><i class="fas fa-globe"></i><span class="link-name">Home</span></a></li>
+            <li><a href="/admin/home"><i class="fas fa-globe"></i><span class="link-name">Home</span></a></li>
 
             <li data-toggle="collapse" href="#student" role="button" aria-expanded="false" aria-controls="student" class="active link-collapse">
                 <a><i class="fas fa-users"></i><span class="link-name">Aluno</span><i fa-angle-right class="fas fa-angle-right"></i></a>

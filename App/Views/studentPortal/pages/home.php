@@ -27,6 +27,8 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                 <nav id="studentPortalNavbar" class="navbar navbar-expand-lg">
 
+                    
+
                     <a class="navbar-brand" href="#"><?= $_SESSION['Student']['class'] ?></a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +45,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                 <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin">Boletim</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#statistics" href="#">Estatísticas</a>
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#statistics" href="#">Turma</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
@@ -98,11 +100,9 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         ?>
 
 
-                                        <?php
+                                        <h5 class="p-2 col-lg-11">Atividades recentes</h5>
 
-                                        if (count($this->view->listExam) > 1) { ?>
-
-                                            <h5 class="p-2 col-lg-11">Atividades recentes</h5>
+                                        <?php if (count($this->view->listExam) > 1) { ?>
 
                                             <?php foreach ($this->view->listExam as $key => $value) { ?>
 
@@ -154,8 +154,10 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                             <?php }
                                         } else { ?>
 
-                                            <div class="col-lg-12 text-center">Nenhum exame até o momento</div>
 
+                                            <div class="col-lg-11 card mb-3">
+                                                <p>Nenhum exame adicionado até o momento</p>
+                                            </div>
 
                                         <?php } ?>
 
@@ -163,7 +165,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                 </div>
 
-                                <div class="col-md-8 side-mural">
+                                <div class="col-md-9 side-mural">
 
                                     <div class="row">
 
@@ -387,7 +389,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         } else { ?>
 
 
-                                            <div class="col-lg-11 ml-auto card mb-3">Nenhuma postagem até o momento</div>
+                                            <div class="col-lg-11 mx-auto card mb-3">Nenhuma postagem até o momento</div>
 
                                         <?php } ?>
 
@@ -409,15 +411,76 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     <div class="collapse mt-3" id="statistics" data-parent="#studentPortal-accordion">
 
-                        999999999999
+                        <div class="row">
+
+                            <div class="col-lg-10 mx-auto">
+
+                                <div class="row mt-3 d-flex mb-4">
+
+                                    <div class="col-lg-6">
+
+                                        <div class="card side-students">
+
+                                            <div class="row">
+
+                                                <h5 class="col-lg-12">Colegas</h5>
+
+                                                <div class="col-lg-12 table-responsive">
+
+                                                    <table class="table col-lg-12 table-hover mt-3 table-borderless ">
+
+                                                        <tbody class="">
+
+                                                            <?php require '../App/Views/admin/student/components/studentListing.php' ?>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-6">
+
+                                        <div class="card side-teachers">
+
+                                            <div class="row">
+
+                                                <h5 class="col-lg-12 ml-4">Professores</h5>
+
+                                                <div class="col-lg-12 table-responsive">
+
+                                                    <table class="table col-lg-12 table-hover mt-3 table-borderless ">
+
+                                                        <tbody class="">
+
+                                                            <?php require '../App/Views/admin/teacher/components/teacherListing.php' ?>
+
+                                                        </tbody>
+                                                    </table>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
 
 </body>
 
