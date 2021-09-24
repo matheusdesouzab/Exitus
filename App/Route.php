@@ -290,6 +290,12 @@ class Route extends Bootstrap
 				'action' => 'availableCourse'
 			);
 
+			$routes['adminTotalStudentsCourse'] = array(
+				'route' => '/admin/gestao/curso/total-alunos-curso',
+				'controller' => 'Admin\\AdminManagementController',
+				'action' => 'totalStudentsCourse'
+			);
+
 
 			// Discipline routes
 

@@ -623,6 +623,23 @@ button {
   color: #28A745;
   font-family: Semi-bold;
 }
+#admin #pagina section#home .recent-activities .teacher-name,
+#teacherPortal #pagina section#home .recent-activities .teacher-name,
+#studentPortal #pagina section#home .recent-activities .teacher-name {
+  font-family: Bold;
+  font-size: 13px;
+}
+#admin #pagina section#home .recent-activities .badge,
+#teacherPortal #pagina section#home .recent-activities .badge,
+#studentPortal #pagina section#home .recent-activities .badge {
+  font-size: 11px;
+}
+#admin #pagina section#home .recent-activities p,
+#teacherPortal #pagina section#home .recent-activities p,
+#studentPortal #pagina section#home .recent-activities p {
+  font-family: Semi-bold;
+  font-size: 12px;
+}
 #admin #pagina #profileClassModal #note-table-class,
 #teacherPortal #pagina #profileClassModal #note-table-class,
 #studentPortal #pagina #profileClassModal #note-table-class {

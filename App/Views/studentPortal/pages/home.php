@@ -118,7 +118,10 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                     <div class="row">
 
-                                                        <?php $data = explode('-', $value->realize_date);
+                                                        <?php 
+                                                        
+                                                        $data = explode(' ', $value->realize_date);
+                                                        $data = explode('-', $data[0]);
 
                                                         $pointsOrTenths = '';
 
@@ -133,7 +136,6 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                                 $pointsOrTenths = " ponto";
                                                                 break;
                                                         }
-
 
                                                         ?>
 
@@ -195,7 +197,8 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         if (count($data) != 0) {
 
                                             foreach ($data['dados'] as $key => $part) {
-                                                $sort[$key] = strtotime($part['value']->post_date);
+                                                $date = explode(' ', $part['value']->post_date);
+                                                $sort[$key] = strtotime($date[0]);
                                             }
 
                                             array_multisort($sort, SORT_DESC, $data['dados']);

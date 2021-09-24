@@ -48,9 +48,11 @@
 
         <div class="form-row mb-2 mt-3">
 
+            <?php $date = explode(' ', $this->view->examData[0]->realize_date) ?>
+
             <div class="form-group col-lg-4">
                 <label for="">Data realizada:</label>
-                <input class="form-control" maxlength="4" disabled value="<?= $this->view->examData[0]->realize_date ?>" type="date" name="realizeDate" id="">
+                <input class="form-control" maxlength="4" disabled value="<?= $date[0] ?>" type="date" name="realizeDate" id="">
             </div>
 
             <div class="form-group col-lg-5">

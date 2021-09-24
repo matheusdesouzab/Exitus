@@ -19,6 +19,18 @@ class AdminController extends Action
     public function home()
     {
 
+        $Student = Container::getModel('Student\\Student');
+        $Settings = Container::getModel('Admin\\Settings');
+        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
+
+        $this->view->recentlyEnrolledStudents = $Student->recentlyEnrolledStudents(6);
+        $this->view->studentTotal = count($Student->recentlyEnrolledStudents(1000));
+        $this->view->studentsAddedToday = $Student->studentsAddedToday();
+        $this->view->unitControlCurrent = $Settings->unitControlCurrent();
+        $this->view->SchoolTermActive = $SchoolTerm->active();
+        $this->view->listExam = $Exam->list(1);
+
         $this->render('home', 'AdminLayout');
 
     }

@@ -238,6 +238,14 @@ class AdminManagementController extends Action
     }
 
 
+    public function totalStudentsCourse()
+    {
+
+        $Course = Container::getModel('Admin\\Course');
+        echo json_encode($Course->totalStudentsCourse());
+    }
+
+
     // Discipline
 
 
@@ -348,7 +356,7 @@ class AdminManagementController extends Action
         $this->view->availableCourse = $Course->availableCourse();
         $this->view->availableClassRoom = $ClassRoom->activeClassroom();
         $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
-        
+
         $this->render('management/pages/classeManagement', 'AdminLayout');
     }
 

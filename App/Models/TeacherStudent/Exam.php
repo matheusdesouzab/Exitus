@@ -106,7 +106,7 @@ class Exam extends Model
     }
 
 
-    public function list()
+    public function list($currentSchoolTerm = 0)
     {
 
         $query =
@@ -116,6 +116,7 @@ class Exam extends Model
             avaliacoes.id_avaliacao AS exam_id, 
             avaliacoes.descricao_avaliacao AS exam_description , 
             disciplina.nome_disciplina AS discipline_name, 
+            avaliacoes.data_postagem AS post_date, 
             avaliacoes.data_realizada AS realize_date, 
             avaliacoes.valor_avaliacao AS exam_value, 
             unidade.unidade AS unity,
@@ -123,15 +124,25 @@ class Exam extends Model
             turma_disciplina.id_turma_disciplina AS fk_id_discipline_class ,
             professor.nome_professor AS teacher_name ,
             turma.id_turma AS class_id ,
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,
             professor.foto_perfil_professor AS profilePhoto
             
             FROM avaliacoes 
             
             INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
             INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
-            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)       
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
             
             WHERE 
             
@@ -144,6 +155,10 @@ class Exam extends Model
             AND
 
             CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> 0 ELSE turma.id_turma = :fk_id_class END
+
+            AND
+
+            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
             
         ";
 

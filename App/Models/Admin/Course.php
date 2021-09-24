@@ -97,4 +97,26 @@ class Course extends Model
 
         );
     }
+
+    public function totalStudentsCourse()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT curso.nome_curso AS courseName,
+
+            (SELECT COUNT(matricula.id_matricula)
+            
+            FROM matricula 
+
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+            
+            WHERE turma.fk_id_curso = curso.id_curso AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS totalStudensCourse
+
+            FROM curso
+        
+        ");
+    }
 }

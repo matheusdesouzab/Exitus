@@ -373,4 +373,45 @@ class Student extends People
 
         return $this->speedingUp("SELECT id_situacao_geral AS option_value , situacao_geral AS option_text FROM situacao_geral_aluno;");
     }
+
+
+    public function recentlyEnrolledStudents($limite = 5000)
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+            
+            aluno.nome_aluno AS studentName , 
+            aluno.foto_perfil_aluno AS profilePhoto , 
+            aluno.data_matricula_inicial AS initialEnrollmentDate 
+            
+            FROM aluno 
+            
+            WHERE aluno.fk_id_situacao_geral_aluno = 1
+
+            ORDER BY aluno.id_aluno DESC LIMIT $limite
+            
+        "
+        );
+    }
+
+
+    public function studentsAddedToday()
+    {
+
+        $query = "SET @currentDate = (SELECT CURDATE())";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+
+        return $this->speedingUp(
+
+            "SELECT COUNT(aluno.id_aluno) AS totalStudent
+            
+            FROM aluno 
+            
+            WHERE aluno.fk_id_situacao_geral_aluno = 1 AND DATE(aluno.data_matricula_inicial) = DATE(@currentDate)"
+        );
+    }
 }
