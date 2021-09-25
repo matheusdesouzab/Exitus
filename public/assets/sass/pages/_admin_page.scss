@@ -57,18 +57,31 @@
                 }
             }
 
+            .recently-enrolled{             
+                height: 67vh;
+                overflow-y: auto;
+                overflow-x: hidden;   
+            }
+
             .recent-activities{
+                
+                height: 75vh;
+                overflow-y: auto;
+                overflow-x: hidden;   
+
                 .teacher-name{
                     font-family: Bold;
                     font-size: 13px;
                 }
+
                 .badge{
                     font-size: 11px;
                 } 
+
                 p{
                     font-family: Semi-bold;
                     font-size: 12px;
-                }         
+                }       
             }
         }
 
@@ -156,7 +169,7 @@
             margin-top: 80px;
         }
 
-        .side-exams,.side-mural,.side-students,.side-teachers{
+        .side-exams,.side-mural,.side-students,.side-teachers,.recent-activities,.recently-enrolled{
                 
             &::-webkit-scrollbar {
                 width: 10px;

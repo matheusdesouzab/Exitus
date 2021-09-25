@@ -11,7 +11,7 @@ class Observation extends Model
     private $sendDate;
     private $fk_id_discipline_class;
     private $fk_id_unity;
-    private $fk_id_enrollment;
+    private $fk_id_enrollment = 0;
     private $fk_id_teacher = 0;
     
 
@@ -49,7 +49,7 @@ class Observation extends Model
     }
 
 
-    public function list()
+    public function list($currentSchoolTerm = 0)
     {
 
 
@@ -69,7 +69,9 @@ class Observation extends Model
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,  
-            periodo_disponivel.ano_letivo AS school_term
+            periodo_disponivel.ano_letivo AS school_term ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
 
             FROM observacao_aluno
 
@@ -84,12 +86,19 @@ class Observation extends Model
             INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN matricula ON(observacao_aluno.fk_id_matricula_observacao = matricula.id_matricula) 
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
 
-            WHERE observacao_aluno.fk_id_matricula_observacao = :fk_id_enrollment
+            WHERE CASE WHEN :fk_id_enrollment = 0 THEN observacao_aluno.fk_id_matricula_observacao <> 0 ELSE observacao_aluno.fk_id_matricula_observacao = :fk_id_enrollment END
 
             AND
 
             CASE WHEN :fk_id_teacher = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :fk_id_teacher END
+
+            AND
+
+            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
 
             ORDER BY observacao_aluno.data_postagem DESC
    

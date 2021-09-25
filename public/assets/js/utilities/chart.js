@@ -74,22 +74,24 @@ $.ajax({
 
 
 let grafico2 = new Chart(
-  document.getElementById('grafico2'), {
+  document.getElementById('rematrung'), {
     type: 'doughnut',
     data: {
       labels: [
-        'Ótimo',
-        'Bom',
-        'Ruim'
+        'Alunos que marcaram sim',
+        'Alunos que marcaram com não'
       ],
       datasets: [{
-        label: 'My First Dataset',
-        data: [8, 12, 7],
+        label: 'Total de rematrículas',
+        data: [127, 4],
         backgroundColor: [
           '#28A745',
-          '#4040E7',
-          '#E74040'
+          '#4040E7'
         ],
+        padding: {
+          top: 10,
+          bottom: 10
+        },
         hoverOffset: 4
       }]
     },
@@ -97,12 +99,14 @@ let grafico2 = new Chart(
       plugins: {
         title: {
           display: true,
-          text: 'Indíce de reaproveitamento das turmas',
+          text: 'Status das rematrículas recebidas para o ano de 2022',
           padding: {
             top: 10,
             bottom: 10
           }
         }
-      }
+      },  
+        responsive: true,
+        maintainAspectRatio: false
     }
   })

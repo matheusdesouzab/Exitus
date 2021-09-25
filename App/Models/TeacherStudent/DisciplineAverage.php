@@ -11,7 +11,7 @@ class DisciplineAverage extends Model
     private $average;
     private $fk_id_subtitle;
     private $fk_id_discipline_class;
-    private $fk_id_enrollment;
+    private $fk_id_enrollment = 0;
     private $fk_id_teacher = 0;
 
 
@@ -106,7 +106,7 @@ class DisciplineAverage extends Model
     }
 
 
-    public function list()
+    public function list($currentSchoolTerm = 0)
     {
 
         $query =
@@ -122,21 +122,31 @@ class DisciplineAverage extends Model
             matricula.id_matricula AS enrollmentId ,
             media_disciplina.data_postagem AS post_date ,
             professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto 
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
 
             FROM media_disciplina
 
             LEFT JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
             LEFT JOIN legenda ON(media_disciplina.fk_id_legenda = legenda.id_legenda)
             LEFT JOIN matricula ON(media_disciplina.fk_id_matricula_media = matricula.id_matricula)
             LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
-
-            WHERE matricula.id_matricula = :fk_id_enrollment
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+        
+            WHERE CASE WHEN :fk_id_enrollment = 0 THEN matricula.id_matricula <> 0 ELSE matricula.id_matricula = :fk_id_enrollment END
 
             AND
 
             CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
+
+            AND
+
+            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
 
         ";
 

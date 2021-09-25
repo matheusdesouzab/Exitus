@@ -623,6 +623,20 @@ button {
   color: #28A745;
   font-family: Semi-bold;
 }
+#admin #pagina section#home .recently-enrolled,
+#teacherPortal #pagina section#home .recently-enrolled,
+#studentPortal #pagina section#home .recently-enrolled {
+  height: 67vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#admin #pagina section#home .recent-activities,
+#teacherPortal #pagina section#home .recent-activities,
+#studentPortal #pagina section#home .recent-activities {
+  height: 75vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 #admin #pagina section#home .recent-activities .teacher-name,
 #teacherPortal #pagina section#home .recent-activities .teacher-name,
 #studentPortal #pagina section#home .recent-activities .teacher-name {
@@ -731,39 +745,51 @@ button {
 #studentPortal #pagina .main-container {
   margin-top: 80px;
 }
-#admin #pagina .side-exams::-webkit-scrollbar, #admin #pagina .side-mural::-webkit-scrollbar, #admin #pagina .side-students::-webkit-scrollbar, #admin #pagina .side-teachers::-webkit-scrollbar,
+#admin #pagina .side-exams::-webkit-scrollbar, #admin #pagina .side-mural::-webkit-scrollbar, #admin #pagina .side-students::-webkit-scrollbar, #admin #pagina .side-teachers::-webkit-scrollbar, #admin #pagina .recent-activities::-webkit-scrollbar, #admin #pagina .recently-enrolled::-webkit-scrollbar,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar,
 #teacherPortal #pagina .side-students::-webkit-scrollbar,
 #teacherPortal #pagina .side-teachers::-webkit-scrollbar,
+#teacherPortal #pagina .recent-activities::-webkit-scrollbar,
+#teacherPortal #pagina .recently-enrolled::-webkit-scrollbar,
 #studentPortal #pagina .side-exams::-webkit-scrollbar,
 #studentPortal #pagina .side-mural::-webkit-scrollbar,
 #studentPortal #pagina .side-students::-webkit-scrollbar,
-#studentPortal #pagina .side-teachers::-webkit-scrollbar {
+#studentPortal #pagina .side-teachers::-webkit-scrollbar,
+#studentPortal #pagina .recent-activities::-webkit-scrollbar,
+#studentPortal #pagina .recently-enrolled::-webkit-scrollbar {
   width: 10px;
 }
-#admin #pagina .side-exams::-webkit-scrollbar-track, #admin #pagina .side-mural::-webkit-scrollbar-track, #admin #pagina .side-students::-webkit-scrollbar-track, #admin #pagina .side-teachers::-webkit-scrollbar-track,
+#admin #pagina .side-exams::-webkit-scrollbar-track, #admin #pagina .side-mural::-webkit-scrollbar-track, #admin #pagina .side-students::-webkit-scrollbar-track, #admin #pagina .side-teachers::-webkit-scrollbar-track, #admin #pagina .recent-activities::-webkit-scrollbar-track, #admin #pagina .recently-enrolled::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-students::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-teachers::-webkit-scrollbar-track,
+#teacherPortal #pagina .recent-activities::-webkit-scrollbar-track,
+#teacherPortal #pagina .recently-enrolled::-webkit-scrollbar-track,
 #studentPortal #pagina .side-exams::-webkit-scrollbar-track,
 #studentPortal #pagina .side-mural::-webkit-scrollbar-track,
 #studentPortal #pagina .side-students::-webkit-scrollbar-track,
-#studentPortal #pagina .side-teachers::-webkit-scrollbar-track {
+#studentPortal #pagina .side-teachers::-webkit-scrollbar-track,
+#studentPortal #pagina .recent-activities::-webkit-scrollbar-track,
+#studentPortal #pagina .recently-enrolled::-webkit-scrollbar-track {
   background-color: #ebebeb;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-#admin #pagina .side-exams::-webkit-scrollbar-thumb, #admin #pagina .side-mural::-webkit-scrollbar-thumb, #admin #pagina .side-students::-webkit-scrollbar-thumb, #admin #pagina .side-teachers::-webkit-scrollbar-thumb,
+#admin #pagina .side-exams::-webkit-scrollbar-thumb, #admin #pagina .side-mural::-webkit-scrollbar-thumb, #admin #pagina .side-students::-webkit-scrollbar-thumb, #admin #pagina .side-teachers::-webkit-scrollbar-thumb, #admin #pagina .recent-activities::-webkit-scrollbar-thumb, #admin #pagina .recently-enrolled::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-students::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-teachers::-webkit-scrollbar-thumb,
+#teacherPortal #pagina .recent-activities::-webkit-scrollbar-thumb,
+#teacherPortal #pagina .recently-enrolled::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-exams::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-mural::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-students::-webkit-scrollbar-thumb,
-#studentPortal #pagina .side-teachers::-webkit-scrollbar-thumb {
+#studentPortal #pagina .side-teachers::-webkit-scrollbar-thumb,
+#studentPortal #pagina .recent-activities::-webkit-scrollbar-thumb,
+#studentPortal #pagina .recently-enrolled::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: #ACBECC;

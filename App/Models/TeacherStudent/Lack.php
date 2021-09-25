@@ -49,7 +49,7 @@ class Lack extends Model
     }
 
 
-    public function list()
+    public function list($currentSchoolTerm = 0)
     {
 
         $query =
@@ -64,14 +64,21 @@ class Lack extends Model
             turma_disciplina.id_turma_disciplina AS classId ,
             falta_aluno.data_postagem AS post_date ,
             professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto 
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
 
             FROM falta_aluno
             
+            INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
             LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina)         
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)         
             LEFT JOIN unidade ON(falta_aluno.fk_id_unidade_falta = unidade.id_unidade)
             LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
 
             WHERE 
             
@@ -84,6 +91,10 @@ class Lack extends Model
             AND 
             
             CASE WHEN :fk_id_teacher >= 1 THEN turma_disciplina.fk_id_professor = :fk_id_teacher ELSE turma_disciplina.fk_id_professor <> 0 END
+
+            AND
+
+            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
 
             ORDER BY falta_aluno.total_faltas DESC
         

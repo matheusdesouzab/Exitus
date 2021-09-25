@@ -23,13 +23,21 @@ class AdminController extends Action
         $Settings = Container::getModel('Admin\\Settings');
         $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
         $Exam = Container::getModel('TeacherStudent\\Exam');
+        $Note = Container::getModel('TeacherStudent\\Note');
+        $Lack = Container::getModel('TeacherStudent\\Lack');
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+        $Observation = Container::getModel('TeacherStudent\\Observation');
 
-        $this->view->recentlyEnrolledStudents = $Student->recentlyEnrolledStudents(6);
+        $this->view->recentlyEnrolledStudents = $Student->recentlyEnrolledStudents(1000);
         $this->view->studentTotal = count($Student->recentlyEnrolledStudents(1000));
         $this->view->studentsAddedToday = $Student->studentsAddedToday();
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->SchoolTermActive = $SchoolTerm->active();
         $this->view->listExam = $Exam->list(1);
+        $this->view->listNote = $Note->list(1);
+        $this->view->listLack = $Lack->list(1);
+        $this->view->listObservation = $Observation->list(1);
+        $this->view->listDisciplineAverage = $DisciplineAverage->list(1);
 
         $this->render('home', 'AdminLayout');
 

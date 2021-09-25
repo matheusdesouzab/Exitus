@@ -51,7 +51,7 @@ class Note extends Model
     }
 
 
-    public function list()
+    public function list($currentSchoolTerm = 0)
     {
 
         $query =
@@ -70,8 +70,8 @@ class Note extends Model
             professor.foto_perfil_professor AS teacher_profile_photo , 
             matricula.id_matricula AS enrollment_id ,
             aluno.nome_aluno AS student_name ,
-            aluno.foto_perfil_aluno AS student_profilePhoto ,
-            data_postagem AS post_date
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            nota_avaliacao.data_postagem AS post_date
       
             FROM avaliacoes
             
@@ -82,6 +82,9 @@ class Note extends Model
             INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
             INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
             
             WHERE
 
@@ -98,6 +101,10 @@ class Note extends Model
             AND
 
             CASE WHEN :fk_id_student_enrollment = 0 THEN matricula.id_matricula <> :fk_id_student_enrollment ELSE matricula.id_matricula = :fk_id_student_enrollment END 
+
+            AND
+
+            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
 
             ORDER BY nota_avaliacao.valor_nota DESC
             
