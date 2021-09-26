@@ -73,7 +73,7 @@ class AdminController extends Action
 
             session_cache_expire(200);
 
-            header('Location: /admin/gestao/turma');
+            header('Location: /admin/gestao/home');
         }
     }
 

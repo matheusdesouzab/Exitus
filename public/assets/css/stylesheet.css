@@ -626,7 +626,7 @@ button {
 #admin #pagina section#home .recently-enrolled,
 #teacherPortal #pagina section#home .recently-enrolled,
 #studentPortal #pagina section#home .recently-enrolled {
-  height: 67vh;
+  height: 65.4vh;
   overflow-y: auto;
   overflow-x: hidden;
 }

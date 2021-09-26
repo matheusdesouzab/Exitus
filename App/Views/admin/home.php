@@ -6,7 +6,9 @@
 
         <div class="col-lg-11 mx-auto">
 
-            <div class="row">
+            <div class="container">
+
+            <div class="row ">
 
                 <div class="col-lg-7">
 
@@ -68,7 +70,7 @@
                     <div class="row mt-3">
 
                         <div class="col-lg-12 card">
-                            <canvas id="myChart"></canvas>
+                            <canvas id="studenDivisionChartCourse"></canvas>
                         </div>
 
                     </div>
@@ -77,7 +79,7 @@
 
                 <div class="col-lg-5 recently-enrolled">
 
-                    <div class="card">
+                    <div class="col-lg-12 card">
 
                         <div class="card-title p-2">Recentes matrículados</div>
 
@@ -114,224 +116,266 @@
 
             <div class="row mt-4">
 
-                <div class="col-lg-6 card recent-activities pl-0">
+                <div class="col-lg-6 pl-0">
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 pl-0 recent-activities">
 
-                        <div class="card-title p-2">Linha do tempo</div>
+                        <div class="card">
 
-                        <?php
+                            <div class="card-title p-2">Linha do tempo</div>
 
-                        $data = [];
+                            <?php
 
-                        foreach ($this->view->listExam as $key => $value) {
-                            $data['dados'][] = ['tipo' => 'exam', 'value' => $value];
-                        }
+                            $data = [];
 
-                        foreach ($this->view->listNote as $key => $value) {
-                            $data['dados'][] = ['tipo' => 'note', 'value' => $value];
-                        }
-
-                        foreach ($this->view->listLack as $key => $value) {
-                            $data['dados'][] = ['tipo' => 'lack', 'value' => $value];
-                        }
-
-                        foreach ($this->view->listDisciplineAverage as $key => $value) {
-                            $data['dados'][] = ['tipo' => 'disciplineAverage', 'value' => $value];
-                        }
-
-                        foreach ($this->view->listObservation as $key => $value) {
-                            $data['dados'][] = ['tipo' => 'observation', 'value' => $value];
-                        }
-
-                        if (count($data) != 0) {
-
-                            foreach ($data['dados'] as $key => $part) {
-                                $date = explode(' ', $part['value']->post_date);
-                                $sort[$key] = strtotime($date[0]);
+                            foreach ($this->view->listExam as $key => $value) {
+                                $data['dados'][] = ['tipo' => 'exam', 'value' => $value];
                             }
 
-                            array_multisort($sort, SORT_DESC, $data['dados']);
-                        }
+                            foreach ($this->view->listNote as $key => $value) {
+                                $data['dados'][] = ['tipo' => 'note', 'value' => $value];
+                            }
 
-                        function currentDate($array)
-                        {
+                            foreach ($this->view->listLack as $key => $value) {
+                                $data['dados'][] = ['tipo' => 'lack', 'value' => $value];
+                            }
 
-                            date_default_timezone_set('America/Sao_Paulo');
-                            $today = date('d-m');
+                            foreach ($this->view->listDisciplineAverage as $key => $value) {
+                                $data['dados'][] = ['tipo' => 'disciplineAverage', 'value' => $value];
+                            }
 
-                            $data = explode(' ', $array);
-                            $data = explode('-', $data[0]);
-                            $data = $data[2] . '-' . $data[1];
+                            foreach ($this->view->listObservation as $key => $value) {
+                                $data['dados'][] = ['tipo' => 'observation', 'value' => $value];
+                            }
 
-                            $data = ($data == $today ? 'Hoje' : $data);
+                            if (count($data) != 0) {
 
-                            return $data;
-                        }
+                                foreach ($data['dados'] as $key => $part) {
+                                    $date = explode(' ', $part['value']->post_date);
+                                    $sort[$key] = strtotime($date[0]);
+                                }
 
-                        $photoDir =  "/assets/img/teacherProfilePhotos/";
-                        $photoStudentDir =  "/assets/img/studentProfilePhotos/";
+                                array_multisort($sort, SORT_DESC, $data['dados']);
+                            }
 
-                        ?>
+                            function currentDate($array)
+                            {
 
-                        <div class="row p-2">
+                                date_default_timezone_set('America/Sao_Paulo');
+                                $today = date('d-m');
 
-                            <?php foreach ($data['dados'] as $key => $value) { ?>
+                                $data = explode(' ', $array);
+                                $data = explode('-', $data[0]);
+                                $data = $data[2] . '-' . $data[1];
 
-                                <?php if ($value['tipo'] == 'exam') { ?>
+                                $data = ($data == $today ? 'Hoje' : $data);
 
-                                    <div class="col-lg-11 mx-auto">
+                                return $data;
+                            }
 
-                                        <div class="row d-flex align-items-center justify-content-between">
+                            $photoDir =  "/assets/img/teacherProfilePhotos/";
+                            $photoStudentDir =  "/assets/img/studentProfilePhotos/";
 
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                            ?>
 
-                                            <div class="col-lg-8 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+                            <div class="row p-2">
 
-                                            <div class="col-lg-3 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-info ml-auto">Avaliação</span></div>
+                                <?php foreach ($data['dados'] as $key => $value) { ?>
+
+                                    <?php if ($value['tipo'] == 'exam') { ?>
+
+                                        <div class="col-lg-11 mx-auto">
+
+                                            <div class="row d-flex align-items-center justify-content-between">
+
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+
+                                                <div class="col-lg-8 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+
+                                                <div class="col-lg-3 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-info ml-auto">Avaliação</span></div>
+
+                                            </div>
+
+                                            <div class="row p-0">
+
+                                                <p class="mt-3 col-lg-12 p-0 text-justify">Criou a avaliação "<?= $value['value']->exam_description ?>" referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?> na turma do <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?></p>
+
+                                            </div>
+
 
                                         </div>
 
-                                        <div class="row p-0">
+                                        <hr class="col-lg-10 mx-auto mt-0 mb-3">
 
-                                            <p class="mt-3 col-lg-12 p-0 text-justify">Criou a avaliação "<?= $value['value']->exam_description ?>" referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?> na turma do <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?></p>
+                                    <?php } else if ($value['tipo'] == 'note') { ?>
 
-                                        </div>
+                                        <div class="col-lg-11 mx-auto">
 
+                                            <div class="row d-flex align-items-center justify-content-between">
 
-                                    </div>
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
 
-                                <?php } else if ($value['tipo'] == 'note') { ?>
+                                                <div class="col-lg-7 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                                    <div class="col-lg-11 mx-auto">
+                                                <div class="col-lg-3 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-success">Nota avaliação</span></div>
 
-                                        <div class="row d-flex align-items-center justify-content-between">
+                                            </div>
 
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                            <div class="row">
 
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                                                <p class="mt-3 col-lg-12 p-0 text-justify">Lançou a nota do aluno(a): <?= $value['value']->student_name ?> referente a avaliação "<?= $value['value']->exam_description  ?>" da <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?></p>
 
-                                            <div class="col-lg-7 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
-
-                                            <div class="col-lg-3 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-success">Nota avaliação</span></div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <p class="mt-3 col-lg-12 p-0 text-justify">Lançou a nota do aluno(a): <?= $value['value']->student_name ?> referente a avaliação "<?= $value['value']->exam_description  ?>" da <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?></p>
+                                            </div>
 
                                         </div>
 
-                                    </div>
+                                        <hr class="col-lg-10 mx-auto mt-0 mb-3">
 
-                                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
+                                    <?php } else if ($value['tipo'] == 'lack') { ?>
 
-                                <?php } else if ($value['tipo'] == 'lack') { ?>
+                                        <div class="col-lg-11 mx-auto">
 
-                                    <div class="col-lg-11 mx-auto">
+                                            <div class="row d-flex align-items-center justify-content-between">
 
-                                        <div class="row d-flex align-items-center justify-content-between">
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
 
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                                                <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                                            <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
+                                                <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-primary">Faltas</span></div>
 
-                                            <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-primary">Faltas</span></div>
+                                            </div>
+
+                                            <div class="row">
+
+                                                <p class="mt-3 col-lg-12 p-0 text-justify">Lançou as faltas do aluno(a): <?= $value['value']->studentName ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->disciplineName ?></p>
+
+                                            </div>
+
 
                                         </div>
 
-                                        <div class="row">
+                                        <hr class="col-lg-10 mx-auto mt-0 mb-3">
 
-                                            <p class="mt-3 col-lg-12 p-0 text-justify">Lançou as faltas do aluno(a): <?= $value['value']->studentName ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->disciplineName ?></p>
+
+                                    <?php } else if ($value['tipo'] == 'disciplineAverage') { ?>
+
+                                        <div class="col-lg-11 mx-auto">
+
+                                            <div class="row d-flex align-items-center justify-content-between">
+
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+
+
+                                                <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
+
+                                                <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-success">Média final</span></div>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <p class="mt-3 col-lg-12 p-0 text-justify">Lançou a média final do aluno(a): <?= $value['value']->studentName ?> referente a disciplina de <?= $value['value']->disciplineName ?></p>
+
+                                            </div>
+
 
                                         </div>
 
+                                        <hr class="col-lg-10 mx-auto mt-0 mb-3">
 
-                                    </div>
+                                    <?php } else if ($value['tipo'] == 'observation') { ?>
 
-                                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
+                                        <div class="col-lg-11 mx-auto">
 
+                                            <div class="row d-flex align-items-center justify-content-between">
 
-                                <?php } else if ($value['tipo'] == 'disciplineAverage') { ?>
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                    <div class="col-lg-11 mx-auto">
-
-                                        <div class="row d-flex align-items-center justify-content-between">
-
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
-
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                                                <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
 
 
-                                            <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
+                                                <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                                            <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-success">Média final</span></div>
+                                                <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-info">Observação</span></div>
+
+                                            </div>
+
+                                            <div class="row">
+
+                                                <p class="mt-3 col-lg-12 p-0 text-justify">Adicionou uma observação ao aluno(a): <?= $value['value']->studentName ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->disciplineName ?></p>
+
+                                            </div>
+
 
                                         </div>
 
-                                        <div class="row">
+                                        <hr class="col-lg-10 mx-auto mt-0 mb-3">
 
-                                            <p class="mt-3 col-lg-12 p-0 text-justify">Lançou a média final do aluno(a): <?= $value['value']->studentName ?> referente a disciplina de <?= $value['value']->disciplineName ?></p>
+                                <?php }
+                                } ?>
 
-                                        </div>
-
-
-                                    </div>
-
-                                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
-
-                                <?php } else if ($value['tipo'] == 'observation') { ?>
-
-                                    <div class="col-lg-11 mx-auto">
-
-                                        <div class="row d-flex align-items-center justify-content-between">
-
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
-
-                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
-
-
-                                            <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
-
-                                            <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-info">Observação</span></div>
-
-                                        </div>
-
-                                        <div class="row">
-
-                                            <p class="mt-3 col-lg-12 p-0 text-justify">Adicionou uma observação ao aluno(a): <?= $value['value']->studentName ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->disciplineName ?></p>
-
-                                        </div>
-
-
-                                    </div>
-
-                                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
-
-                            <?php }
-                            } ?>
+                            </div>
 
                         </div>
 
                     </div>
-
                 </div>
 
-                <div class="col-lg-6 pr-0">
+                <div class="col-lg-6 pr-0 pl-0">
 
-                    <div class="col-lg-12 card" style="height:75vh">
+                    <div class="col-lg-12 pr-0 pl-0">
 
-                        <canvas id="rematrung"></canvas>
+                        <div class="card mb-3" style="height:36vh">
+
+                            <canvas class="" id="graphCurrentStudentSituation"></canvas>
+
+                        </div>
+
+                        <div class="row">
+
+                           <!--  <div class="col-lg-12" style="height:36vh">
+
+                                <canvas class="card" id="graphSituationEngramentesReceived"></canvas>
+
+                            </div> -->
+
+                           <div class="col-lg-12" style="height:36vh">
+
+                                <canvas class="card" id="grafico2"></canvas>
+
+                            </div> 
+
+                        </div>
+
+                       <!--  <div class="row mt-3">
+
+                            <div class="col-lg-12 p-0">
+
+                                <div class="card col-lg-12">
+
+                                    <div class="text-center font-weight-bold card-title m-0 p-2" id="clock"></div>
+
+                                </div>
+
+                            </div>
+
+                        </div> -->
+
 
                     </div>
 
                 </div>
 
             </div>
+
+        </div>
+
+        </div>
 
 </section>

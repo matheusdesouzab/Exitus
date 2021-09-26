@@ -112,4 +112,28 @@ class StudentEnrollment extends Model
         return $this->speedingUp("SELECT id_situacao_aluno AS option_value , situacao_aluno AS option_text FROM situacao_aluno_ano_letivo");
     }
 
+
+    public function studentSituationSchoolYear()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT situacao_aluno_ano_letivo.situacao_aluno AS studentStatus , 
+
+            (SELECT COUNT(matricula.id_matricula) 
+             
+            FROM matricula 
+            
+            LEFT JOIN periodo_letivo ON(matricula.fk_id_periodo_letivo_matricula = periodo_letivo.id_ano_letivo)
+            LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+             
+            WHERE matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno 
+             
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+            
+            ) AS total 
+            
+            FROM situacao_aluno_ano_letivo"
+        );
+    }
 }

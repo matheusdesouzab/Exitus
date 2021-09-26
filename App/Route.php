@@ -296,6 +296,12 @@ class Route extends Bootstrap
 				'action' => 'totalStudentsCourse'
 			);
 
+			$routes['adminTotalStudentSituationSchoolYear'] = array(
+				'route' => '/admin/gestao/home/situacao-alunos-periodo-letivo',
+				'controller' => 'Admin\\AdminStudentController',
+				'action' => 'studentSituationSchoolYear'
+			);
+
 
 			// Discipline routes
 

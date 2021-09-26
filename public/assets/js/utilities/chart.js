@@ -1,52 +1,110 @@
-let labelsTotalStudentsCourse = Array();
-let dataTotalStudentsCourse = Array();
+let studenDivisionChartCourseLabels = []
+let studenDivisionChartCourseDatas = []
+let studentSituationSchoolYearLabels = []
+let studentSituationSchoolYearDatas = []
 
 $.ajax({
   type: "GET",
   url: "/admin/gestao/curso/total-alunos-curso",
   dataType: 'json',
+  success: data => {
+    $.each(data, i => {
+        studenDivisionChartCourseLabels.push(data[i].courseName)
+        studenDivisionChartCourseDatas.push(data[i].totalStudensCourse)
+      },
+      setTimeout(function () {
+        new Chart(
+          document.getElementById('studenDivisionChartCourse'), {
+            type: 'bar',
+            data: {
+              labels: studenDivisionChartCourseLabels,
+              datasets: [{
+                label: 'Total de alunos',
+                backgroundColor: '#363C90',
+                borderColor: '#e5e5e5',
+                data: studenDivisionChartCourseDatas
+              }]
+            },
+            options: {
+              plugins: {
+                title: {
+                  display: true,
+                  text: 'Divisão de alunos por curso',
+                  padding: {
+                    top: 10,
+                    bottom: 30
+                  }
+                }
+              },
+              scales: {
+                x: {
+                  grid: {
+                    display: false
+                  }
+                },
+                y: {
+                  grid: {
+                    display: false
+                  }
+                }
+              }
+            }
+          }
+        )
+      }, 1500)
+    )
+  }
+})
+
+
+$.ajax({
+  type: "GET",
+  url: "/admin/gestao/home/situacao-alunos-periodo-letivo",
+  dataType: 'json',
   success: data => $.each(data, i => {
 
-    labelsTotalStudentsCourse.push(data[i].courseName)
-    dataTotalStudentsCourse.push(data[i].totalStudensCourse)
+    studentSituationSchoolYearLabels.push(data[i].studentStatus + 's')
+    studentSituationSchoolYearDatas.push(data[i].total)
+
+    console.log(data)
 
     setTimeout(function () {
 
       new Chart(
-        document.getElementById('myChart'), {
-          type: 'bar',
+        document.getElementById('graphCurrentStudentSituation'), {
+          type: 'pie',
           data: {
-            labels: labelsTotalStudentsCourse,
+            labels: studentSituationSchoolYearLabels,
+            borderRadius: 50,
             datasets: [{
-              label: 'Total de alunos',
-              backgroundColor: '#363C90',
-              borderColor: '#e5e5e5',
-              data: dataTotalStudentsCourse
+              data:  studentSituationSchoolYearDatas,
+              backgroundColor: [
+                '#17A2B8',
+                '#82E0AA',
+                '#BA7844'
+              ],
+              borderRadius: 5,
+              padding: {
+                top: 10,
+                bottom: 10
+              },
+              hoverOffset: 4
             }]
           },
           options: {
+            cutoutPercentage: 30,
             plugins: {
               title: {
                 display: true,
-                text: 'Divisão de alunos por curso',
+                text: 'Situação dos alunos no ano letivo',
                 padding: {
                   top: 10,
-                  bottom: 30
+                  bottom: 10
                 }
               }
             },
-            scales: {
-              x: {
-                grid: {
-                  display: false
-                }
-              },
-              y: {
-                grid: {
-                  display: false
-                }
-              }
-            }
+            responsive: true,
+            maintainAspectRatio: false
           }
         }
       )
@@ -63,30 +121,20 @@ $.ajax({
 
 
 
-
-
-
-
-
-
-
-
-
-
-let grafico2 = new Chart(
-  document.getElementById('rematrung'), {
+let graphSituationEngramentesReceived = new Chart(
+  document.getElementById('graphSituationEngramentesReceived'), {
     type: 'doughnut',
     data: {
       labels: [
-        'Alunos que marcaram sim',
-        'Alunos que marcaram com não'
+        'Marcaram sim',
+        'Marcaram não'
       ],
       datasets: [{
         label: 'Total de rematrículas',
-        data: [127, 4],
+        data: [100, 45],
         backgroundColor: [
-          '#28A745',
-          '#4040E7'
+          '#007BFF',
+          '#BA4A00'
         ],
         padding: {
           top: 10,
@@ -96,6 +144,7 @@ let grafico2 = new Chart(
       }]
     },
     options: {
+      cutoutPercentage: 30,
       plugins: {
         title: {
           display: true,
@@ -105,8 +154,29 @@ let grafico2 = new Chart(
             bottom: 10
           }
         }
-      },  
-        responsive: true,
-        maintainAspectRatio: false
+      },
+      responsive: true,
+      maintainAspectRatio: false
     }
   })
+
+
+
+var myChart = new Chart(document.getElementById('grafico2'), {
+  type: 'line',
+  data: {
+    labels: ["Tokyo", "Mumbai", "Mexico City", "Shanghai", "Sao Paulo", "New York", "Karachi", "Buenos Aires", "Delhi", "Moscow"],
+    datasets: [{
+      label: 'Series 1',
+      data: [500, 50, 2424, 14040, 14141, 4111, 4544, 47, 5555, 6811],
+      fill: false,
+      borderColor: '#2196f3',
+      backgroundColor: '#2196f3',
+      borderWidth: 1
+    }]
+  },
+  options: {
+    responsive: true, // Instruct chart js to respond nicely.
+    maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
+  }
+});

@@ -247,4 +247,12 @@ class AdminStudentController extends Action
 
         $StudentEnrollment->insert();
     }
+
+
+    public function studentSituationSchoolYear()
+    {
+
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+        echo json_encode($StudentEnrollment->studentSituationSchoolYear());
+    }
 }
