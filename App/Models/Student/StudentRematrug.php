@@ -56,4 +56,30 @@ class StudentRematrug extends Model
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
+
+    public function totalRematriumMarkedWithYesAndNo()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+            
+            (SELECT COUNT(rematricula.id_rematricula) 
+            
+            FROM rematricula 
+             
+            LEFT JOIN matricula ON(rematricula.fk_id_rematricula_aluno = matricula.id_matricula)
+            LEFT JOIN periodo_letivo ON(matricula.fk_id_periodo_letivo_matricula = periodo_letivo.id_ano_letivo)
+            LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            
+            WHERE rematricula.fk_id_situacao_rematricula = situacao_rematricula.id_situacao_rematricula
+             
+            AND
+             
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS totalAnswer , 
+            situacao_rematricula.situacao AS rematrugAnswer
+            
+            FROM situacao_rematricula"
+        );
+    }
 }

@@ -255,4 +255,20 @@ class AdminStudentController extends Action
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         echo json_encode($StudentEnrollment->studentSituationSchoolYear());
     }
+
+
+    public function totalRematriumMarkedWithYesAndNo()
+    {
+
+        $StudentRematrug = Container::getModel('Student\\StudentRematrug');
+        echo json_encode($StudentRematrug->totalRematriumMarkedWithYesAndNo());
+    }
+
+
+    public function divisionStudentsBySex()
+    {
+
+        $Student = Container::getModel('Student\\Student');
+        echo json_encode($Student->divisionStudentsBySex());
+    }
 }

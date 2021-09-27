@@ -633,7 +633,7 @@ button {
 #admin #pagina section#home .recent-activities,
 #teacherPortal #pagina section#home .recent-activities,
 #studentPortal #pagina section#home .recent-activities {
-  height: 75vh;
+  height: 79vh;
   overflow-y: auto;
   overflow-x: hidden;
 }

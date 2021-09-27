@@ -414,4 +414,24 @@ class Student extends People
             WHERE aluno.fk_id_situacao_geral_aluno = 1 AND DATE(aluno.data_matricula_inicial) = DATE(@currentDate)"
         );
     }
+
+
+    public function divisionStudentsBySex()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+
+            (SELECT COUNT(aluno.id_aluno) 
+                
+            FROM aluno 
+                
+            WHERE aluno.fk_id_sexo_aluno = sexo.id_sexo AND aluno.fk_id_situacao_geral_aluno = 1) AS total , 
+                
+            sexo.sexo AS sex
+                
+            FROM sexo"
+        );
+    }
 }

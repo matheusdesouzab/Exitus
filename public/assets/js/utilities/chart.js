@@ -1,28 +1,37 @@
-let studenDivisionChartCourseLabels = []
-let studenDivisionChartCourseDatas = []
-let studentSituationSchoolYearLabels = []
-let studentSituationSchoolYearDatas = []
+const colors = []
+
+colors['success'] = '#82E0AA'
+colors['danger'] = '#dc3545'
+colors['info'] = '#17A2B8'
+colors['primary'] = '#363C90'
+
+//-------------------------------------------
 
 $.ajax({
   type: "GET",
   url: "/admin/gestao/curso/total-alunos-curso",
   dataType: 'json',
   success: data => {
+
+    let labels = []
+    let datas = []
+
     $.each(data, i => {
-        studenDivisionChartCourseLabels.push(data[i].courseName)
-        studenDivisionChartCourseDatas.push(data[i].totalStudensCourse)
-      },
+        labels.push(data[i].courseName)
+        datas.push(data[i].totalStudensCourse)
+      }),
+
       setTimeout(function () {
         new Chart(
           document.getElementById('studenDivisionChartCourse'), {
             type: 'bar',
             data: {
-              labels: studenDivisionChartCourseLabels,
+              labels: labels,
               datasets: [{
                 label: 'Total de alunos',
-                backgroundColor: '#363C90',
+                backgroundColor: colors['primary'],
                 borderColor: '#e5e5e5',
-                data: studenDivisionChartCourseDatas
+                data: datas
               }]
             },
             options: {
@@ -52,7 +61,64 @@ $.ajax({
           }
         )
       }, 1500)
-    )
+  }
+})
+
+
+$.ajax({
+  type: "GET",
+  url: "/admin/gestao/curso/total-alunos-curso",
+  dataType: 'json',
+  success: data => {
+
+    let labels = []
+    let datas = []
+
+    $.each(data, i => {
+        labels.push(data[i].courseName)
+        datas.push(data[i].totalStudensCourse)
+      }),
+
+      setTimeout(function () {
+        new Chart(
+          document.getElementById('city'), {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Total de alunos',
+                backgroundColor: colors['primary'],
+                borderColor: '#e5e5e5',
+                data: datas
+              }]
+            },
+            options: {
+              plugins: {
+                title: {
+                  display: true,
+                  text: 'Divisão de alunos por curso',
+                  padding: {
+                    top: 10,
+                    bottom: 30
+                  }
+                }
+              },
+              scales: {
+                x: {
+                  grid: {
+                    display: false
+                  }
+                },
+                y: {
+                  grid: {
+                    display: false
+                  }
+                }
+              }
+            }
+          }
+        )
+      }, 1500)
   }
 })
 
@@ -61,122 +127,177 @@ $.ajax({
   type: "GET",
   url: "/admin/gestao/home/situacao-alunos-periodo-letivo",
   dataType: 'json',
-  success: data => $.each(data, i => {
+  success: data => {
 
-    studentSituationSchoolYearLabels.push(data[i].studentStatus + 's')
-    studentSituationSchoolYearDatas.push(data[i].total)
+    let labels = []
+    let datas = []
 
-    console.log(data)
+    $.each(data, i => {
+        labels.push(data[i].studentStatus + 's')
+        datas.push(data[i].total)
+      }),
 
-    setTimeout(function () {
+      setTimeout(function () {
 
-      new Chart(
-        document.getElementById('graphCurrentStudentSituation'), {
-          type: 'pie',
-          data: {
-            labels: studentSituationSchoolYearLabels,
-            borderRadius: 50,
-            datasets: [{
-              data:  studentSituationSchoolYearDatas,
-              backgroundColor: [
-                '#17A2B8',
-                '#82E0AA',
-                '#BA7844'
-              ],
-              borderRadius: 5,
-              padding: {
-                top: 10,
-                bottom: 10
-              },
-              hoverOffset: 4
-            }]
-          },
-          options: {
-            cutoutPercentage: 30,
-            plugins: {
-              title: {
-                display: true,
-                text: 'Situação dos alunos no ano letivo',
+        new Chart(
+          document.getElementById('graphCurrentStudentSituation'), {
+            type: 'pie',
+            data: {
+              labels: labels,
+              borderRadius: 50,
+              datasets: [{
+                data: datas,
+                backgroundColor: [
+                  colors['info'],
+                  colors['success'],
+                  colors['danger']
+                ],
+                borderRadius: 5,
                 padding: {
                   top: 10,
                   bottom: 10
-                }
-              }
+                },
+                hoverOffset: 4
+              }]
             },
-            responsive: true,
-            maintainAspectRatio: false
+            options: {
+              legend: {
+                position: "bottom"
+              },
+              cutoutPercentage: 30,
+              plugins: {
+                title: {
+                  display: true,
+                  text: 'Situação dos alunos no ano letivo',
+                  padding: {
+                    top: 10,
+                    bottom: 10
+                  }
+                }
+              },
+              responsive: true,
+              maintainAspectRatio: false
+            }
           }
-        }
-      )
-    }, 1500)
-  })
+        )
+      }, 1500)
+  }
 })
 
 
+$.ajax({
+  type: "GET",
+  url: "/admin/gestao/home/situacao-rematriculas-recebidas",
+  dataType: 'json',
+  success: data => {
 
+    let labels = []
+    let datas = []
 
+    $.each(data, i => {
+        labels.push('Marcaram ' + data[i].rematrugAnswer)
+        datas.push(data[i].totalAnswer)
+      }),
 
+      setTimeout(function () {
 
+        new Chart(
+          document.getElementById('graphSituationEngramentesReceived'), {
+            type: 'doughnut',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Total de rematrículas',
+                borderRadius: 5,
+                data: datas,
+                backgroundColor: [
+                  colors['success'],
+                  colors['danger']
+                ],
+                padding: {
+                  top: 10,
+                  bottom: 10
+                },
+                hoverOffset: 4
+              }]
+            },
+            options: {
+              cutoutPercentage: 30,
+              plugins: {
+                title: {
+                  display: true,
+                  text: 'Status das solicitações de rematrículas recebidas',
+                  padding: {
+                    top: 10,
+                    bottom: 10
+                  }
+                }
+              },
+              responsive: true,
+              maintainAspectRatio: false
+            }
+          })
 
+      }, 1500)
 
-
-
-let graphSituationEngramentesReceived = new Chart(
-  document.getElementById('graphSituationEngramentesReceived'), {
-    type: 'doughnut',
-    data: {
-      labels: [
-        'Marcaram sim',
-        'Marcaram não'
-      ],
-      datasets: [{
-        label: 'Total de rematrículas',
-        data: [100, 45],
-        backgroundColor: [
-          '#007BFF',
-          '#BA4A00'
-        ],
-        padding: {
-          top: 10,
-          bottom: 10
-        },
-        hoverOffset: 4
-      }]
-    },
-    options: {
-      cutoutPercentage: 30,
-      plugins: {
-        title: {
-          display: true,
-          text: 'Status das rematrículas recebidas para o ano de 2022',
-          padding: {
-            top: 10,
-            bottom: 10
-          }
-        }
-      },
-      responsive: true,
-      maintainAspectRatio: false
-    }
-  })
-
-
-
-var myChart = new Chart(document.getElementById('grafico2'), {
-  type: 'line',
-  data: {
-    labels: ["Tokyo", "Mumbai", "Mexico City", "Shanghai", "Sao Paulo", "New York", "Karachi", "Buenos Aires", "Delhi", "Moscow"],
-    datasets: [{
-      label: 'Series 1',
-      data: [500, 50, 2424, 14040, 14141, 4111, 4544, 47, 5555, 6811],
-      fill: false,
-      borderColor: '#2196f3',
-      backgroundColor: '#2196f3',
-      borderWidth: 1
-    }]
-  },
-  options: {
-    responsive: true, // Instruct chart js to respond nicely.
-    maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
   }
-});
+})
+
+
+$.ajax({
+  type: "GET",
+  url: "/admin/gestao/home/divisao-alunos-sexo",
+  dataType: 'json',
+  success: data => {
+
+    let labels = []
+    let datas = []
+
+    $.each(data, i => {
+
+        labels.push(data[i].sex == 'Feminino' ? 'Mulheres' : 'Homens')
+        datas.push(data[i].total)
+      }),
+
+      setTimeout(function () {
+
+        new Chart(
+          document.getElementById('studentSex'), {
+            type: 'doughnut',
+            data: {
+              labels: labels,
+              datasets: [{
+                borderRadius: 5,
+                data: datas,
+                backgroundColor: [
+                  colors['primary'],
+                  colors['danger']
+                ],
+                padding: {
+                  top: 10,
+                  bottom: 10
+                },
+                hoverOffset: 4
+              }]
+            },
+            options: {
+              cutoutPercentage: 30,
+              plugins: {
+                title: {
+                  display: true,
+                  text: 'Sexo dos alunos',
+                  padding: {
+                    top: 10,
+                    bottom: 10
+                  }
+                }
+              },
+              responsive: true,
+              maintainAspectRatio: false
+            }
+          })
+
+      }, 1500)
+
+  }
+})

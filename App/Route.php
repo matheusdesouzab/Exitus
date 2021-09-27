@@ -100,6 +100,12 @@ class Route extends Bootstrap
 				'controller' => 'Admin\\AdminTeacherStudentController',
 				'action' => 'bulletin'
 			); 
+
+			$routes['adminDivisionStudentsBySex'] = array(
+				'route' => '/admin/gestao/home/divisao-alunos-sexo',
+				'controller' => 'Admin\\AdminStudentController',
+				'action' => 'divisionStudentsBySex'
+			); 
 			
 
 			// People 
@@ -300,6 +306,12 @@ class Route extends Bootstrap
 				'route' => '/admin/gestao/home/situacao-alunos-periodo-letivo',
 				'controller' => 'Admin\\AdminStudentController',
 				'action' => 'studentSituationSchoolYear'
+			);
+
+			$routes['adminTotalRematriumMarkedWithYesAndNo'] = array(
+				'route' => '/admin/gestao/home/situacao-rematriculas-recebidas',
+				'controller' => 'Admin\\AdminStudentController',
+				'action' => 'totalRematriumMarkedWithYesAndNo'
 			);
 
 
@@ -721,6 +733,12 @@ class Route extends Bootstrap
 				'route' => '/portal-docente/perfil/atualizar',
 				'controller' => 'TeacherPortal\\TeacherPortalController',
 				'action' => 'updateTeacherPortal'
+			);
+
+			$routes['teacherPortalHome'] = array(
+				'route' => '/portal-docente/home',
+				'controller' => 'TeacherPortal\\TeacherPortalController',
+				'action' => 'home'
 			);
 
 			$routes['exitTeacherPortal'] = array(
