@@ -741,6 +741,12 @@ class Route extends Bootstrap
 				'action' => 'home'
 			);
 
+			$routes['teacherPortalStudentBasedFinalAverage'] = array(
+				'route' => '/portal-docente/aproveitamento-alunos-base-media-final',
+				'controller' => 'TeacherPortal\\TeacherPortalController',
+				'action' => 'studentBasedFinalAverage'
+			);
+
 			$routes['exitTeacherPortal'] = array(
 				'route' => '/portal-docente/sair',
 				'controller' => 'TeacherPortal\\TeacherPortalController',

@@ -8,7 +8,7 @@
 
             <p>Menu principal</p>
 
-            <li><a href="#"><i class="fas fa-home"></i><span class="link-name">Home</span></a></li>
+            <li><a href="/portal-docente/home"><i class="fas fa-home"></i><span class="link-name">Home</span></a></li>
 
             <li><a href="/portal-docente/turmas"><i class="fas fa-boxes"></i><span class="link-name">Turmas</span></a></li>
 

@@ -13,7 +13,6 @@ class SchoolTerm extends Model
     private $fk_id_school_term_situation;
     private $fk_id_school_year;
 
-
     public function __get($att)
     {
         return $this->$att;
@@ -26,6 +25,11 @@ class SchoolTerm extends Model
     }
 
 
+    /**
+     * Unwinding of the active letive period ( Desativar período letivo ativo )
+     * 
+     * @return void
+     */
     public function disableActiveSchoolTerm()
     {
 
@@ -50,6 +54,11 @@ class SchoolTerm extends Model
     }
 
 
+    /**
+     * Insert school term ( Inserir período letivo )
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -77,6 +86,11 @@ class SchoolTerm extends Model
     }
 
 
+    /**
+     * List of states that a term can have ( Lista dos estados que um período letivo pode ter )
+     * 
+     * @return array-object
+     */
     public function listSchoolTermStates()
     {
 
@@ -93,6 +107,11 @@ class SchoolTerm extends Model
     }
 
 
+    /**
+     * Update school term ( Atualizar período letivo )
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -124,14 +143,17 @@ class SchoolTerm extends Model
         $stmt->bindValue(':schoolTermId', $this->__get('schoolTermId'));
         $stmt->bindValue(':fk_id_school_term_situation', $this->__get('fk_id_school_term_situation'));
 
-
         $stmt->execute();
     }
 
 
+    /**
+     * Delete school term ( Deletar período letivo )
+     * 
+     * @return void
+     */
     public function delete()
     {
-
 
         $query =
 
@@ -155,6 +177,11 @@ class SchoolTerm extends Model
     }
 
 
+    /**
+     * List of school terms ( Lista dos período letivos )
+     * 
+     * @return void
+     */
     public function list()
     {
 
@@ -174,12 +201,17 @@ class SchoolTerm extends Model
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
             
-            ORDER BY periodo_disponivel.ano_letivo DESC "
+            ORDER BY periodo_disponivel.ano_letivo DESC"
 
         );
     }
 
 
+    /**
+     * List of available school years ( Lista dos anos letivos disponíveis  )
+     * 
+     * @return array-object
+     */
     public function listAvailableYears()
     {
 
@@ -200,6 +232,11 @@ class SchoolTerm extends Model
     }
 
 
+    /**
+     * Active school term ( Período letivo ativo )
+     * 
+     * @return array-object
+     */
     public function active()
     {
 
@@ -239,9 +276,7 @@ class SchoolTerm extends Model
              
              WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 OR situacao_periodo_letivo.id_situacao_periodo_letivo = 3
 
-             ORDER BY situacao_periodo_letivo.id_situacao_periodo_letivo ASC
-             
-             "
+             ORDER BY situacao_periodo_letivo.id_situacao_periodo_letivo ASC"
 
         );
     }

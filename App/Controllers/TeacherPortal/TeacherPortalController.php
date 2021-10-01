@@ -53,9 +53,34 @@ class TeacherPortalController extends Action
     public function home()
     {
 
+        $Settings = Container::getModel('Admin\\Settings');
+        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $Teacher = Container::getModel('Teacher\\Teacher');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
+        $Note = Container::getModel('TeacherStudent\\Note');
+        $Lack = Container::getModel('TeacherStudent\\Lack');
+        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+        $Observation = Container::getModel('TeacherStudent\\Observation');
+
         if (!isset($_SESSION)) session_start();
 
-        print_r($_SESSION);
+        $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+        $Exam->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
+        $Note->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
+        $Lack->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
+        $DisciplineAverage->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
+        $Observation->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
+
+        $this->view->unitControlCurrent = $Settings->unitControlCurrent();
+        $this->view->SchoolTermActive = $SchoolTerm->active();
+        $this->view->totalStudents = $Teacher->totalStudents();
+        $this->view->listExam = $Exam->list(1);
+        $this->view->listNote = $Note->list(1);
+        $this->view->listLack = $Lack->list(1);
+        $this->view->listObservation = $Observation->list(1);
+        $this->view->listDisciplineAverage = $DisciplineAverage->list(1);
+
+        $this->render('home', 'TeacherPortalLayout', 'TeacherPortal');
     }
 
 
@@ -159,6 +184,19 @@ class TeacherPortalController extends Action
         $Telephone->update();
         $Address->update();
         $Teacher->update();
+    }
+
+
+    public function studentBasedFinalAverage()
+    {
+
+        $Teacher = Container::getModel('Teacher\\Teacher');
+
+        if (!isset($_SESSION)) session_start();
+
+        $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+        
+        echo json_encode($Teacher->studentBasedFinalAverage());
     }
 
 

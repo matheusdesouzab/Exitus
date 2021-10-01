@@ -136,4 +136,7 @@ class StudentEnrollment extends Model
             FROM situacao_aluno_ano_letivo"
         );
     }
+
+
+    
 }

@@ -336,4 +336,76 @@ class Teacher extends People
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
+
+
+    public function totalStudents()
+    {
+
+        $query =
+
+            "SELECT DISTINCT       
+            
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
+            
+            FROM turma 
+            
+            INNER JOIN turma_disciplina ON(turma.id_turma = turma_disciplina.fk_id_turma) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            
+            WHERE professor.id_professor = 1
+
+            AND
+
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1       
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
+
+        $stmt->execute();
+
+        return array_reduce($stmt->fetchAll(\PDO::FETCH_OBJ), fn ($sum, $value) => $sum += $value->student_total);
+    }
+
+
+    public function studentBasedFinalAverage()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            (SELECT COUNT(media_disciplina.id_media_disciplina) 
+            
+            FROM media_disciplina 
+            
+            INNER JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN matricula ON(media_disciplina.fk_id_matricula_media = matricula.id_matricula) 
+            INNER JOIN periodo_letivo ON(matricula.fk_id_periodo_letivo_matricula = periodo_letivo.id_ano_letivo) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+            
+            WHERE professor.id_professor = :teacherId
+            
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+            
+            AND media_disciplina.fk_id_legenda = legenda.id_legenda ) AS total , 
+            legenda.sigla AS acronym 
+            
+            FROM legenda
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 }

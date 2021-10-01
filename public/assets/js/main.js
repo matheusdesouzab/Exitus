@@ -845,13 +845,13 @@ $(document).on('click', "#profileClassModal [data-target='#class-note-history']"
 
 })
 
-$(document).ready(function() {
+/* $(document).ready(function() {
     $('#clock').countdown('2021/10/09 00:00:00', function(event) {
         $(this).html(event.strftime('Próximo período letivo se inicia em %D dias %Hh, %Mmin e %Ss <i class="fas fa-hourglass-end ml-2"></i>'));
     });
 });
 
-
+ */
 
 
 
