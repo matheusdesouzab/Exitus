@@ -204,6 +204,21 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                             array_multisort($sort, SORT_DESC, $data['dados']);
                                         }
 
+                                        function currentDate($array)
+                                        {
+        
+                                            date_default_timezone_set('America/Sao_Paulo');
+                                            $today = date('d-m');
+        
+                                            $data = explode(' ', $array);
+                                            $data = explode('-', $data[0]);
+                                            $data = $data[2] . '-' . $data[1];
+        
+                                            $data = ($data == $today ? ' Hoje' : ' em '. $data);
+        
+                                            return $data;
+                                        }
+
 
 
                                         ?>
@@ -285,12 +300,10 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                 <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu sua nota em <?= $value['value']->exam_description ?> da <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
 
-                                                                <?php $data = explode('-',  $value['value']->post_date) ?>
-
                                                                 <div class="col-lg-12 p-0">
                                                                     <div class="row">
                                                                         <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve <?= number_format($value['value']->note_value, 1, '.', '') ?> / <?= number_format($value['value']->exam_value, 1, '.', '') ?> </small></div>
-                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
                                                                     </div>
                                                                 </div>
 
@@ -315,14 +328,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                 <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observationDescription ?></textarea>
 
-                                                                <?php
-
-                                                                $dateTime = explode(' ', $value['value']->post_date);
-                                                                $data = explode('-', $dateTime[0]);
-
-                                                                ?>
-
-                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small>
+                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small>
 
                                                             </div>
 
@@ -342,12 +348,10 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                 <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu suas faltas da <?= $value['value']->unity ?> unidade de <?= $value['value']->disciplineName ?></p>
 
-                                                                <?php $data = explode('-',  $value['value']->post_date) ?>
-
                                                                 <div class="col-lg-12 p-0">
                                                                     <div class="row">
                                                                         <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve um total de <?= $value['value']->totalLack ?> faltas</small></div>
-                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small></div>
                                                                     </div>
                                                                 </div>
 
@@ -371,12 +375,10 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                 <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu a sua média final na disciplina de <?= $value['value']->disciplineName ?></p>
 
-                                                                <?php $data = explode('-',  $value['value']->post_date) ?>
-
                                                                 <div class="col-lg-12 p-0">
                                                                     <div class="row">
                                                                         <div class="col-lg-8"><small class="font-weight-bold p-0">Sua média final foi de <?= number_format($value['value']->average, 1, '.', '') ?> - Você está <?= lcfirst($value['value']->subtitle) ?> na disciplina</small></div>
-                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= $data[2] ?>/<?= $data[1] ?></small></div>
+                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small></div>
                                                                     </div>
                                                                 </div>
 

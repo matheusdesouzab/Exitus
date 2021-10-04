@@ -13,17 +13,22 @@ class ClassRoom extends Model
 
 
     public function __get($att)
-	{
-		return $this->$att;
-	}
+    {
+        return $this->$att;
+    }
 
 
-	public function __set($att, $newValue)
-	{
-		return $this->$att = $newValue;
-	}
+    public function __set($att, $newValue)
+    {
+        return $this->$att = $newValue;
+    }
 
 
+    /**
+     * Criar uma sala
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -38,11 +43,16 @@ class ClassRoom extends Model
     }
 
 
+    /**
+     * Retorna todas as salas
+     * 
+     * @return array
+     */
     public function list()
     {
 
         return $this->speedingUp(
-            
+
             "SELECT 
             
             sala.id_sala AS classroom_id , 
@@ -51,12 +61,17 @@ class ClassRoom extends Model
             
             FROM sala 
             
-            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula)"
+            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.numero_sala_aula)"
 
         );
     }
 
 
+    /**
+     * Atualizar sala
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -69,8 +84,13 @@ class ClassRoom extends Model
 
         $stmt->execute();
     }
-    
 
+
+    /**
+     * Deletar sala
+     * 
+     * @return void
+     */
     public function delete()
     {
 
@@ -84,6 +104,11 @@ class ClassRoom extends Model
     }
 
 
+    /**
+     * Retorna os números que ainda não foram vinculados a uma sala
+     * 
+     * @return array
+     */
     public function availableNumbers()
     {
 
@@ -104,7 +129,12 @@ class ClassRoom extends Model
     }
 
 
-    public function activeClassRoom()
+    /**
+     * Esse método retorna todas as salas. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
+    public function listForSelect()
     {
 
         return $this->speedingUp(
@@ -118,6 +148,6 @@ class ClassRoom extends Model
             
             INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula)"
 
-        ); 
+        );
     }
 }

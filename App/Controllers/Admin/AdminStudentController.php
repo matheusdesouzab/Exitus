@@ -19,7 +19,7 @@ class AdminStudentController extends Action
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->bloodType = $Student->bloodType();
-        $this->view->availableClass = $Classe->availableListClass();
+        $this->view->availableClass = $Classe->firstGradeClasses();
 
         $this->render('student/studentRegistration', 'AdminLayout');
     }
@@ -32,13 +32,15 @@ class AdminStudentController extends Action
         $Course = Container::getModel('Admin\\Course');
         $Classe = Container::getModel('Admin\\Classe');
         $Student = Container::getModel('Student\\Student');
+        $Shift = Container::getModel('Admin\\Shift');
+        $Series = Container::getModel('Admin\\Series');
 
         $this->view->listStudent = $Student->list();
-        $this->view->availableCourse = $Course->availableCourse();
-        $this->view->availableClass = $Classe->availableListClass();
+        $this->view->availableCourse = $Course->listForSelect();
+        $this->view->availableClass = $Classe->firstGradeClasses();
         $this->view->availableSex = $Student->availableSex();
-        $this->view->availableShift = $Classe->availableShift();
-        $this->view->availableSeries = $Classe->availableSeries();
+        $this->view->availableShift = $Shift->listForSelect();
+        $this->view->availableSeries = $Series->listForSelect();
         $this->view->typeStudentList = 'normal';
 
         $this->render('student/studentList', 'AdminLayout');
@@ -61,7 +63,7 @@ class AdminStudentController extends Action
     {
 
         $Classe = Container::getModel('Admin\\Classe');
-        $this->view->listClass = $Classe->availableListClass();
+        $this->view->listClass = $Classe->firstGradeClasses();
         $this->render('student/components/classesList', 'SimpleLayout');
     }
 

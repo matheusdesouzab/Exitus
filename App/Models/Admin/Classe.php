@@ -28,6 +28,11 @@ class Classe extends Model
     }
 
 
+    /**
+     * Criar uma turma
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -56,6 +61,11 @@ class Classe extends Model
     }
 
 
+    /**
+     * Atualizar turma
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -88,33 +98,15 @@ class Classe extends Model
     }
 
 
-    public function availableShift()
-    {
-
-        return $this->speedingUp(
-            "SELECT turno.id_turno AS option_value , turno.nome_turno AS option_text FROM turno"
-        );
-    }
-
-
-    public function availableBallot()
-    {
-
-        return $this->speedingUp(
-            "SELECT cedula_turma.id_cedula_turma AS option_value , cedula_turma.cedula AS option_text FROM cedula_turma"
-        );
-    }
-
-
-    public function availableSeries()
-    {
-
-        return $this->speedingUp(
-            "SELECT serie.id_serie AS option_value , serie.sigla AS option_text FROM serie"
-        );
-    }
-
-
+    /**
+     * Esse método verificar se já foi criado uma turma com os mesmos valores no período letivo selecionado.
+     * 
+     * No mesmo período letivo só é possivel ter uma turma por sala, no mesmo turno. Desse modo, se já existe uma turma criada
+     * no turno matutino na sala 1, não será possível adicionar outra turma nesse mesmo formato, como também se por exemplo, no curso de 
+     * Informática existir uma turma do 1 ano com a cédula A, não é possível criar uma com a mesma cédula.
+     * 
+     * @return array
+     */
     public function checkClass()
     {
 
@@ -162,7 +154,12 @@ class Classe extends Model
     }
 
 
-    public function seekClass()
+    /**
+     * Buscar turma
+     * 
+     * @return array
+     */
+    public function seek()
     {
 
         $query =
@@ -205,8 +202,9 @@ class Classe extends Model
 
             AND
 
-            CASE WHEN :fk_id_school_term = 0 THEN  periodo_letivo.id_ano_letivo <> :fk_id_school_term ELSE periodo_letivo.id_ano_letivo = :fk_id_school_term END
-        
+            CASE WHEN :fk_id_school_term = 0 THEN  periodo_letivo.id_ano_letivo <> :fk_id_school_term ELSE periodo_letivo.id_ano_letivo = :fk_id_school_term
+
+            END      
         ";
 
         $stmt = $this->db->prepare($query);
@@ -222,6 +220,13 @@ class Classe extends Model
     }
 
 
+    /**
+     * Retorna todas as turmas
+     * 
+     * @param string $scholTermSituation 
+     * 
+     * @return array
+     */
     public function list($scholTermSituation = '= 1')
     {
 
@@ -274,7 +279,13 @@ class Classe extends Model
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
-    public function availableListClass()
+
+    /**
+     * Retorna todas as turmas da primeira série
+     * 
+     * @return array
+     */
+    public function firstGradeClasses()
     {
 
         return $this->speedingUp(
@@ -311,6 +322,11 @@ class Classe extends Model
     }
 
 
+    /**
+     * Retorna todas as solicitações de rematrículas dos alunos, de uma determinada turma
+     * 
+     * @return array
+     */
     public function listRematrugRequests()
     {
 
@@ -351,6 +367,11 @@ class Classe extends Model
     }
 
 
+    /**
+     * Retorna todas as turmas que o aluno pode ser rematrículado, levando em consideração o curso, e sua série.
+     * 
+     * @return array
+     */
     public function nextClass()
     {
 
@@ -403,6 +424,11 @@ class Classe extends Model
     }
 
 
+    /**
+     * Retorna todos os alunos que já foram rematrículados no próximo ano
+     * 
+     * @return array
+     */
     public function studentsAlreadyRegisteredNextYear()
     {
 

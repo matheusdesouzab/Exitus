@@ -68,14 +68,16 @@ class Application {
 
         let $formData = $(`${form}`).serialize()
 
-        console.log($formData)
-
         $.ajax({
             url: route,
             type: 'POST',
-            dataType: 'html',
+            dataType: 'json',
             data: $formData,
-            success: data => tools.showToast(dataToast, 'bg-primary'),
+            success: data => {
+
+                tools.showToast(dataToast, 'bg-primary')
+
+            },
             error: erro => tools.showToast('Tente novamente mais tarde', 'bg-info')
         })
     }

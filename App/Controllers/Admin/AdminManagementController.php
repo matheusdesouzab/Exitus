@@ -23,7 +23,7 @@ class AdminManagementController extends Action
         $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
 
         $this->view->listSchoolTerm = $SchoolTerm->list();
-        $this->view->listSchoolTermStates = $SchoolTerm->listSchoolTermStates();
+        $this->view->listSchoolTermStates = $SchoolTerm->schoolTermStates();
 
         $this->render('management/pages/schoolTermManagement', 'AdminLayout');
     }
@@ -54,6 +54,7 @@ class AdminManagementController extends Action
         $SchoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
 
         $SchoolTerm->update();
+
     }
 
 
@@ -63,7 +64,7 @@ class AdminManagementController extends Action
         $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
 
         $this->view->listSchoolTerm = $SchoolTerm->list();
-        $this->view->listSchoolTermStates = $SchoolTerm->listSchoolTermStates();
+        $this->view->listSchoolTermStates = $SchoolTerm->schoolTermStates();
 
         $this->render('management/components/schoolTermsList', 'SimpleLayout');
     }
@@ -82,7 +83,7 @@ class AdminManagementController extends Action
     {
 
         $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
-        echo json_encode($SchoolTerm->listAvailableYears());
+        echo json_encode($SchoolTerm->availableYears());
     }
 
 
@@ -164,7 +165,7 @@ class AdminManagementController extends Action
     {
 
         $ClassRoom = Container::getModel('Admin\\ClassRoom');
-        echo json_encode($ClassRoom->activeClassRoom());
+        echo json_encode($ClassRoom->listForSelect());
     }
 
 
@@ -223,7 +224,7 @@ class AdminManagementController extends Action
     {
 
         $Course = Container::getModel('Admin\\Course');
-        echo json_encode($Course->availableCourse());
+        echo json_encode($Course->listForSelect());
     }
 
 
@@ -255,7 +256,7 @@ class AdminManagementController extends Action
         $Discipline = Container::getModel('Admin\\Discipline');
 
         $this->view->listDiscipline = $Discipline->list();
-        $this->view->listModality = $Discipline->listDisciplineModality();
+        $this->view->listModality = $Discipline->disciplineModality();
 
         $this->render('management/pages/disciplineManagement', 'AdminLayout');
     }
@@ -307,7 +308,7 @@ class AdminManagementController extends Action
         $Discipline->__set('disciplineName', $_GET['seekName']);
         $Discipline->__set('fk_id_modality', $_GET['seekModality']);
 
-        $this->view->listDiscipline = $Discipline->seekDiscipline();
+        $this->view->listDiscipline = $Discipline->seek();
 
         $this->render('management/components/disciplinesList', 'SimpleLayout');
     }
@@ -321,7 +322,7 @@ class AdminManagementController extends Action
         $Discipline->__set('disciplineId', $_GET['id']);
 
         $this->view->discipline = $Discipline->list();
-        $this->view->listDisciplineModality = $Discipline->listDisciplineModality();
+        $this->view->listDisciplineModality = $Discipline->disciplineModality();
 
         $this->render('management/components/disciplineModal', 'SimpleLayout');
     }
@@ -348,13 +349,16 @@ class AdminManagementController extends Action
         $Course = Container::getModel('Admin\\Course');
         $ClassRoom = Container::getModel('Admin\\ClassRoom');
         $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $Shift = Container::getModel('Admin\\Shift');
+        $Series = Container::getModel('Admin\\Series');
+        $Ballot = Container::getModel('Admin\\Ballot');
 
+        $this->view->availableShift = $Shift->listForSelect();
+        $this->view->availableBallot = $Ballot->listForSelect();
+        $this->view->availableSeries = $Series->listForSelect();
+        $this->view->availableCourse = $Course->listForSelect();
+        $this->view->availableClassRoom = $ClassRoom->listForSelect();
         $this->view->listClass = $Classe->list();
-        $this->view->availableShift = $Classe->availableShift();
-        $this->view->availableBallot = $Classe->availableBallot();
-        $this->view->availableSeries = $Classe->availableSeries();
-        $this->view->availableCourse = $Course->availableCourse();
-        $this->view->availableClassRoom = $ClassRoom->activeClassroom();
         $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
 
         $this->render('management/pages/classeManagement', 'AdminLayout');
@@ -414,7 +418,7 @@ class AdminManagementController extends Action
         $Classe->__set('fk_id_series', $_GET['series']);
         $Classe->__set('fk_id_school_term', $_GET['schoolTerm']);
 
-        $this->view->listClass = $Classe->seekClass();
+        $this->view->listClass = $Classe->seek();
 
         $this->render('management/components/classList', 'SimpleLayout');
     }

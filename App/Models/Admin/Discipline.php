@@ -25,6 +25,11 @@ class Discipline extends Model
     }
 
 
+    /**
+     * Criar uma disciplina
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -50,6 +55,11 @@ class Discipline extends Model
     }
 
 
+    /**
+     * Retorna todas as disciplinas
+     * 
+     * @return array
+     */
     public function list()
     {
 
@@ -80,11 +90,15 @@ class Discipline extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
-
     }
 
 
-    public function listDisciplineModality()
+    /**
+     * Esse método retorna todos as modalidades que uma disciplina pode ter. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
+    public function disciplineModality()
     {
 
         return $this->speedingUp(
@@ -100,6 +114,11 @@ class Discipline extends Model
     }
 
 
+    /**
+     * Atualizar disciplina
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -126,7 +145,12 @@ class Discipline extends Model
     }
 
 
-    public function seekDiscipline()
+    /**
+     * Buscar disciplina
+     * 
+     * @return array
+     */
+    public function seek()
     {
 
         $query =
@@ -165,6 +189,11 @@ class Discipline extends Model
     }
 
 
+    /**
+     * Deletar disciplina
+     * 
+     * @return void
+     */
     public function delete()
     {
 
@@ -175,12 +204,4 @@ class Discipline extends Model
         $stmt->execute();
     }
 
-
-    public function disciplineAll()
-    {
-
-        return $this->speedingUp(
-            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina;"
-        );
-    }
 }

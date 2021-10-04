@@ -24,6 +24,11 @@ class Course extends Model
     }
 
 
+    /**
+     * Criar um curso
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -38,6 +43,11 @@ class Course extends Model
     }
 
 
+    /**
+     * Retorna todos os cursos
+     * 
+     * @return array
+     */
     public function list()
     {
 
@@ -55,6 +65,11 @@ class Course extends Model
     }
 
 
+    /**
+     * Deletar curso
+     * 
+     * @return void
+     */
     public function delete()
     {
 
@@ -68,6 +83,11 @@ class Course extends Model
     }
 
 
+    /**
+     * Atualizar curso
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -83,21 +103,23 @@ class Course extends Model
     }
 
 
-    public function availableCourse()
+    /**
+     * Esse método retorna todos os cursos. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
+    public function listForSelect()
     {
 
-        return $this->speedingUp(
-
-            "SELECT 
-            
-            curso.id_curso AS option_value , 
-            curso.nome_curso AS option_text 
-            
-            FROM curso"
-
-        );
+        return $this->speedingUp("SELECT curso.id_curso AS option_value , curso.nome_curso AS option_text FROM curso");
     }
 
+
+    /**
+     * Retorna o total de alunos por curso
+     * 
+     * @return array
+     */
     public function totalStudentsCourse()
     {
 
@@ -117,6 +139,7 @@ class Course extends Model
 
             FROM curso
         
-        ");
+        "
+        );
     }
 }

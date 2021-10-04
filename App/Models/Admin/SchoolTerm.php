@@ -13,6 +13,7 @@ class SchoolTerm extends Model
     private $fk_id_school_term_situation;
     private $fk_id_school_year;
 
+
     public function __get($att)
     {
         return $this->$att;
@@ -26,43 +27,42 @@ class SchoolTerm extends Model
 
 
     /**
-     * Unwinding of the active letive period ( Desativar período letivo ativo )
+     * Esse método deve ser chamado antes do insert e update.
+     * 
+     * É permitido somente a existência de um único período letivo, ativo e agendado.
+     * Desse modo, essa função finaliza o período letivo anterior, que se encrontrava ativo ou agendado, para que não exista redundância.
+     * 
+     * PL - Período letivo
      * 
      * @return void
      */
-    public function disableActiveSchoolTerm()
+    public function disableActiveScheduledPeriod()
     {
 
-        if ($this->__get('fk_id_school_term_situation') == 1) {
+        $schoolTermSituation = $this->__get('fk_id_school_term_situation'); # Criando variável com nome mais curto
 
-            $query =
+        if ($schoolTermSituation == 1 || $schoolTermSituation == 3) { # Caso a situacao do PL seja 1-Ativo ou 3-Agendado, a função prosseguirá.
 
-                "UPDATE periodo_letivo SET fk_id_situacao_periodo_letivo = CASE 
+            $state = null; # Variável que irá amarzenar a situação do PL recebido
 
-                 WHEN fk_id_situacao_periodo_letivo = 1 THEN 2
+            $schoolTermSituation == 1 ? $state = 1 : $state = 3;
 
-                 ELSE fk_id_situacao_periodo_letivo
+            $query = "UPDATE periodo_letivo SET fk_id_situacao_periodo_letivo = 2 WHERE fk_id_situacao_periodo_letivo = $state;";
 
-                 END
-                
-                 WHERE id_ano_letivo != 0
-                
-            ";
-
-            $stmt = $this->db->prepare($query)->execute();
+            $this->db->prepare($query)->execute();
         }
     }
 
 
     /**
-     * Insert school term ( Inserir período letivo )
+     * Inserir período letivo 
      * 
      * @return void
      */
     public function insert()
     {
 
-        $this->disableActiveSchoolTerm();
+        $this->disableActiveScheduledPeriod();
 
         $query =
 
@@ -87,39 +87,18 @@ class SchoolTerm extends Model
 
 
     /**
-     * List of states that a term can have ( Lista dos estados que um período letivo pode ter )
-     * 
-     * @return array-object
-     */
-    public function listSchoolTermStates()
-    {
-
-        return $this->speedingUp(
-
-            "SELECT 
-
-             situacao_periodo_letivo.id_situacao_periodo_letivo AS option_value  , 
-             situacao_periodo_letivo.situacao_periodo_letivo AS option_text 
-
-             FROM situacao_periodo_letivo"
-
-        );
-    }
-
-
-    /**
-     * Update school term ( Atualizar período letivo )
+     * Atualizar período letivo
      * 
      * @return void
      */
     public function update()
     {
 
-        $this->disableActiveSchoolTerm();
+        $this->disableActiveScheduledPeriod();
 
         $query =
 
-            "UPDATE periodo_letivo SET 
+            "UPDATE periodo_letivo SET
 
              periodo_letivo.data_inicio = :startDate ,
              periodo_letivo.data_fim = :endDate ,
@@ -127,6 +106,7 @@ class SchoolTerm extends Model
              periodo_letivo.fk_id_situacao_periodo_letivo = CASE
 
              WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 1 THEN 1
+             WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 3 THEN 3
             
              ELSE :fk_id_school_term_situation
             
@@ -148,7 +128,28 @@ class SchoolTerm extends Model
 
 
     /**
-     * Delete school term ( Deletar período letivo )
+     * Retorna os estados que um período letivo pode ter 
+     * 
+     * @return array
+     */
+    public function schoolTermStates()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+
+             situacao_periodo_letivo.id_situacao_periodo_letivo AS option_value  , 
+             situacao_periodo_letivo.situacao_periodo_letivo AS option_text 
+
+             FROM situacao_periodo_letivo"
+
+        );
+    }
+
+
+    /**
+     * Deletar período letivo 
      * 
      * @return void
      */
@@ -162,6 +163,7 @@ class SchoolTerm extends Model
             WHERE id_ano_letivo = CASE 
             
             WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 1 THEN 0 
+            WHEN periodo_letivo.fk_id_situacao_periodo_letivo = 3 THEN 0 
             
             ELSE :id 
             
@@ -178,9 +180,9 @@ class SchoolTerm extends Model
 
 
     /**
-     * List of school terms ( Lista dos período letivos )
+     * Retorna todos os períodos letivos
      * 
-     * @return void
+     * @return array
      */
     public function list()
     {
@@ -208,11 +210,11 @@ class SchoolTerm extends Model
 
 
     /**
-     * List of available school years ( Lista dos anos letivos disponíveis  )
+     * Retorna os anos letivos que ainda não foram vinculados a um período letivo 
      * 
-     * @return array-object
+     * @return array
      */
-    public function listAvailableYears()
+    public function availableYears()
     {
 
         return $this->speedingUp(
@@ -233,31 +235,10 @@ class SchoolTerm extends Model
 
 
     /**
-     * Active school term ( Período letivo ativo )
+     * Retorna o ano letivo ativo e o agendado
      * 
-     * @return array-object
+     * @return array
      */
-    public function active()
-    {
-
-        return $this->speedingUp(
-
-            "SELECT 
-
-             periodo_letivo.id_ano_letivo AS option_value , 
-             periodo_disponivel.ano_letivo AS option_text 
-
-             FROM periodo_letivo 
-             
-             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
-             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
-             
-             WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
-
-        );
-    }
-
-
     public function activeScheduledSchoolTerm()
     {
 
@@ -277,6 +258,32 @@ class SchoolTerm extends Model
              WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 OR situacao_periodo_letivo.id_situacao_periodo_letivo = 3
 
              ORDER BY situacao_periodo_letivo.id_situacao_periodo_letivo ASC"
+
+        );
+    }
+
+
+    /**
+     * Retorna somente o período letivo ativo
+     * 
+     * @return array
+     */
+    public function active()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+
+             periodo_letivo.id_ano_letivo AS option_value , 
+             periodo_disponivel.ano_letivo AS option_text 
+
+             FROM periodo_letivo 
+             
+             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+             
+             WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
 
         );
     }

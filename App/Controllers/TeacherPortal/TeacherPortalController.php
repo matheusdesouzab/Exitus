@@ -92,6 +92,9 @@ class TeacherPortalController extends Action
         $Course = Container::getModel('Admin\\Course');
         $ClassRoom = Container::getModel('Admin\\ClassRoom');
         $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $Shift = Container::getModel('Admin\\Shift');
+        $Series = Container::getModel('Admin\\Series');
+        $Ballot = Container::getModel('Admin\\Ballot');
 
         if (!isset($_SESSION)) session_start();
 
@@ -99,11 +102,11 @@ class TeacherPortalController extends Action
 
         $this->view->teacherClasses = $Teacher->teacherClasses();
         $this->view->listClass = $Classe->list();
-        $this->view->availableShift = $Classe->availableShift();
-        $this->view->availableBallot = $Classe->availableBallot();
-        $this->view->availableSeries = $Classe->availableSeries();
-        $this->view->availableCourse = $Course->availableCourse();
-        $this->view->availableClassRoom = $ClassRoom->activeClassroom();
+        $this->view->availableShift = $Shift->listForSelect();
+        $this->view->availableBallot = $Ballot->listForSelect();
+        $this->view->availableSeries = $Series->listForSelect();
+        $this->view->availableCourse = $Course->listForSelect();
+        $this->view->availableClassRoom = $ClassRoom->listForSelect();
         $this->view->activeSchoolTerm = $SchoolTerm->active();
 
         $this->render('management/pages/listClass', 'TeacherPortalLayout', 'TeacherPortal');
