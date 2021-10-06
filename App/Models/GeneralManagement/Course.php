@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models\GeneralManagement;
 
 use MF\Model\Model;
 
@@ -25,7 +25,7 @@ class Course extends Model
 
 
     /**
-     * Criar um curso
+     * Inserir curso
      * 
      * @return void
      */
@@ -74,11 +74,8 @@ class Course extends Model
     {
 
         $query = "DELETE FROM curso WHERE curso.id_curso = :courseId";
-
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(":courseId", $this->__get("courseId"));
-
         $stmt->execute();
     }
 
@@ -111,7 +108,9 @@ class Course extends Model
     public function listForSelect()
     {
 
-        return $this->speedingUp("SELECT curso.id_curso AS option_value , curso.nome_curso AS option_text FROM curso");
+        return $this->speedingUp(
+            "SELECT curso.id_curso AS option_value , curso.nome_curso AS option_text FROM curso"
+        );
     }
 
 
@@ -137,9 +136,8 @@ class Course extends Model
             
             WHERE turma.fk_id_curso = curso.id_curso AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS totalStudensCourse
 
-            FROM curso
-        
-        "
+            FROM curso"
+            
         );
     }
 }

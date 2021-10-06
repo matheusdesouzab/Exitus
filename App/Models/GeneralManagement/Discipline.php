@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models\GeneralManagement;
 
 use MF\Model\Model;
 
@@ -37,11 +37,11 @@ class Discipline extends Model
 
             "INSERT INTO disciplina
 
-            (nome_disciplina, sigla_disciplina, fk_id_modalidade_disciplina) 
+                (nome_disciplina, sigla_disciplina, fk_id_modalidade_disciplina) 
             
             VALUES 
             
-            (:disciplineName, :acronym, :fk_id_modality)
+                (:disciplineName, :acronym, :fk_id_modality)
             
         ";
 
@@ -84,9 +84,7 @@ class Discipline extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(":disciplineId", $this->__get("disciplineId"));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -109,7 +107,7 @@ class Discipline extends Model
             modalidade_disciplina.modalidade_disciplina AS option_text 
 
             FROM modalidade_disciplina"
-
+            
         );
     }
 
@@ -200,7 +198,6 @@ class Discipline extends Model
         $query = "DELETE FROM disciplina WHERE disciplina.id_disciplina = :disciplineId";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(":disciplineId", $this->__get("disciplineId"));
-
         $stmt->execute();
     }
 

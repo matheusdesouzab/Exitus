@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models\GeneralManagement;
 
 use MF\Model\Model;
 
@@ -24,6 +24,11 @@ class ClassDiscipline extends Model
     }
 
 
+    /**
+     * Adicionar disciplina na turma
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -31,11 +36,11 @@ class ClassDiscipline extends Model
 
             "INSERT INTO turma_disciplina
 
-            (fk_id_professor, fk_id_disciplina, fk_id_turma) 
+                (fk_id_professor, fk_id_disciplina, fk_id_turma) 
 
             VALUES 
 
-            (:fk_id_teacher, :fk_id_discipline, :fk_id_class)
+                (:fk_id_teacher, :fk_id_discipline, :fk_id_class)
             
         ";
 
@@ -49,6 +54,11 @@ class ClassDiscipline extends Model
     }
 
 
+    /**
+     * Retorna o professor, e sua respectiva disciplina que é ministrada na turma selecionada.
+     * 
+     * @return array
+     */
     public function listTeachersClass()
     {
 
@@ -79,15 +89,18 @@ class ClassDiscipline extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
+    /**
+     * Atualizar disciplina da turma
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -112,6 +125,11 @@ class ClassDiscipline extends Model
     }
 
 
+    /**
+     * Retorna todas as disciplinas que o professor ministra em cada turma.
+     * 
+     * @return array
+     */
     public function subjectsThatTeacherTeaches()
     {
 
@@ -163,20 +181,28 @@ class ClassDiscipline extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
+    /**
+     * Retorna todas as disciplinas que ainda não foram vinculadas a uma determinada turma.
+     * 
+     * @return array
+     */
     public function subjectAvailableClass()
     {
 
+        # Inicialmente em $disciplineAll, será armazenado todas as disciplinas criadas no sistema.
 
-        $disciplineAll = $this->speedingUp("SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina");
+        $disciplineAll = $this->speedingUp(
+            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina"
+        );
+
+        # Em seguida, em  $disciplineAlreadyAdded será armazenado todas as disciplinas que já foram vinculadas a essa turma.
 
         $disciplineAlreadyAdded =
 
@@ -194,21 +220,24 @@ class ClassDiscipline extends Model
         ";
 
         $stmt = $this->db->prepare($disciplineAlreadyAdded);
-
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-
         $stmt->execute();
-
-        $stmt = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
         $allSubjectsId = [];
         $availableDiscipline = [];
 
-        foreach ($stmt as $key => $discipline) {
-            array_push($allSubjectsId, $discipline->option_value);
-        }
+        foreach ($stmt->fetchAll(\PDO::FETCH_OBJ) as $key => $discipline) {
+
+            # Armazenando somente os ids das disciplinas já vinculadas a turma
+
+            $allSubjectsId[] = $discipline->option_value;
+        };
 
         foreach ($disciplineAll as $key => $discipline) {
+
+            /** Caso o id da disciplina seja diferente do id da disciplina presente na turma, significa que a mesma ainda não foi adicionada na turma.
+             *  Assim, caso essa condição seja satisfeita, o id da disciplina e seu nome, serão armazenados em $availableDiscipline.
+             */
 
             if (!in_array($discipline->option_value, $allSubjectsId)) {
 
@@ -219,6 +248,12 @@ class ClassDiscipline extends Model
         return $availableDiscipline;
     }
 
+
+    /**
+     * Retorna todas as disciplinas vinculadas a turma
+     * 
+     * @return array
+     */
 
     public function disciplinesClassAlreadyAdded()
     {
@@ -251,15 +286,17 @@ class ClassDiscipline extends Model
     }
 
 
+    /**
+     * Deletar disciplina da turma
+     * 
+     * @return array
+     */
     public function delete()
     {
 
         $query = "DELETE FROM turma_disciplina WHERE turma_disciplina.id_turma_disciplina = :id ";
-
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':id', $this->__get('id'));
-
         $stmt->execute();
     }
 }

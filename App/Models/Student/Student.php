@@ -27,6 +27,11 @@ class Student extends People
     }
 
 
+    /**
+     * Cadastrar aluno
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -34,11 +39,11 @@ class Student extends People
 
             "INSERT INTO aluno 
             
-            (nome_aluno, cpf_aluno, data_nascimento_aluno, naturalidade_aluno, foto_perfil_aluno,nacionalidade_aluno, nome_mae,nome_pai, fk_id_sexo_aluno,fk_id_tipo_sanguineo_aluno, fk_id_aluno_pcd, fk_id_endereco_aluno, fk_id_telefone_aluno , codigo_acesso , fk_id_aluno_hierarquia_funcao , email_aluno, fk_id_situacao_geral_aluno) 
+                (nome_aluno, cpf_aluno, data_nascimento_aluno, naturalidade_aluno, foto_perfil_aluno,nacionalidade_aluno, nome_mae,nome_pai, fk_id_sexo_aluno,fk_id_tipo_sanguineo_aluno, fk_id_aluno_pcd, fk_id_endereco_aluno, fk_id_telefone_aluno , codigo_acesso , fk_id_aluno_hierarquia_funcao , email_aluno, fk_id_situacao_geral_aluno) 
 
             VALUES 
             
-            (:studentName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :motherName, :fatherName, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd,:fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, 1)
+                (:studentName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :motherName, :fatherName, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd,:fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, 1)
             
         ";
 
@@ -67,6 +72,11 @@ class Student extends People
     }
 
 
+    /**
+     * Atualizar dados do aluno
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -111,6 +121,13 @@ class Student extends People
     }
 
 
+    /**
+     * Retornar todos os alunos cadastrados
+     * 
+     * @param string $scholTermSituation 
+     * 
+     * @return array
+     */
     public function list($scholTermSituation = '= 1')
     {
 
@@ -178,6 +195,11 @@ class Student extends People
     }
 
 
+    /**
+     * Retornar todos os dados referente ao perfil do aluno
+     * 
+     * @return array
+     */
     public function dataGeneral()
     {
 
@@ -230,18 +252,22 @@ class Student extends People
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':id', $this->__get('studentId'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
+    /**
+     * Buscar alunos
+     * 
+     * @param object $classe
+     * 
+     * @return array
+     */
     public function seek($classe)
     {
-
 
         $query =
 
@@ -304,6 +330,11 @@ class Student extends People
     }
 
 
+    /**
+     * Atualizar foto do perfil do aluno
+     * 
+     * @return void
+     */
     public function updateProfilePicture()
     {
 
@@ -318,6 +349,11 @@ class Student extends People
     }
 
 
+    /**
+     * Esse método verifica se os dados recebidos, correspondem a conta de um aluno.
+     *  
+     * @return array
+     */
     public function login()
     {
 
@@ -368,14 +404,29 @@ class Student extends People
     }
 
 
+    /**
+     * Esse método retorna todas as situações gerais que o aluno pode se encrontrar.
+     * Entretanto, o mesmo deve ser usado para peencher a tag select na View.
+     *  
+     * @return array
+     */
     public function generalSituationStudent()
     {
 
-        return $this->speedingUp("SELECT id_situacao_geral AS option_value , situacao_geral AS option_text FROM situacao_geral_aluno;");
+        return $this->speedingUp(
+            "SELECT id_situacao_geral AS option_value , situacao_geral AS option_text FROM situacao_geral_aluno"
+        );
     }
 
 
-    public function recentlyEnrolledStudents($limite = 5000)
+    /**
+     * Retorna os últimos alunos matrículados, com a possibilidade de uso de um parâmetro dinâmico.
+     * 
+     * @param int $limit
+     * 
+     * @return array
+     */
+    public function recentlyEnrolledStudents($limit = 5000)
     {
 
         return $this->speedingUp(
@@ -390,13 +441,16 @@ class Student extends People
             
             WHERE aluno.fk_id_situacao_geral_aluno = 1
 
-            ORDER BY aluno.id_aluno DESC LIMIT $limite
-            
-        "
+            ORDER BY aluno.id_aluno DESC LIMIT $limit"
         );
     }
 
 
+    /**
+     * Retorna o total de alunos matrículados no ano atual
+     * 
+     * @return array
+     */
     public function studentsAddedToday()
     {
 
@@ -416,6 +470,11 @@ class Student extends People
     }
 
 
+    /**
+     * Retorna a quantidade de alunos do sexo masculino e feminino
+     * 
+     * @return array
+     */
     public function divisionStudentsBySex()
     {
 

@@ -422,7 +422,7 @@ class AdminTeacherStudentController extends Action
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Student = Container::getModel('Student\\Student');
         $Lack = Container::getModel('TeacherStudent\\Lack');
-        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
 
         if (!isset($_SESSION)) session_start();

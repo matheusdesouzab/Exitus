@@ -16,7 +16,7 @@ class AdminTeacherController extends Action
 
         $this->view->availableSex = $People->availableSex();
         $this->view->pcd = $People->pcd();
-        $this->view->bloodType = $People->bloodType();
+        $this->view->bloodType = $People->availablebloodType();
 
         $this->render('teacher/teacherRegistration', 'AdminLayout');
     }
@@ -64,7 +64,7 @@ class AdminTeacherController extends Action
     public function listTeacherClass()
     {
 
-        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
         $this->view->typeTeacherList = 'class';
@@ -79,13 +79,13 @@ class AdminTeacherController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $Classe = Container::getModel('Admin\\Classe');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
 
         $this->view->listTeacher = $Teacher->list();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->typeTeacherList = 'normal';
-        $this->view->bloodType = $Teacher->bloodType();
+        $this->view->bloodType = $Teacher->availablebloodType();
         $this->view->availableClass = $Classe->availableListClass();
 
         $this->render('teacher/teacherList', 'AdminLayout');
@@ -108,7 +108,7 @@ class AdminTeacherController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $ClassDiscipline =  Container::getModel('Admin\\ClassDiscipline');
+        $ClassDiscipline =  Container::getModel('GeneralManagement\\ClassDiscipline');
 
         $Teacher->__set('teacherId', $_GET['id']);
         $ClassDiscipline->__set('fk_id_teacher', $_GET['id']);
@@ -116,7 +116,7 @@ class AdminTeacherController extends Action
         $this->view->teacherProfile = $Teacher->list();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
-        $this->view->bloodType = $Teacher->bloodType();
+        $this->view->bloodType = $Teacher->availablebloodType();
         $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
 
         $this->render('teacher/components/modalTeacherProfile', 'SimpleLayout');
@@ -129,7 +129,7 @@ class AdminTeacherController extends Action
         $Address =  Container::getModel('People\\Address');
         $Telephone = Container::getModel('People\Telephone');
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
 
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
 
@@ -162,7 +162,7 @@ class AdminTeacherController extends Action
         $this->view->typeTeacherList = 'normal';
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
-        $this->view->bloodType = $Teacher->bloodType();
+        $this->view->bloodType = $Teacher->availablebloodType();
         $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
 
 

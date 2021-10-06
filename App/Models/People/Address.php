@@ -14,7 +14,7 @@ class Address extends Model
     private $uf;
     private $county;
 
-
+    
     public function __get($att)
     {
         return $this->$att;
@@ -27,19 +27,23 @@ class Address extends Model
     }
 
 
+    /**
+     * Inserir localidade
+     * 
+     * @return void
+     */
     public function insert()
     {
 
-        $query = 
-        
+        $query =
+
             "INSERT INTO endereco 
             
-            (cep, bairro, endereco, uf, municipio) 
+                (cep, bairro, endereco, uf, municipio) 
             
             VALUES 
             
-            (:zipCode, :district, :addresss, :uf, :county)
-        
+                (:zipCode, :district, :addresss, :uf, :county)      
         ";
 
         $stmt = $this->db->prepare($query);
@@ -56,23 +60,16 @@ class Address extends Model
     }
 
 
-    public function delete()
-    {
-        //
-    }
-
-
-    public function list()
-    {
-        //
-    }
-
-
+    /**
+     * Atualizar localidade
+     * 
+     * @return void
+     */
     public function update()
     {
 
-        $query = 
-        
+        $query =
+
             "UPDATE endereco SET 
             
             cep = :zipCode , 

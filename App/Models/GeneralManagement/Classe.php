@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models\GeneralManagement;
 
 use MF\Model\Model;
 
@@ -40,11 +40,11 @@ class Classe extends Model
 
             "INSERT INTO 
 
-            turma (fk_id_turno, fk_id_sala, fk_id_periodo_letivo, fk_id_cedula, fk_id_curso, fk_id_serie) 
+                turma (fk_id_turno, fk_id_sala, fk_id_periodo_letivo, fk_id_cedula, fk_id_curso, fk_id_serie) 
 
             VALUES 
 
-            (:fk_id_shift, :fk_id_classroom, :fk_id_school_term, :fk_id_ballot, :fk_id_course , :fk_id_series)
+                (:fk_id_shift, :fk_id_classroom, :fk_id_school_term, :fk_id_ballot, :fk_id_course , :fk_id_series)
             
         ";
 
@@ -103,7 +103,7 @@ class Classe extends Model
      * 
      * No mesmo período letivo só é possivel ter uma turma por sala, no mesmo turno. Desse modo, se já existe uma turma criada
      * no turno matutino na sala 1, não será possível adicionar outra turma nesse mesmo formato, como também se por exemplo, no curso de 
-     * Informática existir uma turma do 1 ano com a cédula A, não é possível criar uma com a mesma cédula.
+     * Informática existir uma turma do 1 ano com a cédula A, não é possível criar uma turma com a mesma cédula.
      * 
      * @return array
      */
@@ -271,9 +271,7 @@ class Classe extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(":classId", $this->__get("classId"));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -358,9 +356,7 @@ class Classe extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(":classId", $this->__get("classId"));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);

@@ -61,9 +61,9 @@ class StudentPortalController extends Action
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
         $StudentRematrug = Container::getModel('Student\\StudentRematrug');
         $Settings = Container::getModel('Admin\\Settings');
-        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $Exam = Container::getModel('TeacherStudent\\Exam');
-        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
 
         if (!isset($_SESSION)) session_start();
 
@@ -122,7 +122,7 @@ class StudentPortalController extends Action
         $this->view->studentProfile = $Student->dataGeneral();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
-        $this->view->bloodType = $Student->bloodType();
+        $this->view->bloodType = $Student->availablebloodType();
         $this->view->studentEnrollment = $Student->list("<> 0");
 
         $this->render('pages/settings', 'SimpleLayout', 'studentPortal');
@@ -133,7 +133,7 @@ class StudentPortalController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Classe = Container::getModel('Admin\\Classe');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
 
         if (!isset($_SESSION)) session_start();
 

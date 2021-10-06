@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models\GeneralManagement;
 
 use MF\Model\Model;
 
@@ -14,7 +14,7 @@ class Shift extends Model
      */
     public function listForSelect()
     {
-
+        
         return $this->speedingUp(
             "SELECT turno.id_turno AS option_value , turno.nome_turno AS option_text FROM turno"
         );

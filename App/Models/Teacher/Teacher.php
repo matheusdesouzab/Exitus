@@ -23,6 +23,11 @@ class Teacher extends People
     }
 
 
+    /**
+     * Cadastrar docente 
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -30,12 +35,11 @@ class Teacher extends People
 
             "INSERT INTO professor 
             
-            (nome_professor, cpf_professor, data_nascimento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso , email_professor , fk_id_professor_hierarquia_funcao)
+                (nome_professor, cpf_professor, data_nascimento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso , email_professor , fk_id_professor_hierarquia_funcao)
 
             VALUES 
             
-            (:teacherName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address,:fk_id_telephone , :accessCode , :email , :fk_id_hierarchy_function)
-        
+                (:teacherName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address,:fk_id_telephone , :accessCode , :email , :fk_id_hierarchy_function)     
         ";
 
         $stmt = $this->db->prepare($query);
@@ -61,6 +65,11 @@ class Teacher extends People
     }
 
 
+    /**
+     * Retorna todos os docentes cadastrados
+     * 
+     * @return array
+     */
     public function list()
     {
 
@@ -124,15 +133,18 @@ class Teacher extends People
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':teacherId', $this->__get('teacherId'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
+    /**
+     * Atualizar dados do docente
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -171,6 +183,11 @@ class Teacher extends People
     }
 
 
+    /**
+     * Esse método retorna todos os docentes. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
     public function teacherAvailable()
     {
 
@@ -180,6 +197,11 @@ class Teacher extends People
     }
 
 
+    /**
+     * Atualizar foto do perfil do docente
+     * 
+     * @return void
+     */
     public function updateProfilePicture()
     {
 
@@ -194,6 +216,11 @@ class Teacher extends People
     }
 
 
+    /**
+     * Esse método verifica se os dados recebidos, correspondem a conta de um docente.
+     * 
+     * @return array
+     */
     public function login()
     {
 
@@ -208,8 +235,7 @@ class Teacher extends People
             
             FROM professor 
             
-            WHERE codigo_acesso = :accessCode AND nome_professor = :teacherName
-        
+            WHERE codigo_acesso = :accessCode AND nome_professor = :teacherName      
         ";
 
         $stmt = $this->db->prepare($query);
@@ -223,6 +249,11 @@ class Teacher extends People
     }
 
 
+    /**
+     * Retorna as turmas que um docente ministra aulas, seguido do total de disciplinas que o mesmo possui em cada.
+     * 
+     * @return array
+     */
     public function teacherClasses()
     {
 
@@ -265,15 +296,18 @@ class Teacher extends People
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':teacherId', $this->__get('teacherId'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
+    /**
+     * Esse método retorna o total de alunos que foram aprovados e reprovados, nas disciplinas que o docente ministra
+     * 
+     * @return array
+     */
     public function seekTeacherClasses($class)
     {
 
@@ -338,6 +372,11 @@ class Teacher extends People
     }
 
 
+    /**
+     * Esse método retorna o total de alunos que o docente possui no período letivo ativo.
+     * 
+     * @return array
+     */
     public function totalStudents()
     {
 
@@ -363,15 +402,18 @@ class Teacher extends People
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':teacherId', $this->__get('teacherId'));
-
         $stmt->execute();
 
         return array_reduce($stmt->fetchAll(\PDO::FETCH_OBJ), fn ($sum, $value) => $sum += $value->student_total);
     }
 
 
+    /**
+     * Esse método retorna o total de alunos que foram aprovados e reprovados, nas disciplinas que o docente ministra
+     * 
+     * @return array
+     */
     public function studentBasedFinalAverage()
     {
 
@@ -396,14 +438,11 @@ class Teacher extends People
             AND media_disciplina.fk_id_legenda = legenda.id_legenda ) AS total , 
             legenda.sigla AS acronym 
             
-            FROM legenda
-            
+            FROM legenda          
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':teacherId', $this->__get('teacherId'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);

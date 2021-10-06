@@ -54,7 +54,7 @@ class TeacherPortalController extends Action
     {
 
         $Settings = Container::getModel('Admin\\Settings');
-        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $Note = Container::getModel('TeacherStudent\\Note');
@@ -88,13 +88,13 @@ class TeacherPortalController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $Classe = Container::getModel('Admin\\Classe');
-        $Course = Container::getModel('Admin\\Course');
-        $ClassRoom = Container::getModel('Admin\\ClassRoom');
-        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
-        $Shift = Container::getModel('Admin\\Shift');
-        $Series = Container::getModel('Admin\\Series');
-        $Ballot = Container::getModel('Admin\\Ballot');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
+        $Course = Container::getModel('GeneralManagement\\Course');
+        $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
+        $Shift = Container::getModel('GeneralManagement\\Shift');
+        $Series = Container::getModel('GeneralManagement\\Series');
+        $Ballot = Container::getModel('GeneralManagement\\Ballot');
 
         if (!isset($_SESSION)) session_start();
 
@@ -116,7 +116,7 @@ class TeacherPortalController extends Action
     public function seekTeacherClasses()
     {
 
-        $Classe = Container::getModel('Admin\\Classe');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
         $Teacher = Container::getModel('Teacher\\Teacher');
 
         $Classe->__set('fk_id_course', $_GET['course']);
@@ -146,7 +146,7 @@ class TeacherPortalController extends Action
         $this->view->Data = $Teacher->list();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
-        $this->view->bloodType = $Teacher->bloodType();
+        $this->view->bloodType = $Teacher->availablebloodType();
 
         $this->render('settings', 'SimpleLayout', 'TeacherPortal');
     }

@@ -14,11 +14,11 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Classe = Container::getModel('Admin\\Classe');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
 
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
-        $this->view->bloodType = $Student->bloodType();
+        $this->view->bloodType = $Student->availablebloodType();
         $this->view->availableClass = $Classe->firstGradeClasses();
 
         $this->render('student/studentRegistration', 'AdminLayout');
@@ -29,11 +29,11 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Course = Container::getModel('Admin\\Course');
-        $Classe = Container::getModel('Admin\\Classe');
+        $Course = Container::getModel('GeneralManagement\\Course');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
         $Student = Container::getModel('Student\\Student');
-        $Shift = Container::getModel('Admin\\Shift');
-        $Series = Container::getModel('Admin\\Series');
+        $Shift = Container::getModel('GeneralManagement\\Shift');
+        $Series = Container::getModel('GeneralManagement\\Series');
 
         $this->view->listStudent = $Student->list();
         $this->view->availableCourse = $Course->listForSelect();
@@ -62,7 +62,7 @@ class AdminStudentController extends Action
     public function availableListClass()
     {
 
-        $Classe = Container::getModel('Admin\\Classe');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
         $this->view->listClass = $Classe->firstGradeClasses();
         $this->render('student/components/classesList', 'SimpleLayout');
     }
@@ -72,7 +72,7 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Classe = Container::getModel('Admin\\Classe');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
 
         $Student->__set('name', $_GET['name']);
         $Student->__set('fk_id_sex', $_GET['sex']);
@@ -92,8 +92,8 @@ class AdminStudentController extends Action
 
         $Student = Container::getModel('Student\\Student');
         $Exam = Container::getModel('TeacherStudent\\Exam');
-        $ClassDiscipline = Container::getModel('Admin\\ClassDiscipline');
-        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Lack = Container::getModel('TeacherStudent\\Lack');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
@@ -108,7 +108,7 @@ class AdminStudentController extends Action
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->unity = $Exam->unity();
-        $this->view->bloodType = $Student->bloodType();
+        $this->view->bloodType = $Student->availablebloodType();
         $this->view->bulletin = $StudentEnrollment->bulletin();
 
         if (!isset($_SESSION)) session_start();
@@ -175,7 +175,7 @@ class AdminStudentController extends Action
     public function studentInsert()
     {
 
-        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $activeSchoolTerm = $SchoolTerm->active();
 
         $Tool = new Tools();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models\GeneralManagement;
 
 use MF\Model\Model;
 
@@ -25,7 +25,7 @@ class ClassRoom extends Model
 
 
     /**
-     * Criar uma sala
+     * Inserir sala
      * 
      * @return void
      */
@@ -62,7 +62,7 @@ class ClassRoom extends Model
             FROM sala 
             
             INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.numero_sala_aula)"
-
+            
         );
     }
 
@@ -95,11 +95,8 @@ class ClassRoom extends Model
     {
 
         $query = "DELETE FROM sala WHERE sala.id_sala = :classroomId";
-
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(":classroomId", $this->__get("classroomId"));
-
         $stmt->execute();
     }
 
@@ -124,7 +121,7 @@ class ClassRoom extends Model
             LEFT JOIN sala ON(numero_sala_aula.id_numero_sala_aula = sala.fk_id_numero_sala) 
             
             WHERE sala.fk_id_numero_sala IS NULL"
-
+            
         );
     }
 

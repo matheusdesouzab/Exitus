@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Admin;
+namespace App\Models\GeneralManagement;
 
 use MF\Model\Model;
 
@@ -39,15 +39,22 @@ class SchoolTerm extends Model
     public function disableActiveScheduledPeriod()
     {
 
-        $schoolTermSituation = $this->__get('fk_id_school_term_situation'); # Criando variável com nome mais curto
+        $schoolTermSituation = $this->__get('fk_id_school_term_situation'); # Variável com nome mais curto
 
         if ($schoolTermSituation == 1 || $schoolTermSituation == 3) { # Caso a situacao do PL seja 1-Ativo ou 3-Agendado, a função prosseguirá.
 
             $state = null; # Variável que irá amarzenar a situação do PL recebido
-
             $schoolTermSituation == 1 ? $state = 1 : $state = 3;
 
-            $query = "UPDATE periodo_letivo SET fk_id_situacao_periodo_letivo = 2 WHERE fk_id_situacao_periodo_letivo = $state;";
+            $query =
+
+                "UPDATE periodo_letivo 
+                
+                SET fk_id_situacao_periodo_letivo = 2 
+                
+                WHERE fk_id_situacao_periodo_letivo = $state
+            
+            ";
 
             $this->db->prepare($query)->execute();
         }
@@ -128,7 +135,7 @@ class SchoolTerm extends Model
 
 
     /**
-     * Retorna os estados que um período letivo pode ter 
+     * Retorna todos os estados de um período letivo 
      * 
      * @return array
      */
@@ -136,14 +143,14 @@ class SchoolTerm extends Model
     {
 
         return $this->speedingUp(
-
+            
             "SELECT 
 
-             situacao_periodo_letivo.id_situacao_periodo_letivo AS option_value  , 
+             situacao_periodo_letivo.id_situacao_periodo_letivo AS option_value , 
              situacao_periodo_letivo.situacao_periodo_letivo AS option_text 
 
              FROM situacao_periodo_letivo"
-
+             
         );
     }
 
@@ -172,9 +179,7 @@ class SchoolTerm extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':id', $this->__get('schoolTermId'));
-
         $stmt->execute();
     }
 
@@ -235,7 +240,7 @@ class SchoolTerm extends Model
 
 
     /**
-     * Retorna o ano letivo ativo e o agendado
+     * Retorna o período letivo ativo e o agendado
      * 
      * @return array
      */

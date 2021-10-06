@@ -31,7 +31,7 @@ class AdminPeopleController extends Action
     {
 
         $People = Container::getModel('People\\People');
-        echo json_encode($People->bloodType());
+        echo json_encode($People->availablebloodType());
     }
 
 
