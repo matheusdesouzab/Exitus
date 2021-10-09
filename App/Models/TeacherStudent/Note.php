@@ -28,16 +28,23 @@ class Note extends Model
     }
 
 
+    /**
+     * Inserir nota da avaliação 
+     * 
+     * @return void
+     */
     public function insert()
     {
 
         $query =
 
-            "INSERT INTO nota_avaliacao (valor_nota , fk_id_avaliacao , fk_id_matricula_aluno) 
+            "INSERT INTO nota_avaliacao 
+            
+                (valor_nota , fk_id_avaliacao , fk_id_matricula_aluno) 
             
             VALUES 
             
-            (:noteValue , :fk_id_exam , :fk_id_student_enrollment)
+                (:noteValue , :fk_id_exam , :fk_id_student_enrollment)
         
         ";
 
@@ -51,6 +58,13 @@ class Note extends Model
     }
 
 
+    /**
+     * Retorna as notas das avaliações vinculadas a um aluno
+     * 
+     * @param int $currentSchoolTerm
+     * 
+     * @return array
+     */
     public function list($currentSchoolTerm = 0)
     {
 
@@ -123,6 +137,13 @@ class Note extends Model
     }
 
 
+    /**
+     * Buscar nota de avaliação
+     * 
+     * @param string $orderBy
+     * 
+     * @return array
+     */
     public function seek($orderBy = 'ASC')
     {
 
@@ -188,6 +209,11 @@ class Note extends Model
     }
 
 
+    /**
+     * Atualizar nota de uma avaliação do aluno
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -201,22 +227,30 @@ class Note extends Model
         $stmt->execute();
     }
 
-
+    /**
+     * Deletar nota de avaliação do aluno
+     * 
+     * @return void
+     */
     public function delete()
     {
 
         $query = "DELETE FROM nota_avaliacao WHERE nota_avaliacao.id_nota = :note_id ";
-
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':note_id', $this->__get('noteId'));
-
         $stmt->execute();
     }
 
 
+    /**
+     * Retorna as avaliações que ainda não foram vinculadas ao aluno
+     * 
+     * @return array
+     */
     public function notesNotAddedYet()
     {
+
+        # Inicialmente em $allExamsClass, será armazenado todos os exames que foram criados na turma do aluno.
 
         $allExamsClass =
 
@@ -251,6 +285,8 @@ class Note extends Model
 
         $allExamsClass = $stmt->fetchAll(\PDO::FETCH_OBJ);
 
+        # Em seguida, em $allStudentExams será armazenado todas as avaliações que já foram vinculadas ao aluno.
+
         $allStudentExams =
 
             "SELECT 
@@ -282,17 +318,27 @@ class Note extends Model
         $availableNote = [];
 
         foreach ($allStudentExams as $key => $exam) {
-            array_push($allExamId, $exam->exam_id);
+            array_push($allExamId, $exam->exam_id); # Armazenando somente os ids das avaliações já vinculadas ao aluno
         }
 
         foreach ($allExamsClass as $key => $exam) {
 
+            /** Caso o id da avaliação cadastrada na turma seja diferente do id da avaliação vinculada ao aluno, significa que a mesma ainda
+             * não vinculada ao aluno. Desse modo, caso essa condição seja sastifeita vamos guardar em $availableNote os dados necessários.
+             */
+
             if (!in_array($exam->exam_id, $allExamId)) {
 
-                switch($exam->exam_value){
-                    case $exam->exam_value > 1: $pointsOrTenths = " pontos" ; break;
-                    case $exam->exam_value < 1: $pointsOrTenths = " décimos" ; break;
-                    case $exam->exam_value == 1: $pointsOrTenths = " ponto" ; break;
+                switch ($exam->exam_value) {
+                    case $exam->exam_value > 1:
+                        $pointsOrTenths = " pontos";
+                        break;
+                    case $exam->exam_value < 1:
+                        $pointsOrTenths = " décimos";
+                        break;
+                    case $exam->exam_value == 1:
+                        $pointsOrTenths = " ponto";
+                        break;
                 }
 
                 $description = $exam->discipline_name . ' - ' . $exam->exam_description . ' - ' . $exam->unity . ' unidade - ' . $exam->exam_value . $pointsOrTenths;

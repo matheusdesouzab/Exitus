@@ -19,6 +19,11 @@ class Admin extends People
     }
 
 
+    /**
+     * Esse método verifica se os dados recebidos, correspondem a conta de um administrador
+     * 
+     * @return array
+     */
     public function login()
     {
 
@@ -48,7 +53,12 @@ class Admin extends People
     }
 
 
-    public function list()
+    /**
+     * Retorna os dados da conta de um administrador
+     * 
+     * @return array
+     */
+    public function dataGeneral()
     {
 
         $query =
@@ -95,15 +105,18 @@ class Admin extends People
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':id', $this->__get('id'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
+    /**
+     * Atualizar foto do perfil do administrador
+     * 
+     * @return void
+     */
     public function updateProfilePicture()
     {
 
@@ -118,9 +131,13 @@ class Admin extends People
     }
 
 
+    /**
+     * Atualizar dados da conta do administrador
+     * 
+     * @return void
+     */
     public function update()
     {
-
 
         $query =
 
@@ -159,9 +176,25 @@ class Admin extends People
     }
 
 
+    /**
+     * Esse método retorna a lista de estados da hierarquia de funções. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
     public function listHierarchyFunction()
     {
 
-        return $this->speedingUp("SELECT hierarquia_funcao.id_hierarquia_funcao AS option_value , hierarquia_funcao.hierarquia_funcao AS option_text FROM hierarquia_funcao WHERE hierarquia_funcao.id_hierarquia_funcao BETWEEN 1 AND 2");
+        return $this->speedingUp(
+
+            "SELECT 
+            
+            id_hierarquia_funcao AS option_value , 
+            hierarquia_funcao AS option_text 
+            
+            FROM hierarquia_funcao 
+            
+            WHERE id_hierarquia_funcao BETWEEN 1 AND 2"
+
+        );
     }
 }

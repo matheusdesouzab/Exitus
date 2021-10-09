@@ -23,6 +23,11 @@ class Settings extends Model
     }
 
 
+    /**
+     * Atualizar as configurações
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -37,31 +42,83 @@ class Settings extends Model
     }
 
 
+    /**
+     * Esse método retorna as opções de controle da unidade. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
     public function unitControlList()
     {
 
-        return $this->speedingUp("SELECT id_controle_unidade AS option_value , situacao AS option_text FROM controle_unidade");
+        return $this->speedingUp(
+            "SELECT id_controle_unidade AS option_value , situacao AS option_text FROM controle_unidade"
+        );
     }
 
 
+    /**
+     * Retorna o valor atual da configuração de controle da unidade
+     * 
+     * @return array
+     */
     public function unitControlCurrent()
     {
 
-        return $this->speedingUp("SELECT id_controle_unidade AS option_value , situacao AS option_text FROM configuracao LEFT JOIN controle_unidade ON(configuracao.fk_id_controle_unidade = controle_unidade.id_controle_unidade)");
+        return $this->speedingUp(
+
+            "SELECT 
+            
+            id_controle_unidade AS option_value , 
+            situacao AS option_text 
+            
+            FROM configuracao 
+            
+            LEFT JOIN controle_unidade ON(configuracao.fk_id_controle_unidade = controle_unidade.id_controle_unidade)"
+
+        );
     }
 
 
+    /**
+     * Retorna o valor atual da configuração de controle da rematrícula
+     * 
+     * @return array
+     */
     public function currentStatusRematrium()
     {
 
-        return $this->speedingUp("SELECT controle_rematricula.situacao AS option_text , configuracao.fk_id_controle_rematricula AS option_value FROM configuracao LEFT JOIN controle_rematricula ON(configuracao.fk_id_controle_rematricula = controle_rematricula.id_situacao_abertura_rematricula)");
+        return $this->speedingUp(
+
+            "SELECT 
+            
+            controle_rematricula.situacao AS option_text , 
+            configuracao.fk_id_controle_rematricula AS option_value 
+            
+            FROM configuracao 
+            
+            LEFT JOIN controle_rematricula ON(configuracao.fk_id_controle_rematricula = controle_rematricula.id_situacao_abertura_rematricula)"
+
+        );
     }
 
 
+    /**
+     * Esse método retorna as opções de controle da rematrícula. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
     public function registrationControlOptions()
     {
 
-        return $this->speedingUp("SELECT controle_rematricula.id_situacao_abertura_rematricula AS option_value , controle_rematricula.situacao AS option_text FROM controle_rematricula;");
+        return $this->speedingUp(
 
+            "SELECT 
+            
+            controle_rematricula.id_situacao_abertura_rematricula AS option_value , 
+            controle_rematricula.situacao AS option_text 
+            
+            FROM controle_rematricula"
+
+        );
     }
 }

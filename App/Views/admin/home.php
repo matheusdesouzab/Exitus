@@ -188,7 +188,7 @@
 
                                                 <div class="row d-flex align-items-center justify-content-between">
 
-                                                    <div class="col-lg-1 border border-dark d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                     <div class="col-lg-8 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
@@ -376,7 +376,7 @@
 
                 <div class="row d-flex">
 
-                    <div class="col-lg-5 pl-0">
+                   <!--  <div class="col-lg-5 pl-0">
 
                         <div class="col-lg-12 pl-0">
 
@@ -384,7 +384,7 @@
 
                         </div>
 
-                    </div>
+                    </div> -->
 
                  <!--    <div class="col-lg-7 pr-0">
 

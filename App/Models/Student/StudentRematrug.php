@@ -23,6 +23,11 @@ class StudentRematrug extends Model
     }
 
 
+    /**
+     * Criar solicitação de rematrícula
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -36,27 +41,43 @@ class StudentRematrug extends Model
         $stmt->execute();
     }
 
+
+    /**
+     * Retorna os estados que uma solicitação de rematrícula pode está. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
     public function rematrugSituation()
     {
 
-        return $this->speedingUp("SELECT situacao_rematricula.id_situacao_rematricula AS option_value , situacao_rematricula.situacao AS option_text FROM situacao_rematricula");
+        return $this->speedingUp(
+            "SELECT id_situacao_rematricula AS option_value , situacao AS option_text FROM situacao_rematricula"
+        );
     }
 
 
+    /**
+     * Verifica se o aluno já enviou uma solicitação de rematrícula no período letivo atual.
+     * 
+     * @return array
+     */
     public function checkForRegistration()
     {
 
         $query = "SELECT rematricula.id_rematricula FROM rematricula WHERE rematricula.fk_id_rematricula_aluno = :enrollmentId;";
-
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':enrollmentId', $this->__get('fk_id_enrollment'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
 
+    /**
+     * Retorna o total de rematrículas com base nos estados que uma solicitação de remtrícula pode ter.
+     * 
+     * @return array
+     */
     public function totalRematriumMarkedWithYesAndNo()
     {
 

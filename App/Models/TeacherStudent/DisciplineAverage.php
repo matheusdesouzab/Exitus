@@ -27,6 +27,11 @@ class DisciplineAverage extends Model
     }
 
 
+    /**
+     * Inserir a média final do aluno em uma determinada disciplina
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -34,11 +39,11 @@ class DisciplineAverage extends Model
 
             "INSERT INTO media_disciplina
             
-            (nota_valor, fk_id_turma_disciplina, fk_id_matricula_media, fk_id_legenda)
+                (nota_valor, fk_id_turma_disciplina, fk_id_matricula_media, fk_id_legenda)
 
             VALUES
 
-            (:average , :fk_id_discipline_class , :fk_id_enrollment , :fk_id_subtitle);              
+                (:average , :fk_id_discipline_class , :fk_id_enrollment , :fk_id_subtitle);              
             
         ";
 
@@ -53,6 +58,39 @@ class DisciplineAverage extends Model
     }
 
 
+    /**
+     * Atualizar dados da média final de uma disciplina do aluno
+     * 
+     * @return void
+     */
+    public function update()
+    {
+
+        $query =
+
+            "UPDATE media_disciplina 
+            
+            SET fk_id_legenda = :fk_id_subtitle , nota_valor = :average 
+            
+            WHERE media_disciplina.id_media_disciplina = :disciplineAverageId
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_subtitle', $this->__get('fk_id_subtitle'));
+        $stmt->bindValue(':average', $this->__get('average'));
+        $stmt->bindValue(':disciplineAverageId', $this->__get('disciplineAverageId'));
+
+        $stmt->execute();
+    }
+
+
+    /**
+     * Retorna a soma de todas as notas do aluno , como também do total de faltas por unidade
+     * 
+     * @return array
+     */
     public function disciplineFinalData()
     {
 
@@ -99,13 +137,27 @@ class DisciplineAverage extends Model
     }
 
 
+    /**
+     * Retorna as situações referente a uma média final. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
     public function availableSubtitles()
     {
 
-        return $this->speedingUp("SELECT legenda.id_legenda AS option_value, legenda.legenda AS option_text FROM legenda");
+        return $this->speedingUp(
+            "SELECT legenda.id_legenda AS option_value, legenda.legenda AS option_text FROM legenda"
+        );
     }
 
 
+    /**
+     * Retorna todas as médias finais de um aluno
+     * 
+     * @param int $currentSchoolTerm;
+     * 
+     * @return array
+     */
     public function list($currentSchoolTerm = 0)
     {
 
@@ -161,6 +213,11 @@ class DisciplineAverage extends Model
     }
 
 
+    /**
+     * Verifica se a média final de uma determinada disciplina, já foi adicionada.
+     * 
+     * @return array
+     */
     public function disciplineMediaAlreadyAdded()
     {
 
@@ -184,20 +241,5 @@ class DisciplineAverage extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
-    }
-
-
-    public function update()
-    {
-
-        $query = "UPDATE media_disciplina SET fk_id_legenda = :fk_id_subtitle , nota_valor = :average WHERE media_disciplina.id_media_disciplina = :disciplineAverageId";
-
-        $stmt = $this->db->prepare($query);
-
-        $stmt->bindValue(':fk_id_subtitle', $this->__get('fk_id_subtitle'));
-        $stmt->bindValue(':average', $this->__get('average'));
-        $stmt->bindValue(':disciplineAverageId', $this->__get('disciplineAverageId'));
-
-        $stmt->execute();
     }
 }

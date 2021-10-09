@@ -11,7 +11,6 @@ class AdminController extends Action
 
     public function index()
     {
-
         $this->render('index', 'SimpleLayout');
     }
 
@@ -21,7 +20,7 @@ class AdminController extends Action
 
         $Student = Container::getModel('Student\\Student');
         $Settings = Container::getModel('Admin\\Settings');
-        $SchoolTerm = Container::getModel('Admin\\SchoolTerm');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $Note = Container::getModel('TeacherStudent\\Note');
         $Lack = Container::getModel('TeacherStudent\\Lack');
@@ -40,7 +39,6 @@ class AdminController extends Action
         $this->view->listDisciplineAverage = $DisciplineAverage->list(1);
 
         $this->render('home', 'AdminLayout');
-
     }
 
 
@@ -58,17 +56,16 @@ class AdminController extends Action
         if (count($auth) != 1) {
 
             header('Location: /admin?error=true');
+
         } else {
 
             if (!isset($_SESSION)) session_start();
 
             $_SESSION['Admin'] = [
-
                 'id' => $auth[0]->admin_id,
                 'name' => $auth[0]->admin_name,
                 'profilePhoto' => $auth[0]->admin_photo,
                 'hierarchyFunction' => $auth[0]->hierarchy_function
-
             ];
 
             session_cache_expire(200);
@@ -92,7 +89,7 @@ class AdminController extends Action
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
         $this->view->registrationControlOptions = $Settings->registrationControlOptions();
-        $this->view->Data = $Admin->list();
+        $this->view->Data = $Admin->dataGeneral();
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->bloodType();
@@ -157,21 +154,17 @@ class AdminController extends Action
     {
 
         $Admin = Container::getModel('Admin\\Admin');
-
         $Tool = new Tools();
 
         empty($_GET['oldPhoto']) ? '' : unlink('../public/assets/img/studentProfilePhotos/' . $_POST['oldPhoto']);
 
         $Tool->image($Admin, '../public/assets/img/adminProfilePhotos/');
-
         $Admin->__set('id', $_POST['id']);
 
         if (!isset($_SESSION)) session_start();
 
         $Admin->updateProfilePicture();
-
-        $profilePhoto = $Admin->list();
-
+        $profilePhoto = $Admin->dataGeneral();
         $_SESSION['Admin']['profilePhoto'] = $profilePhoto[0]->profilePhoto;
     }
 

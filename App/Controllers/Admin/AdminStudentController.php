@@ -97,6 +97,7 @@ class AdminStudentController extends Action
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Lack = Container::getModel('TeacherStudent\\Lack');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+        $Unity = Container::getModel('GeneralManagement\\Unity');
 
         $Student->__set('fk_id_enrollmentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
@@ -107,7 +108,7 @@ class AdminStudentController extends Action
         $this->view->studentDataGeneral = $Student->dataGeneral();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
-        $this->view->unity = $Exam->unity();
+        $this->view->unity = $Unity->unity();
         $this->view->bloodType = $Student->availablebloodType();
         $this->view->bulletin = $StudentEnrollment->bulletin();
 

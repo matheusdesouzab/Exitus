@@ -29,6 +29,11 @@ class Exam extends Model
     }
 
 
+    /**
+     * Criar avaliação
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -36,11 +41,11 @@ class Exam extends Model
 
             "INSERT INTO avaliacoes 
 
-            (descricao_avaliacao , valor_avaliacao	, data_realizada , fk_id_unidade_avaliacao , fk_id_turma_disciplina_avaliacao)
+                (descricao_avaliacao , valor_avaliacao	, data_realizada , fk_id_unidade_avaliacao , fk_id_turma_disciplina_avaliacao)
 
             VALUES
 
-            (:examDescription , :examValue , :realizeDate , :fk_id_exam_unity , :fk_id_discipline_class)
+                (:examDescription , :examValue , :realizeDate , :fk_id_exam_unity , :fk_id_discipline_class)
         
         ";
 
@@ -56,30 +61,11 @@ class Exam extends Model
     }
 
 
-    public function unity()
-    {
-
-        $query = "SET @controle_unidade = (SELECT configuracao.fk_id_controle_unidade FROM configuracao)";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-
-        return $this->speedingUp(
-
-            "SELECT unidade.id_unidade AS option_value , unidade.unidade AS option_text
-            
-            FROM unidade 
-            
-            WHERE 
-            
-            CASE 
-            
-            WHEN @controle_unidade = 1 THEN unidade.id_unidade = 1  
-            WHEN @controle_unidade = 2 THEN unidade.id_unidade BETWEEN 1 AND 2
-            ELSE unidade.id_unidade <> 0 END;"
-        );
-    }
-
-
+    /**
+     * Retorna o total de pontos já atribuidos em uma unidade de uma disciplina
+     * 
+     * @return array
+     */
     public function sumUnitGrades()
     {
 
@@ -106,6 +92,13 @@ class Exam extends Model
     }
 
 
+    /**
+     * Retorna as avaliações que foram adicionadas em uma turma
+     * 
+     * @param int $currentSchoolTerm
+     * 
+     * @return array
+     */
     public function list($currentSchoolTerm = 0)
     {
 
@@ -174,6 +167,11 @@ class Exam extends Model
     }
 
 
+    /**
+     * Atualizar avaliação
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -200,19 +198,25 @@ class Exam extends Model
     }
 
 
+    /**
+     * Deletar avaliação
+     * 
+     * @return void
+     */
     public function delete()
     {
 
         $query = "DELETE FROM avaliacoes WHERE avaliacoes.id_avaliacao = :examId";
-
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':examId', $this->__get('examId'));
-
         $stmt->execute();
     }
 
-
+    /**
+     * Buscar avaliação
+     * 
+     * @return array
+     */
     public function seek()
     {
 
@@ -265,6 +269,11 @@ class Exam extends Model
     }
 
 
+    /**
+     * Verifica se já foi adicionada alguma avaliação com o mesmo nome em uma unidade da disciplina
+     * 
+     * @return array
+     */
     public function checkName()
     {
 
@@ -298,6 +307,11 @@ class Exam extends Model
     }
 
 
+    /**
+     * Retorna as avaliações já adicionadas em uma determinada unidade da disciplina
+     * 
+     * @return array
+     */
     public function recents()
     {
 

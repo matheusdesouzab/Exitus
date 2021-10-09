@@ -13,7 +13,7 @@ class Observation extends Model
     private $fk_id_unity;
     private $fk_id_enrollment = 0;
     private $fk_id_teacher = 0;
-    
+
 
     public function __get($att)
     {
@@ -27,15 +27,23 @@ class Observation extends Model
     }
 
 
+    /**
+     * Criar observação
+     * 
+     * @return void
+     */
     public function insert()
     {
 
         $query =
 
-            "INSERT INTO observacao_aluno (fk_id_turma_disciplina_observacao , fk_id_unidade , fk_id_matricula_observacao , descricao)
+            "INSERT INTO observacao_aluno 
+            
+                (fk_id_turma_disciplina_observacao , fk_id_unidade , fk_id_matricula_observacao , descricao)
 
-            VALUES (:fk_id_discipline_class , :fk_id_unity , :fk_id_enrollment , :observationDescription)
-        
+            VALUES 
+            
+                (:fk_id_discipline_class , :fk_id_unity , :fk_id_enrollment , :observationDescription)     
         ";
 
         $stmt = $this->db->prepare($query);
@@ -49,9 +57,15 @@ class Observation extends Model
     }
 
 
+    /**
+     * Retorna todas as observações de um aluno
+     * 
+     * @param int $currentSchoolTerm
+     * 
+     * @return array
+     */
     public function list($currentSchoolTerm = 0)
     {
-
 
         $query =
 
@@ -104,7 +118,6 @@ class Observation extends Model
    
         ";
 
-
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
@@ -116,6 +129,11 @@ class Observation extends Model
     }
 
 
+    /**
+     * Atualizar observação
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -130,15 +148,17 @@ class Observation extends Model
     }
 
 
+    /**
+     * Deletar observação
+     * 
+     * @return void
+     */
     public function delete()
     {
 
         $query = "DELETE FROM observacao_aluno WHERE observacao_aluno.id_observacao = :id";
-
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':id', $this->__get('id'));
-
         $stmt->execute();
     }
 }

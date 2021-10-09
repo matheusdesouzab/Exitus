@@ -37,8 +37,6 @@ abstract class Action
 
 		$directory = $this->view->directory != '' ? $this->view->directory : lcfirst($control[1]);
 
-		//$directory = lcfirst($control[1]);
-
 		require_once "../App/Views/" . $directory . "/" . $this->view->page . '.php'; 
 	}
 }

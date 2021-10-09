@@ -54,7 +54,6 @@ class AdminManagementController extends Action
         $SchoolTerm->__set('fk_id_school_term_situation', $_POST['schoolTermSituation']);
 
         $SchoolTerm->update();
-
     }
 
 
@@ -81,7 +80,6 @@ class AdminManagementController extends Action
 
     public function schoolTermAvailable()
     {
-
         $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         echo json_encode($SchoolTerm->availableYears());
     }
@@ -89,7 +87,6 @@ class AdminManagementController extends Action
 
     public function schoolTermActive()
     {
-
         $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         echo json_encode($SchoolTerm->active());
     }
@@ -100,11 +97,8 @@ class AdminManagementController extends Action
 
     public function ClassRoomManagement()
     {
-
         $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
-
         $this->view->listClassRoom = $ClassRoom->list();
-
         $this->render('management/pages/classroomManagement', 'AdminLayout');
     }
 
@@ -135,7 +129,6 @@ class AdminManagementController extends Action
 
     public function availableRoomNumbers()
     {
-
         $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
         echo json_encode($ClassRoom->availableNumbers());
     }
@@ -143,18 +136,14 @@ class AdminManagementController extends Action
 
     public function classRoomList()
     {
-
         $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
-
         $this->view->listClassRoom = $ClassRoom->list();
-
         $this->render('management/components/classroomsList', 'SimpleLayout');
     }
 
 
     public function classRoomDelete()
     {
-
         $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
         $ClassRoom->__set('classroomId', $_POST['classroomId']);
         $ClassRoom->delete();
@@ -163,11 +152,9 @@ class AdminManagementController extends Action
 
     public function classRoomActive()
     {
-
         $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
         echo json_encode($ClassRoom->listForSelect());
     }
-
 
 
     // Course
@@ -175,11 +162,8 @@ class AdminManagementController extends Action
 
     public function courseManagement()
     {
-
         $Course = Container::getModel('GeneralManagement\\Course');
-
         $this->view->listCourse = $Course->list();
-
         $this->render('management/pages/courseManagement', 'AdminLayout');
     }
 
@@ -198,11 +182,8 @@ class AdminManagementController extends Action
 
     public function courseList()
     {
-
         $Course = Container::getModel('GeneralManagement\\Course');
-
         $this->view->listCourse = $Course->list();
-
         $this->render('management/components/coursesList', 'SimpleLayout');
     }
 
@@ -222,7 +203,6 @@ class AdminManagementController extends Action
 
     public function courseAvailable()
     {
-
         $Course = Container::getModel('GeneralManagement\\Course');
         echo json_encode($Course->listForSelect());
     }
@@ -230,18 +210,14 @@ class AdminManagementController extends Action
 
     public function courseDelete()
     {
-
         $Course = Container::getModel('GeneralManagement\\Course');
-
         $Course->__set('courseId', $_POST['courseId']);
-
         $Course->delete();
     }
 
 
     public function totalStudentsCourse()
     {
-
         $Course = Container::getModel('GeneralManagement\\Course');
         echo json_encode($Course->totalStudentsCourse());
     }
@@ -277,11 +253,8 @@ class AdminManagementController extends Action
 
     public function disciplineList()
     {
-
         $Discipline = Container::getModel('GeneralManagement\\Discipline');
-
         $this->view->listDiscipline = $Discipline->list();
-
         $this->render('management/components/disciplinesList', 'SimpleLayout');
     }
 
@@ -330,11 +303,8 @@ class AdminManagementController extends Action
 
     public function disciplineDelete()
     {
-
         $Discipline = Container::getModel('GeneralManagement\\Discipline');
-
         $Discipline->__set('disciplineId', $_POST['disciplineId']);
-
         $Discipline->delete();
     }
 
@@ -399,11 +369,8 @@ class AdminManagementController extends Action
 
     public function classList()
     {
-
         $Classe = Container::getModel('GeneralManagement\\Classe');
-
         $this->view->listClass = $Classe->list();
-
         $this->render('management/components/classList', 'SimpleLayout');
     }
 
@@ -432,6 +399,7 @@ class AdminManagementController extends Action
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $Teacher = Container::getModel('Teacher\\Teacher');
+        $Unity = Container::getModel('GeneralManagement\\Unity');
 
         if (!isset($_SESSION)) session_start();
 
@@ -444,7 +412,7 @@ class AdminManagementController extends Action
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
-        $this->view->unity = $Exam->unity();
+        $this->view->unity = $Unity->unity();
         $this->view->classData = $Classe->list('<> 0');
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
@@ -518,22 +486,16 @@ class AdminManagementController extends Action
 
     public function disciplineAvailable()
     {
-
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-
         $ClassDiscipline->__set('fk_id_class', $_POST['classId']);
-
         echo json_encode($ClassDiscipline->disciplinesNotYetAdded());
     }
 
 
     public function subjectAvailableClass()
     {
-
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
-
         echo json_encode($ClassDiscipline->subjectAvailableClass());
     }
 
@@ -556,11 +518,8 @@ class AdminManagementController extends Action
 
     public function disciplineClassDelete()
     {
-
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-
         $ClassDiscipline->__set("id", $_POST['disciplineClass']);
-
         $ClassDiscipline->delete();
     }
 
@@ -570,10 +529,9 @@ class AdminManagementController extends Action
 
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
 
-        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
-
         if (!isset($_SESSION)) session_start();
 
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
         $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         echo json_encode($ClassDiscipline->disciplinesClassAlreadyAdded());

@@ -43,9 +43,8 @@ class Student extends People
 
             VALUES 
             
-                (:studentName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :motherName, :fatherName, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd,:fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, 1)
-            
-        ";
+                (:studentName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :motherName, :fatherName, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd,:fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, 1)"              
+        ;
 
         $stmt = $this->db->prepare($query);
 
@@ -372,9 +371,7 @@ class Student extends People
             turno.nome_turno AS shift ,
             turma.id_turma AS classId
             
-            FROM
-            
-            aluno
+            FROM aluno
 
             INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno)  
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 

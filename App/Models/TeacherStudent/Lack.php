@@ -27,15 +27,23 @@ class Lack extends Model
     }
 
 
+    /**
+     * Inserir o total de faltas de um aluno em uma determinada disciplina e unidade
+     * 
+     * @return void
+     */
     public function insert()
     {
 
         $query =
 
-            "INSERT INTO falta_aluno(total_faltas , fk_id_turma_disciplina_falta , fk_id_unidade_falta , fk_id_matricula_falta)
+            "INSERT INTO falta_aluno
+            
+                (total_faltas , fk_id_turma_disciplina_falta , fk_id_unidade_falta , fk_id_matricula_falta)
 
-            VALUES (:totalLack , :fk_id_discipline_class , :fk_id_unity , :fk_id_enrollment);
-        
+            VALUES 
+            
+                (:totalLack , :fk_id_discipline_class , :fk_id_unity , :fk_id_enrollment);    
         ";
 
         $stmt = $this->db->prepare($query);
@@ -49,6 +57,13 @@ class Lack extends Model
     }
 
 
+    /**
+     * Retorna todas as faltas de um aluno
+     * 
+     * @param int $currentSchoolTerm
+     * 
+     * @return array
+     */
     public function list($currentSchoolTerm = 0)
     {
 
@@ -112,6 +127,11 @@ class Lack extends Model
     }
 
 
+    /**
+     * Retorna as disciplinas de um aluno onde as faltas totais não foram atribuidas, em uma determinada unidade.
+     * 
+     * @return array
+     */
     public function lackAvailable()
     {
 
@@ -133,7 +153,7 @@ class Lack extends Model
 
             falta_aluno.fk_id_turma_disciplina_falta = :fk_id_discipline_class
     
-    ";
+        ";
 
         $stmt = $this->db->prepare($query);
 
@@ -147,6 +167,11 @@ class Lack extends Model
     }
 
 
+    /**
+     * Atualizar faltas totais de um aluno
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -161,6 +186,13 @@ class Lack extends Model
     }
 
 
+    /**
+     * Buscar faltas totais de um aluno
+     * 
+     * @param string $orderBy 
+     * 
+     * @return array
+     */
     public function seek($orderBy = "")
     {
 
@@ -209,6 +241,4 @@ class Lack extends Model
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
-
-
 }

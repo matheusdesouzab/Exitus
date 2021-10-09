@@ -7,7 +7,6 @@ use MF\Model\Model;
 class StudentEnrollment extends Model
 {
 
-
     private $fk_id_student_situation;
     private $fk_id_class;
     private $fk_id_school_term;
@@ -27,6 +26,11 @@ class StudentEnrollment extends Model
     }
 
 
+    /**
+     * Criar matrícula do aluno
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -34,11 +38,11 @@ class StudentEnrollment extends Model
 
             "INSERT INTO matricula 
             
-            (fk_id_aluno, fk_id_turma_matricula, fk_id_situacao_aluno, fk_id_periodo_letivo_matricula) 
+                (fk_id_aluno, fk_id_turma_matricula, fk_id_situacao_aluno, fk_id_periodo_letivo_matricula) 
             
             VALUES 
 
-            (:fk_id_student, :fk_id_class, :fk_id_student_situation, :fk_id_school_term)
+                (:fk_id_student, :fk_id_class, :fk_id_student_situation, :fk_id_school_term)
         
         ";
 
@@ -53,6 +57,11 @@ class StudentEnrollment extends Model
     }
 
 
+    /**
+     * Atualizar dados da matrícula
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -67,6 +76,11 @@ class StudentEnrollment extends Model
     }
 
 
+    /**
+     * Retorna os dados necessários para a criação do boletim do aluno
+     * 
+     * @return array
+     */
     public function bulletin()
     {
 
@@ -106,13 +120,25 @@ class StudentEnrollment extends Model
     }
 
 
+    /**
+     * Retorna os estados que a matrícula do aluno pode está. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
     public function studentSituation()
     {
 
-        return $this->speedingUp("SELECT id_situacao_aluno AS option_value , situacao_aluno AS option_text FROM situacao_aluno_ano_letivo");
+        return $this->speedingUp(
+            "SELECT id_situacao_aluno AS option_value , situacao_aluno AS option_text FROM situacao_aluno_ano_letivo"
+        );
     }
 
 
+    /**
+     * Esse método retorna a quantidade de alunos baseado no status de matrículas disponíveis
+     * 
+     * @return array
+     */
     public function studentSituationSchoolYear()
     {
 
@@ -134,9 +160,7 @@ class StudentEnrollment extends Model
             ) AS total 
             
             FROM situacao_aluno_ano_letivo"
+
         );
     }
-
-
-    
 }
