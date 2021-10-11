@@ -19,7 +19,7 @@ if (count($this->view->listSchoolTerm) >= 1) {
             $schoolPeriodSituation = "school-term-scheduled";
         } ?>
 
-        <form id="formSchoolTerm<?= $schoolTerm->school_term_id ?>" class="card mb-4 <?= $schoolPeriodSituation ?>">
+        <form id="formSchoolTerm<?= $schoolTerm->school_term_id ?>" class="card mb-4 <?= $schoolPeriodSituation ?>" >
 
             <div class="form-row col-lg-11 mx-auto d-flex align-items-center option-icon-group">
 
@@ -27,19 +27,19 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" formGroup="containerListSchoolTerm" class="mr-2 edit-data-icon">
+                    <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" formGroup="containerListSchoolTerm" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
 
                         <i class="fas fa-edit"></i>
 
                     </span>
 
-                    <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" routeUpdate="/admin/gestao/periodo-letivo/atualizar" toastData="Periodo Letivo Atualizado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 update-data-icon">
+                    <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" routeUpdate="/admin/gestao/periodo-letivo/atualizar" toastData="Periodo Letivo Atualizado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="bottom" title="Atualizar">
 
                         <i class="fas fa-check"></i>
 
                     </span>
 
-                    <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" routeDelete="/admin/gestao/periodo-letivo/deletar" toastData="Periodo Letivo Deletado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 delete-data-icon">
+                    <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" routeDelete="/admin/gestao/periodo-letivo/deletar" toastData="Periodo Letivo Deletado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
 
                         <i class="fas fa-trash-alt"></i>
 

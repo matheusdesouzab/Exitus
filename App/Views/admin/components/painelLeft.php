@@ -30,8 +30,9 @@
 
             <li><a href="/admin/gestao"><i class="fas fa-boxes"></i><span class="link-name">Gestão geral</span></a></li>
 
-            <li><a href="/admin/sair"><i class="fas fa-door-open"></i><span class="link-name">Sair da conta</span></a></li>
+            <li><a href="/admin/gestao"><i class="fas fa-chart-pie"></i><span class="link-name">Análise de Dados</span></a></li>
 
+            <li><a href="#" id="settings"><i class="fas fa-cog"></i><span class="link-name">Configurações</span></a></li>
 
         </ul>
 

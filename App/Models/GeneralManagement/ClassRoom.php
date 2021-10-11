@@ -25,7 +25,7 @@ class ClassRoom extends Model
 
 
     /**
-     * Inserir sala
+     * Criar sala
      * 
      * @return void
      */

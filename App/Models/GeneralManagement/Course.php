@@ -10,6 +10,7 @@ class Course extends Model
     private $courseId;
     private $courseName;
     private $acronym;
+    private $courseMode;
 
 
     public function __get($att)
@@ -25,19 +26,20 @@ class Course extends Model
 
 
     /**
-     * Inserir curso
+     * Criar curso
      * 
      * @return void
      */
     public function insert()
     {
 
-        $query = "INSERT INTO curso(nome_curso, sigla) VALUES (:courseName, :acronym)";
+        $query = "INSERT INTO curso(nome_curso, sigla , fk_id_modalidade_curso) VALUES (:courseName, :acronym, :courseMode)";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(":courseName", $this->__get("courseName"));
         $stmt->bindValue(":acronym", $this->__get("acronym"));
+        $stmt->bindValue(":courseMode", $this->__get("courseMode"));
 
         $stmt->execute();
     }
@@ -57,9 +59,13 @@ class Course extends Model
             
             curso.id_curso AS course_id , 
             curso.nome_curso AS course_name , 
-            curso.sigla AS acronym 
+            curso.sigla AS acronym ,
+            modalidade_curso.id_modalidade_curso AS course_mode_id ,
+            modalidade_curso.modalidade_curso AS course_mode 
             
-            FROM curso"
+            FROM curso
+
+            INNER JOIN modalidade_curso ON(curso.fk_id_modalidade_curso = modalidade_curso.id_modalidade_curso)"
 
         );
     }
@@ -88,13 +94,14 @@ class Course extends Model
     public function update()
     {
 
-        $query = "UPDATE curso SET nome_curso = :courseName , sigla = :acronym WHERE curso.id_curso = :courseId";
+        $query = "UPDATE curso SET nome_curso = :courseName , sigla = :acronym , fk_id_modalidade_curso = :courseMode WHERE curso.id_curso = :courseId";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(":courseName", $this->__get("courseName"));
         $stmt->bindValue(":acronym", $this->__get("acronym"));
         $stmt->bindValue(":courseId", $this->__get("courseId"));
+        $stmt->bindValue(":courseMode", $this->__get("courseMode"));
 
         $stmt->execute();
     }
@@ -134,10 +141,19 @@ class Course extends Model
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
             
-            WHERE turma.fk_id_curso = curso.id_curso AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS totalStudensCourse
+            WHERE turma.fk_id_curso = curso.id_curso AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS total_studens_course
 
             FROM curso"
-            
+
+        );
+    }
+
+
+    public function courseMode()
+    {
+
+        return $this->speedingUp(
+            "SELECT id_modalidade_curso AS option_value , modalidade_curso AS option_text FROM modalidade_curso"
         );
     }
 }

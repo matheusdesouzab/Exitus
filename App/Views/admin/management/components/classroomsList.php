@@ -14,15 +14,15 @@
 
                 <div class="col-lg-4 d-flex justify-content-end option-icon-group mt-2">
 
-                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" formGroup="containerListClassRoom" class="mr-2 edit-data-icon">
+                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" formGroup="containerListClassRoom" class="mr-2 edit-data-icon"  data-toggle="tooltip" data-placement="left" title="Editar">
                         <i class="fas fa-edit"></i>
                     </span>
 
-                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" routeUpdate="/admin/gestao/sala/atualizar" toastData="Sala Atualizada" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 update-data-icon">
+                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" routeUpdate="/admin/gestao/sala/atualizar" toastData="Sala Atualizada" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="bottom" title="Atualizar">
                         <i class="fas fa-check"></i>
                     </span>
 
-                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" routeDelete="/admin/gestao/sala/deletar" toastData="Periodo Letivo Atualizado" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 delete-data-icon">
+                    <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" routeDelete="/admin/gestao/sala/deletar" toastData="Periodo Letivo Atualizado" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
                         <i class="fas fa-trash-alt"></i>
                     </span>
 

@@ -109,9 +109,11 @@
 
                             <form id="addDiscipline" class="was-validated" action="">
 
-                                    <div class="font-weight-bold col-lg-11 mx-auto form-row mt-2">Adicionar nova disciplina:</div>
+                                <div class="font-weight-bold col-lg-11 mt-3">Adicionar nova disciplina</div>
 
-                                <div class="form-row mt-4 mb-2 col-lg-11 mx-auto">
+                                <hr class="col-lg-11 ml-3">
+
+                                <div class="form-row mt-1 mb-2 col-lg-12">
 
                                     <div class="form-group col-lg-4">
                                         <label for="">Nome da disciplina:</label>

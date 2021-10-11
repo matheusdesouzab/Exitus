@@ -8,6 +8,9 @@ const management = new Management()
 
 //* Element insertion session
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+}) 
 
 $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
 
@@ -471,7 +474,7 @@ $(document).on("click", "#profileClassModal #list-exam tbody tr", function () {
 
 })
 
-$(document).on("click", "#navbar-top #settings", function () {
+$(document).on("click", "#sidebar #settings", function () {
 
     application.showModal(0, "/admin/configuracoes", "containerSettingsModal", "#settingsModal")
 
@@ -852,6 +855,8 @@ $(document).on('click', "#profileClassModal [data-target='#class-note-history']"
 });
 
  */
+
+
 
 
 

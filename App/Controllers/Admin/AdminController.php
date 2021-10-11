@@ -61,9 +61,11 @@ class AdminController extends Action
 
             if (!isset($_SESSION)) session_start();
 
+            $adminName = explode(" ", $auth[0]->admin_name);
+
             $_SESSION['Admin'] = [
                 'id' => $auth[0]->admin_id,
-                'name' => $auth[0]->admin_name,
+                'name' => $adminName[0].' '.$adminName[1].' '.$adminName[2],
                 'profilePhoto' => $auth[0]->admin_photo,
                 'hierarchyFunction' => $auth[0]->hierarchy_function
             ];
@@ -92,7 +94,7 @@ class AdminController extends Action
         $this->view->Data = $Admin->dataGeneral();
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
-        $this->view->bloodType = $Admin->bloodType();
+        $this->view->bloodType = $Admin->availablebloodType();
         $this->listHierarchyFunction = $Admin->listHierarchyFunction();
 
         $this->render('settings', 'SimpleLayout');

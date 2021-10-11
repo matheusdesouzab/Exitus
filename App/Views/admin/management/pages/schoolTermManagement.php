@@ -51,6 +51,7 @@
                                 </div>
                             </div>
 
+
                             <div class="collapse" id="add-school-term" data-parent="#accordion-school-term">
 
                                 <div class="row">
@@ -59,9 +60,11 @@
 
                                         <form id="addSchoolTerm" class="card">
 
-                                            <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar novo período letivo:</div>
+                                            <div class="font-weight-bold col-lg-11 mt-3">Adicionar novo período letivo</div>
 
-                                            <div class="form-row col-lg-11 mx-auto mb-2 mt-4">
+                                            <hr class="col-lg-11 ml-3">
+
+                                            <div class="form-row col-lg-12 mb-2 mt-1">
 
                                                 <div class="form-group col-lg-2">
                                                     <label for="schoolYear">Ano:</label>

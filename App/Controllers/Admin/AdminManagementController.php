@@ -164,6 +164,7 @@ class AdminManagementController extends Action
     {
         $Course = Container::getModel('GeneralManagement\\Course');
         $this->view->listCourse = $Course->list();
+        $this->view->courseMode = $Course->courseMode();
         $this->render('management/pages/courseManagement', 'AdminLayout');
     }
 
@@ -175,6 +176,7 @@ class AdminManagementController extends Action
 
         $Course->__set('courseName', $_POST['courseName']);
         $Course->__set('acronym', $_POST['acronym']);
+        $Course->__set('courseMode', $_POST['courseMode']);
 
         $Course->insert();
     }
@@ -184,6 +186,7 @@ class AdminManagementController extends Action
     {
         $Course = Container::getModel('GeneralManagement\\Course');
         $this->view->listCourse = $Course->list();
+        $this->view->courseMode = $Course->courseMode();
         $this->render('management/components/coursesList', 'SimpleLayout');
     }
 
@@ -196,6 +199,7 @@ class AdminManagementController extends Action
         $Course->__set('courseId', $_POST['courseId']);
         $Course->__set('courseName', $_POST['courseName']);
         $Course->__set('acronym', $_POST['acronym']);
+        $Course->__set('courseMode', $_POST['courseMode']);
 
         $Course->update();
     }

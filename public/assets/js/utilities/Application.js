@@ -71,7 +71,7 @@ class Application {
         $.ajax({
             url: route,
             type: 'POST',
-            dataType: 'json',
+            dataType: 'html',
             data: $formData,
             success: data => {
 
@@ -140,6 +140,8 @@ class Application {
 
         $container.text('').append(loading)
 
+        $('.tooltip').hide()
+
         $.ajax({
             url: route,
             type: 'GET',
@@ -147,8 +149,8 @@ class Application {
             success: data => {
 
                 $('.loading').remove()
-
                 $container.append(data)
+                $('[data-toggle="tooltip"]').tooltip()
 
             },
             error: erro => $container.append('<h5 class="mt-3">Houve um erro, tente novamente mais tarde</h5>')
@@ -193,6 +195,7 @@ class Application {
                 $container.append(data)
 
                 $(modal).modal("show")
+                $('[data-toggle="tooltip"]').tooltip()
 
             },
 

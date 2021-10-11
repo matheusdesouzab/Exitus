@@ -29,7 +29,7 @@ class SchoolTerm extends Model
     /**
      * Esse método deve ser chamado antes do insert e update.
      * 
-     * É permitido somente a existência de um único período letivo, ativo e agendado.
+     * É permitido somente a existência de um único período letivo ativo e agendado.
      * Desse modo, essa função finaliza o período letivo anterior, que se encrontrava ativo ou agendado, para que não exista redundância.
      * 
      * PL - Período letivo
@@ -43,8 +43,7 @@ class SchoolTerm extends Model
 
         if ($schoolTermSituation == 1 || $schoolTermSituation == 3) { # Caso a situacao do PL seja 1-Ativo ou 3-Agendado, a função prosseguirá.
 
-            $state = null; # Variável que irá amarzenar a situação do PL recebido
-            $schoolTermSituation == 1 ? $state = 1 : $state = 3;
+            $state = ( $schoolTermSituation == 1 ? 1 : 3 );
 
             $query =
 
@@ -135,7 +134,7 @@ class SchoolTerm extends Model
 
 
     /**
-     * Retorna todos os estados de um período letivo 
+     * Retorna todos os estados de um período letivo
      * 
      * @return array
      */
@@ -143,14 +142,14 @@ class SchoolTerm extends Model
     {
 
         return $this->speedingUp(
-            
+
             "SELECT 
 
              situacao_periodo_letivo.id_situacao_periodo_letivo AS option_value , 
              situacao_periodo_letivo.situacao_periodo_letivo AS option_text 
 
              FROM situacao_periodo_letivo"
-             
+
         );
     }
 

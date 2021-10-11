@@ -19,7 +19,7 @@ $.ajax({
 
     $.each(data, i => {
         labels.push(data[i].courseName)
-        datas.push(data[i].totalStudensCourse)
+        datas.push(data[i].total_studens_course)
       }),
 
       setTimeout(function () {

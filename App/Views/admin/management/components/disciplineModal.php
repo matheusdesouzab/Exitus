@@ -8,15 +8,15 @@
                 <h5 discipline class="col-lg-6 font-weight-bold pl-0"><?= $this->view->discipline[0]->discipline_name ?></h5>
                 <div class="col-lg-6 d-flex justify-content-end pr-0">
 
-                    <span idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" class="mr-2 edit-data-icon">
+                    <span idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
                         <i class="fas fa-edit"></i>
                     </span>
 
-                    <span  idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" routeUpdate="/admin/gestao/disciplina/atualizar" toastData="Disciplina Atualizada" container="containerListDiscipline" routeList="/admin/gestao/disciplina/lista" class="mr-2 update-data-icon">
+                    <span  idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" routeUpdate="/admin/gestao/disciplina/atualizar" toastData="Disciplina Atualizada" container="containerListDiscipline" routeList="/admin/gestao/disciplina/lista" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="bottom" title="Atualizar">
                         <i class="fas fa-check"></i>
                     </span>
 
-                    <span idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" routeDelete="/admin/gestao/disciplina/deletar" toastData="Disciplina Deletada" container="containerListDiscipline" routeList="/admin/gestao/disciplina/lista" class="mr-2 delete-data-icon">
+                    <span idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" routeDelete="/admin/gestao/disciplina/deletar" toastData="Disciplina Deletada" container="containerListDiscipline" routeList="/admin/gestao/disciplina/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
                         <i class="fas fa-trash-alt"></i>
                     </span>
 

@@ -40,53 +40,56 @@
             </div>
 
 
-  
+            <div class="row">
+                
+                <div class="col-lg-12">
 
-                    <div class="col-lg-12">
-
-                        <div class="collapse show" id="list-rooms" data-parent="#room-accordion">
-                            <div class="row">
-                                <div class="col-lg-12" containerListClassRoom>
-                                    <?php require '../App/Views/admin/management/components/classroomsList.php' ?>
-                                </div>
+                    <div class="collapse show" id="list-rooms" data-parent="#room-accordion">
+                        <div class="row">
+                            <div class="col-lg-12" containerListClassRoom>
+                                <?php require '../App/Views/admin/management/components/classroomsList.php' ?>
                             </div>
-
                         </div>
 
-                        <div class="collapse" id="add-rooms" data-parent="#room-accordion">
+                    </div>
 
-                            <div class="row">
+                    <div class="collapse" id="add-rooms" data-parent="#room-accordion">
 
-                                <div class="col-lg-12">
+                        <div class="row">
 
-                                    <form id="addClassRoom" class="was-validated card" action="" role="form">
+                            <div class="col-lg-12">
 
-                                        <div class="font-weight-bold col-lg-11 mx-auto mt-3">Adicionar nova sala:</div>
+                                <form id="addClassRoom" class="was-validated card" action="" role="form">
 
-                                        <div class="form-row col-lg-11 mx-auto mb-2 mt-4">
-                                            <div class="form-group col-lg-4">
-                                                <label for="classroomNumber">Numero da sala:</label>
-                                                <select name="classroomNumber" class="form-control custom-select is-valid" id="classroomNumber" required></select>
-                                            </div>
+                                    <div class="font-weight-bold col-lg-12 mt-3">Adicionar nova sala:</div>
 
-                                            <div class="form-group col-lg-5">
-                                                <label for="studentCapacity">Capacidade de alunos:</label>
-                                                <input class="form-control is-valid" value="" type="text" name="studentCapacity" id="studentCapacity" required>
-                                            </div>
+                                    <hr class="col-lg-11 ml-3">
 
-                                            <div class="form-group col-lg-3">
-                                                <label for="">&nbsp;</label><br>
-                                                <a type="submit" id="buttonAddClassRoom" class="btn btn-success w-100 text-center" href="#">Adicionar sala</a>
-                                            </div>
+                                    <div class="form-row col-lg-12 mb-2 mt-1">
+                                        <div class="form-group col-lg-4">
+                                            <label for="classroomNumber">Numero da sala:</label>
+                                            <select name="classroomNumber" class="form-control custom-select is-valid" id="classroomNumber" required></select>
                                         </div>
 
-                                    </form>
+                                        <div class="form-group col-lg-5">
+                                            <label for="studentCapacity">Capacidade de alunos:</label>
+                                            <input class="form-control is-valid" value="" type="text" name="studentCapacity" id="studentCapacity" required>
+                                        </div>
 
-                                </div>
+                                        <div class="form-group col-lg-3">
+                                            <label for="">&nbsp;</label><br>
+                                            <a type="submit" id="buttonAddClassRoom" class="btn btn-success w-100 text-center" href="#">Adicionar sala</a>
+                                        </div>
+                                    </div>
+
+                                </form>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
 
 </section>
