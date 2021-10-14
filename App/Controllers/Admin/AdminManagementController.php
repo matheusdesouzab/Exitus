@@ -376,9 +376,10 @@ class AdminManagementController extends Action
 
         $Classe = Container::getModel('GeneralManagement\\Classe');
 
-        $Classe->__set('fk_id_ballot', $_GET['ballot']);
-        $Classe->__set('fk_id_classroom', $_GET['classRoom']);
-        $Classe->__set('fk_id_shift', $_GET['shift']);
+        $Classe->__set('fk_id_ballot', $_POST['ballot']);
+        $Classe->__set('fk_id_classroom', $_POST['classRoom']);
+        $Classe->__set('fk_id_shift', $_POST['shift']);
+        $Classe->__set('classId', $_POST['classId']);
 
         $Classe->update();
 
@@ -427,10 +428,10 @@ class AdminManagementController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $ClassDiscipline->__set("fk_id_class", $_GET['id']);
+        $ClassDiscipline->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
         $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $Classe->__set('classId', $_GET['id']);
-        $Student->__set("fk_id_class", $_GET['id']);
+        $Classe->__set('classId', !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
+        $Student->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
 
         $this->view->listStudent = $Student->list('<> 0');
         $this->view->typeStudentList = "class";

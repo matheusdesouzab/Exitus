@@ -383,7 +383,7 @@ class Route extends Bootstrap
 			);
 
 			$routes['adminClassUpdate'] = array(
-				'route' => '/admin/gestao/turma/atualizar',
+				'route' => '/admin/gestao/turma/perfil-turma/atualizar',
 				'controller' => 'Admin\\AdminManagementController',
 				'action' => 'classUpdate'
 			);

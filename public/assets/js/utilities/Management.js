@@ -42,7 +42,7 @@ class Management {
     }
 
 
-    checkClass($form , type) {
+    checkClass($form , type , button) {
 
         let dados = $($form).serialize()
 
@@ -53,6 +53,8 @@ class Management {
             dataType: 'json',
             success: data => {
 
+                console.log(data)
+
                 let stateClass = (`${data.class_id_ballot_course || 0 } ${data.class_id_shift_classroom || 0 }`).split(' ')
 
                 if(type == 'add'){
@@ -62,17 +64,19 @@ class Management {
 
                 if(type == 'update'){
                     let classID = $(`${$form} #classId`).val() 
-                    stateClass[0] = (classID == stateClass[0] ? '0' : '1')
-                    stateClass[1] = (classID == stateClass[1] ? '0' : '1')
+                    stateClass[0] = ( stateClass[0] == classID ? '0' : stateClass[0] >= 1 ? '1' : '0')
+                    stateClass[1] = ( stateClass[1] == classID ? '0' : stateClass[1] >= 1 ? '1' : '0')
                 }
 
                 stateClass = stateClass.join('')
+
+                console.log(stateClass)
 
                 switch (stateClass) {
 
                     case '10':
 
-                        $('#buttonAddClass').addClass('disabled')
+                        $(button).addClass('disabled')
 
                         tools.showToast('Série e cédula já adicionadas', 'bg-info')
 
@@ -84,21 +88,23 @@ class Management {
 
                     case '00':
 
-                        $('#buttonAddClass').removeClass('disabled')
+                        $(button).removeClass('disabled')
 
                         $(`${$form} #classRoom , ${$form} #shift , ${$form} #ballot , ${$form} #series`).removeClass('is-invalid')
+
+                        tools.showToast('Tudo ok', 'bg-success')
 
                         break
 
                     default:
 
-                        $('#buttonAddClass').addClass('disabled')
+                        $(button).addClass('disabled')
 
                         tools.showToast('Sala e turno já adicionados', 'bg-info')
 
                         $(`${$form} #classRoom , ${$form} #shift`).addClass('is-invalid')
 
-                        $(`${form} #ballot , ${form} #series`).removeClass('is-invalid')
+                        $(`${$form} #ballot , ${$form} #series`).removeClass('is-invalid')
 
                 }
 

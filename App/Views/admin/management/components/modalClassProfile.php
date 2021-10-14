@@ -660,7 +660,8 @@
 
                                 <div class="form-group ml-auto col-lg-5">
                                     <label for="">&nbsp;</label>
-                                    <a idElement="#formClass<?= $this->view->classData[0]->class_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/atualizar" toastData="Dados atualizados" container="profileClassModal" routeList="/admin/gestao/turma/perfil-turma" routeData="#formExam<?= $this->view->classData[0]->class_id ?>" class="btn btn-success w-100 text-center disabled" href="#">Atualizar</a>
+                                    <a id="buttonUpdateClass" class="btn btn-success w-100 text-center disabled" href="#">Atualizar dados</a>
+                                    
                                 </div>
 
                             </div>

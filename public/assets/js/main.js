@@ -111,14 +111,14 @@ $("#class #buttonAddClass").on("click", function () {
 
     application.addSinglePart("#addClass", "/admin/gestao/turma/inserir", "Turma adicionada")
 
-    management.checkClass('#addClass', 'add')
+    management.checkClass('#addClass', 'add', '#buttonAddClass')
 
 })
 
 
-$(document).on('change', '#updateClass .form-control', () => management.checkClass('#updateClass', 'update'))
+$(document).on('change', '#updateClass .form-control', () => management.checkClass('#updateClass', 'update', '#buttonUpdateClass'))
 
-$("#addClass .form-control").change(() => management.checkClass('#addClass', 'add'))
+$("#addClass .form-control").change(() => management.checkClass('#addClass', 'add', "#buttonAddClass"))
 
 
 $("#discipline #buttonAddDiscipline").on("click", function (e) {
@@ -531,6 +531,12 @@ $(document).on("click", "#profileClassModal #students-list tbody tr", function (
 
     application.showModal(this.id, "/admin/aluno/lista/perfil-aluno", "containerStudentProfileModal", "#profileStudentModal")
 
+})
+
+
+$(document).on('click', '#buttonUpdateClass', function(e){
+    application.updateElement('#updateClass', '/admin/gestao/turma/perfil-turma/atualizar', 'Dados atualizados')
+    application.loadListElements('containerClasseProfileModal', '/admin/gestao/turma/perfil-turma', '#updateClass')
 })
 
 /////////////////////////////////////////////////////////////////////////
