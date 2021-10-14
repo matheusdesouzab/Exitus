@@ -74,11 +74,8 @@ class Classe extends Model
             "UPDATE turma SET 
 
             fk_id_turno = :fk_id_shift , 
-            fk_id_sala = :fk_id_classroom , 
-            fk_id_curso = :fk_id_course , 
-            fk_id_periodo_letivo = :fk_id_school_term , 
-            fk_id_cedula = :fk_id_ballot , 
-            fk_id_serie = :fk_id_series 
+            fk_id_sala = :fk_id_classroom ,  
+            fk_id_cedula = :fk_id_ballot 
 
             WHERE id_turma = :classId
         
@@ -88,10 +85,7 @@ class Classe extends Model
 
         $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
         $stmt->bindValue(":fk_id_classroom", $this->__get("fk_id_classroom"));
-        $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
-        $stmt->bindValue(":fk_id_school_term", $this->__get("fk_id_school_term"));
         $stmt->bindValue(":fk_id_ballot", $this->__get("fk_id_ballot"));
-        $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
         $stmt->bindValue(":classId", $this->__get("classId"));
 
         $stmt->execute();
@@ -107,12 +101,12 @@ class Classe extends Model
      * 
      * @return array
      */
-    public function checkClass()
+    public function checkShiftClassroom()
     {
 
         $query =
 
-            "SELECT COUNT(*) AS result
+            "SELECT turma.id_turma AS class_id_shift_classroom
 
             FROM turma 
 
@@ -121,10 +115,28 @@ class Classe extends Model
             AND turma.fk_id_turno = :fk_id_shift 
 
             AND turma.fk_id_periodo_letivo = :fk_id_school_term
+            
+        ";
 
-            UNION
+        $stmt = $this->db->prepare($query);
 
-            SELECT COUNT(*) AS result
+        $stmt->bindValue(":fk_id_classroom", $this->__get("fk_id_classroom"));
+        $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
+        $stmt->bindValue(":fk_id_school_term", $this->__get("fk_id_school_term"));
+
+        $stmt->execute();
+
+        $stmt = $stmt->fetchAll(\PDO::FETCH_OBJ);
+
+        return count($stmt) == 0 ? 0 : $stmt[0]->class_id_shift_classroom;
+    }
+
+    public function checkCourseBallot()
+    {
+
+        $query =
+
+            "SELECT turma.id_turma AS class_id_ballot_course
 
             FROM turma 
 
@@ -140,9 +152,6 @@ class Classe extends Model
 
         $stmt = $this->db->prepare($query);
 
-        $stmt->bindValue(":fk_id_classroom", $this->__get("fk_id_classroom"));
-        $stmt->bindValue(":fk_id_shift", $this->__get("fk_id_shift"));
-        $stmt->bindValue(":fk_id_school_term", $this->__get("fk_id_school_term"));
         $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
         $stmt->bindValue(":fk_id_ballot", $this->__get("fk_id_ballot"));
         $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
@@ -150,7 +159,9 @@ class Classe extends Model
 
         $stmt->execute();
 
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        $stmt = $stmt->fetchAll(\PDO::FETCH_OBJ);
+
+        return count($stmt) == 0 ? 0 : $stmt[0]->class_id_ballot_course;
     }
 
 
@@ -247,6 +258,7 @@ class Classe extends Model
             numero_sala_aula.numero_sala_aula AS classroom_number , 
             sala.id_sala AS classroomId ,
             periodo_disponivel.ano_letivo AS school_term ,
+            periodo_letivo.id_ano_letivo AS school_term_id ,
 
             (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
             

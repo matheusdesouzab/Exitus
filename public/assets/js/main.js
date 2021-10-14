@@ -111,12 +111,14 @@ $("#class #buttonAddClass").on("click", function () {
 
     application.addSinglePart("#addClass", "/admin/gestao/turma/inserir", "Turma adicionada")
 
-    management.checkClass()
+    management.checkClass('#addClass', 'add')
 
 })
 
 
-$("#addClass .form-control").change(management.checkClass)
+$(document).on('change', '#updateClass .form-control', () => management.checkClass('#updateClass', 'update'))
+
+$("#addClass .form-control").change(() => management.checkClass('#addClass', 'add'))
 
 
 $("#discipline #buttonAddDiscipline").on("click", function (e) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\TeacherStudent;
+namespace App\Models\GeneralManagement;
 
 use MF\Model\Model;
 

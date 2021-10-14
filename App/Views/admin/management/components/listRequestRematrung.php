@@ -23,8 +23,8 @@ $totalRequest = 0 ;
             <div class="col-lg-9 font-weight-bold">
 
                 <div class="row d-flex align-items-center">
-                    <div class="col-2 miniature-photo">
-                        <img class="" src='<?= $value->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                    <div class="col-2">
+                        <img class="miniature-photo" src='<?= $value->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
                     </div>
                     <div class="col-10"><?= $value->studentName ?></div>
                 </div>

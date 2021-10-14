@@ -203,14 +203,14 @@ button {
 }
 #pagina .modal-profile .container-list-group nav ul a {
   padding: 10px 15px;
-  color: #506177;
+  color: #7F8C8D;
   font-size: 13px;
-  text-align: center;
+  text-align: left;
   display: block;
-  font-size: 13px;
   margin-bottom: 7px;
   font-family: Bold;
   transition: all 0.2s ease;
+  border-left: 4px solid white;
 }
 #pagina .modal-profile .container-list-group nav ul a:hover {
   background: #f9f8f8;

@@ -94,7 +94,17 @@ class Course extends Model
     public function update()
     {
 
-        $query = "UPDATE curso SET nome_curso = :courseName , sigla = :acronym , fk_id_modalidade_curso = :courseMode WHERE curso.id_curso = :courseId";
+        $query = 
+        
+            "UPDATE curso SET 
+            
+            nome_curso = :courseName , 
+            sigla = :acronym , 
+            fk_id_modalidade_curso = :courseMode 
+            
+            WHERE curso.id_curso = :courseId
+        
+        ";
 
         $stmt = $this->db->prepare($query);
 

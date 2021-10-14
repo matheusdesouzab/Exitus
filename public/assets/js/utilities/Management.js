@@ -42,9 +42,9 @@ class Management {
     }
 
 
-    checkClass() {
+    checkClass($form , type) {
 
-        let dados = $('#addClass').serialize()
+        let dados = $($form).serialize()
 
         $.ajax({
             url: '/admin/gestao/turma/verificar-dados',
@@ -53,31 +53,40 @@ class Management {
             dataType: 'json',
             success: data => {
 
-                let stateClass = []
+                let stateClass = (`${data.class_id_ballot_course || 0 } ${data.class_id_shift_classroom || 0 }`).split(' ')
 
-                $.each(data, i => stateClass.push(data[i].result))
+                if(type == 'add'){
+                    stateClass[0] = ( stateClass[0] >= 1 ? '1' : '0' )
+                    stateClass[1] = ( stateClass[1] >= 1 ? '1' : '0' )
+                }
 
-                stateClass = stateClass.toString().replace(',', '')
+                if(type == 'update'){
+                    let classID = $(`${$form} #classId`).val() 
+                    stateClass[0] = (classID == stateClass[0] ? '0' : '1')
+                    stateClass[1] = (classID == stateClass[1] ? '0' : '1')
+                }
+
+                stateClass = stateClass.join('')
 
                 switch (stateClass) {
 
-                    case '01':
+                    case '10':
 
                         $('#buttonAddClass').addClass('disabled')
 
                         tools.showToast('Série e cédula já adicionadas', 'bg-info')
 
-                        $('#addClass #ballot , #addClass #series ').addClass('is-invalid')
+                        $(`${$form} #ballot , ${$form} #series`).addClass('is-invalid')
 
-                        $('#addClass #classRoom , #addClass #shift ').removeClass('is-invalid')
+                        $(`${$form} #classRoom , ${$form} #shift`).removeClass('is-invalid')
 
                         break
 
-                    case '0':
+                    case '00':
 
                         $('#buttonAddClass').removeClass('disabled')
 
-                        $('#addClass #classRoom , #addClass #shift , #addClass #ballot , #addClass #series').removeClass('is-invalid')
+                        $(`${$form} #classRoom , ${$form} #shift , ${$form} #ballot , ${$form} #series`).removeClass('is-invalid')
 
                         break
 
@@ -87,9 +96,9 @@ class Management {
 
                         tools.showToast('Sala e turno já adicionados', 'bg-info')
 
-                        $('#addClass #classRoom , #addClass #shift ').addClass('is-invalid')
+                        $(`${$form} #classRoom , ${$form} #shift`).addClass('is-invalid')
 
-                        $('#addClass #ballot , #addClass #series ').removeClass('is-invalid')
+                        $(`${form} #ballot , ${form} #series`).removeClass('is-invalid')
 
                 }
 

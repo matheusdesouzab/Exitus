@@ -54,20 +54,20 @@ if (count($this->view->listSchoolTerm) >= 1) {
                 <input class="form-control" name="schoolTermId" value="<?= $schoolTerm->school_term_id ?>" type="hidden">
 
                 <div class="form-group col-lg-4">
-                    <label for="">Data de início:</label>
-                    <input class="form-control" disabled name="startDate" value="<?= $schoolTerm->start_date ?>" type="date" id="">
+                    <label for="startDate">Data de início:</label>
+                    <input class="form-control" disabled name="startDate" value="<?= $schoolTerm->start_date ?>" type="date" id="startDate">
                 </div>
 
                 <div class="form-group col-lg-4">
-                    <label for="">Data de fim:</label>
-                    <input class="form-control" disabled value="<?= $schoolTerm->end_date ?>" type="date" name="endDate" id="">
+                    <label for="endDate">Data de fim:</label>
+                    <input class="form-control" disabled value="<?= $schoolTerm->end_date ?>" type="date" name="endDate" id="endDate">
                 </div>
 
                 <div class="form-group col-lg-4">
 
-                    <label for="">Situação:</label>
+                    <label for="schoolTermSituation">Situação:</label>
 
-                    <select name="schoolTermSituation" disabled id="inputState" class="form-control custom-select" name="schoolTermSituation" required>
+                    <select name="schoolTermSituation" disabled id="schoolTermSituation" class="form-control custom-select" name="schoolTermSituation" required>
 
                         <option value="<?= $schoolTerm->fk_id_situation_school_term ?>"><?= $schoolTerm->situation_school_term ?></option>
 

@@ -365,9 +365,23 @@ class AdminManagementController extends Action
         $Classe->__set('fk_id_school_term', $_GET['schoolTerm']);
         $Classe->__set('fk_id_course', $_GET['course']);
         $Classe->__set('fk_id_shift', $_GET['shift']);
-        $Classe->__set('fk_id_series', $_GET['series']);
+        $Classe->__set('fk_id_series', $_GET['series']); 
 
-        echo json_encode($Classe->checkClass());
+        echo json_encode(['class_id_ballot_course' => $Classe->checkCourseBallot(), 'class_id_shift_classroom' => $Classe->checkShiftClassroom()]);
+    }
+
+
+    public function classUpdate()
+    {
+
+        $Classe = Container::getModel('GeneralManagement\\Classe');
+
+        $Classe->__set('fk_id_ballot', $_GET['ballot']);
+        $Classe->__set('fk_id_classroom', $_GET['classRoom']);
+        $Classe->__set('fk_id_shift', $_GET['shift']);
+
+        $Classe->update();
+
     }
 
 
@@ -404,6 +418,12 @@ class AdminManagementController extends Action
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Unity = Container::getModel('GeneralManagement\\Unity');
+        $Course = Container::getModel('GeneralManagement\\Course');
+        $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
+        $Shift = Container::getModel('GeneralManagement\\Shift');
+        $Series = Container::getModel('GeneralManagement\\Series');
+        $Ballot = Container::getModel('GeneralManagement\\Ballot');
 
         if (!isset($_SESSION)) session_start();
 
@@ -416,11 +436,17 @@ class AdminManagementController extends Action
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
-        $this->view->unity = $Unity->unity();
+        $this->view->unity = $Unity->unitys();
         $this->view->classData = $Classe->list('<> 0');
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
+        $this->view->availableShift = $Shift->listForSelect();
+        $this->view->availableBallot = $Ballot->listForSelect();
+        $this->view->availableSeries = $Series->listForSelect();
+        $this->view->availableCourse = $Course->listForSelect();
+        $this->view->availableClassRoom = $ClassRoom->listForSelect();
+        $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
 
         $this->render('management/components/modalClassProfile', 'SimpleLayout');
     }

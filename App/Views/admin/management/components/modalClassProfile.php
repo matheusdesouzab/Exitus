@@ -12,7 +12,7 @@
 
                         <ul>
 
-                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data">Dados da turma</a>
+                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data"><i class="fas fa-database mr-3"></i> Dados da turma</a>
 
                             <?php
 
@@ -22,13 +22,13 @@
 
                             ?>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion">Disciplinas</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion"><i class="fas fa-boxes mr-3"></i> Disciplinas</a>
 
                             <?php } ?>
 
-                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">Avaliações</a>
+                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments"><i class="fas fa-clipboard-list mr-3"></i> Avaliações</a>
 
-                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history">Histórico de notas</a>
+                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history"><i class="fas fa-history mr-3"></i> Histórico de notas</a>
 
                             <?php
 
@@ -36,7 +36,9 @@
 
                             ?>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">Rematrículas</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug"><i class="fas fa-redo mr-3"></i>Rematrículas</a>
+
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings"><i class="fas fa-cog mr-3"></i> Configurações</a>
 
 
                             <?php } ?>
@@ -64,7 +66,7 @@
 
                         <div class="row">
 
-                            <span class="col-12 mx-auto"><?= $this->view->classData[0]->series_acronym ?>ª <?= $this->view->classData[0]->ballot ?> <?= $this->view->classData[0]->course ?> <?= $this->view->classData[0]->shift ?> - Período Letivo  <?= $this->view->classData[0]->school_term ?></span>
+                            <span class="col-12 mx-auto"><?= $this->view->classData[0]->series_acronym ?>ª <?= $this->view->classData[0]->ballot ?> <?= $this->view->classData[0]->course ?> <?= $this->view->classData[0]->shift ?> - Período Letivo <?= $this->view->classData[0]->school_term ?></span>
 
                         </div>
                     </div>
@@ -513,7 +515,6 @@
 
             <div class="col-lg-11 mx-auto collapse" id="class-rematrug" data-parent="#main-accordion-class">
 
-
                 <div class="accordion" id="rematrug-accordion">
 
                     <div class="col-lg-12 mb-4 mt-3">
@@ -548,8 +549,125 @@
 
                     </div>
 
+                </div>
 
+            </div>
 
+            <div class="col-lg-11 mx-auto collapse" id="class-settings" data-parent="#main-accordion-class">
+
+                <div class="row">
+
+                    <h5 class="col-lg-12 mb-3">Configurações da turma</h5>
+
+                    <div class="col-lg-12">
+
+                        <form class="card" id="updateClass" action="">
+
+                            <div class="font-weight-bold col-lg-12 mt-3">Atualizar dados da turma:</div>
+
+                            <div class="form-row col-lg-12 mb-2 mt-4">
+
+                                <div class="form-group col-lg-2">
+
+                                    <label for="series">Série:</label>
+
+                                    <select id="series" name="series" class="form-control custom-select">
+
+                                        <option value="<?= $this->view->classData[0]->seriesId ?>"><?= $this->view->classData[0]->series_acronym ?></option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group col-lg-2">
+
+                                    <label for="ballot">Cédula:</label>
+
+                                    <select id="ballot" name="ballot" class="form-control custom-select">
+
+                                    <option value="<?= $this->view->classData[0]->ballotId ?>"><?= $this->view->classData[0]->ballot ?></option>
+
+                                        <?php foreach ($this->view->availableBallot as $key => $ballot) { ?>
+
+                                            <?php if($this->view->classData[0]->ballotId != $ballot->option_value){ ?>
+
+                                            <option value="<?= $ballot->option_value ?>"><?= $ballot->option_text ?></option>
+
+                                        <?php }} ?>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                    <label for="course">Curso:</label>
+
+                                    <select id="course" name="course" class="form-control custom-select">
+
+                                        <option value="<?= $this->view->classData[0]->courseId ?>"><?= $this->view->classData[0]->course ?></option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                    <label for="shift">Turno:</label>
+
+                                    <select id="shift" name="shift" class="form-control custom-select">
+
+                                    <option value="<?= $this->view->classData[0]->shiftId ?>"><?= $this->view->classData[0]->shift ?></option>
+
+                                        <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+
+                                            <?php if($this->view->classData[0]->shiftId != $shift->option_value){ ?>
+
+                                            <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+
+                                        <?php }} ?>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group col-lg-2">
+
+                                    <label for="classRoom">Sala:</label>
+
+                                    <select id="classRoom" name="classRoom" class="form-control custom-select" required>
+
+                                        <option value="<?= $this->view->classData[0]->classroomId ?>"><?= $this->view->classData[0]->classroom_number ?></option>
+
+                                        <?php foreach ($this->view->availableClassRoom as $key => $classRoom) { ?>
+
+                                            <?php if($this->view->classData[0]->classroomId != $classRoom->option_value){ ?>
+
+                                            <option value="<?= $classRoom->option_value ?>"><?= $classRoom->option_text ?></option>
+
+                                        <?php }} ?>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <input type="hidden" name="schoolTerm" value="<?= $this->view->classData[0]->school_term_id?>">
+                            <input type="hidden" name="classId" id="classId" value="<?= $this->view->classData[0]->class_id?>">
+
+                            <div class="form-row col-lg-12 mb-3 ">
+
+                                <div class="form-group ml-auto col-lg-5">
+                                    <label for="">&nbsp;</label>
+                                    <a idElement="#formClass<?= $this->view->classData[0]->class_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/atualizar" toastData="Dados atualizados" container="profileClassModal" routeList="/admin/gestao/turma/perfil-turma" routeData="#formExam<?= $this->view->classData[0]->class_id ?>" class="btn btn-success w-100 text-center disabled" href="#">Atualizar</a>
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
 
                 </div>
 

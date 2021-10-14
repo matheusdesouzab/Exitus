@@ -108,7 +108,7 @@ class AdminStudentController extends Action
         $this->view->studentDataGeneral = $Student->dataGeneral();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
-        $this->view->unity = $Unity->unity();
+        $this->view->unity = $Unity->unitys();
         $this->view->bloodType = $Student->availablebloodType();
         $this->view->bulletin = $StudentEnrollment->bulletin();
 

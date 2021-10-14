@@ -112,14 +112,14 @@
 
                     a {
                         padding: 10px 15px;
-                        color: $color-dark-gray;
+                        color: #7F8C8D;
                         font-size: 13px;
-                        text-align: center;
+                        text-align: left;
                         display: block;
-                        font-size: 13px;
                         margin-bottom: 7px;
                         font-family: Bold;
                         transition: all 0.2s ease;
+                        border-left: 4px solid white;
 
                         &:hover {
                             background: #f9f8f8;
