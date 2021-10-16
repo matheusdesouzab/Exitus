@@ -53,8 +53,6 @@ class Management {
             dataType: 'json',
             success: data => {
 
-                console.log(data)
-
                 let stateClass = (`${data.class_id_ballot_course || 0 } ${data.class_id_shift_classroom || 0 }`).split(' ')
 
                 if(type == 'add'){
@@ -69,8 +67,6 @@ class Management {
                 }
 
                 stateClass = stateClass.join('')
-
-                console.log(stateClass)
 
                 switch (stateClass) {
 
@@ -96,7 +92,7 @@ class Management {
 
                         break
 
-                    default:
+                    case '01':
 
                         $(button).addClass('disabled')
 
@@ -106,6 +102,17 @@ class Management {
 
                         $(`${$form} #ballot , ${$form} #series`).removeClass('is-invalid')
 
+                        break
+
+                    case '11':
+
+                        $(button).addClass('disabled')
+
+                        tools.showToast('Todos os dados já vinculados a outras turmas', 'bg-info')
+
+                        $(`${$form} #classRoom , ${$form} #shift`).addClass('is-invalid')
+
+                        $(`${$form} #ballot , ${$form} #series`).addClass('is-invalid')
                 }
 
             },

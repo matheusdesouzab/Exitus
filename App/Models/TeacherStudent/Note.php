@@ -74,9 +74,11 @@ class Note extends Model
 
             avaliacoes.descricao_avaliacao AS exam_description , 
             disciplina.nome_disciplina AS discipline_name , 
+            disciplina.id_disciplina AS discipline_id, 
             avaliacoes.valor_avaliacao AS exam_value , 
             nota_avaliacao.valor_nota AS note_value ,
             unidade.unidade AS unity ,
+            unidade.id_unidade AS unityId ,
             nota_avaliacao.id_nota AS note_id ,
             avaliacoes.id_avaliacao AS exam_id ,
             avaliacoes.data_realizada AS realize_date ,
@@ -84,8 +86,10 @@ class Note extends Model
             professor.foto_perfil_professor AS teacher_profile_photo , 
             matricula.id_matricula AS enrollment_id ,
             aluno.nome_aluno AS student_name ,
-            aluno.foto_perfil_aluno AS student_profile_photo ,
-            nota_avaliacao.data_postagem AS post_date
+            aluno.foto_perfil_aluno AS profilePhoto  ,
+            aluno.id_aluno AS student_id ,
+            nota_avaliacao.data_postagem AS post_date ,
+            turma_disciplina.id_turma_disciplina AS class_discipline_id
       
             FROM avaliacoes
             
@@ -160,7 +164,7 @@ class Note extends Model
             avaliacoes.id_avaliacao AS exam_id ,
             matricula.id_matricula AS enrollment_id ,
             aluno.nome_aluno AS student_name ,
-            aluno.foto_perfil_aluno AS student_profilePhoto
+            aluno.foto_perfil_aluno AS profilePhoto 
       
             FROM avaliacoes
             

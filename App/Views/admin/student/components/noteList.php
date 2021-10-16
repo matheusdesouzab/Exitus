@@ -9,7 +9,7 @@
             <?php if ($this->view->listNoteType == 'class') { ?>
 
                 <td class="">
-                    <img class="miniature-photo" src='<?= $note->student_profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->student_profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                    <img class="miniature-photo" src='<?= $note->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
                 </td>
 
                 <td class="">

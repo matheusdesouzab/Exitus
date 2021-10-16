@@ -247,7 +247,9 @@
 
                                 <div class="font-weight-bold col-lg-12 mt-3">Adicionar nova turma:</div>
 
-                                <div class="form-row col-lg-12 mb-2 mt-4">
+                                <hr class="col-lg-11 ml-3">
+
+                                <div class="form-row col-lg-12 mb-2">
 
                                     <div class="form-group col-lg-2">
 

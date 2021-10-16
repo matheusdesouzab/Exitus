@@ -425,6 +425,7 @@ class AdminManagementController extends Action
         $Shift = Container::getModel('GeneralManagement\\Shift');
         $Series = Container::getModel('GeneralManagement\\Series');
         $Ballot = Container::getModel('GeneralManagement\\Ballot');
+        $Note = Container::getModel('TeacherStudent\\Note');
 
         if (!isset($_SESSION)) session_start();
 
@@ -432,6 +433,8 @@ class AdminManagementController extends Action
         $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
         $Classe->__set('classId', !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
         $Student->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
+        $Note->__set('fk_id_class', !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
+        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         $this->view->listStudent = $Student->list('<> 0');
         $this->view->typeStudentList = "class";
@@ -448,6 +451,7 @@ class AdminManagementController extends Action
         $this->view->availableCourse = $Course->listForSelect();
         $this->view->availableClassRoom = $ClassRoom->listForSelect();
         $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
+        $this->view->listNote = $Note->list();
 
         $this->render('management/components/modalClassProfile', 'SimpleLayout');
     }

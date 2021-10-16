@@ -1,8 +1,8 @@
 <div class="row mb-4 d-flex justify-content-around" id="main-accordion-class">
 
-    <div class="col-lg-3 col-11 mx-auto">
+    <div class="col-lg-3 col-11 mx-auto modal-sidebar">
 
-        <div class="row card">
+        <div class="row p-3">
 
             <div class="col-lg-12 container-list-group">
 
@@ -30,6 +30,9 @@
 
                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history"><i class="fas fa-history mr-3"></i> Histórico de notas</a>
 
+                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average"><i class="fas fa-poll mr-3"></i></i> Médias dos alunos</a>
+
+
                             <?php
 
                             if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
@@ -47,6 +50,7 @@
                         </ul>
 
                     </nav>
+
                 </div>
             </div>
 
@@ -58,9 +62,10 @@
 
             </form>
 
+
             <div class="col-lg-12">
 
-                <div class="row p-3 text-secondary main-sheet">
+                <div class="row p-3 text-secondary main-sheet border rounded">
 
                     <div class="col-lg-12">
 
@@ -565,7 +570,9 @@
 
                             <div class="font-weight-bold col-lg-12 mt-3">Atualizar dados da turma:</div>
 
-                            <div class="form-row col-lg-12 mb-2 mt-4">
+                            <hr class="col-lg-11 ml-3">
+
+                            <div class="form-row col-lg-12">
 
                                 <div class="form-group col-lg-2">
 
@@ -669,6 +676,16 @@
                         </form>
 
                     </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-11 mx-auto collapse" id="class-student-average" data-parent="#main-accordion-class">
+
+                <div class="row">
+
+                   <?php require '../App/Views/admin/student/components/studentsAverage.php' ?>
 
                 </div>
 
