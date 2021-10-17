@@ -13,6 +13,17 @@
         }
     }
 
+    .modal-full {
+        min-width: 100%;
+        margin: 0px;
+        margin-right: 0px;
+    }
+    
+    .modal-full .modal-content {
+        min-height: 100vh;
+    }
+    
+
     .modal {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(5px);
@@ -73,7 +84,6 @@
         }
 
         .modal-content {
-            border-radius: 15px;
             background-color: #e9ebfa;
 
             .card {
@@ -96,7 +106,7 @@
         }
 
         .container-list-group {
-            border-radius: 10px;
+            border-radius: 15px;
             padding: 10px;
             padding-top: 0;
             overflow-y: auto;
@@ -156,17 +166,16 @@
         .main-content {
             border-radius: 15px;
             background-color: white;
-            height: 77vh;
+            height: 87vh;
             overflow-x: auto;
             border: 1px solid #e5e5e5;
 
-            &::-webkit-scrollbar {
-                width: 0;
-                background: transparent;
-            }
-
             .row:nth-child(1) {
                 margin-top: 15px;
+            }
+
+            .card{
+                border:2px solid $color-pure-gray;
             }
 
             #accordion-data-student,

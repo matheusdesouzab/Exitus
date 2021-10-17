@@ -152,6 +152,8 @@ class Exam extends Model
             AND
 
             CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+
+            ORDER BY avaliacoes.id_avaliacao ASC
             
         ";
 

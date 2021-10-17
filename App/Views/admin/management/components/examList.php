@@ -1,10 +1,11 @@
-<hr class='mt-3 mx-auto col-lg-11'>
+
 
 <div class="table-responsive">
 
     <table class="table table-hover col-lg-12 mx-auto table-borderless" id="tableListExam">
         <thead>
             <tr>
+                <th scope="col">ID</th>
                 <th scope="col">Descrição</th>
                 <th scope="col">Disciplina</th>
                 <th class="text-center" scope="col">UE</th>
@@ -20,6 +21,7 @@
                 foreach ($this->view->listExam as $i => $exam) { ?>
 
                     <tr id="exam<?= $exam->exam_id ?>">
+                        <td><?= $exam->exam_id ?></td>
                         <td><?= $exam->exam_description ?></td>
                         <td><?= $exam->discipline_name ?></td>
                         <td class="text-center"><?= $exam->unity ?></td>

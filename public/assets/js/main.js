@@ -837,6 +837,14 @@ $(".bars-xs , .sidebar-header span").on("click", function (e) {
 
 $("#bars").on("click", sideState)
 
+$(document).on('show.bs.modal', '.modal', function () {
+    $('html').css("overflow","hidden")
+})
+
+$(document).on('hide.bs.modal', '.modal', function () {
+    $('html').css("overflow","auto")
+})
+
 
 
 $("#accessCode").on("keypress", e => $(e.target).mask("000.000"))

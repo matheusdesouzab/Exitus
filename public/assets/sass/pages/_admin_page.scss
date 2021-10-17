@@ -88,12 +88,13 @@
         #profileClassModal {
 
             #note-table-class {
-                width: 800px;
+            
 
                 td,
                 th {
                     text-align: left;
-                    font-size: 12px;
+                    font-size: 13px;
+                    vertical-align: middle;
                 }
             }
         }
@@ -169,7 +170,7 @@
             margin-top: 80px;
         }
 
-        .side-exams,.side-mural,.side-students,.side-teachers,.recent-activities,.recently-enrolled{
+        .side-exams,.side-mural,.side-students,.side-teachers,.recent-activities,.recently-enrolled,.main-content{
                 
             &::-webkit-scrollbar {
                 width: 10px;
@@ -382,11 +383,15 @@
 
         #tableListExam {
             font-size: 15px;
-
+            table-layout: auto;
             td,
             th {
                 margin: 3px;
                 text-align: left;
+            }
+
+            td{
+                border-top: 1px solid #e5e5e5;
             }
         }
 

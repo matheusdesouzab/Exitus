@@ -20,7 +20,7 @@
 
             <td><?= $note->note_value ?> / <?= $note->exam_value ?></td>
 
-            <td class=""><?= $note->exam_description ?> - <?= $note->discipline_name ?> - <?= $note->unity ?>ª unidade </td>
+            <td class="descricao"><?= $note->exam_description ?> - <?= $note->discipline_name ?> - <?= $note->unity ?>ª unidade </td>
           
         </tr>
 

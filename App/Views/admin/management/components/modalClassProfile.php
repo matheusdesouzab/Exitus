@@ -12,7 +12,7 @@
 
                         <ul>
 
-                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data"><i class="fas fa-database mr-3"></i> Dados da turma</a>
+                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data"><i class="fas fa-user-friends mr-3"></i></i> Dados da turma</a>
 
                             <?php
 
@@ -22,13 +22,13 @@
 
                             ?>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion"><i class="fas fa-boxes mr-3"></i> Disciplinas</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion"><i class="fas fa-boxes mr-3"></i> Disciplinas vinculadas</a>
 
                             <?php } ?>
 
                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments"><i class="fas fa-clipboard-list mr-3"></i> Avaliações</a>
 
-                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history"><i class="fas fa-history mr-3"></i> Histórico de notas</a>
+                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history"><i class="fas fa-history mr-3"></i> Notas por avaliações</a>
 
                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average"><i class="fas fa-poll mr-3"></i></i> Médias dos alunos</a>
 
@@ -39,9 +39,9 @@
 
                             ?>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug"><i class="fas fa-redo mr-3"></i>Rematrículas</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug"><i class="fas fa-redo mr-3"></i> Solicitações de rematrículas</a>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings"><i class="fas fa-cog mr-3"></i> Configurações</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings"><i class="fas fa-cog mr-3"></i> Configurações da turma</a>
 
 
                             <?php } ?>
@@ -100,7 +100,7 @@
 
                             <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#students-list"><span class="mr-2"><i class="fas fa-user-friends"></i> Alunos</span></a>
 
-                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#teacher-list" routeData="<?= $this->view->classId ?>"><span class="mr-2"><i class="fas fa-chalkboard-teacher"></i> Professores</span></a>
+                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#teacher-list" routeData="<?= $this->view->classId ?>"><span class="mr-2"><i class="fas fa-chalkboard-teacher"></i> Docentes</span></a>
 
 
                         </div>
@@ -115,7 +115,15 @@
                             <div class="row">
                                 <div class="col-lg-12 table-responsive">
 
-                                    <table class="table col-lg-12 table-hover mt-3 table-borderless ">
+                                    <table class="table col-lg-12 table-hover table-borderless ">
+
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Nome do aluno</th>
+                                                <th>Situação atual</th>
+                                                <th>Média letiva</th>
+                                            </tr>
+                                        </thead>
 
                                         <tbody containerListStudent class="">
 
@@ -133,7 +141,14 @@
                         <div class="collapse col-lg-12 card" id="teacher-list" data-parent="#accordion-class-data">
                             <div class="row">
                                 <div class="col-lg-12 table-responsive">
-                                    <table class="table col-lg-12 table-hover mt-3 table-borderless ">
+                                    <table class="table col-lg-12 table-hover  table-borderless ">
+
+                                    <thead>
+                                            <tr>
+                                                <th colspan="2">Nome do docente</th>
+                                                <th>Disciplina ministrada</th>
+                                            </tr>
+                                        </thead>
 
                                         <tbody containerListTeacherClass class=""></tbody>
 
@@ -178,7 +193,7 @@
 
                         <div class="col-lg-12">
                             <div class="collapse show" id="list-discipline" data-parent="#class-discipline-accordion">
-                                <div class="col-lg-12" containerListDisciplineClass>
+                                <div class="col-lg-12 p-0" containerListDisciplineClass>
 
                                     <?php require '../App/Views/admin/management/components/disciplineClass.php' ?>
 
@@ -252,12 +267,12 @@
                 <div class="accordion" id="class-assessments-accordion">
 
                     <div class="col-lg-12 mb-4 mt-3">
-                        <div class="row d-flex align-items-center">
-                            <div class="col-lg-5">
+                        <div class="row d-flex align-items-between">
+                            <div class="col-lg-5 p-0">
                                 <h5>Avaliações da turma</h5>
                             </div>
 
-                            <div class="col-lg-7 col-12 collapse-options-container">
+                            <div class="col-lg-7 col-12 collapse-options-container p-0">
 
                                 <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
 
@@ -267,11 +282,11 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 p-0">
 
                         <div class="collapse show" id="list-exam" data-parent="#class-assessments-accordion">
 
-                            <form id="seekExam" class="text-dark col-lg-12 mx-auto mt-3" action="">
+                            <form id="seekExam" class="text-dark mt-3" action="">
 
                                 <div class="form-row mt-3">
 
