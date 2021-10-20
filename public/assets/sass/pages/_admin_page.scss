@@ -18,83 +18,98 @@
 }
 
 
+
+
 #admin,
 #teacherPortal,
 #studentPortal {
 
     #pagina {
 
-        section#home{
+        .table-striped>tbody>tr:nth-child(2n+1)>td,
+        .table-striped>tbody>tr:nth-child(2n+1)>th {
+            background-color: #F4F6F6;
+        }
 
-            .card{
+   
+
+        .limited-text-description{
+            max-width: 50ch;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+
+        section#home {
+
+            .card {
                 border-radius: 5px;
 
-                td{
+                td {
                     font-size: 12px;
                     font-family: Semi-bold;
-                    vertical-align:middle;
+                    vertical-align: middle;
                 }
 
-                .miniature-photo{
+                .miniature-photo {
                     height: 30px;
                     width: 30px;
                 }
 
-                .card-title{
+                .card-title {
                     font-size: 13px;
                     color: $color-dark-gray;
                 }
 
-                .total-student-enrolled{
+                .total-student-enrolled {
                     font-size: 16px;
                     font-family: Bold;
                 }
 
-                .total-students-enrolled-today{
+                .total-students-enrolled-today {
                     font-size: 14px;
                     color: $color-green;
                     font-family: Semi-bold;
                 }
             }
 
-            .recently-enrolled{             
+            .recently-enrolled {
                 height: 65.4vh;
                 overflow-y: auto;
-                overflow-x: hidden;   
+                overflow-x: hidden;
             }
 
-            .recent-activities{
-                
+            .recent-activities {
+
                 height: 79vh;
                 overflow-y: auto;
-                overflow-x: hidden;   
+                overflow-x: hidden;
 
-                .teacher-name{
+                .teacher-name {
                     font-family: Bold;
                     font-size: 13px;
                 }
 
-                .badge{
+                .badge {
                     font-size: 11px;
-                } 
+                }
 
-                p{
+                p {
                     font-family: Semi-bold;
                     font-size: 12px;
-                }       
+                }
             }
         }
 
         #profileClassModal {
 
             #note-table-class {
-            
 
                 td,
                 th {
                     text-align: left;
                     font-size: 13px;
-                    vertical-align: middle;
                 }
             }
         }
@@ -170,22 +185,28 @@
             margin-top: 80px;
         }
 
-        .side-exams,.side-mural,.side-students,.side-teachers,.recent-activities,.recently-enrolled,.main-content{
-                
+        .side-exams,
+        .side-mural,
+        .side-students,
+        .side-teachers,
+        .recent-activities,
+        .recently-enrolled,
+        .main-content {
+
             &::-webkit-scrollbar {
                 width: 10px;
             }
-             
+
             &::-webkit-scrollbar-track {
-                background-color: #ebebeb;
+                background-color: #F9EBEA;
                 -webkit-border-radius: 10px;
                 border-radius: 10px;
             }
-            
+
             &::-webkit-scrollbar-thumb {
                 -webkit-border-radius: 10px;
                 border-radius: 10px;
-                background:#ACBECC; 
+                background: #ACBECC;
             }
         }
 
@@ -209,13 +230,13 @@
                 background-color: transparent;
                 border-radius: 10px;
                 overflow-y: auto;
-                overflow-x: hidden;           
+                overflow-x: hidden;
 
                 .miniature-photo {
                     width: 30px;
                     height: 30px;
                     border: 2px solid white;
-                }           
+                }
 
                 .exam-description {
                     margin-top: 12px;
@@ -243,14 +264,15 @@
         }
 
 
-        #statistics{
+        #statistics {
 
-            .side-students, .side-teachers{
+            .side-students,
+            .side-teachers {
                 overflow-y: scroll;
                 overflow-x: hidden;
                 height: 80vh;
 
-                h5{
+                h5 {
                     margin-left: 3vw;
                     margin-top: 15px;
                 }
@@ -383,16 +405,14 @@
 
         #tableListExam {
             font-size: 15px;
-            table-layout: auto;
+
+
             td,
             th {
                 margin: 3px;
                 text-align: left;
             }
 
-            td{
-                border-top: 1px solid #e5e5e5;
-            }
         }
 
 

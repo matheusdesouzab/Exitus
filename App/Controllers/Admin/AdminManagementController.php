@@ -416,7 +416,6 @@ class AdminManagementController extends Action
         $Student = Container::getModel('Student\\Student');
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-        $Exam = Container::getModel('TeacherStudent\\Exam');
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Unity = Container::getModel('GeneralManagement\\Unity');
         $Course = Container::getModel('GeneralManagement\\Course');
@@ -425,16 +424,13 @@ class AdminManagementController extends Action
         $Shift = Container::getModel('GeneralManagement\\Shift');
         $Series = Container::getModel('GeneralManagement\\Series');
         $Ballot = Container::getModel('GeneralManagement\\Ballot');
-        $Note = Container::getModel('TeacherStudent\\Note');
-
+        
         if (!isset($_SESSION)) session_start();
 
         $ClassDiscipline->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
         $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
         $Classe->__set('classId', !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
-        $Student->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
-        $Note->__set('fk_id_class', !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
-        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $Student->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);     
 
         $this->view->listStudent = $Student->list('<> 0');
         $this->view->typeStudentList = "class";
@@ -450,10 +446,74 @@ class AdminManagementController extends Action
         $this->view->availableSeries = $Series->listForSelect();
         $this->view->availableCourse = $Course->listForSelect();
         $this->view->availableClassRoom = $ClassRoom->listForSelect();
-        $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
-        $this->view->listNote = $Note->list();
+        $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();       
 
         $this->render('management/components/modalClassProfile', 'SimpleLayout');
+    }
+
+
+    public function studentsAverage(){
+
+        $Note = Container::getModel('TeacherStudent\\Note');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $Student = Container::getModel('Student\\Student');
+        $Unity = Container::getModel('GeneralManagement\\Unity');
+
+        if (!isset($_SESSION)) session_start();
+
+        $Note->__set('fk_id_class', $_GET['classId']);
+        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+        $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $Student->__set("fk_id_class", $_GET['classId']);
+
+        $this->view->listNote = $Note->list();
+        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
+        $this->view->listStudent = $Student->list('<> 0');
+        $this->view->unity = $Unity->unitys();
+        $this->view->orderBy = 'DESC';
+
+        $this->render('student/components/studentsAverage', 'SimpleLayout');
+    }
+
+
+    public function studentsAverageSeek()
+    {
+
+        $Note = Container::getModel('TeacherStudent\\Note');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $Student = Container::getModel('Student\\Student');
+        $Unity = Container::getModel('GeneralManagement\\Unity');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
+
+        $Student->__set('name', $_GET['name']);
+        $Classe->__set('fk_id_course', 0);
+        $Classe->__set('fk_id_series', 0);
+        $Classe->__set('fk_id_shift', 0);
+        $Student->__set("fk_id_class", $_GET['classId']);
+        $Student->__set('fk_id_sex', 0);
+
+        if (!isset($_SESSION)) session_start();
+
+        $Note->__set('fk_id_class', $_GET['classId']);
+        $Note->__set("fk_id_exam_unity", $_GET['unity']);
+        $Note->__set("fk_id_discipline_class", $_GET['disciplineClass']);
+        $Note->__set("examDescription", $_GET['examDescription']);
+
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+        $ClassDiscipline->__set("classDisciplineId", $_GET['disciplineClass']);
+        $ClassDiscipline->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
+        $Unity->__set("unityId", $_GET['unity']);
+
+        $this->view->listNote = $Note->seek();
+        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
+        $this->view->listStudent = $Student->seek($Classe);
+        $this->view->unity = $Unity->specificUnity();
+        $this->view->orderBy = $_GET['orderBy'];
+
+        $this->render('student/components/studentsAverage', 'SimpleLayout');
+
     }
 
     public function listRematrugRequests()
@@ -540,7 +600,7 @@ class AdminManagementController extends Action
 
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
 
-        $ClassDiscipline->__set("id", $_POST['disciplineClass']);
+        $ClassDiscipline->__set("classDisciplineId", $_POST['disciplineClass']);
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacher']);
         $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
         $ClassDiscipline->__set("fk_id_class", $_POST['classId']);
@@ -554,7 +614,7 @@ class AdminManagementController extends Action
     public function disciplineClassDelete()
     {
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-        $ClassDiscipline->__set("id", $_POST['disciplineClass']);
+        $ClassDiscipline->__set("classDisciplineId", $_POST['disciplineClass']);
         $ClassDiscipline->delete();
     }
 

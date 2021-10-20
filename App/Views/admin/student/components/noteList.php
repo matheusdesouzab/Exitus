@@ -12,22 +12,22 @@
                     <img class="miniature-photo" src='<?= $note->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
                 </td>
 
-                <td class="">
+                <td>
                     <?= $note->student_name ?>
                 </td>
 
             <?php } ?>
 
-            <td><?= $note->note_value ?> / <?= $note->exam_value ?></td>
+            <td data-toggle="tooltip" data-placement="bottom" title="Aproveitamento - <?= number_format(($note->note_value * 100) / $note->exam_value, 1, '.', '') ?> %"><?= number_format($note->note_value, 1, '.', '') ?> / <?= number_format($note->exam_value, 1, '.', '') ?></td>
 
-            <td class="descricao"><?= $note->exam_description ?> - <?= $note->discipline_name ?> - <?= $note->unity ?>ª unidade </td>
-          
+            <td class="limited-text-description" data-toggle="tooltip" data-placement="bottom" title="<?= $note->exam_description ?> - <?= $note->discipline_name ?> - <?= $note->unity ?>ª unidade"><?= $note->exam_description ?> - <?= $note->discipline_name ?> - <?= $note->unity ?>ª unidade </td>
+
         </tr>
 
     <?php } ?>
 
     <tr class="mt-4">
-        <td class="font-weight-bold" colspan="4" style="pointer-events:none"><?= count($this->view->listNote) ?> notas listadas <i class="fas fa-history ml-2"></i></td>
+        <td class="font-weight-bold text-right" colspan="4" style="pointer-events:none"><?= count($this->view->listNote) ?> notas listadas <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 

@@ -388,6 +388,18 @@ class Route extends Bootstrap
 				'action' => 'classUpdate'
 			);
 
+			$routes['adminStudentsAverage'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/medias-alunos',
+				'controller' => 'Admin\\AdminManagementController',
+				'action' => 'studentsAverage'
+			);
+
+			$routes['adminStudentsAverageSeek'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/medias-alunos/buscar',
+				'controller' => 'Admin\\AdminManagementController',
+				'action' => 'studentsAverageSeek'
+			);
+
 			$routes['adminClassDelete'] = array(
 				'route' => '/admin/gestao/turma/deletar',
 				'controller' => 'Admin\\AdminManagementController',

@@ -6,7 +6,8 @@ use MF\Model\Model;
 
 class ClassDiscipline extends Model
 {
-
+   
+    private $classDisciplineId = 0;
     private $fk_id_teacher = 0;
     private $fk_id_discipline;
     private $fk_id_class;
@@ -111,7 +112,7 @@ class ClassDiscipline extends Model
             fk_id_professor = :fk_id_teacher, 
             fk_id_disciplina = :fk_id_discipline 
 
-            WHERE turma_disciplina.id_turma_disciplina = :id
+            WHERE turma_disciplina.id_turma_disciplina = :classDisciplineId
             
         ";
 
@@ -119,7 +120,7 @@ class ClassDiscipline extends Model
 
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
         $stmt->bindValue(':fk_id_discipline', $this->__get('fk_id_discipline'));
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':classDisciplineId', $this->__get('classDisciplineId'));
 
         $stmt->execute();
     }
@@ -272,6 +273,10 @@ class ClassDiscipline extends Model
             WHERE turma_disciplina.fk_id_turma = :fk_id_class AND
 
             CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
+
+            AND
+
+            CASE WHEN :classDisciplineId = 0 THEN turma_disciplina.id_turma_disciplina <> 0 ELSE turma_disciplina.id_turma_disciplina = :classDisciplineId END
             
         ";
 
@@ -279,6 +284,7 @@ class ClassDiscipline extends Model
 
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':classDisciplineId', $this->__get('classDisciplineId'));
 
         $stmt->execute();
 
@@ -294,9 +300,9 @@ class ClassDiscipline extends Model
     public function delete()
     {
 
-        $query = "DELETE FROM turma_disciplina WHERE turma_disciplina.id_turma_disciplina = :id ";
+        $query = "DELETE FROM turma_disciplina WHERE turma_disciplina.id_turma_disciplina = :classDisciplineId ";
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':id', $this->__get('id'));
+        $stmt->bindValue(':classDisciplineId', $this->__get('classDisciplineId'));
         $stmt->execute();
     }
 }

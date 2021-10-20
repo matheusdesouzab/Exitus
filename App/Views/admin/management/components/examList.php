@@ -1,14 +1,16 @@
 
 
-<div class="table-responsive">
+<div class="table-responsive col-lg-12 p-0">
 
-    <table class="table table-hover col-lg-12 mx-auto table-borderless" id="tableListExam">
+<hr class="col-lg-12">
+
+    <table class="table table-hover col-lg-12 mx-auto table-borderless table-striped" id="tableListExam">
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Descrição</th>
+                <th scope="col">Descrição da avaliação</th>
                 <th scope="col">Disciplina</th>
-                <th class="text-center" scope="col">UE</th>
+                <th class="text-center" scope="col">Unidade</th>
                 <th class="text-center" scope="col">Valor</th>
             </tr>
         </thead>
@@ -25,7 +27,7 @@
                         <td><?= $exam->exam_description ?></td>
                         <td><?= $exam->discipline_name ?></td>
                         <td class="text-center"><?= $exam->unity ?></td>
-                        <td class="text-center"><?= $exam->exam_value ?></td>
+                        <td class="text-center"><?= number_format($exam->exam_value, 1, '.', '') ?></td>
                     </tr>
 
                     <?php $sum += $exam->exam_value ?>
@@ -33,7 +35,7 @@
                 <?php } ?>
 
                 <tr class="mt-4">
-                    <td class="font-weight-bold" colspan="5" style="pointer-events:none"><?= count($this->view->listExam) ?> exames listados <i class="fas fa-history ml-2"></i></td>
+                    <td class="font-weight-bold text-right" colspan="5" style="pointer-events:none"><?= count($this->view->listExam) ?> exames listados <i class="fas fa-history ml-2"></i></td>
                 </tr>
 
                 <?php if (isset($this->view->typeListExam) && $this->view->typeListExam[0] != 'recent') {

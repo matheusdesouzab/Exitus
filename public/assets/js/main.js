@@ -10,7 +10,7 @@ const management = new Management()
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-}) 
+})
 
 $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
 
@@ -75,7 +75,7 @@ $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function
 })
 
 
-$(document).on('click', '#updateStudentPortalData', function(e){
+$(document).on('click', '#updateStudentPortalData', function (e) {
 
     application.updateElement("#formSettingsStudent", "/portal-aluno/configuracoes/atualizar", "Configurações atualizadas")
     location.reload()
@@ -264,6 +264,13 @@ $(document).on("click", "#profileClassModal [data-target='#class-rematrug']", fu
 })
 
 
+$(document).on("click", "#profileClassModal [data-target='#class-student-average']", function (e) {
+
+    application.loadListElements("containerStudentsAverage", "/admin/gestao/turma/perfil-turma/medias-alunos", "#formClassId")
+
+})
+
+
 $(document).on("click", "#profileClassModal [data-target='#finalized-rematrecules']", function (e) {
 
     application.loadListElements("containerRematrugFinalized ", "/admin/gestao/turma/perfil-turma/rematricula/alunos-ja-matriculados", "#dataClass")
@@ -283,6 +290,12 @@ $(document).on("blur", "#profileClassModal #addExam #disciplineClass , #addExam 
 $(document).on("blur", "#profileClassModal #seekExam #disciplineClass , #seekExam #unity", function (e) {
 
     application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/buscar", "#seekExam")
+
+})
+
+$(document).on("blur", "#studentsAverageSeek #disciplineClass, #studentsAverageSeek #unity, #studentsAverageSeek #orderBy", function (e) {
+
+    application.loadListElements("containerStudentsAverage", "/admin/gestao/turma/perfil-turma/medias-alunos/buscar", "#studentsAverageSeek")
 
 })
 
@@ -489,18 +502,18 @@ $(document).on("click", "#navbar-top #settingsTeacherPortal", function () {
 })
 
 
-$('#settingsModal , #profileStudentModal').on('show.bs.modal', function(e){
-     
+$('#settingsModal , #profileStudentModal').on('show.bs.modal', function (e) {
+
     $('#cpf').mask("000.000.000-00")
     $('#zipCode').mask("00000-000")
     $('#accessCode').mask("000.000")
     $('#telephoneNumber').mask(("(00) 00000-0000"))
     $('#totalLack').mask(("00"))
-    
+
 })
 
 
-$("#studentPortalNavbar img").on("click", function(e){
+$("#studentPortalNavbar img").on("click", function (e) {
 
     application.showModal(0, "/portal-aluno/configuracoes", "containerSettingsModal", "#settingsModal")
 
@@ -534,7 +547,7 @@ $(document).on("click", "#profileClassModal #students-list tbody tr", function (
 })
 
 
-$(document).on('click', '#buttonUpdateClass', function(e){
+$(document).on('click', '#buttonUpdateClass', function (e) {
     application.updateElement('#updateClass', '/admin/gestao/turma/perfil-turma/atualizar', 'Dados atualizados')
     application.loadListElements('containerClasseProfileModal', '/admin/gestao/turma/perfil-turma', '#updateClass')
 })
@@ -604,6 +617,15 @@ $(document).on("keyup", "#seekExam #examDescription", function (e) {
     if (timeout) clearTimeout(timeout)
 
     timeout = setTimeout(() => application.seekElement("#seekExam", "containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/buscar"), 1500)
+
+})
+
+
+$(document).on("keyup", "#studentsAverageSeek #name", function (e) {
+
+    if (timeout) clearTimeout(timeout)
+
+    timeout = setTimeout(() => application.seekElement("#studentsAverageSeek", "containerStudentsAverage", "/admin/gestao/turma/perfil-turma/medias-alunos/buscar"), 1500)
 
 })
 
@@ -838,11 +860,11 @@ $(".bars-xs , .sidebar-header span").on("click", function (e) {
 $("#bars").on("click", sideState)
 
 $(document).on('show.bs.modal', '.modal', function () {
-    $('html').css("overflow","hidden")
+    $('html').css("overflow", "hidden")
 })
 
 $(document).on('hide.bs.modal', '.modal', function () {
-    $('html').css("overflow","auto")
+    $('html').css("overflow", "auto")
 })
 
 
@@ -871,8 +893,3 @@ $(document).on('click', "#profileClassModal [data-target='#class-note-history']"
 });
 
  */
-
-
-
-
-

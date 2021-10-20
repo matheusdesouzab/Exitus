@@ -46,7 +46,14 @@
             outline: none;
         }
 
+        #class-profile-assessments{
+            overflow-y: hidden;
+        }
+
         .main-sheet {
+
+            border-radius: 10px;
+            border: 1px solid #e5e5e5;
 
             span {
                 text-align: center;
@@ -130,18 +137,18 @@
                         font-family: Bold;
                         transition: all 0.2s ease;
                         border-left: 4px solid white;
+                        border-top-right-radius: 10px;
+                        border-bottom-right-radius: 10px;
 
                         &:hover {
-                            background: #f9f8f8;
-                            color: $color-black;
-                            border-left: 4px solid $color-blue;
+                            background: #E8F0FE;
+                            color: $color-blue;
                         }
                     }
 
                     [aria-expanded="true"] {
-                        background: #f9f8f8;
-                        color: $color-black;
-                        border-left: 4px solid $color-blue;
+                        background: #E8F0FE;
+                        color: $color-blue;                      
                     }
                 }
             }
@@ -218,7 +225,7 @@
 
 
         .modal-sidebar {
-            height: 77vh;
+            height: 87vh;
             background-color: white;
             border: 1px solid #e5e5e5;
             border-radius: 15px;

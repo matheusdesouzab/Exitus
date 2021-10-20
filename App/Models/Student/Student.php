@@ -274,24 +274,35 @@ class Student extends People
             
             aluno.id_aluno AS student_id , 
             aluno.nome_aluno AS student_name , 
-            aluno.foto_perfil_aluno AS profilePhoto , 
             aluno.cpf_aluno AS student_cpf , 
+            aluno.foto_perfil_aluno AS profilePhoto , 
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
-            turno.nome_turno AS shift ,
+            curso.nome_curso AS courseName ,
+            turno.nome_turno AS shift , 
+            numero_sala_aula.numero_sala_aula AS number_classroom , 
             situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
-            situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id 
+            situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
+            turma.id_turma AS class_id,
+            matricula.id_matricula AS enrollmentId ,
+            situacao_periodo_letivo.id_situacao_periodo_letivo AS schoolTermSituation ,
+            periodo_disponivel.ano_letivo AS schoolYear 
             
             FROM aluno 
             
             INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
+            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno) 
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
             INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
-            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
             INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
             INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
-            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno) 
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula)         
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
             WHERE
 
@@ -311,6 +322,10 @@ class Student extends People
 
             AND
 
+            CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> :fk_id_class ELSE turma.id_turma = :fk_id_class END
+
+            AND
+
             aluno.nome_aluno LIKE :studentName 
         
         ";
@@ -322,6 +337,7 @@ class Student extends People
         $stmt->bindValue(':fk_id_course', $classe->__get('fk_id_course'));
         $stmt->bindValue(':fk_id_shift', $classe->__get('fk_id_shift'));
         $stmt->bindValue(':fk_id_series', $classe->__get('fk_id_series'));
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
 
         $stmt->execute();
 
