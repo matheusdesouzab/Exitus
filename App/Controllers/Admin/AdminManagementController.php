@@ -458,6 +458,7 @@ class AdminManagementController extends Action
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Student = Container::getModel('Student\\Student');
         $Unity = Container::getModel('GeneralManagement\\Unity');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
 
         if (!isset($_SESSION)) session_start();
 
@@ -467,11 +468,17 @@ class AdminManagementController extends Action
         $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
         $Student->__set("fk_id_class", $_GET['classId']);
 
+        $Exam->__set('fk_id_class', $_GET['classId']);
+        $Exam->__set('examDescription', '');
+
         $this->view->listNote = $Note->list();
         $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
         $this->view->listStudent = $Student->list('<> 0');
         $this->view->unity = $Unity->unitys();
-        $this->view->orderBy = 'DESC';
+        $this->view->orderBy = 'alphabetical';
+        $this->view->listExam = $Exam->seek();
+        $this->view->noteStatus = 0;
+        $this->view->averageType = 'averageUnity';
 
         $this->render('student/components/studentsAverage', 'SimpleLayout');
     }
@@ -485,6 +492,7 @@ class AdminManagementController extends Action
         $Student = Container::getModel('Student\\Student');
         $Unity = Container::getModel('GeneralManagement\\Unity');
         $Classe = Container::getModel('GeneralManagement\\Classe');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
 
         $Student->__set('name', $_GET['name']);
         $Classe->__set('fk_id_course', 0);
@@ -492,6 +500,11 @@ class AdminManagementController extends Action
         $Classe->__set('fk_id_shift', 0);
         $Student->__set("fk_id_class", $_GET['classId']);
         $Student->__set('fk_id_sex', 0);
+
+        $Exam->__set('fk_id_discipline_class', $_GET['disciplineClass']);
+        $Exam->__set('fk_id_exam_unity', $_GET['unity']);
+        $Exam->__set('fk_id_class', $_GET['classId']);
+        $Exam->__set('examDescription', '');
 
         if (!isset($_SESSION)) session_start();
 
@@ -511,6 +524,9 @@ class AdminManagementController extends Action
         $this->view->listStudent = $Student->seek($Classe);
         $this->view->unity = $Unity->specificUnity();
         $this->view->orderBy = $_GET['orderBy'];
+        $this->view->listExam = $Exam->seek();
+        $this->view->noteStatus = $_GET['noteStatus'];
+        $this->view->averageType = $_GET['averageType'];
 
         $this->render('student/components/studentsAverage', 'SimpleLayout');
 

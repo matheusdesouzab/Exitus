@@ -293,7 +293,7 @@ $(document).on("blur", "#profileClassModal #seekExam #disciplineClass , #seekExa
 
 })
 
-$(document).on("blur", "#studentsAverageSeek #disciplineClass, #studentsAverageSeek #unity, #studentsAverageSeek #orderBy", function (e) {
+$(document).on("blur", "#studentsAverageSeek #disciplineClass, #studentsAverageSeek #unity, #studentsAverageSeek #orderBy, #studentsAverageSeek #noteStatus, #studentsAverageSeek #averageType", function (e) {
 
     application.loadListElements("containerStudentsAverage", "/admin/gestao/turma/perfil-turma/medias-alunos/buscar", "#studentsAverageSeek")
 

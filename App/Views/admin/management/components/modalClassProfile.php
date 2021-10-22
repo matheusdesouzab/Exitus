@@ -776,14 +776,42 @@
 
                                     <div class="form-row">
 
-                                        <div class="form-group col-lg-4">
+                                        <div class="form-group col-lg-3">
 
                                             <label for="">Ordenar por:</label>
 
                                             <select id="orderBy" class="form-control custom-select" name="orderBy" required>
 
-                                                <option value="DESC">Maior nota</option>
-                                                <option value="ASC">Menor nota</option>
+                                                <option value="highestGrade">Maior média</option>
+                                                <option value="lowestGrade">Menor média</option>
+                                                <option value="alphabetical">Ordem Alfabética</option>
+
+                                            </select>
+
+                                        </div>
+
+                                        <div class="form-group col-lg-3">
+
+                                            <label for="">Status da média:</label>
+
+                                            <select id="noteStatus" class="form-control custom-select" name="noteStatus" required>
+
+                                                <option value="0">Todos os status</option>
+                                                <option value="Aprovado">Aprovado</option>
+                                                <option value="Reprovado">Reprovado</option>
+
+                                            </select>
+
+                                        </div>
+
+                                        <div class="form-group col-lg-3">
+
+                                            <label for="">Tipo da média:</label>
+
+                                            <select id="averageType" class="form-control custom-select" name="averageType" required>
+
+                                                <option value="averageUnity">Média unidade</option>
+                                                <option value="averageEnd">Média final</option>
 
                                             </select>
 
