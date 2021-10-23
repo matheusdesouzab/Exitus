@@ -57,7 +57,7 @@
                 ?>
 
                     <tr>
-                        <td class="" colspan="5"> <i class="far fa-sticky-note mr-3"></i> <?= $sum ?> pontos já atribuidos na <?= $this->view->listExam[0]->unity ?> unidade de <?= $this->view->listExam[0]->discipline_name ?> ( Restam <?= 10 - $sum ?> <?= $pointsOrTenths ?> )</td>
+                        <td class="text-center" colspan="5"> <i class="far fa-sticky-note mr-3"></i> <?= $sum ?> pontos já atribuidos na <?= $this->view->listExam[0]->unity ?> unidade de <?= $this->view->listExam[0]->discipline_name ?> ( Restam <?= 10 - $sum ?> <?= $pointsOrTenths ?> )</td>
                     </tr>
 
                 <?php }

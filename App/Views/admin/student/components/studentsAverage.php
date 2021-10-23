@@ -78,24 +78,25 @@ foreach ($students as $x => $value) {
 
         $disciplineName = $value['discipline'][$y];
 
-        if($this->view->averageType == 'averageUnity'){
+        if ($this->view->averageType == 'averageUnity') {
 
-        foreach ($value[$discipline]['notes'] as $key => $disciplineFinal) {
+            foreach ($value[$discipline]['notes'] as $key => $disciplineFinal) {
 
-            $situation = ($disciplineFinal >= 5 ? 'Aprovado' : 'Reprovado');
+                $situation = ($disciplineFinal >= 5 ? 'Aprovado' : 'Reprovado');
 
-            $studentsEnd[] = array(
-                'profilePhoto' => $profilePhoto,
-                'name' => $name,
-                'discipline' => $disciplineName,
-                'unity' => $key,
-                'note' => number_format($disciplineFinal, 1, '.', ''),
-                'noteSituation' => $situation,
-                'statusRegisteredExams' => $value[$discipline]['numberEvaluations'][$key] . ' / ' . $exams[$discipline][$key],
-                'statusRegisteredExamsIcon' => $value[$discipline]['numberEvaluations'][$key] == $exams[$discipline][$key] ? '<i class="fas fa-check-circle ml-1 text-success"></i>' : '<i class="fas fa-minus-circle text-info ml-1"></i>',
-                'noteStatus' => array(1 => $situation, 2 => '0')
-            );
-        }}else{
+                $studentsEnd[] = array(
+                    'profilePhoto' => $profilePhoto,
+                    'name' => $name,
+                    'discipline' => $disciplineName,
+                    'unity' => $key,
+                    'note' => number_format($disciplineFinal, 1, '.', ''),
+                    'noteSituation' => $situation,
+                    'statusRegisteredExams' => $value[$discipline]['numberEvaluations'][$key] . ' / ' . $exams[$discipline][$key],
+                    'statusRegisteredExamsIcon' => $value[$discipline]['numberEvaluations'][$key] == $exams[$discipline][$key] ? '<i class="fas fa-check-circle ml-1 text-success"></i>' : '<i class="fas fa-minus-circle text-info ml-1"></i>',
+                    'noteStatus' => array(1 => $situation, 2 => '0')
+                );
+            }
+        } else {
 
             $situation = (($students[$x][$y]['averageEnd'] / 3) >= 5 ? 'Aprovado' : 'Reprovado');
 
@@ -107,7 +108,6 @@ foreach ($students as $x => $value) {
                 'noteSituation' => $situation,
                 'noteStatus' => array(1 => $situation, 2 => '0')
             );
-
         }
     }
 }
@@ -116,9 +116,9 @@ $order = [];
 
 foreach ($studentsEnd as $key => $row) {
 
-    if($this->view->orderBy == 'alphabetical'){
+    if ($this->view->orderBy == 'alphabetical') {
         $order[$key] = $row['name'];
-    }else{
+    } else {
         $order[$key] = $row['note'];
     }
 }
@@ -136,10 +136,10 @@ array_multisort($order, $orderBy, $studentsEnd);
         <tr>
             <th scope="col" colspan="2">Nome do aluno</th>
             <th scope=" col">Disciplina</th>
-            <?php if($this->view->averageType == 'averageUnity'){ ?> <th class="text-center" scope="col">Unidade</th> <?php } ?>
+            <?php if ($this->view->averageType == 'averageUnity') { ?> <th class="text-center" scope="col">Unidade</th> <?php } ?>
             <th class="text-center" scope="col">Nota</th>
             <th class="text-center" scope="col">Status</th>
-            <?php if($this->view->averageType == 'averageUnity'){ ?> <th class="text-center" data-toggle="tooltip" data-placement="bottom" title="Status do total de avaliaçãoes cadastradas" scope="col">STA</th> <?php } ?>
+            <?php if ($this->view->averageType == 'averageUnity') { ?> <th class="text-center" data-toggle="tooltip" data-placement="bottom" title="Status do total de avaliaçãoes cadastradas" scope="col">STA</th> <?php } ?>
         </tr>
     </thead>
 
@@ -157,10 +157,10 @@ array_multisort($order, $orderBy, $studentsEnd);
 
                     <td><?= $value['name'] ?></td>
                     <td><?= $value['discipline'] ?></td>
-                    <?php if($this->view->averageType == 'averageUnity'){ ?> <td class="text-center"><?= $value['unity'] ?></td> <?php } ?>
+                    <?php if ($this->view->averageType == 'averageUnity') { ?> <td class="text-center"><?= $value['unity'] ?></td> <?php } ?>
                     <td class="text-center"><?= $value['note'] ?></td>
                     <td class="text-center"><?= $value['noteSituation'] ?></td>
-                    <?php if($this->view->averageType == 'averageUnity'){ ?><td class="text-center"><?= $value['statusRegisteredExams'] ?> <?= $value['statusRegisteredExamsIcon'] ?></td>  <?php } ?>
+                    <?php if ($this->view->averageType == 'averageUnity') { ?><td class="text-center"><?= $value['statusRegisteredExams'] ?> <?= $value['statusRegisteredExamsIcon'] ?></td> <?php } ?>
 
                 </tr>
 

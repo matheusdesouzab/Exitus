@@ -122,12 +122,8 @@ button {
 }
 
 #pagina #profileStudentModal .container-list-group {
-  height: 40vh;
+  height: 50vh;
   overflow: auto;
-}
-#pagina #profileStudentModal .container-list-group::-webkit-scrollbar {
-  width: 0;
-  background: transparent;
 }
 #pagina .modal-full {
   min-width: 100%;
@@ -776,6 +772,7 @@ button {
 #admin #pagina .recent-activities::-webkit-scrollbar,
 #admin #pagina .recently-enrolled::-webkit-scrollbar,
 #admin #pagina .main-content::-webkit-scrollbar,
+#admin #pagina .container-list-group::-webkit-scrollbar,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar,
 #teacherPortal #pagina .side-students::-webkit-scrollbar,
@@ -783,13 +780,15 @@ button {
 #teacherPortal #pagina .recent-activities::-webkit-scrollbar,
 #teacherPortal #pagina .recently-enrolled::-webkit-scrollbar,
 #teacherPortal #pagina .main-content::-webkit-scrollbar,
+#teacherPortal #pagina .container-list-group::-webkit-scrollbar,
 #studentPortal #pagina .side-exams::-webkit-scrollbar,
 #studentPortal #pagina .side-mural::-webkit-scrollbar,
 #studentPortal #pagina .side-students::-webkit-scrollbar,
 #studentPortal #pagina .side-teachers::-webkit-scrollbar,
 #studentPortal #pagina .recent-activities::-webkit-scrollbar,
 #studentPortal #pagina .recently-enrolled::-webkit-scrollbar,
-#studentPortal #pagina .main-content::-webkit-scrollbar {
+#studentPortal #pagina .main-content::-webkit-scrollbar,
+#studentPortal #pagina .container-list-group::-webkit-scrollbar {
   width: 10px;
 }
 #admin #pagina .side-exams::-webkit-scrollbar-track,
@@ -799,6 +798,7 @@ button {
 #admin #pagina .recent-activities::-webkit-scrollbar-track,
 #admin #pagina .recently-enrolled::-webkit-scrollbar-track,
 #admin #pagina .main-content::-webkit-scrollbar-track,
+#admin #pagina .container-list-group::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-students::-webkit-scrollbar-track,
@@ -806,13 +806,15 @@ button {
 #teacherPortal #pagina .recent-activities::-webkit-scrollbar-track,
 #teacherPortal #pagina .recently-enrolled::-webkit-scrollbar-track,
 #teacherPortal #pagina .main-content::-webkit-scrollbar-track,
+#teacherPortal #pagina .container-list-group::-webkit-scrollbar-track,
 #studentPortal #pagina .side-exams::-webkit-scrollbar-track,
 #studentPortal #pagina .side-mural::-webkit-scrollbar-track,
 #studentPortal #pagina .side-students::-webkit-scrollbar-track,
 #studentPortal #pagina .side-teachers::-webkit-scrollbar-track,
 #studentPortal #pagina .recent-activities::-webkit-scrollbar-track,
 #studentPortal #pagina .recently-enrolled::-webkit-scrollbar-track,
-#studentPortal #pagina .main-content::-webkit-scrollbar-track {
+#studentPortal #pagina .main-content::-webkit-scrollbar-track,
+#studentPortal #pagina .container-list-group::-webkit-scrollbar-track {
   background-color: #F9EBEA;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -824,6 +826,7 @@ button {
 #admin #pagina .recent-activities::-webkit-scrollbar-thumb,
 #admin #pagina .recently-enrolled::-webkit-scrollbar-thumb,
 #admin #pagina .main-content::-webkit-scrollbar-thumb,
+#admin #pagina .container-list-group::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-students::-webkit-scrollbar-thumb,
@@ -831,13 +834,15 @@ button {
 #teacherPortal #pagina .recent-activities::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .recently-enrolled::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .main-content::-webkit-scrollbar-thumb,
+#teacherPortal #pagina .container-list-group::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-exams::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-mural::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-students::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-teachers::-webkit-scrollbar-thumb,
 #studentPortal #pagina .recent-activities::-webkit-scrollbar-thumb,
 #studentPortal #pagina .recently-enrolled::-webkit-scrollbar-thumb,
-#studentPortal #pagina .main-content::-webkit-scrollbar-thumb {
+#studentPortal #pagina .main-content::-webkit-scrollbar-thumb,
+#studentPortal #pagina .container-list-group::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: #ACBECC;
@@ -1066,6 +1071,7 @@ button {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 15px;
+  margin-right: 1px;
 }
 #admin #pagina .collapse-options-container span,
 #teacherPortal #pagina .collapse-options-container span,

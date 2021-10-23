@@ -191,7 +191,8 @@
         .side-teachers,
         .recent-activities,
         .recently-enrolled,
-        .main-content {
+        .main-content,
+        .container-list-group {
 
             &::-webkit-scrollbar {
                 width: 10px;
@@ -429,6 +430,7 @@
             display: flex;
             justify-content: flex-end;
             margin-bottom: 15px;
+            margin-right: 1px;
 
             span {
                 @include icon-card(none, $color-blue, $color-white, 5px);

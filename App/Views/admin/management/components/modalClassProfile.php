@@ -14,15 +14,15 @@
 
                             <ul>
 
-                                <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data"><i class="fas fa-user-friends mr-2"></i></i> Dados da turma</a>
+                                <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data"><i class="fas fa-user-friends mr-2"></i> Dados da turma</a>
 
                                 <?php if (!isset($_SESSION)) session_start(); ?>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments"><i class="fas fa-paste mr-3"></i></i></i> Avaliações</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments"><i class="fas fa-paste mr-3"></i> Avaliações</a>
 
                                 <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history"><i class="fas fa-poll-h mr-3"></i> Notas das avaliações</a>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average"><i class="fas fa-poll mr-3"></i></i> Médias dos alunos</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average"><i class="fas fa-poll mr-3"></i> Médias dos alunos</a>
 
 
                                 <?php
@@ -542,7 +542,7 @@
                         <div class="col-lg-12 mb-4 mt-3">
                             <div class="row d-flex align-items-center">
                                 <div class="col-lg-5">
-                                    <h5>Rematrículas</h5>
+                                    <h5 class="">Rematrículas</h5>
                                 </div>
 
                                 <div class="col-lg-7 col-12 collapse-options-container">
@@ -579,15 +579,11 @@
 
                     <div class="row">
 
-                        <h5 class="col-lg-12 mb-3">Configurações da turma</h5>
+                        <h5 class="col-lg-12">Configurações da turma</h5>
 
-                        <div class="col-lg-12">
+                            <form class="mt-2 p-3 border col-lg-12" id="updateClass" action="">
 
-                            <form class="card" id="updateClass" action="">
-
-                                <div class="font-weight-bold col-lg-12 mt-3">Atualizar dados da turma:</div>
-
-                                <hr class="col-lg-11 ml-3">
+                            <div class="font-weight-bold col-lg-12 mb-3">Atualizar dados da turma</div>
 
                                 <div class="form-row col-lg-12">
 
@@ -685,7 +681,7 @@
 
                                 <div class="form-row col-lg-12 mb-3 ">
 
-                                    <div class="form-group ml-auto col-lg-5">
+                                    <div class="form-group ml-auto col-lg-3">
                                         <label for="">&nbsp;</label>
                                         <a id="buttonUpdateClass" class="btn btn-success w-100 text-center disabled" href="#">Atualizar dados</a>
 
@@ -694,8 +690,6 @@
                                 </div>
 
                             </form>
-
-                        </div>
 
                     </div>
 

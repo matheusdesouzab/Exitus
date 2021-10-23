@@ -30,13 +30,20 @@ foreach ($studentsRematrung as $key => $value) {
     $value['status'] == 'Efetivada' ?  $studentsRematrungSuccess++ : '';
 }
 
+$order = [];
+
+foreach ($studentsRematrung as $key => $row) {
+    $order[$key] = $row['name']; 
+}
+
+array_multisort($order, SORT_ASC, $studentsRematrung);
 
 ?>
 
-<table class="table table-hover mt-3 table-borderless">
+<table class="table table-hover mt-3 table-borderless table-striped">
     <thead>
         <tr>
-            <th colspan="2">Alunos</th>
+            <th class="text-left" colspan="2">Nome do aluno</th>
             <th>Status da rematrícula</th>
             <th>Nova turma</th>
         </tr>

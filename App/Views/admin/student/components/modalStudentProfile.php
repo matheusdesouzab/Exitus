@@ -1,25 +1,26 @@
-<div class="row mb-4 d-flex justify-content-center" id="main-accordion-student">
+<div class="row mb-4 d-flex justify-content-around" id="main-accordion-student">
 
     <?php foreach ($this->view->studentDataGeneral as $key => $student) { ?>
 
         <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
-        <div class="col-md-3 col-11 mx-auto modal-sidebar">
+        <div class="col-md-3 col-11 mx-auto">
 
-            <div class="row">
+        <div class="col-lg-12 modal-sidebar">
+
+            <div class="row p-3">
 
                 <div class="col-lg-12">
 
-
                     <div class="row">
 
-                        <img class="mx-auto mb-2" src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
+                        <img class="mx-auto mb-3" src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
                         <div class="col-lg-12 main-sheet d-block d-sm-none">
                             <div class="row p-3"><span class="col-lg-12"><?= $student->student_name ?> - <?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span></div>
                         </div>
 
-                        <div class="col-lg-12 main-sheet d-none d-sm-block">
+                        <div class="col-lg-11 mx-auto main-sheet d-none d-sm-block">
                             <div class="row p-3">
                                 <span class="col-lg-12"><?= $student->student_name ?></span>
 
@@ -40,25 +41,27 @@
 
                     <div class="row">
 
-                        <div class="col-lg-12 container-list-group">
+                        <div class="col-lg-12 container-list-group mt-3 p-0">
 
                             <nav>
 
                                 <ul>
 
-                                    <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-student">Dados do aluno</a>
+                                    <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-student"><i class="fas fa-user mr-3"></i> Dados do aluno</a>
 
                                     <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->schoolTermSituation) { ?>
 
-                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">Avaliações</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam"><i class="fas fa-paste mr-3"></i> Avaliações</a>
 
-                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin">Boletim</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin"><i class="fas fa-book-open mr-3"></i> Boletim</a>
 
-                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">Faltas</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack"><i class="fas fa-tasks mr-3"></i> Faltas</a>
 
-                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData">Média final</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData"><i class="fab fa-buffer mr-3"></i> Média final</a>
 
-                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">Observações</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average"><i class="fas fa-poll mr-3"></i> Médias gerais</a>
+
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation"> <i class="fas fa-file-alt mr-3"></i> Observações</a>
 
                                     <?php } ?>
 
@@ -124,7 +127,11 @@
 
         </div>
 
-        <div class="col-md-8 card main-content col-11 mx-auto">
+        </div>
+
+        <div class="col-md-9 col-11 mx-auto">
+
+        <div class="col-lg-12 card main-content">
 
             <div class="row">
 
@@ -397,21 +404,25 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="student-exam" data-parent="#main-accordion-student">
 
-                    <div class="col-lg-12 accordion" id="accordion-ratings">
-
-                        <div class="row">
+                    <div class="accordion" id="accordion-ratings">
 
                             <div class="col-lg-12 mb-3">
-                                <div class="row d-flex align-items-center">
-                                    <div class="col-lg-6">
-                                        <h5>Avaliações</h5>
+
+                                <div class="row d-flex align-items-center p-0">
+
+                                    <div class="col-lg-6 p-0">
+                                        <h5 class='mt-2'>Avaliações</h5>
                                     </div>
 
-                                    <div class="col-lg-6 collapse-options-container">
+                                    <div class="col-lg-6 p-0">
 
-                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rating-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
+                                        <div class="row collapse-options-container">
 
-                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-reviews"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+                                            <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rating-list"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
+
+                                            <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-reviews"><span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+
+                                        </div>
 
 
                                     </div>
@@ -420,11 +431,11 @@
 
 
 
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 p-0">
 
                                 <div class="collapse show" id="rating-list" data-parent="#accordion-ratings">
 
-                                    <form id="seekNoteExamStudent" class="mt-3 col-lg-12 text-dark" action="">
+                                    <form id="seekNoteExamStudent" class="mt-3 text-dark" action="">
 
                                         <input value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" type="hidden" name="enrollmentId">
 
@@ -481,11 +492,12 @@
 
                                     <div class="table-responsive">
 
-                                        <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover" id="note-table">
+                                        <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover table-striped" id="note-table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Resultado</th>
-                                                    <th scope="col">Avaliação</th>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Descrição</th>
+                                                    <th class="text-center" scope="col">Resultado</th>
                                                 </tr>
                                             </thead>
                                             <tbody containerListNote></tbody>
@@ -506,7 +518,7 @@
                                         <div class="form-row mt-3">
 
                                             <div class="form-group col-lg-12">
-                                                <label for="">Avaliações disponíveis</label>
+                                                <label for="">Avaliações disponíveis:</label>
 
                                                 <select id="examDescription" name="examDescription" class="form-control custom-select" required></select>
 
@@ -533,8 +545,6 @@
                                 </div>
 
                             </div>
-
-                        </div>
 
                     </div>
                 </div>
@@ -939,4 +949,5 @@
                 </div>
 
             </div>
+        </div>
         </div>

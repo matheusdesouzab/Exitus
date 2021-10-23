@@ -6,17 +6,13 @@
 
         <tr id="note<?= $note->note_id ?>">
 
-            <?php if ($this->view->listNoteType == 'class') { ?>
+            <td class="">
+                <img class="miniature-photo" src='<?= $note->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+            </td>
 
-                <td class="">
-                    <img class="miniature-photo" src='<?= $note->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
-                </td>
-
-                <td>
-                    <?= $note->student_name ?>
-                </td>
-
-            <?php } ?>
+            <td>
+                <?= $note->student_name ?>
+            </td>
 
             <td data-toggle="tooltip" data-placement="bottom" title="Aproveitamento - <?= number_format(($note->note_value * 100) / $note->exam_value, 1, '.', '') ?> %"><?= number_format($note->note_value, 1, '.', '') ?> / <?= number_format($note->exam_value, 1, '.', '') ?></td>
 
@@ -34,7 +30,7 @@
 <?php } else { ?>
 
     <tr class="mt-4">
-        <td class="text-center" colspan="<?= $this->view->listNoteType == 'class' ? '7' : '5' ?>" style="pointer-events:none">Nenhuma avaliação encrontada <i class="fas fa-history ml-2"></i></td>
+        <td class="text-center" style="pointer-events:none">Nenhuma avaliação encrontada <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 <?php } ?>

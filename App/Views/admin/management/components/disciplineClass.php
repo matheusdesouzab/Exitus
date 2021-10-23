@@ -15,11 +15,23 @@ if (count($this->view->listTeacher) >= 1) {
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" formGroup="containerListDisciplineClass" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" formGroup="containerListDisciplineClass" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
+                    
+                        <i class="fas fa-edit"></i>
+                
+                    </span>
 
-                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/turma-disciplina/atualizar" toastData="Disciplina da turma atualizada" container="containerListDisciplineClass" routeList="/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma" routeData="#formDisciplineClass<?= $discipline->discipline_class_id ?>" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/turma-disciplina/atualizar" toastData="Disciplina da turma atualizada" container="containerListDisciplineClass" routeList="/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma" routeData="#formDisciplineClass<?= $discipline->discipline_class_id ?>" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="bottom" title="Atualizar">
+                    
+                        <i class="fas fa-check"></i>
+                    
+                    </span>
 
-                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/turma-disciplina/deletar" toastData="Disciplina da turma deletada" routeData="#formDisciplineClass<?= $discipline->discipline_class_id ?>" container="containerListDisciplineClass" routeList="/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma" class="mr-2 delete-data-icon"> <i class="fas fa-trash-alt"></i></span>
+                    <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/turma-disciplina/deletar" toastData="Disciplina da turma deletada" routeData="#formDisciplineClass<?= $discipline->discipline_class_id ?>" container="containerListDisciplineClass" routeList="/admin/gestao/turma/perfil-turma/turma-disciplina/professores-disciplina-turma" class="mr-2 delete-data-icon"  data-toggle="tooltip" data-placement="right" title="Deletar"> 
+                    
+                        <i class="fas fa-trash-alt"></i>
+                    
+                    </span>
 
                 </div>
 

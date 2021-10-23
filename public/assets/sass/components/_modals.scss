@@ -3,13 +3,8 @@
     #profileStudentModal {
 
         .container-list-group {
-            height: 40vh;
+            height: 50vh;
             overflow: auto;
-
-            &::-webkit-scrollbar {
-                width: 0;
-                background: transparent;
-            }
         }
     }
 

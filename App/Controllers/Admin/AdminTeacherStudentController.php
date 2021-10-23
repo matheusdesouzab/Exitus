@@ -190,7 +190,7 @@ class AdminTeacherStudentController extends Action
         $this->view->listNoteType = 'student';
         $this->view->listNote = $Note->list();
 
-        $this->render('student/components/noteList', 'SimpleLayout');
+        $this->render('student/components/studentGradeList', 'SimpleLayout');
     }
 
 
@@ -229,7 +229,7 @@ class AdminTeacherStudentController extends Action
         $this->view->listNoteType = 'student';
         $this->view->listNote = $Note->seek();
 
-        $this->render('student/components/noteList', 'SimpleLayout');
+        $this->render('student/components/studentGradeList', 'SimpleLayout');
     }
 
 
