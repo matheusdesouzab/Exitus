@@ -11,7 +11,7 @@ html {
 }
 
 html > body {
-  background-color: #E9EBFA;
+  background-color: #F0F0F8;
   color: #2b2b2f;
 }
 
@@ -103,6 +103,7 @@ button {
   border-radius: 10px;
   border: 1px solid #e5e5e5;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e5e5;
   background-color: #ffffff;
   transition: 0.5s;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -115,6 +116,7 @@ button {
   border-radius: 10px;
   border: none;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e5e5;
   background-color: #506177;
 }
 #pagina .card-form label {
@@ -122,7 +124,7 @@ button {
 }
 
 #pagina #profileStudentModal .container-list-group {
-  height: 50vh;
+  height: 45vh;
   overflow: auto;
 }
 #pagina .modal-full {
@@ -297,6 +299,7 @@ button {
   border-radius: 10px;
   border: 1px solid #e5e5e5;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e5e5;
   background-color: white;
 }
 #pagina .simple-modal .modal-content {
@@ -471,7 +474,7 @@ button {
   left: 0;
   height: 100vh;
   z-index: 2;
-  background-color: black;
+  background-color: #09023B;
   overflow: auto;
   box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 }
@@ -602,6 +605,11 @@ button {
 #studentPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
 #studentPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > th {
   background-color: #F4F6F6;
+}
+#admin #pagina #table-bulletin-print thead,
+#teacherPortal #pagina #table-bulletin-print thead,
+#studentPortal #pagina #table-bulletin-print thead {
+  background: #E8F0FE;
 }
 #admin #pagina .limited-text-description,
 #teacherPortal #pagina .limited-text-description,
@@ -1493,6 +1501,7 @@ body#teacherPortal #pagina .modal-profile .modal-sidebar {
     border-radius: 10px;
     border: none;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e5e5;
     background-color: white;
     box-shadow: none;
     height: 50vh;
@@ -1644,6 +1653,7 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   transition: 0.7s;
   position: fixed;
   z-index: 3;
+  padding: 15px;
 }
 #navbar-top .navbar-brand {
   font-weight: bold;
@@ -1660,8 +1670,8 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
 }
 #navbar-top img {
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   object-position: top;
   object-fit: cover;
   cursor: pointer;

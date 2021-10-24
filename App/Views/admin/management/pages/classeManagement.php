@@ -10,17 +10,21 @@
 
                     <div class="row">
 
-                        <h5 class="col-lg-6">Gestão das turmas</h5>
+                        <h5 class="col-lg-6 p-">Gestão das turmas</h5>
 
-                        <div class="col-lg-6 collapse-options-container">
+                        <div class="col-lg-6">
+
+                            <div class="row collapse-options-container">
 
                             <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" id="collapseListClass" data-target="#class-list">
                                 <span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Turmas</span>
                             </a>
 
                             <a class="collapsed font-weight-bold" aria-expanded="false" id="collapseAddClass" data-toggle="collapse" data-target="#add-class">
-                                <span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span>
+                                <span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span>
                             </a>
+
+                            </div>
 
                         </div>
 

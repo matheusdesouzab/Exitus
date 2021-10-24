@@ -3,7 +3,8 @@
     foreach ($this->view->lackList as $key => $lack) { ?>
 
         <tr id="lack<?= $lack->lackId?>">
-            <td><?= $lack->disciplineName ?></td>
+            
+            <td class="text-left"><?= $lack->disciplineName ?></td>
             <td><?= $lack->unity ?></td>
             <td><?= $lack->totalLack ?></td>
 

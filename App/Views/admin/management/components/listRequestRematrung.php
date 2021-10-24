@@ -12,7 +12,7 @@ $totalRequest = 0;
 
         <?php $totalRequest++ ?>
 
-        <form class="col-lg-12 card mt-3 p-3 " id="addRematrung">
+        <form class="col-lg-12 card mt-3 p-3" id="addRematrung">
 
             <input type="hidden" value="<?= $value->studentId ?>" name="studentId">
             <input type="hidden" value="<?= $this->view->nextClass[0]->schoolTermId ?>" name="schoolTermId">

@@ -18,8 +18,8 @@
                     <?php $shift = substr($observation->shift, 0, 1) ?>
 
                     <div class="row d-flex align-items-center">
-                        <div class="col-2 miniature-photo">
-                            <img class="" src='<?= $observation->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $observation->teacherProfilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                        <div class="col-2">
+                            <img class="miniature-photo" src='<?= $observation->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $observation->teacherProfilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
                         </div>
                         <div class="col-10"><?= $observation->teacherName ?></div>
                     </div>

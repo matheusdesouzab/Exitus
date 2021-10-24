@@ -88,17 +88,23 @@
 
                 <div class="col-lg-11 mx-auto collapse show" id="accordion-class-data" data-parent="#main-accordion-class">
 
-                    <div class="col-lg-12 mb-4 mt-4">
-                        <div class="row d-flex align-items-center">
-                            <div class="col-lg-6">
-                                <h5><?= $this->view->classData[0]->series_acronym ?>ª <?= $this->view->classData[0]->ballot ?> <?= $this->view->classData[0]->course ?> <?= $this->view->classData[0]->shift ?></h5>
+                    <div class="col-lg-12 mb-3">
+
+                        <div class="row d-flex align-items-center p-0">
+
+                            <div class="col-lg-6 p-0">
+                                <h5 class="mt-2"><?= $this->view->classData[0]->series_acronym ?>ª <?= $this->view->classData[0]->ballot ?> <?= $this->view->classData[0]->course ?> <?= $this->view->classData[0]->shift ?></h5>
                             </div>
 
-                            <div class="col-lg-6 col-12 collapse-options-container">
+                            <div class="col-lg-6 col-12 p-0">
 
-                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#students-list"><span class="mr-2"><i class="fas fa-user-friends"></i> Alunos</span></a>
+                                <div class="row collapse-options-container">
 
-                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#teacher-list" routeData="<?= $this->view->classId ?>"><span class="mr-2"><i class="fas fa-chalkboard-teacher"></i> Docentes</span></a>
+                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#students-list"><span class="mr-2"><i class="fas fa-user-friends"></i> Alunos</span></a>
+
+                                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#teacher-list" routeData="<?= $this->view->classId ?>"><span class=""><i class="fas fa-chalkboard-teacher"></i> Docentes</span></a>
+
+                                </div>
 
 
                             </div>
@@ -166,17 +172,23 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="class-discipline-accordion" data-parent="#main-accordion-class">
 
-                    <div class="col-lg-12 mb-4 mt-4">
-                        <div class="row d-flex align-items-center">
-                            <div class="col-lg-5">
-                                <h5>Disciplinas</h5>
+                    <div class="col-lg-12 mb-3">
+
+                        <div class="row d-flex align-items-center p-0">
+
+                            <div class="col-lg-5 p-0">
+                                <h5 class="mt-2">Disciplinas</h5>
                             </div>
 
-                            <div class="col-lg-7 col-12 collapse-options-container">
+                            <div class="col-lg-7 col-12 p-0">
 
-                                <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-discipline"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Disciplinas</span></a>
+                                <div class="row collapse-options-container">
 
-                                <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2 "><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-discipline"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Disciplinas</span></a>
+
+                                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+
+                                </div>
 
 
                             </div>
@@ -189,7 +201,7 @@
 
                         <div class="row mb-3">
 
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 p-0">
                                 <div class="collapse show" id="list-discipline" data-parent="#class-discipline-accordion">
                                     <div class="col-lg-12 p-0" containerListDisciplineClass>
 
@@ -264,17 +276,23 @@
 
                     <div class="accordion" id="class-assessments-accordion">
 
-                        <div class="col-lg-12 mb-4 mt-3">
-                            <div class="row d-flex align-items-between">
+                        <div class="col-lg-12 mb-3">
+
+                            <div class="row d-flex align-items-center p-0">
+
                                 <div class="col-lg-5 p-0">
-                                    <h5>Avaliações da turma</h5>
+                                    <h5 class="mt-2">Avaliações da turma</h5>
                                 </div>
 
-                                <div class="col-lg-7 col-12 collapse-options-container p-0 mr-0">
+                                <div class="col-lg-7 col-12 p-0">
 
-                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
+                                    <div class="row collapse-options-container">
 
-                                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
+
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+
+                                    </div>
 
                                 </div>
                             </div>
@@ -425,109 +443,113 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="class-note-history" data-parent="#main-accordion-class">
 
-                    <div class="row">
+                    <div class="col-lg-12 mb-3">
 
-                        <div class="col-lg-12">
-                            <h5>Notas das avaliações</h5>
-                        </div>
+                        <div class="row">
 
-                        <div class='col-lg-12'>
+                            <div class="col-lg-12 p-0">
+                                <h5 class="mt-2">Notas das avaliações</h5>
+                            </div>
 
-                            <form id="seekNoteExamClass" class="text-dark  mt-3 accordion" action="">
+                            <div class='col-lg-12 p-0'>
 
-                                <div class="form-row mt-3">
+                                <form id="seekNoteExamClass" class="text-dark  mt-3 accordion" action="">
 
-                                    <div class="form-group col-lg-4">
-                                        <label for="">Descrição:</label>
-                                        <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
-                                    </div>
-
-                                    <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
-
-                                    <div class="form-group col-lg-3">
-
-                                        <label for="">Disciplina:</label>
-
-                                        <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
-
-                                            <option value="0">Todas</option>
-
-                                            <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
-
-                                                <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
-
-                                            <?php } ?>
-
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-                                        <label for="">Unidade:</label>
-
-                                        <select id="unity" class="form-control custom-select" name="unity" required>
-
-                                            <option value="0">Todas</option>
-
-                                            <?php foreach ($this->view->unity as $key => $unity) { ?>
-
-                                                <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
-
-                                            <?php } ?>
-
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group col-lg-2">
-                                        <label for="">&nbsp;</label>
-
-                                        <div>
-                                            <a class="btn btn-light w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-filter"></i></a>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div id="activate-advanced-search-accordion" class="collapse" data-parent="#seekNoteExamClass">
-
-                                    <div class="form-row">
+                                    <div class="form-row mt-3">
 
                                         <div class="form-group col-lg-4">
+                                            <label for="">Descrição:</label>
+                                            <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
+                                        </div>
 
-                                            <label for="">Ordenar por:</label>
+                                        <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
 
-                                            <select id="orderBy" class="form-control custom-select" name="orderBy" required>
+                                        <div class="form-group col-lg-3">
 
-                                                <option value="DESC">Maior nota</option>
-                                                <option value="ASC">Menor nota</option>
+                                            <label for="">Disciplina:</label>
+
+                                            <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
+
+                                                <option value="0">Todas</option>
+
+                                                <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+
+                                                    <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                <?php } ?>
 
                                             </select>
 
                                         </div>
 
+                                        <div class="form-group col-lg-3">
+                                            <label for="">Unidade:</label>
+
+                                            <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                <option value="0">Todas</option>
+
+                                                <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                    <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                <?php } ?>
+
+                                            </select>
+
+                                        </div>
+
+                                        <div class="form-group col-lg-2">
+                                            <label for="">&nbsp;</label>
+
+                                            <div>
+                                                <a class="btn btn-light w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-filter"></i></a>
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                </div>
+                                    <div id="activate-advanced-search-accordion" class="collapse" data-parent="#seekNoteExamClass">
 
-                            </form>
+                                        <div class="form-row">
 
-                        </div>
+                                            <div class="form-group col-lg-4">
 
-                        <div class="col-lg-12 table-responsive">
+                                                <label for="">Ordenar por:</label>
 
-                            <hr class="">
+                                                <select id="orderBy" class="form-control custom-select" name="orderBy" required>
 
-                            <table class="table table-borderless col-lg-12 table-striped" id="note-table-class">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" colspan="2">Nome do aluno</th>
-                                        <th scope="col">Resultado</th>
-                                        <th scope="col">Dados da avaliação</th>
-                                    </tr>
-                                </thead>
-                                <tbody containerListNote></tbody>
-                            </table>
+                                                    <option value="DESC">Maior nota</option>
+                                                    <option value="ASC">Menor nota</option>
+
+                                                </select>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                            <div class="col-lg-12 table-responsive  p-0">
+
+                                <hr class="">
+
+                                <table class="table table-borderless col-lg-12 p-0 table-striped" id="note-table-class">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" colspan="2">Nome do aluno</th>
+                                            <th scope="col">Resultado</th>
+                                            <th scope="col">Dados da avaliação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody containerListNote></tbody>
+                                </table>
+                            </div>
+
                         </div>
 
                     </div>
@@ -539,23 +561,29 @@
 
                     <div class="accordion" id="rematrug-accordion">
 
-                        <div class="col-lg-12 mb-4 mt-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-5">
-                                    <h5 class="">Rematrículas</h5>
+                        <div class="col-lg-12 mb-3">
+
+                            <div class="row d-flex align-items-center p-0">
+
+                                <div class="col-lg-5 p-0">
+                                    <h5 class="mt-2">Rematrículas</h5>
                                 </div>
 
-                                <div class="col-lg-7 col-12 collapse-options-container">
+                                <div class="col-lg-7 col-12 p-0">
 
-                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rematrecules-received"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>Solicitações</span></a>
+                                    <div class="row  collapse-options-container">
 
-                                    <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#finalized-rematrecules"><span class="mr-2"><i class="fas fa-check-circle mr-2"></i> Status da turma</span></a>
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rematrecules-received"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>Solicitações</span></a>
+
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#finalized-rematrecules"><span class=""><i class="fas fa-check-circle mr-2"></i> Status da turma</span></a>
+
+                                    </div>
 
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 p-0">
 
                             <div class="collapse show col-lg-12" id="rematrecules-received" data-parent="#rematrug-accordion">
 
@@ -579,117 +607,123 @@
 
                     <div class="row">
 
-                        <h5 class="col-lg-12">Configurações da turma</h5>
+                        <div class="col-lg-12">
 
-                            <form class="mt-2 p-3 border col-lg-12" id="updateClass" action="">
+                         <div class="row d-flex align-items-center">
+
+                            <div class="col-lg-6"><h5>Configurações da turma</h5></div>
+
+                            <div class="col-lg-6 d-flex justify-content-end"> 
+                                
+                            <a id="buttonUpdateClass" class="btn btn-success text-center disabled" href="#"><i class="fas fa-check"></i></a></div>
+
+                         </div>                           
+
+                        </div>
+
+                        <div class="col-lg-12">
+
+                        <form class="mt-2 p-3 border p-0 mt-3" id="updateClass" action="">
 
                             <div class="font-weight-bold col-lg-12 mb-3">Atualizar dados da turma</div>
 
-                                <div class="form-row col-lg-12">
+                            <div class="form-row col-lg-12">
 
-                                    <div class="form-group col-lg-2">
+                                <div class="form-group col-lg-2">
 
-                                        <label for="series">Série:</label>
+                                    <label for="series">Série:</label>
 
-                                        <select id="series" name="series" class="form-control custom-select">
+                                    <select id="series" name="series" class="form-control custom-select">
 
-                                            <option value="<?= $this->view->classData[0]->seriesId ?>"><?= $this->view->classData[0]->series_acronym ?></option>
+                                        <option value="<?= $this->view->classData[0]->seriesId ?>"><?= $this->view->classData[0]->series_acronym ?></option>
 
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group col-lg-2">
-
-                                        <label for="ballot">Cédula:</label>
-
-                                        <select id="ballot" name="ballot" class="form-control custom-select">
-
-                                            <option value="<?= $this->view->classData[0]->ballotId ?>"><?= $this->view->classData[0]->ballot ?></option>
-
-                                            <?php foreach ($this->view->availableBallot as $key => $ballot) { ?>
-
-                                                <?php if ($this->view->classData[0]->ballotId != $ballot->option_value) { ?>
-
-                                                    <option value="<?= $ballot->option_value ?>"><?= $ballot->option_text ?></option>
-
-                                            <?php }
-                                            } ?>
-
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-
-                                        <label for="course">Curso:</label>
-
-                                        <select id="course" name="course" class="form-control custom-select">
-
-                                            <option value="<?= $this->view->classData[0]->courseId ?>"><?= $this->view->classData[0]->course ?></option>
-
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-
-                                        <label for="shift">Turno:</label>
-
-                                        <select id="shift" name="shift" class="form-control custom-select">
-
-                                            <option value="<?= $this->view->classData[0]->shiftId ?>"><?= $this->view->classData[0]->shift ?></option>
-
-                                            <?php foreach ($this->view->availableShift as $key => $shift) { ?>
-
-                                                <?php if ($this->view->classData[0]->shiftId != $shift->option_value) { ?>
-
-                                                    <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
-
-                                            <?php }
-                                            } ?>
-
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group col-lg-2">
-
-                                        <label for="classRoom">Sala:</label>
-
-                                        <select id="classRoom" name="classRoom" class="form-control custom-select" required>
-
-                                            <option value="<?= $this->view->classData[0]->classroomId ?>"><?= $this->view->classData[0]->classroom_number ?></option>
-
-                                            <?php foreach ($this->view->availableClassRoom as $key => $classRoom) { ?>
-
-                                                <?php if ($this->view->classData[0]->classroomId != $classRoom->option_value) { ?>
-
-                                                    <option value="<?= $classRoom->option_value ?>"><?= $classRoom->option_text ?></option>
-
-                                            <?php }
-                                            } ?>
-
-                                        </select>
-
-                                    </div>
+                                    </select>
 
                                 </div>
 
-                                <input type="hidden" name="schoolTerm" value="<?= $this->view->classData[0]->school_term_id ?>">
-                                <input type="hidden" name="classId" id="classId" value="<?= $this->view->classData[0]->class_id ?>">
+                                <div class="form-group col-lg-2">
 
-                                <div class="form-row col-lg-12 mb-3 ">
+                                    <label for="ballot">Cédula:</label>
 
-                                    <div class="form-group ml-auto col-lg-3">
-                                        <label for="">&nbsp;</label>
-                                        <a id="buttonUpdateClass" class="btn btn-success w-100 text-center disabled" href="#">Atualizar dados</a>
+                                    <select id="ballot" name="ballot" class="form-control custom-select">
 
-                                    </div>
+                                        <option value="<?= $this->view->classData[0]->ballotId ?>"><?= $this->view->classData[0]->ballot ?></option>
+
+                                        <?php foreach ($this->view->availableBallot as $key => $ballot) { ?>
+
+                                            <?php if ($this->view->classData[0]->ballotId != $ballot->option_value) { ?>
+
+                                                <option value="<?= $ballot->option_value ?>"><?= $ballot->option_text ?></option>
+
+                                        <?php }
+                                        } ?>
+
+                                    </select>
 
                                 </div>
 
-                            </form>
+                                <div class="form-group col-lg-3">
+
+                                    <label for="course">Curso:</label>
+
+                                    <select id="course" name="course" class="form-control custom-select">
+
+                                        <option value="<?= $this->view->classData[0]->courseId ?>"><?= $this->view->classData[0]->course ?></option>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group col-lg-3">
+
+                                    <label for="shift">Turno:</label>
+
+                                    <select id="shift" name="shift" class="form-control custom-select">
+
+                                        <option value="<?= $this->view->classData[0]->shiftId ?>"><?= $this->view->classData[0]->shift ?></option>
+
+                                        <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+
+                                            <?php if ($this->view->classData[0]->shiftId != $shift->option_value) { ?>
+
+                                                <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+
+                                        <?php }
+                                        } ?>
+
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group col-lg-2">
+
+                                    <label for="classRoom">Sala:</label>
+
+                                    <select id="classRoom" name="classRoom" class="form-control custom-select" required>
+
+                                        <option value="<?= $this->view->classData[0]->classroomId ?>"><?= $this->view->classData[0]->classroom_number ?></option>
+
+                                        <?php foreach ($this->view->availableClassRoom as $key => $classRoom) { ?>
+
+                                            <?php if ($this->view->classData[0]->classroomId != $classRoom->option_value) { ?>
+
+                                                <option value="<?= $classRoom->option_value ?>"><?= $classRoom->option_text ?></option>
+
+                                        <?php }
+                                        } ?>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+                            <input type="hidden" name="schoolTerm" value="<?= $this->view->classData[0]->school_term_id ?>">
+                            <input type="hidden" name="classId" id="classId" value="<?= $this->view->classData[0]->class_id ?>">
+
+                        </form>
+
+                        </div>
 
                     </div>
 
@@ -697,130 +731,134 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="class-student-average" data-parent="#main-accordion-class">
 
-                    <div class="row">
+                    <div class="col-lg-12 mb-3">
 
-                        <div class="col-lg-12">
-                            <h5>Médias dos alunos</h5>
-                        </div>
+                        <div class="row">
 
-                        <div class='col-lg-12'>
+                            <div class="col-lg-12 p-0">
+                                <h5 class='mt-2'>Médias dos alunos</h5>
+                            </div>
 
-                            <form id="studentsAverageSeek" class="text-dark  mt-3 accordion" action="">
+                            <div class='col-lg-12 p-0'>
 
-                                <div class="form-row mt-3">
+                                <form id="studentsAverageSeek" class="text-dark  mt-3 accordion" action="">
 
-                                    <div class="form-group col-lg-4">
-                                        <label for="">Nome do aluno:</label>
-                                        <input name="name" id="name" type="text" placeholder="Nome do aluno" class="form-control">
-                                    </div>
+                                    <div class="form-row mt-3">
 
-                                    <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
-
-                                    
-
-                                    <div class="form-group col-lg-3">
-
-                                        <label for="">Disciplina:</label>
-
-                                        <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
-
-                                            <option value="0">Todas</option>
-
-                                            <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
-
-                                                <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
-
-                                            <?php } ?>
-
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-                                        <label for="">Unidade:</label>
-
-                                        <select id="unity" class="form-control custom-select" name="unity" required>
-
-                                            <option value="0">Todas</option>
-
-                                            <?php foreach ($this->view->unity as $key => $unity) { ?>
-
-                                                <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
-
-                                            <?php } ?>
-
-                                        </select>
-
-                                    </div>
-
-                                    <input type="hidden" name="classId" value="<?= $this->view->classData[0]->class_id ?>">
-                                    <input type="hidden" id="examDescription" name="examDescription" value="">
-
-                                    <div class="form-group col-lg-2">
-                                        <label for="">&nbsp;</label>
-
-                                        <div>
-                                            <a class="btn btn-light w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-filter"></i></a>
+                                        <div class="form-group col-lg-4">
+                                            <label for="">Nome do aluno:</label>
+                                            <input name="name" id="name" type="text" placeholder="Nome do aluno" class="form-control">
                                         </div>
-                                    </div>
 
-                                </div>
+                                        <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
 
-                                <div id="activate-advanced-search-accordion" class="collapse" data-parent="#seekNoteExamClass">
 
-                                    <div class="form-row">
 
                                         <div class="form-group col-lg-3">
 
-                                            <label for="">Ordenar por:</label>
+                                            <label for="">Disciplina:</label>
 
-                                            <select id="orderBy" class="form-control custom-select" name="orderBy" required>
+                                            <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
 
-                                                <option value="highestGrade">Maior média</option>
-                                                <option value="lowestGrade">Menor média</option>
-                                                <option value="alphabetical">Ordem Alfabética</option>
+                                                <option value="0">Todas</option>
+
+                                                <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+
+                                                    <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                <?php } ?>
 
                                             </select>
 
                                         </div>
 
                                         <div class="form-group col-lg-3">
+                                            <label for="">Unidade:</label>
 
-                                            <label for="">Status da média:</label>
+                                            <select id="unity" class="form-control custom-select" name="unity" required>
 
-                                            <select id="noteStatus" class="form-control custom-select" name="noteStatus" required>
+                                                <option value="0">Todas</option>
 
-                                                <option value="0">Todos os status</option>
-                                                <option value="Aprovado">Aprovado</option>
-                                                <option value="Reprovado">Reprovado</option>
+                                                <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                    <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                <?php } ?>
 
                                             </select>
 
                                         </div>
 
-                                        <div class="form-group col-lg-3">
+                                        <input type="hidden" name="classId" value="<?= $this->view->classData[0]->class_id ?>">
+                                        <input type="hidden" id="examDescription" name="examDescription" value="">
 
-                                            <label for="">Tipo da média:</label>
+                                        <div class="form-group col-lg-2">
+                                            <label for="">&nbsp;</label>
 
-                                            <select id="averageType" class="form-control custom-select" name="averageType" required>
+                                            <div>
+                                                <a class="btn btn-light w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-filter"></i></a>
+                                            </div>
+                                        </div>
 
-                                                <option value="averageUnity">Média unidade</option>
-                                                <option value="averageEnd">Média final</option>
+                                    </div>
 
-                                            </select>
+                                    <div id="activate-advanced-search-accordion" class="collapse" data-parent="#seekNoteExamClass">
+
+                                        <div class="form-row">
+
+                                            <div class="form-group col-lg-3">
+
+                                                <label for="">Ordenar por:</label>
+
+                                                <select id="orderBy" class="form-control custom-select" name="orderBy" required>
+
+                                                    <option value="highestGrade">Maior média</option>
+                                                    <option value="lowestGrade">Menor média</option>
+                                                    <option value="alphabetical">Ordem Alfabética</option>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+
+                                                <label for="">Status da média:</label>
+
+                                                <select id="noteStatus" class="form-control custom-select" name="noteStatus" required>
+
+                                                    <option value="0">Todos os status</option>
+                                                    <option value="Aprovado">Aprovado</option>
+                                                    <option value="Reprovado">Reprovado</option>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+
+                                                <label for="">Tipo da média:</label>
+
+                                                <select id="averageType" class="form-control custom-select" name="averageType" required>
+
+                                                    <option value="averageUnity">Média unidade</option>
+                                                    <option value="averageEnd">Média final</option>
+
+                                                </select>
+
+                                            </div>
 
                                         </div>
 
                                     </div>
 
-                                </div>
+                                </form>
 
-                            </form>
+                            </div>
 
-                        </div>
+                            <div containerStudentsAverage class="col-lg-12 table-responsive p-0">
 
-                        <div containerStudentsAverage class="col-lg-12 table-responsive">
-                            
+                            </div>
+
                         </div>
 
                     </div>

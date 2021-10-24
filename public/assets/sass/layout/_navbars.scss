@@ -4,6 +4,7 @@
     transition: 0.7s;
     position: fixed;
     z-index: 3;
+    padding: 15px;
 
     .navbar-brand {
         font-weight: bold;
@@ -24,8 +25,8 @@
 
     img {
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         object-position: top;
         object-fit: cover;
         cursor: pointer;

@@ -131,7 +131,7 @@ array_multisort($order, $orderBy, $studentsEnd);
 
 <hr class="">
 
-<table class="table table-borderless col-lg-12 table-striped" id="note-table-class">
+<table class="table table-borderless col-lg-12 table-striped p-0" id="note-table-class">
     <thead>
         <tr>
             <th scope="col" colspan="2">Nome do aluno</th>
