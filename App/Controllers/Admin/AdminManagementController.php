@@ -176,7 +176,7 @@ class AdminManagementController extends Action
 
         $Course->__set('courseName', $_POST['courseName']);
         $Course->__set('acronym', $_POST['acronym']);
-        $Course->__set('courseMode', $_POST['courseMode']);
+        $Course->__set('fk_id_modality', $_POST['courseMode']);
 
         $Course->insert();
     }
@@ -199,7 +199,7 @@ class AdminManagementController extends Action
         $Course->__set('courseId', $_POST['courseId']);
         $Course->__set('courseName', $_POST['courseName']);
         $Course->__set('acronym', $_POST['acronym']);
-        $Course->__set('courseMode', $_POST['courseMode']);
+        $Course->__set('fk_id_modality', $_POST['courseMode']);
 
         $Course->update();
     }
@@ -235,7 +235,7 @@ class AdminManagementController extends Action
 
         $Discipline = Container::getModel('GeneralManagement\\Discipline');
 
-        $this->view->listDiscipline = $Discipline->list();
+        $this->view->listDiscipline = $Discipline->readAll();
         $this->view->listModality = $Discipline->disciplineModality();
 
         $this->render('management/pages/disciplineManagement', 'AdminLayout');
@@ -258,7 +258,7 @@ class AdminManagementController extends Action
     public function disciplineList()
     {
         $Discipline = Container::getModel('GeneralManagement\\Discipline');
-        $this->view->listDiscipline = $Discipline->list();
+        $this->view->listDiscipline = $Discipline->readAll();
         $this->render('management/components/disciplinesList', 'SimpleLayout');
     }
 
@@ -298,7 +298,7 @@ class AdminManagementController extends Action
 
         $Discipline->__set('disciplineId', $_GET['id']);
 
-        $this->view->discipline = $Discipline->list();
+        $this->view->discipline = $Discipline->readDisciplineById();
         $this->view->listDisciplineModality = $Discipline->disciplineModality();
 
         $this->render('management/components/disciplineModal', 'SimpleLayout');
@@ -332,7 +332,7 @@ class AdminManagementController extends Action
         $this->view->availableSeries = $Series->listForSelect();
         $this->view->availableCourse = $Course->listForSelect();
         $this->view->availableClassRoom = $ClassRoom->listForSelect();
-        $this->view->listClass = $Classe->list();
+        $this->view->listClass = $Classe->readAll();
         $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
 
         $this->render('management/pages/classeManagement', 'AdminLayout');
@@ -389,7 +389,7 @@ class AdminManagementController extends Action
     public function classList()
     {
         $Classe = Container::getModel('GeneralManagement\\Classe');
-        $this->view->listClass = $Classe->list();
+        $this->view->listClass = $Classe->readAll();
         $this->render('management/components/classList', 'SimpleLayout');
     }
 
@@ -427,20 +427,20 @@ class AdminManagementController extends Action
         
         if (!isset($_SESSION)) session_start();
 
-        $ClassDiscipline->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
-        $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $Classe->__set('classId', !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
-        $Student->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);     
+        if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
-        $this->view->listStudent = $Student->list('<> 0');
+        $ClassDiscipline->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
+        $Classe->__set('classId', !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);   
+
+        $this->view->listStudent = $Classe->readStudentsLinkedClass('<> 0');
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
-        $this->view->unity = $Unity->unitys();
-        $this->view->classData = $Classe->list('<> 0');
+        $this->view->unity = $Unity->readOpenUnits();
+        $this->view->classData = $Classe->readById();
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
-        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
+        $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->teacherLinkedDisciplines() :  $ClassDiscipline->classLinkedSubjects();
         $this->view->availableShift = $Shift->listForSelect();
         $this->view->availableBallot = $Ballot->listForSelect();
         $this->view->availableSeries = $Series->listForSelect();
@@ -452,32 +452,32 @@ class AdminManagementController extends Action
     }
 
 
-    public function studentsAverage(){
+    public function studentsAverage()
+    {
 
-        $Note = Container::getModel('TeacherStudent\\Note');
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-        $Student = Container::getModel('Student\\Student');
         $Unity = Container::getModel('GeneralManagement\\Unity');
         $Exam = Container::getModel('TeacherStudent\\Exam');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
+        $Teacher = Container::getModel('Teacher\\Teacher');
 
         if (!isset($_SESSION)) session_start();
 
-        $Note->__set('fk_id_class', $_GET['classId']);
-        $Note->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        if(isset($_SESSION['Teacher']['id'])){       
+            $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+            $ClassDiscipline->__Set("fk_id_teacher", $_SESSION['Teacher']['id']);
+        }
+
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
-        $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $Student->__set("fk_id_class", $_GET['classId']);
+        $Classe->__set("classId", $_GET['classId']);
 
-        $Exam->__set('fk_id_class', $_GET['classId']);
-        $Exam->__set('examDescription', '');
-
-        $this->view->listNote = $Note->list();
-        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
-        $this->view->listStudent = $Student->list('<> 0');
-        $this->view->unity = $Unity->unitys();
-        $this->view->orderBy = 'alphabetical';
-        $this->view->listExam = $Exam->seek();
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Teacher->readNoteTeacherId($Teacher) : $Classe->readNoteByClassId() ;
+        $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects();
+        $this->view->listStudent = $Classe->readStudentsLinkedClass();
+        $this->view->unity = $Unity->readOpenUnits();
+        $this->view->listExam = $Classe->readExamByIdClass();
         $this->view->noteStatus = 0;
+        $this->view->orderBy = 'alphabetical';
         $this->view->averageType = 'averageUnity';
 
         $this->render('student/components/studentsAverage', 'SimpleLayout');
@@ -493,25 +493,24 @@ class AdminManagementController extends Action
         $Unity = Container::getModel('GeneralManagement\\Unity');
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $Exam = Container::getModel('TeacherStudent\\Exam');
+        $Teacher = Container::getModel('Teacher\\Teacher');
 
         $Student->__set('name', $_GET['name']);
-        $Classe->__set('fk_id_course', 0);
-        $Classe->__set('fk_id_series', 0);
-        $Classe->__set('fk_id_shift', 0);
-        $Student->__set("fk_id_class", $_GET['classId']);
-        $Student->__set('fk_id_sex', 0);
 
         $Exam->__set('fk_id_discipline_class', $_GET['disciplineClass']);
         $Exam->__set('fk_id_exam_unity', $_GET['unity']);
-        $Exam->__set('fk_id_class', $_GET['classId']);
         $Exam->__set('examDescription', '');
 
         if (!isset($_SESSION)) session_start();
 
-        $Note->__set('fk_id_class', $_GET['classId']);
+        $Classe->__set('classId', $_GET['classId']);
+
+        $Teacher->__set('teacherId', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
         $Note->__set("fk_id_exam_unity", $_GET['unity']);
         $Note->__set("fk_id_discipline_class", $_GET['disciplineClass']);
         $Note->__set("examDescription", $_GET['examDescription']);
+        $Note->__set("fk_id_student_enrollment", 0);
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
         $ClassDiscipline->__set("classDisciplineId", $_GET['disciplineClass']);
@@ -519,12 +518,12 @@ class AdminManagementController extends Action
 
         $Unity->__set("unityId", $_GET['unity']);
 
-        $this->view->listNote = $Note->seek();
-        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
-        $this->view->listStudent = $Student->seek($Classe);
-        $this->view->unity = $Unity->specificUnity();
+        $this->view->listNote = $Note->seek($Classe, $Teacher);
+        $this->view->linkedDisciplines = $ClassDiscipline->searchClassSubjects();
+        $this->view->listStudent = $Student->seekStudentName($Classe);
+        $this->view->unity = $Unity->searchSpecificUniy();
+        $this->view->listExam = $Exam->seek($Classe, $Teacher);
         $this->view->orderBy = $_GET['orderBy'];
-        $this->view->listExam = $Exam->seek();
         $this->view->noteStatus = $_GET['noteStatus'];
         $this->view->averageType = $_GET['averageType'];
 
@@ -557,10 +556,10 @@ class AdminManagementController extends Action
 
         $Classe->__set('fk_id_course', $_GET['course']);
         $Classe->__set('fk_id_series', $_GET['series'] + 1);
-        $Student->__set('fk_id_class', $_GET['classId']);
+        $Classe->__set('classId', $_GET['classId']);
 
         $this->view->studentsAlreadyRegisteredNextYear = $Classe->studentsAlreadyRegisteredNextYear();
-        $this->view->listStudent = $Student->list();
+        $this->view->listStudent = $Classe->readStudentsLinkedClass();
 
         $this->render('management/components/listStudentsAlreadyEnrolled', 'SimpleLayout');
     }
@@ -642,9 +641,10 @@ class AdminManagementController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
-        $ClassDiscipline->__Set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
-        echo json_encode($ClassDiscipline->disciplinesClassAlreadyAdded());
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+
+        echo json_encode(isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects());
     }
 }

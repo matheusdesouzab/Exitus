@@ -4,12 +4,13 @@ $students = [];
 $clasSubjects = [];
 $exams = [];
 
+
 foreach ($this->view->listStudent as $key => $value) {
 
     $students[$value->student_id]['name'] = $value->student_name;
     $students[$value->student_id]['profilePhoto'] = $value->profilePhoto;
 
-    foreach ($this->view->disciplinesClassAlreadyAdded as $y => $discipline) {
+    foreach ($this->view->linkedDisciplines as $y => $discipline) {
 
         $students[$value->student_id]['discipline'][$discipline->option_value] = $discipline->option_text;
         $exams[$discipline->option_value] = array();
@@ -25,10 +26,9 @@ foreach ($this->view->listStudent as $key => $value) {
 }
 
 
-foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) {
+foreach ($this->view->linkedDisciplines as $key => $discipline) {
     $clasSubjects[$discipline->option_value] = $discipline->option_value;
 }
-
 
 foreach ($this->view->listNote as $key => $note) {
 
@@ -166,6 +166,11 @@ array_multisort($order, $orderBy, $studentsEnd);
 
         <?php }
         } ?>
+
+        <tr class="mt-4">
+            <td class="font-weight-bold text-right" colspan="7" style="pointer-events:none"><?= count($studentsEnd) ?> médias listadas <i class="fas fa-history ml-2"></i></td>
+        </tr>
+
 
     </tbody>
 

@@ -7,7 +7,7 @@ use MF\Model\Model;
 class Unity extends Model
 {
 
-    private $unityId = 0;
+    private $unityId;
 
 
     public function __get($att)
@@ -26,8 +26,7 @@ class Unity extends Model
      * 
      * @return void
      */
-
-    public function unitys()
+    public function readOpenUnits()
     {
 
         $query = "SET @controle_unidade = (SELECT configuracao.fk_id_controle_unidade FROM configuracao)";
@@ -51,7 +50,12 @@ class Unity extends Model
     }
 
 
-    public function specificUnity()
+    /**
+     * Retorna uma única unidade pelo id
+     * 
+     * @return void
+     */
+    public function searchSpecificUniy()
     {
 
         $query =
@@ -62,9 +66,9 @@ class Unity extends Model
             
             WHERE 
             
-            CASE WHEN :unityId = 0 THEN unidade.id_unidade <> 0 ELSE unidade.id_unidade = :unityId END"
+            CASE WHEN :unityId = 0 THEN unidade.id_unidade <> 0 ELSE unidade.id_unidade = :unityId END
             
-        ;
+        ";
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':unityId', $this->__get('unityId'));

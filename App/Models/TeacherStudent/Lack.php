@@ -7,12 +7,11 @@ use MF\Model\Model;
 class Lack extends Model
 {
 
-    private $lackId = 0;
+    private $lackId;
     private $totalLack;
     private $fk_id_discipline_class;
     private $fk_id_unity;
-    private $fk_id_enrollment = 0;
-    private $fk_id_teacher = 0;
+    private $fk_id_enrollment;
 
 
     public function __get($att)
@@ -60,11 +59,9 @@ class Lack extends Model
     /**
      * Retorna todas as faltas de um aluno
      * 
-     * @param int $currentSchoolTerm
-     * 
      * @return array
      */
-    public function list($currentSchoolTerm = 0)
+    public function dataGeneral()
     {
 
         $query =
@@ -95,35 +92,167 @@ class Lack extends Model
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
 
-            WHERE 
-            
-            CASE WHEN :fk_id_enrollment >= 1 THEN falta_aluno.fk_id_matricula_falta = :fk_id_enrollment ELSE falta_aluno.fk_id_matricula_falta <> 0 END
-
-            AND
-
-            CASE WHEN :lackId >= 1 THEN falta_aluno.id_falta = :lackId ELSE falta_aluno.id_falta <> 0 END
-
-            AND 
-            
-            CASE WHEN :fk_id_teacher >= 1 THEN turma_disciplina.fk_id_professor = :fk_id_teacher ELSE turma_disciplina.fk_id_professor <> 0 END
-
-            AND
-
-            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+            WHERE falta_aluno.id_falta = :lackId
 
             ORDER BY falta_aluno.total_faltas DESC
         
         ";
 
         $stmt = $this->db->prepare($query);
-
-        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
         $stmt->bindValue(':lackId', $this->__get('lackId'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+     /**
+     * Retorna todas as faltas de um aluno pelo id
+     * 
+     * @return array
+     */
+    public function readByIdStudent()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            falta_aluno.id_falta AS lackId , 
+            falta_aluno.total_faltas AS totalLack , 
+            disciplina.nome_disciplina AS disciplineName , 
+            unidade.unidade AS unity,
+            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+            FROM falta_aluno
+            
+            INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina)         
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)         
+            LEFT JOIN unidade ON(falta_aluno.fk_id_unidade_falta = unidade.id_unidade)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+
+            WHERE falta_aluno.fk_id_matricula_falta = :fk_id_enrollment
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
+            ORDER BY falta_aluno.total_faltas DESC
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+     /**
+     * Retorna todas as faltas de um aluno pelo id do docente e aluno
+     * 
+     * @return array
+     */
+    public function readByIdTeacher($teacher)
+    {
+
+        $query =
+
+            "SELECT 
+            
+            falta_aluno.id_falta AS lackId , 
+            falta_aluno.total_faltas AS totalLack , 
+            disciplina.nome_disciplina AS disciplineName , 
+            unidade.unidade AS unity,
+            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+            FROM falta_aluno
+            
+            INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina)         
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)         
+            LEFT JOIN unidade ON(falta_aluno.fk_id_unidade_falta = unidade.id_unidade)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+           
+            WHERE turma_disciplina.fk_id_professor = :fk_id_teacher AND falta_aluno.fk_id_matricula_falta = :fk_id_enrollment
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+   
+            ORDER BY falta_aluno.total_faltas DESC
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+     /**
+     * Retorna todas as faltas dos alunos
+     * 
+     * @param int $currentSchoolTerm
+     * 
+     * @return array
+     */
+    public function readAll($currentSchoolTerm = 0)
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+            
+            falta_aluno.id_falta AS lackId , 
+            falta_aluno.total_faltas AS totalLack , 
+            disciplina.nome_disciplina AS disciplineName , 
+            unidade.unidade AS unity,
+            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+            FROM falta_aluno
+            
+            INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina)         
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)         
+            LEFT JOIN unidade ON(falta_aluno.fk_id_unidade_falta = unidade.id_unidade)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+
+            WHERE 
+                      
+            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+
+            ORDER BY falta_aluno.total_faltas DESC"
+        
+        );
     }
 
 

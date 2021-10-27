@@ -7,9 +7,7 @@ use App\Models\People\People;
 class Teacher extends People
 {
 
-    private $teacherId = 0;
-    private $fk_id_class;
-
+    private $teacherId;
 
     public function __get($att)
     {
@@ -70,7 +68,7 @@ class Teacher extends People
      * 
      * @return array
      */
-    public function list()
+    public function dataGeneral()
     {
 
         $query =
@@ -128,7 +126,7 @@ class Teacher extends People
             LEFT JOIN pcd ON(pcd.id_pcd = professor.fk_id_pcd_professor) 
             INNER JOIN hierarquia_funcao ON(professor.fk_id_professor_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao)
 
-            WHERE CASE WHEN :teacherId = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :teacherId END
+            WHERE professor.id_professor = :teacherId 
 
         ";
 
@@ -137,6 +135,47 @@ class Teacher extends People
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todos os docentes cadastrados
+     * 
+     * @return array
+     */
+    public function readAll()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT DISTINCT
+
+            (SELECT COUNT(turma_disciplina.id_turma_disciplina) 
+
+            FROM turma_disciplina           
+                
+            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma) 
+            LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)         
+            LEFT JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
+
+            WHERE turma_disciplina.fk_id_professor = professor.id_professor 
+            
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS total_discipline ,
+                                  
+            professor.id_professor AS teacher_id , 
+            professor.nome_professor AS teacher_name , 
+            professor.cpf_professor AS teacher_cpf , 
+            sexo.id_sexo AS teacher_sex_id , 
+            sexo.sexo AS teacher_sex ,  
+            professor.foto_perfil_professor AS profilePhoto 
+        
+            FROM professor 
+            
+            LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)
+            LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)"
+
+        );
     }
 
 
@@ -447,4 +486,286 @@ class Teacher extends People
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
+
+
+    /**
+     * Retorna as notas das avaliações vinculadas a um docente
+     * 
+     * @return array
+     */
+    public function readNoteByIdTeacher()
+    {
+
+        $query =
+
+            "SELECT 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name , 
+            disciplina.id_disciplina AS discipline_id, 
+            avaliacoes.valor_avaliacao AS exam_value , 
+            nota_avaliacao.valor_nota AS note_value ,
+            unidade.unidade AS unity ,
+            unidade.id_unidade AS unityId ,
+            nota_avaliacao.id_nota AS note_id ,
+            avaliacoes.id_avaliacao AS exam_id ,
+            avaliacoes.data_realizada AS realize_date ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo , 
+            matricula.id_matricula AS enrollment_id ,
+            aluno.nome_aluno AS student_name ,
+            aluno.foto_perfil_aluno AS profilePhoto  ,
+            aluno.id_aluno AS student_id ,
+            nota_avaliacao.data_postagem AS post_date ,
+            turma_disciplina.id_turma_disciplina AS class_discipline_id
+      
+            FROM avaliacoes
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN nota_avaliacao ON(avaliacoes.id_avaliacao = nota_avaliacao.fk_id_avaliacao)
+            INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+            
+            WHERE turma_disciplina.fk_id_professor = :teacherId
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
+            ORDER BY nota_avaliacao.valor_nota DESC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todas as faltas de um aluno pelo id do docente e aluno
+     * 
+     * @return array
+     */
+    public function readLackByIdTeacher()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            falta_aluno.id_falta AS lackId , 
+            falta_aluno.total_faltas AS totalLack , 
+            disciplina.nome_disciplina AS disciplineName , 
+            unidade.unidade AS unity,
+            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+            FROM falta_aluno
+            
+            INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            LEFT JOIN turma_disciplina ON(falta_aluno.fk_id_turma_disciplina_falta = turma_disciplina.id_turma_disciplina)         
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)         
+            LEFT JOIN unidade ON(falta_aluno.fk_id_unidade_falta = unidade.id_unidade)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+           
+            WHERE turma_disciplina.fk_id_professor = :teacherId 
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+   
+            ORDER BY falta_aluno.total_faltas DESC
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todas as observações de um aluno
+     * 
+     * @return array
+     */
+    public function readObservationByIdTeacher()
+    {
+
+        $query =
+
+            "SELECT  
+            
+            observacao_aluno.id_observacao AS observationId ,
+            observacao_aluno.descricao AS observationDescription ,
+            observacao_aluno.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            unidade.unidade AS unity ,
+            disciplina.nome_disciplina AS disciplineName ,
+            observacao_aluno.fk_id_matricula_observacao AS enrollmentId ,
+            serie.sigla AS series_acronym , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,  
+            periodo_disponivel.ano_letivo AS school_term ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+
+            FROM observacao_aluno
+
+            INNER JOIN turma_disciplina ON(observacao_aluno.fk_id_turma_disciplina_observacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN unidade ON(observacao_aluno.fk_id_unidade = unidade.id_unidade)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN matricula ON(observacao_aluno.fk_id_matricula_observacao = matricula.id_matricula) 
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+
+            WHERE professor.id_professor = :fk_id_teacher
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
+            ORDER BY observacao_aluno.data_postagem DESC
+   
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_teacher', $this->__get('teacherId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+    /**
+     * Retorna as avaliações que foram adicionadas em uma turma
+     * 
+     * @return array
+     */
+    public function readExamByIdTeacher()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            avaliacoes.id_avaliacao AS exam_id, 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name, 
+            avaliacoes.data_postagem AS post_date, 
+            avaliacoes.data_realizada AS realize_date, 
+            avaliacoes.valor_avaliacao AS exam_value, 
+            unidade.unidade AS unity,
+            avaliacoes.fk_id_unidade_avaliacao AS fk_id_exam_unity,
+            turma_disciplina.id_turma_disciplina AS fk_id_discipline_class ,
+            professor.nome_professor AS teacher_name ,
+            turma.id_turma AS class_id ,
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,
+            professor.foto_perfil_professor AS profilePhoto
+            
+            FROM avaliacoes 
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
+            
+            WHERE professor.id_professor = :teacherId
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
+            ORDER BY avaliacoes.id_avaliacao ASC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todas as médias finais de um aluno
+     * 
+     * @param int $currentSchoolTerm;
+     * 
+     * @return array
+     */
+    public function readByIdTeacher($currentSchoolTerm = 0)
+    {
+
+        $query =
+
+            "SELECT 
+            media_disciplina.id_media_disciplina AS disciplineAvarageId,
+            disciplina.nome_disciplina AS disciplineName,
+            media_disciplina.nota_valor AS average,
+            legenda.legenda AS subtitle ,
+            legenda.id_legenda AS subtitle_id ,
+            turma_disciplina.id_turma_disciplina AS disciplineClass ,
+            matricula.id_matricula AS enrollmentId ,
+            media_disciplina.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+            FROM media_disciplina
+            LEFT JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            LEFT JOIN legenda ON(media_disciplina.fk_id_legenda = legenda.id_legenda)
+            LEFT JOIN matricula ON(media_disciplina.fk_id_matricula_media = matricula.id_matricula)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+        
+            WHERE turma_disciplina.fk_id_professor = :fk_id_teacher 
+
+            AND
+
+            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_teacher', $this->__get('teacherId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
 }

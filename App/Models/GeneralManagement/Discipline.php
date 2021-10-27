@@ -7,7 +7,7 @@ use MF\Model\Model;
 class Discipline extends Model
 {
 
-    private $disciplineId = 0;
+    private $disciplineId;
     private $disciplineName;
     private $acronym;
     private $fk_id_modality;
@@ -60,7 +60,33 @@ class Discipline extends Model
      * 
      * @return array
      */
-    public function list()
+    public function readAll()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+            
+            disciplina.id_disciplina AS discipline_id , 
+            disciplina.nome_disciplina AS discipline_name , 
+            modalidade_disciplina.modalidade_disciplina AS discipline_modality , 
+            disciplina.sigla_disciplina AS acronym ,
+            modalidade_disciplina.id_modalidade_disciplina AS modality_id
+            
+            FROM disciplina 
+            
+            INNER JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina)"
+
+        );
+    }
+
+
+    /**
+     * Retorna uma única disciplina pelo id
+     * 
+     * @return array
+     */
+    public function readDisciplineById()
     {
 
         $query =
@@ -76,11 +102,9 @@ class Discipline extends Model
             FROM disciplina 
             
             INNER JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina)
-
             WHERE 
             
-            CASE WHEN :disciplineId = 0 THEN disciplina.id_disciplina <> 0 ELSE disciplina.id_disciplina = :disciplineId END
-
+            disciplina.id_disciplina = :disciplineId 
         ";
 
         $stmt = $this->db->prepare($query);
@@ -168,11 +192,7 @@ class Discipline extends Model
             
             AND
 
-            CASE WHEN :fk_id_modality = 0 THEN disciplina.fk_id_modalidade_disciplina <> :fk_id_modality
-
-            ELSE disciplina.fk_id_modalidade_disciplina = :fk_id_modality
-            
-            END
+            CASE WHEN :fk_id_modality = 0 THEN disciplina.fk_id_modalidade_disciplina <> :fk_id_modality ELSE disciplina.fk_id_modalidade_disciplina = :fk_id_modality END
         
         ";
 

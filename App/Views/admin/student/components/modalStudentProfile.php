@@ -460,7 +460,7 @@
 
                                                     <option value="0">Todas</option>
 
-                                                    <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+                                                    <?php foreach ($this->view->linkedDisciplines as $key => $discipline) { ?>
 
                                                         <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
 
@@ -602,7 +602,7 @@
 
                                                     <select id="disciplineClass" class="form-control custom-select" name="disciplineClass">
 
-                                                        <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+                                                        <?php foreach ($this->view->linkedDisciplines as $key => $discipline) { ?>
 
                                                             <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
 
@@ -715,7 +715,7 @@
 
                                                     <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
 
-                                                        <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+                                                        <?php foreach ($this->view->linkedDisciplines as $key => $discipline) { ?>
 
                                                             <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
 
@@ -812,7 +812,7 @@
 
                                                     <option value="0">Todas</option>
 
-                                                    <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+                                                    <?php foreach ($this->view->linkedDisciplines as $key => $discipline) { ?>
 
                                                         <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
 
@@ -898,7 +898,7 @@
 
                                                 <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
 
-                                                    <?php foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) { ?>
+                                                    <?php foreach ($this->view->linkedDisciplines as $key => $discipline) { ?>
 
                                                         <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
 

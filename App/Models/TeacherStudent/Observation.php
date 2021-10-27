@@ -11,8 +11,7 @@ class Observation extends Model
     private $sendDate;
     private $fk_id_discipline_class;
     private $fk_id_unity;
-    private $fk_id_enrollment = 0;
-    private $fk_id_teacher = 0;
+    private $fk_id_enrollment;
 
 
     public function __get($att)
@@ -64,7 +63,7 @@ class Observation extends Model
      * 
      * @return array
      */
-    public function list($currentSchoolTerm = 0)
+    public function readByIdStudent($currentSchoolTerm = 0)
     {
 
         $query =
@@ -104,11 +103,7 @@ class Observation extends Model
             INNER JOIN matricula ON(observacao_aluno.fk_id_matricula_observacao = matricula.id_matricula) 
             INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
 
-            WHERE CASE WHEN :fk_id_enrollment = 0 THEN observacao_aluno.fk_id_matricula_observacao <> 0 ELSE observacao_aluno.fk_id_matricula_observacao = :fk_id_enrollment END
-
-            AND
-
-            CASE WHEN :fk_id_teacher = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :fk_id_teacher END
+            WHERE observacao_aluno.fk_id_matricula_observacao = :fk_id_enrollment
 
             AND
 
@@ -119,13 +114,127 @@ class Observation extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todas as observações de um aluno
+     * 
+     * @return array
+     */
+    public function readByIdTeacher($teacher)
+    {
+
+        $query =
+
+            "SELECT  
+            
+            observacao_aluno.id_observacao AS observationId ,
+            observacao_aluno.descricao AS observationDescription ,
+            observacao_aluno.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            unidade.unidade AS unity ,
+            disciplina.nome_disciplina AS disciplineName ,
+            observacao_aluno.fk_id_matricula_observacao AS enrollmentId ,
+            serie.sigla AS series_acronym , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,  
+            periodo_disponivel.ano_letivo AS school_term ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+
+            FROM observacao_aluno
+
+            INNER JOIN turma_disciplina ON(observacao_aluno.fk_id_turma_disciplina_observacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN unidade ON(observacao_aluno.fk_id_unidade = unidade.id_unidade)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN matricula ON(observacao_aluno.fk_id_matricula_observacao = matricula.id_matricula) 
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+
+            WHERE professor.id_professor = :fk_id_teacher
+
+            AND observacao_aluno.fk_id_matricula_observacao = :fk_id_enrollment
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1     
+
+            ORDER BY observacao_aluno.data_postagem DESC
+   
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('teacherId'));
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todas as observações de um aluno
+     * 
+     * @return array
+     */
+    public function readAll()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT  
+            
+            observacao_aluno.id_observacao AS observationId ,
+            observacao_aluno.descricao AS observationDescription ,
+            observacao_aluno.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            unidade.unidade AS unity ,
+            disciplina.nome_disciplina AS disciplineName ,
+            observacao_aluno.fk_id_matricula_observacao AS enrollmentId ,
+            serie.sigla AS series_acronym , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,  
+            periodo_disponivel.ano_letivo AS school_term ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+
+            FROM observacao_aluno
+
+            INNER JOIN turma_disciplina ON(observacao_aluno.fk_id_turma_disciplina_observacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN unidade ON(observacao_aluno.fk_id_unidade = unidade.id_unidade)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN matricula ON(observacao_aluno.fk_id_matricula_observacao = matricula.id_matricula) 
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+
+            ORDER BY observacao_aluno.data_postagem DESC"
+
+        );
     }
 
 

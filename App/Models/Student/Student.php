@@ -7,11 +7,9 @@ use App\Models\People\People;
 class Student extends People
 {
 
-    private $studentId = 0;
+    private $studentId;
     private $fatherName;
     private $motherName;
-    private $fk_id_class = 0;
-    private $fk_id_enrollmentId = 0;
     private $fk_id_general_situation;
 
 
@@ -43,8 +41,9 @@ class Student extends People
 
             VALUES 
             
-                (:studentName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :motherName, :fatherName, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd,:fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, 1)"              
-        ;
+                (:studentName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :motherName, :fatherName, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd,:fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, 1)
+                
+        ";
 
         $stmt = $this->db->prepare($query);
 
@@ -121,16 +120,16 @@ class Student extends People
 
 
     /**
-     * Retornar todos os alunos cadastrados
+     * Retorna todos os alunos
      * 
      * @param string $scholTermSituation 
      * 
      * @return array
      */
-    public function list($scholTermSituation = '= 1')
+    public function readAll($scholTermSituation = '= 1')
     {
 
-        $query =
+        return $this->speedingUp(
 
             "SELECT 
             
@@ -166,36 +165,14 @@ class Student extends People
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
-            WHERE CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> 0 ELSE turma.id_turma = :fk_id_class END
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation "
 
-            AND
-
-            CASE WHEN :studentId = 0 THEN aluno.id_aluno <> 0 ELSE aluno.id_aluno = :studentId END       
-
-            AND 
-            
-            situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation
-
-            AND 
-
-            CASE WHEN :fk_id_enrollmentId = 0 THEN matricula.id_matricula <> 0 ELSE matricula.id_matricula = :fk_id_enrollmentId END
-            
-        ";
-
-        $stmt = $this->db->prepare($query);
-
-        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-        $stmt->bindValue(':studentId', $this->__get('studentId'));
-        $stmt->bindValue(':fk_id_enrollmentId', $this->__get('fk_id_enrollmentId'));
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        );
     }
 
 
     /**
-     * Retornar todos os dados referente ao perfil do aluno
+     * Retorna todos os dados de um aluno
      * 
      * @return array
      */
@@ -322,7 +299,7 @@ class Student extends People
 
             AND
 
-            CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> :fk_id_class ELSE turma.id_turma = :fk_id_class END
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1
 
             AND
 
@@ -337,12 +314,52 @@ class Student extends People
         $stmt->bindValue(':fk_id_course', $classe->__get('fk_id_course'));
         $stmt->bindValue(':fk_id_shift', $classe->__get('fk_id_shift'));
         $stmt->bindValue(':fk_id_series', $classe->__get('fk_id_series'));
-        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
 
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
+
+
+     /**
+     * Buscar alunos pelo nome e turma
+     * 
+     * @param object $classe
+     * 
+     * @return array
+     */
+    public function seekStudentName($classe)
+    {
+
+        $query =
+
+            "SELECT 
+            
+            aluno.id_aluno AS student_id , 
+            aluno.nome_aluno AS student_name , 
+            aluno.foto_perfil_aluno AS profilePhoto ,  
+            turma.id_turma AS class_id,
+            matricula.id_matricula AS enrollmentId
+           
+            FROM aluno 
+            
+            INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+
+            WHERE turma.id_turma = :fk_id_class AND aluno.nome_aluno LIKE :studentName 
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':studentName', "%" . $this->__get('name') . "%", \PDO::PARAM_STR);
+        $stmt->bindValue(':fk_id_class', $classe->__get('classId'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
 
 
     /**

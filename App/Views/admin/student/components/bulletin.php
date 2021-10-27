@@ -2,7 +2,7 @@
 
 $disciplineId = [];
 
-foreach ($this->view->disciplinesClassAlreadyAdded as $key => $discipline) {
+foreach ($this->view->linkedDisciplines as $key => $discipline) {
     if (!array_key_exists($discipline->option_value, $disciplineId)) {
         $disciplineId[$discipline->option_text] = array('disciplina' => $discipline->option_text);
     }

@@ -6,9 +6,9 @@ use MF\Model\Model;
 
 class ClassDiscipline extends Model
 {
-   
-    private $classDisciplineId = 0;
-    private $fk_id_teacher = 0;
+
+    private $classDisciplineId;
+    private $fk_id_teacher;
     private $fk_id_discipline;
     private $fk_id_class;
 
@@ -251,12 +251,12 @@ class ClassDiscipline extends Model
 
 
     /**
-     * Retorna todas as disciplinas vinculadas a turma
+     * Retorna todas as disciplinas vinculadas a uma turma
      * 
      * @return array
      */
 
-    public function disciplinesClassAlreadyAdded()
+    public function classLinkedSubjects()
     {
 
         $query =
@@ -270,7 +270,78 @@ class ClassDiscipline extends Model
             
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
             
-            WHERE turma_disciplina.fk_id_turma = :fk_id_class AND
+            WHERE turma_disciplina.fk_id_turma = :fk_id_class
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todas as disciplinas vinculadas a um professor
+     * 
+     * @return array
+     */
+
+    public function teacherLinkedDisciplines()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            turma_disciplina.id_turma_disciplina AS option_value , 
+            disciplina.nome_disciplina AS option_text 
+            
+            FROM turma_disciplina 
+            
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            
+            WHERE turma_disciplina.fk_id_professor = :fk_id_teacher 
+            
+            AND
+
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1;
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Buscar disciplina na turma
+     * 
+     * @return array
+     */
+    public function searchClassSubjects()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            turma_disciplina.id_turma_disciplina AS option_value , 
+            disciplina.nome_disciplina AS option_text 
+            
+            FROM turma_disciplina 
+            
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            
+            WHERE turma_disciplina.fk_id_turma = :fk_id_class 
+            
+            AND
 
             CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
 

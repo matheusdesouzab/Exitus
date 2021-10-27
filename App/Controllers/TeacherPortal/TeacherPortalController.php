@@ -65,20 +65,15 @@ class TeacherPortalController extends Action
         if (!isset($_SESSION)) session_start();
 
         $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
-        $Exam->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
-        $Note->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
-        $Lack->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
-        $DisciplineAverage->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
-        $Observation->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
 
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->SchoolTermActive = $SchoolTerm->active();
         $this->view->totalStudents = $Teacher->totalStudents();
-        $this->view->listExam = $Exam->list(1);
-        $this->view->listNote = $Note->list(1);
-        $this->view->listLack = $Lack->list(1);
-        $this->view->listObservation = $Observation->list(1);
-        $this->view->listDisciplineAverage = $DisciplineAverage->list(1);
+        $this->view->listExam = $Teacher->readExamByIdTeacher();
+        $this->view->listNote = $Teacher->readNoteByIdTeacher();
+        $this->view->listLack = $Teacher->readLackByIdTeacher();
+        $this->view->listObservation = $Teacher->readObservationByIdTeacher();
+        $this->view->listDisciplineAverage = $Teacher->readByIdTeacher();
 
         $this->render('home', 'TeacherPortalLayout', 'TeacherPortal');
     }
@@ -143,7 +138,7 @@ class TeacherPortalController extends Action
 
         $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
 
-        $this->view->Data = $Teacher->list();
+        $this->view->Data = $Teacher->dataGeneral();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->bloodType = $Teacher->availablebloodType();

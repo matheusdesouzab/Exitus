@@ -55,6 +55,7 @@ class StudentPortalController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Note = Container::getModel('TeacherStudent\\Note');
         $Observation = Container::getModel('TeacherStudent\\Observation');
         $Lack = Container::getModel('TeacherStudent\\Lack');
@@ -64,6 +65,7 @@ class StudentPortalController extends Action
         $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
 
         if (!isset($_SESSION)) session_start();
 
@@ -72,23 +74,22 @@ class StudentPortalController extends Action
         $Lack->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
         $DisciplineAverage->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
         $StudentRematrug->__set('fk_id_enrollment', $_SESSION['Student']['enrollmentId']);
-        $Student->__set('fk_id_enrollmentId', $_SESSION['Student']['enrollmentId']);
-        $Student->__set('fk_id_class', $_SESSION['Student']['classId']);
-        $Exam->__set("fk_id_class", $_SESSION['Student']['classId']);
+        $StudentEnrollment->__set('studentEnrollmentId', $_SESSION['Student']['enrollmentId']);
+        $Classe->__set('classId', $_SESSION['Student']['classId']);
         $ClassDiscipline->__set("fk_id_class", $_SESSION['Student']['classId']);
 
-        $this->view->listNote = $Note->list();
-        $this->view->listObservation = $Observation->list();
-        $this->view->lackList = $Lack->list();
-        $this->view->disciplineAverageList = $DisciplineAverage->list();
+        $this->view->listNote = $Note->readByIdStudent();
+        $this->view->listObservation = $Observation->readByIdStudent();
+        $this->view->lackList = $Lack->readByIdStudent();
+        $this->view->disciplineAverageList = $DisciplineAverage->readByIdStudent();
         $this->view->rematrugSituationList = $StudentRematrug->rematrugSituation();
         $this->view->checkForRegistration = $StudentRematrug->checkForRegistration();
         $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
         $this->view->schoolTermActive = $SchoolTerm->active();
-        $this->view->studentDataGeneral = $Student->list("<> 0");
-        $this->view->listExam = $Exam->list();
+        $this->view->studentDataGeneral = $StudentEnrollment->readById('<> 0');
+        $this->view->listExam = $Classe->readByIdClass();
         $Student->__set('fk_id_enrollmentId', 0);
-        $this->view->listStudent = $Student->list('<> 0');
+        $this->view->listStudent = $Classe->readStudentsLinkedClass();
         $this->view->typeStudentList = "class";
         $this->view->typeTeacherList = 'class';
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
@@ -123,7 +124,7 @@ class StudentPortalController extends Action
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->bloodType = $Student->availablebloodType();
-        $this->view->studentEnrollment = $Student->list("<> 0");
+        $this->view->studentEnrollment = $Student->readyById("<> 0");
 
         $this->render('pages/settings', 'SimpleLayout', 'studentPortal');
     }
@@ -133,13 +134,14 @@ class StudentPortalController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Classe = Container::getModel('GeneralManagement\\Classe');
 
         if (!isset($_SESSION)) session_start();
 
         $_SESSION['Student']['enrollmentId'] = $_POST['enrollmentId'];
-        $Student->__set('fk_id_enrollmentId',  $_SESSION['Student']['enrollmentId']);
-        $class = $Student->list('<> 0');
+        $StudentEnrollment->__set('studentEnrollmentId',  $_SESSION['Student']['enrollmentId']);
+        $class = $StudentEnrollment->readById('<> 0');
 
         $_SESSION['Student']['classId'] = $class[0]->class_id;
         $Classe->__set('classId', $class[0]->class_id);

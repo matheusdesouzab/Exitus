@@ -54,7 +54,7 @@ class Admin extends People
 
 
     /**
-     * Retorna os dados da conta de um administrador
+     * Retorna os dados do administrador
      * 
      * @return array
      */

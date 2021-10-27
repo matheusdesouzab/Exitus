@@ -10,7 +10,7 @@ class Course extends Model
     private $courseId;
     private $courseName;
     private $acronym;
-    private $courseMode;
+    private $fk_id_modality;
 
 
     public function __get($att)
@@ -33,13 +33,13 @@ class Course extends Model
     public function insert()
     {
 
-        $query = "INSERT INTO curso(nome_curso, sigla , fk_id_modalidade_curso) VALUES (:courseName, :acronym, :courseMode)";
+        $query = "INSERT INTO curso(nome_curso, sigla , fk_id_modalidade_curso) VALUES (:courseName, :acronym, :fk_id_modality)";
 
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(":courseName", $this->__get("courseName"));
         $stmt->bindValue(":acronym", $this->__get("acronym"));
-        $stmt->bindValue(":courseMode", $this->__get("courseMode"));
+        $stmt->bindValue(":fk_id_modality", $this->__get("fk_id_modality"));
 
         $stmt->execute();
     }
@@ -94,13 +94,13 @@ class Course extends Model
     public function update()
     {
 
-        $query = 
-        
+        $query =
+
             "UPDATE curso SET 
             
             nome_curso = :courseName , 
             sigla = :acronym , 
-            fk_id_modalidade_curso = :courseMode 
+            fk_id_modalidade_curso = :fk_id_modality 
             
             WHERE curso.id_curso = :courseId
         
@@ -111,7 +111,7 @@ class Course extends Model
         $stmt->bindValue(":courseName", $this->__get("courseName"));
         $stmt->bindValue(":acronym", $this->__get("acronym"));
         $stmt->bindValue(":courseId", $this->__get("courseId"));
-        $stmt->bindValue(":courseMode", $this->__get("courseMode"));
+        $stmt->bindValue(":fk_id_modality", $this->__get("fk_id_modality"));
 
         $stmt->execute();
     }

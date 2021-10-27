@@ -11,8 +11,7 @@ class DisciplineAverage extends Model
     private $average;
     private $fk_id_subtitle;
     private $fk_id_discipline_class;
-    private $fk_id_enrollment = 0;
-    private $fk_id_teacher = 0;
+    private $fk_id_enrollment;
 
 
     public function __get($att)
@@ -158,7 +157,7 @@ class DisciplineAverage extends Model
      * 
      * @return array
      */
-    public function list($currentSchoolTerm = 0)
+    public function readByIdStudent($currentSchoolTerm = 0)
     {
 
         $query =
@@ -190,11 +189,7 @@ class DisciplineAverage extends Model
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
         
-            WHERE CASE WHEN :fk_id_enrollment = 0 THEN matricula.id_matricula <> 0 ELSE matricula.id_matricula = :fk_id_enrollment END
-
-            AND
-
-            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
+            WHERE matricula.id_matricula = :fk_id_enrollment 
 
             AND
 
@@ -203,14 +198,110 @@ class DisciplineAverage extends Model
         ";
 
         $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todas as médias finais de um aluno
+     * 
+     * @param int $currentSchoolTerm;
+     * 
+     * @return array
+     */
+    public function readByIdTeacher($teacher , $currentSchoolTerm = 0)
+    {
+
+        $query =
+
+            "SELECT 
+            media_disciplina.id_media_disciplina AS disciplineAvarageId,
+            disciplina.nome_disciplina AS disciplineName,
+            media_disciplina.nota_valor AS average,
+            legenda.legenda AS subtitle ,
+            legenda.id_legenda AS subtitle_id ,
+            turma_disciplina.id_turma_disciplina AS disciplineClass ,
+            matricula.id_matricula AS enrollmentId ,
+            media_disciplina.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+            FROM media_disciplina
+            LEFT JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            LEFT JOIN legenda ON(media_disciplina.fk_id_legenda = legenda.id_legenda)
+            LEFT JOIN matricula ON(media_disciplina.fk_id_matricula_media = matricula.id_matricula)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+        
+            WHERE matricula.id_matricula = :fk_id_enrollment 
+
+            AND turma_disciplina.fk_id_professor = :fk_id_teacher 
+
+            AND
+
+            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+        ";
+
+        $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('teacherId'));
 
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
+
+
+    /**
+     * Retorna todas as médias finais de um aluno
+     * 
+     * @param int $currentSchoolTerm;
+     * 
+     * @return array
+     */
+    public function readAll()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+            media_disciplina.id_media_disciplina AS disciplineAvarageId,
+            disciplina.nome_disciplina AS disciplineName,
+            media_disciplina.nota_valor AS average,
+            legenda.legenda AS subtitle ,
+            legenda.id_legenda AS subtitle_id ,
+            turma_disciplina.id_turma_disciplina AS disciplineClass ,
+            matricula.id_matricula AS enrollmentId ,
+            media_disciplina.data_postagem AS post_date ,
+            professor.nome_professor AS teacherName ,
+            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            aluno.foto_perfil_aluno AS studentProfilePhoto ,
+            aluno.nome_aluno AS studentName
+            FROM media_disciplina
+            LEFT JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            LEFT JOIN legenda ON(media_disciplina.fk_id_legenda = legenda.id_legenda)
+            LEFT JOIN matricula ON(media_disciplina.fk_id_matricula_media = matricula.id_matricula)
+            LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+        
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
+            
+        );
+    }
+
 
 
     /**

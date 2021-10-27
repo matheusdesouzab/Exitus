@@ -35,7 +35,7 @@ class AdminStudentController extends Action
         $Shift = Container::getModel('GeneralManagement\\Shift');
         $Series = Container::getModel('GeneralManagement\\Series');
 
-        $this->view->listStudent = $Student->list();
+        $this->view->listStudent = $Student->readAll();
         $this->view->availableCourse = $Course->listForSelect();
         $this->view->availableClass = $Classe->firstGradeClasses();
         $this->view->availableSex = $Student->availableSex();
@@ -52,7 +52,7 @@ class AdminStudentController extends Action
 
         $Student = Container::getModel('Student\\Student');
 
-        $this->view->listStudent = $Student->list();
+        $this->view->listStudent = $Student->readAll();
         $this->view->typeStudentList = 'normal';
 
         $this->render('student/components/studentListing', 'SimpleLayout');
@@ -91,35 +91,31 @@ class AdminStudentController extends Action
     {
 
         $Student = Container::getModel('Student\\Student');
-        $Exam = Container::getModel('TeacherStudent\\Exam');
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
-        $Lack = Container::getModel('TeacherStudent\\Lack');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
         $Unity = Container::getModel('GeneralManagement\\Unity');
 
-        $Student->__set('fk_id_enrollmentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
+        $StudentEnrollment->__set('studentEnrollmentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
-        $this->view->studentDataEnrollment = $Student->list("<> 0");
+        $this->view->studentDataEnrollment = $StudentEnrollment->readById('<> 0');
 
         $Student->__set('studentId', $this->view->studentDataEnrollment[0]->student_id);
 
         $this->view->studentDataGeneral = $Student->dataGeneral();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
-        $this->view->unity = $Unity->unitys();
+        $this->view->unity = $Unity->readOpenUnits();
         $this->view->bloodType = $Student->availablebloodType();
-        $this->view->bulletin = $StudentEnrollment->bulletin();
 
         if (!isset($_SESSION)) session_start();
 
-        $ClassDiscipline->__set('fk_id_teacher', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $ClassDiscipline->__set("fk_id_class", $this->view->studentDataEnrollment[0]->class_id);
-        $Lack->__set('fk_id_enrollment', $this->view->studentDataEnrollment[0]->enrollmentId);
+        if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
-        $this->view->disciplinesClassAlreadyAdded = $ClassDiscipline->disciplinesClassAlreadyAdded();
-        $this->view->lackList = $Lack->list();
+        $ClassDiscipline->__set("fk_id_class", $this->view->studentDataEnrollment[0]->class_id);
+
+        $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->teacherLinkedDisciplines() :  $ClassDiscipline->classLinkedSubjects();
         $this->view->listSubtitles = $DisciplineAverage->availableSubtitles();
         $this->view->studentSituation = $StudentEnrollment->studentSituation();
         $this->view->schoolTermActive = $SchoolTerm->active();
@@ -163,7 +159,7 @@ class AdminStudentController extends Action
         $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
         $Student->__set('fk_id_general_situation', $_POST['situationStudentGeneral']);
 
-        $StudentEnrollment->__set('id', $_POST['enrollmentId']);
+        $StudentEnrollment->__set('studentEnrollmentId', $_POST['enrollmentId']);
         $StudentEnrollment->__set('fk_id_student_situation', $_POST['situationStudent']);
 
         $Telephone->update();

@@ -7,13 +7,12 @@ use MF\Model\Model;
 class Note extends Model
 {
 
-    private $noteId = 0;
+    private $noteId;
     private $noteValue;
     private $fk_id_exam;
-    private $fk_id_student_enrollment = 0;
-    private $fk_id_teacher = 0;
-    private $fk_id_class = 0;
-    private $fk_id_discipline_class = 0;
+    private $fk_id_student_enrollment;
+    private $fk_id_class;
+    private $fk_id_discipline_class;
 
 
     public function __get($att)
@@ -61,14 +60,126 @@ class Note extends Model
     /**
      * Retorna as notas das avaliações vinculadas a um aluno
      * 
+     * @return array
+     */
+    public function readByIdStudent()
+    {
+
+        $query =
+
+            "SELECT 
+
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name , 
+            disciplina.id_disciplina AS discipline_id, 
+            avaliacoes.valor_avaliacao AS exam_value , 
+            nota_avaliacao.valor_nota AS note_value ,
+            unidade.unidade AS unity ,
+            unidade.id_unidade AS unityId ,
+            nota_avaliacao.id_nota AS note_id ,
+            avaliacoes.id_avaliacao AS exam_id ,
+            avaliacoes.data_realizada AS realize_date ,
+            matricula.id_matricula AS enrollment_id ,
+            aluno.id_aluno AS student_id ,
+            nota_avaliacao.data_postagem AS post_date ,
+            turma_disciplina.id_turma_disciplina AS class_discipline_id
+      
+            FROM avaliacoes
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN nota_avaliacao ON(avaliacoes.id_avaliacao = nota_avaliacao.fk_id_avaliacao)
+            INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+            
+            WHERE matricula.id_matricula = :fk_id_student_enrollment 
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
+            ORDER BY nota_avaliacao.valor_nota DESC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna os dados gerais de uma nota da avaliação
+     * 
+     * @return array
+     */
+    public function dataGeneral()
+    {
+
+        $query =
+
+            "SELECT 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name , 
+            disciplina.id_disciplina AS discipline_id, 
+            avaliacoes.valor_avaliacao AS exam_value , 
+            nota_avaliacao.valor_nota AS note_value ,
+            unidade.unidade AS unity ,
+            unidade.id_unidade AS unityId ,
+            nota_avaliacao.id_nota AS note_id ,
+            avaliacoes.id_avaliacao AS exam_id ,
+            avaliacoes.data_realizada AS realize_date ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo , 
+            matricula.id_matricula AS enrollment_id ,
+            aluno.nome_aluno AS student_name ,
+            aluno.foto_perfil_aluno AS profilePhoto  ,
+            aluno.id_aluno AS student_id ,
+            nota_avaliacao.data_postagem AS post_date ,
+            turma_disciplina.id_turma_disciplina AS class_discipline_id
+      
+            FROM avaliacoes
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN nota_avaliacao ON(avaliacoes.id_avaliacao = nota_avaliacao.fk_id_avaliacao)
+            INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+            
+            WHERE nota_avaliacao.id_nota = :noteId
+
+            ORDER BY nota_avaliacao.valor_nota DESC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':noteId', $this->__get('noteId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna as notas das avaliações 
+     * 
      * @param int $currentSchoolTerm
      * 
      * @return array
      */
-    public function list($currentSchoolTerm = 0)
+    public function readAll($currentSchoolTerm = 0)
     {
 
-        $query =
+        return $this->speedingUp(
 
             "SELECT 
 
@@ -105,40 +216,14 @@ class Note extends Model
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
             
             WHERE
-
-            CASE WHEN :noteId = 0 THEN nota_avaliacao.id_nota <> 0 ELSE nota_avaliacao.id_nota = :noteId END
-
-            AND
-
-            CASE WHEN :fk_id_class = 0 THEN turma_disciplina.fk_id_turma <> 0 ELSE turma_disciplina.fk_id_turma = :fk_id_class END
-
-            AND
-
-            CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
-
-            AND
-
-            CASE WHEN :fk_id_student_enrollment = 0 THEN matricula.id_matricula <> :fk_id_student_enrollment ELSE matricula.id_matricula = :fk_id_student_enrollment END 
-
-            AND
-
+           
             CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
 
-            ORDER BY nota_avaliacao.valor_nota DESC
-            
-        ";
+            ORDER BY nota_avaliacao.valor_nota DESC"
 
-        $stmt = $this->db->prepare($query);
-
-        $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
-        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-        $stmt->bindValue(':noteId', $this->__get('noteId'));
-
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+        );
     }
+
 
 
     /**
@@ -148,7 +233,7 @@ class Note extends Model
      * 
      * @return array
      */
-    public function seek($orderBy = 'ASC')
+    public function seek($classe, $teacher, $orderBy = 'ASC')
     {
 
         $query =
@@ -205,6 +290,8 @@ class Note extends Model
 
             CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
 
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
             ORDER BY nota_avaliacao.valor_nota $orderBy
              
         ";
@@ -214,9 +301,9 @@ class Note extends Model
         $stmt->bindValue(':examDescription', "%" . $this->__get('examDescription') . "%", \PDO::PARAM_STR);
         $stmt->bindValue(':fk_id_exam_unity', $this->__get('fk_id_exam_unity'));
         $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
-        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':fk_id_class', $classe->__get('classId'));
         $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('teacherId'));
 
         $stmt->execute();
 
@@ -262,7 +349,7 @@ class Note extends Model
      * 
      * @return array
      */
-    public function notesNotAddedYet()
+    public function notesNotAddedYet($teacher)
     {
 
         # Inicialmente em $allExamsClass, será armazenado todos os exames que foram criados na turma do aluno.
@@ -294,7 +381,7 @@ class Note extends Model
 
         $stmt = $this->db->prepare($allExamsClass);
         $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('teacherId'));
 
         $stmt->execute();
 
@@ -324,7 +411,7 @@ class Note extends Model
 
         $stmt = $this->db->prepare($allStudentExams);
         $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('teacherId'));
         $stmt->execute();
 
         $allStudentExams = $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -364,4 +451,69 @@ class Note extends Model
 
         return $availableNote;
     }
+
+
+     /**
+     * Retorna as notas das avaliações vinculadas a um aluno
+     * 
+     * @param int $currentSchoolTerm
+     * 
+     * @return array
+     */
+    public function readNoteByIdTeacher($teacher)
+    {
+
+        $query =
+
+            "SELECT 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name , 
+            disciplina.id_disciplina AS discipline_id, 
+            avaliacoes.valor_avaliacao AS exam_value , 
+            nota_avaliacao.valor_nota AS note_value ,
+            unidade.unidade AS unity ,
+            unidade.id_unidade AS unityId ,
+            nota_avaliacao.id_nota AS note_id ,
+            avaliacoes.id_avaliacao AS exam_id ,
+            avaliacoes.data_realizada AS realize_date ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo , 
+            matricula.id_matricula AS enrollment_id ,
+            aluno.nome_aluno AS student_name ,
+            aluno.foto_perfil_aluno AS profilePhoto  ,
+            aluno.id_aluno AS student_id ,
+            nota_avaliacao.data_postagem AS post_date ,
+            turma_disciplina.id_turma_disciplina AS class_discipline_id
+      
+            FROM avaliacoes
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN nota_avaliacao ON(avaliacoes.id_avaliacao = nota_avaliacao.fk_id_avaliacao)
+            INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+            
+            WHERE turma_disciplina.fk_id_professor = :fk_id_teacher 
+
+            AND matricula.id_matricula = :fk_id_student_enrollment 
+
+            ORDER BY nota_avaliacao.valor_nota DESC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_student_enrollment', $this->__get('fk_id_student_enrollment'));
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('fk_id_teacher'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
 }

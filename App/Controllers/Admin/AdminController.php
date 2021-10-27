@@ -33,10 +33,10 @@ class AdminController extends Action
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->SchoolTermActive = $SchoolTerm->active();
         $this->view->listExam = $Exam->list(1);
-        $this->view->listNote = $Note->list(1);
-        $this->view->listLack = $Lack->list(1);
-        $this->view->listObservation = $Observation->list(1);
-        $this->view->listDisciplineAverage = $DisciplineAverage->list(1);
+        $this->view->listNote = $Note->readAll(1);
+        $this->view->listLack = $Lack->readAll(1);
+        $this->view->listObservation = $Observation->readAll();
+        $this->view->listDisciplineAverage = $DisciplineAverage->readAll();
 
         $this->render('home', 'AdminLayout');
     }

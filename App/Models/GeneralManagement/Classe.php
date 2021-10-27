@@ -7,7 +7,7 @@ use MF\Model\Model;
 class Classe extends Model
 {
 
-    private $classId = 0;
+    private $classId;
     private $fk_id_shift;
     private $fk_id_classroom;
     private $fk_id_course;
@@ -232,13 +232,65 @@ class Classe extends Model
 
 
     /**
+     * Retorna uma única turma pelo id 
+     * 
+     * @return array
+     */
+    public function readById()
+    {
+
+        $query =
+
+            "SELECT 
+
+            turma.id_turma as class_id , 
+            serie.sigla AS series_acronym , 
+            serie.id_serie AS seriesId ,
+            cedula_turma.cedula AS ballot , 
+            cedula_turma.id_cedula_turma AS ballotId ,
+            curso.sigla AS course , 
+            curso.nome_curso AS courseName ,
+            curso.id_curso AS courseId,
+            turno.nome_turno AS shift , 
+            turno.id_turno AS shiftId ,
+            numero_sala_aula.numero_sala_aula AS classroom_number , 
+            sala.id_sala AS classroomId ,
+            periodo_disponivel.ano_letivo AS school_term ,
+            periodo_letivo.id_ano_letivo AS school_term_id ,
+
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
+            
+            FROM turma 
+
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            
+            WHERE turma.id_turma = :classId
+       
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(":classId", $this->__get("classId"));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+    /**
      * Retorna todas as turmas
      * 
      * @param string $scholTermSituation 
      * 
      * @return array
      */
-    public function list($scholTermSituation = '= 1')
+    public function readAll($scholTermSituation = '= 1')
     {
 
         $query =
@@ -275,10 +327,6 @@ class Classe extends Model
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
             WHERE situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation 
-
-            AND
-
-            CASE WHEN :classId = 0 THEN turma.id_turma <> :classId ELSE turma.id_turma = :classId END
        
         ";
 
@@ -482,4 +530,184 @@ class Classe extends Model
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
+
+
+    /**
+     * Retorna os alunos vínculados a uma turma
+     * 
+     * @param string $scholTermSituation 
+     * 
+     * @return array
+     */
+    public function readStudentsLinkedClass($scholTermSituation = '= 1')
+    {
+
+        $query =
+
+            "SELECT 
+            
+            aluno.id_aluno AS student_id , 
+            aluno.nome_aluno AS student_name , 
+            aluno.cpf_aluno AS student_cpf , 
+            aluno.foto_perfil_aluno AS profilePhoto , 
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            curso.nome_curso AS courseName ,
+            turno.nome_turno AS shift , 
+            numero_sala_aula.numero_sala_aula AS number_classroom , 
+            situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
+            situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
+            turma.id_turma AS class_id,
+            matricula.id_matricula AS enrollmentId ,
+            situacao_periodo_letivo.id_situacao_periodo_letivo AS schoolTermSituation ,
+            periodo_disponivel.ano_letivo AS schoolYear
+            
+            FROM aluno 
+
+            INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
+            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno) 
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula)         
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+
+            WHERE turma.id_turma = :classId      
+
+            AND 
+            
+            situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':classId', $this->__get('classId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna as notas das avaliações vinculadas a uma turma
+     * 
+     * @return array
+     */
+    public function readNoteByClassId()
+    {
+
+        $query =
+
+            "SELECT 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name , 
+            disciplina.id_disciplina AS discipline_id, 
+            avaliacoes.valor_avaliacao AS exam_value , 
+            nota_avaliacao.valor_nota AS note_value ,
+            unidade.unidade AS unity ,
+            unidade.id_unidade AS unityId ,
+            nota_avaliacao.id_nota AS note_id ,
+            avaliacoes.id_avaliacao AS exam_id ,
+            avaliacoes.data_realizada AS realize_date ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo , 
+            matricula.id_matricula AS enrollment_id ,
+            aluno.nome_aluno AS student_name ,
+            aluno.foto_perfil_aluno AS profilePhoto  ,
+            aluno.id_aluno AS student_id ,
+            nota_avaliacao.data_postagem AS post_date ,
+            turma_disciplina.id_turma_disciplina AS class_discipline_id
+      
+            FROM avaliacoes
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN nota_avaliacao ON(avaliacoes.id_avaliacao = nota_avaliacao.fk_id_avaliacao)
+            INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+            
+            WHERE turma_disciplina.fk_id_turma = :classId 
+
+            ORDER BY nota_avaliacao.valor_nota DESC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':classId', $this->__get('classId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna as avaliações que foram adicionadas em uma turma
+     * 
+     * @return array
+     */
+    public function readExamByIdClass()
+    {
+
+        $query =
+
+            "SELECT 
+            
+            avaliacoes.id_avaliacao AS exam_id, 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name, 
+            avaliacoes.data_postagem AS post_date, 
+            avaliacoes.data_realizada AS realize_date, 
+            avaliacoes.valor_avaliacao AS exam_value, 
+            unidade.unidade AS unity,
+            avaliacoes.fk_id_unidade_avaliacao AS fk_id_exam_unity,
+            turma_disciplina.id_turma_disciplina AS fk_id_discipline_class ,
+            professor.nome_professor AS teacher_name ,
+            turma.id_turma AS class_id ,
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,
+            professor.foto_perfil_professor AS profilePhoto
+            
+            FROM avaliacoes 
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
+            
+            WHERE turma.id_turma = :classId 
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
+            ORDER BY avaliacoes.id_avaliacao ASC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':classId', $this->__get('classId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
 }

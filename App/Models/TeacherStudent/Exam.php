@@ -7,14 +7,12 @@ use MF\Model\Model;
 class Exam extends Model
 {
 
-    private $examId = 0;
+    private $examId;
     private $examDescription;
     private $examValue;
     private $realizeDate;
-    private $fk_id_exam_unity = 0;
-    private $fk_id_discipline_class = 0;
-    private $fk_id_class = 0;
-    private $fk_id_teacher = 0;
+    private $fk_id_exam_unity;
+    private $fk_id_discipline_class;
 
 
     public function __get($att)
@@ -95,11 +93,9 @@ class Exam extends Model
     /**
      * Retorna as avaliações que foram adicionadas em uma turma
      * 
-     * @param int $currentSchoolTerm
-     * 
      * @return array
      */
-    public function list($currentSchoolTerm = 0)
+    public function dataGeneral()
     {
 
         $query =
@@ -137,32 +133,16 @@ class Exam extends Model
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
             
-            WHERE 
-            
-            CASE WHEN :examId = 0 THEN avaliacoes.id_avaliacao <> 0 ELSE avaliacoes.id_avaliacao = :examId END
+            WHERE avaliacoes.id_avaliacao = :examId 
 
-            AND
-
-            CASE WHEN :fk_id_teacher = 0 THEN professor.id_professor <> 0 ELSE professor.id_professor = :fk_id_teacher END
-
-            AND
-
-            CASE WHEN :fk_id_class = 0 THEN turma.id_turma <> 0 ELSE turma.id_turma = :fk_id_class END
-
-            AND
-
-            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
 
             ORDER BY avaliacoes.id_avaliacao ASC
             
         ";
 
         $stmt = $this->db->prepare($query);
-
         $stmt->bindValue(':examId', $this->__get('examId'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
-        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
-
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -219,7 +199,7 @@ class Exam extends Model
      * 
      * @return array
      */
-    public function seek()
+    public function seek($classe, $teacher)
     {
 
         $query =
@@ -277,9 +257,9 @@ class Exam extends Model
 
         $stmt->bindValue(':fk_id_exam_unity', $this->__get('fk_id_exam_unity'));
         $stmt->bindValue(':examDescription', "%" . $this->__get('examDescription') . "%", \PDO::PARAM_STR);
-        $stmt->bindValue(':fk_id_class', $this->__get('fk_id_class'));
+        $stmt->bindValue(':fk_id_class', $classe->__get('classId'));
         $stmt->bindValue(':fk_id_discipline_class', $this->__get('fk_id_discipline_class'));
-        $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('teacherId'));
 
         $stmt->execute();
 
