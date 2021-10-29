@@ -134,8 +134,8 @@ array_multisort($order, $orderBy, $studentsEnd);
 <table class="table table-borderless col-lg-12 table-striped p-0" id="note-table-class">
     <thead>
         <tr>
-            <th scope="col" colspan="2">Nome do aluno</th>
-            <th scope=" col">Disciplina</th>
+            <?php if($this->view->listType == 'class'){ ?> <th scope="col" colspan="2">Nome do aluno</th> <?php } ?>
+            <th class="text-left" scope="col">Disciplina</th>
             <?php if ($this->view->averageType == 'averageUnity') { ?> <th class="text-center" scope="col">Unidade</th> <?php } ?>
             <th class="text-center" scope="col">Nota</th>
             <th class="text-center" scope="col">Status</th>
@@ -153,10 +153,15 @@ array_multisort($order, $orderBy, $studentsEnd);
 
                 <tr>
 
+                    <?php if($this->view->listType == 'class'){ ?> 
+
                     <td><img class="miniature-photo" src='<?= $value['profilePhoto'] == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['profilePhoto'] ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></td>
 
                     <td><?= $value['name'] ?></td>
-                    <td><?= $value['discipline'] ?></td>
+
+                    <?php } ?>
+
+                    <td class="text-left"><?= $value['discipline'] ?></td>
                     <?php if ($this->view->averageType == 'averageUnity') { ?> <td class="text-center"><?= $value['unity'] ?></td> <?php } ?>
                     <td class="text-center"><?= $value['note'] ?></td>
                     <td class="text-center"><?= $value['noteSituation'] ?></td>

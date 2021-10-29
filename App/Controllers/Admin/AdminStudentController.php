@@ -99,7 +99,7 @@ class AdminStudentController extends Action
 
         $StudentEnrollment->__set('studentEnrollmentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
 
-        $this->view->studentDataEnrollment = $StudentEnrollment->readById('<> 0');
+        $this->view->studentDataEnrollment = $StudentEnrollment->dataGeneral('<> 0');
 
         $Student->__set('studentId', $this->view->studentDataEnrollment[0]->student_id);
 
@@ -270,4 +270,7 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
         echo json_encode($Student->divisionStudentsBySex());
     }
+
+
+    
 }

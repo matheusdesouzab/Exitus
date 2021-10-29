@@ -87,7 +87,7 @@ class Course extends Model
 
 
     /**
-     * Atualizar curso
+     * Atualizar dados do curso
      * 
      * @return void
      */
@@ -159,6 +159,11 @@ class Course extends Model
     }
 
 
+    /**
+     * Retorna as modalidades do curso, que pode ser técnica ou o ensino médio normal. Entretanto, ela deve ser usado para peencher a tag select na View.
+     * 
+     * @return array
+     */
     public function courseMode()
     {
 

@@ -20,7 +20,7 @@ class Admin extends People
 
 
     /**
-     * Esse método verifica se os dados recebidos, correspondem a conta de um administrador
+     * Verifica se os dados recebidos correspondem a conta de algum administrador
      * 
      * @return array
      */
@@ -54,7 +54,7 @@ class Admin extends People
 
 
     /**
-     * Retorna os dados do administrador
+     * Retorna os dados gerais de um administrador
      * 
      * @return array
      */
@@ -113,7 +113,7 @@ class Admin extends People
 
 
     /**
-     * Atualizar foto do perfil do administrador
+     * Atualiza a foto do perfil do administrador
      * 
      * @return void
      */
@@ -132,7 +132,7 @@ class Admin extends People
 
 
     /**
-     * Atualizar dados da conta do administrador
+     * Atualiza os dados de um administrador
      * 
      * @return void
      */

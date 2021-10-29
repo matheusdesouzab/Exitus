@@ -29,7 +29,7 @@ class Classe extends Model
 
 
     /**
-     * Criar uma turma
+     * Criar turma
      * 
      * @return void
      */
@@ -62,7 +62,7 @@ class Classe extends Model
 
 
     /**
-     * Atualizar turma
+     * Atualizar dados da turma
      * 
      * @return void
      */
@@ -98,6 +98,9 @@ class Classe extends Model
      * No mesmo período letivo só é possivel ter uma turma por sala, no mesmo turno. Desse modo, se já existe uma turma criada
      * no turno matutino na sala 1, não será possível adicionar outra turma nesse mesmo formato, como também se por exemplo, no curso de 
      * Informática existir uma turma do 1 ano com a cédula A, não é possível criar uma turma com a mesma cédula.
+     * 
+     * Assim, vamos dividir essa tarefa em dois métodos, o primeiro checkShiftClassroom, verifica a redudância não que diz respeito ao turno e sala,
+     * Já o método checkCourseBallot que vem logo em seguida, irá analisar a cédula, curso e séries.
      * 
      * @return array
      */
@@ -232,11 +235,11 @@ class Classe extends Model
 
 
     /**
-     * Retorna uma única turma pelo id 
+     * Retorna uma única turma pelo id da mesma
      * 
      * @return array
      */
-    public function readById()
+    public function dataGeneral()
     {
 
         $query =
@@ -652,7 +655,7 @@ class Classe extends Model
 
 
     /**
-     * Retorna as avaliações que foram adicionadas em uma turma
+     * Retorna as avaliações vínculadas a uma turma
      * 
      * @return array
      */
@@ -708,6 +711,4 @@ class Classe extends Model
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
-
-
 }

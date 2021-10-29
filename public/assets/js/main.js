@@ -287,16 +287,25 @@ $(document).on("blur", "#profileClassModal #addExam #disciplineClass , #addExam 
 })
 
 
+$(document).on("click", "#profileStudentModal [data-target='#class-student-profile-average']", function(e){
+    application.loadListElements("containerStudentsProfileAverage", "/admin/gestao/turma/perfil-turma/aluno/medias-gerais", "#addNote")
+})
+
+
 $(document).on("blur", "#profileClassModal #seekExam #disciplineClass , #seekExam #unity", function (e) {
 
     application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/buscar", "#seekExam")
 
 })
 
+
 $(document).on("blur", "#studentsAverageSeek #disciplineClass, #studentsAverageSeek #unity, #studentsAverageSeek #orderBy, #studentsAverageSeek #noteStatus, #studentsAverageSeek #averageType", function (e) {
-
     application.loadListElements("containerStudentsAverage", "/admin/gestao/turma/perfil-turma/medias-alunos/buscar", "#studentsAverageSeek")
+})
 
+
+$(document).on("blur", "#seekAverageStudentProfile #disciplineClass, #seekAverageStudentProfile #unity, #seekAverageStudentProfile #orderBy, #seekAverageStudentProfile #noteStatus, #seekAverageStudentProfile #averageType", function (e) {
+    application.loadListElements("containerStudentsProfileAverage", "/admin/gestao/turma/perfil-turma/aluno/medias-gerais/buscar", "#seekAverageStudentProfile")
 })
 
 

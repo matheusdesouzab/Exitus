@@ -26,7 +26,7 @@ class Discipline extends Model
 
 
     /**
-     * Criar uma disciplina
+     * Criar disciplina
      * 
      * @return void
      */
@@ -82,11 +82,11 @@ class Discipline extends Model
 
 
     /**
-     * Retorna uma única disciplina pelo id
+     * Retorna os dados gerais de uma disciplina
      * 
      * @return array
      */
-    public function readDisciplineById()
+    public function dataGeneral()
     {
 
         $query =

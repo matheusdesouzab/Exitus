@@ -752,8 +752,6 @@
 
                                         <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
 
-
-
                                         <div class="form-group col-lg-3">
 
                                             <label for="">Disciplina:</label>

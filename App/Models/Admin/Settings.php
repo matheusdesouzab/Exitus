@@ -24,7 +24,7 @@ class Settings extends Model
 
 
     /**
-     * Atualizar as configurações
+     * Atualiza as configurações gerais do sistema
      * 
      * @return void
      */
@@ -57,7 +57,7 @@ class Settings extends Model
 
 
     /**
-     * Retorna o valor atual da configuração de controle da unidade
+     * Retorna o estado atual da configuração de controle da unidade
      * 
      * @return array
      */
@@ -80,7 +80,7 @@ class Settings extends Model
 
 
     /**
-     * Retorna o valor atual da configuração de controle da rematrícula
+     * Retorna o estado atual da configuração de controle da rematrícula
      * 
      * @return array
      */

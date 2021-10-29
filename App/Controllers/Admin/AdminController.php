@@ -32,7 +32,7 @@ class AdminController extends Action
         $this->view->studentsAddedToday = $Student->studentsAddedToday();
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->SchoolTermActive = $SchoolTerm->active();
-        $this->view->listExam = $Exam->list(1);
+        $this->view->listExam = $Exam->readAll(1);
         $this->view->listNote = $Note->readAll(1);
         $this->view->listLack = $Lack->readAll(1);
         $this->view->listObservation = $Observation->readAll();

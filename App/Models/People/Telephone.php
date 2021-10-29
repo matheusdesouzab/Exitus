@@ -10,6 +10,7 @@ class Telephone extends Model
     private $telephoneId;
     private $telephoneNumber;
 
+
     public function __get($att)
     {
         return $this->$att;
@@ -40,7 +41,7 @@ class Telephone extends Model
 
 
     /**
-     * Atualizar telefone
+     * Atualizar dados do telefone
      * 
      * @return void
      */

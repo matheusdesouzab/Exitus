@@ -86,8 +86,8 @@ class StudentPortalController extends Action
         $this->view->checkForRegistration = $StudentRematrug->checkForRegistration();
         $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
         $this->view->schoolTermActive = $SchoolTerm->active();
-        $this->view->studentDataGeneral = $StudentEnrollment->readById('<> 0');
-        $this->view->listExam = $Classe->readByIdClass();
+        $this->view->studentDataGeneral = $StudentEnrollment->dataGeneral('<> 0');
+        $this->view->listExam = $Classe->dataGeneral();
         $Student->__set('fk_id_enrollmentId', 0);
         $this->view->listStudent = $Classe->readStudentsLinkedClass();
         $this->view->typeStudentList = "class";

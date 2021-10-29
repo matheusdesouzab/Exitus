@@ -298,7 +298,7 @@ class AdminManagementController extends Action
 
         $Discipline->__set('disciplineId', $_GET['id']);
 
-        $this->view->discipline = $Discipline->readDisciplineById();
+        $this->view->discipline = $Discipline->dataGeneral();
         $this->view->listDisciplineModality = $Discipline->disciplineModality();
 
         $this->render('management/components/disciplineModal', 'SimpleLayout');
@@ -437,7 +437,7 @@ class AdminManagementController extends Action
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
         $this->view->unity = $Unity->readOpenUnits();
-        $this->view->classData = $Classe->readById();
+        $this->view->classData = $Classe->dataGeneral();
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->teacherAvailable = $Teacher->teacherAvailable();
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->teacherLinkedDisciplines() :  $ClassDiscipline->classLinkedSubjects();
@@ -479,6 +479,7 @@ class AdminManagementController extends Action
         $this->view->noteStatus = 0;
         $this->view->orderBy = 'alphabetical';
         $this->view->averageType = 'averageUnity';
+        $this->view->listType = 'class';
 
         $this->render('student/components/studentsAverage', 'SimpleLayout');
     }
@@ -526,6 +527,7 @@ class AdminManagementController extends Action
         $this->view->orderBy = $_GET['orderBy'];
         $this->view->noteStatus = $_GET['noteStatus'];
         $this->view->averageType = $_GET['averageType'];
+        $this->view->listType = 'class';
 
         $this->render('student/components/studentsAverage', 'SimpleLayout');
 
@@ -618,11 +620,8 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("classDisciplineId", $_POST['disciplineClass']);
         $ClassDiscipline->__set("fk_id_teacher", $_POST['teacher']);
         $ClassDiscipline->__set("fk_id_discipline", $_POST['discipline']);
-        $ClassDiscipline->__set("fk_id_class", $_POST['classId']);
 
         $ClassDiscipline->update();
-
-        $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
     }
 
 

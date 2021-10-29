@@ -26,7 +26,7 @@ class ClassDiscipline extends Model
 
 
     /**
-     * Adicionar disciplina na turma
+     * Vincula disciplina a turma
      * 
      * @return void
      */
@@ -98,7 +98,7 @@ class ClassDiscipline extends Model
 
 
     /**
-     * Atualizar disciplina da turma
+     * Atualiza dados da disciplina de uma turma
      * 
      * @return void
      */
@@ -109,8 +109,7 @@ class ClassDiscipline extends Model
 
             "UPDATE turma_disciplina SET 
 
-            fk_id_professor = :fk_id_teacher, 
-            fk_id_disciplina = :fk_id_discipline 
+            fk_id_professor = :fk_id_teacher 
 
             WHERE turma_disciplina.id_turma_disciplina = :classDisciplineId
             
@@ -119,7 +118,6 @@ class ClassDiscipline extends Model
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':fk_id_teacher', $this->__get('fk_id_teacher'));
-        $stmt->bindValue(':fk_id_discipline', $this->__get('fk_id_discipline'));
         $stmt->bindValue(':classDisciplineId', $this->__get('classDisciplineId'));
 
         $stmt->execute();
@@ -127,7 +125,7 @@ class ClassDiscipline extends Model
 
 
     /**
-     * Retorna todas as disciplinas que o professor ministra em cada turma.
+     * Retorna todas as disciplinas que o professor ministra em cada turma
      * 
      * @return array
      */
@@ -190,7 +188,7 @@ class ClassDiscipline extends Model
 
 
     /**
-     * Retorna todas as disciplinas que ainda não foram vinculadas a uma determinada turma.
+     * Retorna todas as disciplinas que ainda não foram vinculadas a uma determinada turma
      * 
      * @return array
      */
@@ -321,7 +319,7 @@ class ClassDiscipline extends Model
 
 
     /**
-     * Buscar disciplina na turma
+     * Buscar disciplina da turma
      * 
      * @return array
      */

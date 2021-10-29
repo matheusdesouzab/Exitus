@@ -550,6 +550,18 @@ class Route extends Bootstrap
 				'action' => 'notesNotAddedYet'
 			);
 
+			$routes['adminOverallStudentAverages'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/medias-gerais',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'overallStudentAverages'
+			);
+
+			$routes['adminSeekOverallStudentAverages'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/medias-gerais/buscar',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'seekOverallStudentAverages'
+			);
+
 			$routes['adminNoteList'] = array(
 				'route' => '/admin/gestao/turma/perfil-turma/aluno/lista-notas',
 				'controller' => 'Admin\\AdminTeacherStudentController',

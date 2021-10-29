@@ -27,7 +27,7 @@ class StudentEnrollment extends Model
 
 
     /**
-     * Criar matrícula do aluno
+     * Matrícular aluno em turma
      * 
      * @return void
      */
@@ -116,7 +116,7 @@ class StudentEnrollment extends Model
 
 
     /**
-     * Retorna os dados necessários para a criação do boletim do aluno
+     * Retorna os dados necessários para a criação do boletim do aluno com filtro de disciplinas
      * 
      * @return array
      */
@@ -160,7 +160,7 @@ class StudentEnrollment extends Model
 
 
     /**
-     * Retorna os estados que a matrícula do aluno pode está. Entretanto, ele deve ser usado para peencher a tag select na View.
+     * Retorna os estados que a matrícula do aluno pode estar. Entretanto, ele deve ser usado para peencher a tag select na View.
      * 
      * @return array
      */
@@ -204,7 +204,7 @@ class StudentEnrollment extends Model
     }
 
 
-    public function readById($scholTermSituation = '= 1')
+    public function dataGeneral($scholTermSituation = '= 1')
     {
 
         $query =

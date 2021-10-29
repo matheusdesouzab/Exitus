@@ -444,7 +444,7 @@ class AdminTeacherStudentController extends Action
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->readBulletinSelectedDiscipline() :  $ClassDiscipline->classLinkedSubjects();
         $this->view->lackList = isset($_SESSION['Teacher']['id']) ? $Lack->readByIdTeacher() : $Lack->readByIdStudent();
         $this->view->disciplineAverageList = $DisciplineAverage->readByStudentId();
-        $this->view->enrollmentId = $StudentEnrollment->readById('<> 0');
+        $this->view->enrollmentId = $StudentEnrollment->dataGeneral('<> 0');
 
         $this->render('student/components/bulletin', 'SimpleLayout');
     }
@@ -516,5 +516,93 @@ class AdminTeacherStudentController extends Action
         $DisciplineAverage->__set('average', $_POST['average']);
 
         $DisciplineAverage->update();
+    }
+
+
+    public function overallStudentAverages()
+    {
+
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $Unity = Container::getModel('GeneralManagement\\Unity');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
+        $Teacher = Container::getModel('Teacher\\Teacher');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+
+        if (!isset($_SESSION)) session_start();
+
+        if(isset($_SESSION['Teacher']['id'])){       
+            $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+            $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
+        }
+
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+        $Classe->__set("classId", $_GET['classId']);
+
+        $StudentEnrollment->__set("studentEnrollmentId", $_GET["enrollmentId"]);
+
+        $this->view->listStudent = $StudentEnrollment->dataGeneral();
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Teacher->readNoteTeacherId($Teacher) : $Classe->readNoteByClassId() ;
+        $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects();
+        $this->view->unity = $Unity->readOpenUnits();
+        $this->view->listExam = $Classe->readExamByIdClass();
+        $this->view->noteStatus = 0;
+        $this->view->orderBy = 'alphabetical';
+        $this->view->averageType = 'averageUnity';
+        $this->view->listType = 'student';
+
+        $this->render('student/components/studentsAverage', 'SimpleLayout');
+    }
+
+
+    public function seekOverallStudentAverages()
+    {
+
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $Unity = Container::getModel('GeneralManagement\\Unity');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
+        $Teacher = Container::getModel('Teacher\\Teacher');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
+        $Note = Container::getModel('TeacherStudent\\Note');
+
+        if (!isset($_SESSION)) session_start();
+
+        if(isset($_SESSION['Teacher']['id'])){       
+            $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+            $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
+        }
+
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+        $Classe->__set("classId", $_GET['classId']);
+
+        $Exam->__set('fk_id_discipline_class', $_GET['disciplineClass']);
+        $Exam->__set('fk_id_exam_unity', $_GET['unity']);
+
+        $StudentEnrollment->__set("studentEnrollmentId", $_GET["enrollmentId"]);
+
+        $Teacher->__set('teacherId', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
+        $Note->__set("fk_id_exam_unity", $_GET['unity']);
+        $Note->__set("fk_id_discipline_class", $_GET['disciplineClass']);
+        $Note->__set("examDescription", '');
+        $Note->__set("fk_id_student_enrollment", 0);
+
+        $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+        $ClassDiscipline->__set("classDisciplineId", $_GET['disciplineClass']);
+        $ClassDiscipline->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+
+        $Unity->__set("unityId", $_GET['unity']);
+
+        $this->view->listStudent = $StudentEnrollment->dataGeneral();
+        $this->view->listNote = $Note->seek($Classe, $Teacher);
+        $this->view->linkedDisciplines = $this->view->linkedDisciplines = $ClassDiscipline->searchClassSubjects();
+        $this->view->unity = $Unity->searchSpecificUniy();
+        $this->view->listExam = $Exam->seek($Classe, $Teacher);
+        $this->view->orderBy = $_GET['orderBy'];
+        $this->view->noteStatus = $_GET['noteStatus'];
+        $this->view->averageType = $_GET['averageType'];
+        $this->view->listType = 'student';
+
+        $this->render('student/components/studentsAverage', 'SimpleLayout');
     }
 }
