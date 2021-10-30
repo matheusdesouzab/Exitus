@@ -1,7 +1,7 @@
 class Tools {
 
 
-    editElement(activeForm, formGroup) {
+    editElement(activeForm, formGroup = 'X') {
 
         $(`[${formGroup}] .form-control`).prop('disabled', true)
         $(`${activeForm} .form-control`).prop('disabled', false)
@@ -67,13 +67,5 @@ class Tools {
         $('#addSchoolTerm input[name="startDate"]').prop('value', `${$schoolYear}-02-01`)
         $('#addSchoolTerm input[name="endDate"]').prop('value', `${$schoolYear}-12-01`)
     }
-
-    /* button(method, element, ...mycallback) {
-
-        $(document).on(`${method}`, `${element}`, function (e) {
-            mycallback()
-        })
-
-    } */
 
 }

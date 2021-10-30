@@ -309,6 +309,10 @@ $(document).on("blur", "#seekAverageStudentProfile #disciplineClass, #seekAverag
 })
 
 
+$(document).on("click", "#profileStudentModal #activateButtonSwitchClasses", function(e){ 
+    $("#buttonSwitchClasses").removeClass("disabled") 
+})
+
 $(document).on("click", "#profileClassModal list-exam-list", function (e) {
 
     application.loadOptions([

@@ -613,9 +613,11 @@
 
                             <div class="col-lg-6"><h5>Configurações da turma</h5></div>
 
-                            <div class="col-lg-6 d-flex justify-content-end"> 
-                                
-                            <a id="buttonUpdateClass" class="btn btn-success text-center disabled" href="#"><i class="fas fa-check"></i></a></div>
+                                <div class="col-lg-6 d-flex justify-content-end"> 
+                                    
+                                    <a id="buttonUpdateClass" class="btn btn-success text-center disabled" href="#"><i class="fas fa-check"></i></a>
+                            
+                                </div>
 
                          </div>                           
 

@@ -156,8 +156,7 @@ button {
   overflow-y: hidden;
 }
 #pagina .modal-profile .main-sheet {
-  border-radius: 10px;
-  border: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 #pagina .modal-profile .main-sheet span {
   text-align: center;
@@ -243,6 +242,7 @@ button {
   object-position: top;
   object-fit: cover;
   cursor: pointer;
+  border: 5px solid #E8F0FE;
 }
 #pagina .modal-profile .modal-sidebar img:hover {
   transform: scale(1.1);

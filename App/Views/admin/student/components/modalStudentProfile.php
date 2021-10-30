@@ -20,8 +20,8 @@
                                 <div class="row p-3"><span class="col-lg-12"><?= $student->student_name ?> - <?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span></div>
                             </div>
 
-                            <div class="col-lg-11 mx-auto main-sheet d-none d-sm-block">
-                                <div class="row p-3">
+                            <div class="col-lg-10 mx-auto main-sheet d-none d-sm-block">
+                                <div class="row pb-3">
                                     <span class="col-lg-12"><?= $student->student_name ?></span>
 
                                     <?php if ($this->view->schoolTermActive[0]->option_value ==  $this->view->studentDataEnrollment[0]->schoolTermSituation) { ?>
@@ -62,6 +62,8 @@
                                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-profile-average"><i class="fas fa-poll mr-3"></i> Médias gerais</a>
 
                                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation"> <i class="fas fa-file-alt mr-3"></i> Observações</a>
+
+                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-settings"> <i class="fas fa-sync-alt mr-2"></i> Troca de turma</a>
 
                                         <?php } ?>
 
@@ -161,7 +163,6 @@
                                             <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->schoolTermSituation) { ?>
 
                                                 <div class="col-lg-4 d-flex justify-content-end">
-
 
                                                     <span idElement="#studentModal<?= $student->student_id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
@@ -968,8 +969,8 @@
 
                                     <form id="seekAverageStudentProfile" class="text-dark mt-3 accordion" action="">
 
-                                    <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" name="enrollmentId">
-                                    <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->class_id ?>" name="classId">         
+                                        <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->enrollmentId ?>" name="enrollmentId">
+                                        <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->class_id ?>" name="classId">
 
                                         <div class="form-row mt-3">
 
@@ -1075,6 +1076,87 @@
 
                                 <div containerStudentsProfileAverage class="col-lg-12 table-responsive p-0">
 
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-11 mx-auto collapse" id="class-profile-settings" data-parent="#main-accordion-student">
+
+                        <div class="col-lg-12 mb-3">
+
+                            <div class="row">
+
+                                <div class="col-lg-12 p-0">
+
+                                    <div class="row d-flex align-items-center">
+
+                                        <h5 class="col-lg-8">Troca de turma</h5>
+
+                                        <?php if (!isset($_SESSION)) session_start();
+
+                                        if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
+
+                                        ?>
+
+                                            <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->schoolTermSituation) { ?>
+
+                                                <div class="col-lg-4 d-flex justify-content-end">
+
+                                                    <span id="activateButtonSwitchClasses" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+
+                                                </div>
+
+                                        <?php }
+                                        } ?>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-12 p-0">
+
+                                    <form class="mt-2 p-3 border mt-3" id="switchClasses" action="">
+
+                                        <div class="form-row col-lg-12">
+
+                                            <div class="form-group col-lg-9">
+
+                                                <label for="series">Turma de destino:</label>
+
+                                                <select id="series" name="series" class="form-control custom-select">
+
+                                                    <?php foreach ($this->view->classesWhereStudentEnrolledSameYear as $key => $value) {
+
+                                                        if ($value->studentCapacity > 0) { ?>
+
+                                                            <option value="<?= $value->classId ?>"><?= $value->series ?> ª <?= $value->ballot ?> - <?= $value->course ?> - <?= $value->shift ?> - <?= $value->schoolYear ?> - Vagas: <?= $value->studentCapacity - $value->studentTotal ?></option>
+
+                                                    <?php }
+                                                    } ?>
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="form-group col-lg-3">
+
+                                                <label for="">&nbsp; </label><br>
+
+                                                <a id="buttonSwitchClasses" class="btn btn-success w-100 disabled" href="#">Realizar troca</a>
+
+                                            </div>
+
+                                        </div>
+
+                                </div>
+
+                                </form>
+
                             </div>
 
                         </div>
@@ -1083,4 +1165,3 @@
 
                 </div>
             </div>
-        </div>

@@ -45,10 +45,8 @@
             overflow-y: hidden;
         }
 
-        .main-sheet {
-
-            border-radius: 10px;
-            border: 1px solid #e5e5e5;
+        .main-sheet {          
+            border-bottom: 1px solid #e5e5e5;
 
             span {
                 text-align: center;
@@ -67,7 +65,7 @@
             img {
                 width: 250px;
                 height: 250px;
-
+                
                 &:hover {
                     transform: none;
                 }
@@ -159,6 +157,7 @@
             object-position: top;
             object-fit: cover;
             cursor: pointer;
+            border: 5px solid #E8F0FE;
 
             &:hover {
                 transform: scale(1.1);

@@ -483,6 +483,57 @@ class Classe extends Model
     }
 
 
+    public function classesWhereStudentEnrolledSameYear()
+    {
+
+        $query =
+
+            "SELECT 
+
+            turma.id_turma AS classId , 
+            serie.sigla AS series , 
+            cedula_turma.cedula AS ballot , 
+            curso.nome_curso AS course , 
+            turno.nome_turno AS shift , 
+            numero_sala_aula.numero_sala_aula AS classroom_number , 
+            periodo_disponivel.ano_letivo AS schoolYear,
+            sala.capacidade_alunos AS studentCapacity ,
+            periodo_letivo.id_ano_letivo AS schoolTermId,
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as studentTotal
+            
+            FROM turma
+            
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 
+            INNER JOIN numero_sala_aula ON(sala.id_sala = numero_sala_aula.id_numero_sala_aula) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
+            INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            
+            WHERE 
+
+            turma.fk_id_curso = :fk_id_course
+            
+            AND turma.fk_id_serie = :fk_id_series 
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(":fk_id_course", $this->__get("fk_id_course"));
+        $stmt->bindValue(":fk_id_series", $this->__get("fk_id_series"));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
     /**
      * Retorna todos os alunos que já foram rematrículados no próximo ano
      * 

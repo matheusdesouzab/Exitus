@@ -92,6 +92,7 @@ class AdminStudentController extends Action
 
         $Student = Container::getModel('Student\\Student');
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
         $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
@@ -115,11 +116,15 @@ class AdminStudentController extends Action
 
         $ClassDiscipline->__set("fk_id_class", $this->view->studentDataEnrollment[0]->class_id);
 
+        $Classe->__set('fk_id_series', $this->view->studentDataEnrollment[0]->series_id);
+        $Classe->__set('fk_id_course', $this->view->studentDataEnrollment[0]->course_id);
+
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->teacherLinkedDisciplines() :  $ClassDiscipline->classLinkedSubjects();
         $this->view->listSubtitles = $DisciplineAverage->availableSubtitles();
         $this->view->studentSituation = $StudentEnrollment->studentSituation();
         $this->view->schoolTermActive = $SchoolTerm->active();
         $this->view->generalSituationStudent = $Student->generalSituationStudent();
+        $this->view->classesWhereStudentEnrolledSameYear = $Classe->classesWhereStudentEnrolledSameYear();
 
         $this->render('student/components/modalStudentProfile', 'SimpleLayout');
     }
