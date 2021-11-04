@@ -443,7 +443,7 @@ class AdminTeacherStudentController extends Action
         $this->view->bulletin = isset($_SESSION['Teacher']['id']) ?  $StudentEnrollment->readBulletinSelectedDisciplines($Teacher) :  $StudentEnrollment->readFullBulletin();
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->readBulletinSelectedDiscipline() :  $ClassDiscipline->classLinkedSubjects();
         $this->view->lackList = isset($_SESSION['Teacher']['id']) ? $Lack->readByIdTeacher() : $Lack->readByIdStudent();
-        $this->view->disciplineAverageList = $DisciplineAverage->readByStudentId();
+        $this->view->disciplineAverageList = $DisciplineAverage->readByIdStudent();
         $this->view->enrollmentId = $StudentEnrollment->dataGeneral('<> 0');
 
         $this->render('student/components/bulletin', 'SimpleLayout');

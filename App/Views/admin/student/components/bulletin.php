@@ -11,13 +11,13 @@ foreach ($this->view->linkedDisciplines as $key => $discipline) {
 
 foreach ($this->view->bulletin as $y => $bulletin) {
 
-    if (array_key_exists($bulletin->disciplineName, $disciplineId)) {
+    if (array_key_exists($bulletin->discipline_name, $disciplineId)) {
         if ($bulletin->unity == 1) {
-            $disciplineId[$bulletin->disciplineName]['notas']['I'] = $bulletin->note;
+            $disciplineId[$bulletin->discipline_name]['notas']['I'] = $bulletin->note;
         } else if ($bulletin->unity == 2) {
-            $disciplineId[$bulletin->disciplineName]['notas']['II'] = $bulletin->note;
+            $disciplineId[$bulletin->discipline_name]['notas']['II'] = $bulletin->note;
         } else if ($bulletin->unity == 3) {
-            $disciplineId[$bulletin->disciplineName]['notas']['III'] = $bulletin->note;
+            $disciplineId[$bulletin->discipline_name]['notas']['III'] = $bulletin->note;
         }
     }
 }
@@ -25,24 +25,25 @@ foreach ($this->view->bulletin as $y => $bulletin) {
 
 foreach ($this->view->lackList as $y => $lack) {
 
-    if (array_key_exists($lack->disciplineName, $disciplineId)) {
+    if (array_key_exists($lack->discipline_name, $disciplineId)) {
         if ($lack->unity == 1) {
-            $disciplineId[$lack->disciplineName]['faltas']['I'] = $lack->totalLack;
+            $disciplineId[$lack->discipline_name]['faltas']['I'] = $lack->total_lack;
         } else if ($lack->unity == 2) {
-            $disciplineId[$lack->disciplineName]['faltas']['II'] = $lack->totalLack;
+            $disciplineId[$lack->discipline_name]['faltas']['II'] = $lack->total_lack;
         } else if ($lack->unity == 3) {
-            $disciplineId[$lack->disciplineName]['faltas']['III'] = $lack->totalLack;
+            $disciplineId[$lack->discipline_name]['faltas']['III'] = $lack->total_lack;
         }
     }
 }
 
 foreach ($this->view->disciplineAverageList as $y => $discipline) {
 
-    if (array_key_exists($discipline->disciplineName, $disciplineId)) {
-        $disciplineId[$discipline->disciplineName]['mediaFinal']['nota'] = $discipline->average;
-        $disciplineId[$discipline->disciplineName]['mediaFinal']['situacao'] = $discipline->subtitle;
+    if (array_key_exists($discipline->discipline_name, $disciplineId)) {
+        $disciplineId[$discipline->discipline_name]['mediaFinal']['nota'] = $discipline->average;
+        $disciplineId[$discipline->discipline_name]['mediaFinal']['situacao'] = $discipline->subtitle;
     }
 }
+
 
 
 ?>
@@ -119,7 +120,7 @@ foreach ($this->view->disciplineAverageList as $y => $discipline) {
         <tfoot>
 
             <tr>
-                <td colspan="9" class="text-center">Situação do aluno(a): <?= $this->view->enrollmentId[0]->student_situation ?></td>
+                <td colspan="9" class="text-center">Situação do aluno(a): <?= $this->view->enrollmentId[0]->situation ?></td>
 
             </tr>
 

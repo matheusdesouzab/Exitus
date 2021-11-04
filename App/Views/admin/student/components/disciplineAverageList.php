@@ -1,29 +1,28 @@
 <?php
 
-
 if (count($this->view->disciplineAverageList) >= 1) {
 
     foreach ($this->view->disciplineAverageList as $key => $discipline) { ?>
 
-        <form id="formDisciplineAverage<?= $discipline->disciplineAvarageId ?>" class="card mb-4" action="">
+        <form id="formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" class="card mb-4" action="">
 
             <div class="form-row d-flex align-items-center col-lg-11 mx-auto">
 
-                <input type="hidden" name="id" value="<?= $discipline->disciplineAvarageId ?>">
-                <input value="<?= $discipline->enrollmentId ?>" type="hidden" name="enrollmentId">
-                <input value="<?= $discipline->disciplineClass ?>" type="hidden" name="disciplineClass" id="disciplineClass">
+                <input type="hidden" name="id" value="<?= $discipline->discipline_avarage_id ?>">
+                <input value="<?= $discipline->enrollment_id ?>" type="hidden" name="enrollmentId">
+                <input value="<?= $discipline->discipline_class ?>" type="hidden" name="disciplineClass" id="disciplineClass">
                 <input value="<?= $discipline->average ?>" type="hidden" name="average" id="average">
 
-                <div class=" col-lg-8 font-weight-bold">Disciplina de <?= $discipline->disciplineName ?>
+                <div class=" col-lg-8 font-weight-bold">Disciplina de <?= $discipline->discipline_name ?>
                 </div>
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span idElement="#formDisciplineAverage<?= $discipline->disciplineAvarageId ?>" formGroup="containerDisciplineAverageList" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                    <span idElement="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" formGroup="containerDisciplineAverageList" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                    <span idElement="#formDisciplineAverage<?= $discipline->disciplineAvarageId ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/medias-finais/atualizar" toastData="Média atualizada" container="containerDisciplineAverageList" routeList="/admin/gestao/turma/perfil-turma/aluno/medias-finais/lista" routeData="#formDisciplineAverage<?= $discipline->disciplineAvarageId ?>" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                    <span idElement="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/medias-finais/atualizar" toastData="Média atualizada" container="containerDisciplineAverageList" routeList="/admin/gestao/turma/perfil-turma/aluno/medias-finais/lista" routeData="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
-                    <span form="#formDisciplineAverage<?= $discipline->disciplineAvarageId ?>" class="mr-2 refesh-data-icon"><i class="fas fa-sync-alt"></i></span>
+                    <span form="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" class="mr-2 refesh-data-icon"><i class="fas fa-sync-alt"></i></span>
 
                 </div>
 

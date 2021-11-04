@@ -88,10 +88,10 @@ class StudentEnrollment extends Model
 
             "SELECT 
  
-            disciplina.nome_disciplina AS disciplineName , 
+            disciplina.nome_disciplina AS discipline_name , 
             unidade.unidade AS unity,
             SUM(nota_avaliacao.valor_nota) AS note ,
-            turma_disciplina.id_turma_disciplina AS classId
+            turma_disciplina.id_turma_disciplina AS class_id
             
             FROM nota_avaliacao 
             
@@ -127,10 +127,10 @@ class StudentEnrollment extends Model
 
             "SELECT 
  
-            disciplina.nome_disciplina AS disciplineName , 
+            disciplina.nome_disciplina AS discipline_name , 
             unidade.unidade AS unity,
             SUM(nota_avaliacao.valor_nota) AS note ,
-            turma_disciplina.id_turma_disciplina AS classId
+            turma_disciplina.id_turma_disciplina AS class_id
             
             FROM nota_avaliacao 
             
@@ -183,7 +183,7 @@ class StudentEnrollment extends Model
 
         return $this->speedingUp(
 
-            "SELECT situacao_aluno_ano_letivo.situacao_aluno AS studentStatus , 
+            "SELECT situacao_aluno_ano_letivo.situacao_aluno AS student_status , 
 
             (SELECT COUNT(matricula.id_matricula) 
              
@@ -211,26 +211,28 @@ class StudentEnrollment extends Model
 
             "SELECT 
             
-            aluno.id_aluno AS student_id , 
-            aluno.nome_aluno AS student_name , 
-            aluno.cpf_aluno AS student_cpf , 
-            aluno.foto_perfil_aluno AS profilePhoto , 
+            aluno.id_aluno AS id , 
+            aluno.nome_aluno AS name , 
+            aluno.cpf_aluno AS cpf , 
+            aluno.foto_perfil_aluno AS profile_photo , 
             serie.sigla AS acronym_series , 
             serie.id_serie AS series_id , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             curso.id_curso AS course_id , 
-            curso.nome_curso AS courseName ,
+            curso.nome_curso AS course_name ,
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS number_classroom , 
-            situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
-            situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
+            situacao_aluno_ano_letivo.situacao_aluno as situation , 
+            situacao_aluno_ano_letivo.id_situacao_aluno as situation_id , 
             turma.id_turma AS class_id,
-            matricula.id_matricula AS enrollmentId ,
-            situacao_periodo_letivo.id_situacao_periodo_letivo AS schoolTermSituation ,
-            periodo_disponivel.ano_letivo AS schoolYear
+            matricula.id_matricula AS enrollment_id ,
+            situacao_periodo_letivo.id_situacao_periodo_letivo AS school_term_situation ,
+            periodo_disponivel.ano_letivo AS school_year ,
+            periodo_letivo.id_ano_letivo AS school_term_id
             
             FROM aluno 
+            
             INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
             INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno) 
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
@@ -244,7 +246,7 @@ class StudentEnrollment extends Model
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
-            WHERE matricula.id_matricula = :studentEnrollmentId 
+            WHERE matricula.id_matricula = :studentEnrollmentId AND situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation
             
         ";
 
@@ -253,6 +255,21 @@ class StudentEnrollment extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function changeStudentFromClass()
+    {
+
+        $query = "UPDATE matricula SET matricula.fk_id_situacao_aluno = :fk_id_student_situation WHERE matricula.id_matricula = :studentEnrollmentId";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':fk_id_student_situation', $this->__get('fk_id_student_situation'));
+        $stmt->bindValue(':studentEnrollmentId', $this->__get('studentEnrollmentId'));
+
+        $stmt->execute();
+
     }
 
 }

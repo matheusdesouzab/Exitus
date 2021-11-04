@@ -164,18 +164,18 @@ class DisciplineAverage extends Model
 
             "SELECT 
 
-            media_disciplina.id_media_disciplina AS disciplineAvarageId,
-            disciplina.nome_disciplina AS disciplineName,
+            media_disciplina.id_media_disciplina AS discipline_avarage_id,
+            disciplina.nome_disciplina AS discipline_name,
             media_disciplina.nota_valor AS average,
             legenda.legenda AS subtitle ,
             legenda.id_legenda AS subtitle_id ,
-            turma_disciplina.id_turma_disciplina AS disciplineClass ,
-            matricula.id_matricula AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS discipline_class ,
+            matricula.id_matricula AS enrollment_id ,
             media_disciplina.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
 
             FROM media_disciplina
 
@@ -218,19 +218,22 @@ class DisciplineAverage extends Model
         $query =
 
             "SELECT 
-            media_disciplina.id_media_disciplina AS disciplineAvarageId,
-            disciplina.nome_disciplina AS disciplineName,
+
+            media_disciplina.id_media_disciplina AS discipline_avarage_id,
+            disciplina.nome_disciplina AS discipline_name,
             media_disciplina.nota_valor AS average,
             legenda.legenda AS subtitle ,
             legenda.id_legenda AS subtitle_id ,
-            turma_disciplina.id_turma_disciplina AS disciplineClass ,
-            matricula.id_matricula AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS discipline_class ,
+            matricula.id_matricula AS enrollment_id ,
             media_disciplina.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
+
             FROM media_disciplina
+
             LEFT JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina)
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
@@ -274,19 +277,22 @@ class DisciplineAverage extends Model
         return $this->speedingUp(
 
             "SELECT 
-            media_disciplina.id_media_disciplina AS disciplineAvarageId,
-            disciplina.nome_disciplina AS disciplineName,
+
+            media_disciplina.id_media_disciplina AS discipline_avarage_id,
+            disciplina.nome_disciplina AS discipline_name,
             media_disciplina.nota_valor AS average,
             legenda.legenda AS subtitle ,
             legenda.id_legenda AS subtitle_id ,
-            turma_disciplina.id_turma_disciplina AS disciplineClass ,
-            matricula.id_matricula AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS discipline_class ,
+            matricula.id_matricula AS enrollment_id ,
             media_disciplina.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
+
             FROM media_disciplina
+
             LEFT JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina)
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)

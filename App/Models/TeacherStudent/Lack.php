@@ -68,17 +68,17 @@ class Lack extends Model
 
             "SELECT 
             
-            falta_aluno.id_falta AS lackId , 
-            falta_aluno.total_faltas AS totalLack , 
-            disciplina.nome_disciplina AS disciplineName , 
+            falta_aluno.id_falta AS lack_id , 
+            falta_aluno.total_faltas AS total_lack , 
+            disciplina.nome_disciplina AS discipline_name , 
             unidade.unidade AS unity,
-            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
-            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.fk_id_matricula_falta AS enrollment_id ,
+            turma_disciplina.id_turma_disciplina AS class_id ,
             falta_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
 
             FROM falta_aluno
             
@@ -118,17 +118,18 @@ class Lack extends Model
 
             "SELECT 
             
-            falta_aluno.id_falta AS lackId , 
-            falta_aluno.total_faltas AS totalLack , 
-            disciplina.nome_disciplina AS disciplineName , 
+            falta_aluno.id_falta AS lack_id , 
+            falta_aluno.total_faltas AS total_lack , 
+            disciplina.nome_disciplina AS discipline_name , 
             unidade.unidade AS unity,
-            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
-            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.fk_id_matricula_falta AS enrollment_id ,
+            turma_disciplina.id_turma_disciplina AS class_id ,
             falta_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
+
             FROM falta_aluno
             
             INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
@@ -169,17 +170,18 @@ class Lack extends Model
 
             "SELECT 
             
-            falta_aluno.id_falta AS lackId , 
-            falta_aluno.total_faltas AS totalLack , 
-            disciplina.nome_disciplina AS disciplineName , 
+            falta_aluno.id_falta AS lack_id , 
+            falta_aluno.total_faltas AS total_lack , 
+            disciplina.nome_disciplina AS discipline_name , 
             unidade.unidade AS unity,
-            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
-            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.fk_id_matricula_falta AS enrollment_id ,
+            turma_disciplina.id_turma_disciplina AS class_id ,
             falta_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
+
             FROM falta_aluno
             
             INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
@@ -223,17 +225,18 @@ class Lack extends Model
 
             "SELECT 
             
-            falta_aluno.id_falta AS lackId , 
-            falta_aluno.total_faltas AS totalLack , 
-            disciplina.nome_disciplina AS disciplineName , 
+            falta_aluno.id_falta AS lack_id , 
+            falta_aluno.total_faltas AS total_lack , 
+            disciplina.nome_disciplina AS discipline_name , 
             unidade.unidade AS unity,
-            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
-            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.fk_id_matricula_falta AS enrollment_id ,
+            turma_disciplina.id_turma_disciplina AS class_id ,
             falta_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
+
             FROM falta_aluno
             
             INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
@@ -329,11 +332,11 @@ class Lack extends Model
 
             "SELECT 
             
-            falta_aluno.id_falta AS lackId , 
-            falta_aluno.total_faltas AS totalLack , 
-            disciplina.nome_disciplina AS disciplineName , 
+            falta_aluno.id_falta AS lack_id , 
+            falta_aluno.total_faltas AS total_lack , 
+            disciplina.nome_disciplina AS discipline_name , 
             unidade.unidade AS unity,
-            falta_aluno.fk_id_matricula_falta AS enrollmentId
+            falta_aluno.fk_id_matricula_falta AS enrollment_id
 
             FROM falta_aluno
             

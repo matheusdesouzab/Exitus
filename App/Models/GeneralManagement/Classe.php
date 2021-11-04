@@ -248,16 +248,16 @@ class Classe extends Model
 
             turma.id_turma as class_id , 
             serie.sigla AS series_acronym , 
-            serie.id_serie AS seriesId ,
+            serie.id_serie AS series_id ,
             cedula_turma.cedula AS ballot , 
-            cedula_turma.id_cedula_turma AS ballotId ,
+            cedula_turma.id_cedula_turma AS ballot_id ,
             curso.sigla AS course , 
-            curso.nome_curso AS courseName ,
-            curso.id_curso AS courseId,
+            curso.nome_curso AS course_name ,
+            curso.id_curso AS course_id,
             turno.nome_turno AS shift , 
-            turno.id_turno AS shiftId ,
+            turno.id_turno AS shift_id ,
             numero_sala_aula.numero_sala_aula AS classroom_number , 
-            sala.id_sala AS classroomId ,
+            sala.id_sala AS classroom_id ,
             periodo_disponivel.ano_letivo AS school_term ,
             periodo_letivo.id_ano_letivo AS school_term_id ,
 
@@ -302,16 +302,16 @@ class Classe extends Model
 
             turma.id_turma as class_id , 
             serie.sigla AS series_acronym , 
-            serie.id_serie AS seriesId ,
+            serie.id_serie AS series_id ,
             cedula_turma.cedula AS ballot , 
-            cedula_turma.id_cedula_turma AS ballotId ,
+            cedula_turma.id_cedula_turma AS ballot_id ,
             curso.sigla AS course , 
-            curso.nome_curso AS courseName ,
-            curso.id_curso AS courseId,
+            curso.nome_curso AS course_name ,
+            curso.id_curso AS course_id,
             turno.nome_turno AS shift , 
-            turno.id_turno AS shiftId ,
+            turno.id_turno AS shift_id ,
             numero_sala_aula.numero_sala_aula AS classroom_number , 
-            sala.id_sala AS classroomId ,
+            sala.id_sala AS classroom_id ,
             periodo_disponivel.ano_letivo AS school_term ,
             periodo_letivo.id_ano_letivo AS school_term_id ,
 
@@ -395,14 +395,14 @@ class Classe extends Model
 
             "SELECT 
 
-            aluno.nome_aluno AS studentName , 
-            aluno.foto_perfil_aluno AS profilePhoto , 
-            aluno.id_aluno AS studentId,
-            situacao_rematricula.situacao AS rematrungSituation , 
-            situacao_aluno_ano_letivo.situacao_aluno AS studentSituationSchoolYear , 
-            situacao_geral_aluno.situacao_geral AS generalStudentSituation ,
-            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE aluno.id_aluno = matricula.fk_id_aluno) AS enrollmentTotal,
-            serie.id_serie AS seriesId
+            aluno.nome_aluno AS student_name , 
+            aluno.foto_perfil_aluno AS profile_photo , 
+            aluno.id_aluno AS student_id,
+            situacao_rematricula.situacao AS rematrung_situation , 
+            situacao_aluno_ano_letivo.situacao_aluno AS student_situation_school_year , 
+            situacao_geral_aluno.situacao_geral AS general_student_situation ,
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE aluno.id_aluno = matricula.fk_id_aluno) AS enrollment_total,
+            serie.id_serie AS series_id
         
             FROM matricula 
             
@@ -438,16 +438,16 @@ class Classe extends Model
 
             "SELECT 
 
-            turma.id_turma AS classId , 
+            turma.id_turma AS class_id , 
             serie.sigla AS series , 
             cedula_turma.cedula AS ballot , 
             curso.nome_curso AS course , 
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS classroom_number , 
-            periodo_disponivel.ano_letivo AS schoolYear,
-            sala.capacidade_alunos AS studentCapacity ,
-            periodo_letivo.id_ano_letivo AS schoolTermId,
-            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as studentTotal
+            periodo_disponivel.ano_letivo AS school_year,
+            sala.capacidade_alunos AS student_capacity ,
+            periodo_letivo.id_ano_letivo AS school_term_id,
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
             
             FROM turma
             
@@ -490,16 +490,16 @@ class Classe extends Model
 
             "SELECT 
 
-            turma.id_turma AS classId , 
+            turma.id_turma AS class_id , 
             serie.sigla AS series , 
             cedula_turma.cedula AS ballot , 
             curso.nome_curso AS course , 
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS classroom_number , 
-            periodo_disponivel.ano_letivo AS schoolYear,
-            sala.capacidade_alunos AS studentCapacity ,
-            periodo_letivo.id_ano_letivo AS schoolTermId,
-            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as studentTotal
+            periodo_disponivel.ano_letivo AS school_year,
+            sala.capacidade_alunos AS student_capacity ,
+            periodo_letivo.id_ano_letivo AS school_term_id,
+            (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
             
             FROM turma
             
@@ -546,17 +546,15 @@ class Classe extends Model
 
             "SELECT 
 
-            aluno.nome_aluno AS studenName,
-            aluno.id_aluno AS studentId ,
-            turma.id_turma AS classId ,
+            aluno.nome_aluno AS studen_name,
+            aluno.id_aluno AS student_id ,
+            turma.id_turma AS class_id ,
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift 
             
-            FROM 
-            
-            matricula
+            FROM matricula
             
             INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma)
@@ -603,19 +601,19 @@ class Classe extends Model
             aluno.id_aluno AS student_id , 
             aluno.nome_aluno AS student_name , 
             aluno.cpf_aluno AS student_cpf , 
-            aluno.foto_perfil_aluno AS profilePhoto , 
+            aluno.foto_perfil_aluno AS profile_photo , 
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
-            curso.nome_curso AS courseName ,
+            curso.nome_curso AS course_name ,
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS number_classroom , 
             situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
             situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
             turma.id_turma AS class_id,
-            matricula.id_matricula AS enrollmentId ,
-            situacao_periodo_letivo.id_situacao_periodo_letivo AS schoolTermSituation ,
-            periodo_disponivel.ano_letivo AS schoolYear
+            matricula.id_matricula AS enrollment_id ,
+            situacao_periodo_letivo.id_situacao_periodo_letivo AS school_term_situation ,
+            periodo_disponivel.ano_letivo AS school_year
             
             FROM aluno 
 
@@ -665,7 +663,7 @@ class Classe extends Model
             avaliacoes.valor_avaliacao AS exam_value , 
             nota_avaliacao.valor_nota AS note_value ,
             unidade.unidade AS unity ,
-            unidade.id_unidade AS unityId ,
+            unidade.id_unidade AS unity_id ,
             nota_avaliacao.id_nota AS note_id ,
             avaliacoes.id_avaliacao AS exam_id ,
             avaliacoes.data_realizada AS realize_date ,
@@ -673,7 +671,7 @@ class Classe extends Model
             professor.foto_perfil_professor AS teacher_profile_photo , 
             matricula.id_matricula AS enrollment_id ,
             aluno.nome_aluno AS student_name ,
-            aluno.foto_perfil_aluno AS profilePhoto  ,
+            aluno.foto_perfil_aluno AS profile_photo  ,
             aluno.id_aluno AS student_id ,
             nota_avaliacao.data_postagem AS post_date ,
             turma_disciplina.id_turma_disciplina AS class_discipline_id
@@ -732,7 +730,7 @@ class Classe extends Model
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,
-            professor.foto_perfil_professor AS profilePhoto
+            professor.foto_perfil_professor AS profile_photo
             
             FROM avaliacoes 
             

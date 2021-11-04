@@ -24,7 +24,7 @@
 
                                         <div class="col-lg-7 total-student-enrolled"><i class="fas fa-user-check mr-2"></i></i> <?= $this->view->studentTotal ?></div>
 
-                                        <div class="col-lg-5 total-students-enrolled-today">+ <?= $this->view->studentsAddedToday[0]->totalStudent ?></div>
+                                        <div class="col-lg-5 total-students-enrolled-today">+ <?= $this->view->studentsAddedToday[0]->total_student ?></div>
 
                                     </div>
 
@@ -91,14 +91,14 @@
 
                                     <?php foreach ($this->view->recentlyEnrolledStudents as $key => $value) {
 
-                                        $date = explode(" ", $value->initialEnrollmentDate);
+                                        $date = explode(" ", $value->initial_enrollment_date);
                                         $date = explode("-", $date[0]);
 
                                     ?>
 
                                         <tr>
-                                            <td class=""><img class="miniature-photo" src='<?= $value->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></td>
-                                            <td class="text-left"><?= $value->studentName ?></td>
+                                            <td class=""><img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></td>
+                                            <td class="text-left"><?= $value->student_name ?></td>
                                             <td><?= $date[2] ?> / <?= $date[1] ?></td>
                                         </tr>
 
@@ -188,7 +188,7 @@
 
                                                 <div class="row d-flex align-items-center justify-content-between">
 
-                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                     <div class="col-lg-8 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
@@ -239,11 +239,11 @@
 
                                                 <div class="row d-flex align-items-center justify-content-between">
 
-                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                    <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
+                                                    <div class="col-lg-8 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
                                                     <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-primary">Faltas</span></div>
 
@@ -251,7 +251,7 @@
 
                                                 <div class="row">
 
-                                                    <p class="mt-3 col-lg-12 p-0 text-justify">Lançou as faltas do aluno(a): <?= $value['value']->studentName ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->disciplineName ?></p>
+                                                    <p class="mt-3 col-lg-12 p-0 text-justify">Lançou as faltas do aluno(a): <?= $value['value']->student_name ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?></p>
 
                                                 </div>
 
@@ -267,12 +267,12 @@
 
                                                 <div class="row d-flex align-items-center justify-content-between">
 
-                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
 
 
-                                                    <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
+                                                    <div class="col-lg-8 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
                                                     <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-success">Média final</span></div>
 
@@ -280,7 +280,7 @@
 
                                                 <div class="row">
 
-                                                    <p class="mt-3 col-lg-12 p-0 text-justify">Lançou a média final do aluno(a): <?= $value['value']->studentName ?> referente a disciplina de <?= $value['value']->disciplineName ?></p>
+                                                    <p class="mt-3 col-lg-12 p-0 text-justify">Lançou a média final do aluno(a): <?= $value['value']->student_name ?> referente a disciplina de <?= $value['value']->discipline_name ?></p>
 
                                                 </div>
 
@@ -295,12 +295,11 @@
 
                                                 <div class="row d-flex align-items-center justify-content-between">
 
-                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->studentProfilePhoto == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->studentProfilePhoto ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                                                    <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
 
-
-                                                    <div class="col-lg-8 teacher-name"><?= $value['value']->teacherName ?> - <?= currentDate($value['value']->post_date) ?></div>
+                                                    <div class="col-lg-8 teacher-name"><?= $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
                                                     <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-info">Observação</span></div>
 
@@ -308,7 +307,7 @@
 
                                                 <div class="row">
 
-                                                    <p class="mt-3 col-lg-12 p-0 text-justify">Adicionou uma observação ao aluno(a): <?= $value['value']->studentName ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->disciplineName ?></p>
+                                                    <p class="mt-3 col-lg-12 p-0 text-justify">Adicionou uma observação ao aluno(a): <?= $value['value']->student_name ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?></p>
 
                                                 </div>
 

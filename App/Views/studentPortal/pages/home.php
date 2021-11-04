@@ -25,9 +25,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
             <div class="col-lg-12 p-0" id="studentPortal-accordion">
 
-                <nav id="studentPortalNavbar" class="navbar navbar-expand-lg">
-
-                    
+                <nav id="studentPortalNavbar" class="navbar navbar-expand-lg">            
 
                     <a class="navbar-brand" href="#"><?= $_SESSION['Student']['class'] ?></a>
 
@@ -55,11 +53,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     </div>
                 </nav>
-
+ 
 
                 <div class="modal fade modal-profile" id="settingsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog modal-full">
                         <div class="modal-content">
                             <div class="row">
                                 <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#settingsModal">
@@ -89,7 +87,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         if (count($this->view->listExam) != 0) {
 
                                             foreach ($this->view->listExam as $key => $part) {
-                                                $sort[$key] = strtotime($part->realize_date);
+                                                $sort[$key] = strtotime($part->post_date);
                                             }
 
                                             array_multisort($sort, SORT_DESC, $this->view->listExam);
@@ -110,7 +108,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                     <div class="row d-flex justify-content-center align-items-center">
 
-                                                        <div class="col-lg-2"><img class="miniature-photo" src='<?= $value->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                        <div class="col-lg-2"><img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                         <div class="col-lg-10 name-teacher"><?= $value->teacher_name ?></div>
 
@@ -223,9 +221,9 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         ?>
 
-                                        <?php if (count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1 && $this->view->studentDataGeneral[0]->schoolTermSituation == 1) { ?>
+                                        <?php if (count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1 && $this->view->studentDataGeneral[0]->school_term_situation == 1) { ?>
 
-                                            <div class="col-lg-12 card mb-3">
+                                            <div class="col-lg-11 mx-auto card mb-3">
 
                                                 <div class="row p-2">
 
@@ -320,13 +318,13 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-start"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-start"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                             <div class="col-lg-11">
 
-                                                                <p class="mt-2 text-description mb-3">Você recebeu uma observação de <?= $value['value']->teacherName ?> referente a <?= $value['value']->unity ?> unidade de <?= $value['value']->disciplineName ?></p>
+                                                                <p class="mt-2 text-description mb-3">Você recebeu uma observação de <?= $value['value']->teacherName ?> referente a <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
 
-                                                                <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observationDescription ?></textarea>
+                                                                <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observation_description ?></textarea>
 
                                                                 <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small>
 
@@ -342,15 +340,15 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                             <div class="col-lg-11">
 
-                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu suas faltas da <?= $value['value']->unity ?> unidade de <?= $value['value']->disciplineName ?></p>
+                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu suas faltas da <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
 
                                                                 <div class="col-lg-12 p-0">
                                                                     <div class="row">
-                                                                        <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve um total de <?= $value['value']->totalLack ?> faltas</small></div>
+                                                                        <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve um total de <?= $value['value']->total_lack ?> faltas</small></div>
                                                                         <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small></div>
                                                                     </div>
                                                                 </div>
@@ -369,11 +367,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacherProfilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacherProfilePhoto ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
                                                             <div class="col-lg-11">
 
-                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacherName ?> atribuiu a sua média final na disciplina de <?= $value['value']->disciplineName ?></p>
+                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu a sua média final na disciplina de <?= $value['value']->discipline_name ?></p>
 
                                                                 <div class="col-lg-12 p-0">
                                                                     <div class="row">
@@ -408,9 +406,9 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     </div>
 
-                    <div class="collapse mt-3" id="bulletin" data-parent="#studentPortal-accordion">
+                    <div class="collapse mt-4" id="bulletin" data-parent="#studentPortal-accordion">
 
-                        <div containerBulletin class="col-lg-10 mx-auto card mb-4"></div>
+                        <div containerBulletin class="col-lg-11 mx-auto card mb-4 mt-3 p-4"></div>
 
                     </div>
 

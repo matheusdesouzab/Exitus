@@ -141,7 +141,7 @@ class Course extends Model
 
         return $this->speedingUp(
 
-            "SELECT curso.nome_curso AS courseName,
+            "SELECT curso.nome_curso AS course_name,
 
             (SELECT COUNT(matricula.id_matricula)
             

@@ -4,10 +4,10 @@
 
         <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
-        <tr class="" id="aluno<?= $student->enrollmentId ?>">
+        <tr class="" id="aluno<?= $student->enrollment_id ?>">
 
             <td class="text-right">
-                <img src='<?= $student->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profilePhoto ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                <img src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
 
             <td class="text-left"><?= $student->student_name ?></td>

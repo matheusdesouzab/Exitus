@@ -70,21 +70,21 @@ class Observation extends Model
 
             "SELECT  
             
-            observacao_aluno.id_observacao AS observationId ,
-            observacao_aluno.descricao AS observationDescription ,
+            observacao_aluno.id_observacao AS observation_id ,
+            observacao_aluno.descricao AS observation_description ,
             observacao_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
             unidade.unidade AS unity ,
-            disciplina.nome_disciplina AS disciplineName ,
-            observacao_aluno.fk_id_matricula_observacao AS enrollmentId ,
+            disciplina.nome_disciplina AS discipline_name ,
+            observacao_aluno.fk_id_matricula_observacao AS enrollment_id ,
             serie.sigla AS series_acronym , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,  
             periodo_disponivel.ano_letivo AS school_term ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
 
             FROM observacao_aluno
 
@@ -133,21 +133,21 @@ class Observation extends Model
 
             "SELECT  
             
-            observacao_aluno.id_observacao AS observationId ,
-            observacao_aluno.descricao AS observationDescription ,
+            observacao_aluno.id_observacao AS observation_id ,
+            observacao_aluno.descricao AS observation_description ,
             observacao_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
             unidade.unidade AS unity ,
-            disciplina.nome_disciplina AS disciplineName ,
-            observacao_aluno.fk_id_matricula_observacao AS enrollmentId ,
+            disciplina.nome_disciplina AS discipline_name ,
+            observacao_aluno.fk_id_matricula_observacao AS enrollment_id ,
             serie.sigla AS series_acronym , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,  
             periodo_disponivel.ano_letivo AS school_term ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
 
             FROM observacao_aluno
 
@@ -197,21 +197,21 @@ class Observation extends Model
 
             "SELECT  
             
-            observacao_aluno.id_observacao AS observationId ,
-            observacao_aluno.descricao AS observationDescription ,
+            observacao_aluno.id_observacao AS observation_id ,
+            observacao_aluno.descricao AS observation_description ,
             observacao_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
             unidade.unidade AS unity ,
-            disciplina.nome_disciplina AS disciplineName ,
-            observacao_aluno.fk_id_matricula_observacao AS enrollmentId ,
+            disciplina.nome_disciplina AS discipline_name ,
+            observacao_aluno.fk_id_matricula_observacao AS enrollment_id ,
             serie.sigla AS series_acronym , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,  
             periodo_disponivel.ano_letivo AS school_term ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
 
             FROM observacao_aluno
 

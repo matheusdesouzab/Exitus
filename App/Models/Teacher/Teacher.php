@@ -88,33 +88,33 @@ class Teacher extends People
             
             AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS total_discipline ,
                                   
-            professor.id_professor AS teacher_id , 
-            professor.nome_professor AS teacher_name , 
-            professor.cpf_professor AS teacher_cpf , 
-            sexo.id_sexo AS teacher_sex_id , 
-            sexo.sexo AS teacher_sex , 
-            professor.codigo_acesso AS accessCode ,
-            professor.data_nascimento_professor AS teacher_birth_date , 
-            professor.naturalidade_professor AS teacher_naturalness , 
-            professor.foto_perfil_professor AS profilePhoto , 
-            professor.nacionalidade_professor AS teacher_nationality , 
-            tipo_sanguineo.tipo_sanguineo AS blood_type_teacher , 
-            tipo_sanguineo.id_tipo_sanguineo AS blood_type_id_teacher , 
-            pcd.pcd AS teacher_pcd , 
-            pcd.id_pcd AS teacher_pcd_id , 
-            telefone.numero_telefone AS teacher_telephone_number , 
-            endereco.id_endereco AS teacher_address_id , 
-            endereco.cep AS teacher_zipCode , 
-            endereco.bairro AS teacher_district , 
-            endereco.endereco AS teacher_address , 
-            endereco.uf AS teacher_uf , 
-            endereco.municipio AS teacher_county , 
-            endereco.id_endereco AS address_id_teacher , 
-            telefone.id_telefone AS telephone_id_teacher ,
+            professor.id_professor AS id , 
+            professor.nome_professor AS name , 
+            professor.cpf_professor AS cpf , 
+            sexo.id_sexo AS sex_id , 
+            sexo.sexo AS sex , 
+            professor.codigo_acesso AS access_code ,
+            professor.data_nascimento_professor AS birth_date , 
+            professor.naturalidade_professor AS naturalness , 
+            professor.foto_perfil_professor AS profile_photo , 
+            professor.nacionalidade_professor AS nationality , 
+            tipo_sanguineo.tipo_sanguineo AS blood_type , 
+            tipo_sanguineo.id_tipo_sanguineo AS blood_type_id , 
+            pcd.pcd AS pcd , 
+            pcd.id_pcd AS pcd_id , 
+            telefone.numero_telefone AS telephone_number , 
+            endereco.id_endereco AS address_id , 
+            endereco.cep AS zip_code , 
+            endereco.bairro AS district , 
+            endereco.endereco AS address , 
+            endereco.uf AS uf , 
+            endereco.municipio AS county , 
+            endereco.id_endereco AS address_id , 
+            telefone.id_telefone AS telephone_id ,
             email_professor AS email ,
-            professor.codigo_acesso AS accessCode ,
-            hierarquia_funcao.hierarquia_funcao AS hierarchyFunction ,
-            hierarquia_funcao.id_hierarquia_funcao AS hierarchyFunctionId 
+            professor.codigo_acesso AS access_code ,
+            hierarquia_funcao.hierarquia_funcao AS hierarchy_function ,
+            hierarquia_funcao.id_hierarquia_funcao AS hierarchy_function_id 
             
             FROM professor 
             
@@ -163,12 +163,12 @@ class Teacher extends People
             
             AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS total_discipline ,
                                   
-            professor.id_professor AS teacher_id , 
-            professor.nome_professor AS teacher_name , 
-            professor.cpf_professor AS teacher_cpf , 
-            sexo.id_sexo AS teacher_sex_id , 
-            sexo.sexo AS teacher_sex ,  
-            professor.foto_perfil_professor AS profilePhoto 
+            professor.id_professor AS id , 
+            professor.nome_professor AS name , 
+            professor.cpf_professor AS cpf , 
+            sexo.id_sexo AS sex_id , 
+            sexo.sexo AS sex ,  
+            professor.foto_perfil_professor AS profile_photo 
         
             FROM professor 
             
@@ -505,7 +505,7 @@ class Teacher extends People
             avaliacoes.valor_avaliacao AS exam_value , 
             nota_avaliacao.valor_nota AS note_value ,
             unidade.unidade AS unity ,
-            unidade.id_unidade AS unityId ,
+            unidade.id_unidade AS unity_id ,
             nota_avaliacao.id_nota AS note_id ,
             avaliacoes.id_avaliacao AS exam_id ,
             avaliacoes.data_realizada AS realize_date ,
@@ -513,7 +513,7 @@ class Teacher extends People
             professor.foto_perfil_professor AS teacher_profile_photo , 
             matricula.id_matricula AS enrollment_id ,
             aluno.nome_aluno AS student_name ,
-            aluno.foto_perfil_aluno AS profilePhoto  ,
+            aluno.foto_perfil_aluno AS student_profile_photo  ,
             aluno.id_aluno AS student_id ,
             nota_avaliacao.data_postagem AS post_date ,
             turma_disciplina.id_turma_disciplina AS class_discipline_id
@@ -559,17 +559,17 @@ class Teacher extends People
 
             "SELECT 
             
-            falta_aluno.id_falta AS lackId , 
-            falta_aluno.total_faltas AS totalLack , 
-            disciplina.nome_disciplina AS disciplineName , 
+            falta_aluno.id_falta AS lack_id , 
+            falta_aluno.total_faltas AS total_lack , 
+            disciplina.nome_disciplina AS discipline_name , 
             unidade.unidade AS unity,
-            falta_aluno.fk_id_matricula_falta AS enrollmentId ,
-            turma_disciplina.id_turma_disciplina AS classId ,
+            falta_aluno.fk_id_matricula_falta AS enrollment_id ,
+            turma_disciplina.id_turma_disciplina AS class_id ,
             falta_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
             FROM falta_aluno
             
             INNER JOIN matricula ON(falta_aluno.fk_id_matricula_falta = matricula.id_matricula)
@@ -610,21 +610,21 @@ class Teacher extends People
 
             "SELECT  
             
-            observacao_aluno.id_observacao AS observationId ,
-            observacao_aluno.descricao AS observationDescription ,
+            observacao_aluno.id_observacao AS observation_id ,
+            observacao_aluno.descricao AS observation_description ,
             observacao_aluno.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
             unidade.unidade AS unity ,
-            disciplina.nome_disciplina AS disciplineName ,
-            observacao_aluno.fk_id_matricula_observacao AS enrollmentId ,
+            disciplina.nome_disciplina AS discipline_name ,
+            observacao_aluno.fk_id_matricula_observacao AS enrollment_id ,
             serie.sigla AS series_acronym , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,  
             periodo_disponivel.ano_letivo AS school_term ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
 
             FROM observacao_aluno
 
@@ -685,7 +685,7 @@ class Teacher extends People
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,
-            professor.foto_perfil_professor AS profilePhoto
+            professor.foto_perfil_professor AS profile_photo
             
             FROM avaliacoes 
             
@@ -730,19 +730,21 @@ class Teacher extends People
         $query =
 
             "SELECT 
-            media_disciplina.id_media_disciplina AS disciplineAvarageId,
-            disciplina.nome_disciplina AS disciplineName,
+            media_disciplina.id_media_disciplina AS discipline_avarage_id,
+            disciplina.nome_disciplina AS discipline_name,
             media_disciplina.nota_valor AS average,
             legenda.legenda AS subtitle ,
             legenda.id_legenda AS subtitle_id ,
-            turma_disciplina.id_turma_disciplina AS disciplineClass ,
-            matricula.id_matricula AS enrollmentId ,
+            turma_disciplina.id_turma_disciplina AS discipline_class ,
+            matricula.id_matricula AS enrollment_id ,
             media_disciplina.data_postagem AS post_date ,
-            professor.nome_professor AS teacherName ,
-            professor.foto_perfil_professor AS teacherProfilePhoto ,
-            aluno.foto_perfil_aluno AS studentProfilePhoto ,
-            aluno.nome_aluno AS studentName
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo ,
+            aluno.foto_perfil_aluno AS student_profile_photo ,
+            aluno.nome_aluno AS student_name
+
             FROM media_disciplina
+
             LEFT JOIN turma_disciplina ON(media_disciplina.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina)
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)

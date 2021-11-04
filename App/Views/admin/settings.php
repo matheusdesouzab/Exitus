@@ -1,21 +1,23 @@
 <div class="row mb-4 d-flex justify-content-around" id="main-accordion-settings">
 
-    <div class="col-lg-3 col-11 mx-auto modal-sidebar">
+    <div class="col-lg-3 col-11 mx-auto">
 
-        <div class="row">
+        <div class="col-lg-12 modal-sidebar">
 
-            <div class="col-lg-12 container-list-group">
+        <div class="row p-3">
+
+            <div class="col-lg-12">
 
                 <div class="row">
 
                     <?php $photoDir =  "/assets/img/adminProfilePhotos/" ?>
 
-                    <img class="mx-auto mb-2" src='<?= $this->view->Data[0]->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->Data[0]->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
+                    <img class="mx-auto" src='<?= $this->view->Data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->Data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
-                    <div class="col-lg-12 main-sheet d-none d-sm-block">
+                    <div class="col-lg-10 mx-auto main-sheet d-none d-sm-block">
                         <div class="row p-3">
                             <span class="col-lg-12"><?= $this->view->Data[0]->name ?></span>
-                            <span class="col-lg-12"><?= $this->view->Data[0]->hierarchyFunction ?></span>
+                            <span class="col-lg-12"><?= $this->view->Data[0]->hierarchy_function ?></span>
                         </div>
                     </div>
 
@@ -23,92 +25,82 @@
 
                 <div class="row">
 
+                <div class="col-lg-12 container-list-group mt-3 p-0">
+
                     <nav>
 
                         <ul>
 
-                            <a class="collapse" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-admin">Seu perfil</a>
+                            <a class="collapse" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-admin"><i class="fas fa-user mr-3"></i> Seu perfil</a>
 
-                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-settings">Configurações</a>
+                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-settings"><i class="fas fa-cogs mr-2"></i> Configurações</a>
 
                         </ul>
 
                     </nav>
                 </div>
+                </div>
             </div>
 
-            <!--  <div class="col-lg-12">
-
-                <div class="row p-3 text-secondary main-sheet">
-
-                    <div class="col-lg-12">
-
-                        <div class="row">
-
-                            999999999999
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div> -->
+        </div>
 
         </div>
 
         <div class="modal fade" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title" id="profilePhotoModal">Foto do perfil</h5>
-                    <div class="row">
-                        <div class="col-lg-12"> <button type="button" class="close text-rig close-modal" data-toggle="modal" data-target="#profilePhotoModal">
-                                <span><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
-                            </button></div>
-                    </div>
-                </div>
-
-                <div class="modal-body mb-3">
-
-                    <div class="container-img col-lg-12 d-flex justify-content-center">
-
-                        <img class="mx-auto" src='<?= $this->view->Data[0]->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->Data[0]->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
-
-                    </div>
-
-                    <form id="formUpdateProfilePhoto" method="POST" enctype="multipart/form-data">
-
-                        <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" id="">
-
-                        <input type="hidden" id="id" value="<?= $this->view->Data[0]->id ?>" name="id">
-
-                        <input type="hidden" id="oldPhoto" name="oldPhoto" value="<?= $this->view->Data[0]->profilePhoto ?>">
-
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="profilePhotoModal">Foto do perfil</h5>
                         <div class="row">
+                            <div class="col-lg-12"> <button type="button" class="close text-rig close-modal" data-toggle="modal" data-target="#profilePhotoModal">
+                                    <span><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                </button></div>
+                        </div>
+                    </div>
 
-                            <div class="col-lg-12 mt-3 d-flex justify-content-end">
+                    <div class="modal-body mb-3">
 
-                                <button id="updateImg" type='submit' disabled class="btn btn-success">Atualizar foto</button>
+                        <div class="container-img col-lg-12 d-flex justify-content-center">
 
-                            </div>
+                            <img class="mx-auto" src='<?= $this->view->Data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->Data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
 
                         </div>
 
-                    </form>
+                        <form id="formUpdateProfilePhoto" method="POST" enctype="multipart/form-data">
+
+                            <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" id="">
+
+                            <input type="hidden" id="id" value="<?= $this->view->Data[0]->id ?>" name="id">
+
+                            <input type="hidden" id="oldPhoto" name="oldPhoto" value="<?= $this->view->Data[0]->profile_photo ?>">
+
+                            <div class="row">
+
+                                <div class="col-lg-12 mt-3 d-flex justify-content-end">
+
+                                    <button id="updateImg" type='submit' disabled class="btn btn-success">Atualizar foto</button>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
 
                 </div>
-
-
             </div>
         </div>
-    </div>
 
     </div>
 
-    
 
 
-    <div class="col-lg-8 card main-content col-11 mx-auto">
+
+    <div class="col-lg-9 col-11 mx-auto">
+
+    <div class="col-lg-12 card main-content">
 
         <div class="row">
 
@@ -193,8 +185,8 @@
                     <form id="adminDate<?= $admin->id ?>" class="col-lg-12" action="">
 
                         <input type="hidden" value="<?= $admin->id ?>" name="id">
-                        <input type="hidden" value="<?= $admin->telephoneId ?>" name="telephoneId">
-                        <input type="hidden" value="<?= $admin->addressId ?>" name="addressId">
+                        <input type="hidden" value="<?= $admin->telephone_id ?>" name="telephoneId">
+                        <input type="hidden" value="<?= $admin->address_id ?>" name="addressId">
 
                         <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
 
@@ -242,9 +234,9 @@
                             </div>
 
                             <select id="sex" name="sex" disabled class="form-control custom-select">
-                                <option value="<?= $admin->sexId ?>"><?= $admin->sex ?></option>
+                                <option value="<?= $admin->sex_id ?>"><?= $admin->sex ?></option>
                                 <?php foreach ($this->view->availableSex as $key => $sex) { ?>
-                                    <?php if ($sex->option_value != $admin->sexId) { ?>
+                                    <?php if ($sex->option_value != $admin->sex_id) { ?>
                                         <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
                                 <?php }
                                 } ?>
@@ -270,7 +262,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Data de Nascimento:</span>
                             </div>
-                            <input type="date" id="birthDate" name="birthDate" disabled class="form-control" value="<?= $admin->birthDate ?>" max="2006-01-31" min="1940-01-31" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="date" id="birthDate" name="birthDate" disabled class="form-control" value="<?= $admin->birth_date ?>" max="2006-01-31" min="1940-01-31" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
@@ -280,9 +272,9 @@
                             </div>
 
                             <select id="pcd" name="pcd" disabled class="form-control custom-select">
-                                <option value="<?= $admin->pcdId ?>"><?= $admin->pcd ?></option>
+                                <option value="<?= $admin->pcd_id ?>"><?= $admin->pcd ?></option>
                                 <?php foreach ($this->view->pcd as $key => $pcd) { ?>
-                                    <?php if ($pcd->option_value != $admin->pcdId) { ?>
+                                    <?php if ($pcd->option_value != $admin->pcd_id) { ?>
                                         <option value="<?= $pcd->option_value ?>"><?= $pcd->option_text ?></option>
                                 <?php }
                                 } ?>
@@ -297,9 +289,9 @@
                             </div>
 
                             <select id="bloodType" name="bloodType" disabled class="form-control custom-select">
-                                <option value="<?= $admin->bloodTypeId ?>"><?= $admin->bloodType ?></option>
+                                <option value="<?= $admin->blood_type_id ?>"><?= $admin->blood_type ?></option>
                                 <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
-                                    <?php if ($bloodType->option_value != $admin->bloodTypeId) { ?>
+                                    <?php if ($bloodType->option_value != $admin->blood_type_id) { ?>
                                         <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
                                 <?php }
                                 } ?>
@@ -311,7 +303,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
                             </div>
-                            <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $admin->accessCode ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                            <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $admin->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                         </div>
 
                         <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
@@ -321,9 +313,9 @@
                             </div>
 
                             <select id="hierarchyFunction" name="hierarchyFunction" disabled class="form-control custom-select">
-                                <option value="<?= $admin->hierarchyFunctionId ?>"><?= $admin->hierarchyFunction ?></option>
+                                <option value="<?= $admin->hierarchy_function_id ?>"><?= $admin->hierarchy_function ?></option>
                                 <?php foreach ($this->listHierarchyFunction as $key => $value) { ?>
-                                    <?php if ($value->option_value != $admin->hierarchyFunctionId) { ?>
+                                    <?php if ($value->option_value != $admin->hierarchy_function_id) { ?>
                                         <option value="<?= $value->option_value ?>"><?= $value->option_text ?></option>
                                 <?php }
                                 } ?>
@@ -338,7 +330,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">CEP:</span>
                             </div>
-                            <input type="text" id="zipCode" name="zipCode" disabled class="form-control" value="<?= $admin->zipCode ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input type="text" id="zipCode" name="zipCode" disabled class="form-control" value="<?= $admin->zip_code ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
@@ -374,7 +366,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="addon-wrapping">Telefone: </span>
                             </div>
-                            <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $admin->telephoneNumber ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                            <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $admin->telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                         </div>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
@@ -395,6 +387,8 @@
                 </div>
 
         </div>
+
+    </div>
 
     </div>
 

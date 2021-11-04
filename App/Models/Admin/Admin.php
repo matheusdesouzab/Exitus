@@ -31,9 +31,9 @@ class Admin extends People
 
             "SELECT 
             
-            id_administrador AS admin_id , 
-            nome_administrador AS admin_name , 
-            foto_perfil_administrador AS admin_photo ,
+            id_administrador AS id , 
+            nome_administrador AS name , 
+            foto_perfil_administrador AS profile_photo ,
             fk_id_administrador_hierarquia_funcao AS hierarchy_function
             
             FROM administrador 
@@ -67,29 +67,29 @@ class Admin extends People
 
             nome_administrador AS name ,
             id_administrador AS id ,
-            codigo_acesso AS accessCode ,
-            data_nascimento_administrador AS birthDate ,
+            codigo_acesso AS access_code ,
+            data_nascimento_administrador AS birth_date ,
             cpf_administrador AS cpf ,
             naturalidade_administrador AS naturalness ,
             nacionalidade_administrador AS nationality ,
-            foto_perfil_administrador AS profilePhoto ,
+            foto_perfil_administrador AS profile_photo ,
             email_administrador AS email ,
-            sexo.id_sexo AS sexId ,
+            sexo.id_sexo AS sex_id ,
             sexo.sexo AS sex ,
             pcd.pcd AS pcd , 
-            pcd.id_pcd AS pcdId ,
-            tipo_sanguineo.tipo_sanguineo AS bloodType , 
-            tipo_sanguineo.id_tipo_sanguineo AS bloodTypeId , 
-            endereco.id_endereco AS addressId , 
-            endereco.cep AS zipCode , 
+            pcd.id_pcd AS pcd_id ,
+            tipo_sanguineo.tipo_sanguineo AS blood_type , 
+            tipo_sanguineo.id_tipo_sanguineo AS blood_type_id , 
+            endereco.id_endereco AS address_id , 
+            endereco.cep AS zip_code , 
             endereco.bairro AS district , 
             endereco.endereco AS address , 
             endereco.uf AS uf , 
             endereco.municipio AS county , 
-            telefone.id_telefone AS telephoneId ,
-            telefone.numero_telefone AS telephoneNumber ,
-            hierarquia_funcao.hierarquia_funcao AS hierarchyFunction ,
-            hierarquia_funcao.id_hierarquia_funcao AS hierarchyFunctionId 
+            telefone.id_telefone AS telephone_id ,
+            telefone.numero_telefone AS telephone_number ,
+            hierarquia_funcao.hierarquia_funcao AS hierarchy_function ,
+            hierarquia_funcao.id_hierarquia_funcao AS hierarchy_function_id 
             
             FROM administrador 
             

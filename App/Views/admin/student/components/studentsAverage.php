@@ -7,19 +7,19 @@ $exams = [];
 
 foreach ($this->view->listStudent as $key => $value) {
 
-    $students[$value->student_id]['name'] = $value->student_name;
-    $students[$value->student_id]['profilePhoto'] = $value->profilePhoto;
+    $students[$value->id]['name'] = $value->name;
+    $students[$value->id]['profilePhoto'] = $value->profile_photo;
 
     foreach ($this->view->linkedDisciplines as $y => $discipline) {
 
-        $students[$value->student_id]['discipline'][$discipline->option_value] = $discipline->option_text;
+        $students[$value->id]['discipline'][$discipline->option_value] = $discipline->option_text;
         $exams[$discipline->option_value] = array();
 
         foreach ($this->view->unity as $x => $unity) {
 
-            $students[$value->student_id][$discipline->option_value]['notes'][$unity->option_value] = 0;
-            $students[$value->student_id][$discipline->option_value]['averageEnd'] = 0;
-            $students[$value->student_id][$discipline->option_value]['numberEvaluations'][$unity->option_value] = 0;
+            $students[$value->id][$discipline->option_value]['notes'][$unity->option_value] = 0;
+            $students[$value->id][$discipline->option_value]['averageEnd'] = 0;
+            $students[$value->id][$discipline->option_value]['numberEvaluations'][$unity->option_value] = 0;
             $exams[$discipline->option_value][$unity->option_value] = 0;
         }
     }

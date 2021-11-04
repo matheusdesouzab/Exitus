@@ -117,7 +117,7 @@ class Exam extends Model
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,
-            professor.foto_perfil_professor AS profilePhoto
+            professor.foto_perfil_professor AS profile_photo
             
             FROM avaliacoes 
             
@@ -221,7 +221,7 @@ class Exam extends Model
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,
-            professor.foto_perfil_professor AS profilePhoto       
+            professor.foto_perfil_professor AS profile_photo       
             
             FROM avaliacoes 
             
@@ -378,7 +378,7 @@ class Exam extends Model
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,
-            professor.foto_perfil_professor AS profilePhoto
+            professor.foto_perfil_professor AS profile_photo
             
             FROM avaliacoes 
             

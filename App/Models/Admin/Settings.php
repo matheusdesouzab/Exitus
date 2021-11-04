@@ -31,7 +31,16 @@ class Settings extends Model
     public function update()
     {
 
-        $query = "UPDATE configuracao SET fk_id_controle_unidade = :fk_id_control_unity , fk_id_controle_rematricula = :fk_id_control_rematrug WHERE id_configuracao = 2";
+        $query = 
+        
+            "UPDATE configuracao SET 
+            
+            fk_id_controle_unidade = :fk_id_control_unity , 
+            fk_id_controle_rematricula = :fk_id_control_rematrug 
+            
+            WHERE id_configuracao = 2
+        
+        ";
 
         $stmt = $this->db->prepare($query);
 

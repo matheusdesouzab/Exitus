@@ -40,9 +40,9 @@ class StudentPortalController extends Action
                 'name' => $auth[0]->student_name,
                 'profilePhoto' => $auth[0]->student_photo,
                 'hierarchyFunction' => $auth[0]->hierarchy_function,
-                'enrollmentId' => $auth[0]->enrollmentId,
+                'enrollmentId' => $auth[0]->enrollment_id,
                 'class' => $auth[0]->acronym_series . 'ª ' . $auth[0]->ballot . ' - ' . $auth[0]->course . ' - ' . $auth[0]->shift,
-                'classId' => $auth[0]->classId
+                'classId' => $auth[0]->class_id
             ];
 
             session_cache_expire(400);
@@ -77,6 +77,7 @@ class StudentPortalController extends Action
         $StudentEnrollment->__set('studentEnrollmentId', $_SESSION['Student']['enrollmentId']);
         $Classe->__set('classId', $_SESSION['Student']['classId']);
         $ClassDiscipline->__set("fk_id_class", $_SESSION['Student']['classId']);
+        $Exam->__set("fk_id_class", $_SESSION['Student']['classId']);
 
         $this->view->listNote = $Note->readByIdStudent();
         $this->view->listObservation = $Observation->readByIdStudent();
@@ -87,7 +88,7 @@ class StudentPortalController extends Action
         $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
         $this->view->schoolTermActive = $SchoolTerm->active();
         $this->view->studentDataGeneral = $StudentEnrollment->dataGeneral('<> 0');
-        $this->view->listExam = $Classe->dataGeneral();
+        $this->view->listExam = $Classe->readExamByIdClass();
         $Student->__set('fk_id_enrollmentId', 0);
         $this->view->listStudent = $Classe->readStudentsLinkedClass();
         $this->view->typeStudentList = "class";
@@ -115,16 +116,18 @@ class StudentPortalController extends Action
 
 
         $Student = Container::getModel('Student\\Student');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
 
         if (!isset($_SESSION)) session_start();
 
         $Student->__set('studentId', $_SESSION['Student']['id']);
+        $StudentEnrollment->__set('studentEnrollmentId', $_SESSION['Student']['enrollmentId']);
 
         $this->view->studentProfile = $Student->dataGeneral();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->bloodType = $Student->availablebloodType();
-        $this->view->studentEnrollment = $Student->readyById("<> 0");
+        $this->view->studentEnrollment = $StudentEnrollment->dataGeneral("<> 0");
 
         $this->render('pages/settings', 'SimpleLayout', 'studentPortal');
     }

@@ -98,11 +98,11 @@ class AdminStudentController extends Action
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
         $Unity = Container::getModel('GeneralManagement\\Unity');
 
-        $StudentEnrollment->__set('studentEnrollmentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
+        $StudentEnrollment->__set('studentEnrollmentId', empty($_GET['enrollmentId']) ? $_GET['id'] : $_GET['enrollmentId']);
 
-        $this->view->studentDataEnrollment = $StudentEnrollment->dataGeneral('<> 0');
+        $this->view->studentDataEnrollment = $StudentEnrollment->dataGeneral();
 
-        $Student->__set('studentId', $this->view->studentDataEnrollment[0]->student_id);
+        $Student->__set('studentId', $this->view->studentDataEnrollment[0]->id);
 
         $this->view->studentDataGeneral = $Student->dataGeneral();
         $this->view->availableSex = $Student->availableSex();
@@ -171,6 +171,20 @@ class AdminStudentController extends Action
         $Address->update();
         $Student->update();
         $StudentEnrollment->update();
+    }
+
+
+    public function enrollStudent($classId, $studentId, $schoolTermId, $studentSituation = 1)
+    {
+
+        $Enrollment = Container::getModel('Student\\StudentEnrollment');
+
+        $Enrollment->__set('fk_id_student_situation', $studentSituation);
+        $Enrollment->__set('fk_id_student', $studentId);
+        $Enrollment->__set('fk_id_class', $classId);
+        $Enrollment->__set('fk_id_school_term', $schoolTermId);
+
+        $Enrollment->insert();
     }
 
 
@@ -277,5 +291,16 @@ class AdminStudentController extends Action
     }
 
 
-    
+    public function switchClasses()
+    {
+
+        $this->enrollStudent($_POST['classId'], $_POST['studentId'], $_POST['schoolTermId'], 1);
+
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+
+        $StudentEnrollment->__set('fk_id_student_situation', 4);
+        $StudentEnrollment->__set('studentEnrollmentId', $_POST['enrollmentId']);
+
+        $StudentEnrollment->changeStudentFromClass();
+    }
 }

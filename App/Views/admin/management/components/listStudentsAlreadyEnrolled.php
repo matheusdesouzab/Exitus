@@ -11,7 +11,7 @@ foreach ($this->view->listStudent as $key => $value) {
         if ($student->studentId == $value->student_id) {
 
             $studentsRematrung[$value->student_name]['name'] = $value->student_name;
-            $studentsRematrung[$value->student_name]['profilePhoto'] = $value->profilePhoto;
+            $studentsRematrung[$value->student_name]['profilePhoto'] = $value->profile_photo;
             $studentsRematrung[$value->student_name]['status'] = 'Efetivada';
             $studentsRematrung[$value->student_name]['newClass'] = $student->acronym_series . $student->ballot . ' - ' . $student->course . ' - ' . $student->shift;
 
@@ -19,7 +19,7 @@ foreach ($this->view->listStudent as $key => $value) {
         } else {
 
             $studentsRematrung[$value->student_name]['name'] = $value->student_name;
-            $studentsRematrung[$value->student_name]['profilePhoto'] = $value->profilePhoto;
+            $studentsRematrung[$value->student_name]['profilePhoto'] = $value->profile_photo;
             $studentsRematrung[$value->student_name]['status'] = 'Não efetivada';
             $studentsRematrung[$value->student_name]['newClass'] = 'Não definida';
         }

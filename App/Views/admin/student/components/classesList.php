@@ -2,7 +2,7 @@
 
     foreach ($this->view->listClass as $i => $class) { ?>
 
-        <option value="<?= $class->id_class ?>"><?= $class->series_acronym . ' ' . $class->ballot . ' - ' . $class->course_acronym . ' - ' . $class->shift  ?></option>
+        <option value="<?= $class->class_id ?>"><?= $class->series_acronym . ' ' . $class->ballot . ' - ' . $class->course_acronym . ' - ' . $class->shift  ?></option>
 
     <?php }
 } else { ?>

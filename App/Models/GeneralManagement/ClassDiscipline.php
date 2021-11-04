@@ -69,7 +69,7 @@ class ClassDiscipline extends Model
 
             professor.id_professor AS teacher_id , 
             professor.nome_professor AS teacher_name , 
-            professor.foto_perfil_professor AS profilePhoto , 
+            professor.foto_perfil_professor AS profile_photo , 
             professor.cpf_professor AS teacher_cpf , 
             sexo.sexo AS teacher_sex , 
             disciplina.nome_disciplina AS discipline_name , 

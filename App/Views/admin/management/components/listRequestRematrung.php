@@ -8,15 +8,15 @@ $totalRequest = 0;
 
 <?php foreach ($this->view->listRematrugRequests as $key => $value) { ?>
 
-    <?php if ($value->enrollmentTotal <= $value->seriesId) { ?>
+    <?php if ($value->enrollment_total <= $value->series_id) { ?>
 
         <?php $totalRequest++ ?>
 
         <form class="col-lg-12 card mt-3 p-3" id="addRematrung">
 
-            <input type="hidden" value="<?= $value->studentId ?>" name="studentId">
-            <input type="hidden" value="<?= $this->view->nextClass[0]->schoolTermId ?>" name="schoolTermId">
-            <input type="hidden" value="<?= $this->view->nextClass[0]->classId ?>" name="classId">
+            <input type="hidden" value="<?= $value->student_id ?>" name="studentId">
+            <input type="hidden" value="<?= $this->view->nextClass[0]->school_term_id ?>" name="schoolTermId">
+            <input type="hidden" value="<?= $this->view->nextClass[0]->class_id ?>" name="classId">
 
             <div class="form-row">
 
@@ -25,10 +25,10 @@ $totalRequest = 0;
                     <div class="row d-flex align-items-center">
 
                         <div class="col-2">
-                            <img class="miniature-photo" src='<?= $value->profilePhoto == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profilePhoto ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                            <img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
                         </div>
 
-                        <div class="col-10 text-left font-weight-bold"><?= $value->studentName ?></div>
+                        <div class="col-10 text-left font-weight-bold"><?= $value->student_name ?></div>
 
                     </div>
 
@@ -39,8 +39,8 @@ $totalRequest = 0;
                     <div class="row d-flex justify-content-end mr-2">
 
                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-light border border-info mr-2"><?= $value->studentSituationSchoolYear ?></button>
-                            <button type="button" class="btn btn-light border border-info">Optou por <?= $value->rematrungSituation == 'Sim' ? 'continuar' : ' não continuar' ?> estudando</button>
+                            <button type="button" class="btn btn-light border border-info mr-2"><?= $value->student_situation_school_year ?></button>
+                            <button type="button" class="btn btn-light border border-info">Optou por <?= $value->rematrung_situation == 'Sim' ? 'continuar' : ' não continuar' ?> estudando</button>
                         </div>
 
                     </div>
@@ -60,7 +60,7 @@ $totalRequest = 0;
 
                         <?php foreach ($this->view->nextClass as $key => $class) { ?>
 
-                            <option value="<?= $class->classId ?>"><?= $class->series ?> ª <?= $class->ballot ?> - <?= $class->course ?> - <?= $class->shift ?> - <?= $class->schoolYear ?> - Vagas: <?= $class->studentCapacity - $class->studentTotal ?></option>
+                            <option value="<?= $class->class_id ?>"><?= $class->series ?> ª <?= $class->ballot ?> - <?= $class->course ?> - <?= $class->shift ?> - <?= $class->school_year ?> - Vagas: <?= $class->student_capacity - $class->student_total ?></option>
 
                         <?php } ?>
 

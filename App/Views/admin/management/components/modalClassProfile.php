@@ -50,8 +50,8 @@
 
                 <form action="" id="dataClass">
 
-                    <input type="hidden" name="series" value="<?= $this->view->classData[0]->seriesId ?>">
-                    <input type="hidden" name="course" value="<?= $this->view->classData[0]->courseId ?>">
+                    <input type="hidden" name="series" value="<?= $this->view->classData[0]->series_id ?>">
+                    <input type="hidden" name="course" value="<?= $this->view->classData[0]->course_id ?>">
                     <input type="hidden" name="classId" value="<?= $this->view->classData[0]->class_id ?>">
 
                 </form>
@@ -571,7 +571,7 @@
 
                                 <div class="col-lg-7 col-12 p-0">
 
-                                    <div class="row  collapse-options-container">
+                                    <div class="row collapse-options-container">
 
                                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#rematrecules-received"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>Solicitações</span></a>
 
@@ -637,7 +637,7 @@
 
                                     <select id="series" name="series" class="form-control custom-select">
 
-                                        <option value="<?= $this->view->classData[0]->seriesId ?>"><?= $this->view->classData[0]->series_acronym ?></option>
+                                        <option value="<?= $this->view->classData[0]->series_id ?>"><?= $this->view->classData[0]->series_acronym ?></option>
 
                                     </select>
 
@@ -649,11 +649,11 @@
 
                                     <select id="ballot" name="ballot" class="form-control custom-select">
 
-                                        <option value="<?= $this->view->classData[0]->ballotId ?>"><?= $this->view->classData[0]->ballot ?></option>
+                                        <option value="<?= $this->view->classData[0]->ballot_id ?>"><?= $this->view->classData[0]->ballot ?></option>
 
                                         <?php foreach ($this->view->availableBallot as $key => $ballot) { ?>
 
-                                            <?php if ($this->view->classData[0]->ballotId != $ballot->option_value) { ?>
+                                            <?php if ($this->view->classData[0]->ballot_id != $ballot->option_value) { ?>
 
                                                 <option value="<?= $ballot->option_value ?>"><?= $ballot->option_text ?></option>
 
@@ -670,7 +670,7 @@
 
                                     <select id="course" name="course" class="form-control custom-select">
 
-                                        <option value="<?= $this->view->classData[0]->courseId ?>"><?= $this->view->classData[0]->course ?></option>
+                                        <option value="<?= $this->view->classData[0]->course_id ?>"><?= $this->view->classData[0]->course ?></option>
 
                                     </select>
 
@@ -682,11 +682,11 @@
 
                                     <select id="shift" name="shift" class="form-control custom-select">
 
-                                        <option value="<?= $this->view->classData[0]->shiftId ?>"><?= $this->view->classData[0]->shift ?></option>
+                                        <option value="<?= $this->view->classData[0]->shift_id ?>"><?= $this->view->classData[0]->shift ?></option>
 
                                         <?php foreach ($this->view->availableShift as $key => $shift) { ?>
 
-                                            <?php if ($this->view->classData[0]->shiftId != $shift->option_value) { ?>
+                                            <?php if ($this->view->classData[0]->shift_id != $shift->option_value) { ?>
 
                                                 <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
 
@@ -703,11 +703,11 @@
 
                                     <select id="classRoom" name="classRoom" class="form-control custom-select" required>
 
-                                        <option value="<?= $this->view->classData[0]->classroomId ?>"><?= $this->view->classData[0]->classroom_number ?></option>
+                                        <option value="<?= $this->view->classData[0]->classroom_id ?>"><?= $this->view->classData[0]->classroom_number ?></option>
 
                                         <?php foreach ($this->view->availableClassRoom as $key => $classRoom) { ?>
 
-                                            <?php if ($this->view->classData[0]->classroomId != $classRoom->option_value) { ?>
+                                            <?php if ($this->view->classData[0]->classroom_id != $classRoom->option_value) { ?>
 
                                                 <option value="<?= $classRoom->option_value ?>"><?= $classRoom->option_text ?></option>
 
@@ -773,6 +773,7 @@
                                         </div>
 
                                         <div class="form-group col-lg-3">
+                                            
                                             <label for="">Unidade:</label>
 
                                             <select id="unity" class="form-control custom-select" name="unity" required>

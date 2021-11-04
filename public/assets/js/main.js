@@ -107,6 +107,12 @@ $("#classRoom #buttonAddClassRoom").on("click", function () {
 })
 
 
+$(document).on("click", "#profileStudentModal #buttonSwitchClasses", function(e){
+    application.addSinglePart("#switchClasses", "/admin/gestao/turma/perfil-turma/aluno/troca-turma", "Troca aluno de turma")
+    location.reload()
+})
+
+
 $("#class #buttonAddClass").on("click", function () {
 
     application.addSinglePart("#addClass", "/admin/gestao/turma/inserir", "Turma adicionada")

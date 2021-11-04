@@ -562,6 +562,12 @@ class Route extends Bootstrap
 				'action' => 'seekOverallStudentAverages'
 			);
 
+			$routes['adminSwitchClasses'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aluno/troca-turma',
+				'controller' => 'Admin\\AdminStudentController',
+				'action' => 'switchClasses'
+			);
+
 			$routes['adminNoteList'] = array(
 				'route' => '/admin/gestao/turma/perfil-turma/aluno/lista-notas',
 				'controller' => 'Admin\\AdminTeacherStudentController',

@@ -61,12 +61,12 @@ class AdminController extends Action
 
             if (!isset($_SESSION)) session_start();
 
-            $adminName = explode(" ", $auth[0]->admin_name);
+            $adminName = explode(" ", $auth[0]->name);
 
             $_SESSION['Admin'] = [
-                'id' => $auth[0]->admin_id,
+                'id' => $auth[0]->id,
                 'name' => $adminName[0].' '.$adminName[1].' '.$adminName[2],
-                'profilePhoto' => $auth[0]->admin_photo,
+                'profilePhoto' => $auth[0]->profile_photo,
                 'hierarchyFunction' => $auth[0]->hierarchy_function
             ];
 
@@ -167,7 +167,7 @@ class AdminController extends Action
 
         $Admin->updateProfilePicture();
         $profilePhoto = $Admin->dataGeneral();
-        $_SESSION['Admin']['profilePhoto'] = $profilePhoto[0]->profilePhoto;
+        $_SESSION['Admin']['profilePhoto'] = $profilePhoto[0]->profile_photo;
     }
 
 

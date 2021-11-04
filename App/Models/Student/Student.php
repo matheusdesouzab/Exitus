@@ -136,19 +136,19 @@ class Student extends People
             aluno.id_aluno AS student_id , 
             aluno.nome_aluno AS student_name , 
             aluno.cpf_aluno AS student_cpf , 
-            aluno.foto_perfil_aluno AS profilePhoto , 
+            aluno.foto_perfil_aluno AS profile_photo , 
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
-            curso.nome_curso AS courseName ,
+            curso.nome_curso AS course_name ,
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS number_classroom , 
             situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
             situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
             turma.id_turma AS class_id,
-            matricula.id_matricula AS enrollmentId ,
-            situacao_periodo_letivo.id_situacao_periodo_letivo AS schoolTermSituation ,
-            periodo_disponivel.ano_letivo AS schoolYear
+            matricula.id_matricula AS enrollment_id ,
+            situacao_periodo_letivo.id_situacao_periodo_letivo AS school_term_situation ,
+            periodo_disponivel.ano_letivo AS school_year
             
             FROM aluno 
 
@@ -176,42 +176,42 @@ class Student extends People
      * 
      * @return array
      */
-    public function dataGeneral()
+    public function dataGeneral($scholTermSituation = "= 1")
     {
 
         $query =
 
             "SELECT 
                 
-            aluno.id_aluno AS student_id , 
-            aluno.nome_aluno AS student_name , 
-            aluno.cpf_aluno AS student_cpf , 
-            sexo.id_sexo AS student_sex_id , 
-            sexo.sexo AS student_sex , 
-            aluno.codigo_acesso AS accessCode ,
-            aluno.data_nascimento_aluno AS student_birth_date , 
-            aluno.naturalidade_aluno AS student_naturalness , 
-            aluno.foto_perfil_aluno AS profilePhoto , 
-            aluno.nacionalidade_aluno AS student_nacionality , 
-            aluno.nome_mae AS student_mother , 
-            aluno.nome_pai AS student_father , 
+            aluno.id_aluno AS id , 
+            aluno.nome_aluno AS name , 
+            aluno.cpf_aluno AS cpf , 
+            sexo.id_sexo AS sex_id , 
+            sexo.sexo AS sex , 
+            aluno.codigo_acesso AS access_code ,
+            aluno.data_nascimento_aluno AS birth_date , 
+            aluno.naturalidade_aluno AS naturalness , 
+            aluno.foto_perfil_aluno AS profile_photo , 
+            aluno.nacionalidade_aluno AS nacionality , 
+            aluno.nome_mae AS mother , 
+            aluno.nome_pai AS father , 
             tipo_sanguineo.tipo_sanguineo AS blood_type , 
             tipo_sanguineo.id_tipo_sanguineo AS blood_type_id , 
-            pcd.pcd AS student_pcd , 
-            pcd.id_pcd AS student_pcd_id , 
+            pcd.pcd AS pcd , 
+            pcd.id_pcd AS pcd_id , 
             telefone.numero_telefone AS telephone_number , 
-            endereco.id_endereco AS student_address_id , 
-            endereco.cep AS student_zipCode , 
-            endereco.bairro AS student_district , 
-            endereco.endereco AS student_address , 
-            endereco.uf AS student_uf , 
-            endereco.municipio AS student_county , 
+            endereco.id_endereco AS address_id , 
+            endereco.cep AS zip_code , 
+            endereco.bairro AS district , 
+            endereco.endereco AS address , 
+            endereco.uf AS uf , 
+            endereco.municipio AS county , 
             endereco.id_endereco as address_id , 
             telefone.id_telefone AS telephone_id ,
             email_aluno AS email ,
-            situacao_geral_aluno.situacao_geral AS general_student_situation ,
-            situacao_geral_aluno.id_situacao_geral AS general_student_situation_id ,
-            hierarquia_funcao.hierarquia_funcao AS hierarchyFunction 
+            situacao_geral_aluno.situacao_geral AS general_situation ,
+            situacao_geral_aluno.id_situacao_geral AS general_situation_id ,
+            hierarquia_funcao.hierarquia_funcao AS hierarchy_function 
             
             FROM aluno 
 
@@ -222,8 +222,12 @@ class Student extends People
             INNER JOIN endereco ON(aluno.fk_id_endereco_aluno = endereco.id_endereco)
             INNER JOIN situacao_geral_aluno ON(aluno.fk_id_situacao_geral_aluno = situacao_geral_aluno.id_situacao_geral)
             INNER JOIN hierarquia_funcao ON(aluno.fk_id_aluno_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao)
+            INNER JOIN matricula ON(aluno.id_aluno = matricula.fk_id_aluno) 
+            INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
-            WHERE aluno.id_aluno = :id
+            WHERE aluno.id_aluno = :id AND situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation 
             
         ";
 
@@ -249,22 +253,22 @@ class Student extends People
 
             "SELECT 
             
-            aluno.id_aluno AS student_id , 
-            aluno.nome_aluno AS student_name , 
-            aluno.cpf_aluno AS student_cpf , 
-            aluno.foto_perfil_aluno AS profilePhoto , 
+            aluno.id_aluno AS id , 
+            aluno.nome_aluno AS name , 
+            aluno.cpf_aluno AS cpf , 
+            aluno.foto_perfil_aluno AS profile_photo , 
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
-            curso.nome_curso AS courseName ,
+            curso.nome_curso AS course_name ,
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS number_classroom , 
-            situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
-            situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
+            situacao_aluno_ano_letivo.situacao_aluno as situation , 
+            situacao_aluno_ano_letivo.id_situacao_aluno as situation_id , 
             turma.id_turma AS class_id,
-            matricula.id_matricula AS enrollmentId ,
-            situacao_periodo_letivo.id_situacao_periodo_letivo AS schoolTermSituation ,
-            periodo_disponivel.ano_letivo AS schoolYear 
+            matricula.id_matricula AS enrollment_id ,
+            situacao_periodo_letivo.id_situacao_periodo_letivo AS school_term_situation ,
+            periodo_disponivel.ano_letivo AS school_year 
             
             FROM aluno 
             
@@ -337,9 +341,9 @@ class Student extends People
             
             aluno.id_aluno AS student_id , 
             aluno.nome_aluno AS student_name , 
-            aluno.foto_perfil_aluno AS profilePhoto ,  
+            aluno.foto_perfil_aluno AS profile_photo ,  
             turma.id_turma AS class_id,
-            matricula.id_matricula AS enrollmentId
+            matricula.id_matricula AS enrollment_id
            
             FROM aluno 
             
@@ -397,12 +401,12 @@ class Student extends People
             nome_aluno AS student_name,
             foto_perfil_aluno AS student_photo,
             fk_id_aluno_hierarquia_funcao AS hierarchy_function,
-            matricula.id_matricula AS enrollmentId ,
+            matricula.id_matricula AS enrollment_id ,
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
             curso.nome_curso AS course , 
             turno.nome_turno AS shift ,
-            turma.id_turma AS classId
+            turma.id_turma AS class_id
             
             FROM aluno
 
@@ -463,9 +467,9 @@ class Student extends People
 
             "SELECT 
             
-            aluno.nome_aluno AS studentName , 
-            aluno.foto_perfil_aluno AS profilePhoto , 
-            aluno.data_matricula_inicial AS initialEnrollmentDate 
+            aluno.nome_aluno AS student_name , 
+            aluno.foto_perfil_aluno AS profile_photo , 
+            aluno.data_matricula_inicial AS initial_enrollment_date 
             
             FROM aluno 
             
@@ -491,7 +495,7 @@ class Student extends People
 
         return $this->speedingUp(
 
-            "SELECT COUNT(aluno.id_aluno) AS totalStudent
+            "SELECT COUNT(aluno.id_aluno) AS total_student
             
             FROM aluno 
             
