@@ -292,75 +292,81 @@
 
                     <div class="col-lg-11 mx-auto collapse" id="accordion-settings-student" data-parent="#main-accordion-student">
 
-                    <div class="col-lg-12 mb-3">
+                        <div class="col-lg-12 mb-3">
 
-                        <div class="row">
-
-                        <div class="col-lg-12 p-0">
-
-                            <form class="" action="" id="formSettingsStudent">
-
-                                <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
+                            <div class="row">
 
                                 <div class="col-lg-12 p-0">
 
-                                <div class="form-row d-flex align-items-center">
+                                    <form class="" action="" id="formSettingsStudent">
 
-                                        <h5 class="col-lg-5 p-0">Configurações</h5>
+                                        <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
 
-                                    <div class="row col-lg-7 d-flex justify-content-end">
+                                            <div class="col-lg-12 p-0">
 
-                                        <span idElement="#formSettingsStudent" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                <div class="form-row d-flex align-items-center">
 
-                                        <span id="updateStudentPortalData" class=" update-data-icon"><i class="fas fa-check"></i></span>
+                                                    <h5 class="col-lg-5 p-0">Configurações</h5>
 
-                                    </div>
+                                                    <div class="row col-lg-7 d-flex justify-content-end">
+
+                                                        <span idElement="#formSettingsStudent" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+
+                                                        <span id="updateStudentPortalData" class=" update-data-icon"><i class="fas fa-check"></i></span>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="form-group p-0 mt-4 d-flex align-items-center">
+
+                                            <label class="col-lg-4 p-0" for="">Dados vinculados: </label>
+
+                                            <div class="col-lg-8">
+
+                                                <select class="custom-select form-control" disabled name="enrollmentId">
+
+                                                    <option value="<?= $_SESSION['Student']['classId'] ?>"><?= $_SESSION['Student']['class'] ?></option>
+
+                                                    <?php foreach ($this->view->studentEnrollment as $key => $value) { ?>
+
+                                                        <?php if ($_SESSION['Student']['classId'] <> $value->class_id) { ?>
+
+                                                            <option value="<?= $value->enrollmentId ?>"><?= $value->acronym_series ?> ª <?= $value->ballot ?> - <?= $value->courseName ?> - <?= $value->shift ?></option>
+
+                                                    <?php }
+                                                    } ?>
+
+                                                </select>
+
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </form>
 
                                 </div>
 
-                                </div>
-
-                                </div>
-
-
-
-                                <div class="form-group p-0 mt-4 d-flex align-items-center">
-
-                                    <label class="col-lg-4 p-0" for="">Dados vinculados: </label>
-
-                                    <div class="col-lg-8">
-
-                                        <select class="custom-select form-control" disabled name="enrollmentId">
-
-                                            <option value="<?= $_SESSION['Student']['classId'] ?>"><?= $_SESSION['Student']['class'] ?></option>
-
-                                            <?php foreach ($this->view->studentEnrollment as $key => $value) { ?>
-
-                                                <?php if ($_SESSION['Student']['classId'] <> $value->class_id) { ?>
-
-                                                    <option value="<?= $value->enrollmentId ?>"><?= $value->acronym_series ?> ª <?= $value->ballot ?> - <?= $value->courseName ?> - <?= $value->shift ?></option>
-
-                                            <?php }
-                                            } ?>
-
-                                        </select>
-
-                                    </div>
-
-
-
-                                </div>
-
-                            </form>
+                            </div>
 
                         </div>
-
-                        </div>
-
-                    </div>
 
                     </div>
 
                 </div>
+
             </div>
+
         </div>
+
+</div>
+</div>
+</div>

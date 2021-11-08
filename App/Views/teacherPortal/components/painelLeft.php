@@ -12,7 +12,7 @@
 
             <li><a href="/portal-docente/turmas"><i class="fas fa-boxes"></i><span class="link-name">Turmas</span></a></li>
 
-            <li><a href="/portal-docente/sair"><i class="fas fa-door-open"></i><span class="link-name">Sair</span></a></li>
+            <li><a href="#" id="settingsTeacherPortal"><i class="fas fa-cog"></i><span class="link-name">Configurações</span></a></li>
 
         </ul>
 

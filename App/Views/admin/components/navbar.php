@@ -8,11 +8,8 @@
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarText">
-		<ul class="navbar-nav ml-auto d-flex align-items-center mr-5">
 
-			<!-- <li class="nav-item mr-4">
-				<a href="#"><a href="/admin/sair" data-toggle="tooltip" data-placement="bottom" title="Tela cheia"><i class="fas fa-expand text-dark"></i></a></a>
-			</li> -->
+		<ul class="navbar-nav ml-auto d-flex align-items-center mr-5">
 
 			<li class="nav-item">
 				<div class="">
@@ -27,6 +24,7 @@
 			<li class="nav-item ml-4 mr-2">
 				<a href="#"><a href="/admin/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a></a>
 			</li>
+			
 		</ul>
 	</div>
 </nav>

@@ -47,25 +47,41 @@
 
                                     <ul>
 
-                                        <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-student"><i class="fas fa-user mr-3"></i> Dados do aluno</a>
+                                        <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-student">
+                                            <span class="box-icon"><i class="fas fa-user"></i></span> Dados do aluno
+                                        </a>
 
                                         <?php if($this->view->studentDataEnrollment[0]->situation_id != 4){ ?>
 
                                         <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_situation) { ?>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam"><i class="fas fa-paste mr-3"></i> Avaliações</a>
+                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">
+                                                <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações
+                                            </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin"><i class="fas fa-book-open mr-3"></i> Boletim</a>
+                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin">
+                                                <span class="box-icon"><i class="fas fa-book-open"></i></span> Boletim
+                                            </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack"><i class="fas fa-tasks mr-3"></i> Faltas</a>
+                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">
+                                                <span class="box-icon"><i class="fas fa-tasks mr-3"></i></span> Faltas
+                                            </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData"><i class="fab fa-buffer mr-3"></i> Média final</a>
+                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData">
+                                                <span class="box-icon"><i class="fab fa-buffer mr-3"></i></span> Média final
+                                            </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-profile-average"><i class="fas fa-poll mr-3"></i> Médias gerais</a>
+                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-profile-average">
+                                                <span class="box-icon"><i class="fas fa-poll mr-3"></i></span> Médias gerais
+                                            </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation"> <i class="fas fa-file-alt mr-3"></i> Observações</a>
+                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation"> 
+                                                <span class="box-icon"><i class="fas fa-file-alt mr-3"></i></span> Observações
+                                            </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-settings"> <i class="fas fa-sync-alt mr-3"></i> Troca de turma</a>
+                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-settings"> 
+                                                <span class="box-icon"><i class="fas fa-sync-alt mr-3"></i></span> Troca de turma
+                                            </a>
 
                                         <?php }} ?>
 

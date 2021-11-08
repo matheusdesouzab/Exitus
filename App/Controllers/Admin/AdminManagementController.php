@@ -413,7 +413,6 @@ class AdminManagementController extends Action
     public function classProfile()
     {
 
-        $Student = Container::getModel('Student\\Student');
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Teacher = Container::getModel('Teacher\\Teacher');
@@ -457,7 +456,6 @@ class AdminManagementController extends Action
 
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Unity = Container::getModel('GeneralManagement\\Unity');
-        $Exam = Container::getModel('TeacherStudent\\Exam');
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $Teacher = Container::getModel('Teacher\\Teacher');
 
@@ -471,7 +469,7 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
         $Classe->__set("classId", $_GET['classId']);
 
-        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Teacher->readNoteTeacherId($Teacher) : $Classe->readNoteByClassId() ;
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->notesLinkedTeacherClass() : $Classe->readNoteByClassId() ;
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects();
         $this->view->listStudent = $Classe->readStudentsLinkedClass();
         $this->view->unity = $Unity->readOpenUnits();

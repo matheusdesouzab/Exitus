@@ -31,9 +31,11 @@
 
                         <ul>
 
-                            <a class="collapse" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-admin"><i class="fas fa-user mr-3"></i> Seu perfil</a>
+                            <a class="collapse" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-admin">
+                                <span class="box-icon"><i class="fas fa-user"></i></span> Seu perfil</a>
 
-                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-settings"><i class="fas fa-cogs mr-2"></i> Configurações</a>
+                            <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-settings">
+                                <span class="box-icon"><i class="fas fa-cogs"></i></span> Configurações</a>
 
                         </ul>
 

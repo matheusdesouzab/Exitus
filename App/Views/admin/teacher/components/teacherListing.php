@@ -10,7 +10,7 @@
                 <img src='<?= $teacher->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
 
-            <td class="text-left"><?= $teacher->teacher_name ?></td>
+            <td class="text-left"><?= $teacher->name ?></td>
 
             <?php if ($this->view->typeTeacherList != 'class' && isset($this->view->typeTeacherList)) { ?>
 

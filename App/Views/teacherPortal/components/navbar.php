@@ -9,7 +9,8 @@
 
 
 	<div class="collapse navbar-collapse" id="navbarText">
-		<ul class="navbar-nav ml-auto d-flex align-items-center">
+
+		<ul class="navbar-nav ml-auto d-flex align-items-center mr-5">
 
 			<li class="nav-item">
 				<div class="">
@@ -18,8 +19,12 @@
 
 			</li>
 
-			<li class="nav-item ml-4">
-				<a href="#" id="settingsTeacherPortal"><i class="fas fa-cog"></i></a>
+			<li class="nav-item ml-3">
+				<b><?= $_SESSION['Teacher']['name'] ?></b>
+			</li>
+
+			<li class="nav-item ml-4 mr-2">
+				<a href="#"><a href="/portal-docente/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a></a>
 			</li>
 
 		</ul>

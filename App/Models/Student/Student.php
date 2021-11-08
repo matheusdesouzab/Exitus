@@ -339,8 +339,8 @@ class Student extends People
 
             "SELECT 
             
-            aluno.id_aluno AS student_id , 
-            aluno.nome_aluno AS student_name , 
+            aluno.id_aluno AS id , 
+            aluno.nome_aluno AS name , 
             aluno.foto_perfil_aluno AS profile_photo ,  
             turma.id_turma AS class_id,
             matricula.id_matricula AS enrollment_id

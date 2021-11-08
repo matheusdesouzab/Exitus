@@ -611,6 +611,12 @@ button {
 #studentPortal #pagina #table-bulletin-print thead {
   background: #E8F0FE;
 }
+#admin #pagina span.box-icon,
+#teacherPortal #pagina span.box-icon,
+#studentPortal #pagina span.box-icon {
+  width: 30px;
+  display: inline-block;
+}
 #admin #pagina .limited-text-description,
 #teacherPortal #pagina .limited-text-description,
 #studentPortal #pagina .limited-text-description {

@@ -46,7 +46,7 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 
 				<div class="modal fade modal-profile" id="settingsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
-					<div class="modal-dialog modal-xl">
+					<div class="modal-dialog modal-full">
 						<div class="modal-content">
 							<div class="row">
 								<div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#settingsModal">
@@ -70,6 +70,9 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 <script src="/node_modules/jquery/dist/jquery.js"></script>
 
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
 
 <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 

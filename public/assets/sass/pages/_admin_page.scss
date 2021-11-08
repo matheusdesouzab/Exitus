@@ -1,4 +1,5 @@
 #studentPortal {
+
     textarea:disabled {
         background: white;
         border-radius: 10px;
@@ -35,7 +36,10 @@
             background: #E8F0FE;
         }
 
-   
+        span.box-icon{
+            width: 30px;
+            display: inline-block;
+        }
 
         .limited-text-description{
             max-width: 50ch;

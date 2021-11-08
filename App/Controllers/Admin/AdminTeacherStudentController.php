@@ -107,16 +107,16 @@ class AdminTeacherStudentController extends Action
     public function examList()
     {
 
-        $Exam = Container::getModel('TeacherStudent\\Exam');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Classe = Container::getModel('GeneralManagement\\Classe');
 
         if (!isset($_SESSION)) session_start();
 
-        if(isset($_SESSION['Teacher']['id'])) $Teacher->__set("teacherId", $_SESSION['Teacher']['id']);
-        if(!isset($_SESSION['Teacher']['id'])) $Classe->__set("classId", $_GET['classId']);;
+        if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
+        if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
-        $this->view->listExam = isset($_SESSION['Teacher']['id']) ? $Exam->readByIdTeacher($Teacher) : $Classe->readExamByIdClass();
+        $this->view->listExam = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->subjectsLinkedTeacher() : $Classe->readExamByIdClass();
 
         $this->render('management/components/examList', 'SimpleLayout');
     }
@@ -162,7 +162,7 @@ class AdminTeacherStudentController extends Action
 
         if (!isset($_SESSION)) session_start();
 
-        $Teacher->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
+        $Teacher->__set("teacherId", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
         echo json_encode($Note->notesNotAddedYet($Teacher));
     }
@@ -184,14 +184,16 @@ class AdminTeacherStudentController extends Action
     {
 
         $Note = Container::getModel('TeacherStudent\\Note');
-        $Teacher = Container::getModel('Teacher\\Teacher');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
 
         if (!isset($_SESSION)) session_start();
-        if (isset($_SESSION['Teacher']['id'])) $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+        if (isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
 
         $Note->__set('fk_id_student_enrollment', $_GET['enrollmentId']);
+        $StudentEnrollment->__set('studentEnrollmentId', $_GET['enrollmentId']);
 
-        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Teacher->readNoteByIdTeacher() : $Note->readByIdStudent();
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->notesLinkedStudentClassTeacher($StudentEnrollment) : $Note->readByIdStudent();
 
         $this->render('student/components/studentGradeList', 'SimpleLayout');
     }
@@ -200,17 +202,18 @@ class AdminTeacherStudentController extends Action
     public function noteListClass()
     {
 
-        $Note = Container::getModel('TeacherStudent\\Note');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Classe = Container::getModel('GeneralManagement\\Classe');
 
         if (!isset($_SESSION)) session_start();
-
-        if (isset($_SESSION['Teacher']['id'])) $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+        
+        $ClassDiscipline->__set('fk_id_class', $_GET['classId']);
+        $ClassDiscipline->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
         
         $Classe->__set('classId', $_GET['classId']);
 
-        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Teacher->readNoteByTeacherId() : $Classe->readNoteByClassId();
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->notesLinkedTeacherClass() : $Classe->readNoteByClassId();
         $this->view->listNoteType = 'class';
 
         $this->render('student/components/noteList', 'SimpleLayout');
@@ -260,7 +263,7 @@ class AdminTeacherStudentController extends Action
 
         $Teacher->__set('teacherId', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
 
-        $this->view->listNote = $Note->seek($_GET['orderBy'], $Classe , $Teacher);
+        $this->view->listNote = $Note->seek($Classe , $Teacher, $_GET['orderBy']);
         $this->view->listNoteType = 'class';
 
         $this->render('student/components/noteList', 'SimpleLayout');

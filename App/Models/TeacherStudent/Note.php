@@ -82,7 +82,9 @@ class Note extends Model
             matricula.id_matricula AS enrollment_id ,
             aluno.id_aluno AS student_id ,
             nota_avaliacao.data_postagem AS post_date ,
-            turma_disciplina.id_turma_disciplina AS class_discipline_id
+            turma_disciplina.id_turma_disciplina AS class_discipline_id ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo 
       
             FROM avaliacoes
             
@@ -92,6 +94,7 @@ class Note extends Model
             INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
             INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
@@ -123,6 +126,7 @@ class Note extends Model
         $query =
 
             "SELECT 
+            
             avaliacoes.descricao_avaliacao AS exam_description , 
             disciplina.nome_disciplina AS discipline_name , 
             disciplina.id_disciplina AS discipline_id, 

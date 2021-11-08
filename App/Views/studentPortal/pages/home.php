@@ -175,6 +175,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         $data = [];
                                         $photoDir =  "/assets/img/teacherProfilePhotos/";
+                                        $sort = [];
 
                                         foreach ($this->view->listNote as $key => $note) {
                                             $data['dados'][] = ['tipo' => 'note', 'value' => $note];
@@ -191,15 +192,16 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         foreach ($this->view->disciplineAverageList as $key => $disciplineAverage) {
                                             $data['dados'][] = ['tipo' => 'disciplineAverage', 'value' => $disciplineAverage];
                                         }
+                                
 
                                         if (count($data) != 0) {
 
                                             foreach ($data['dados'] as $key => $part) {
-                                                $date = explode(' ', $part['value']->post_date);
-                                                $sort[$key] = strtotime($date[0]);
+                                                $date = $part['value']->post_date;
+                                                $sort[$key] = $date;
                                             }
 
-                                            array_multisort($sort, SORT_DESC, $data['dados']);
+                                            array_multisort($sort,SORT_DESC, $data['dados']);
                                         }
 
                                         function currentDate($array)
@@ -322,7 +324,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                             <div class="col-lg-11">
 
-                                                                <p class="mt-2 text-description mb-3">Você recebeu uma observação de <?= $value['value']->teacherName ?> referente a <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
+                                                                <p class="mt-2 text-description mb-3">Você recebeu uma observação de <?= $value['value']->teacher_name ?> referente a <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
 
                                                                 <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observation_description ?></textarea>
 
@@ -408,7 +410,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     <div class="collapse mt-4" id="bulletin" data-parent="#studentPortal-accordion">
 
-                        <div containerBulletin class="col-lg-11 mx-auto card mb-4 mt-3 p-4"></div>
+                        <div containerBulletin class="col-lg-11 mx-auto card mb-4 mt-3 p-5"></div>
 
                     </div>
 

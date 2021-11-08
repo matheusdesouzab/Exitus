@@ -14,16 +14,23 @@
 
                             <ul>
 
-                                <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data"><i class="fas fa-user-friends mr-2"></i> Dados da turma</a>
+                                <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-class-data">
+                                    <span class="box-icon"><i class="fas fa-user-friends"></i></span> Dados da turma
+                                </a>
 
                                 <?php if (!isset($_SESSION)) session_start(); ?>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments"><i class="fas fa-paste mr-3"></i> Avaliações</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">
+                                    <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações
+                                </a>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history"><i class="fas fa-poll-h mr-3"></i> Notas das avaliações</a>
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history">
+                                    <span class="box-icon"><i class="fas fa-poll-h"></i></span> Notas das avaliações
+                                </a>
 
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average"><i class="fas fa-poll mr-3"></i> Médias dos alunos</a>
-
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average">
+                                    <span class="box-icon"><i class="fas fa-poll"></i></span> Médias dos alunos
+                                </a>
 
                                 <?php
 
@@ -31,11 +38,17 @@
 
                                 ?>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion"><i class="fas fa-boxes mr-3"></i> Disciplinas vinculadas</a>
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion">
+                                        <span class="box-icon"><i class="fas fa-boxes"></i></span> Disciplinas vinculadas
+                                    </a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug"><i class="fas fa-redo mr-3"></i> Rematrícula</a>
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">
+                                        <span class="box-icon"><i class="fas fa-redo"></i></span> Rematrícula
+                                    </a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings"><i class="fas fa-cog mr-3"></i> Configurações</a>
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings">
+                                        <span class="box-icon"><i class="fas fa-cog"></i></span> Configurações
+                                    </a>
 
 
                                 <?php } ?>

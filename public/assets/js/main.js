@@ -514,7 +514,7 @@ $(document).on("click", "#sidebar #settings", function () {
 
 })
 
-$(document).on("click", "#navbar-top #settingsTeacherPortal", function () {
+$(document).on("click", "#settingsTeacherPortal", function () {
 
     application.showModal(0, "/portal-docente/configuracoes", "containerSettingsModal", "#settingsModal")
 

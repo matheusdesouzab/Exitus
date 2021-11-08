@@ -30,9 +30,13 @@
 
                                     <ul>
 
-                                        <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-teacher"><i class="fas fa-user mr-3"></i> Dados do docente</a>
+                                        <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-teacher">
+                                            <span class="box-icon"><i class="fas fa-user"></i></span> Dados do docente
+                                        </a>
 
-                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-teacher-accordion"><i class="fas fa-chalkboard-teacher mr-3"></i>Turmas</a>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-teacher-accordion">
+                                            <span class="box-icon"><i class="fas fa-chalkboard-teacher"></i></span> Turmas
+                                        </a>
 
                                     </ul>
 
