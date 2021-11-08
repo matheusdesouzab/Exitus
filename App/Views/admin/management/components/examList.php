@@ -2,12 +2,12 @@
 
 <div class="table-responsive col-lg-12 p-0">
 
-<hr class="col-lg-12">
+    <hr>
 
     <table class="table table-hover col-lg-12 mx-auto table-borderless table-striped" id="tableListExam">
         <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col">#</th>
                 <th scope="col">Descrição da avaliação</th>
                 <th scope="col">Disciplina</th>
                 <th class="text-center" scope="col">Unidade</th>
@@ -19,11 +19,12 @@
             <?php if (count($this->view->listExam) >= 1) {
 
                 $sum = 0;
+                $total = 1;
 
                 foreach ($this->view->listExam as $i => $exam) { ?>
 
                     <tr id="exam<?= $exam->exam_id ?>">
-                        <td><?= $exam->exam_id ?></td>
+                        <td><?= $total++ ?></td>
                         <td><?= $exam->exam_description ?></td>
                         <td><?= $exam->discipline_name ?></td>
                         <td class="text-center"><?= $exam->unity ?></td>

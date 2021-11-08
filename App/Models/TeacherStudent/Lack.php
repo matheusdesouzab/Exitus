@@ -203,7 +203,7 @@ class Lack extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':fk_id_teacher', $teacher->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('teacherId'));
         $stmt->bindValue(':fk_id_enrollment', $this->__get('fk_id_enrollment'));
         $stmt->execute();
 

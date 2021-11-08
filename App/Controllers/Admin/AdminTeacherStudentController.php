@@ -427,25 +427,29 @@ class AdminTeacherStudentController extends Action
     public function bulletin()
     {
 
-        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
-        $Student = Container::getModel('Student\\Student');
-        $Lack = Container::getModel('TeacherStudent\\Lack');
-        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+        $Lack = Container::getModel('TeacherStudent\\Lack');
         $Teacher = Container::getModel('Teacher\\Teacher');
 
         if (!isset($_SESSION)) session_start();
+        if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
-        $StudentEnrollment->__set('studentEnrollmentId', !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId']);
-        $Teacher->__set('teacherId', isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $Lack->__set('fk_id_enrollment', !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId']);
-        $ClassDiscipline->__set("fk_id_class", !isset($_GET['classId']) ? $_SESSION['Student']['classId'] : $_GET['classId']);
-        $ClassDiscipline->__set("fk_id_teacher", isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0);
-        $DisciplineAverage->__set('fk_id_enrollment', !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId']);
+        $enrollmentId = ( !isset($_GET['enrollmentId']) ? $_SESSION['Student']['enrollmentId'] : $_GET['enrollmentId'] );
+        $classId = ( !isset($_GET['classId']) ? $_SESSION['Student']['classId'] : $_GET['classId'] );
+        $teacherId = ( isset($_SESSION['Teacher']['id']) ? $_SESSION['Teacher']['id'] : 0 );
 
-        $this->view->bulletin = isset($_SESSION['Teacher']['id']) ?  $StudentEnrollment->readBulletinSelectedDisciplines($Teacher) :  $StudentEnrollment->readFullBulletin();
-        $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->readBulletinSelectedDiscipline() :  $ClassDiscipline->classLinkedSubjects();
-        $this->view->lackList = isset($_SESSION['Teacher']['id']) ? $Lack->readByIdTeacher() : $Lack->readByIdStudent();
+        $StudentEnrollment->__set('studentEnrollmentId', $enrollmentId);
+        $DisciplineAverage->__set('fk_id_enrollment', $enrollmentId);
+        $ClassDiscipline->__set("fk_id_teacher", $teacherId);
+        $ClassDiscipline->__set("fk_id_class", $classId);
+        $Lack->__set('fk_id_enrollment', $enrollmentId);
+        $Teacher->__set('teacherId', $teacherId);
+
+        $this->view->bulletin = isset($_SESSION['Teacher']['id']) ? $StudentEnrollment->readBulletinSelectedDisciplines($Teacher) : $StudentEnrollment->readFullBulletin();
+        $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects();
+        $this->view->lackList = isset($_SESSION['Teacher']['id']) ? $Lack->readByIdTeacher($Teacher) : $Lack->readByIdStudent();
         $this->view->disciplineAverageList = $DisciplineAverage->readByIdStudent();
         $this->view->enrollmentId = $StudentEnrollment->dataGeneral('<> 0');
 
@@ -490,7 +494,7 @@ class AdminTeacherStudentController extends Action
         if (!isset($_SESSION)) session_start();
         if(isset($_SESSION['Teacher']['id'])) $Teacher->__set("teacherId", $_SESSION['Teacher']['id']);
 
-        $this->view->disciplineAverageList = isset($_SESSION['Teacher']['id']) ? $DisciplineAverage->readByIdTeacher() : $DisciplineAverage->readByIdStudent();
+        $this->view->disciplineAverageList = isset($_SESSION['Teacher']['id']) ? $DisciplineAverage->readByIdTeacher($Teacher) : $DisciplineAverage->readByIdStudent();
         $this->view->listSubtitles = $DisciplineAverage->availableSubtitles();
 
         $this->render('student/components/disciplineAverageList', 'SimpleLayout');
@@ -529,6 +533,7 @@ class AdminTeacherStudentController extends Action
         $Unity = Container::getModel('GeneralManagement\\Unity');
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $Teacher = Container::getModel('Teacher\\Teacher');
+        $Note = Container::getModel('TeacherStudent\\Note');
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
 
         if (!isset($_SESSION)) session_start();
@@ -536,6 +541,8 @@ class AdminTeacherStudentController extends Action
         if(isset($_SESSION['Teacher']['id'])){       
             $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
             $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
+            $Note->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
+            $Note->__set("fk_id_student_enrollment", $_GET["enrollmentId"]);
         }
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
@@ -544,7 +551,7 @@ class AdminTeacherStudentController extends Action
         $StudentEnrollment->__set("studentEnrollmentId", $_GET["enrollmentId"]);
 
         $this->view->listStudent = $StudentEnrollment->dataGeneral();
-        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Teacher->readNoteTeacherId($Teacher) : $Classe->readNoteByClassId() ;
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Note->readNoteByIdTeacher($Teacher) : $Classe->readNoteByClassId() ;
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects();
         $this->view->unity = $Unity->readOpenUnits();
         $this->view->listExam = $Classe->readExamByIdClass();

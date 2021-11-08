@@ -151,7 +151,7 @@ class StudentEnrollment extends Model
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':studentEnrollmentId', $this->__get('studentEnrollmentId'));
-        $stmt->bindValue(':fk_id_teacher', $teacher->__get('fk_id_teacher'));
+        $stmt->bindValue(':fk_id_teacher', $teacher->__get('teacherId'));
 
         $stmt->execute();
 

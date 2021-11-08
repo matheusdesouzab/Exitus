@@ -40,8 +40,16 @@ select {
   color: #09023B;
 }
 
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
 table th {
   color: #09023B;
+  border-top: none;
+}
+table thead {
+  border-top: none;
 }
 table td {
   line-height: 30px;

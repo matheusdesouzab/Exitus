@@ -41,11 +41,19 @@ select {
     color: #09023B;
 }
 
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
 
 table {
 
     th {
         color: $color-dark-blue;
+        border-top: none;
+    }
+
+    thead{
+        border-top: none;
     }
 
     td {
@@ -64,6 +72,7 @@ table {
         text-align: center;
         cursor: pointer;
     }
+
 
 }
 

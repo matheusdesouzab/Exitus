@@ -158,7 +158,7 @@
                             <div class="collapse col-lg-12 card" id="teacher-list" data-parent="#accordion-class-data">
                                 <div class="row">
                                     <div class="col-lg-12 table-responsive">
-                                        <table class="table col-lg-12 table-hover  table-borderless ">
+                                        <table class="table col-lg-12 table-hover table-borderless ">
 
                                             <thead>
                                                 <tr>
@@ -554,6 +554,7 @@
                                 <table class="table table-borderless col-lg-12 p-0 table-striped" id="note-table-class">
                                     <thead>
                                         <tr>
+                                            <th scope="col">#</th>
                                             <th scope="col" colspan="2">Nome do aluno</th>
                                             <th scope="col">Resultado</th>
                                             <th scope="col">Dados da avaliação</th>

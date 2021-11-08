@@ -129,12 +129,13 @@ array_multisort($order, $orderBy, $studentsEnd);
 
 ?>
 
-<hr class="">
+<hr>
 
-<table class="table table-borderless col-lg-12 table-striped p-0" id="note-table-class">
+<table class="table table-borderless table-striped col-lg-12 table-hover p-0" id="note-table-class">
     <thead>
         <tr>
-            <?php if($this->view->listType == 'class'){ ?> <th scope="col" colspan="2">Nome do aluno</th> <?php } ?>
+            <th class="text-left" scope="col">#</th>
+            <?php if ($this->view->listType == 'class') { ?> <th scope="col" colspan="2">Nome do aluno</th> <?php } ?>
             <th class="text-left" scope="col">Disciplina</th>
             <?php if ($this->view->averageType == 'averageUnity') { ?> <th class="text-center" scope="col">Unidade</th> <?php } ?>
             <th class="text-center" scope="col">Nota</th>
@@ -145,6 +146,8 @@ array_multisort($order, $orderBy, $studentsEnd);
 
     <tbody>
 
+        <?php $total = 1 ?>
+
         <?php foreach ($studentsEnd as $key => $value) {
 
             if (in_array($this->view->noteStatus, $value['noteStatus'])) {
@@ -153,11 +156,13 @@ array_multisort($order, $orderBy, $studentsEnd);
 
                 <tr>
 
-                    <?php if($this->view->listType == 'class'){ ?> 
+                <td><?= $total++ ?></td>
 
-                    <td><img class="miniature-photo" src='<?= $value['profilePhoto'] == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['profilePhoto'] ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></td>
+                    <?php if ($this->view->listType == 'class') { ?>                      
 
-                    <td><?= $value['name'] ?></td>
+                        <td><img class="miniature-photo" src='<?= $value['profilePhoto'] == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['profilePhoto'] ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></td>
+
+                        <td><?= $value['name'] ?></td>
 
                     <?php } ?>
 
@@ -173,7 +178,7 @@ array_multisort($order, $orderBy, $studentsEnd);
         } ?>
 
         <tr class="mt-4">
-            <td class="font-weight-bold text-right" colspan="7" style="pointer-events:none"><?= count($studentsEnd) ?> médias listadas <i class="fas fa-history ml-2"></i></td>
+            <td class="font-weight-bold text-right" colspan="8" style="pointer-events:none"><?= count($studentsEnd) ?> médias listadas <i class="fas fa-history ml-2"></i></td>
         </tr>
 
 

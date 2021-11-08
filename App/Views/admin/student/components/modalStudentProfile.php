@@ -51,39 +51,46 @@
                                             <span class="box-icon"><i class="fas fa-user"></i></span> Dados do aluno
                                         </a>
 
-                                        <?php if($this->view->studentDataEnrollment[0]->situation_id != 4){ ?>
+                                        <?php if ($this->view->studentDataEnrollment[0]->situation_id != 4) { ?>
 
-                                        <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_situation) { ?>
+                                            <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_situation) { ?>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">
-                                                <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações
-                                            </a>
+                                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">
+                                                    <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações
+                                                </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin">
-                                                <span class="box-icon"><i class="fas fa-book-open"></i></span> Boletim
-                                            </a>
+                                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-bulletin">
+                                                    <span class="box-icon"><i class="fas fa-book-open"></i></span> Boletim
+                                                </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">
-                                                <span class="box-icon"><i class="fas fa-tasks mr-3"></i></span> Faltas
-                                            </a>
+                                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-lack">
+                                                    <span class="box-icon"><i class="fas fa-tasks mr-3"></i></span> Faltas
+                                                </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData">
-                                                <span class="box-icon"><i class="fab fa-buffer mr-3"></i></span> Média final
-                                            </a>
+                                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-disciplineFinalData">
+                                                    <span class="box-icon"><i class="fab fa-buffer mr-3"></i></span> Média final
+                                                </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-profile-average">
-                                                <span class="box-icon"><i class="fas fa-poll mr-3"></i></span> Médias gerais
-                                            </a>
+                                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-profile-average">
+                                                    <span class="box-icon"><i class="fas fa-poll mr-3"></i></span> Médias gerais
+                                                </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation"> 
-                                                <span class="box-icon"><i class="fas fa-file-alt mr-3"></i></span> Observações
-                                            </a>
+                                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-observation">
+                                                    <span class="box-icon"><i class="fas fa-file-alt mr-3"></i></span> Observações
+                                                </a>
 
-                                            <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-settings"> 
-                                                <span class="box-icon"><i class="fas fa-sync-alt mr-3"></i></span> Troca de turma
-                                            </a>
+                                                <?php if (!isset($_SESSION)) session_start();
 
-                                        <?php }} ?>
+                                                if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
+
+                                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-settings">
+                                                        <span class="box-icon"><i class="fas fa-sync-alt mr-3"></i></span> Troca de turma
+                                                    </a>
+
+
+                                        <?php }
+                                            }
+                                        } ?>
 
 
                                     </ul>
@@ -178,21 +185,22 @@
 
                                         ?>
 
-                                            <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_situation) { 
+                                            <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_situation) {
 
-                                            if($this->view->studentDataEnrollment[0]->situation_id != 4){ 
-                                                
-                                                ?>
+                                                if ($this->view->studentDataEnrollment[0]->situation_id != 4) {
 
-                                                <div class="col-lg-4 d-flex justify-content-end">
+                                            ?>
 
-                                                    <span idElement="#studentModal<?= $student->id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                    <div class="col-lg-4 d-flex justify-content-end">
 
-                                                    <span idElement="#studentModal<?= $student->id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" routeData="#studentModal<?= $student->id ?>" container="containerStudentProfileModal" routeList="/admin/aluno/lista/perfil-aluno" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                        <span idElement="#studentModal<?= $student->id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                                                </div>
+                                                        <span idElement="#studentModal<?= $student->id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" routeData="#studentModal<?= $student->id ?>" container="containerStudentProfileModal" routeList="/admin/aluno/lista/perfil-aluno" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
-                                        <?php }}
+                                                    </div>
+
+                                        <?php }
+                                            }
                                         } ?>
 
                                     </div>
@@ -211,11 +219,7 @@
                                     <input type="text" id="name" name="name" disabled class="form-control" value="<?= $student->name ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                 </div>
 
-                                <?php
-
-                                if (!isset($_SESSION)) session_start();
-
-                                if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
+                                <?php if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
 
                                     <div class="input-group d-flex justify-content-start col-12 col-lg-11 flex-nowrap">
                                         <div class="input-group-prepend">
@@ -293,6 +297,13 @@
 
                                     </div>
 
+                                    <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
+                                        </div>
+                                        <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $student->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                                    </div>
+
                                 <?php } ?>
 
                                 <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
@@ -312,21 +323,12 @@
 
                                 </div>
 
-                                <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
-                                    </div>
-                                    <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $student->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
-                                </div>
+
 
 
                                 <h5 class="mt-5 mb-3 ml-4">Endereço e contato:</h5>
 
-                                <?php
-
-                                if (!isset($_SESSION)) session_start();
-
-                                if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
+                                <?php if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
 
                                     <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                                         <div class="input-group-prepend">
@@ -514,14 +516,12 @@
 
                                     </form>
 
-                                    <hr class="col-lg-11 mx-auto">
-
                                     <div class="table-responsive">
 
-                                        <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover table-striped" id="note-table">
+                                        <table class="table col-lg-12 col-sm-10 mx-auto table-hover table-borderless table-striped" id="note-table">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Id</th>
+                                                    <th scope="col">#</th>
                                                     <th scope="col">Descrição</th>
                                                     <th class="text-center" scope="col">Resultado</th>
                                                 </tr>
@@ -885,7 +885,7 @@
 
                                         <hr class="">
 
-                                        <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-hover" id="lack-table">
+                                        <table class="table col-lg-12 col-sm-10 mx-auto table-borderless table-striped table-hover" id="lack-table">
 
                                             <thead>
 
@@ -1147,9 +1147,9 @@
 
                                         <div class="form-row col-lg-12">
 
-                                        <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->enrollment_id ?>" name="enrollmentId">
-                                        <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->id ?>" name="studentId">
-                                        <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->school_term_id ?>" name="schoolTermId">
+                                            <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->enrollment_id ?>" name="enrollmentId">
+                                            <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->id ?>" name="studentId">
+                                            <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->school_term_id ?>" name="schoolTermId">
 
                                             <div class="form-group col-lg-9">
 
