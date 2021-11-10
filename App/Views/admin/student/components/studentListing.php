@@ -10,13 +10,13 @@
                 <img src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
 
-            <td class="text-left"><?= $student->name ?></td>
+            <td class="text-left"><?= $student->student_name ?></td>
 
             <?php if ($this->view->typeStudentList != 'class' && isset($this->view->typeStudentList)) { ?>
 
                 <?php
 
-                $cpf = $student->cpf;
+                $cpf = $student->student_cpf;
 
                 $formattedCpf = substr($cpf, 0, 3) . "." . substr($cpf, 3, 3) . "." . substr($cpf, 6, 3) . "-" . substr($cpf, -2);
 
@@ -26,7 +26,7 @@
 
                 <td><?= $student->acronym_series . ' ' . $student->ballot  . ' - ' . $student->course . ' - ' . $student->shift ?></td>
 
-                <td><?= $student->situation ?></td>
+                <td><?= $student->student_situation ?></td>
 
             <?php } else { ?>
 

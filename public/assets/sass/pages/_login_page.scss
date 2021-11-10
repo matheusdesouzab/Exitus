@@ -3,32 +3,63 @@
     .container-login {
         border-radius: 15px;
         margin-top: 40px;
-        background-image: linear-gradient(to bottom, $color-blue 0, $color-blue 50%, white 50%);
+        background-image: linear-gradient(to bottom, #536DFE 0, #536DFE 50%, #F4F6F6 50%);
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         height: 86.4vh;
 
         .sidebar-primary {
-            background-color: $color-blue;
+            background-color: #536DFE;
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 50px;
+            height: 86.4vh;
+
+            img{
+                width: 30vw;
+                margin-top: 30px;
+            }
+
+            .portal{
+                cursor: pointer;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+            }
+
+            .logo img{
+                width: 8vw;
+                margin: auto;
+            }
+
+            .portal-disabled{
+                background-color: white;
+            }
+
+            .portal-active{
+                background-color: #2ECC71;
+                color: white;
+            }
+
+            .name-portal{
+                font-size: 9px;
+                font-family: Bold;
+
+            }
         }
 
         .sidebar-secondary {
-            background-color: white;
+            background-color: #F4F6F6;
             border-bottom-right-radius: 15px;
             border-top-left-radius: 50px;
             border-top-right-radius: 15px;
+            height: 86.4vh;
 
             form {
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
                 padding: 5px;
                 border: 1px solid #e5e5e5;
-                box-sizing: border-box;
+                background-color: white;
                 border-radius: 15px;
-                margin-bottom: 80px;
-                margin-top: 80px;
-
+                
                 .form-control:focus {
                     border:none;
                     border-bottom: 2px solid $color-blue;
@@ -55,7 +86,7 @@
                 }
 
                 .form-body {
-                    background-color: white;
+                    
                     border-radius: 25px;
                     padding: 20px 15px;
 

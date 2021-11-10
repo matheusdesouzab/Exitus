@@ -105,6 +105,17 @@ button {
 #pagina .btn {
   border-radius: 5px;
 }
+#pagina .edit-image-button {
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+}
+#pagina .edit-image-button i.fas {
+  font-size: 11px;
+}
+#pagina .edit-image-button:hover {
+  transform: scale(1.1);
+}
 
 #pagina .card {
   padding: 15;
@@ -251,9 +262,6 @@ button {
   object-fit: cover;
   cursor: pointer;
   border: 5px solid #E8F0FE;
-}
-#pagina .modal-profile .modal-sidebar img:hover {
-  transform: scale(1.1);
 }
 #pagina .modal-profile .main-content {
   border-radius: 15px;
@@ -1238,30 +1246,54 @@ button {
 #login .container-login {
   border-radius: 15px;
   margin-top: 40px;
-  background-image: linear-gradient(to bottom, #363C90 0, #363C90 50%, white 50%);
+  background-image: linear-gradient(to bottom, #536DFE 0, #536DFE 50%, #F4F6F6 50%);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   height: 86.4vh;
 }
 #login .container-login .sidebar-primary {
-  background-color: #363C90;
+  background-color: #536DFE;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 50px;
+  height: 86.4vh;
+}
+#login .container-login .sidebar-primary img {
+  width: 30vw;
+  margin-top: 30px;
+}
+#login .container-login .sidebar-primary .portal {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+#login .container-login .sidebar-primary .logo img {
+  width: 8vw;
+  margin: auto;
+}
+#login .container-login .sidebar-primary .portal-disabled {
+  background-color: white;
+}
+#login .container-login .sidebar-primary .portal-active {
+  background-color: #2ECC71;
+  color: white;
+}
+#login .container-login .sidebar-primary .name-portal {
+  font-size: 9px;
+  font-family: Bold;
 }
 #login .container-login .sidebar-secondary {
-  background-color: white;
+  background-color: #F4F6F6;
   border-bottom-right-radius: 15px;
   border-top-left-radius: 50px;
   border-top-right-radius: 15px;
+  height: 86.4vh;
 }
 #login .container-login .sidebar-secondary form {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   padding: 5px;
   border: 1px solid #e5e5e5;
-  box-sizing: border-box;
+  background-color: white;
   border-radius: 15px;
-  margin-bottom: 80px;
-  margin-top: 80px;
 }
 #login .container-login .sidebar-secondary form .form-control:focus {
   border: none;
@@ -1285,7 +1317,6 @@ button {
   font-size: 17px;
 }
 #login .container-login .sidebar-secondary form .form-body {
-  background-color: white;
   border-radius: 25px;
   padding: 20px 15px;
 }

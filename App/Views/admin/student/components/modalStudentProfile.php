@@ -14,7 +14,25 @@
 
                         <div class="row">
 
-                            <img class="mx-auto mb-3" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
+                            <div class="col-lg-12">
+
+                                <div class="row d-flex justify-content-center">
+
+                                    <div class="col-lg-12 d-flex justify-content-center">
+
+                                        <img class="mx-auto mb-3" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
+
+                                    </div>
+
+                                    <div class="col-lg-2 d-flex align-items-center position-absolute" style="bottom: 20px; right: 100px">
+
+                                        <span class="bg-primary p-2 edit-image-button" data-toggle="modal" data-target="#profilePhotoModal"><i class="fas fa-pen text-white"></i></span>
+
+                                    </div>                
+
+                               </div>
+
+                            </div>
 
                             <div class="col-lg-12 main-sheet d-block d-sm-none">
                                 <div class="row p-3"><span class="col-lg-12"><?= $student->name ?> - <?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span></div>
@@ -103,10 +121,10 @@
 
                     </div>
 
-                    <div class="modal fade" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
-                        <div class="modal-dialog">
+                    <div class="modal fade simple-modal" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
                             <div class="modal-content">
-                                <div class="modal-header border-0">
+                                <div class="modal-header">
                                     <h5 class="modal-title" id="profilePhotoModal">Foto do perfil</h5>
                                     <div class="row">
                                         <div class="col-lg-12"> <button type="button" class="close text-rig close-modal" data-toggle="modal" data-target="#profilePhotoModal">
@@ -117,7 +135,7 @@
 
                                 <div class="modal-body mb-3">
 
-                                    <div class="container-img col-lg-12 d-flex justify-content-center">
+                                    <div class="col-lg-12 d-flex justify-content-center">
 
                                         <img class="mx-auto" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
 

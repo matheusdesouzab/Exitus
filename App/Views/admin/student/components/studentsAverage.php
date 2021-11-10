@@ -156,7 +156,7 @@ array_multisort($order, $orderBy, $studentsEnd);
 
                 <tr>
 
-                <td><?= $total++ ?></td>
+                <td class="text-left"><?= $total++ ?></td>
 
                     <?php if ($this->view->listType == 'class') { ?>                      
 
