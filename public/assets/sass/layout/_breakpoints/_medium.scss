@@ -2,6 +2,12 @@
 
     body {
 
+        .sidebar-primary{
+            .portal i.fas{
+                display: none;
+            }
+        }
+
         #painel-left {
             z-index: 1200000000;
 

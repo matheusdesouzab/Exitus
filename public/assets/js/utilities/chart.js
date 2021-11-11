@@ -18,7 +18,7 @@ $.ajax({
     let datas = []
 
     $.each(data, i => {
-        labels.push(data[i].courseName)
+        labels.push(data[i].course_name)
         datas.push(data[i].total_studens_course)
       }),
 

@@ -1,6 +1,27 @@
-@media (max-width:768px) and (min-width:577px) {
+@media (max-width:769px){
 
-    body {
+    #login{
+
+        .container-login {
+            background: white;
+            box-shadow: none;
+            
+            .sidebar-primary{
+                display: none!important;
+            }
+
+            .sidebar-secondary{
+                border-radius: 20px;
+
+                form{
+                    padding: 15px;
+                }
+            }
+        }
+
+    }
+
+    body {    
 
         #painel-left {
             z-index: 120000000;

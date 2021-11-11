@@ -1245,10 +1245,34 @@ button {
 
 #login .container-login {
   border-radius: 15px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
   margin-top: 40px;
   background-image: linear-gradient(to bottom, #536DFE 0, #536DFE 50%, #F4F6F6 50%);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   height: 86.4vh;
+}
+#login .container-login .down-and-up {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+#login .container-login .from-side-to-side {
+  animation: from-side-to-side 3s ease-in-out infinite alternate-reverse both;
+}
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes from-side-to-side {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
 }
 #login .container-login .sidebar-primary {
   background-color: #536DFE;
@@ -1273,6 +1297,7 @@ button {
 }
 #login .container-login .sidebar-primary .portal-disabled {
   background-color: white;
+  color: black;
 }
 #login .container-login .sidebar-primary .portal-active {
   background-color: #2ECC71;
@@ -1321,7 +1346,7 @@ button {
   padding: 20px 15px;
 }
 #login .container-login .sidebar-secondary form .form-body button {
-  background-color: #363C90;
+  background-color: #536DFE;
   font-weight: bold;
   color: white;
 }
@@ -1579,7 +1604,21 @@ body#teacherPortal #pagina #profileStudentModal .container-list-group nav ul [ar
     border-left: none;
   }
 }
-@media (max-width: 768px) and (min-width: 577px) {
+@media (max-width: 769px) {
+  #login .container-login {
+    background: white;
+    box-shadow: none;
+  }
+  #login .container-login .sidebar-primary {
+    display: none !important;
+  }
+  #login .container-login .sidebar-secondary {
+    border-radius: 20px;
+  }
+  #login .container-login .sidebar-secondary form {
+    padding: 15px;
+  }
+
   body {
     font-size: 2vh;
     width: 100%;
@@ -1668,6 +1707,9 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   }
 }
 @media (max-width: 992px) and (min-width: 779px) {
+  body .sidebar-primary .portal i.fas {
+    display: none;
+  }
   body #painel-left {
     z-index: 1200000000;
   }
