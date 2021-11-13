@@ -7,7 +7,7 @@
         <tr class="" id="teacher<?= $teacher->id ?>">
 
             <td class="text-right">
-                <img src='<?= $teacher->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                <img class="miniature-photo" src='<?= $teacher->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
 
             <td class="text-left"><?= $teacher->name ?></td>

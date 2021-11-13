@@ -19,8 +19,6 @@
 }
 
 
-
-
 #admin,
 #teacherPortal,
 #studentPortal {
@@ -46,6 +44,18 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+        }
+
+        #class-discipline-accordion{
+            img{
+                width: 20vw;
+            }
+        }
+
+        #class-rematrug{
+            img{
+                width: 30vw;
+            }
         }
 
 
@@ -114,10 +124,13 @@
 
             #note-table-class {
 
+                width: 70vw;
+                overflow: auto;
+
                 td,
                 th {
                     text-align: left;
-                    font-size: 13px;
+          
                 }
             }
         }
@@ -289,9 +302,12 @@
 
         }
 
+        p{
+            font-size: 1.0vw;
+        }
+
         .miniature-photo {
-            width: 40px;
-            height: 40px;
+            width: 3vw;
             object-position: top;
             object-fit: cover;
             border: none;
@@ -404,12 +420,15 @@
         .accordion-container {
 
             height: 87vh;
+            
 
             &::-webkit-scrollbar {
                 width: 0;
                 background: transparent;
             }
         }
+
+  
 
 
         #tableListExam {
@@ -444,7 +463,7 @@
                 @include icon-card(none, $color-blue, $color-white, 5px);
                 padding-left: 20px;
                 padding-right: 20px;
-                font-size: 15px;
+                font-size: 1vw;
                 border: 1px solid $color-smooth-gray;
                 color: $color-dark-gray;
             }

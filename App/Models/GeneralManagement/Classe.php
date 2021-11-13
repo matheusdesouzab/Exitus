@@ -671,7 +671,7 @@ class Classe extends Model
             professor.foto_perfil_professor AS teacher_profile_photo , 
             matricula.id_matricula AS enrollment_id ,
             aluno.nome_aluno AS student_name ,
-            aluno.foto_perfil_aluno AS profile_photo  ,
+            aluno.foto_perfil_aluno AS student_profile_photo  ,
             aluno.id_aluno AS student_id ,
             nota_avaliacao.data_postagem AS post_date ,
             turma_disciplina.id_turma_disciplina AS class_discipline_id

@@ -51,7 +51,7 @@
             span {
                 text-align: center;
                 font-family: Bold;
-                font-size: 13px;
+                font-size: 1vw;
             }
 
             img {
@@ -101,8 +101,9 @@
             }
         }
 
-        h4 {
+        h5 {
             font-family: Bold;
+            font-size: 1.6vw;          
         }
 
         .container-list-group {
@@ -123,7 +124,7 @@
                     a {
                         padding: 10px 15px;
                         color: #7F8C8D;
-                        font-size: 13px;
+                        font-size: 0.9vw;
                         text-align: left;
                         display: block;
                         margin-bottom: 7px;
@@ -167,6 +168,16 @@
             overflow-x: auto;
             border: 1px solid #e5e5e5;
 
+
+            td{
+                font-size: 0.9vw;
+            }
+
+            th{
+                font-size: 1.0vw;
+                font-weight: bold;
+            }
+
             .row:nth-child(1) {
                 margin-top: 15px;
             }
@@ -203,6 +214,10 @@
 
                 .input-group {
                     margin-bottom: 10px;
+                }
+
+                .font-weight-bold{
+                    font-size: 1.2vw;
                 }
 
                 .input-group-text {

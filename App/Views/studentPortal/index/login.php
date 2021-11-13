@@ -2,7 +2,7 @@
 
 session_start();
 
-isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '' ;
+isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
 
 ?>
 
@@ -43,7 +43,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '' ;
 
                             <div class="row d-flex justify-content-center">
 
-                                <img class="down-and-up" src="/assets/img/undraw_book_lover_mkck.svg" alt="">
+                                <img class="down-and-up" style="width: 25vw;" src="/assets/img/undraw_programmer_re_owql.svg" alt="">
 
                                 <div class="col-lg-12 mt-5">
 
@@ -51,13 +51,9 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '' ;
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-disabled">
+                                            <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/admin" class="col-lg-12 name-portal text-center text-dark"><i class="fas fa-user-cog mr-3"></i> Portal do admin</a>
-
-                                                </div>
+                                                <a class="text-dark btn p-2 w-100" href="/admin"><i class="fas fa-user-cog mr-3"></i> Portal do admin</a>
 
                                             </div>
 
@@ -65,13 +61,9 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '' ;
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-disabled">
+                                            <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/portal-docente" class="col-lg-12 name-portal text-center text-dark"><i class="fas fa-chalkboard-teacher mr-3"></i> Portal do docente</a>
-
-                                                </div>
+                                                <a class="text-dark btn p-2 w-100" href="/portal-docente"><i class="fas fa-chalkboard-teacher mr-3"></i> Portal do docente</a>
 
                                             </div>
 
@@ -79,15 +71,12 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '' ;
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-active">
+                                            <div class="col-lg-12 portal portal-active p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/portal-aluno" class="col-lg-12 name-portal text-center text-white"><i class="fas fa-user mr-3"></i> Portal do aluno</a>
-
-                                                </div>
+                                                <a class="text-white w-100 btn p-2" href="/portal-aluno"><i class="fas fa-user mr-3"></i> Portal do aluno</a>
 
                                             </div>
+
 
                                         </div>
 
@@ -123,6 +112,14 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '' ;
                                         <label for="exampleFormControlInput1">&nbsp;</label>
                                         <button class="w-100 btn">Entrar</button>
                                         <small class="text-center text-secondary d-block mt-3">Esqueceu sua senha?</small>
+                                    </div>
+
+                                    <div class="form-group col-md-10 mx-auto">
+                                        <?php if (isset($_GET['error'])) { ?>
+                                            <div class="alert alert-danger text-center" role="alert">
+                                                <i class="fas fa-exclamation-circle mr-3"></i> Dados incorretos
+                                            </div>
+                                        <?php } ?>
                                     </div>
 
                                 </div>

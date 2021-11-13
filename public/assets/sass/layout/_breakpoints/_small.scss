@@ -102,9 +102,7 @@
 
         #pagina {
 
-            table {
-                width: 700px;
-            }
+        
 
             .modal-profile {
 
@@ -127,14 +125,12 @@
                     margin: auto;
                 }
 
-                .modal-content {
-                    width: 570px;
-                    margin: auto;
-                    margin-top: 10px;
-                    margin-left: -2.2vw;
-                    height: 100%;
-                    overflow: auto;
+                .main-content {
+                [data-parent="#main-accordion-class"]{
+                    margin-top: -3vw;     
                 }
+            }
+              
 
                 .option-list {
                     display: flex;

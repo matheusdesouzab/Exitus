@@ -1,11 +1,3 @@
-<?php
-
-if (!isset($_SESSION)) session_start();
-
-if (isset($_SESSION['Admin'])) header("Location: /admin/gestao/turmas");
-if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
-
-?>
 
 <?php
 
@@ -63,13 +55,9 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-disabled">
+                                            <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/admin" class="col-lg-12 name-portal text-center text-dark"><i class="fas fa-user-cog mr-3"></i> Portal do admin</a>
-
-                                                </div>
+                                                <a class="text-dark btn p-2 w-100" href="/admin"><i class="fas fa-user-cog mr-3"></i> Portal do admin</a>
 
                                             </div>
 
@@ -77,13 +65,9 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-active">
+                                            <div class="col-lg-12 portal portal-active p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/portal-docente" class="col-lg-12 name-portal text-center text-white"><i class="fas fa-chalkboard-teacher mr-3"></i> Portal do docente</a>
-
-                                                </div>
+                                                <a class="text-white btn p-2 w-100" href="/portal-docente"><i class="fas fa-chalkboard-teacher mr-3"></i> Portal do docente</a>
 
                                             </div>
 
@@ -91,15 +75,12 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-disabled">
+                                            <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/portal-aluno" class="col-lg-12 name-portal text-center text-dark"><i class="fas fa-user mr-3"></i> Portal do aluno</a>
-
-                                                </div>
+                                                <a class="text-dark w-100 btn p-2" href="/portal-aluno"><i class="fas fa-user mr-3"></i> Portal do aluno</a>
 
                                             </div>
+
 
                                         </div>
 
@@ -135,6 +116,14 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
                                         <label for="exampleFormControlInput1">&nbsp;</label>
                                         <button class="w-100 btn">Entrar</button>
                                         <small class="text-center text-secondary d-block mt-3">Esqueceu sua senha?</small>
+                                    </div>
+
+                                    <div class="form-group col-md-10 mx-auto">
+                                        <?php if (isset($_GET['error'])) { ?>
+                                            <div class="alert alert-danger text-center" role="alert">
+                                                <i class="fas fa-exclamation-circle mr-3"></i> Dados incorretos
+                                            </div>
+                                        <?php } ?>
                                     </div>
 
                                 </div>

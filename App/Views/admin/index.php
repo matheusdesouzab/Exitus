@@ -54,13 +54,9 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-active">
+                                            <div class="col-lg-12 portal portal-active text-white p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/admin" class="col-lg-12 name-portal text-center text-white"><i class="fas fa-user-cog mr-3"></i> Portal do admin</a>
-
-                                                </div>
+                                                <a class="text-white btn p-2" href="/admin"><i class="fas fa-user-cog mr-3"></i> Portal do admin</a>
 
                                             </div>
 
@@ -68,13 +64,9 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-disabled">
+                                            <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/portal-docente" class="col-lg-12 name-portal text-center text-dark"><i class="fas fa-chalkboard-teacher mr-3"></i> Portal do docente</a>
-
-                                                </div>
+                                                <a class="text-dark btn p-2" href="/portal-docente"><i class="fas fa-chalkboard-teacher mr-3"></i> Portal do docente</a>
 
                                             </div>
 
@@ -82,15 +74,12 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                         <div class="col-md-4">
 
-                                            <div class="col-lg-12 card portal portal-disabled">
+                                            <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <div class="row d-flex align-items-center">
-
-                                                    <a href="/portal-aluno" class="col-lg-12 name-portal text-center text-dark"><i class="fas fa-user mr-3"></i> Portal do aluno</a>
-
-                                                </div>
+                                                <a class="text-dark btn p-2" href="/portal-aluno"><i class="fas fa-user mr-3"></i> Portal do aluno</a>
 
                                             </div>
+
 
                                         </div>
 
@@ -130,8 +119,10 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
 
                                     <div class="form-group col-md-10 mx-auto">
-                                        <?php if(isset($_GET['error'])){ ?>
-                                            <small class="text-center text-danger font-weight-bold d-block mt-3"><i class="fas fa-exclamation-circle mr-3"></i> Dados incorretos</small>
+                                        <?php if (isset($_GET['error'])) { ?>
+                                            <div class="alert alert-danger text-center" role="alert">
+                                                <i class="fas fa-exclamation-circle mr-3"></i> Dados incorretos
+                                            </div>
                                         <?php } ?>
                                     </div>
 
@@ -150,26 +141,30 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
     </div>
 
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
-    <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-
-    <script src="/assets/js/utilities/Tools.js"></script>
-
-    <script src="/assets/js/utilities/Validation.js"></script>
-
-    <script src="/assets/js/utilities/Application.js"></script>
-
-    <script src="/assets/js/utilities/Management.js"></script>
-
-    <script src="/assets/js/utilities/style.js"></script>
-
-    <script src="/assets/js/main.js"></script>
-
 </body>
+
+
+
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+
+<script src="/assets/js/utilities/Tools.js"></script>
+
+<script src="/assets/js/utilities/Validation.js"></script>
+
+<script src="/assets/js/utilities/Application.js"></script>
+
+<script src="/assets/js/utilities/Management.js"></script>
+
+<script src="/assets/js/utilities/style.js"></script>
+
+<script src="/assets/js/main.js"></script>
 
 </html>

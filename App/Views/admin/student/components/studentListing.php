@@ -7,16 +7,16 @@
         <tr class="" id="aluno<?= $student->enrollment_id ?>">
 
             <td class="text-right">
-                <img src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' alt="" style="width: 40px; height: 40px; object-position:top; object-fit: cover" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                <img class="miniature-photo" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
             </td>
 
-            <td class="text-left"><?= $student->student_name ?></td>
+            <td class="text-left"><?= $student->name ?></td>
 
             <?php if ($this->view->typeStudentList != 'class' && isset($this->view->typeStudentList)) { ?>
 
                 <?php
 
-                $cpf = $student->student_cpf;
+                $cpf = $student->cpf;
 
                 $formattedCpf = substr($cpf, 0, 3) . "." . substr($cpf, 3, 3) . "." . substr($cpf, 6, 3) . "-" . substr($cpf, -2);
 

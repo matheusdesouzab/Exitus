@@ -133,9 +133,9 @@ class Student extends People
 
             "SELECT 
             
-            aluno.id_aluno AS student_id , 
-            aluno.nome_aluno AS student_name , 
-            aluno.cpf_aluno AS student_cpf , 
+            aluno.id_aluno AS id , 
+            aluno.nome_aluno AS name , 
+            aluno.cpf_aluno AS cpf , 
             aluno.foto_perfil_aluno AS profile_photo , 
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
@@ -143,8 +143,8 @@ class Student extends People
             curso.nome_curso AS course_name ,
             turno.nome_turno AS shift , 
             numero_sala_aula.numero_sala_aula AS number_classroom , 
-            situacao_aluno_ano_letivo.situacao_aluno as student_situation , 
-            situacao_aluno_ano_letivo.id_situacao_aluno as student_situation_id , 
+            situacao_aluno_ano_letivo.situacao_aluno as situation , 
+            situacao_aluno_ano_letivo.id_situacao_aluno as situation_id , 
             turma.id_turma AS class_id,
             matricula.id_matricula AS enrollment_id ,
             situacao_periodo_letivo.id_situacao_periodo_letivo AS school_term_situation ,

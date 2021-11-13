@@ -1,5 +1,7 @@
 @media (max-width:576px) {
 
+    html{
+
     body#admin,
     body#teacherPortal {
 
@@ -166,7 +168,7 @@
                     justify-content: center;
                     border-radius: 10px;
                     margin-bottom: 15px;
-                    margin-top: 15px;
+                    margin-top: -4vw;
 
                     span {
                         font-size: 2.5vw;
@@ -182,20 +184,14 @@
                 .container-list-group {
                     order: 2;
                     padding: 5px;
-                    overflow: auto;
                     display: block;
                     border: none;
                     border-bottom: 2px solid #e5e5e5;
                     border-radius: 0px;
                     padding-bottom: 0;
 
-                    nav {
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: space-around;
-                        width: 450px;
+                    nav {                     
                         padding: 10px;
-                        flex-grow: 1;
                         overflow: auto;
                         padding-bottom: 0;
 
@@ -203,13 +199,13 @@
                             display: flex;
                             justify-content: space-around;
                             flex-grow: 1;
+                            width: 1500px;
 
                             a {
                                 margin-bottom: 0;
                                 border-bottom: 2px solid white;
                                 border-radius: 0px;
                                 font-size: 2.5vw;
-
                             }
 
                             [aria-expanded="true"] {
@@ -233,17 +229,33 @@
                 }
 
                 .main-content {
+                    margin-top: 30px;
                     margin-bottom: 20px;
+                    border: none;
 
                     .row:nth-child(1) {
                         margin-top: 10px;
+                    }
+
+                    table { .miniature-photo{
+                        width: 8vw;
+                    }}
+
+                    h5,.h5{
+                        font-size: 3vw;
+                        margin-bottom: 15px;
+                    }
+
+                    th{
+                        font-size: 2.5vw
                     }
                 }
 
                 .modal-sidebar {
                     @include card(10px, white, none);
                     box-shadow: none;
-                    height: 50vh;
+                    height: 28vh;
+                    border: none;
                 }
 
             }
@@ -295,4 +307,6 @@
 
         }
     }
+}
+
 }

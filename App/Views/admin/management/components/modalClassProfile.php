@@ -1,6 +1,6 @@
 <div class="row mb-4 d-flex justify-content-around" id="main-accordion-class">
 
-    <div class="col-lg-3 col-11 mx-auto">
+    <div class="col-lg-3 col-12 col-sm-4">
 
         <div class="col-lg-12 modal-sidebar">
 
@@ -93,7 +93,7 @@
 
     </div>
 
-    <div class="col-lg-9 col-11 mx-auto">
+    <div class="col-lg-9 col-sm-8 col-11 col-sm-7 mx-auto">
 
         <div class="col-lg-12 card main-content">
 
@@ -101,15 +101,15 @@
 
                 <div class="col-lg-11 mx-auto collapse show" id="accordion-class-data" data-parent="#main-accordion-class">
 
-                    <div class="col-lg-12 mb-3">
+                    <div class="col-lg-12 mb-3  mx-auto">
 
                         <div class="row d-flex align-items-center p-0">
 
-                            <div class="col-lg-6 p-0">
+                            <div class="col-sm-6 p-0">
                                 <h5 class="mt-2"><?= $this->view->classData[0]->series_acronym ?>ª <?= $this->view->classData[0]->ballot ?> <?= $this->view->classData[0]->course ?> <?= $this->view->classData[0]->shift ?></h5>
                             </div>
 
-                            <div class="col-lg-6 col-12 p-0">
+                            <div class="col-sm-6 col-12 p-0">
 
                                 <div class="row collapse-options-container">
 
@@ -128,7 +128,7 @@
 
                         <div class="row mb-3">
 
-                            <div class="collapse show card col-lg-12" id="students-list" data-parent="#accordion-class-data">
+                            <div class="collapse show card col-lg-12 col-sm-11 mx-auto" id="students-list" data-parent="#accordion-class-data">
                                 <div class="row">
                                     <div class="col-lg-12 table-responsive">
 
@@ -155,7 +155,7 @@
 
                             </div>
 
-                            <div class="collapse col-lg-12 card" id="teacher-list" data-parent="#accordion-class-data">
+                            <div class="collapse card col-lg-12 col-sm-11 mx-auto" id="teacher-list" data-parent="#accordion-class-data">
                                 <div class="row">
                                     <div class="col-lg-12 table-responsive">
                                         <table class="table col-lg-12 table-hover table-borderless ">
@@ -185,15 +185,15 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="class-discipline-accordion" data-parent="#main-accordion-class">
 
-                    <div class="col-lg-12 mb-3">
+                    <div class="col-lg-12 col-sm-11 mx-auto mb-3">
 
                         <div class="row d-flex align-items-center p-0">
 
-                            <div class="col-lg-5 p-0">
+                            <div class="col-sm-5 p-0">
                                 <h5 class="mt-2">Disciplinas</h5>
                             </div>
 
-                            <div class="col-lg-7 col-12 p-0">
+                            <div class="col-sm-7 col-12 p-0">
 
                                 <div class="row collapse-options-container">
 
@@ -214,7 +214,8 @@
 
                         <div class="row mb-3">
 
-                            <div class="col-lg-12 p-0">
+                            <div class="col-lg-12 col-sm-11 mx-auto p-0">
+
                                 <div class="collapse show" id="list-discipline" data-parent="#class-discipline-accordion">
                                     <div class="col-lg-12 p-0" containerListDisciplineClass>
 
@@ -232,7 +233,7 @@
 
                                             <div class="form-row mt-3">
 
-                                                <div class="form-group col-lg-6">
+                                                <div class="form-group col-sm-6">
 
                                                     <label for="">Professor:</label>
 
@@ -250,7 +251,7 @@
 
                                                 <input type="hidden" name="classId" value="<?= $this->view->classId ?>">
 
-                                                <div class="form-group col-lg-6">
+                                                <div class="form-group col-sm-6">
 
                                                     <label for="">Disciplina</label>
 
@@ -262,7 +263,7 @@
 
                                             <div class="form-row d-flex justify-content-end">
 
-                                                <div class="form-group col-lg-5">
+                                                <div class="form-group col-lg-5 col-sm-6">
                                                     <label for="">&nbsp;</label>
                                                     <button id="buttonAddClassDiscipline" class="btn btn-success w-100">Adicionar disciplina</button>
                                                 </div>
@@ -289,15 +290,15 @@
 
                     <div class="accordion" id="class-assessments-accordion">
 
-                        <div class="col-lg-12 mb-3">
+                        <div class="col-lg-12 col-sm-11 mx-auto mb-3">
 
                             <div class="row d-flex align-items-center p-0">
 
-                                <div class="col-lg-5 p-0">
+                                <div class="col-sm-5 p-0">
                                     <h5 class="mt-2">Avaliações da turma</h5>
                                 </div>
 
-                                <div class="col-lg-7 col-12 p-0">
+                                <div class="col-sm-7 col-12 p-0">
 
                                     <div class="row collapse-options-container">
 
@@ -311,7 +312,7 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-12 p-0">
+                        <div class="col-lg-12 col-sm-11 mx-auto p-0">
 
                             <div class="collapse show" id="list-exam" data-parent="#class-assessments-accordion">
 
@@ -319,14 +320,14 @@
 
                                     <div class="form-row mt-3">
 
-                                        <div class="form-group col-lg-5">
+                                        <div class="form-group col-sm-5">
                                             <label for="">Descrição:</label>
                                             <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
                                         </div>
 
                                         <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
 
-                                        <div class="form-group col-lg-4">
+                                        <div class="form-group col-sm-4">
 
                                             <label for="">Disciplina:</label>
 
@@ -345,7 +346,7 @@
                                         </div>
 
 
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-sm-3">
                                             <label for="">Unidade:</label>
 
                                             <select id="unity" class="form-control custom-select" name="unity" required>
@@ -377,14 +378,14 @@
 
                                     <div class="form-row mt-3">
 
-                                        <div class="form-group col-lg-6">
+                                        <div class="form-group col-sm-6">
 
                                             <label for="">Descrição da avaliação:</label>
                                             <input class="form-control" id="examDescription" name="examDescription" type="text">
 
                                         </div>
 
-                                        <div class="form-group col-lg-6">
+                                        <div class="form-group col-sm-6">
 
                                             <label for="">Disciplina:</label>
 
@@ -404,17 +405,17 @@
 
                                     <div class="form-row">
 
-                                        <div class="form-group col-lg-5">
+                                        <div class="form-group col-sm-5">
                                             <label for="">Data de realização:</label>
                                             <input class="form-control" name="realizeDate" id="realizeDate" type="date">
                                         </div>
 
-                                        <div class="form-group col-lg-2">
+                                        <div class="form-group col-sm-4">
                                             <label for="">Valor:</label>
                                             <input class="form-control" value="0.0" name="examValue" id="examValue" type="text">
                                         </div>
 
-                                        <div class="form-group col-lg-2">
+                                        <div class="form-group col-sm-3">
                                             <label for="">Unidade:</label>
 
                                             <select id="unity" class="form-control custom-select" name="unity" required>
@@ -456,7 +457,7 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="class-note-history" data-parent="#main-accordion-class">
 
-                    <div class="col-lg-12 mb-3">
+                    <div class="col-sm-11 col-lg-12 mx-auto mb-3">
 
                         <div class="row">
 
@@ -470,14 +471,14 @@
 
                                     <div class="form-row mt-3">
 
-                                        <div class="form-group col-lg-4">
+                                        <div class="form-group col-sm-4">
                                             <label for="">Descrição:</label>
                                             <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
                                         </div>
 
                                         <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
 
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-sm-4 col-lg-3">
 
                                             <label for="">Disciplina:</label>
 
@@ -495,7 +496,7 @@
 
                                         </div>
 
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-sm-3">
                                             <label for="">Unidade:</label>
 
                                             <select id="unity" class="form-control custom-select" name="unity" required>
@@ -512,7 +513,7 @@
 
                                         </div>
 
-                                        <div class="form-group col-lg-2">
+                                        <div class="form-group col-sm-1 col-lg-2">
                                             <label for="">&nbsp;</label>
 
                                             <div>
@@ -547,7 +548,7 @@
 
                             </div>
 
-                            <div class="col-lg-12 table-responsive  p-0">
+                            <div class="col-lg-12 table-responsive p-0">
 
                                 <hr class="">
 
@@ -575,15 +576,15 @@
 
                     <div class="accordion" id="rematrug-accordion">
 
-                        <div class="col-lg-12 mb-3">
+                        <div class="col-lg-12 col-sm-11 mx-auto mb-3">
 
                             <div class="row d-flex align-items-center p-0">
 
-                                <div class="col-lg-5 p-0">
+                                <div class="col-sm-5 p-0">
                                     <h5 class="mt-2">Rematrículas</h5>
                                 </div>
 
-                                <div class="col-lg-7 col-12 p-0">
+                                <div class="col-sm-7 col-12 p-0">
 
                                     <div class="row collapse-options-container">
 
@@ -605,7 +606,7 @@
 
                             </div>
 
-                            <div class="collapse col-lg-12" id="finalized-rematrecules" data-parent="#rematrug-accordion">
+                            <div class="collapse col-lg-12 col-sm-11 mx-auto" id="finalized-rematrecules" data-parent="#rematrug-accordion">
 
                                 <div containerRematrugFinalized class="row"></div>
 
@@ -621,123 +622,125 @@
 
                     <div class="row">
 
-                        <div class="col-lg-12">
+                        <div class="col-sm-11 mx-auto">
 
-                         <div class="row d-flex align-items-center">
+                            <div class="row d-flex align-items-center">
 
-                            <div class="col-lg-6"><h5>Configurações da turma</h5></div>
+                                <div class="col-sm-6">
+                                    <h5>Configurações da turma</h5>
+                                </div>
 
-                                <div class="col-lg-6 d-flex justify-content-end"> 
-                                    
+                                <div class="col-sm-6 d-flex justify-content-end">
+
                                     <a id="buttonUpdateClass" class="btn btn-success text-center disabled" href="#"><i class="fas fa-check"></i></a>
-                            
-                                </div>
-
-                         </div>                           
-
-                        </div>
-
-                        <div class="col-lg-12">
-
-                        <form class="mt-2 p-3 border p-0 mt-3" id="updateClass" action="">
-
-                            <div class="font-weight-bold col-lg-12 mb-3">Atualizar dados da turma</div>
-
-                            <div class="form-row col-lg-12">
-
-                                <div class="form-group col-lg-2">
-
-                                    <label for="series">Série:</label>
-
-                                    <select id="series" name="series" class="form-control custom-select">
-
-                                        <option value="<?= $this->view->classData[0]->series_id ?>"><?= $this->view->classData[0]->series_acronym ?></option>
-
-                                    </select>
-
-                                </div>
-
-                                <div class="form-group col-lg-2">
-
-                                    <label for="ballot">Cédula:</label>
-
-                                    <select id="ballot" name="ballot" class="form-control custom-select">
-
-                                        <option value="<?= $this->view->classData[0]->ballot_id ?>"><?= $this->view->classData[0]->ballot ?></option>
-
-                                        <?php foreach ($this->view->availableBallot as $key => $ballot) { ?>
-
-                                            <?php if ($this->view->classData[0]->ballot_id != $ballot->option_value) { ?>
-
-                                                <option value="<?= $ballot->option_value ?>"><?= $ballot->option_text ?></option>
-
-                                        <?php }
-                                        } ?>
-
-                                    </select>
-
-                                </div>
-
-                                <div class="form-group col-lg-3">
-
-                                    <label for="course">Curso:</label>
-
-                                    <select id="course" name="course" class="form-control custom-select">
-
-                                        <option value="<?= $this->view->classData[0]->course_id ?>"><?= $this->view->classData[0]->course ?></option>
-
-                                    </select>
-
-                                </div>
-
-                                <div class="form-group col-lg-3">
-
-                                    <label for="shift">Turno:</label>
-
-                                    <select id="shift" name="shift" class="form-control custom-select">
-
-                                        <option value="<?= $this->view->classData[0]->shift_id ?>"><?= $this->view->classData[0]->shift ?></option>
-
-                                        <?php foreach ($this->view->availableShift as $key => $shift) { ?>
-
-                                            <?php if ($this->view->classData[0]->shift_id != $shift->option_value) { ?>
-
-                                                <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
-
-                                        <?php }
-                                        } ?>
-
-                                    </select>
-
-                                </div>
-
-                                <div class="form-group col-lg-2">
-
-                                    <label for="classRoom">Sala:</label>
-
-                                    <select id="classRoom" name="classRoom" class="form-control custom-select" required>
-
-                                        <option value="<?= $this->view->classData[0]->classroom_id ?>"><?= $this->view->classData[0]->classroom_number ?></option>
-
-                                        <?php foreach ($this->view->availableClassRoom as $key => $classRoom) { ?>
-
-                                            <?php if ($this->view->classData[0]->classroom_id != $classRoom->option_value) { ?>
-
-                                                <option value="<?= $classRoom->option_value ?>"><?= $classRoom->option_text ?></option>
-
-                                        <?php }
-                                        } ?>
-
-                                    </select>
 
                                 </div>
 
                             </div>
 
-                            <input type="hidden" name="schoolTerm" value="<?= $this->view->classData[0]->school_term_id ?>">
-                            <input type="hidden" name="classId" id="classId" value="<?= $this->view->classData[0]->class_id ?>">
+                        </div>
 
-                        </form>
+                        <div class="col-lg-12 col-sm-11 mx-auto">
+
+                            <form class="mt-2 p-3 border p-0 mt-3" id="updateClass" action="">
+
+                                <div class="font-weight-bold col-lg-12 mb-3">Atualizar dados da turma</div>
+
+                                <div class="form-row col-lg-12">
+
+                                    <div class="form-group col-sm-4 col-lg-2">
+
+                                        <label for="series">Série:</label>
+
+                                        <select id="series" name="series" class="form-control custom-select">
+
+                                            <option value="<?= $this->view->classData[0]->series_id ?>"><?= $this->view->classData[0]->series_acronym ?></option>
+
+                                        </select>
+
+                                    </div>
+
+                                    <div class="form-group col-sm-4 col-lg-2">
+
+                                        <label for="ballot">Cédula:</label>
+
+                                        <select id="ballot" name="ballot" class="form-control custom-select">
+
+                                            <option value="<?= $this->view->classData[0]->ballot_id ?>"><?= $this->view->classData[0]->ballot ?></option>
+
+                                            <?php foreach ($this->view->availableBallot as $key => $ballot) { ?>
+
+                                                <?php if ($this->view->classData[0]->ballot_id != $ballot->option_value) { ?>
+
+                                                    <option value="<?= $ballot->option_value ?>"><?= $ballot->option_text ?></option>
+
+                                            <?php }
+                                            } ?>
+
+                                        </select>
+
+                                    </div>
+
+                                    <div class="form-group col-sm-4 col-lg-3">
+
+                                        <label for="course">Curso:</label>
+
+                                        <select id="course" name="course" class="form-control custom-select">
+
+                                            <option value="<?= $this->view->classData[0]->course_id ?>"><?= $this->view->classData[0]->course ?></option>
+
+                                        </select>
+
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-lg-3">
+
+                                        <label for="shift">Turno:</label>
+
+                                        <select id="shift" name="shift" class="form-control custom-select">
+
+                                            <option value="<?= $this->view->classData[0]->shift_id ?>"><?= $this->view->classData[0]->shift ?></option>
+
+                                            <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+
+                                                <?php if ($this->view->classData[0]->shift_id != $shift->option_value) { ?>
+
+                                                    <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+
+                                            <?php }
+                                            } ?>
+
+                                        </select>
+
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-lg-2">
+
+                                        <label for="classRoom">Sala:</label>
+
+                                        <select id="classRoom" name="classRoom" class="form-control custom-select" required>
+
+                                            <option value="<?= $this->view->classData[0]->classroom_id ?>"><?= $this->view->classData[0]->classroom_number ?></option>
+
+                                            <?php foreach ($this->view->availableClassRoom as $key => $classRoom) { ?>
+
+                                                <?php if ($this->view->classData[0]->classroom_id != $classRoom->option_value) { ?>
+
+                                                    <option value="<?= $classRoom->option_value ?>"><?= $classRoom->option_text ?></option>
+
+                                            <?php }
+                                            } ?>
+
+                                        </select>
+
+                                    </div>
+
+                                </div>
+
+                                <input type="hidden" name="schoolTerm" value="<?= $this->view->classData[0]->school_term_id ?>">
+                                <input type="hidden" name="classId" id="classId" value="<?= $this->view->classData[0]->class_id ?>">
+
+                            </form>
 
                         </div>
 
@@ -747,7 +750,7 @@
 
                 <div class="col-lg-11 mx-auto collapse" id="class-student-average" data-parent="#main-accordion-class">
 
-                    <div class="col-lg-12 mb-3">
+                    <div class="col-lg-12 col-sm-11 mx-auto mb-3">
 
                         <div class="row">
 
@@ -761,14 +764,14 @@
 
                                     <div class="form-row mt-3">
 
-                                        <div class="form-group col-lg-4">
+                                        <div class="form-group col-sm-4">
                                             <label for="">Nome do aluno:</label>
                                             <input name="name" id="name" type="text" placeholder="Nome do aluno" class="form-control">
                                         </div>
 
                                         <input type="hidden" value="<?= $this->view->classId ?>" name="classId">
 
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-sm-4">
 
                                             <label for="">Disciplina:</label>
 
@@ -786,8 +789,8 @@
 
                                         </div>
 
-                                        <div class="form-group col-lg-3">
-                                            
+                                        <div class="form-group col-sm-3">
+
                                             <label for="">Unidade:</label>
 
                                             <select id="unity" class="form-control custom-select" name="unity" required>
@@ -807,7 +810,7 @@
                                         <input type="hidden" name="classId" value="<?= $this->view->classData[0]->class_id ?>">
                                         <input type="hidden" id="examDescription" name="examDescription" value="">
 
-                                        <div class="form-group col-lg-2">
+                                        <div class="form-group col-lg-2 col-sm-1">
                                             <label for="">&nbsp;</label>
 
                                             <div>
@@ -821,7 +824,7 @@
 
                                         <div class="form-row">
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-sm-4">
 
                                                 <label for="">Ordenar por:</label>
 
@@ -835,7 +838,7 @@
 
                                             </div>
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-sm-4">
 
                                                 <label for="">Status da média:</label>
 
@@ -849,7 +852,7 @@
 
                                             </div>
 
-                                            <div class="form-group col-lg-3">
+                                            <div class="form-group col-sm-4">
 
                                                 <label for="">Tipo da média:</label>
 

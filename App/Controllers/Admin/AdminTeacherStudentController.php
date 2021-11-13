@@ -116,6 +116,8 @@ class AdminTeacherStudentController extends Action
         if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
         if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
+        $Classe->__set('classId', $_GET['classId']);
+
         $this->view->listExam = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->subjectsLinkedTeacher() : $Classe->readExamByIdClass();
 
         $this->render('management/components/examList', 'SimpleLayout');
@@ -207,9 +209,9 @@ class AdminTeacherStudentController extends Action
         $Classe = Container::getModel('GeneralManagement\\Classe');
 
         if (!isset($_SESSION)) session_start();
+        if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
         
         $ClassDiscipline->__set('fk_id_class', $_GET['classId']);
-        $ClassDiscipline->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
         
         $Classe->__set('classId', $_GET['classId']);
 

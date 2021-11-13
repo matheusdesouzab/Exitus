@@ -11,9 +11,9 @@ if (count($this->view->listTeacher) >= 1) {
                 <input type="hidden" name="disciplineClass" value="<?= $discipline->discipline_class_id ?>">
                 <input type="hidden" name="classId" value="<?= $discipline->class_id ?>">
 
-                <div class=" col-lg-8 font-weight-bold">Disciplina de <?= $discipline->discipline_name ?></div>
+                <div class="col-sm-8 font-weight-bold">Disciplina de <?= $discipline->discipline_name ?></div>
 
-                <div class="col-lg-4 d-flex justify-content-end mt-2">
+                <div class="col-sm-4 d-flex justify-content-end mt-2">
 
                     <span idElement="#formDisciplineClass<?= $discipline->discipline_class_id ?>" formGroup="containerListDisciplineClass" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
                     
@@ -42,7 +42,7 @@ if (count($this->view->listTeacher) >= 1) {
                     <label for="">Professor:</label>
                     <select id="teacher" disabled name="teacher" class="form-control custom-select" required>
 
-                        <option value="<?= $discipline->teacher_id ?>"><?= $discipline->teacher_name ?></option>
+                        <option value="<?= $discipline->teacher_id ?>"><?= $discipline->name ?></option>
 
                         <?php foreach ($this->view->teacherAvailable as $key => $teacher) {
                             if ($discipline->teacher_id != $teacher->option_value) { ?>
@@ -73,7 +73,17 @@ if (count($this->view->listTeacher) >= 1) {
     <?php }
 } else { ?>
 
-    <h5 class="mt-3">Nenhuma disciplina encontrada</h5>
+    <div class="col-lg-12">
+
+        <div class="row">
+
+            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="/assets/img/undraw_synchronize_re_4irq.svg" alt=""></div>
+
+            <h5 class="col-lg-12 mt-4 text-center">Nenhuma disciplina vinculada a turma</h5>
+
+        </div>
+
+    </div>
 
 
 <?php } ?>

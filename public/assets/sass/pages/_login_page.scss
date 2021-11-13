@@ -5,12 +5,12 @@
         border-bottom-right-radius: 50px;
         border-top-right-radius: 50px;
         margin-top: 40px;
-        background-image: linear-gradient(to bottom, #536DFE 0, #536DFE 50%, #F4F6F6 50%);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        background-image: linear-gradient(to bottom, #536DFE 0, #536DFE 50%, #EAEDED 50%);
         height: 86.4vh;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
         .down-and-up{
-            animation: up-down 2s ease-in-out infinite alternate-reverse both;
+            animation: up-down 4s ease-in-out infinite alternate-reverse both;
         }
 
         .from-side-to-side{
@@ -19,10 +19,10 @@
 
         @keyframes up-down {
             0% {
-              transform: translateY(10px);
+                transform: scale(1.0);
             }
             100% {
-              transform: translateY(-10px);
+                transform: scale(1.1);
             }
         }
 
@@ -68,16 +68,17 @@
             .portal-active {
                 background-color: #2ECC71;
                 color: white;
+                border: 1px solid #CCC9DD;
             }
 
-            .name-portal {
+            .portal a {
                 font-size: 9px;
                 font-family: Bold;
             }
         }
 
         .sidebar-secondary {
-            background-color: #F4F6F6;
+            background-color: #EAEDED;
             border-bottom-right-radius: 15px;
             border-top-left-radius: 50px;
             border-top-right-radius: 15px;
@@ -85,7 +86,7 @@
 
             form {
                 padding: 5px;
-                border: 1px solid #e5e5e5;
+                border: 1px solid #D0CDE1;
                 background-color: white;
                 border-radius: 15px;
 

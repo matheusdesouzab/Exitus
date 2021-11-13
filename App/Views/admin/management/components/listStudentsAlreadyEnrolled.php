@@ -8,20 +8,20 @@ foreach ($this->view->listStudent as $key => $value) {
 
     foreach ($this->view->studentsAlreadyRegisteredNextYear as $key => $student) {
 
-        if ($student->studentId == $value->student_id) {
+        if ($student->student_id == $value->id) {
 
-            $studentsRematrung[$value->student_name]['name'] = $value->student_name;
-            $studentsRematrung[$value->student_name]['profilePhoto'] = $value->profile_photo;
-            $studentsRematrung[$value->student_name]['status'] = 'Efetivada';
-            $studentsRematrung[$value->student_name]['newClass'] = $student->acronym_series . $student->ballot . ' - ' . $student->course . ' - ' . $student->shift;
+            $studentsRematrung[$value->name]['name'] = $value->name;
+            $studentsRematrung[$value->name]['profilePhoto'] = $value->profile_photo;
+            $studentsRematrung[$value->name]['status'] = 'Efetivada';
+            $studentsRematrung[$value->name]['newClass'] = $student->acronym_series . $student->ballot . ' - ' . $student->course . ' - ' . $student->shift;
 
             break;
         } else {
 
-            $studentsRematrung[$value->student_name]['name'] = $value->student_name;
-            $studentsRematrung[$value->student_name]['profilePhoto'] = $value->profile_photo;
-            $studentsRematrung[$value->student_name]['status'] = 'Não efetivada';
-            $studentsRematrung[$value->student_name]['newClass'] = 'Não definida';
+            $studentsRematrung[$value->name]['name'] = $value->name;
+            $studentsRematrung[$value->name]['profilePhoto'] = $value->profile_photo;
+            $studentsRematrung[$value->name]['status'] = 'Não efetivada';
+            $studentsRematrung[$value->name]['newClass'] = 'Não definida';
         }
     }
 }
@@ -51,7 +51,7 @@ array_multisort($order, SORT_ASC, $studentsRematrung);
     <tbody>
         <?php foreach ($studentsRematrung as $key => $value) { ?>
             <tr>
-                <td class="text-right">
+                <td class="text-left">
                     <img class="miniature-photo" src='<?= $value['profilePhoto'] == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['profilePhoto'] ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
                 </td>
 
