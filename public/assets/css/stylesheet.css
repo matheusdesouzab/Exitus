@@ -561,7 +561,7 @@ button {
 #left-panel #sidebar .sidebar-lists a {
   color: #C4C4C4;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 1vw;
   transition: 1s;
   display: block;
 }
@@ -710,6 +710,11 @@ button {
   font-size: 14px;
   color: #28A745;
   font-family: Semi-bold;
+}
+#admin #pagina section#home #finalized-rematrecules img,
+#teacherPortal #pagina section#home #finalized-rematrecules img,
+#studentPortal #pagina section#home #finalized-rematrecules img {
+  width: 3vw;
 }
 #admin #pagina section#home .recently-enrolled,
 #teacherPortal #pagina section#home .recently-enrolled,
@@ -1430,6 +1435,19 @@ html body#teacherPortal #pagina .main-container {
 html body#teacherPortal #pagina form {
     font-size: 4vw;
   }
+  html body#admin #pagina form label,
+html body#teacherPortal #pagina form label {
+    font-size: 2.5vw;
+  }
+  html body#admin #pagina form input, html body#admin #pagina form select,
+html body#teacherPortal #pagina form input,
+html body#teacherPortal #pagina form select {
+    font-size: 2.2vw;
+  }
+  html body#admin #pagina form .btn,
+html body#teacherPortal #pagina form .btn {
+    font-size: 2.5vw;
+  }
   html body#admin #pagina .page-header h5,
 html body#teacherPortal #pagina .page-header h5 {
     font-size: 4vw;
@@ -1513,16 +1531,32 @@ html body#teacherPortal #pagina #main-accordion-student .row.card {
     box-shadow: none;
     border: none;
   }
+  html body#admin #pagina #profileClassModal #note-table-class,
+html body#teacherPortal #pagina #profileClassModal #note-table-class {
+    width: 700px;
+  }
+  html body#admin #pagina #profileClassModal #tableListExam,
+html body#teacherPortal #pagina #profileClassModal #tableListExam {
+    width: 700px;
+  }
   html body#admin #pagina .modal-profile,
 html body#teacherPortal #pagina .modal-profile {
     overflow-y: auto;
   }
-  html body#admin #pagina .modal-profile table,
-html body#teacherPortal #pagina .modal-profile table {
-    width: 200px;
+  html body#admin #pagina .modal-profile form i.fas,
+html body#teacherPortal #pagina .modal-profile form i.fas {
+    font-size: 3vw;
+  }
+  html body#admin #pagina .modal-profile form div .font-weight-bold,
+html body#teacherPortal #pagina .modal-profile form div .font-weight-bold {
+    font-size: 2.5vw;
   }
   html body#admin #pagina .modal-profile table td,
 html body#teacherPortal #pagina .modal-profile table td {
+    font-size: 2.5vw;
+  }
+  html body#admin #pagina .modal-profile table th,
+html body#teacherPortal #pagina .modal-profile table th {
     font-size: 3vw;
   }
   html body#admin #pagina .modal-profile .modal-sidebar img,
@@ -1540,7 +1574,7 @@ html body#teacherPortal #pagina .modal-profile .main-sheet {
     justify-content: center;
     border-radius: 10px;
     margin-bottom: 15px;
-    margin-top: -4vw;
+    margin-top: -8vw;
   }
   html body#admin #pagina .modal-profile .main-sheet span,
 html body#teacherPortal #pagina .modal-profile .main-sheet span {
@@ -1560,6 +1594,7 @@ html body#teacherPortal #pagina .modal-profile .container-list-group {
     border-bottom: 2px solid #e5e5e5;
     border-radius: 0px;
     padding-bottom: 0;
+    margin-top: -4vw;
   }
   html body#admin #pagina .modal-profile .container-list-group nav,
 html body#teacherPortal #pagina .modal-profile .container-list-group nav {
@@ -1572,7 +1607,7 @@ html body#teacherPortal #pagina .modal-profile .container-list-group nav ul {
     display: flex;
     justify-content: space-around;
     flex-grow: 1;
-    width: 1500px;
+    width: 1300px;
   }
   html body#admin #pagina .modal-profile .container-list-group nav ul a,
 html body#teacherPortal #pagina .modal-profile .container-list-group nav ul a {
@@ -1600,6 +1635,8 @@ html body#teacherPortal #pagina .modal-profile .collapse-options-container span 
 html body#teacherPortal #pagina .modal-profile .main-content {
     margin-top: 30px;
     margin-bottom: 20px;
+    box-shadow: none;
+    padding-top: 0px;
     border: none;
   }
   html body#admin #pagina .modal-profile .main-content .row:nth-child(1),
@@ -1608,6 +1645,26 @@ html body#teacherPortal #pagina .modal-profile .main-content .row:nth-child(1) {
   }
   html body#admin #pagina .modal-profile .main-content table .miniature-photo,
 html body#teacherPortal #pagina .modal-profile .main-content table .miniature-photo {
+    width: 8vw;
+  }
+  html body#admin #pagina .modal-profile .main-content #tableListExam,
+html body#teacherPortal #pagina .modal-profile .main-content #tableListExam {
+    width: 600px;
+  }
+  html body#admin #pagina .modal-profile .main-content #finalized-rematrecules table,
+html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules table {
+    width: 500px;
+  }
+  html body#admin #pagina .modal-profile .main-content #finalized-rematrecules table img,
+html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules table img {
+    width: 8vw;
+  }
+  html body#admin #pagina .modal-profile .main-content #finalized-rematrecules p,
+html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules p {
+    font-size: 2.5vw;
+  }
+  html body#admin #pagina .modal-profile .main-content #addRematrung img,
+html body#teacherPortal #pagina .modal-profile .main-content #addRematrung img {
     width: 8vw;
   }
   html body#admin #pagina .modal-profile .main-content h5, html body#admin #pagina .modal-profile .main-content .h5,
@@ -1629,7 +1686,7 @@ html body#teacherPortal #pagina .modal-profile .modal-sidebar {
     border: 1px solid #e5e5e5;
     background-color: white;
     box-shadow: none;
-    height: 28vh;
+    height: 22vh;
     border: none;
   }
   html body#admin #pagina #student-registration .registration-in-stages .connection-line,
@@ -1754,20 +1811,23 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
     margin: 15px 0px 15px 0px;
   }
 }
-@media (max-width: 992px) and (min-width: 779px) {
+@media (max-width: 992px) {
   body .sidebar-primary .portal i.fas {
     display: none;
   }
-  body #painel-left {
+  body #left-panel #sidebar {
     z-index: 1200000000;
   }
-  body #painel-left .side-bar {
-    width: 25%;
+  body #left-panel #sidebar .sidebar-header span {
+    display: block;
   }
-  body #painel-left .side-bar li {
-    font-size: 1.5vw;
+  body #left-panel #sidebar .sidebar-lists a {
+    font-size: 0.8vw;
   }
-  body #painel-left .side-bar .fa-angle-down {
+  body #left-panel #sidebar .sidebar-lists p {
+    font-size: 1vw;
+  }
+  body #left-panel #sidebar .fa-angle-down {
     display: none;
   }
   body .side-panel {
@@ -1777,7 +1837,6 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
 @media (min-width: 1400px) {
   body #navbar-top #bars {
     display: block;
-    margin-left: 17vw;
   }
   body #navbar-top .navbar-toggler {
     display: none;

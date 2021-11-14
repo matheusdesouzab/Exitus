@@ -8,11 +8,11 @@
 
                 <div class="col-11 col-lg-12 mx-auto">
 
-                    <div class="row">
+                    <div class="row d-flex align-items-center">
 
-                        <h5 class="col-lg-6 p-">Gestão das turmas</h5>
+                        <h5 class="col-sm-6">Gestão das turmas</h5>
 
-                        <div class="col-lg-6">
+                        <div class="col-sm-6">
 
                             <div class="row collapse-options-container">
 
@@ -28,8 +28,8 @@
 
                         </div>
 
-                        <nav class="col-lg-12 p-0" aria-label="breadcrumb">
-                            <ol class="breadcrumb">
+                        <nav class="col-lg-12" aria-label="breadcrumb">
+                            <ol class="breadcrumb p-0 mt-2">
                                 <li class="breadcrumb-item"><a href="/admin/gestao">Gestão geral</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Turmas</li>
                             </ol>
@@ -41,7 +41,7 @@
             </div>
 
 
-            <div class="col-lg-12 card mb-4">
+            <div class="col-lg-12 col-sm-11 mx-auto card mb-4">
 
                 <div class="collapse show" id="class-list" data-parent="#class-accordion">
                     <div class="row">
@@ -51,7 +51,7 @@
 
                                 <div class="form-row mt-3">
 
-                                    <div class="form-group col-lg-4">
+                                    <div class="form-group col-sm-4">
 
                                         <label for="course">Curso</label>
 
@@ -69,7 +69,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-lg-2">
+                                    <div class="form-group col-sm-2">
 
                                         <label for="series">Série:</label>
 
@@ -87,7 +87,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-lg-3">
+                                    <div class="form-group col-sm-3">
 
                                         <label for="shift">Turno</label>
 
@@ -105,7 +105,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-lg-3">
+                                    <div class="form-group col-sm-3">
 
                                         <label for="shift">Período Letivo</label>
 

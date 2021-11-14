@@ -1,4 +1,4 @@
-@media (max-width:992px) and (min-width:779px) {
+@media (max-width:992px){
 
     body {
 
@@ -8,15 +8,25 @@
             }
         }
 
-        #painel-left {
-            z-index: 1200000000;
+        #left-panel {
+            
+            #sidebar {
+                z-index: 1200000000;
 
-            .side-bar {
+                .sidebar-header span {
+                    display: block;
+                }
 
-                width: 25%;
+                .sidebar-lists {
 
-                li {
-                    font-size: 1.5vw;
+                    a {
+                        font-size: 0.8vw;
+                    }
+
+                    p{
+                        font-size: 1vw;
+                    }
+
                 }
 
                 .fa-angle-down {

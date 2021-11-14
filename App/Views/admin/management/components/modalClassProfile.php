@@ -93,7 +93,7 @@
 
     </div>
 
-    <div class="col-lg-9 col-sm-8 col-11 col-sm-7 mx-auto">
+    <div class="col-lg-9 col-sm-8 col-sm-7 mx-auto">
 
         <div class="col-lg-12 card main-content">
 
@@ -622,7 +622,7 @@
 
                     <div class="row">
 
-                        <div class="col-sm-11 mx-auto">
+                        <div class="col-sm-11 col-lg-12 mx-auto">
 
                             <div class="row d-flex align-items-center">
 
@@ -789,7 +789,7 @@
 
                                         </div>
 
-                                        <div class="form-group col-sm-3">
+                                        <div class="form-group col-sm-3 col-lg-2">
 
                                             <label for="">Unidade:</label>
 

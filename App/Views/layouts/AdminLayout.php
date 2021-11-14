@@ -23,11 +23,11 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
 		<div class="row">
 
-			<div class="col-lg-2 col-md-3 col-sm-2 panel-side">
+			<div class="col-sm-2 col-md-2 panel-side">
 				<?php require '../App/Views/admin/components/painelLeft.php' ?>
 			</div>
 
-			<div id="pagina" class="col-12 col-md-9 col-lg-10 col-sm-12">
+			<div id="pagina" class="col-12 col-md-10 col-sm-12">
 
 				<?php require '../App/Views/admin/components/navbar.php' ?>
 

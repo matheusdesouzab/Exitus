@@ -25,7 +25,7 @@ $totalRequest = 0;
                     <div class="row d-flex align-items-center">
 
                         <div class="col-2">
-                            <img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' style="width:3vw">
+                            <img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
                         </div>
 
                         <div class="col-10 text-left font-weight-bold"><?= $value->student_name ?></div>

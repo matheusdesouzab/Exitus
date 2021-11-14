@@ -27,8 +27,6 @@
                 }
             }
 
-
-
         }
 
 
@@ -45,6 +43,18 @@
 
             form {
                 font-size: 4vw;
+
+                label{
+                    font-size: 2.5vw;
+                }
+
+                input,select{
+                    font-size: 2.2vw;
+                }
+
+                .btn{
+                    font-size: 2.5vw;
+                }
             }
 
             .page-header {
@@ -141,15 +151,40 @@
                 }
             }
 
+            #profileClassModal {
+
+                #note-table-class{
+                    width: 700px;                
+                }
+
+                #tableListExam{
+                    width: 700px;
+                }
+
+            }
+
 
             .modal-profile {
 
                 overflow-y: auto;
 
+                form{
+                    i.fas{
+                        font-size: 3.0vw;
+                    }
+                    div .font-weight-bold{
+                        font-size: 2.5vw;
+                    }
+                }
+
+
                 table {
-                    width: 200px;
 
                     td {
+                        font-size: 2.5vw;
+                    }
+
+                    th{
                         font-size: 3vw;
                     }
                 }
@@ -168,7 +203,7 @@
                     justify-content: center;
                     border-radius: 10px;
                     margin-bottom: 15px;
-                    margin-top: -4vw;
+                    margin-top: -8vw;
 
                     span {
                         font-size: 2.5vw;
@@ -189,6 +224,7 @@
                     border-bottom: 2px solid #e5e5e5;
                     border-radius: 0px;
                     padding-bottom: 0;
+                    margin-top: -4vw;
 
                     nav {                     
                         padding: 10px;
@@ -199,7 +235,7 @@
                             display: flex;
                             justify-content: space-around;
                             flex-grow: 1;
-                            width: 1500px;
+                            width: 1300px;
 
                             a {
                                 margin-bottom: 0;
@@ -231,6 +267,8 @@
                 .main-content {
                     margin-top: 30px;
                     margin-bottom: 20px;
+                    box-shadow: none;
+                    padding-top: 0px;
                     border: none;
 
                     .row:nth-child(1) {
@@ -240,6 +278,30 @@
                     table { .miniature-photo{
                         width: 8vw;
                     }}
+
+                    #tableListExam{
+                        width: 600px;
+                    }
+
+                    #finalized-rematrecules{
+                        table{
+                            width: 500px;
+                            img{
+                                width: 8vw;
+                            }
+                        }
+                        p{
+                            font-size: 2.5vw;
+                        }
+                    }
+
+                    #addRematrung{
+                        img{
+                            width: 8vw;
+                        }
+                    }
+
+                    
 
                     h5,.h5{
                         font-size: 3vw;
@@ -254,7 +316,7 @@
                 .modal-sidebar {
                     @include card(10px, white, none);
                     box-shadow: none;
-                    height: 28vh;
+                    height: 22vh;
                     border: none;
                 }
 

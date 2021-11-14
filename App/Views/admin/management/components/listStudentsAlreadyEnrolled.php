@@ -40,6 +40,8 @@ array_multisort($order, SORT_ASC, $studentsRematrung);
 
 ?>
 
+<div class="table-responsive">
+
 <table class="table table-hover mt-3 table-borderless table-striped">
     <thead>
         <tr>
@@ -52,7 +54,7 @@ array_multisort($order, SORT_ASC, $studentsRematrung);
         <?php foreach ($studentsRematrung as $key => $value) { ?>
             <tr>
                 <td class="text-left">
-                    <img class="miniature-photo" src='<?= $value['profilePhoto'] == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['profilePhoto'] ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
+                    <img class="miniature-photo" src='<?= $value['profilePhoto'] == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['profilePhoto'] ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
                 </td>
 
                 <td class="text-left"><?= $value['name'] ?></td>
@@ -63,6 +65,8 @@ array_multisort($order, SORT_ASC, $studentsRematrung);
     </tbody>
 
 </table>
+
+</div>
 
 
 
