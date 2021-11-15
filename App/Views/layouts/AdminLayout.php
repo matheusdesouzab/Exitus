@@ -27,7 +27,7 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 				<?php require '../App/Views/admin/components/painelLeft.php' ?>
 			</div>
 
-			<div id="pagina" class="col-12 col-md-10 col-sm-12">
+			<div id="pagina" class="col-12 col-md-10 ml-auto col-sm-12">
 
 				<?php require '../App/Views/admin/components/navbar.php' ?>
 
@@ -54,6 +54,8 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 						</div>
 					</div>
 				</div>
+
+				<?php require '../App/Views/admin/components/navbarBottom.php' ?>
 
 			
 

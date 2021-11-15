@@ -41,7 +41,7 @@
             </div>
 
 
-            <div class="col-lg-12 col-sm-11 mx-auto card mb-4">
+            <div class="col-lg-12 col-11 mx-auto card mb-4">
 
                 <div class="collapse show" id="class-list" data-parent="#class-accordion">
                     <div class="row">
@@ -51,7 +51,7 @@
 
                                 <div class="form-row mt-3">
 
-                                    <div class="form-group col-sm-4">
+                                    <div class="form-group col-6 col-sm-4">
 
                                         <label for="course">Curso</label>
 
@@ -69,7 +69,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-sm-2">
+                                    <div class="form-group col-6 col-sm-2">
 
                                         <label for="series">Série:</label>
 
@@ -87,7 +87,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-sm-3">
+                                    <div class="form-group col-6 col-sm-3">
 
                                         <label for="shift">Turno</label>
 
@@ -105,7 +105,7 @@
 
                                     </div>
 
-                                    <div class="form-group col-sm-3">
+                                    <div class="form-group col-6 col-sm-3">
 
                                         <label for="shift">Período Letivo</label>
 

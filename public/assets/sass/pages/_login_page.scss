@@ -97,10 +97,22 @@
                     transition: all 0.6s ease;
                 }
 
+                .input-group-text{
+                    border: none;
+                    border-radius: 0px;
+                    border-bottom: 2px solid $color-blue;
+                    color: $color-dark-gray;
+                }
+
                 input {
                     border: none;
                     border-radius: 0px;
+                    transition: 0.9s;
                     border-bottom: 2px solid $color-extra-light-blue;
+
+                    &:hover{
+                        border-bottom: 2px solid $color-blue;
+                    }
                 }
 
                 h5 {

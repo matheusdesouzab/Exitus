@@ -1,4 +1,4 @@
-<nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-10 ml-auto shadow-sm navbar-expand-sm">
+<nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-10 ml-auto shadow-sm navbar-expand">
 
 	<a class="navbar-brand bars-xs" href="#"><i class="fas fa-bars"></i></a>
 
@@ -14,7 +14,7 @@
 			</li>
 		</ul>
 
-		<ul class="navbar-nav ml-auto d-flex align-items-center mr-5">
+		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
 			</li>
 

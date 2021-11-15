@@ -103,12 +103,22 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                     <div class="form-group col-md-10 mx-auto mt-3">
                                         <label for="name">Usuário:</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-white">
+                                                <div class="input-group-text bg-white"><i class='fas fa-user'></i></div>
+                                            </div>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-10 mx-auto mt-4">
                                         <label for="accessCode">Código de acesso:</label>
-                                        <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="000.000">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-white">
+                                                <div class="input-group-text bg-white"><i class="fas fa-key"></i></div>
+                                            </div>
+                                        <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="">
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-10 mx-auto">

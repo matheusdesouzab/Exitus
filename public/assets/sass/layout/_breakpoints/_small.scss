@@ -1,19 +1,19 @@
-@media (max-width:769px){
+@media (max-width:769px) {
 
-    #login{
+    #login {
 
         .container-login {
             background: white;
             box-shadow: none;
-            
-            .sidebar-primary{
-                display: none!important;
+
+            .sidebar-primary {
+                display: none !important;
             }
 
-            .sidebar-secondary{
+            .sidebar-secondary {
                 border-radius: 20px;
 
-                form{
+                form {
                     padding: 15px;
                 }
             }
@@ -21,67 +21,36 @@
 
     }
 
-    body {    
+    body {
 
         #painel-left {
             z-index: 120000000;
         }
 
-        font-size: 2vh;
-        width: 100%;
-
         .panel-side {
             display: none;
-        }
 
-        .panel-side-xs {
+            #left-panel {
+                #sidebar {
+                width: 30vw;
 
-            display: block;
+                    .sidebar-lists {
 
-            #painel-left>.side-bar {
+                        a {
+                            font-size: 1.8vw;
+                        }
 
-                li:nth-child(2) {
-                    display: block;
+                        p {
+                            font-size: 2vw;
+                        }
+
+                    }
                 }
 
-                width: 40%;
-                margin-left: 190px;
-
-                .bars-xs {
-                    color: $color-white;
-                }
-
-                img {
-                    width: 80%;
-                }
-
-                .fa-angle-down {
-                    display: none;
-                }
-
-                h5 {
-                    font-size: 2vw;
-                }
-
-                li,
-                h5 {
-                    margin-left: 2vw;
-                    margin-top: 15px;
-
-                }
-
-                .link-collapse a,
-                .collapse li a {
-                    font-size: 2vw;
-                    font-weight: 500;
-                }
-
-                .collapse li {
-                    border-left: 5px solid $color-white;
-                    margin-top: 0px;
-                }
             }
         }
+
+
 
         #navbar-top {
 
@@ -102,7 +71,7 @@
 
         #pagina {
 
-        
+
 
             .modal-profile {
 
@@ -110,7 +79,7 @@
                     display: flex;
                 }
 
-                .collapse-options-container{
+                .collapse-options-container {
                     margin-top: 20px;
                 }
 
@@ -126,11 +95,11 @@
                 }
 
                 .main-content {
-                [data-parent="#main-accordion-class"]{
-                    margin-top: -3vw;     
+                    [data-parent="#main-accordion-class"] {
+                        margin-top: -3vw;
+                    }
                 }
-            }
-              
+
 
                 .option-list {
                     display: flex;

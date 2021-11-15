@@ -2,6 +2,15 @@
 
     html{
 
+        table{
+            th{
+                font-size: 2.5vw;
+            }
+            td{
+                font-size: 2.4vw;
+            }
+        }
+
     body#admin,
     body#teacherPortal {
 
@@ -12,18 +21,24 @@
                 #sidebar {
                     z-index: 100000000;
                     overflow: hidden;
-                    width: 60vw;
+                    width: 50vw;
 
                     i.fas {
                         margin-right: 15px;
                     }
 
-                    .sidebar-header span {
+                    .sidebar-header{
+                        
+                        span {
                         position: absolute;
                         display: block;
                         left: 15;
                         margin-top: 5px;
+                        }
+
                     }
+
+                    
                 }
             }
 
@@ -74,9 +89,18 @@
 
 
             #navbar-top {
+                padding: 10px;
 
                 .navbar-toggler .fa-bars {
                     font-size: 20px;
+                }
+
+                ul{
+                    margin-right: 0;
+                }
+
+                b,a{
+                    font-size: 2.8vw;
                 }
 
                 #bars {

@@ -503,19 +503,25 @@ button {
 
 #left-panel {
   display: flex;
-  font-family: Semi-bold;
+  font-family: Bold;
 }
 #left-panel #sidebar {
   width: 16.5vw;
   position: fixed;
   top: 0;
+  padding: 5px;
   transition: all 0.7s ease;
   left: 0;
   height: 100vh;
   z-index: 2;
-  background-color: #09023B;
+  background-color: black;
   overflow: auto;
   box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
+}
+#left-panel #sidebar .title {
+  color: white;
+  font-family: Bold;
+  margin-top: 15px;
 }
 #left-panel #sidebar::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -542,12 +548,15 @@ button {
 #left-panel #sidebar .sidebar-header span {
   display: none;
 }
+#left-panel #sidebar .sidebar-lists {
+  padding: 15px;
+  border: 2px solid black;
+}
 #left-panel #sidebar .sidebar-lists p {
   color: #ffffff;
-  font-weight: bold;
-  font-size: 13px;
+  font-size: 0.9vw;
   margin-bottom: 10px;
-  padding: 10px 25px;
+  padding: 10px 18px;
 }
 #left-panel #sidebar .sidebar-lists i.fas, #left-panel #sidebar .sidebar-lists i.bi {
   color: #C4C4C4;
@@ -559,9 +568,9 @@ button {
   margin-top: 0.5vh;
 }
 #left-panel #sidebar .sidebar-lists a {
-  color: #C4C4C4;
+  color: white;
   font-weight: 300;
-  font-size: 1vw;
+  font-size: 0.8vw;
   transition: 1s;
   display: block;
 }
@@ -569,16 +578,25 @@ button {
   color: #ffffff;
 }
 #left-panel #sidebar .sidebar-lists li {
-  margin-top: 0.5vw;
-  padding: 10px 30px;
+  margin-bottom: 0.5vw;
+  padding: 10px 18px;
   width: 100%;
 }
 #left-panel #sidebar .sidebar-lists li:hover {
   background-color: #202124;
 }
+#left-panel #sidebar .sidebar-lists .footer-panel {
+  position: absolute;
+  bottom: 0;
+  padding: 0px;
+  left: -12px;
+}
+#left-panel #sidebar .sidebar-lists .footer-panel li {
+  margin-left: 15px;
+}
 #left-panel #sidebar .sidebar-lists .collapse li {
   background-color: #080809;
-  padding: 15px 25px;
+  padding: 10px 18px;
   margin-top: 0;
   transition: 1s;
   width: 100%;
@@ -1375,10 +1393,20 @@ button {
   box-shadow: none;
   transition: all 0.6s ease;
 }
+#login .container-login .sidebar-secondary form .input-group-text {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #363C90;
+  color: #506177;
+}
 #login .container-login .sidebar-secondary form input {
   border: none;
   border-radius: 0px;
+  transition: 0.9s;
   border-bottom: 2px solid #e4d9ff;
+}
+#login .container-login .sidebar-secondary form input:hover {
+  border-bottom: 2px solid #363C90;
 }
 #login .container-login .sidebar-secondary form h5 {
   color: #506177;
@@ -1401,6 +1429,12 @@ button {
 }
 
 @media (max-width: 576px) {
+  html table th {
+    font-size: 2.5vw;
+  }
+  html table td {
+    font-size: 2.4vw;
+  }
   html body#admin .panel-side,
 html body#teacherPortal .panel-side {
     display: none;
@@ -1409,7 +1443,7 @@ html body#teacherPortal .panel-side {
 html body#teacherPortal .panel-side #left-panel #sidebar {
     z-index: 100000000;
     overflow: hidden;
-    width: 60vw;
+    width: 50vw;
   }
   html body#admin .panel-side #left-panel #sidebar i.fas,
 html body#teacherPortal .panel-side #left-panel #sidebar i.fas {
@@ -1459,9 +1493,22 @@ html body#teacherPortal #pagina .page-header .collapse-options-container span {
     display: inline-block;
     font-size: 3vw !important;
   }
+  html body#admin #pagina #navbar-top,
+html body#teacherPortal #pagina #navbar-top {
+    padding: 10px;
+  }
   html body#admin #pagina #navbar-top .navbar-toggler .fa-bars,
 html body#teacherPortal #pagina #navbar-top .navbar-toggler .fa-bars {
     font-size: 20px;
+  }
+  html body#admin #pagina #navbar-top ul,
+html body#teacherPortal #pagina #navbar-top ul {
+    margin-right: 0;
+  }
+  html body#admin #pagina #navbar-top b, html body#admin #pagina #navbar-top a,
+html body#teacherPortal #pagina #navbar-top b,
+html body#teacherPortal #pagina #navbar-top a {
+    font-size: 2.8vw;
   }
   html body#admin #pagina #navbar-top #bars,
 html body#teacherPortal #pagina #navbar-top #bars {
@@ -1732,51 +1779,20 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
     padding: 15px;
   }
 
-  body {
-    font-size: 2vh;
-    width: 100%;
-  }
   body #painel-left {
     z-index: 120000000;
   }
   body .panel-side {
     display: none;
   }
-  body .panel-side-xs {
-    display: block;
+  body .panel-side #left-panel #sidebar {
+    width: 30vw;
   }
-  body .panel-side-xs #painel-left > .side-bar {
-    width: 40%;
-    margin-left: 190px;
+  body .panel-side #left-panel #sidebar .sidebar-lists a {
+    font-size: 1.8vw;
   }
-  body .panel-side-xs #painel-left > .side-bar li:nth-child(2) {
-    display: block;
-  }
-  body .panel-side-xs #painel-left > .side-bar .bars-xs {
-    color: #ffffff;
-  }
-  body .panel-side-xs #painel-left > .side-bar img {
-    width: 80%;
-  }
-  body .panel-side-xs #painel-left > .side-bar .fa-angle-down {
-    display: none;
-  }
-  body .panel-side-xs #painel-left > .side-bar h5 {
+  body .panel-side #left-panel #sidebar .sidebar-lists p {
     font-size: 2vw;
-  }
-  body .panel-side-xs #painel-left > .side-bar li,
-body .panel-side-xs #painel-left > .side-bar h5 {
-    margin-left: 2vw;
-    margin-top: 15px;
-  }
-  body .panel-side-xs #painel-left > .side-bar .link-collapse a,
-body .panel-side-xs #painel-left > .side-bar .collapse li a {
-    font-size: 2vw;
-    font-weight: 500;
-  }
-  body .panel-side-xs #painel-left > .side-bar .collapse li {
-    border-left: 5px solid #ffffff;
-    margin-top: 0px;
   }
   body #navbar-top #bars {
     display: none;
@@ -1852,6 +1868,9 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
 #navbar-top .navbar-brand {
   font-weight: bold;
 }
+#navbar-top ul {
+  margin-right: 20px;
+}
 #navbar-top .fa-cog {
   font-size: 20px;
   color: #506177;
@@ -1874,6 +1893,37 @@ body .panel-side-xs #painel-left > .side-bar .collapse li a {
   color: #506177;
   font-size: 14px;
   font-weight: 500;
+}
+
+#navbarBottom {
+  border-radius: 0px !important;
+}
+#navbarBottom img {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  object-position: top;
+  object-fit: cover;
+  cursor: pointer;
+}
+#navbarBottom .account {
+  padding: 8px;
+  font-size: 10px;
+  border-radius: 10px;
+  font-family: Bold;
+}
+#navbarBottom .main-icon {
+  color: white;
+}
+#navbarBottom .main-icon div {
+  background-color: #363C90;
+  border-radius: 20vw;
+  padding: 10px !important;
+  width: 70%;
+}
+#navbarBottom .card {
+  border: 0;
+  box-shadow: none;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */
