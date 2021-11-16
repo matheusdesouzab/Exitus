@@ -47,6 +47,21 @@
 #navbarBottom{
     border-radius: 0px !important;
 
+    .card a{
+        color: $color-dark-gray;
+    }
+
+    .card{
+        border-radius: 5px;
+    }
+
+    .link-active{
+        background-color: $color-blue;
+        a{
+            color: white;
+        }
+    }
+
     img {
         border-radius: 50%;
         width: 30px;
@@ -54,24 +69,6 @@
         object-position: top;
         object-fit: cover;
         cursor: pointer;
-    }
-
-    .account{
-        padding: 8px;
-        font-size: 10px;
-        border-radius: 10px;
-        font-family: Bold;
-    }
-
-    .main-icon{
-        color: white;
-
-        div{
-            background-color: $color-blue;
-            border-radius: 20vw;
-            padding: 10px !important;
-            width: 70%;
-        }
     }
 
     .card{

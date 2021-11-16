@@ -10,9 +10,11 @@
 
                     <div class="row">
 
-                        <h5 class="col-lg-6">Gestão das salas</h5>
+                        <h5 class="col-sm-6">Gestão das salas</h5>
 
-                        <div class="col-lg-6 collapse-options-container">
+                        <div class="col-sm-6">
+
+                            <div class="row collapse-options-container">
 
                             <a class="font-weight-bold" id="collapseListClassRoom" aria-expanded="true" data-toggle="collapse" data-target="#list-rooms">
 
@@ -22,9 +24,11 @@
 
                             <a class="collapsed font-weight-bold" id="collapseAddClassRoom" aria-expanded="false" data-toggle="collapse" data-target="#add-rooms">
 
-                                <span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span>
+                                <span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span>
 
                             </a>
+
+                            </div>
 
                         </div>
 
@@ -42,7 +46,7 @@
 
             <div class="row">
                 
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-11 mx-auto">
 
                     <div class="collapse show" id="list-rooms" data-parent="#room-accordion">
                         <div class="row">
@@ -63,7 +67,7 @@
 
                                     <div class="font-weight-bold col-lg-12 mt-3">Adicionar nova sala:</div>
 
-                                    <hr class="col-lg-11 ml-3">
+                                    <hr class="">
 
                                     <div class="form-row col-lg-12 mb-2 mt-1">
                                         <div class="form-group col-lg-4">

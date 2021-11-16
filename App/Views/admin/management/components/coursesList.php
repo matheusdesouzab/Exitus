@@ -10,10 +10,10 @@ if (count($this->view->listCourse) >= 1) {
 
                 <input type="hidden" name="courseId" value="<?= $course->course_id ?>">
 
-                <div class=" col-lg-8 font-weight-bold">Curso de <?= $course->course_name ?>
+                <div class="col-sm-8 font-weight-bold">Curso de <?= $course->course_name ?>
                 </div>
 
-                <div class="col-lg-4 d-flex justify-content-end mt-2">
+                <div class="col-sm-4 d-flex justify-content-end mt-2">
 
                     <span idElement="#formCourse<?= $course->course_id ?>" formGroup="containerListCourse" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
 

@@ -23,9 +23,9 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
             <div class="form-row col-lg-11 mx-auto d-flex align-items-center option-icon-group">
 
-                <div class="col-lg-8 font-weight-bold">Período letivo do ano de <?= $schoolTerm->school_year ?></div>
+                <div class="col-sm-8 font-weight-bold">Período letivo do ano de <?= $schoolTerm->school_year ?></div>
 
-                <div class="col-lg-4 d-flex justify-content-end mt-2">
+                <div class="col-sm-4 d-flex justify-content-end mt-2">
 
                     <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" formGroup="containerListSchoolTerm" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
 
@@ -53,17 +53,17 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                 <input class="form-control" name="schoolTermId" value="<?= $schoolTerm->school_term_id ?>" type="hidden">
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-sm-4">
                     <label for="startDate">Data de início:</label>
                     <input class="form-control" disabled name="startDate" value="<?= $schoolTerm->start_date ?>" type="date" id="startDate">
                 </div>
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-sm-4">
                     <label for="endDate">Data de fim:</label>
                     <input class="form-control" disabled value="<?= $schoolTerm->end_date ?>" type="date" name="endDate" id="endDate">
                 </div>
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-sm-4">
 
                     <label for="schoolTermSituation">Situação:</label>
 

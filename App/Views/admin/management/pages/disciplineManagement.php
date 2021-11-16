@@ -10,13 +10,17 @@
 
                     <div class="row">
 
-                        <h5 class="col-lg-6">Gestão das disciplinas</h5>
+                        <h5 class="col-sm-6">Gestão das disciplinas</h5>
 
-                        <div class="col-lg-6 collapse-options-container">
+                        <div class="col-sm-6">
+
+                            <div class="row collapse-options-container">
 
                             <a class="font-weight-bold" id="collapseListDiscipline" aria-expanded="true" data-toggle="collapse" data-target="#list-subjects"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Disciplinas</span></a>
 
-                            <a class="collapsed font-weight-bold" id="collapseAddDiscipline" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+                            <a class="collapsed font-weight-bold" id="collapseAddDiscipline" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+
+                            </div>
 
                         </div>
 
@@ -32,7 +36,7 @@
             </div>
 
 
-            <div class="col-lg-12 card mb-4">
+            <div class="col-lg-12 col-11 mx-auto card mb-4">
 
                 <div class="collapse show" id="list-subjects" data-parent="#discipline-accordion">
 
@@ -111,7 +115,7 @@
 
                                 <div class="font-weight-bold col-lg-11 mt-3">Adicionar nova disciplina</div>
 
-                                <hr class="col-lg-11 ml-3">
+                                <hr class="">
 
                                 <div class="form-row mt-1 mb-2 col-lg-12">
 

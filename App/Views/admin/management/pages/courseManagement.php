@@ -10,9 +10,11 @@
 
                     <div class="row">
 
-                        <h5 class="col-lg-6">Gestão dos cursos</h5>
+                        <h5 class="col-sm-6">Gestão dos cursos</h5>
 
-                        <div class="col-lg-6 collapse-options-container">
+                        <div class="col-sm-6">
+
+                            <div class="row collapse-options-container">
 
                             <a class="font-weight-bold" aria-expanded="true" id="collapseListCourse" data-toggle="collapse" data-target="#list-courses">
 
@@ -22,9 +24,11 @@
 
                             <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-course">
 
-                                <span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span>
+                                <span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span>
 
                             </a>
+
+                            </div>
 
                         </div>
 
@@ -41,7 +45,7 @@
 
             <div class="row">
 
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-11 mx-auto">
 
                     <div class="row d-flex justify-content-between mb-3">
 
@@ -66,20 +70,20 @@
 
                                             <div class="font-weight-bold col-lg-11 mt-3">Adicionar novo curso:</div>
 
-                                            <hr class="col-lg-11 ml-3 border">
+                                            <hr class="">
 
                                             <div class="form-row mt-1 mb-2 col-lg-12">
-                                                <div class="form-group col-lg-4">
+                                                <div class="form-group col-sm-4">
                                                     <label for="courseName">Nome do curso:</label>
                                                     <input class="form-control is-valid" value="" type="text" name="courseName" id="courseName" required>
                                                 </div>
 
-                                                <div class="form-group col-lg-2">
+                                                <div class="form-group col-sm-2">
                                                     <label for="acronym">Sigla:</label>
                                                     <input class="form-control is-valid" maxlength="4" value="" type="text" name="acronym" id="acronym" required>
                                                 </div>
 
-                                                <div class="form-group col-lg-3">
+                                                <div class="form-group col-sm-3">
 
                                                     <label for="courseMode">Modalidade:</label>
 
@@ -94,7 +98,7 @@
                                                 </div>
 
 
-                                                <div class="form-group col-lg-3">
+                                                <div class="form-group col-sm-3">
                                                     <label for="">&nbsp;</label>
                                                     <a id="buttonAddCourse" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar curso</a>
                                                 </div>

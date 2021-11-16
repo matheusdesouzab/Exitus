@@ -2,7 +2,7 @@ function sideState() {
 
     let $sidebarLogo = $('#painel-left .logo img')
 
-    $("#navbar-top").toggleClass('col-lg-11 col-lg-10').toggleClass('col-md-10 col-md-9')
+    $("#navbar-top").toggleClass('col-lg-11 col-lg-10').toggleClass('col-md-11 col-md-10')
 
     $("#pagina").toggleClass('col-md-10 col-md-9').toggleClass('col-lg-11 col-lg-10')
 

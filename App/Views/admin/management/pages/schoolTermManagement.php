@@ -8,19 +8,23 @@
 
                 <div class="col-11 col-lg-12 mx-auto">
 
-                    <div class="row">
+                    <div class="row d-flex align-items-center">
 
-                        <h5 class="col-lg-6">Gestão dos períodos letivos</h5>
+                        <h5 class="col-sm-6">Gestão dos períodos letivos</h5>
 
-                        <div class="col-lg-6 collapse-options-container">
+                        <div class="col-sm-6">
+
+                            <div class="row collapse-options-container">                     
 
                             <a href="#" class="font-weight-bold" id="collapseListSchoolTerm" aria-expanded="true" data-toggle="collapse" data-target="#list-terms">
                                 <span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Períodos</span>
                             </a>
 
                             <a href="#" class="collapsed font-weight-bold" id="collapseAddSchoolTerm" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term">
-                                <span class="mr-2"><i class="fas fa-plus mr-2"></i> Adicionar</span>
+                                <span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span>
                             </a>
+
+                            </div>
 
                         </div>
 
@@ -36,7 +40,7 @@
 
             <div class="row">
 
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-11 mx-auto">
 
                     <div class="row d-flex justify-content-between mb-3">
 
@@ -66,23 +70,23 @@
 
                                             <div class="form-row col-lg-12 mb-2 mt-1">
 
-                                                <div class="form-group col-lg-2">
+                                                <div class="form-group col-sm-6 col-lg-2">
                                                     <label for="schoolYear">Ano:</label>
                                                     <select name="schoolYear" id="schoolYear" class="form-control custom-select" required></select>
                                                 </div>
 
-                                                <div class="form-group col-lg-3">
+                                                <div class="form-group col-sm-6 col-lg-3">
                                                     <label for="startDate">Data de início:</label>
                                                     <input name="startDate" class="form-control" value="" type="date" id="startDate">
                                                 </div>
 
-                                                <div class="form-group col-lg-3">
+                                                <div class="form-group col-sm-4 col-lg-3">
                                                     <label for="endDate">Data de fim:</label>
                                                     <input name="endDate" class="form-control" value="" type="date" id="endDate">
                                                 </div>
 
 
-                                                <div class="form-group col-lg-2">
+                                                <div class="form-group col-sm-4 col-lg-2">
 
                                                     <label for="schoolTermSituationAdd">Situação:</label>
 
@@ -96,7 +100,7 @@
 
                                                 </div>
 
-                                                <div class="form-group col-lg-2">
+                                                <div class="form-group col-sm-4 col-lg-2">
                                                     <label>&nbsp;</label>
                                                     <a id="buttonAddSchoolTerm" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar</a>
                                                 </div>

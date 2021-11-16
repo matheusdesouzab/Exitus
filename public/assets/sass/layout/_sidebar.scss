@@ -16,6 +16,10 @@
         overflow: auto;
         box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 
+        #minimize{
+            display: none;
+        }
+
         .title{
             color: white;
             font-family: Bold;
@@ -94,6 +98,11 @@
                 &:hover {
                     background-color: #202124;
                 }
+            }
+
+            .link-active{
+                background-color: #202124;
+                border-left: 5px solid $color-blue;
             }
 
             .footer-panel{

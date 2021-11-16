@@ -12,6 +12,40 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
 
+
+$(document).ready(function () {
+
+    let url = window.location.href.split('/')
+
+    let linksPanelLeft = $('.sidebar-lists li')
+    let linksPanelBottom = $('#navbarBottom .card')
+
+    $.each(linksPanelLeft, function (value) {
+
+        let name = $(linksPanelLeft[value]).attr('name')
+
+        if (url.includes(name)) {
+            $(`.sidebar-lists li[name='${name}']`).addClass("link-active")
+        }
+
+    })
+
+    console.log(linksPanelBottom)
+
+    $.each(linksPanelBottom, function (value) {
+
+        let name = $(linksPanelBottom[value]).attr('name')
+
+        if (url.includes(name)) {
+            $(`#navbarBottom .card[name='${name}']`).addClass("link-active")
+        }
+
+    })
+
+
+})
+
+
 $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
 
     e.preventDefault()
@@ -107,7 +141,7 @@ $("#classRoom #buttonAddClassRoom").on("click", function () {
 })
 
 
-$(document).on("click", "#profileStudentModal #buttonSwitchClasses", function(e){
+$(document).on("click", "#profileStudentModal #buttonSwitchClasses", function (e) {
     application.addSinglePart("#switchClasses", "/admin/gestao/turma/perfil-turma/aluno/troca-turma", "Troca aluno de turma")
     location.reload()
 })
@@ -293,7 +327,7 @@ $(document).on("blur", "#profileClassModal #addExam #disciplineClass , #addExam 
 })
 
 
-$(document).on("click", "#profileStudentModal [data-target='#class-student-profile-average']", function(e){
+$(document).on("click", "#profileStudentModal [data-target='#class-student-profile-average']", function (e) {
     application.loadListElements("containerStudentsProfileAverage", "/admin/gestao/turma/perfil-turma/aluno/medias-gerais", "#addNote")
 })
 
@@ -315,8 +349,8 @@ $(document).on("blur", "#seekAverageStudentProfile #disciplineClass, #seekAverag
 })
 
 
-$(document).on("click", "#profileStudentModal #activateButtonSwitchClasses", function(e){ 
-    $("#buttonSwitchClasses").removeClass("disabled") 
+$(document).on("click", "#profileStudentModal #activateButtonSwitchClasses", function (e) {
+    $("#buttonSwitchClasses").removeClass("disabled")
 })
 
 $(document).on("click", "#profileClassModal list-exam-list", function (e) {
@@ -870,7 +904,7 @@ $(".sidebar-lists [data-toggle='collapse']").on("click", function (e) {
 })
 
 
-$(".bars-xs , .sidebar-header span").on("click", function (e) {
+$(".bars-xs , .sidebar-lists #minimize").on("click", function (e) {
 
     $(".panel-side").is(":hidden") ? $(".panel-side").show() : $(".panel-side").hide()
 })

@@ -1,398 +1,407 @@
 @media (max-width:576px) {
 
-    html{
+    html {
 
-        table{
-            th{
-                font-size: 2.5vw;
-            }
-            td{
-                font-size: 2.4vw;
-            }
-        }
+        body#admin,
+        body#teacherPortal {
 
-    body#admin,
-    body#teacherPortal {
+            .panel-side {
+                display: none;
 
-        .panel-side {
-            display: none;
+                #left-panel {
+                    #sidebar {
+                        z-index: 100000000;
+                        overflow: hidden;
+                        width: 50vw;
 
-            #left-panel {
-                #sidebar {
-                    z-index: 100000000;
-                    overflow: hidden;
-                    width: 50vw;
-
-                    i.fas {
-                        margin-right: 15px;
-                    }
-
-                    .sidebar-header{
-                        
-                        span {
-                        position: absolute;
-                        display: block;
-                        left: 15;
-                        margin-top: 5px;
+                        i.fas {
+                            margin-right: 15px;
                         }
 
+                        .sidebar-header {
+
+                            span {
+                                position: absolute;
+                                display: block;
+                                left: 15;
+                                margin-top: 5px;
+                            }
+
+                        }
+
+
                     }
-
-                    
-                }
-            }
-
-        }
-
-
-        #pagina {
-
-            div.option-icon-group span {
-                margin-top: 15px;
-            }
-
-            .main-container {
-                margin-top: 60px;
-                margin-bottom: 60px;
-            }
-
-            form {
-                font-size: 4vw;
-
-                label{
-                    font-size: 2.5vw;
                 }
 
-                input,select{
-                    font-size: 2.2vw;
-                }
-
-                .btn{
-                    font-size: 2.5vw;
-                }
             }
 
-            .page-header {
 
-                h5 {
+            #pagina {
+
+                div.option-icon-group span {
+                    margin-top: 15px;
+                }
+
+                .main-container {
+                    margin-top: 60px;
+                    margin-bottom: 60px;
+                }
+
+                form {
                     font-size: 4vw;
-                }
 
-                .collapse-options-container span {
-                    margin-bottom: 10px;
-                    margin-top: 20px;
-                    display: inline-block;
-                    font-size: 3vw !important;
-                }
-
-            }
-
-
-            #navbar-top {
-                padding: 10px;
-
-                .navbar-toggler .fa-bars {
-                    font-size: 20px;
-                }
-
-                ul{
-                    margin-right: 0;
-                }
-
-                b,a{
-                    font-size: 2.8vw;
-                }
-
-                #bars {
-                    display: none;
-                }
-
-                a.bars-xs {
-                    display: block;
-                }
-
-                .navbar-toggler {
-                    display: none;
-                }
-
-                .navbar-nav {
-                    display: none;
-                }
-            }
-
-            section#list-students {
-                table {
-                    width: 800px;
-                }
-            }
-
-            #navbarBottom {
-                display: block;
-                border-top-right-radius: 15px;
-                padding: 2px;
-                border-top-left-radius: 15px;
-                background-color: $color-white;
-                box-shadow: 0 -2px 2px -2px #333;
-                display: flex;
-                justify-content: center;
-
-                ul {
-                    display: flex;
-                    justify-content: space-around;
-                    width: 100%;
-                    margin-top: 10px;
-
-                    i.fas,
-                    i.bi {
-                        font-size: 18px;
-                        color: $color-dark-gray;
+                    label {
+                        font-size: 3.5vw;
                     }
 
-                }
-            }
+                    input,
+                    select {
+                        font-size: 3vw;
+                    }              
 
-            section#discipline {
-                table {
-                    width: 600px;
-                }
-            }
-
-            section#class {
-                table {
-                    width: 600px;
-                }
-            }
-
-            #main-accordion-class,
-            #main-accordion-student {
-                background-color: white;
-                padding: 10px;
-                border-radius: 15px;
-
-                .row.card {
-                    box-shadow: none;
-                    border: none;
-                }
-            }
-
-            #profileClassModal {
-
-                #note-table-class{
-                    width: 700px;                
-                }
-
-                #tableListExam{
-                    width: 700px;
-                }
-
-            }
-
-
-            .modal-profile {
-
-                overflow-y: auto;
-
-                form{
-                    i.fas{
-                        font-size: 3.0vw;
-                    }
-                    div .font-weight-bold{
-                        font-size: 2.5vw;
-                    }
-                }
-
-
-                table {
-
-                    td {
-                        font-size: 2.5vw;
+                    .btn {
+                        font-size: 3vw;
                     }
 
-                    th{
+                    span{
                         font-size: 3vw;
                     }
                 }
 
-                .modal-sidebar img {
-                    width: 25vw;
-                    height: 25vw;
-                    margin-bottom: 5px;
-                }
+                table {
+                    th {
+                        font-size: 3.5vw;
+                    }
 
-                .main-sheet {
-                    order: 1;
-                    display: flex;
-                    border-radius: 10px;
-                    background-color: $color-pure-gray;
-                    justify-content: center;
-                    border-radius: 10px;
-                    margin-bottom: 15px;
-                    margin-top: -8vw;
-
-                    span {
-                        font-size: 2.5vw;
-                        color: $color-dark-gray;
+                    td {
+                        font-size: 3vw;
                     }
                 }
 
-                h5 {
-                    font-size: 4vw;
+                .page-header {
+
+                    h5 {
+                        font-size: 5vw;
+                    }
+
+                    .collapse-options-container span {
+                        margin-bottom: 10px;
+                        margin-top: 20px;
+                        display: inline-block;
+                        font-size: 3vw !important;
+                    }
+
+                    .breadcrumb-item{
+                        font-size: 3.5vw;
+                    }
+
                 }
 
 
-                .container-list-group {
-                    order: 2;
-                    padding: 5px;
+                #navbar-top {
+                    padding: 10px;
+
+                    .navbar-toggler .fa-bars {
+                        font-size: 20px;
+                    }
+
+                    ul {
+                        margin-right: 0;
+                    }
+
+                    b,
+                    a {
+                        font-size: 3.5vw;
+                    }
+
+                    #bars {
+                        display: none;
+                    }
+
+                    a.bars-xs {
+                        display: block;
+                    }
+
+                    .navbar-toggler {
+                        display: none;
+                    }
+
+                    .navbar-nav {
+                        display: none;
+                    }
+                }
+
+                section#list-students {
+                    table {
+                        width: 800px;
+                    }
+                }
+
+                #navbarBottom {
                     display: block;
-                    border: none;
-                    border-bottom: 2px solid #e5e5e5;
-                    border-radius: 0px;
-                    padding-bottom: 0;
-                    margin-top: -4vw;
+                    border-top-right-radius: 15px;
+                    padding: 2px;
+                    border-top-left-radius: 15px;
+                    background-color: $color-white;
+                    box-shadow: 0 -2px 2px -2px #333;
+                    display: flex;
+                    justify-content: center;
 
-                    nav {                     
-                        padding: 10px;
-                        overflow: auto;
-                        padding-bottom: 0;
-
-                        ul {
-                            display: flex;
-                            justify-content: space-around;
-                            flex-grow: 1;
-                            width: 1300px;
-
-                            a {
-                                margin-bottom: 0;
-                                border-bottom: 2px solid white;
-                                border-radius: 0px;
-                                font-size: 2.5vw;
-                            }
-
-                            [aria-expanded="true"] {
-                                border-bottom: 2px solid $color-blue;
-                                background-color: transparent;
-                                color: $color-dark-gray;
-                            }
-                        }
-                    }
-
-                }
-
-                .collapse-options-container {
-                    margin-top: 20px;
-                    font-size: 10px;
-
-                    span {
-                        font-size: 2vw;
-
-                    }
-                }
-
-                .main-content {
-                    margin-top: 30px;
-                    margin-bottom: 20px;
-                    box-shadow: none;
-                    padding-top: 0px;
-                    border: none;
-
-                    .row:nth-child(1) {
+                    ul {
+                        display: flex;
+                        justify-content: space-around;
+                        width: 100%;
                         margin-top: 10px;
+
+                        i.fas,
+                        i.bi {
+                            font-size: 18px;
+                            color: $color-dark-gray;
+                        }
+
                     }
+                }
 
-                    table { .miniature-photo{
-                        width: 8vw;
-                    }}
-
-                    #tableListExam{
+                section#discipline {
+                    table {
                         width: 600px;
                     }
+                }
 
-                    #finalized-rematrecules{
-                        table{
-                            width: 500px;
-                            img{
-                                width: 8vw;
-                            }
+                section#class {
+                    table {
+                        width: 600px;
+                    }
+                }
+
+                #main-accordion-class,
+                #main-accordion-student {
+                    background-color: white;
+                    padding: 10px;
+                    border-radius: 15px;
+
+                    .row.card {
+                        box-shadow: none;
+                        border: none;
+                    }
+                }
+
+                #profileClassModal {
+
+                    #note-table-class {
+                        width: 700px;
+                    }
+
+                    #tableListExam {
+                        width: 700px;
+                    }
+
+                }
+
+
+                .modal-profile {
+
+                    overflow-y: auto;
+
+                    form {
+                        i.fas {
+                            font-size: 3.0vw;
                         }
-                        p{
+
+                        div .font-weight-bold {
                             font-size: 2.5vw;
                         }
                     }
 
-                    #addRematrung{
-                        img{
-                            width: 8vw;
-                        }
+
+                 
+
+                    .modal-sidebar img {
+                        width: 25vw;
+                        height: 25vw;
+                        margin-bottom: 5px;
                     }
 
-                    
-
-                    h5,.h5{
-                        font-size: 3vw;
+                    .main-sheet {
+                        order: 1;
+                        display: flex;
+                        border-radius: 10px;
+                        background-color: $color-pure-gray;
+                        justify-content: center;
+                        border-radius: 10px;
                         margin-bottom: 15px;
+                        margin-top: -8vw;
+
+                        span {
+                            font-size: 2.5vw;
+                            color: $color-dark-gray;
+                        }
                     }
 
-                    th{
-                        font-size: 2.5vw
-                    }
-                }
-
-                .modal-sidebar {
-                    @include card(10px, white, none);
-                    box-shadow: none;
-                    height: 22vh;
-                    border: none;
-                }
-
-            }
-
-
-            #student-registration {
-
-                .registration-in-stages {
-
-                    .connection-line {
-                        width: 80vw;
+                    h5 {
+                        font-size: 4vw;
                     }
 
-                    .registration-header-by-step {
-                        overflow: auto;
+
+                    .container-list-group {
+                        order: 2;
+                        padding: 5px;
                         display: block;
+                        border: none;
+                        border-bottom: 2px solid #e5e5e5;
+                        border-radius: 0px;
+                        padding-bottom: 0;
+                        margin-top: -4vw;
 
-                        .row {
+                        nav {
+                            padding: 10px;
+                            overflow: auto;
+                            padding-bottom: 0;
+
+                            ul {
+                                display: flex;
+                                justify-content: space-around;
+                                flex-grow: 1;
+                                width: 1300px;
+
+                                a {
+                                    margin-bottom: 0;
+                                    border-bottom: 2px solid white;
+                                    border-radius: 0px;
+                                    font-size: 2.5vw;
+                                }
+
+                                [aria-expanded="true"] {
+                                    border-bottom: 2px solid $color-blue;
+                                    background-color: transparent;
+                                    color: $color-dark-gray;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .collapse-options-container {
+                        margin-top: 20px;
+                        font-size: 10px;
+                        border: 2px solid red;
+
+                        span {
+                            font-size: 3vw;
+
+                        }
+                    }
+
+                    .main-content {
+                        margin-top: 30px;
+                        margin-bottom: 20px;
+                        box-shadow: none;
+                        padding-top: 0px;
+                        border: none;
+
+                        .row:nth-child(1) {
+                            margin-top: 10px;
+                        }
+
+                        table {
+                            .miniature-photo {
+                                width: 8vw;
+                            }
+                        }
+
+                        #tableListExam {
                             width: 600px;
-                            display: flex;
-                            justify-content: space-around;
+                        }
+
+                        #finalized-rematrecules {
+                            table {
+                                width: 500px;
+
+                                img {
+                                    width: 8vw;
+                                }
+                            }
+
+                            p {
+                                font-size: 2.5vw;
+                            }
+                        }
+
+                        #addRematrung {
+                            img {
+                                width: 8vw;
+                            }
+                        }
+
+
+
+                        h5,
+                        .h5 {
+                            font-size: 3vw;
+                            margin-bottom: 15px;
+                        }
+
+                        th {
+                            font-size: 2.5vw
                         }
                     }
 
+                    .modal-sidebar {
+                        @include card(10px, white, none);
+                        box-shadow: none;
+                        height: 22vh;
+                        border: none;
+                    }
+
                 }
-            }
 
 
-            #profileStudentModal {
+                #student-registration {
 
-                .container-list-group {
+                    .registration-in-stages {
 
-                    nav {
-                        width: 800px;
+                        .connection-line {
+                            width: 80vw;
+                        }
 
-                        ul {
+                        .registration-header-by-step {
+                            overflow: auto;
+                            display: block;
 
-                            a {
-                                border-left: none;
+                            .row {
+                                width: 600px;
+                                display: flex;
+                                justify-content: space-around;
                             }
+                        }
 
-                            [aria-expanded="true"] {
-                                border-left: none;
+                    }
+                }
+
+
+                #profileStudentModal {
+
+                    .container-list-group {
+
+                        nav {
+                            width: 800px;
+
+                            ul {
+
+                                a {
+                                    border-left: none;
+                                }
+
+                                [aria-expanded="true"] {
+                                    border-left: none;
+                                }
                             }
                         }
                     }
                 }
-            }
 
+            }
         }
     }
-}
 
 }

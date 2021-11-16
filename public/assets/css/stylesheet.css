@@ -518,6 +518,9 @@ button {
   overflow: auto;
   box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 }
+#left-panel #sidebar #minimize {
+  display: none;
+}
 #left-panel #sidebar .title {
   color: white;
   font-family: Bold;
@@ -584,6 +587,10 @@ button {
 }
 #left-panel #sidebar .sidebar-lists li:hover {
   background-color: #202124;
+}
+#left-panel #sidebar .sidebar-lists .link-active {
+  background-color: #202124;
+  border-left: 5px solid #363C90;
 }
 #left-panel #sidebar .sidebar-lists .footer-panel {
   position: absolute;
@@ -1429,12 +1436,6 @@ button {
 }
 
 @media (max-width: 576px) {
-  html table th {
-    font-size: 2.5vw;
-  }
-  html table td {
-    font-size: 2.4vw;
-  }
   html body#admin .panel-side,
 html body#teacherPortal .panel-side {
     display: none;
@@ -1471,20 +1472,33 @@ html body#teacherPortal #pagina form {
   }
   html body#admin #pagina form label,
 html body#teacherPortal #pagina form label {
-    font-size: 2.5vw;
+    font-size: 3.5vw;
   }
-  html body#admin #pagina form input, html body#admin #pagina form select,
+  html body#admin #pagina form input,
+html body#admin #pagina form select,
 html body#teacherPortal #pagina form input,
 html body#teacherPortal #pagina form select {
-    font-size: 2.2vw;
+    font-size: 3vw;
   }
   html body#admin #pagina form .btn,
 html body#teacherPortal #pagina form .btn {
-    font-size: 2.5vw;
+    font-size: 3vw;
+  }
+  html body#admin #pagina form span,
+html body#teacherPortal #pagina form span {
+    font-size: 3vw;
+  }
+  html body#admin #pagina table th,
+html body#teacherPortal #pagina table th {
+    font-size: 3.5vw;
+  }
+  html body#admin #pagina table td,
+html body#teacherPortal #pagina table td {
+    font-size: 3vw;
   }
   html body#admin #pagina .page-header h5,
 html body#teacherPortal #pagina .page-header h5 {
-    font-size: 4vw;
+    font-size: 5vw;
   }
   html body#admin #pagina .page-header .collapse-options-container span,
 html body#teacherPortal #pagina .page-header .collapse-options-container span {
@@ -1492,6 +1506,10 @@ html body#teacherPortal #pagina .page-header .collapse-options-container span {
     margin-top: 20px;
     display: inline-block;
     font-size: 3vw !important;
+  }
+  html body#admin #pagina .page-header .breadcrumb-item,
+html body#teacherPortal #pagina .page-header .breadcrumb-item {
+    font-size: 3.5vw;
   }
   html body#admin #pagina #navbar-top,
 html body#teacherPortal #pagina #navbar-top {
@@ -1505,10 +1523,11 @@ html body#teacherPortal #pagina #navbar-top .navbar-toggler .fa-bars {
 html body#teacherPortal #pagina #navbar-top ul {
     margin-right: 0;
   }
-  html body#admin #pagina #navbar-top b, html body#admin #pagina #navbar-top a,
+  html body#admin #pagina #navbar-top b,
+html body#admin #pagina #navbar-top a,
 html body#teacherPortal #pagina #navbar-top b,
 html body#teacherPortal #pagina #navbar-top a {
-    font-size: 2.8vw;
+    font-size: 3.5vw;
   }
   html body#admin #pagina #navbar-top #bars,
 html body#teacherPortal #pagina #navbar-top #bars {
@@ -1598,14 +1617,6 @@ html body#teacherPortal #pagina .modal-profile form i.fas {
 html body#teacherPortal #pagina .modal-profile form div .font-weight-bold {
     font-size: 2.5vw;
   }
-  html body#admin #pagina .modal-profile table td,
-html body#teacherPortal #pagina .modal-profile table td {
-    font-size: 2.5vw;
-  }
-  html body#admin #pagina .modal-profile table th,
-html body#teacherPortal #pagina .modal-profile table th {
-    font-size: 3vw;
-  }
   html body#admin #pagina .modal-profile .modal-sidebar img,
 html body#teacherPortal #pagina .modal-profile .modal-sidebar img {
     width: 25vw;
@@ -1673,10 +1684,11 @@ html body#teacherPortal #pagina .modal-profile .container-list-group nav ul [ari
 html body#teacherPortal #pagina .modal-profile .collapse-options-container {
     margin-top: 20px;
     font-size: 10px;
+    border: 2px solid red;
   }
   html body#admin #pagina .modal-profile .collapse-options-container span,
 html body#teacherPortal #pagina .modal-profile .collapse-options-container span {
-    font-size: 2vw;
+    font-size: 3vw;
   }
   html body#admin #pagina .modal-profile .main-content,
 html body#teacherPortal #pagina .modal-profile .main-content {
@@ -1714,7 +1726,8 @@ html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrec
 html body#teacherPortal #pagina .modal-profile .main-content #addRematrung img {
     width: 8vw;
   }
-  html body#admin #pagina .modal-profile .main-content h5, html body#admin #pagina .modal-profile .main-content .h5,
+  html body#admin #pagina .modal-profile .main-content h5,
+html body#admin #pagina .modal-profile .main-content .h5,
 html body#teacherPortal #pagina .modal-profile .main-content h5,
 html body#teacherPortal #pagina .modal-profile .main-content .h5 {
     font-size: 3vw;
@@ -1788,8 +1801,11 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
   body .panel-side #left-panel #sidebar {
     width: 30vw;
   }
+  body .panel-side #left-panel #sidebar .sidebar-lists #minimize {
+    display: block;
+  }
   body .panel-side #left-panel #sidebar .sidebar-lists a {
-    font-size: 1.8vw;
+    font-size: 1.5vw;
   }
   body .panel-side #left-panel #sidebar .sidebar-lists p {
     font-size: 2vw;
@@ -1898,6 +1914,18 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
 #navbarBottom {
   border-radius: 0px !important;
 }
+#navbarBottom .card a {
+  color: #506177;
+}
+#navbarBottom .card {
+  border-radius: 5px;
+}
+#navbarBottom .link-active {
+  background-color: #363C90;
+}
+#navbarBottom .link-active a {
+  color: white;
+}
 #navbarBottom img {
   border-radius: 50%;
   width: 30px;
@@ -1905,21 +1933,6 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
   object-position: top;
   object-fit: cover;
   cursor: pointer;
-}
-#navbarBottom .account {
-  padding: 8px;
-  font-size: 10px;
-  border-radius: 10px;
-  font-family: Bold;
-}
-#navbarBottom .main-icon {
-  color: white;
-}
-#navbarBottom .main-icon div {
-  background-color: #363C90;
-  border-radius: 20vw;
-  padding: 10px !important;
-  width: 70%;
 }
 #navbarBottom .card {
   border: 0;
