@@ -16,6 +16,7 @@
     
     .modal-full .modal-content {
         min-height: 100vh;
+        z-index: 9999;
     }
     
 
@@ -75,8 +76,9 @@
                 border-radius: 15px;
                 border: 2px solid #e5e5e5;
                 background-color: white;
+                
             }
-
+            
             input[type="file"] {
                 display: none;
             }

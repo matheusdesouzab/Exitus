@@ -154,6 +154,7 @@ button {
 }
 #pagina .modal-full .modal-content {
   min-height: 100vh;
+  z-index: 9999;
 }
 #pagina .modal {
   -webkit-backdrop-filter: blur(10px);
@@ -370,7 +371,7 @@ button {
   padding: 10px 15px;
   border-radius: 10px;
 }
-#pagina form label {
+#pagina form label, #pagina form .input-group-text {
   font-size: 1.1vw;
 }
 #pagina form select, #pagina form input {
@@ -593,13 +594,8 @@ button {
   border-left: 5px solid #363C90;
 }
 #left-panel #sidebar .sidebar-lists .footer-panel {
-  position: absolute;
   bottom: 0;
   padding: 0px;
-  left: -12px;
-}
-#left-panel #sidebar .sidebar-lists .footer-panel li {
-  margin-left: 15px;
 }
 #left-panel #sidebar .sidebar-lists .collapse li {
   background-color: #080809;
@@ -1457,14 +1453,9 @@ html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-header span {
     left: 15;
     margin-top: 5px;
   }
-  html body#admin #pagina div.option-icon-group span,
-html body#teacherPortal #pagina div.option-icon-group span {
-    margin-top: 15px;
-  }
-  html body#admin #pagina .main-container,
-html body#teacherPortal #pagina .main-container {
-    margin-top: 60px;
-    margin-bottom: 60px;
+  html body#admin #pagina p,
+html body#teacherPortal #pagina p {
+    font-size: 3.5vw;
   }
   html body#admin #pagina form,
 html body#teacherPortal #pagina form {
@@ -1495,6 +1486,50 @@ html body#teacherPortal #pagina table th {
   html body#admin #pagina table td,
 html body#teacherPortal #pagina table td {
     font-size: 3vw;
+  }
+  html body#admin #pagina table td .miniature-photo,
+html body#teacherPortal #pagina table td .miniature-photo {
+    width: 8vw;
+  }
+  html body#admin #pagina #teacher-table,
+html body#teacherPortal #pagina #teacher-table {
+    overflow: auto;
+    width: 700px;
+  }
+  html body#admin #pagina #profileTeacherModal #main-accordion,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion {
+    background-color: white;
+    border-radius: 15px;
+  }
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar {
+    height: 55vh;
+  }
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul {
+    width: 350px;
+  }
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  html body#admin #pagina #profileTeacherModal #main-accordion .main-content,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion .main-content {
+    margin-top: 0px;
+  }
+  html body#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p,
+html body#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
+    font-size: 3vw;
+  }
+  html body#admin #pagina div.option-icon-group span,
+html body#teacherPortal #pagina div.option-icon-group span {
+    margin-top: 15px;
+  }
+  html body#admin #pagina .main-container,
+html body#teacherPortal #pagina .main-container {
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
   html body#admin #pagina .page-header h5,
 html body#teacherPortal #pagina .page-header h5 {
@@ -1819,6 +1854,25 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
   body #navbar-top .navbar-toggler {
     display: none;
   }
+  body #pagina form label {
+    font-size: 2vw;
+  }
+  body #pagina form input,
+body #pagina form select {
+    font-size: 1.5vw;
+  }
+  body #pagina form .btn {
+    font-size: 2vw;
+  }
+  body #pagina table th {
+    font-size: 2.5vw;
+  }
+  body #pagina table td {
+    font-size: 2vw;
+  }
+  body #pagina table td .miniature-photo {
+    width: 8vw;
+  }
   body #pagina .modal-profile .horizontal-control-list {
     display: flex;
   }
@@ -1837,6 +1891,15 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
   body #pagina .modal-profile .main-content [data-parent="#main-accordion-class"] {
     margin-top: -3vw;
   }
+  body #pagina .modal-profile .main-content h5 {
+    font-size: 2.5vw;
+  }
+  body #pagina .modal-profile .main-content form .input-group-text {
+    font-size: 2vw;
+  }
+  body #pagina .modal-profile .main-content form select, body #pagina .modal-profile .main-content form input {
+    font-size: 1.8vw;
+  }
   body #pagina .modal-profile .option-list {
     display: flex;
     justify-content: flex-end;
@@ -1846,9 +1909,6 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
 @media (max-width: 992px) {
   body .sidebar-primary .portal i.fas {
     display: none;
-  }
-  body #left-panel #sidebar {
-    z-index: 1200000000;
   }
   body #left-panel #sidebar .sidebar-header span {
     display: block;

@@ -32,11 +32,11 @@
 
             #left-panel {
                 #sidebar {
-                width: 30vw;
+                    width: 30vw;
 
                     .sidebar-lists {
 
-                        #minimize{
+                        #minimize {
                             display: block;
                         }
 
@@ -75,7 +75,38 @@
 
         #pagina {
 
+            form {
 
+                label {
+                    font-size: 2vw;
+                }
+
+                input,
+                select {
+                    font-size: 1.5vw;
+                }
+
+                .btn {
+                    font-size: 2vw;
+                }
+
+            }
+
+            table {
+
+                th {
+                    font-size: 2.5vw;
+                }
+
+                td {
+                    font-size: 2vw;
+
+                    .miniature-photo{
+                        width: 8vw;
+                    }
+                }
+                  
+            }
 
             .modal-profile {
 
@@ -99,8 +130,25 @@
                 }
 
                 .main-content {
+
                     [data-parent="#main-accordion-class"] {
                         margin-top: -3vw;
+                    }
+
+                    h5{
+                        font-size: 2.5vw;
+                    }
+
+                    form{
+
+                        .input-group-text{
+                            font-size: 2vw;
+                        }
+
+                        select,input{
+                            font-size: 1.8vw;
+                        }
+        
                     }
                 }
 

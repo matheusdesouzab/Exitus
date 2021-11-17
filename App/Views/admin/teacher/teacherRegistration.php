@@ -2,9 +2,9 @@
 
     <div class="row main-container">
 
-        <h5 class="col-11 mx-auto mb-4 mt-3">Cadastrar docente</h5>
+        <h5 class="col-11 mx-auto mb-4 mt-3 p-0">Cadastrar docente</h5>
 
-        <div class="card col-lg-10 col-11 mx-auto mb-4" id="teacher-record-accordion">
+        <div class="card col-lg-11 col-11 mx-auto mb-4" id="teacher-record-accordion">
 
             <div class="registration-in-stages mb-2 accordion">
 
@@ -42,10 +42,10 @@
 
                 </div>
 
-                <form class="mt-3" id="addTeacher" role="form" enctype="multipart/form-data" method="POST" action="/admin/professor/cadastro/inserir">
+                <form class="mt-3" id="addTeacher" role="form" enctype="multipart/form-data" method="POST">
 
                     <div class="row collapse show" id="teacher-registration-initial-data" data-parent="#teacher-record-accordion">
-                        <div class="col-lg-10 mx-auto">
+                        <div class="col-lg-11 mx-auto">
                             <div class="col-md-12">
                                 <div class="form-row mt-2">
 
@@ -81,7 +81,7 @@
 
                                     <div class="form-group col-md-4">
                                         <label for="birthDate">Data Nascimento:</label>
-                                        <input name="birthDate" id="birthDate" type="date" max="2006-01-31" min="1940-01-31" class="form-control" id="birthDate" placeholder="" required>
+                                        <input name="birthDate" id="birthDate" type="date" class="form-control"  placeholder="">
                                     </div>
 
                                     <div class="form-group col-md-4">
@@ -231,7 +231,7 @@
 
                             <div class="row">
 
-                                <h5 class="mt-2 col-lg-12 col-11 p-0">Finalizando o cadastro <span givenName></span></h5>
+                                <h5 class="mt-2 col-lg-12 col-11 mx-auto p-0">Finalizando o cadastro <span givenName></span></h5>
 
                                 <div class="col-lg-12 col-11 mx-auto">
 
@@ -264,7 +264,7 @@
 
                                 <input type="hidden" name="accessCode" id="accessCode" value="">
 
-                                <div class="col-lg-12 p-0">
+                                <div class="col-lg-12 col-11 mx-auto p-0">
 
                                     <div class="row d-flex justify-content-between">
 

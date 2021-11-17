@@ -34,12 +34,12 @@
                 <li><a href='/admin/professor/lista'>Buscar</a></li>
             </div>
 
-            <li><a href="/admin/gestao"><i class="fas fa-chart-pie"></i><span class="link-name">Análise de Dados</span></a></li>
+            <li><a href="/admin/gestao"><i class="fas fa-chart-pie"></i><span class="link-name">BI</span></a></li>
 
             <li><a href="/admin/gestao"><i class="fas fa-book"></i><span class="link-name">Biblioteca</span></a></li>
 
             <div class="footer-panel">
-                <li><a class="" href="#" id="settings"><i class="fas fa-cog"></i><span class="link-name">Configurações da conta</span></a></li>
+                <li><a class="" href="#" id="settings"><i class="fas fa-cog"></i><span class="link-name">Configurações</span></a></li>
             </div>
 
             

@@ -38,13 +38,8 @@
 
             #pagina {
 
-                div.option-icon-group span {
-                    margin-top: 15px;
-                }
-
-                .main-container {
-                    margin-top: 60px;
-                    margin-bottom: 60px;
+                p {
+                    font-size: 3.5vw;
                 }
 
                 form {
@@ -57,25 +52,86 @@
                     input,
                     select {
                         font-size: 3vw;
-                    }              
+                    }
 
                     .btn {
                         font-size: 3vw;
                     }
 
-                    span{
+                    span {
                         font-size: 3vw;
                     }
                 }
 
                 table {
+
                     th {
                         font-size: 3.5vw;
                     }
 
                     td {
                         font-size: 3vw;
+
+                        .miniature-photo{
+                            width: 8vw;
+                        }
                     }
+                      
+                }
+
+                #teacher-table{
+                    overflow: auto;
+                    width: 700px;
+                }
+
+                #profileTeacherModal {
+                    #main-accordion {
+                        background-color: white;
+                        border-radius: 15px;
+    
+                        .modal-sidebar {
+                            height: 55vh;
+    
+                            .container-list-group {
+    
+                                nav ul {
+                                    width: 350px;
+                                }
+    
+                            }
+    
+                            .main-sheet {
+                                margin-top: 10px;
+                                margin-bottom: 20px;
+                            }
+    
+    
+                        }
+    
+                        .main-content {
+                            margin-top: 0px;
+                        }
+                    }
+                }
+
+                .registration-in-stages {
+
+                    .registration-header-by-step .row {
+                        .container-option {
+                            p {
+                                font-size: 3.0vw;
+                            }
+                        }
+                    }
+                }
+
+                div.option-icon-group span {
+                    margin-top: 15px;
+                }
+
+                .main-container {
+                    margin-top: 60px;
+                    margin-bottom: 60px;
                 }
 
                 .page-header {
@@ -91,7 +147,7 @@
                         font-size: 3vw !important;
                     }
 
-                    .breadcrumb-item{
+                    .breadcrumb-item {
                         font-size: 3.5vw;
                     }
 
@@ -212,9 +268,6 @@
                             font-size: 2.5vw;
                         }
                     }
-
-
-                 
 
                     .modal-sidebar img {
                         width: 25vw;
@@ -400,6 +453,7 @@
                     }
                 }
 
+            
             }
         }
     }

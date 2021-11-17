@@ -4,7 +4,7 @@
 
         <div class="col-lg-11 mx-auto">
 
-            <h5 class="col-12 mb-4">Lista de professores(a)</h5>
+            <h5 class="col-12 mb-4 mt-3">Lista de professores(a)</h5>
 
             <div class="col-lg-12">
 
@@ -14,13 +14,13 @@
 
                         <div class="form-row">
 
-                            <div class="form-group col-12 col-lg-7">
+                            <div class="form-group col-12 col-sm-7">
                                 <label for="">Professor:</label>
                                 <input class="form-control" type="text" name="" placeholder="Nome do professor" id="">
                             </div>
 
 
-                            <div class="form-group col-12 col-lg-3">
+                            <div class="form-group col-10 col-sm-4">
                                 <label for="">Sexo:</label>
                                 <select class="form-control custom-select" name="sex">
                                     <option value="0">Todos</option>
@@ -31,7 +31,7 @@
                             </div>
 
 
-                            <div class="form-group col-2 col-lg-1">
+                            <div class="form-group col-2 col-sm-1">
                                 <label for="">&nbsp;</label><br>
                                 <div id="heading-busca-avancada">
                                     <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
@@ -42,7 +42,7 @@
 
                         <div id="activate-advanced-search-accordion" class="collapse" data-parent="#advanced-search-accordion">
 
-                            <div class="form-row mx-auto">
+                          <!--   <div class="form-row mx-auto">
 
                                 <div class="form-group col-6 col-lg-4">
                                     <label for="">PcD:</label>
@@ -52,16 +52,15 @@
                                     </select>
                                 </div>
 
-
-
-                            </div>
+                            </div> -->
                         </div>
 
                     </form>
 
-                    <hr class="col-lg-10 mx-auto">
+                    <hr class="">
 
                     <div class="table-responsive">
+
                         <table class="table table-hover mt-3 table-borderless col-lg-11 mx-auto" id="teacher-table">
 
                             <thead>
@@ -96,6 +95,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 

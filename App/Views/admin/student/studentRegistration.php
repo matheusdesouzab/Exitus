@@ -50,7 +50,7 @@
 
                 </div>
 
-                <form class="mt-3" id="addStudent" role="form" enctype="multipart/form-data" method="POST" action="/admin/aluno/cadastro/inserir">
+                <form class="mt-3" id="addStudent" role="form" enctype="multipart/form-data" method="POST">
 
                     <div class="row collapse show" id="student-registration-initial-data" data-parent="#student-record-accordion">
                         <div class="col-lg-10 col-11 mt-2 mx-auto">

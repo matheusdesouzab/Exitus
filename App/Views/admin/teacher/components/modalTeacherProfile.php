@@ -4,7 +4,7 @@
 
         <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
 
-        <div class="col-lg-3 col-11 mx-auto">
+        <div class="col-lg-3 col-12 col-sm-4">
 
             <div class="col-lg-12 modal-sidebar">
 
@@ -16,7 +16,7 @@
 
                             <img class="mx-auto" src='<?= $teacher->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $teacher->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"' data-toggle="modal" data-target="#profilePhotoModal">
 
-                            <div class="col-lg-10 main-sheet mx-auto">
+                            <div class="col-lg-10 col-11 main-sheet mx-auto">
                                 <div class="row p-3"><span class="col-lg-12"><?= $teacher->name ?> - <?= count($this->view->subjectsThatTeacherTeaches) ?> disciplinas ativas</span></div>
                             </div>
 
@@ -69,7 +69,7 @@
 
                                     </div>
 
-                                    <form id="formUpdateProfilePhoto" method="POST" enctype="multipart/form-data">
+                                    <form class="" id="formUpdateProfilePhoto" method="POST" enctype="multipart/form-data">
 
                                         <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" id="">
 
@@ -93,7 +93,7 @@
 
                                 <div class="modal-footer d-flex justify-content-start">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retornar</button>
-                                </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
 
         </div>
 
-        <div class="col-lg-9 col-11 mx-auto">
+        <div class="col-lg-9 col-sm-8 col-12 mx-auto">
 
             <div class="col-lg-12 card main-content">
 
@@ -127,9 +127,9 @@
 
                                         <div class="row d-flex align-items-center">
 
-                                            <h5 class="col-lg-8">Dados do docente</h5>
+                                            <h5 class="col-8">Dados do docente</h5>
 
-                                            <div class="col-lg-4 d-flex justify-content-end">
+                                            <div class="col-4 d-flex justify-content-end">
 
                                                 <span idElement="#teacherModal<?= $teacher->id ?>" formGroup="containerListTeacher" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 

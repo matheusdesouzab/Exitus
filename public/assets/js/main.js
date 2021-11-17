@@ -184,18 +184,20 @@ $(document).on("click", "#buttonAddRematrung", function (e) {
 })
 
 
-$("#buttonAddStudent").on("click", function (e) {
+
+$("#addTeacher").submit(function(e) {
+
+    application.addMultipleParts(this, "/admin/professor/cadastro/inserir")
+
+})
+
+
+$("#student-registration #addStudent").submit(function(e) {
 
     application.addMultipleParts(this, "/admin/aluno/cadastro/inserir")
 
 })
 
-
-$("#buttonAddTeacher").on("click", function (e) {
-
-    application.addMultipleParts(this, "/admin/professor/cadastro/inserir")
-
-})
 
 $("#buttonAddRematrug").on("click", function (e) {
 

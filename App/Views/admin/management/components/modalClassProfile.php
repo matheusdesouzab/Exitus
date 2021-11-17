@@ -93,7 +93,7 @@
 
     </div>
 
-    <div class="col-lg-9 col-sm-8 col-sm-7 mx-auto">
+    <div class="col-lg-9 col-sm-8 mx-auto">
 
         <div class="col-lg-12 card main-content">
 
@@ -101,7 +101,7 @@
 
                 <div class="col-lg-11 mx-auto collapse show" id="accordion-class-data" data-parent="#main-accordion-class">
 
-                    <div class="col-lg-12 mb-3  mx-auto">
+                    <div class="col-lg-12 mb-3 col-sm-11 mx-auto">
 
                         <div class="row d-flex align-items-center p-0">
 
