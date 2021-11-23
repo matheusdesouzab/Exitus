@@ -857,6 +857,24 @@ class Route extends Bootstrap
 				'action' => 'adminUpdate'
 			); 
 
+			$routes['adminRegistration'] = array(
+				'route' => '/admin/administrador/cadastro',
+				'controller' => 'Admin\\AdminController',
+				'action' => 'adminRegistration'
+			); 
+
+			$routes['adminInsert'] = array(
+				'route' => '/admin/administrador/cadastro/inserir',
+				'controller' => 'Admin\\AdminController',
+				'action' => 'adminInsert'
+			); 
+
+			$routes['adminList'] = array(
+				'route' => '/admin/administrador/lista',
+				'controller' => 'Admin\\AdminController',
+				'action' => 'adminList'
+			); 
+
 			
 		$this->setRoutes($routes);
 	}

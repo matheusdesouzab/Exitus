@@ -93,7 +93,7 @@
 
                                 <div class="modal-footer d-flex justify-content-start">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Retornar</button>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div>

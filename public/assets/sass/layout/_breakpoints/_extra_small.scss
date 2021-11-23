@@ -29,6 +29,19 @@
 
                         }
 
+                        .sidebar-lists{
+                            padding: 5px;
+
+                            a{
+                                font-size: 2.3vw;
+                            }
+
+                            p{
+                                font-size: 2.5vw;
+                            }
+
+                        }
+
 
                     }
                 }
@@ -84,7 +97,7 @@
                     width: 700px;
                 }
 
-                #profileTeacherModal {
+                #profileTeacherModal, #profileStudentModal {
                     #main-accordion {
                         background-color: white;
                         border-radius: 15px;
@@ -105,7 +118,6 @@
                                 margin-bottom: 20px;
                             }
     
-    
                         }
     
                         .main-content {
@@ -113,6 +125,27 @@
                         }
                     }
                 }
+
+
+                #profileStudentModal{
+                   .main-sheet{
+                       margin-top: 10px !important;
+                   }
+                   .modal-sidebar {
+                    height: 45vh;
+
+                    .container-list-group nav{
+                        border-bottom: 1px solid #e5e5e5;
+                    }
+                   }
+
+                   .main-content{
+                       height: 55vh;
+                   }
+
+                }
+
+               
 
                 .registration-in-stages {
 
@@ -287,7 +320,7 @@
 
                         span {
                             font-size: 2.5vw;
-                            color: $color-dark-gray;
+                            color: $color-dark-gray;                         
                         }
                     }
 
@@ -337,11 +370,9 @@
                     .collapse-options-container {
                         margin-top: 20px;
                         font-size: 10px;
-                        border: 2px solid red;
 
                         span {
                             font-size: 3vw;
-
                         }
                     }
 
@@ -359,6 +390,12 @@
                         table {
                             .miniature-photo {
                                 width: 8vw;
+                            }
+                        }
+
+                        span{
+                            i.fas{
+                                font-size: 3vw;
                             }
                         }
 

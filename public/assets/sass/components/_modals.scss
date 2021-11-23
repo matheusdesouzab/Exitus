@@ -3,9 +3,11 @@
     #profileStudentModal {
 
         .container-list-group {
-            height: 45vh;
+            height: 48vh;
             overflow: auto;
         }
+
+
     }
 
     .modal-full {
@@ -47,7 +49,7 @@
         }
 
         .main-sheet {          
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5 !important;
 
             span {
                 text-align: center;
@@ -275,7 +277,6 @@
         }
 
     }
-
 
 
 }

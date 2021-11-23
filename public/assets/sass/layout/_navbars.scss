@@ -1,3 +1,5 @@
+html body{
+
 #navbar-top {
 
     background-color: $color-white;
@@ -10,11 +12,11 @@
         font-weight: bold;
     }
 
-    ul{
+    ul {
         margin-right: 20px;
     }
 
-    .fa-cog{
+    .fa-cog {
         font-size: 20px;
         color: $color-dark-gray;
     }
@@ -44,35 +46,47 @@
 
 }
 
-#navbarBottom{
-    border-radius: 0px !important;
+nav#navbarBottom {
+    border-radius: 0px;
+    border: none;
 
-    .card a{
-        color: $color-dark-gray;
+    a{
+        font-size: 12px;
+        font-family: Bold;
+        display: flex;
+        align-items: center;
+        padding-top: 10px;
     }
 
-    .card{
-        border-radius: 5px;
+    i.fas{
+        font-size: 10px;
     }
 
-    .link-active{
-        background-color: $color-blue;
-        a{
-            color: white;
+    a:hover{
+        span{
+            display: inline;
+            color: $color-dark-blue;
         }
     }
 
-    img {
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        object-position: top;
-        object-fit: cover;
-        cursor: pointer;
+    span {
+        display: none;
+        margin-left: 10px;
+        transition: 1s ease-in-out infinite alternate-reverse both;
     }
 
-    .card{
-        border: 0;
-        box-shadow: none;
+    .navbar-collapse {
+        margin-top: -18px;
     }
+
+    .link-active {
+        border-top: 3px solid #4285F4;
+        
+        i.fas{
+            color: $color-dark-blue;
+        }
+    }
+
+}
+
 }

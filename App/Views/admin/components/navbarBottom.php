@@ -1,35 +1,27 @@
-<nav class="navbar fixed-bottom" id="navbarBottom">
+<nav class="navbar fixed-bottom navbar-expand p-2 rounded-0" id="navbarBottom" style="border-radius: 0px">
 
-    <div class="col-12">
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <div class="row p-2 d-flex align-items-center">
+    <ul class="navbar-nav">
 
-            <div class="col-3">
+        <li class="nav-item active">
+            <a name="home" class="nav-link" href="/admin/home"><i class="fas fa-home"></i> <span>Home</span></a>
+        </li>
 
-                <div name="home" class="col-lg-12 card p-1 text-center"><a href="/admin/home"><i class="fas fa-home"></i></a></div>
+        <li class="nav-item">
+            <a name="gestao" class="nav-link" href="/admin/gestao"><i class="fas fa-sliders-h"></i> <span>Gestão</span></a>
+        </li>
 
-            </div>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>BI</span></a>
+        </li>
 
-            <div class="col-3">
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-cog"></i> <span>Configurações</span></a>
+        </li>
 
-                <div name="gestao" class="col-lg-12 card p-1 text-center"><a href="/admin/gestao"><i class="fas fa-sliders-h"></i></a></div>
+    </ul>
 
-            </div>
-
-            <div class="col-3">
-
-                <div class="col-lg-12 card p-1 text-center"><a href="/admin/gestao"><i class="fas fa-chart-pie"></i></a></div>
-
-            </div>
-
-            <div class="col-3">
-
-                <div class="col-lg-12 card p-1 text-center"><a name="configuracao" class="" href="#" id="settings"><i class="fas fa-cog"></i></a></div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </nav>

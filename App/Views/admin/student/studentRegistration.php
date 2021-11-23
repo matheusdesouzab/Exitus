@@ -298,9 +298,13 @@
 
                             <div class="row">
 
-                                <h5 class="mt-2 col-lg-12 p-0">Finalizando a matricula <span givenName></span></h5>
+                                <h5 class="mt-2 col-lg-12 col-11 mx-auto p-0">Finalizando a matricula <span givenName></span></h5>
 
-                                <div containerRegistrationSuccess class="col-lg-12">
+                                <div class="col-lg-12 col-11 mx-auto">
+
+                                    <div class="row">
+
+                                    <div containerRegistrationSuccess class="col-lg-12">
 
                                     <div class="row">
 
@@ -324,9 +328,11 @@
 
                                 </div>
 
+                                    </div>
+
                                 <input type="hidden" name="accessCode" id="accessCode" value="">
 
-                                <div class="col-lg-12 p-0">
+                                <div class="col-lg-12 col-11 mx-auto p-0">
 
                                     <div class="row d-flex justify-content-between">
 
@@ -344,6 +350,10 @@
                             </div>
                         </div>
                     </div>
+
+                    </div>
+
+                    
 
                     <div class="modal fade" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
                         <div class="modal-dialog">

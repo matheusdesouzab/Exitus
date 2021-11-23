@@ -26,7 +26,7 @@
 
                 <td><?= $student->acronym_series . ' ' . $student->ballot  . ' - ' . $student->course . ' - ' . $student->shift ?></td>
 
-                <td><?= $student->student_situation ?></td>
+                <td><?= $student->situation ?></td>
 
             <?php } else { ?>
 

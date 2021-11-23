@@ -108,6 +108,14 @@
                   
             }
 
+            #profileClassModal{
+
+                .main-sheet{
+                    margin-top: -3.5vw;
+                }
+                    
+            }
+
             .modal-profile {
 
                 .horizontal-control-list {
@@ -122,6 +130,14 @@
                     display: none;
                 }
 
+                .modal-sidebar{
+                    .container-list-group {
+                        nav a{
+                            font-size: 1.2vw;
+                        }
+                    }
+                }
+
                 .accordion-container {
                     overflow: auto;
                     height: 520px;
@@ -133,6 +149,11 @@
 
                     [data-parent="#main-accordion-class"] {
                         margin-top: -3vw;
+                    }
+
+                    [data-parent="#main-accordion-student"] {
+                        margin-top: -3vw;
+                        border: 2px solid red;
                     }
 
                     h5{

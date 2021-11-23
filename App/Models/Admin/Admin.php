@@ -7,6 +7,8 @@ use App\Models\People\People;
 class Admin extends People
 {
 
+    public $fk_id_account_status;
+
     public function __get($att)
     {
         return $this->$att;
@@ -16,6 +18,43 @@ class Admin extends People
     public function __set($att, $newValue)
     {
         return $this->$att = $newValue;
+    }
+
+
+    public function insert()
+    {
+
+        $query =
+
+            "INSERT INTO administrador 
+        
+            (nome_administrador, cpf_administrador, data_nascimento_administrador, naturalidade_administrador, foto_perfil_administrador,nacionalidade_administrador, fk_id_sexo_administrador, fk_id_tipo_sanguineo_administrador, fk_id_pcd_administrador, fk_id_endereco_administrador, fk_id_telefone_administrador , codigo_acesso , fk_id_administrador_hierarquia_funcao , email_administrador, fk_id_situacao_conta_administrador) 
+
+        VALUES 
+        
+            (:adminName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, :fk_id_account_status)
+            
+    ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':adminName', $this->__get('name'));
+        $stmt->bindValue(':cpf', $this->__get('cpf'));
+        $stmt->bindValue(':birthDate', $this->__get('birthDate'));
+        $stmt->bindValue(':naturalness', $this->__get('naturalness'));
+        $stmt->bindValue(':profilePhoto', $this->__get('profilePhoto'));
+        $stmt->bindValue(':nationality', $this->__get('nationality'));
+        $stmt->bindValue(':email', $this->__get('email'));
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
+        $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
+        $stmt->bindValue(':fk_id_blood_type', $this->__get('fk_id_blood_type'));
+        $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
+        $stmt->bindValue(':fk_id_address', $this->__get('fk_id_address'));
+        $stmt->bindValue(':fk_id_telephone', $this->__get('fk_id_telephone'));
+        $stmt->bindValue(':fk_id_account_status', $this->__get('fk_id_account_status'));
+        $stmt->bindValue(':fk_id_hierarchy_function', $this->__get('fk_id_hierarchy_function'));
+
+        $stmt->execute();
     }
 
 
@@ -173,6 +212,29 @@ class Admin extends People
         $stmt->bindValue(':fk_id_hierarchy_function', $this->__get('fk_id_hierarchy_function'));
 
         $stmt->execute();
+    }
+
+
+    public function list()
+    {
+
+        return $this->speedingUp(
+            
+            "SELECT 
+            
+            administrador.id_administrador AS id , 
+            administrador.nome_administrador AS name , 
+            hierarquia_funcao.hierarquia_funcao AS hierarchy_function , 
+            administrador.foto_perfil_administrador AS profile_photo , 
+            administrador.email_administrador AS email , 
+            situacao_conta.situacao_conta AS account_status 
+            
+            FROM administrador 
+            
+            LEFT JOIN hierarquia_funcao ON(administrador.fk_id_administrador_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao) 
+            LEFT JOIN situacao_conta ON(administrador.fk_id_situacao_conta_administrador = situacao_conta.id_situacao_conta)
+
+        ");
     }
 
 

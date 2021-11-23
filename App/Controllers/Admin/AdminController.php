@@ -15,6 +15,19 @@ class AdminController extends Action
     }
 
 
+    public function adminRegistration()
+    {
+        $Admin = Container::getModel('Admin\\Admin');
+
+        $this->view->availableSex = $Admin->availableSex();
+        $this->view->pcd = $Admin->pcd();
+        $this->view->bloodType = $Admin->availablebloodType();
+
+        $this->listHierarchyFunction = $Admin->listHierarchyFunction();
+        $this->render('admin/adminRegistration', 'AdminLayout');
+    }
+
+
     public function home()
     {
 
@@ -168,6 +181,56 @@ class AdminController extends Action
         $Admin->updateProfilePicture();
         $profilePhoto = $Admin->dataGeneral();
         $_SESSION['Admin']['profilePhoto'] = $profilePhoto[0]->profile_photo;
+    }
+
+
+    public function adminInsert()
+    {
+
+        $Tool = new Tools();
+
+        $Address =  Container::getModel('People\\Address');
+        $Telephone = Container::getModel('People\Telephone');
+        $Admin = Container::getModel('Admin\\Admin');
+
+        $Address->__set('district', $_POST['district']);
+        $Address->__set('address', $_POST['address']);
+        $Address->__set('uf', $_POST['uf']);
+        $Address->__set('county', $_POST['county']);
+        $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
+
+        $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
+        $Admin->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
+
+        $Admin->__set('name', $_POST['name']);
+        $Admin->__set('birthDate', $_POST['birthDate']);
+        $Admin->__set('cpf', $Tool->formatElement($_POST['cpf']));
+        $Tool->image($Admin, '../public/assets/img/adminProfilePhotos/');
+        $Admin->__set('naturalness', $_POST['naturalness']);
+        $Admin->__set('nationality', $_POST['nationality']);
+        $Admin->__set('email', $_POST['email']);
+        $Admin->__set('fk_id_account_status', 1);
+        $Admin->__set('fk_id_hierarchy_function', $_POST['hierarchyFunction']);
+        $Admin->__set('fk_id_sex', $_POST['sex']);
+        $Admin->__set('fk_id_blood_type', $_POST['bloodType']);
+        $Admin->__set('fk_id_pcd', $_POST['pcd']);
+        $Admin->__set('fk_id_telephone', $Telephone->insert());
+        $Admin->__set('fk_id_address', $Address->insert());
+
+        $Admin->insert();
+
+        header('Location: /admin/aluno/cadastro');
+    }
+
+
+    public function adminList()
+    {
+
+        $Admin = Container::getModel('Admin\\Admin');
+
+        $this->view->listAdmin = $Admin->list();
+
+        $this->render('admin/adminList', 'AdminLayout');
     }
 
 

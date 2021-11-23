@@ -39,7 +39,7 @@
                                 ?>
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-discipline-accordion">
-                                        <span class="box-icon"><i class="fas fa-boxes"></i></span> Disciplinas vinculadas
+                                        <span class="box-icon"><i class="fas fa-boxes"></i></span> Disciplinas
                                     </a>
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">
