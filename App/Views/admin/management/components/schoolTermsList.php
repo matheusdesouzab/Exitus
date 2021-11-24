@@ -25,6 +25,8 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                 <div class="col-sm-8 font-weight-bold">Período letivo do ano de <?= $schoolTerm->school_year ?></div>
 
+                <?php if($_SESSION['Admin']['hierarchyFunction'] == 1){ ?>
+
                 <div class="col-sm-4 d-flex justify-content-end mt-2">
 
                     <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" formGroup="containerListSchoolTerm" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
@@ -39,13 +41,15 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                     </span>
 
-                    <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" routeDelete="/admin/gestao/periodo-letivo/deletar" toastData="Periodo Letivo Deletado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
+                    <!-- <span idElement="#formSchoolTerm<?= $schoolTerm->school_term_id ?>" routeDelete="/admin/gestao/periodo-letivo/deletar" toastData="Periodo Letivo Deletado" container="containerListSchoolTerm" routeList="/admin/gestao/periodo-letivo/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
 
                         <i class="fas fa-trash-alt"></i>
 
-                    </span>
+                    </span> -->
 
                 </div>
+
+                <?php } ?>
 
             </div>
 

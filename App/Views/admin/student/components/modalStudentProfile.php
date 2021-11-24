@@ -16,11 +16,11 @@
 
                             <img class="mx-auto" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
 
-                            <!-- <div class="col-lg-2 d-flex align-items-center position-absolute" style="bottom: 20px; right: 100px">
+                            <div class="col-lg-2 d-flex align-items-center position-absolute" style="bottom: 59vh; right: 100px">
 
                                 <span class="bg-primary p-2 edit-image-button" data-toggle="modal" data-target="#profilePhotoModal"><i class="fas fa-pen text-white"></i></span>
 
-                            </div> -->
+                            </div> 
 
                             <div class="col-lg-10 col-11  main-sheet mx-auto d-block d-sm-none">
                                 <div class="row p-3"><span class="col-lg-12"><?= $student->name ?> - <?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span></div>
@@ -110,7 +110,7 @@
 
                 </div>
 
-                <div class="modal fade simple-modal" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
+                <div class="modal fade simple-modal" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true" style="height: 400px !important; border: 2px solid red">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">

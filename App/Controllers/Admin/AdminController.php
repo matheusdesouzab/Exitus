@@ -104,11 +104,12 @@ class AdminController extends Action
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
         $this->view->registrationControlOptions = $Settings->registrationControlOptions();
-        $this->view->Data = $Admin->dataGeneral();
+        $this->view->data = $Admin->dataGeneral();
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->availablebloodType();
         $this->listHierarchyFunction = $Admin->listHierarchyFunction();
+        $this->view->modalType = 'data-and-config';
 
         $this->render('settings', 'SimpleLayout');
     }
@@ -145,7 +146,7 @@ class AdminController extends Action
         $Admin->__set('fk_id_blood_type', $_POST['bloodType']);
         $Admin->__set('fk_id_pcd', $_POST['pcd']);
         $Admin->__set('fk_id_hierarchy_function', $_POST['hierarchyFunction']);
-        $Admin->__set('id', $_SESSION['Admin']['id']);
+        $Admin->__set('id', $_POST['adminId']);
 
         $Telephone->update();
         $Address->update();
@@ -181,6 +182,25 @@ class AdminController extends Action
         $Admin->updateProfilePicture();
         $profilePhoto = $Admin->dataGeneral();
         $_SESSION['Admin']['profilePhoto'] = $profilePhoto[0]->profile_photo;
+    }
+
+
+    public function profile()
+    {
+
+        $Admin = Container::getModel('Admin\\Admin');
+
+        $Admin->__set('id', $_GET['id']);
+
+        $this->view->data = $Admin->dataGeneral();
+        $this->view->modalType = 'data';
+        $this->view->availableSex = $Admin->availableSex();
+        $this->view->pcd = $Admin->pcd();
+        $this->view->bloodType = $Admin->availablebloodType();
+        $this->listHierarchyFunction = $Admin->listHierarchyFunction();
+
+        $this->render('settings', 'SimpleLayout');
+
     }
 
 

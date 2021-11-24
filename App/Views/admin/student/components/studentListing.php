@@ -14,15 +14,7 @@
 
             <?php if ($this->view->typeStudentList != 'class' && isset($this->view->typeStudentList)) { ?>
 
-                <?php
-
-                $cpf = $student->cpf;
-
-                $formattedCpf = substr($cpf, 0, 3) . "." . substr($cpf, 3, 3) . "." . substr($cpf, 6, 3) . "-" . substr($cpf, -2);
-
-                ?>
-
-                <td><?= $formattedCpf ?></td>
+                <td><?= $student->email ?></td>
 
                 <td><?= $student->acronym_series . ' ' . $student->ballot  . ' - ' . $student->course . ' - ' . $student->shift ?></td>
 

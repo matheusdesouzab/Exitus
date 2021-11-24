@@ -14,20 +14,12 @@
 
             <?php if ($this->view->typeTeacherList != 'class' && isset($this->view->typeTeacherList)) { ?>
 
-            <?php
-
-            $cpf = $teacher->cpf;
-
-            $formattedCpf = substr($cpf, 0, 3) . "." . substr($cpf, 3, 3) . "." . substr($cpf, 6, 3) . "-" . substr($cpf, -2);
-
-            ?>
-
-            <td><?= $formattedCpf ?></td>
-
-                <td><?= $teacher->sex ?></td>
+                <td><?= $teacher->account_status ?></td>
                 <td><?= $teacher->total_discipline ?></td>
 
             <?php } else { ?>
+
+                <td><?= $teacher->email ?></td>
 
                 <td class=""><?= $teacher->discipline_name ?></td>
 

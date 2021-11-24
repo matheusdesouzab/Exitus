@@ -42,10 +42,10 @@ if (count($this->view->listTeacher) >= 1) {
                     <label for="">Professor:</label>
                     <select id="teacher" disabled name="teacher" class="form-control custom-select" required>
 
-                        <option value="<?= $discipline->teacher_id ?>"><?= $discipline->name ?></option>
+                        <option value="<?= $discipline->id ?>"><?= $discipline->name ?></option>
 
                         <?php foreach ($this->view->teacherAvailable as $key => $teacher) {
-                            if ($discipline->teacher_id != $teacher->option_value) { ?>
+                            if ($discipline->id != $teacher->option_value) { ?>
                                 <option value="<?= $teacher->option_value ?>"><?= $teacher->option_text ?></option>
                         <?php }
                         } ?>

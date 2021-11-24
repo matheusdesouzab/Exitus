@@ -67,13 +67,14 @@ class ClassDiscipline extends Model
 
             "SELECT 
 
-            professor.id_professor AS teacher_id , 
+            professor.id_professor AS id , 
             professor.nome_professor AS name , 
             professor.foto_perfil_professor AS profile_photo , 
             disciplina.nome_disciplina AS discipline_name , 
             disciplina.id_disciplina AS discipline_id , 
             turma_disciplina.fk_id_turma as class_id , 
-            turma_disciplina.id_turma_disciplina AS discipline_class_id
+            turma_disciplina.id_turma_disciplina AS discipline_class_id ,
+            email_professor AS email 
 
             FROM professor 
 

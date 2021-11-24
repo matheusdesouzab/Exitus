@@ -875,6 +875,12 @@ class Route extends Bootstrap
 				'action' => 'adminList'
 			); 
 
+			$routes['adminProfile'] = array(
+				'route' => '/admin/administrador/lista/perfil',
+				'controller' => 'Admin\\AdminController',
+				'action' => 'profile'
+			); 
+
 			
 		$this->setRoutes($routes);
 	}

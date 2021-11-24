@@ -274,10 +274,10 @@ button {
   border: 1px solid #e5e5e5;
 }
 #pagina .modal-profile .main-content td {
-  font-size: 0.9vw;
+  font-size: 1vw;
 }
 #pagina .modal-profile .main-content th {
-  font-size: 1vw;
+  font-size: 1.1vw;
   font-weight: bold;
 }
 #pagina .modal-profile .main-content .row:nth-child(1) {
@@ -568,7 +568,7 @@ button {
 }
 #left-panel #sidebar .sidebar-lists .fa-angle-right, #left-panel #sidebar .sidebar-lists .fa-angle-down {
   position: absolute;
-  right: 0;
+  right: 10;
   margin-top: 0.5vh;
 }
 #left-panel #sidebar .sidebar-lists a {

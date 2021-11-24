@@ -22,9 +22,13 @@
                         <i class="fas fa-check"></i>
                     </span>
 
+                    <?php if($_SESSION['Admin']['hierarchyFunction'] == 1){ ?>
+
                     <span idElement="#formClassRoom<?= $classRoom->classroom_id ?>" routeDelete="/admin/gestao/sala/deletar" toastData="Periodo Letivo Atualizado" container="containerListClassRoom" routeList="/admin/gestao/sala/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
                         <i class="fas fa-trash-alt"></i>
                     </span>
+
+                    <?php } ?>
 
                 </div>
 

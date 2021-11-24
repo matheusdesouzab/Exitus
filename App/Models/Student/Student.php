@@ -137,6 +137,7 @@ class Student extends People
             aluno.nome_aluno AS name , 
             aluno.cpf_aluno AS cpf , 
             aluno.foto_perfil_aluno AS profile_photo , 
+            aluno.email_aluno AS email,
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 

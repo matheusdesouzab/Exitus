@@ -525,6 +525,11 @@ $(document).on("click", "#lack-table tr", function() {
 })
 
 
+$(document).on("click", "#admin-table tr", function() {
+    application.showModal(this.id, "/admin/administrador/lista/perfil", "containerAdminProfileModal ", "#profileAdminModal")
+})
+
+
 $(document).on("click", "#student-table tbody tr", function() {
     application.showModal(this.id, "/admin/aluno/lista/perfil-aluno", "containerStudentProfileModal", "#profileStudentModal", "profile")
 })
@@ -541,27 +546,20 @@ $(document).on("click", "#classe-table tbody tr", function() {
 
 
 $(document).on("click", "#note-table tbody tr", function() {
-
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/dados", "containerModalNote", "#modalNote")
 })
 
 
 $(document).on("click", "#profileClassModal #list-exam tbody tr", function() {
-
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma/avaliacoes/dados", "containerModalExam", "#modalExam")
-
 })
 
 $(document).on("click", "#sidebar #settings", function() {
-
     application.showModal(0, "/admin/configuracoes", "containerSettingsModal", "#settingsModal")
-
 })
 
 $(document).on("click", "#settingsTeacherPortal", function() {
-
     application.showModal(0, "/portal-docente/configuracoes", "containerSettingsModal", "#settingsModal")
-
 })
 
 

@@ -92,7 +92,7 @@
                             <thead>
                                 <tr>
                                     <th colspan="2" scope="col">Nome do aluno</th>
-                                    <th scope="col">CPF</th>
+                                    <th scope="col">Email</th>
                                     <th scope="col">Turma</th>
                                     <th scope="col">Situação Atual</th>
                                 </tr>

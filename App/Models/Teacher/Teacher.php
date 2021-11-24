@@ -167,12 +167,15 @@ class Teacher extends People
             professor.nome_professor AS name , 
             professor.cpf_professor AS cpf , 
             sexo.id_sexo AS sex_id , 
+            email_professor AS email ,
             sexo.sexo AS sex ,  
-            professor.foto_perfil_professor AS profile_photo 
+            professor.foto_perfil_professor AS profile_photo ,
+            situacao_conta.situacao_conta AS account_status
         
             FROM professor 
             
             LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)
+            LEFT JOIN situacao_conta ON(professor.fk_id_situacao_conta_professor = situacao_conta.id_situacao_conta)
             LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)"
 
         );

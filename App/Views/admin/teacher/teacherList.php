@@ -66,8 +66,8 @@
                             <thead>
                                 <tr>
                                     <th class="" colspan="2" scope="col">Nome do professor(a)</th>
-                                    <th scope="col">CPF</th>
-                                    <th scope="col">Sexo</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Status da conta</th>
                                     <th scope="col">Total de turmas</th>
                                 </tr>
                             </thead>

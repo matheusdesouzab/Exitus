@@ -163,6 +163,7 @@
                                             <thead>
                                                 <tr>
                                                     <th colspan="2">Nome do docente</th>
+                                                    <th>Email</th>
                                                     <th>Disciplina ministrada</th>
                                                 </tr>
                                             </thead>

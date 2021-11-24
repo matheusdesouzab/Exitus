@@ -16,9 +16,17 @@
                         <i class="fas fa-check"></i>
                     </span>
 
+                    <?php 
+
+                    session_start();
+                    
+                    if($_SESSION['Admin']['hierarchyFunction'] == 1){ ?>
+
                     <span idElement="#formDiscipline<?= $this->view->discipline[0]->discipline_id ?>" routeDelete="/admin/gestao/disciplina/deletar" toastData="Disciplina Deletada" container="containerListDiscipline" routeList="/admin/gestao/disciplina/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
                         <i class="fas fa-trash-alt"></i>
                     </span>
+
+                    <?php } ?>
 
                     </div>
                 </div>              
