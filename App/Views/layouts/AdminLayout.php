@@ -92,9 +92,11 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
 <script src="/assets/js/utilities/style.js"></script>
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script src="/assets/js/utilities/chart.js"></script> -->
+<script src="/assets/js/utilities/chartJs/config.js"></script> 
+
+<script src="/assets/js/utilities/chartJs/admin.js"></script> 
 
 <script src="/assets/js/main.js"></script>
 

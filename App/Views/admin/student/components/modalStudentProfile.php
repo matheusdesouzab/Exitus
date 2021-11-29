@@ -110,7 +110,7 @@
 
                 </div>
 
-                <div class="modal fade simple-modal" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true" style="height: 400px !important; border: 2px solid red">
+                <div class="modal fade simple-modal" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">

@@ -1,4 +1,3 @@
-
 <?php
 
 if (!isset($_SESSION)) session_start();
@@ -47,7 +46,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                             <div class="row d-flex justify-content-center">
 
-                                <img class="down-and-up" src="/assets/img/undraw_welcome_re_h3d9.svg" alt="">
+                                <img class="down-and-up" style="width: 37vw" src="/assets/img/undraw_pair_programming_re_or4x.svg" alt="">
 
                                 <div class="col-lg-12 mt-5">
 
@@ -96,20 +95,31 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                     <div class="col-md-6 sidebar-secondary d-flex align-items-center">
 
+                    
+
                         <div class="row">
 
                             <form id="adminLogin" class="col-md-9 mx-auto" action="/portal-docente/login" method="POST">
-
                                 <div class="form-row mt-2 form-body">
 
                                     <div class="form-group col-md-10 mx-auto mt-3">
-                                        <label for="name">Usuário:</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                        <label for="name">Nome do usuário:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-white">
+                                                <div class="input-group-text bg-white"><i class='fas fa-user'></i></div>
+                                            </div>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-10 mx-auto mt-4">
                                         <label for="accessCode">Código de acesso:</label>
-                                        <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="000.000">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-white">
+                                                <div class="input-group-text bg-white"><i class="fas fa-key"></i></div>
+                                            </div>
+                                            <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="">
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-10 mx-auto">
@@ -118,16 +128,16 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
                                         <small class="text-center text-secondary d-block mt-3">Esqueceu sua senha?</small>
                                     </div>
 
+
                                     <div class="form-group col-md-10 mx-auto">
                                         <?php if (isset($_GET['error'])) { ?>
                                             <div class="alert alert-danger text-center" role="alert">
-                                                <i class="fas fa-exclamation-circle mr-3"></i> Dados incorretos
+                                                <i class="fas fa-exclamation-circle mr-3"></i> <?= ucfirst(str_replace('-', ' ', $_GET['error'])) ?>
                                             </div>
                                         <?php } ?>
                                     </div>
 
                                 </div>
-
                             </form>
 
                         </div>

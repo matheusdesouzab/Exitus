@@ -9,13 +9,13 @@
         height: 86.4vh;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
-        .down-and-up{
+        /* .down-and-up{
             animation: up-down 4s ease-in-out infinite alternate-reverse both;
         }
 
         .from-side-to-side{
             animation: from-side-to-side 3s ease-in-out infinite alternate-reverse both;
-        }
+        } */
 
         @keyframes up-down {
             0% {
@@ -68,7 +68,6 @@
             .portal-active {
                 background-color: #2ECC71;
                 color: white;
-                border: 1px solid #CCC9DD;
             }
 
             .portal a {

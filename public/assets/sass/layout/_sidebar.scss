@@ -69,7 +69,7 @@
 
             i.fas , i.bi {
                 color: #C4C4C4;  
-                width: 30px;             
+                width: 30px;            
             }
 
             .fa-angle-right, .fa-angle-down {
@@ -161,7 +161,13 @@
 
             .sidebar-lists {
 
+                i.fas , i.bi {
+                    color: #C4C4C4;
+                    margin-left: 15px;            
+                }
+
                 a {
+                    text-align: center;                   
 
                     span.link-name,
                     i.fa-angle-right,i.fa-angle-down {
@@ -173,8 +179,7 @@
                         margin-right: 0px;
                         color: $color-white;
                         padding: 10px 5px;
-                        text-align: center;
-                        display: block;
+                        display: block;                     
                     }
 
                 }

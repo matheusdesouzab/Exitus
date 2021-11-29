@@ -629,6 +629,13 @@ button {
 .sidebar-responsive #left-panel #sidebar .sidebar-header {
   display: none;
 }
+.sidebar-responsive #left-panel #sidebar .sidebar-lists i.fas, .sidebar-responsive #left-panel #sidebar .sidebar-lists i.bi {
+  color: #C4C4C4;
+  margin-left: 15px;
+}
+.sidebar-responsive #left-panel #sidebar .sidebar-lists a {
+  text-align: center;
+}
 .sidebar-responsive #left-panel #sidebar .sidebar-lists a span.link-name,
 .sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fa-angle-right, .sidebar-responsive #left-panel #sidebar .sidebar-lists a i.fa-angle-down {
   display: none !important;
@@ -638,7 +645,6 @@ button {
   margin-right: 0px;
   color: #ffffff;
   padding: 10px 5px;
-  text-align: center;
   display: block;
 }
 .sidebar-responsive #left-panel #sidebar p {
@@ -743,7 +749,7 @@ button {
 #admin #pagina section#home .recently-enrolled,
 #teacherPortal #pagina section#home .recently-enrolled,
 #studentPortal #pagina section#home .recently-enrolled {
-  height: 65.4vh;
+  height: 60vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -1323,12 +1329,13 @@ button {
   background-image: linear-gradient(to bottom, #536DFE 0, #536DFE 50%, #EAEDED 50%);
   height: 86.4vh;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-#login .container-login .down-and-up {
-  animation: up-down 4s ease-in-out infinite alternate-reverse both;
-}
-#login .container-login .from-side-to-side {
-  animation: from-side-to-side 3s ease-in-out infinite alternate-reverse both;
+  /* .down-and-up{
+      animation: up-down 4s ease-in-out infinite alternate-reverse both;
+  }
+
+  .from-side-to-side{
+      animation: from-side-to-side 3s ease-in-out infinite alternate-reverse both;
+  } */
 }
 @keyframes up-down {
   0% {
@@ -1374,7 +1381,6 @@ button {
 #login .container-login .sidebar-primary .portal-active {
   background-color: #2ECC71;
   color: white;
-  border: 1px solid #CCC9DD;
 }
 #login .container-login .sidebar-primary .portal a {
   font-size: 9px;

@@ -14,6 +14,7 @@
 
             <?php if ($this->view->typeTeacherList != 'class' && isset($this->view->typeTeacherList)) { ?>
 
+                <td><?= $teacher->email ?></td>
                 <td><?= $teacher->account_status ?></td>
                 <td><?= $teacher->total_discipline ?></td>
 

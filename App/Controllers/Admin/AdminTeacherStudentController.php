@@ -607,7 +607,7 @@ class AdminTeacherStudentController extends Action
 
         $this->view->listStudent = $StudentEnrollment->dataGeneral();
         $this->view->listNote = $Note->seek($Classe, $Teacher);
-        $this->view->linkedDisciplines = $this->view->linkedDisciplines = $ClassDiscipline->searchClassSubjects();
+        $this->view->linkedDisciplines = $ClassDiscipline->searchClassSubjects();
         $this->view->unity = $Unity->searchSpecificUniy();
         $this->view->listExam = $Exam->seek($Classe, $Teacher);
         $this->view->orderBy = $_GET['orderBy'];

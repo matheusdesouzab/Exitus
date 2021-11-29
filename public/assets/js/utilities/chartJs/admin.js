@@ -1,5 +1,4 @@
 
-
 $.ajax({
   type: "GET",
   url: "/admin/gestao/curso/total-alunos-curso",
@@ -126,7 +125,7 @@ $.ajax({
     let datas = []
 
     $.each(data, i => {
-        labels.push(data[i].studentStatus + 's')
+        labels.push(data[i].student_status + 's')
         datas.push(data[i].total)
       }),
 
@@ -143,7 +142,8 @@ $.ajax({
                 backgroundColor: [
                   colors['info'],
                   colors['success'],
-                  colors['danger']
+                  colors['danger'] ,
+                  colors['warning'] 
                 ],
                 borderRadius: 5,
                 padding: {

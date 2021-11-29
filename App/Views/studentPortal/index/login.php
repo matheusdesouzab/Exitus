@@ -43,7 +43,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
 
                             <div class="row d-flex justify-content-center">
 
-                                <img class="down-and-up" style="width: 25vw;" src="/assets/img/undraw_programmer_re_owql.svg" alt="">
+                                <img class="down-and-up" style="width: 25vw" src="/assets/img/undraw_programmer_re_owql.svg" alt="">
 
                                 <div class="col-lg-12 mt-5">
 
@@ -99,13 +99,23 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
                                 <div class="form-row mt-2 form-body">
 
                                     <div class="form-group col-md-10 mx-auto mt-3">
-                                        <label for="name">Usuário:</label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                        <label for="name">Nome do usuário:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-white">
+                                                <div class="input-group-text bg-white"><i class='fas fa-user'></i></div>
+                                            </div>
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-10 mx-auto mt-4">
                                         <label for="accessCode">Código de acesso:</label>
-                                        <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="000.000">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-white">
+                                                <div class="input-group-text bg-white"><i class="fas fa-key"></i></div>
+                                            </div>
+                                            <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="">
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-10 mx-auto">
@@ -113,6 +123,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
                                         <button class="w-100 btn">Entrar</button>
                                         <small class="text-center text-secondary d-block mt-3">Esqueceu sua senha?</small>
                                     </div>
+
 
                                     <div class="form-group col-md-10 mx-auto">
                                         <?php if (isset($_GET['error'])) { ?>
@@ -123,7 +134,6 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
                                     </div>
 
                                 </div>
-
                             </form>
 
                         </div>

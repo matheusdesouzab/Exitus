@@ -25,7 +25,13 @@ if (count($this->view->listSchoolTerm) >= 1) {
 
                 <div class="col-sm-8 font-weight-bold">Período letivo do ano de <?= $schoolTerm->school_year ?></div>
 
-                <?php if($_SESSION['Admin']['hierarchyFunction'] == 1){ ?>
+                <?php 
+
+                if (!isset($_SESSION)) session_start();
+                
+                if($_SESSION['Admin']['hierarchyFunction'] == 1){ 
+                    
+                ?>
 
                 <div class="col-sm-4 d-flex justify-content-end mt-2">
 

@@ -59,7 +59,7 @@
         </div>
 
         <div class="modal fade" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
-            <div class="modal-dialog" style="height: 200px !important; border: 2px solid red">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header border-0">
                         <h5 class="modal-title" id="profilePhotoModal">Foto do perfil</h5>

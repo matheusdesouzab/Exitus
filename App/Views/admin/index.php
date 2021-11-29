@@ -46,7 +46,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                             <div class="row d-flex justify-content-center">
 
-                                <img class="down-and-up" src="/assets/img/undraw_connection_b-38-q.svg" alt="">
+                                <img class="down-and-up" src="/assets/img/undraw_programming_re_kg9v.svg" alt="">
 
                                 <div class="col-lg-12 mt-5">
 
@@ -102,7 +102,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
                                 <div class="form-row mt-2 form-body">
 
                                     <div class="form-group col-md-10 mx-auto mt-3">
-                                        <label for="name">Usuário:</label>
+                                        <label for="name">Nome do usuário:</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend bg-white">
                                                 <div class="input-group-text bg-white"><i class='fas fa-user'></i></div>

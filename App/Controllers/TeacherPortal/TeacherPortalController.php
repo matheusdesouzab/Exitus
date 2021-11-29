@@ -26,26 +26,33 @@ class TeacherPortalController extends Action
         $Teacher->__set('name', $_POST['name']);
 
         $auth = $Teacher->login();
+        $account_status = $Teacher->accountStatus();
 
         if (count($auth) != 1) {
 
-            header('Location: /portal-docente?error=true');
+            header('Location: /portal-docente?error=dados-incorretos');
         } else {
 
-            if (!isset($_SESSION)) session_start();
+            if ($account_status[0]->account_status == 1) {
 
-            $_SESSION['Teacher'] = [
+                if (!isset($_SESSION)) session_start();
 
-                'id' => $auth[0]->teacher_id,
-                'name' => $auth[0]->teacher_name,
-                'profilePhoto' => $auth[0]->teacher_photo,
-                'hierarchyFunction' => $auth[0]->hierarchy_function
+                $_SESSION['Teacher'] = [
 
-            ];
+                    'id' => $auth[0]->teacher_id,
+                    'name' => $auth[0]->teacher_name,
+                    'profilePhoto' => $auth[0]->teacher_photo,
+                    'hierarchyFunction' => $auth[0]->hierarchy_function
 
-            session_cache_expire(60);
+                ];
 
-            header('Location: /portal-docente/home');
+                session_cache_expire(60);
+
+                header('Location: /portal-docente/home');
+            } else {
+
+                header("Location: /portal-docente?error=conta-desativada");
+            }
         }
     }
 
@@ -192,7 +199,7 @@ class TeacherPortalController extends Action
         if (!isset($_SESSION)) session_start();
 
         $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
-        
+
         echo json_encode($Teacher->studentBasedFinalAverage());
     }
 

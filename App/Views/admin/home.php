@@ -8,30 +8,31 @@
 
             <div class="container">
 
-                <div class="row ">
+                <div class="row">
 
                     <div class="col-lg-7">
 
                         <div class="row">
 
-                            <div class="col-lg-4 d-flex justify-content-start p-0">
+                        <div class="col-lg-4">
 
-                                <div class="card w-100">
+                            <div class="card">
 
-                                    <div class="card-title">Alunos matrículados</div>
+                                <div class="card-title">Alunos ativos</div>
 
-                                    <div class="row d-flex justify-content-center align-items-center">
+                                <div class="row d-flex justify-content-center align-items-center">
 
-                                        <div class="col-lg-7 total-student-enrolled"><i class="fas fa-user-check mr-2"></i></i> <?= $this->view->studentTotal ?></div>
+                                <div class="col-lg-7 total-student-enrolled"><i class="fas fa-user-check mr-2"></i></i> <?= $this->view->studentTotal ?></div>
 
-                                        <div class="col-lg-5 total-students-enrolled-today">+ <?= $this->view->studentsAddedToday[0]->total_student ?></div>
-
-                                    </div>
-
-                                </div>
+                                <div class="col-lg-5 total-students-enrolled-today">+ <?= $this->view->studentsAddedToday[0]->total_student ?></div>
 
                             </div>
 
+                        </div>
+
+                        </div>
+
+                            
                             <div class="col-lg-4">
 
                                 <div class="card">
@@ -49,11 +50,11 @@
                             </div>
 
 
-                            <div class="col-lg-4 d-flex justify-content-end p-0">
+                            <div class="col-lg-4">
 
-                                <div class="card w-100">
+                                <div class="card">
 
-                                    <div class="card-title">Período letivo ativo</div>
+                                    <div class="card-title">Período letivo</div>
 
                                     <div class="row d-flex justify-content-center align-items-center">
 
@@ -69,8 +70,8 @@
 
                         <div class="row mt-3">
 
-                            <div class="col-lg-12 card">
-                                <canvas id="studenDivisionChartCourse"></canvas>
+                            <div class="col-lg-12">
+                                <canvas class="card" id="studenDivisionChartCourse"></canvas>
                             </div>
 
                         </div>
@@ -116,18 +117,18 @@
 
                 <div class="row mt-4 mb-4">
 
-                    <div class="col-lg-6 pl-0">
+                    <div class="col-lg-6">
 
-                        <div class="col-lg-12 pl-0 recent-activities">
+                        <div class="p-0 recent-activities">
 
                             <?php require '../App/Views/admin/management/components/recentActivities.php' ?>
 
                         </div>
                     </div>
 
-                    <div class="col-lg-6 pr-0 pl-0">
+                    <div class="col-lg-6">
 
-                        <div class="col-lg-12 pr-0 pl-0">
+                        <div class="col-lg-12">
 
                             <div class="card mb-3" style="height:36vh">
 
