@@ -1,6 +1,6 @@
 <div class="card">
 
-    <div class="card-title p-2">Linha do tempo</div>
+    <div class="card-title">Linha do tempo</div>
 
     <?php
 
@@ -44,7 +44,7 @@
 
         $data = explode(' ', $array);
         $data = explode('-', $data[0]);
-        $data = $data[2] . '-' . $data[1];
+        $data = $data[2] . '/' . $data[1];
 
         $data = ($data == $today ? 'Hoje' : $data);
 
@@ -58,8 +58,6 @@
 
     <div class="row p-2">
 
-
-
         <?php
 
         if (count($data) > 0) {
@@ -68,42 +66,42 @@
 
                 <?php if ($value['tipo'] == 'exam') { ?>
 
-                    <div class="col-lg-11 mx-auto">
+                    <div class="col-12 col-lg-11 mx-auto">
 
-                        <div class="row d-flex align-items-center justify-content-between">
+                        <div class="row d-flex align-items-center flex-nowrap justify-content-between">
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                            <div class="col-lg-8 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+                            <div class="col-6 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                            <div class="col-lg-3 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-info ml-auto">Avaliação</span></div>
+                            <div class="col-5 d-flex justify-content-end"><span class="badge badge-pill p-2 badge-info ml-auto">Avaliação</span></div>
 
                         </div>
 
-                        <div class="row p-0">
+                        <div class="row">
 
-                            <p class="mt-3 col-lg-12 p-0 text-justify">Criou a avaliação "<?= $value['value']->exam_description ?>" referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?> na turma do <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?></p>
+                            <p class="mt-3 text-justify">Criou a avaliação "<?= $value['value']->exam_description ?>" referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?> na turma do <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?></p>
 
                         </div>
 
 
                     </div>
 
-                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
+                    <hr class="col-10 col-md-11 mx-auto mt-0 mb-3">
 
                 <?php } else if ($value['tipo'] == 'note') { ?>
 
-                    <div class="col-lg-11 mx-auto">
+                    <div class="col-12 col-lg-11 mx-auto">
 
-                        <div class="row d-flex align-items-center justify-content-between">
+                        <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"' style="margin-left: -30px"></div>
 
-                            <div class="col-lg-7 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+                            <div class="col-6 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                            <div class="col-lg-3 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-success">Nota avaliação</span></div>
+                            <div class="col-4 d-flex justify-content-end"><span class="badge badge-pill p-2 badge-success">Nota avaliação</span></div>
 
                         </div>
 
@@ -115,21 +113,21 @@
 
                     </div>
 
-                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
+                    <hr class="col-10 col-md-11 mx-auto mt-0 mb-3">
 
                 <?php } else if ($value['tipo'] == 'lack') { ?>
 
-                    <div class="col-lg-11 mx-auto">
+                    <div class="col-12 col-lg-11 mx-auto">
 
-                        <div class="row d-flex align-items-center justify-content-between">
+                        <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"' style="margin-left: -30px"></div>
 
-                            <div class="col-lg-8 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+                            <div class="col-8 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                            <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-primary">Faltas</span></div>
+                            <div class="col-2 d-flex justify-content-end"><span class="badge badge-pill p-2 badge-primary">Faltas</span></div>
 
                         </div>
 
@@ -142,23 +140,23 @@
 
                     </div>
 
-                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
+                    <hr class="col-10 col-md-11 mx-auto mt-0 mb-3">
 
 
                 <?php } else if ($value['tipo'] == 'disciplineAverage') { ?>
 
-                    <div class="col-lg-11 mx-auto">
+                    <div class="col-12 col-lg-11 mx-auto">
 
-                        <div class="row d-flex align-items-center justify-content-between">
+                        <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"' style="margin-left: -30px"></div>
 
 
-                            <div class="col-lg-8 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+                            <div class="col-8 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                            <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-success">Média final</span></div>
+                            <div class="col-2 d-flex justify-content-end"><span class="badge badge-pill p-2 badge-success">Média final</span></div>
 
                         </div>
 
@@ -171,21 +169,21 @@
 
                     </div>
 
-                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
+                    <hr class="col-10 col-md-11 mx-auto mt-0 mb-3">
 
                 <?php } else if ($value['tipo'] == 'observation') { ?>
 
-                    <div class="col-lg-11 mx-auto">
+                    <div class="col-12 col-lg-11 mx-auto">
 
-                        <div class="row d-flex align-items-center justify-content-between">
+                        <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"'></div>
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->student_profile_photo == null ? $photoStudentDir . "foto-vazia.jpg" : $photoStudentDir . $value['value']->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoStudentDir . "foto-vazia.jpg" ?>"' style="margin-left: -30px"></div>
 
-                            <div class="col-lg-8 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+                            <div class="col-8 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                            <div class="col-lg-2 d-flex justify-content-end p-0"><span class="badge badge-pill p-2 badge-info">Observação</span></div>
+                            <div class="col-2 d-flex justify-content-end"><span class="badge badge-pill p-2 badge-info">Observação</span></div>
 
                         </div>
 
@@ -197,13 +195,13 @@
 
                     </div>
 
-                    <hr class="col-lg-10 mx-auto mt-0 mb-3">
+                    <hr class="col-10 col-md-11 mx-auto mt-0 mb-3">
 
             <?php }
             }
         } else { ?>
 
-            <div class="col-lg-11 mx-auto">
+            <div class="col-11 mx-auto">
 
                 <div class="row">
 

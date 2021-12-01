@@ -65,27 +65,33 @@ class AdminController extends Action
         $Admin->__set('name', $_POST['name']);
 
         $auth = $Admin->login();
+        $account_status = $Admin->accountStatus();
 
         if (count($auth) != 1) {
 
             header('Location: /admin?error=true');
-
         } else {
 
-            if (!isset($_SESSION)) session_start();
+            if ($account_status[0]->account_status == 1) {
 
-            $adminName = explode(" ", $auth[0]->name);
+                if (!isset($_SESSION)) session_start();
 
-            $_SESSION['Admin'] = [
-                'id' => $auth[0]->id,
-                'name' => $adminName[0].' '.$adminName[1].' '.$adminName[2],
-                'profilePhoto' => $auth[0]->profile_photo,
-                'hierarchyFunction' => $auth[0]->hierarchy_function
-            ];
+                $adminName = explode(" ", $auth[0]->name);
 
-            session_cache_expire(200);
+                $_SESSION['Admin'] = [
+                    'id' => $auth[0]->id,
+                    'name' => $adminName[0] . ' ' . $adminName[1] . ' ' . $adminName[2],
+                    'profilePhoto' => $auth[0]->profile_photo,
+                    'hierarchyFunction' => $auth[0]->hierarchy_function
+                ];
 
-            header('Location: /admin/home');
+                session_cache_expire(200);
+
+                header('Location: /admin/home');
+            } else {
+
+                header("Location: /admin?error=conta-desativada");
+            }
         }
     }
 
@@ -200,7 +206,6 @@ class AdminController extends Action
         $this->listHierarchyFunction = $Admin->listHierarchyFunction();
 
         $this->render('settings', 'SimpleLayout');
-
     }
 
 

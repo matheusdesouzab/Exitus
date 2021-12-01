@@ -15,31 +15,10 @@ $(function() {
 
 $(document).ready(function() {
 
-    let url = window.location.href.replace('admin','').split('/')
-
-    let linksPanelLeft = $('.sidebar-lists li')
-    let linksPanelBottom = $('#navbarBottom li a')
-
-    $.each(linksPanelLeft, function(value) {
-
-        let name = $(linksPanelLeft[value]).attr('name')
-
-        if (url.includes(name)) {
-            $(`.sidebar-lists li[name='${name}']`).addClass("link-active")
-        }
-
-    })
-
-    $.each(linksPanelBottom, function(value) {
-
-        let name = $(linksPanelBottom[value]).attr('name')
-
-        if (url.includes(name)) {
-            $(`#navbarBottom li a[name='${name}']`).addClass("link-active")
-            $(`#navbarBottom li a[name='${name}'] span`).css("display", "inline")
-        }
-
-    })
+    activeLinks('.sidebar-lists li')
+    activeLinks('#navbarBottom li a')
+    activeLinks('.navbarBottomTeacher li a')
+    activeLinks('#teacherPortal .sidebar-lists li')
 
 })
 

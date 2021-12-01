@@ -9,8 +9,8 @@ function sideState() {
     $('.panel-side').toggleClass('col-lg-1 col-lg-2')
 
     $('body').toggleClass('sidebar-responsive')
-/* 
-    $('#painel-left ul').hasClass('side-bar-responsivo') ? [$sidebarLogo.attr('src', '/assets/img/logo.png'), $('.fa-bars').addClass('ml-2')] : [$sidebarLogo.attr('src', '/assets/img/logo-completo.png'), $('.fa-bars').removeClass('ml-2')] */
+    /* 
+        $('#painel-left ul').hasClass('side-bar-responsivo') ? [$sidebarLogo.attr('src', '/assets/img/logo.png'), $('.fa-bars').addClass('ml-2')] : [$sidebarLogo.attr('src', '/assets/img/logo-completo.png'), $('.fa-bars').removeClass('ml-2')] */
 }
 
 
@@ -55,6 +55,19 @@ function getLocation() {
 }
 
 
+function activeLinks(link) {
 
+    let url = window.location.href.replace('portal-docente', '').split('/')
+    let links = $(`${link}`)
 
+    $.each(links, function (value) {
 
+        let name = $(links[value]).attr('name')
+
+        if (url.includes(name)) {
+            $(`${link}[name='${name}']`).addClass("link-active")
+        }
+
+    })
+
+}

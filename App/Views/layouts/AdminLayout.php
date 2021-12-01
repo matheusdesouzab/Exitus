@@ -56,10 +56,7 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 				</div>
 
 				<?php require '../App/Views/admin/components/navbarBottom.php' ?>
-
-			
-
-
+	
 			</div>
 		</div>
 	</div>

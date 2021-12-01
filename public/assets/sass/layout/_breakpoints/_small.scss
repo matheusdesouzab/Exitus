@@ -56,23 +56,6 @@
 
 
 
-        #navbar-top {
-
-            #bars {
-                display: none;
-            }
-
-            a.bars-xs {
-                display: block;
-            }
-
-            .navbar-toggler {
-                display: none;
-            }
-
-
-        }
-
         #pagina {
 
             form {
@@ -106,6 +89,49 @@
                     }
                 }
                   
+            }
+
+
+            #navbar-top {
+                padding: 10px;
+
+                .navbar-toggler .fa-bars {
+                    font-size: 20px;
+                }
+
+                ul {
+                    margin-right: 0;
+                }
+
+                b,
+                a {
+                    font-size: 2.5vw;
+                }
+
+                a#bars {
+                    display: none;
+                }
+
+                a.bars-xs {
+                    display: block;
+                }
+
+                .navbar-toggler {
+                    display: none;
+                }
+
+                .navbar-nav {
+                    display: none;
+                }
+
+                #bars{
+                    display: block;
+                    
+                }
+    
+                .navbar-toggler {
+                    display: none;
+                }
             }
 
             #profileClassModal{

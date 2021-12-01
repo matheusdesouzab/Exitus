@@ -517,6 +517,7 @@ button {
   z-index: 2;
   background-color: black;
   overflow: auto;
+  z-index: 1200;
   box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 }
 #left-panel #sidebar #minimize {
@@ -1401,7 +1402,7 @@ button {
 }
 #login .container-login .sidebar-secondary form .form-control:focus {
   border: none;
-  border-bottom: 2px solid #363C90;
+  border-bottom: 2px solid #536DFE;
   box-shadow: none;
   transition: all 0.6s ease;
 }
@@ -1453,7 +1454,7 @@ html body#teacherPortal .panel-side #left-panel #sidebar {
   }
   html body#admin .panel-side #left-panel #sidebar i.fas,
 html body#teacherPortal .panel-side #left-panel #sidebar i.fas {
-    margin-right: 15px;
+    margin-right: 0px;
   }
   html body#admin .panel-side #left-panel #sidebar .sidebar-header span,
 html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-header span {
@@ -1511,6 +1512,23 @@ html body#teacherPortal #pagina table td {
   html body#admin #pagina table td .miniature-photo,
 html body#teacherPortal #pagina table td .miniature-photo {
     width: 8vw;
+  }
+  html body#admin #pagina #home .card .card-title,
+html body#teacherPortal #pagina #home .card .card-title {
+    font-size: 2.5vw;
+  }
+  html body#admin #pagina #home .card .card-text,
+html body#teacherPortal #pagina #home .card .card-text {
+    font-size: 3vw;
+  }
+  html body#admin #pagina #home .card .teacher-name,
+html body#teacherPortal #pagina #home .card .teacher-name {
+    font-size: 4vw;
+  }
+  html body#admin #pagina #home .recent-activities .card-title,
+html body#teacherPortal #pagina #home .recent-activities .card-title {
+    font-size: 4vw;
+    padding: 0px;
   }
   html body#admin #pagina #teacher-table,
 html body#teacherPortal #pagina #teacher-table {
@@ -1588,39 +1606,11 @@ html body#teacherPortal #pagina .page-header .collapse-options-container span {
 html body#teacherPortal #pagina .page-header .breadcrumb-item {
     font-size: 3.5vw;
   }
-  html body#admin #pagina #navbar-top,
-html body#teacherPortal #pagina #navbar-top {
-    padding: 10px;
-  }
-  html body#admin #pagina #navbar-top .navbar-toggler .fa-bars,
-html body#teacherPortal #pagina #navbar-top .navbar-toggler .fa-bars {
-    font-size: 20px;
-  }
-  html body#admin #pagina #navbar-top ul,
-html body#teacherPortal #pagina #navbar-top ul {
-    margin-right: 0;
-  }
   html body#admin #pagina #navbar-top b,
 html body#admin #pagina #navbar-top a,
 html body#teacherPortal #pagina #navbar-top b,
 html body#teacherPortal #pagina #navbar-top a {
     font-size: 3.5vw;
-  }
-  html body#admin #pagina #navbar-top #bars,
-html body#teacherPortal #pagina #navbar-top #bars {
-    display: none;
-  }
-  html body#admin #pagina #navbar-top a.bars-xs,
-html body#teacherPortal #pagina #navbar-top a.bars-xs {
-    display: block;
-  }
-  html body#admin #pagina #navbar-top .navbar-toggler,
-html body#teacherPortal #pagina #navbar-top .navbar-toggler {
-    display: none;
-  }
-  html body#admin #pagina #navbar-top .navbar-nav,
-html body#teacherPortal #pagina #navbar-top .navbar-nav {
-    display: none;
   }
   html body#admin #pagina section#list-students table,
 html body#teacherPortal #pagina section#list-students table {
@@ -1890,15 +1880,6 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
   body .panel-side #left-panel #sidebar .sidebar-lists p {
     font-size: 2vw;
   }
-  body #navbar-top #bars {
-    display: none;
-  }
-  body #navbar-top a.bars-xs {
-    display: block;
-  }
-  body #navbar-top .navbar-toggler {
-    display: none;
-  }
   body #pagina form label {
     font-size: 2vw;
   }
@@ -1917,6 +1898,37 @@ body #pagina form select {
   }
   body #pagina table td .miniature-photo {
     width: 8vw;
+  }
+  body #pagina #navbar-top {
+    padding: 10px;
+  }
+  body #pagina #navbar-top .navbar-toggler .fa-bars {
+    font-size: 20px;
+  }
+  body #pagina #navbar-top ul {
+    margin-right: 0;
+  }
+  body #pagina #navbar-top b,
+body #pagina #navbar-top a {
+    font-size: 2.5vw;
+  }
+  body #pagina #navbar-top a#bars {
+    display: none;
+  }
+  body #pagina #navbar-top a.bars-xs {
+    display: block;
+  }
+  body #pagina #navbar-top .navbar-toggler {
+    display: none;
+  }
+  body #pagina #navbar-top .navbar-nav {
+    display: none;
+  }
+  body #pagina #navbar-top #bars {
+    display: block;
+  }
+  body #pagina #navbar-top .navbar-toggler {
+    display: none;
   }
   body #pagina #profileClassModal .main-sheet {
     margin-top: -3.5vw;
@@ -1965,6 +1977,18 @@ body #pagina form select {
   body .sidebar-primary .portal i.fas {
     display: none;
   }
+  body #home .index-disciplines {
+    margin-bottom: 20px;
+  }
+  body #navbar-top #bars {
+    display: none;
+  }
+  body #navbar-top a.bars-xs {
+    display: block;
+  }
+  body #navbar-top .navbar-toggler {
+    display: none;
+  }
   body #left-panel #sidebar .sidebar-header span {
     display: block;
   }
@@ -1979,14 +2003,6 @@ body #pagina form select {
   }
   body .side-panel {
     display: block;
-  }
-}
-@media (min-width: 1400px) {
-  body #navbar-top #bars {
-    display: block;
-  }
-  body #navbar-top .navbar-toggler {
-    display: none;
   }
 }
 html body #navbar-top {

@@ -8,6 +8,28 @@
             }
         }
 
+        #home{
+            .index-disciplines{
+                margin-bottom: 20px;
+            }
+        }
+
+        #navbar-top {
+
+            #bars {
+                display: none;
+            }
+
+            a.bars-xs {
+                display: block;
+            }
+
+            .navbar-toggler {
+                display: none;
+            }
+
+        }
+
         #left-panel {
             
             #sidebar {

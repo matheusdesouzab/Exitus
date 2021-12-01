@@ -131,8 +131,8 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                     <div class="form-group col-md-10 mx-auto">
                                         <?php if (isset($_GET['error'])) { ?>
-                                            <div class="alert alert-danger text-center" role="alert">
-                                                <i class="fas fa-exclamation-circle mr-3"></i> <?= ucfirst(str_replace('-', ' ', $_GET['error'])) ?>
+                                            <div class="alert alert-warning text-center" role="alert">
+                                            <i class="fas fa-exclamation-triangle mr-3"></i> <?= ucfirst(str_replace('-', ' ', $_GET['error'])) ?>
                                             </div>
                                         <?php } ?>
                                     </div>

@@ -259,4 +259,20 @@ class Admin extends People
 
         );
     }
+
+
+    public function accountStatus()
+    {
+
+        $query = "SELECT administrador.fk_id_situacao_conta_administrador AS account_status FROM administrador WHERE administrador.codigo_acesso = :accessCode AND administrador.nome_administrador = :name";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
+        $stmt->bindValue(':name', $this->__get('name'));
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 }

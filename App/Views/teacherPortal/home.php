@@ -32,7 +32,7 @@
 
                         </div>
  -->
-                        <div class="col-lg-6">
+                        <div class="col-6">
 
                             <div class="card">
 
@@ -40,7 +40,7 @@
 
                                 <div class="row d-flex justify-content-center align-items-center">
 
-                                    <div class="col-lg-12 total-student-enrolled"><i class="fas fa-boxes mr-2"></i> <?= $this->view->unitControlCurrent[0]->option_value ?> unidade</div>
+                                    <div class="col-lg-12 card-text total-student-enrolled"><i class="fas fa-boxes mr-2"></i> <?= $this->view->unitControlCurrent[0]->option_value ?> unidade</div>
 
                                 </div>
 
@@ -48,7 +48,7 @@
 
                         </div>
 
-                        <div class="col-lg-6">
+                        <div class="col-6">
 
                             <div class="card">
 
@@ -56,7 +56,7 @@
 
                                 <div class="row d-flex justify-content-center align-items-center">
 
-                                    <div class="col-lg-12 total-student-enrolled"><i class="far fa-calendar-alt mr-2"></i> <?= $this->view->SchoolTermActive[0]->option_text ?></div>
+                                    <div class="col-lg-12 card-text total-student-enrolled"><i class="far fa-calendar-alt mr-2"></i> <?= $this->view->SchoolTermActive[0]->option_text ?></div>
 
                                 </div>
 
@@ -69,7 +69,7 @@
 
                     <div class="row mt-3">
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 mt-xs-5 index-disciplines">
 
                             <div class="card" style="height: 30vh;">
 

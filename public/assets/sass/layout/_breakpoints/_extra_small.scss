@@ -15,7 +15,7 @@
                         width: 50vw;
 
                         i.fas {
-                            margin-right: 15px;
+                            margin-right: 0px;
                         }
 
                         .sidebar-header {
@@ -90,6 +90,27 @@
                         }
                     }
                       
+                }
+
+                #home{
+                    .card{
+                        .card-title{
+                            font-size: 2.5vw;
+                        }
+                        .card-text{
+                            font-size: 3vw;
+                        }
+                        .teacher-name{
+                            font-size: 4vw;
+                        }
+                    }
+
+                    .recent-activities{
+                        .card-title{
+                            font-size: 4vw;
+                            padding: 0px;
+                        }
+                    }
                 }
 
                 #teacher-table{
@@ -188,35 +209,10 @@
 
 
                 #navbar-top {
-                    padding: 10px;
-
-                    .navbar-toggler .fa-bars {
-                        font-size: 20px;
-                    }
-
-                    ul {
-                        margin-right: 0;
-                    }
-
+                
                     b,
                     a {
                         font-size: 3.5vw;
-                    }
-
-                    #bars {
-                        display: none;
-                    }
-
-                    a.bars-xs {
-                        display: block;
-                    }
-
-                    .navbar-toggler {
-                        display: none;
-                    }
-
-                    .navbar-nav {
-                        display: none;
                     }
                 }
 

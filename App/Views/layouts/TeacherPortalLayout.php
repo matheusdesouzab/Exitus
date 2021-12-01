@@ -16,7 +16,6 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-	<link href="/node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
 
@@ -30,7 +29,7 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 				<?php require '../App/Views/teacherPortal/components/painelLeft.php' ?>
 			</div>
 
-			<div id="pagina" class="col-12 col-md-9 col-lg-10 col-sm-12">
+			<div id="pagina" class="col-12 col-md-10 col-lg-10 col-sm-12 ml-auto">
 
 				<?php require '../App/Views/teacherPortal/components/navbar.php' ?>
 
@@ -58,6 +57,8 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 						</div>
 					</div>
 				</div>
+
+				<?php require '../App/Views/teacherPortal/components/navbarBottom.php' ?>
 
 			</div>
 		</div>
