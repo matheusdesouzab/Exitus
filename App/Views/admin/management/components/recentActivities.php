@@ -72,9 +72,9 @@
 
                             <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                            <div class="col-6 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+                            <div class="col-7 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
 
-                            <div class="col-5 d-flex justify-content-end"><span class="badge badge-pill p-2 badge-info ml-auto">Avaliação</span></div>
+                            <div class="col-4 d-flex justify-content-end"><span class="badge badge-pill p-2 badge-info ml-auto">Avaliação</span></div>
 
                         </div>
 

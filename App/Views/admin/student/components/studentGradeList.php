@@ -1,12 +1,14 @@
 <?php if (count($this->view->listNote) >= 1) {
 
+    $total = 1 ;
+
 foreach ($this->view->listNote as $i => $note) { ?>
 
     <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
     <tr id="note<?= $note->note_id ?>">
 
-        <td><?= $note->note_id ?></td>
+        <td><?= $total++ ?></td>
 
         <td class="limited-text-description"><?= $note->exam_description ?> - <?= $note->discipline_name ?> - <?= $note->unity ?>ª unidade </td>
 

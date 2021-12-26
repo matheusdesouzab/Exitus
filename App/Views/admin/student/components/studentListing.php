@@ -24,7 +24,7 @@
 
                 <td><?= $student->situation ?></td>
 
-                <td><?= 0.0 ?></td>
+                <td><?= $student->email ?></td>
 
             <?php } ?>
 

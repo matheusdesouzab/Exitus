@@ -160,6 +160,7 @@ button {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.3);
+  z-index: 10000000000000;
 }
 #pagina .card-title {
   font-family: Bold;
@@ -514,10 +515,8 @@ button {
   transition: all 0.7s ease;
   left: 0;
   height: 100vh;
-  z-index: 2;
   background-color: black;
   overflow: auto;
-  z-index: 1200;
   box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 }
 #left-panel #sidebar #minimize {

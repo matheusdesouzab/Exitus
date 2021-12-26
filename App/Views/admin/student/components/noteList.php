@@ -8,7 +8,7 @@
 
         <tr id="note<?= $note->note_id ?>">
 
-            <td><?= $total++ ?></td>
+            <td><?= $total ?></td>
 
             <td class="">
                 <img class="miniature-photo" src='<?= $note->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>

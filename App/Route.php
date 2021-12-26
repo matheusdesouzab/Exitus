@@ -718,6 +718,18 @@ class Route extends Bootstrap
 				'action' => 'rematrug'
 			);
 
+			$routes['adminInsertWarning'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aviso/inserir',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'warningInsert'
+			);
+
+			$routes['adminListWarning'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aviso/listagem',
+				'controller' => 'Admin\\AdminTeacherStudentController',
+				'action' => 'warningList'
+			);
+
 
 
 			// ---------------------------------

@@ -46,6 +46,10 @@
                                         <span class="box-icon"><i class="fas fa-redo"></i></span> Rematrícula
                                     </a>
 
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-warning">
+                                        <span class="box-icon"><i class="fas fa-exclamation-circle"></i></span> Avisos
+                                    </a>
+
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings">
                                         <span class="box-icon"><i class="fas fa-cog"></i></span> Configurações
                                     </a>
@@ -138,7 +142,7 @@
                                                 <tr>
                                                     <th colspan="2">Nome do aluno</th>
                                                     <th>Situação atual</th>
-                                                    <th>Média letiva</th>
+                                                    <th>Email</th>
                                                 </tr>
                                             </thead>
 
@@ -610,6 +614,93 @@
                             <div class="collapse col-lg-12 col-sm-11 mx-auto" id="finalized-rematrecules" data-parent="#rematrug-accordion">
 
                                 <div containerRematrugFinalized class="row"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-11 mx-auto collapse" id="class-warning" data-parent="#main-accordion-class">
+
+                    <div class="accordion" id="warning-accordion">
+
+                        <div class="col-lg-12 col-sm-11 mx-auto mb-3">
+
+                            <div class="row d-flex align-items-center p-0">
+
+                                <div class="col-sm-5 p-0">
+                                    <h5 class="mt-2">Avisos</h5>
+                                </div>
+
+                                <div class="col-sm-7 col-12 p-0">
+
+                                    <div class="row collapse-options-container">
+
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-warning"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>Avisos</span></a>
+
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#create-warning"><span class=""><i class="fas fa-check-circle mr-2"></i> Criar</span></a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-11 mx-auto p-0">
+
+                            <div class="collapse show" id="list-warning" data-parent="#warning-accordion">
+
+                                <div containerListWarning></div>
+
+                            </div>
+
+                            <div class="collapse card col-lg-12 col-sm-11 mx-auto" id="create-warning" data-parent="#warning-accordion">
+
+                                <form id="addWarning" class="col-lg-12" action="">
+
+                                    <input value="<?= $this->view->classId ?>" type="hidden" name="classId">
+
+                                    <div class="form-row mt-3">
+
+                                        <div class="form-group col-lg-12">
+                                            <label for="">Descrição do aviso: </label>
+                                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-row">
+
+                                        <div class="form-group col-lg-8">
+
+                                            <label for="">Disciplina:</label>
+
+                                            <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
+
+                                                <?php foreach ($this->view->linkedDisciplines as $key => $discipline) { ?>
+
+                                                    <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                <?php } ?>
+
+                                            </select>
+
+                                        </div>
+
+                            
+                                        <div class="form-group col-lg-4 ml-auto">
+                                            <label for="">&nbsp;</label>
+                                            <a id="buttonAddWarning" class="btn btn-success w-100">Adicionar</a>
+                                        </div>
+
+
+                                    </div>
+
+                                </form>
 
                             </div>
 
