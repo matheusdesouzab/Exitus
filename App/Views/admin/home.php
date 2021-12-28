@@ -117,7 +117,7 @@
 
                 <div class="row mt-4 mb-4">
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
 
                         <div class="p-0 recent-activities">
 
@@ -126,9 +126,9 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-5">
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 p-0">
 
                             <div class="card mb-3" style="height:36vh">
 
@@ -136,11 +136,9 @@
 
                             </div>
 
-                            <div class="row">
+                                <div class="card" style="height:40vh">
 
-                                <div class="col-lg-12" style="height:40vh">
-
-                                    <canvas class="card" id="graphSituationEngramentesReceived"></canvas>
+                                    <canvas class="" id="graphSituationEngramentesReceived"></canvas>
 
                                 </div>
 
@@ -149,8 +147,6 @@
                                 <canvas class="card" id="grafico2"></canvas>
 
                             </div>  -->
-
-                            </div>
 
                             <!--  <div class="row mt-3">
 

@@ -720,14 +720,26 @@ class Route extends Bootstrap
 
 			$routes['adminInsertWarning'] = array(
 				'route' => '/admin/gestao/turma/perfil-turma/aviso/inserir',
-				'controller' => 'Admin\\AdminTeacherStudentController',
+				'controller' => 'Admin\\AdminManagementController',
 				'action' => 'warningInsert'
 			);
 
 			$routes['adminListWarning'] = array(
 				'route' => '/admin/gestao/turma/perfil-turma/aviso/listagem',
-				'controller' => 'Admin\\AdminTeacherStudentController',
+				'controller' => 'Admin\\AdminManagementController',
 				'action' => 'warningList'
+			);
+
+			$routes['adminUpdateWarning'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aviso/atualizar',
+				'controller' => 'Admin\\AdminManagementController',
+				'action' => 'warningUpdate'
+			);
+
+			$routes['adminDeleteWarning'] = array(
+				'route' => '/admin/gestao/turma/perfil-turma/aviso/deletar',
+				'controller' => 'Admin\\AdminManagementController',
+				'action' => 'warningDelete'
 			);
 
 

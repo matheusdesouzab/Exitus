@@ -260,7 +260,7 @@ class AdminStudentController extends Action
 
         $StudentEnrollment->__set('fk_id_student_situation', 1);
         $StudentEnrollment->__set('fk_id_student', $_POST['studentId']);
-        $StudentEnrollment->__set('fk_id_class', $_POST['classId']);
+        $StudentEnrollment->__set('fk_id_class', $_POST['newClass']);
         $StudentEnrollment->__set('fk_id_school_term', $_POST['schoolTermId']);
 
         $StudentEnrollment->insert();

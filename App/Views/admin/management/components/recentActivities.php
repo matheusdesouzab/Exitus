@@ -26,6 +26,10 @@
         $data['dados'][] = ['tipo' => 'observation', 'value' => $value];
     }
 
+    foreach ($this->view->listWarning as $key => $value) {
+        $data['dados'][] = ['tipo' => 'warning', 'value' => $value];
+    }
+
     if (count($data) != 0) {
 
         foreach ($data['dados'] as $key => $part) {
@@ -190,6 +194,30 @@
                         <div class="row">
 
                             <p class="mt-3 col-lg-12 p-0 text-justify">Adicionou uma observação ao aluno(a): <?= $value['value']->student_name ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?></p>
+
+                        </div>
+
+                    </div>
+
+                    <hr class="col-10 col-md-11 mx-auto mt-0 mb-3">
+
+                <?php } else if ($value['tipo'] == 'warning') { ?>
+
+                    <div class="col-12 col-lg-11 mx-auto">
+
+                        <div class="row d-flex align-items-center justify-content-between flex-nowrap">
+
+                            <div class="col-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+
+                            <div class="col-7 teacher-name"><?= isset($teacherName) ? $teacherName : $value['value']->teacher_name ?> - <?= currentDate($value['value']->post_date) ?></div>
+
+                            <div class="col-4 d-flex justify-content-end"><span class="badge badge-pill p-2 badge-warning">Aviso</span></div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <p class="mt-3 col-lg-12 p-0 text-justify">Adicionou na turma <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?> o seguite aviso "<?= $value['value']->warning ?>"</p>
 
                         </div>
 

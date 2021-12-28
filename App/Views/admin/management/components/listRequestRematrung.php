@@ -25,7 +25,7 @@ $totalRequest = 0;
                     <div class="row d-flex align-items-center">
 
                         <div class="col-2">
-                            <img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
+                            <img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' style="width: 30px;">
                         </div>
 
                         <div class="col-10 text-left font-weight-bold"><?= $value->student_name ?></div>
@@ -56,7 +56,7 @@ $totalRequest = 0;
 
                     <label>Próxima turma do aluno:</label>
 
-                    <select id="unity" class="form-control custom-select" name="unity" required>
+                    <select id="newClass" class="form-control custom-select" name="newClass" required>
 
                         <?php foreach ($this->view->nextClass as $key => $class) { ?>
 

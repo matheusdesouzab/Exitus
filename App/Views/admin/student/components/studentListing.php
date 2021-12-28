@@ -22,9 +22,9 @@
 
             <?php } else { ?>
 
-                <td><?= $student->situation ?></td>
-
                 <td><?= $student->email ?></td>
+
+               <?php if($typeListStudent != "studentPortal"){ ?> <td><?= $student->situation ?></td> <?php } ?>
 
             <?php } ?>
 

@@ -108,7 +108,7 @@ class AdminTeacherStudentController extends Action
     {
 
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-        $Teacher = Container::getModel('Teacher\\Teacher');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
         $Classe = Container::getModel('GeneralManagement\\Classe');
 
         if (!isset($_SESSION)) session_start();
@@ -118,7 +118,7 @@ class AdminTeacherStudentController extends Action
 
         $Classe->__set('classId', $_GET['classId']);
 
-        $this->view->listExam = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->subjectsLinkedTeacher() : $Classe->readExamByIdClass();
+        $this->view->listExam = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->subjectsLinkedTeacher() : $Exam->readExamByIdClass($Classe);
 
         $this->render('management/components/examList', 'SimpleLayout');
     }
@@ -205,8 +205,8 @@ class AdminTeacherStudentController extends Action
     {
 
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-        $Teacher = Container::getModel('Teacher\\Teacher');
         $Classe = Container::getModel('GeneralManagement\\Classe');
+        $Note = Container::getModel('TeacherStudent\\Note');
 
         if (!isset($_SESSION)) session_start();
         if (isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set('fk_id_teacher', $_SESSION['Teacher']['id']);
@@ -215,7 +215,7 @@ class AdminTeacherStudentController extends Action
 
         $Classe->__set('classId', $_GET['classId']);
 
-        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->notesLinkedTeacherClass() : $Classe->readNoteByClassId();
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->notesLinkedTeacherClass() : $Note->readNoteByClassId($Classe);
         $this->view->listNoteType = 'class';
 
         $this->render('student/components/noteList', 'SimpleLayout');
@@ -536,6 +536,7 @@ class AdminTeacherStudentController extends Action
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Note = Container::getModel('TeacherStudent\\Note');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
 
         if (!isset($_SESSION)) session_start();
@@ -553,10 +554,10 @@ class AdminTeacherStudentController extends Action
         $StudentEnrollment->__set("studentEnrollmentId", $_GET["enrollmentId"]);
 
         $this->view->listStudent = $StudentEnrollment->dataGeneral();
-        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Note->readNoteByIdTeacher($Teacher) : $Classe->readNoteByClassId();
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Note->readNoteByIdTeacher($Teacher) : $Note->readNoteByClassId($Classe);
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects();
         $this->view->unity = $Unity->readOpenUnits();
-        $this->view->listExam = $Classe->readExamByIdClass();
+        $this->view->listExam = $Exam->readExamByIdClass($Classe);
         $this->view->noteStatus = 0;
         $this->view->orderBy = 'alphabetical';
         $this->view->averageType = 'averageUnity';
@@ -619,26 +620,5 @@ class AdminTeacherStudentController extends Action
     }
 
 
-    public function warningInsert()
-    {
-
-        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
-        $ClasseWarning->__set('warning', $_POST['description']);
-        $ClasseWarning->__set('fk_id_discipline_class', $_POST['disciplineClass']);
-
-        $ClasseWarning->insert();
-    }
-
-
-    public function warningList()
-    {
-
-        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
-        $Classe = Container::getModel('GeneralManagement\\Classe');
-        $Classe->__set('classId', $_GET['classId']);
-
-        $this->view->listWarning = $ClasseWarning->list($Classe);
-
-        $this->render('management/components/classWarning', 'SimpleLayout');
-    }
+    
 }

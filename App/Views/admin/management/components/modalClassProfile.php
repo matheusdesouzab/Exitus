@@ -32,6 +32,10 @@
                                     <span class="box-icon"><i class="fas fa-poll"></i></span> Médias dos alunos
                                 </a>
 
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-warning">
+                                        <span class="box-icon"><i class="fas fa-exclamation-circle"></i></span> Avisos
+                                    </a>
+
                                 <?php
 
                                 if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
@@ -44,10 +48,6 @@
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">
                                         <span class="box-icon"><i class="fas fa-redo"></i></span> Rematrícula
-                                    </a>
-
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-warning">
-                                        <span class="box-icon"><i class="fas fa-exclamation-circle"></i></span> Avisos
                                     </a>
 
                                     <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings">
@@ -562,7 +562,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col" colspan="2">Nome do aluno</th>
-                                            <th scope="col">Resultado</th>
+                                            <th class='text-center' scope="col">Resultado</th>
                                             <th scope="col">Dados da avaliação</th>
                                         </tr>
                                     </thead>

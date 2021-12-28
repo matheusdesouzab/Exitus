@@ -66,6 +66,7 @@ class StudentPortalController extends Action
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Classe = Container::getModel('GeneralManagement\\Classe');
+        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
 
         if (!isset($_SESSION)) session_start();
 
@@ -78,6 +79,7 @@ class StudentPortalController extends Action
         $Classe->__set('classId', $_SESSION['Student']['classId']);
         $ClassDiscipline->__set("fk_id_class", $_SESSION['Student']['classId']);
         $Exam->__set("fk_id_class", $_SESSION['Student']['classId']);
+        $this->view->listWarning = $ClasseWarning->readByIdClasse($Classe);
 
         $this->view->listNote = $Note->readByIdStudent();
         $this->view->listObservation = $Observation->readByIdStudent();
@@ -88,9 +90,9 @@ class StudentPortalController extends Action
         $this->view->currentStatusRematrium = $Settings->currentStatusRematrium();
         $this->view->schoolTermActive = $SchoolTerm->active();
         $this->view->studentDataGeneral = $StudentEnrollment->dataGeneral('<> 0');
-        $this->view->listExam = $Classe->readExamByIdClass();
+        $this->view->listExam = $Exam->readExamByIdClass($Classe);
         $Student->__set('fk_id_enrollmentId', 0);
-        $this->view->listStudent = $Classe->readStudentsLinkedClass();
+        $this->view->listStudent = $Student->readStudentsLinkedClass($Classe);
         $this->view->typeStudentList = "class";
         $this->view->typeTeacherList = 'class';
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();

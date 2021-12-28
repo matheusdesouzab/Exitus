@@ -54,7 +54,7 @@ array_multisort($order, SORT_ASC, $studentsRematrung);
         <?php foreach ($studentsRematrung as $key => $value) { ?>
             <tr>
                 <td class="text-left">
-                    <img class="miniature-photo" src='<?= $value['profilePhoto'] == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['profilePhoto'] ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
+                    <img class="miniature-photo" src='<?= $value['profilePhoto'] == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['profilePhoto'] ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' style="width: 30px;">
                 </td>
 
                 <td class="text-left"><?= $value['name'] ?></td>

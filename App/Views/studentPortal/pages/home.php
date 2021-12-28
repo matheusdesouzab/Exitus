@@ -25,7 +25,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
             <div class="col-lg-12 p-0" id="studentPortal-accordion">
 
-                <nav id="studentPortalNavbar" class="navbar navbar-expand-lg">            
+                <nav id="studentPortalNavbar" class="navbar navbar-expand-lg">
 
                     <a class="navbar-brand" href="#"><?= $_SESSION['Student']['class'] ?></a>
 
@@ -53,7 +53,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     </div>
                 </nav>
- 
+
 
                 <div class="modal fade modal-profile" id="settingsModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
@@ -116,8 +116,8 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                     <div class="row">
 
-                                                        <?php 
-                                                        
+                                                        <?php
+
                                                         $data = explode(' ', $value->realize_date);
                                                         $data = explode('-', $data[0]);
 
@@ -192,7 +192,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         foreach ($this->view->disciplineAverageList as $key => $disciplineAverage) {
                                             $data['dados'][] = ['tipo' => 'disciplineAverage', 'value' => $disciplineAverage];
                                         }
-                                
+
+                                        foreach ($this->view->listWarning as $key => $value) {
+                                            $data['dados'][] = ['tipo' => 'warning', 'value' => $value];
+                                        }
+
 
                                         if (count($data) != 0) {
 
@@ -201,21 +205,21 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                 $sort[$key] = $date;
                                             }
 
-                                            array_multisort($sort,SORT_DESC, $data['dados']);
+                                            array_multisort($sort, SORT_DESC, $data['dados']);
                                         }
 
                                         function currentDate($array)
                                         {
-        
+
                                             date_default_timezone_set('America/Sao_Paulo');
                                             $today = date('d-m');
-        
+
                                             $data = explode(' ', $array);
                                             $data = explode('-', $data[0]);
                                             $data = $data[2] . '-' . $data[1];
-        
-                                            $data = ($data == $today ? ' Hoje' : ' em '. $data);
-        
+
+                                            $data = ($data == $today ? ' Hoje' : ' em ' . $data);
+
                                             return $data;
                                         }
 
@@ -389,10 +393,32 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                     </div>
 
 
+                                                <?php } else if ($value['tipo'] == 'warning') { ?>
+
+
+                                                    <div class="col-lg-11 mx-auto card mb-3">
+
+                                                        <div class="row p-2">
+
+                                                            <div class="col-lg-1 d-flex justify-content-center align-items-start"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+
+                                                            <div class="col-lg-11">
+
+                                                                <p class="mt-2 text-description mb-3"><?= $value['value']->teacher_name ?> adicionou um aviso referente a disciplina de <?= $value['value']->discipline_name ?></p>
+
+                                                                <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->warning ?></textarea>
+
+                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
                                             <?php }
                                             }
                                         } else { ?>
-
 
                                             <div class="col-lg-11 mx-auto card mb-3">Nenhuma postagem até o momento</div>
 
@@ -418,21 +444,23 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                         <div class="row">
 
-                            <div class="col-lg-10 mx-auto">
+                            <div class="col-lg-11 mx-auto">
 
                                 <div class="row mt-3 d-flex mb-4">
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-5">
 
                                         <div class="card side-students">
 
                                             <div class="row">
 
-                                                <h5 class="col-lg-12">Colegas</h5>
+                                                <h5 class="">Colegas</h5>
 
                                                 <div class="col-lg-12 table-responsive">
 
                                                     <table class="table col-lg-12 table-hover mt-3 table-borderless ">
+
+                                                        <?php $typeListStudent = "studentPortal"  ?>
 
                                                         <tbody class="">
 
@@ -449,7 +477,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                     </div>
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-7">
 
                                         <div class="card side-teachers">
 

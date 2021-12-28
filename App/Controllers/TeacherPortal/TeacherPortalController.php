@@ -64,10 +64,7 @@ class TeacherPortalController extends Action
         $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Exam = Container::getModel('TeacherStudent\\Exam');
-        $Note = Container::getModel('TeacherStudent\\Note');
-        $Lack = Container::getModel('TeacherStudent\\Lack');
-        $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
-        $Observation = Container::getModel('TeacherStudent\\Observation');
+        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
 
         if (!isset($_SESSION)) session_start();
 
@@ -76,11 +73,12 @@ class TeacherPortalController extends Action
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->SchoolTermActive = $SchoolTerm->active();
         $this->view->totalStudents = $Teacher->totalStudents();
-        $this->view->listExam = $Teacher->readExamByIdTeacher();
+        $this->view->listExam = $Exam->readExamByIdTeacher($Teacher);
         $this->view->listNote = $Teacher->readNoteByIdTeacher();
         $this->view->listLack = $Teacher->readLackByIdTeacher();
         $this->view->listObservation = $Teacher->readObservationByIdTeacher();
         $this->view->listDisciplineAverage = $Teacher->readByIdTeacher();
+        $this->view->listWarning = $ClasseWarning->readByIdTeacher($Teacher);
 
         $this->render('home', 'TeacherPortalLayout', 'TeacherPortal');
     }

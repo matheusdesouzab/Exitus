@@ -37,6 +37,7 @@ class AdminController extends Action
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $Note = Container::getModel('TeacherStudent\\Note');
         $Lack = Container::getModel('TeacherStudent\\Lack');
+        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
         $DisciplineAverage = Container::getModel('TeacherStudent\\DisciplineAverage');
         $Observation = Container::getModel('TeacherStudent\\Observation');
 
@@ -50,6 +51,7 @@ class AdminController extends Action
         $this->view->listLack = $Lack->readAll(1);
         $this->view->listObservation = $Observation->readAll();
         $this->view->listDisciplineAverage = $DisciplineAverage->readAll();
+        $this->view->listWarning = $ClasseWarning->readAll();
 
         $this->render('home', 'AdminLayout');
     }

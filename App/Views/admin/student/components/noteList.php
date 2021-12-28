@@ -8,7 +8,7 @@
 
         <tr id="note<?= $note->note_id ?>">
 
-            <td><?= $total ?></td>
+            <td><?= $total++ ?></td>
 
             <td class="">
                 <img class="miniature-photo" src='<?= $note->student_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $note->student_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'>
@@ -18,7 +18,7 @@
                 <?= $note->student_name ?>
             </td>
 
-            <td data-toggle="tooltip" data-placement="bottom" title="Aproveitamento - <?= number_format(($note->note_value * 100) / $note->exam_value, 1, '.', '') ?> %"><?= number_format($note->note_value, 1, '.', '') ?> / <?= number_format($note->exam_value, 1, '.', '') ?></td>
+            <td class='text-center' data-toggle="tooltip" data-placement="bottom" title="Aproveitamento - <?= number_format(($note->note_value * 100) / $note->exam_value, 1, '.', '') ?> %"><?= number_format($note->note_value, 1, '.', '') ?> / <?= number_format($note->exam_value, 1, '.', '') ?></td>
 
             <td class="limited-text-description" data-toggle="tooltip" data-placement="bottom" title="<?= $note->exam_description ?> - <?= $note->discipline_name ?> - <?= $note->unity ?>ª unidade"><?= $note->exam_description ?> - <?= $note->discipline_name ?> - <?= $note->unity ?>ª unidade </td>
 

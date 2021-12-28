@@ -416,6 +416,7 @@ class AdminManagementController extends Action
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Teacher = Container::getModel('Teacher\\Teacher');
+        $Student = Container::getModel('Student\\Student');
         $Unity = Container::getModel('GeneralManagement\\Unity');
         $Course = Container::getModel('GeneralManagement\\Course');
         $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
@@ -431,7 +432,7 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
         $Classe->__set('classId', !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);   
 
-        $this->view->listStudent = $Classe->readStudentsLinkedClass('<> 0');
+        $this->view->listStudent = $Student->readStudentsLinkedClass($Classe, '<> 0');
         $this->view->typeStudentList = "class";
         $this->view->classId = $Classe->__get('classId');
         $this->view->typeTeacherList = 'class';
@@ -458,6 +459,9 @@ class AdminManagementController extends Action
         $Unity = Container::getModel('GeneralManagement\\Unity');
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $Teacher = Container::getModel('Teacher\\Teacher');
+        $Exam = Container::getModel('TeacherStudent\\Exam');
+        $Note = Container::getModel('TeacherStudent\\Note');
+        $Student = Container::getModel('Student\\Student');
 
         if (!isset($_SESSION)) session_start();
 
@@ -469,11 +473,11 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
         $Classe->__set("classId", $_GET['classId']);
 
-        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->notesLinkedTeacherClass() : $Classe->readNoteByClassId() ;
+        $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->notesLinkedTeacherClass() : $Note->readNoteByClassId($Classe) ;
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ?  $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects();
-        $this->view->listStudent = $Classe->readStudentsLinkedClass();
+        $this->view->listStudent = $Student->readStudentsLinkedClass($Classe);
         $this->view->unity = $Unity->readOpenUnits();
-        $this->view->listExam = $Classe->readExamByIdClass();
+        $this->view->listExam = $Exam->readExamByIdClass($Classe);
         $this->view->noteStatus = 0;
         $this->view->orderBy = 'alphabetical';
         $this->view->averageType = 'averageUnity';
@@ -555,11 +559,11 @@ class AdminManagementController extends Action
         $Student = Container::getModel('Student\\Student');
 
         $Classe->__set('fk_id_course', $_GET['course']);
-        $Classe->__set('fk_id_series', $_GET['series'] + 1);
+        $Classe->__set('fk_id_series', $_GET['series']);
         $Classe->__set('classId', $_GET['classId']);
 
         $this->view->studentsAlreadyRegisteredNextYear = $Classe->studentsAlreadyRegisteredNextYear();
-        $this->view->listStudent = $Classe->readStudentsLinkedClass();
+        $this->view->listStudent = $Student->readStudentsLinkedClass($Classe);
 
         $this->render('management/components/listStudentsAlreadyEnrolled', 'SimpleLayout');
     }
@@ -643,5 +647,56 @@ class AdminManagementController extends Action
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
         echo json_encode(isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects());
+    }
+
+
+    public function warningInsert()
+    {
+
+        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
+        $ClasseWarning->__set('warning', $_POST['description']);
+        $ClasseWarning->__set('fk_id_discipline_class', $_POST['disciplineClass']);
+
+        $ClasseWarning->insert();
+    }
+
+
+    public function warningList()
+    {
+
+        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
+        $Classe = Container::getModel('GeneralManagement\\Classe');
+        $Teacher = Container::getModel('Teacher\\Teacher');
+
+        if (!isset($_SESSION)) session_start();
+
+        if(isset($_SESSION['Teacher']['id'])) $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+        $Classe->__set('classId', $_GET['classId']);
+
+        $this->view->listWarning = isset($_SESSION['Teacher']['id']) ? $ClasseWarning->readByIdTeacher($Teacher) : $ClasseWarning->readByIdClasse($Classe);
+
+        $this->render('management/components/classWarning', 'SimpleLayout');
+    }
+
+
+    public function warningUpdate()
+    {
+
+        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
+
+        $ClasseWarning->__set('warning', $_POST['description']);
+        $ClasseWarning->__set('classeWarningId', $_POST['id']);
+
+        $ClasseWarning->update();
+    }
+
+
+    public function warningDelete()
+    {
+
+        $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
+        $ClasseWarning->__set('classeWarningId', $_POST['id']);
+
+        $ClasseWarning->delete();
     }
 }

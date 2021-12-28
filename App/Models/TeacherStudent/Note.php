@@ -457,7 +457,7 @@ class Note extends Model
     }
 
 
-     /**
+    /**
      * Retorna as notas das avaliações vinculadas a um aluno
      * 
      * @param int $currentSchoolTerm
@@ -520,4 +520,60 @@ class Note extends Model
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 
+
+    /**
+     * Retorna as notas das avaliações vinculadas a uma turma
+     * 
+     * @return array
+     */
+    public function readNoteByClassId($classe)
+    {
+
+        $query =
+
+            "SELECT 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name , 
+            disciplina.id_disciplina AS discipline_id, 
+            avaliacoes.valor_avaliacao AS exam_value , 
+            nota_avaliacao.valor_nota AS note_value ,
+            unidade.unidade AS unity ,
+            unidade.id_unidade AS unity_id ,
+            nota_avaliacao.id_nota AS note_id ,
+            avaliacoes.id_avaliacao AS exam_id ,
+            avaliacoes.data_realizada AS realize_date ,
+            professor.nome_professor AS teacher_name ,
+            professor.foto_perfil_professor AS teacher_profile_photo , 
+            matricula.id_matricula AS enrollment_id ,
+            aluno.nome_aluno AS student_name ,
+            aluno.foto_perfil_aluno AS student_profile_photo  ,
+            aluno.id_aluno AS student_id ,
+            nota_avaliacao.data_postagem AS post_date ,
+            turma_disciplina.id_turma_disciplina AS class_discipline_id
+      
+            FROM avaliacoes
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN nota_avaliacao ON(avaliacoes.id_avaliacao = nota_avaliacao.fk_id_avaliacao)
+            INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+            
+            WHERE turma_disciplina.fk_id_turma = :classId 
+
+            ORDER BY nota_avaliacao.valor_nota DESC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':classId', $classe->__get('classId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
 }

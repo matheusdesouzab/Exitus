@@ -349,7 +349,7 @@ class Exam extends Model
     }
 
 
-     /**
+    /**
      * Retorna as avaliações que foram adicionadas em uma turma
      * 
      * @param int $currentSchoolTerm
@@ -399,8 +399,121 @@ class Exam extends Model
             CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
 
             ORDER BY avaliacoes.id_avaliacao ASC"
-            
-        );
 
+        );
+    }
+
+
+    /**
+     * Retorna as avaliações vínculadas a uma turma
+     * 
+     * @return array
+     */
+    public function readExamByIdClass($classe)
+    {
+
+        $query =
+
+            "SELECT 
+            
+            avaliacoes.id_avaliacao AS exam_id, 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name, 
+            avaliacoes.data_postagem AS post_date, 
+            avaliacoes.data_realizada AS realize_date, 
+            avaliacoes.valor_avaliacao AS exam_value, 
+            unidade.unidade AS unity,
+            avaliacoes.fk_id_unidade_avaliacao AS fk_id_exam_unity,
+            turma_disciplina.id_turma_disciplina AS fk_id_discipline_class ,
+            professor.nome_professor AS teacher_name ,
+            turma.id_turma AS class_id ,
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,
+            professor.foto_perfil_professor AS profile_photo
+            
+            FROM avaliacoes 
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
+            
+            WHERE turma.id_turma = :classId 
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
+            ORDER BY avaliacoes.id_avaliacao ASC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':classId', $classe->__get('classId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function readExamByIdTeacher($teacher)
+    {
+
+
+        $query =
+
+            "SELECT 
+            
+            avaliacoes.id_avaliacao AS exam_id, 
+            avaliacoes.descricao_avaliacao AS exam_description , 
+            disciplina.nome_disciplina AS discipline_name, 
+            avaliacoes.data_postagem AS post_date, 
+            avaliacoes.data_realizada AS realize_date, 
+            avaliacoes.valor_avaliacao AS exam_value, 
+            unidade.unidade AS unity,
+            avaliacoes.fk_id_unidade_avaliacao AS fk_id_exam_unity,
+            turma_disciplina.id_turma_disciplina AS fk_id_discipline_class ,
+            professor.nome_professor AS teacher_name ,
+            turma.id_turma AS class_id ,
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,
+            professor.foto_perfil_professor AS profile_photo
+            
+            FROM avaliacoes 
+            
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
+            
+            WHERE professor.id_professor = :teacherId
+
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
+
+            ORDER BY avaliacoes.id_avaliacao ASC
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':teacherId', $teacher->__get('teacherId'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
 }
