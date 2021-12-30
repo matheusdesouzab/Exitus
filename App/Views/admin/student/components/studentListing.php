@@ -24,7 +24,7 @@
 
                 <td><?= $student->email ?></td>
 
-               <?php if($typeListStudent != "studentPortal"){ ?> <td><?= $student->situation ?></td> <?php } ?>
+               <td><?= $student->situation ?></td> 
 
             <?php } ?>
 

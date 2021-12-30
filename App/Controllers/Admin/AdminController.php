@@ -87,8 +87,6 @@ class AdminController extends Action
                     'hierarchyFunction' => $auth[0]->hierarchy_function
                 ];
 
-                session_cache_expire(200);
-
                 header('Location: /admin/home');
             } else {
 
@@ -118,6 +116,7 @@ class AdminController extends Action
         $this->view->bloodType = $Admin->availablebloodType();
         $this->listHierarchyFunction = $Admin->listHierarchyFunction();
         $this->view->modalType = 'data-and-config';
+        $this->view->accountStates = $Admin->accountStates();
 
         $this->render('settings', 'SimpleLayout');
     }
@@ -155,6 +154,7 @@ class AdminController extends Action
         $Admin->__set('fk_id_pcd', $_POST['pcd']);
         $Admin->__set('fk_id_hierarchy_function', $_POST['hierarchyFunction']);
         $Admin->__set('id', $_POST['adminId']);
+        $Admin->__set('fk_id_account_state', $_POST['accountState']);
 
         $Telephone->update();
         $Address->update();
@@ -206,6 +206,7 @@ class AdminController extends Action
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->availablebloodType();
         $this->listHierarchyFunction = $Admin->listHierarchyFunction();
+        $this->view->accountStates = $Admin->accountStates();
 
         $this->render('settings', 'SimpleLayout');
     }

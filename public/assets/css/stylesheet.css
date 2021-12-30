@@ -666,6 +666,15 @@ button {
 #studentPortal #pagina {
   background-color: #f9f8f8 !important;
 }
+#studentPortal #studentsTeachersAccordion [aria-expanded=true], #studentPortal #averageAndNotes [aria-expanded=true] {
+  background-color: blue;
+  color: white;
+}
+#studentPortal #studentsTeachersAccordion a, #studentPortal #averageAndNotes a {
+  background-color: white;
+  border: 1px solid #e5e5e5;
+  font-weight: 500;
+}
 
 #admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
 #admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > th,
@@ -838,6 +847,11 @@ button {
 #studentPortal #pagina nav#studentPortalNavbar a {
   color: #8B8E90;
   padding: 5px 25px;
+}
+#admin #pagina nav#studentPortalNavbar .fa-sign-out-alt,
+#teacherPortal #pagina nav#studentPortalNavbar .fa-sign-out-alt,
+#studentPortal #pagina nav#studentPortalNavbar .fa-sign-out-alt {
+  font-size: 15px;
 }
 #admin #pagina nav#studentPortalNavbar .navbar-brand,
 #teacherPortal #pagina nav#studentPortalNavbar .navbar-brand,

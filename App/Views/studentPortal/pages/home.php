@@ -36,19 +36,33 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                     <div class="collapse navbar-collapse" id="navbarNav">
 
                         <ul class="navbar-nav ml-auto d-flex align-items-center">
+
                             <li class="nav-item active">
                                 <a class="nav-link" aria-expanded="true" href="#" data-toggle="collapse" data-target="#mural">Mural</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin">Boletim</a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#statistics" href="#">Turma</a>
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#class" href="#">Turma</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#">Notas e medias</a>
+                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    <img class="" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg"></a>
+                                    <img class="" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg">
+                                </a>
                             </li>
+
+                            <li class="nav-item mr-2">
+                                <a href="/portal-aluno/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a>
+                            </li>
+
                         </ul>
 
                     </div>
@@ -98,7 +112,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         ?>
 
 
-                                        <h5 class="p-2 col-lg-11">Atividades recentes</h5>
+                                        <h5 class="p-2 col-lg-11">Atividades agendadas</h5>
 
                                         <?php if (count($this->view->listExam) > 1) { ?>
 
@@ -214,11 +228,14 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                             date_default_timezone_set('America/Sao_Paulo');
                                             $today = date('d-m');
 
-                                            $data = explode(' ', $array);
-                                            $data = explode('-', $data[0]);
-                                            $data = $data[2] . '-' . $data[1];
+                                            $dataFull = explode(' ', $array);
+                                            $data = explode('-', $dataFull[0]);
+                                            $horas = explode(':', $dataFull[1]);
 
-                                            $data = ($data == $today ? ' Hoje' : ' em ' . $data);
+                                            $data = $data[2] . '-' . $data[1];
+                                            $horas = $horas[0] . ':' . $horas[1];
+
+                                            $data = ($data == $today ? ' Hoje' : ' em ' . $data . ' as ' . $horas);
 
                                             return $data;
                                         }
@@ -332,7 +349,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                 <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observation_description ?></textarea>
 
-                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small>
+                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small>
 
                                                             </div>
 
@@ -355,7 +372,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                                 <div class="col-lg-12 p-0">
                                                                     <div class="row">
                                                                         <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve um total de <?= $value['value']->total_lack ?> faltas</small></div>
-                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small></div>
+                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
                                                                     </div>
                                                                 </div>
 
@@ -382,7 +399,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                                 <div class="col-lg-12 p-0">
                                                                     <div class="row">
                                                                         <div class="col-lg-8"><small class="font-weight-bold p-0">Sua média final foi de <?= number_format($value['value']->average, 1, '.', '') ?> - Você está <?= lcfirst($value['value']->subtitle) ?> na disciplina</small></div>
-                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small></div>
+                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
                                                                     </div>
                                                                 </div>
 
@@ -408,7 +425,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                 <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->warning ?></textarea>
 
-                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado em <?= currentDate($value['value']->post_date) ?></small>
+                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small>
 
                                                             </div>
 
@@ -440,7 +457,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     </div>
 
-                    <div class="collapse mt-3" id="statistics" data-parent="#studentPortal-accordion">
+                    <div class="collapse mt-3" id="class" data-parent="#studentPortal-accordion">
 
                         <div class="row">
 
@@ -448,28 +465,69 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                 <div class="row mt-3 d-flex mb-4">
 
-                                    <div class="col-lg-5">
+                                    <div class="accordion col-lg-12" id="studentsTeachersAccordion">
 
-                                        <div class="card side-students">
+                                        <p class="text-right">
 
-                                            <div class="row">
+                                            <a class="btn" type="button" data-toggle="collapse" data-target="#students" aria-expanded="true" aria-controls="students">
+                                                Alunos
+                                            </a>
+                                            <a class="btn" type="button" data-toggle="collapse" data-target="#teachers" aria-expanded="false" aria-controls="teachers">
+                                                Docentes
+                                            </a>
 
-                                                <h5 class="">Colegas</h5>
+                                        </p>
 
-                                                <div class="col-lg-12 table-responsive">
 
-                                                    <table class="table col-lg-12 table-hover mt-3 table-borderless ">
+                                        <div id="students" class="collapse show" data-parent="#studentsTeachersAccordion">
 
-                                                        <?php $typeListStudent = "studentPortal"  ?>
+                                            <div class="card col-lg-12">
 
-                                                        <tbody class="">
+                                                <table class="table table-hover mt-3 table-borderless">
 
-                                                            <?php require '../App/Views/admin/student/components/studentListing.php' ?>
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="2">Nome do aluno</th>
+                                                            <th>Email</th>
+                                                            <th>Situação no período letivo</th>
+                                                        </tr>
+                                                    </thead>
 
-                                                        </tbody>
-                                                    </table>
+                                                    <tbody class="">
 
-                                                </div>
+                                                        <?php require '../App/Views/admin/student/components/studentListing.php' ?>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div id="teachers" class="collapse" data-parent="#studentsTeachersAccordion">
+
+                                            <div class="card col-lg-12">
+
+                                                <table class="table table-hover mt-3 table-borderless">
+
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="2">Nome do docente</th>
+                                                            <th>Email</th>
+                                                            <th>Disciplina</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody class="">
+
+                                                        <?php require '../App/Views/admin/teacher/components/teacherListing.php' ?>
+
+                                                    </tbody>
+
+                                                </table>
+
+
 
                                             </div>
 
@@ -477,28 +535,183 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                     </div>
 
-                                    <div class="col-lg-7">
+                                </div>
 
-                                        <div class="card side-teachers">
+                            </div>
 
-                                            <div class="row">
+                        </div>
 
-                                                <h5 class="col-lg-12 ml-4">Professores</h5>
+                    </div>
 
-                                                <div class="col-lg-12 table-responsive">
 
-                                                    <table class="table col-lg-12 table-hover mt-3 table-borderless ">
+                    <div class="collapse mt-3" id="averageNote" data-parent="#studentPortal-accordion">
 
-                                                        <tbody class="">
+                        <div class="row">
 
-                                                            <?php require '../App/Views/admin/teacher/components/teacherListing.php' ?>
+                            <div class="col-lg-11 mx-auto">
 
-                                                        </tbody>
-                                                    </table>
+                                <div class="row mt-3 d-flex mb-4">
+
+                                    <div class="accordion col-lg-12" id="averageAndNotes">
+
+                                        <p class="text-right">
+
+                                            <a class="btn" type="button" data-toggle="collapse" data-target="#notes" aria-expanded="true" aria-controls="notes">
+                                                Notas das avaliações
+                                            </a>
+                                            <a class="btn" type="button" data-toggle="collapse" data-target="#average" aria-expanded="false" aria-controls="average">
+                                                Médias gerais
+                                            </a>
+
+                                        </p>
+
+
+                                        <div id="average" class="collapse" data-parent="#averageAndNotes">
+
+                                            <div class="card col-lg-12">
+
+                                                <div class='col-lg-11 mx-auto'>
+
+                                                    <form id="seekAverageStudentProfile" class="text-dark mt-3 accordion" action="">
+
+                                                        <input type="hidden" value="<?= $_SESSION['Student']['enrollmentId'] ?>" name="enrollmentId">
+                                                        <input type="hidden" value="<?= $_SESSION['Student']['classId'] ?>" name="classId">
+
+                                                        <div class="form-row mt-3">
+
+                                                            <div class="form-group col-lg-4">
+
+                                                                <label for="">Disciplina:</label>
+
+                                                                <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
+
+                                                                    <option value="0">Todas</option>
+
+                                                                    <?php foreach ($this->view->linkedDisciplines as $key => $discipline) { ?>
+
+                                                                        <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                                    <?php } ?>
+
+                                                                </select>
+
+                                                            </div>
+
+                                                            <div class="form-group col-lg-2">
+
+                                                                <label for="">Unidade:</label>
+
+                                                                <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                                    <option value="0">Todas</option>
+
+                                                                    <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                                        <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                                    <?php } ?>
+
+                                                                </select>
+
+                                                            </div>
+
+
+
+                                                            <div class="form-group col-lg-4">
+
+                                                                <label for="">Status da média:</label>
+
+                                                                <select id="noteStatus" class="form-control custom-select" name="noteStatus" required>
+
+                                                                    <option value="0">Todos os status</option>
+                                                                    <option value="Aprovado">Aprovado</option>
+                                                                    <option value="Reprovado">Reprovado</option>
+
+                                                                </select>
+
+                                                            </div>
+
+                                                            <div class="form-group col-lg-2">
+                                                                <label for="">&nbsp;</label>
+
+                                                                <div>
+                                                                    <a class="btn btn-light w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-filter"></i></a>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div id="activate-advanced-search-accordion" class="collapse" data-parent="#seekAverageStudentProfile">
+
+                                                            <div class="form-row">
+
+                                                                <div class="form-group col-lg-3">
+
+                                                                    <label for="">Ordenar por:</label>
+
+                                                                    <select id="orderBy" class="form-control custom-select" name="orderBy" required>
+
+                                                                        <option value="highestGrade">Maior média</option>
+                                                                        <option value="lowestGrade">Menor média</option>
+                                                                        <option value="alphabetical">Ordem Alfabética</option>
+
+                                                                    </select>
+
+                                                                </div>
+
+                                                                <div class="form-group col-lg-3">
+
+                                                                    <label for="">Tipo da média:</label>
+
+                                                                    <select id="averageType" class="form-control custom-select" name="averageType" required>
+
+                                                                        <option value="averageUnity">Média unidade</option>
+                                                                        <option value="averageEnd">Média final</option>
+
+                                                                    </select>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </form>
 
                                                 </div>
 
+                                                <div containerStudentsProfileAverage class="col-lg-11 mx-auto table-responsive"></div>
+
                                             </div>
+
+                                        </div>
+
+                                        <div id="notes" class="collapse show" data-parent="#averageAndNotes">
+
+                                            <div class="card col-lg-12">
+
+                                                <table class="table table-hover mt-3 table-borderless">
+
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan="2">Nome do docente</th>
+                                                            <th>Email</th>
+                                                            <th>Disciplina</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody class="">
+
+                                                        <?php require '../App/Views/admin/teacher/components/teacherListing.php' ?>
+
+                                                    </tbody>
+
+                                                </table>
+
+
+
+                                            </div>
+
                                         </div>
 
                                     </div>
@@ -520,6 +733,8 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 <script src="/node_modules/jquery/dist/jquery.js"></script>
 
 <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
 <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 

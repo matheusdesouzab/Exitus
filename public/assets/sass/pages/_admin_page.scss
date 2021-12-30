@@ -16,6 +16,18 @@
     #pagina {
         background-color: #f9f8f8 !important;
     }
+
+    #studentsTeachersAccordion, #averageAndNotes{
+        [aria-expanded="true"]{
+            background-color: blue;
+            color: white;
+        }
+        a{
+            background-color: white;
+            border: 1px solid #e5e5e5;
+            font-weight: 500;
+        }
+    }
 }
 
 
@@ -183,6 +195,10 @@
             a {
                 color: #8B8E90;
                 padding: 5px 25px;
+            }
+
+            .fa-sign-out-alt{
+                font-size: 15px;
             }
 
             .navbar-brand {

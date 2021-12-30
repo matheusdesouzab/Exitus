@@ -67,6 +67,7 @@ class StudentPortalController extends Action
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
         $Classe = Container::getModel('GeneralManagement\\Classe');
         $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
+        $Unity = Container::getModel('GeneralManagement\\Unity');
 
         if (!isset($_SESSION)) session_start();
 
@@ -80,6 +81,7 @@ class StudentPortalController extends Action
         $ClassDiscipline->__set("fk_id_class", $_SESSION['Student']['classId']);
         $Exam->__set("fk_id_class", $_SESSION['Student']['classId']);
         $this->view->listWarning = $ClasseWarning->readByIdClasse($Classe);
+        $this->view->unity = $Unity->readOpenUnits();
 
         $this->view->listNote = $Note->readByIdStudent();
         $this->view->listObservation = $Observation->readByIdStudent();
@@ -96,6 +98,7 @@ class StudentPortalController extends Action
         $this->view->typeStudentList = "class";
         $this->view->typeTeacherList = 'class';
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
+        $this->view->linkedDisciplines = $ClassDiscipline->classLinkedSubjects();
 
         $this->render("pages/home", "SimpleLayout", "studentPortal");
     }
@@ -124,12 +127,13 @@ class StudentPortalController extends Action
 
         $Student->__set('studentId', $_SESSION['Student']['id']);
         $StudentEnrollment->__set('studentEnrollmentId', $_SESSION['Student']['enrollmentId']);
+        $StudentEnrollment->__set('fk_id_student', $_SESSION['Student']['id']);
 
         $this->view->studentProfile = $Student->dataGeneral();
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->bloodType = $Student->availablebloodType();
-        $this->view->studentEnrollment = $StudentEnrollment->dataGeneral("<> 0");
+        $this->view->studentEnrollment = $StudentEnrollment->allRegistrations();
 
         $this->render('pages/settings', 'SimpleLayout', 'studentPortal');
     }
@@ -146,13 +150,13 @@ class StudentPortalController extends Action
 
         $_SESSION['Student']['enrollmentId'] = $_POST['enrollmentId'];
         $StudentEnrollment->__set('studentEnrollmentId',  $_SESSION['Student']['enrollmentId']);
-        $class = $StudentEnrollment->readById('<> 0');
+        $class = $StudentEnrollment->dataGeneral('<> 0');
 
         $_SESSION['Student']['classId'] = $class[0]->class_id;
         $Classe->__set('classId', $class[0]->class_id);
-        $class0 = $Classe->list("<> 0");
+        $class0 = $Classe->dataGeneral("<> 0");
 
-        $_SESSION['Student']['class'] = $class0[0]->seriesId . 'ª ' . $class0[0]->ballot . ' - ' . $class0[0]->courseName . ' - ' . $class0[0]->shift; 
+        $_SESSION['Student']['class'] = $class0[0]->series_id . 'ª ' . $class0[0]->ballot . ' - ' . $class0[0]->course_name . ' - ' . $class0[0]->shift; 
     }
 
 

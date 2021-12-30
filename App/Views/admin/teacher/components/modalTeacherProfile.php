@@ -133,7 +133,7 @@
 
                                                 <span idElement="#teacherModal<?= $teacher->id ?>" formGroup="containerListTeacher" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
-                                                <span idElement="#teacherModal<?= $teacher->id ?>" routeUpdate="/admin/professor/lista/perfil-professor/atualizar" toastData="Dados atualizados" container="containerListTeacher" routeList="/admin/professor/lista/listagem" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                <span idElement="#teacherModal<?= $teacher->id ?>" routeUpdate="/admin/professor/lista/perfil-professor/atualizar" toastData="Dados atualizados" routeData="#teacherModal<?= $teacher->id ?>" container="containerTeacherProfileModal" routeList="/admin/professor/lista/perfil-professor" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
 
                                             </div>
 
@@ -232,6 +232,23 @@
                                         <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
                                             <?php if ($bloodType->option_value != $teacher->blood_type_id) { ?>
                                                 <option value="<?= $bloodType->option_value ?>"><?= $bloodType->option_text ?></option>
+                                        <?php }
+                                        } ?>
+                                    </select>
+
+                                </div>
+                                
+                                <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="addon-wrapping">Situação da conta:</span>
+                                    </div>
+
+                                    <select id="accountState" name="accountState" disabled class="form-control custom-select">
+                                        <option value="<?= $teacher->account_state_id ?>"><?= $teacher->account_state ?></option>
+                                        <?php foreach ($this->view->accountStates as $key => $account) { ?>
+                                            <?php if ($account->option_value != $teacher->account_state_id) { ?>
+                                                <option value="<?= $account->option_value ?>"><?= $account->option_text ?></option>
                                         <?php }
                                         } ?>
                                     </select>

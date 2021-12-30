@@ -267,7 +267,7 @@ $(document).on("blur", "#profileClassModal #addExam #disciplineClass , #addExam 
 })
 
 
-$(document).on("click", "#profileStudentModal [data-target='#class-student-profile-average']", function (e) {
+$(document).on("click", "#profileStudentModal [data-target='#class-student-profile-average'], [data-target='#averageNote']", function (e) {
     application.loadListElements("containerStudentsProfileAverage", "/admin/gestao/turma/perfil-turma/aluno/medias-gerais", "#addNote")
 })
 

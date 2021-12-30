@@ -326,18 +326,37 @@
                                     <span class="input-group-text" id="addon-wrapping">Hierarquia no sistema:</span>
                                 </div>
 
+
                                 <select id="hierarchyFunction" name="hierarchyFunction" disabled class="form-control custom-select">
                                     <option value="<?= $admin->hierarchy_function_id ?>"><?= $admin->hierarchy_function ?></option>
 
-                                    <?php
-
-                                    if ($_SESSION['Admin']['hierarchyFunction'] == 1) {
+                                    <?php                                 
+                       
+                                    if ($admin->hierarchy_function_id == 1) {
 
                                         foreach ($this->listHierarchyFunction as $key => $value) { ?>
                                             <?php if ($value->option_value != $admin->hierarchy_function_id) { ?>
                                                 <option value="<?= $value->option_value ?>"><?= $value->option_text ?></option>
                                     <?php }
                                         }
+                                    } ?>
+                                </select>
+
+                            </div>
+
+
+                            <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Situação da conta:</span>
+                                </div>
+
+                                <select id="accountState" name="accountState" disabled class="form-control custom-select">
+                                    <option value="<?= $admin->account_state_id ?>"><?= $admin->account_state ?></option>
+                                    <?php foreach ($this->view->accountStates as $key => $account) { ?>
+                                        <?php if ($account->option_value != $admin->account_state_id) { ?>
+                                            <option value="<?= $account->option_value ?>"><?= $account->option_text ?></option>
+                                    <?php }
                                     } ?>
                                 </select>
 

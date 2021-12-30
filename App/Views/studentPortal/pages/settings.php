@@ -322,8 +322,6 @@
 
                                         </div>
 
-
-
                                         <div class="form-group p-0 mt-4 d-flex align-items-center">
 
                                             <label class="col-lg-4 p-0" for="">Dados vinculados: </label>
@@ -338,7 +336,7 @@
 
                                                         <?php if ($_SESSION['Student']['classId'] <> $value->class_id) { ?>
 
-                                                            <option value="<?= $value->enrollmentId ?>"><?= $value->acronym_series ?> ª <?= $value->ballot ?> - <?= $value->courseName ?> - <?= $value->shift ?></option>
+                                                            <option value="<?= $value->enrollment_id ?>"><?= $value->acronym_series ?> ª <?= $value->ballot ?> - <?= $value->course_name ?> - <?= $value->shift ?></option>
 
                                                     <?php }
                                                     } ?>

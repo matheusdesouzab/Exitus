@@ -33,11 +33,11 @@ class Teacher extends People
 
             "INSERT INTO professor 
             
-                (nome_professor, cpf_professor, data_nascimento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso , email_professor , fk_id_professor_hierarquia_funcao)
+                (nome_professor, cpf_professor, data_nascimento_professor, naturalidade_professor, foto_perfil_professor, nacionalidade_professor,fk_id_sexo_professor, fk_id_tipo_sanguineo_professor, fk_id_pcd_professor, fk_id_endereco_professor, fk_id_telefone_professor , codigo_acesso , email_professor , fk_id_professor_hierarquia_funcao, fk_id_situacao_conta_professor)
 
             VALUES 
             
-                (:teacherName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address,:fk_id_telephone , :accessCode , :email , :fk_id_hierarchy_function)     
+                (:teacherName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address,:fk_id_telephone , :accessCode , :email , :fk_id_hierarchy_function , 1)     
         ";
 
         $stmt = $this->db->prepare($query);
@@ -114,7 +114,9 @@ class Teacher extends People
             email_professor AS email ,
             professor.codigo_acesso AS access_code ,
             hierarquia_funcao.hierarquia_funcao AS hierarchy_function ,
-            hierarquia_funcao.id_hierarquia_funcao AS hierarchy_function_id 
+            hierarquia_funcao.id_hierarquia_funcao AS hierarchy_function_id ,
+            situacao_conta.id_situacao_conta AS account_state_id , 
+            situacao_conta.situacao_conta AS account_state 
             
             FROM professor 
             
@@ -125,6 +127,7 @@ class Teacher extends People
             LEFT JOIN tipo_sanguineo ON(tipo_sanguineo.id_tipo_sanguineo = professor.fk_id_tipo_sanguineo_professor) 
             LEFT JOIN pcd ON(pcd.id_pcd = professor.fk_id_pcd_professor) 
             INNER JOIN hierarquia_funcao ON(professor.fk_id_professor_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao)
+            INNER JOIN situacao_conta ON(professor.fk_id_situacao_conta_professor = situacao_conta.id_situacao_conta)
 
             WHERE professor.id_professor = :teacherId 
 
@@ -202,7 +205,8 @@ class Teacher extends People
             fk_id_tipo_sanguineo_professor = :fk_id_blood_type, 
             fk_id_pcd_professor = :fk_id_pcd , 
             data_nascimento_professor = :birthDate ,
-            email_professor = :email
+            email_professor = :email ,
+            fk_id_situacao_conta_professor = :fk_id_account_state 
             
             WHERE id_professor = :teacherId
         
@@ -220,6 +224,7 @@ class Teacher extends People
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
         $stmt->bindValue(':teacherId', $this->__get('teacherId'));
         $stmt->bindValue(':email', $this->__get('email'));
+        $stmt->bindValue(':fk_id_account_state', $this->__get('fk_id_account_state'));
 
         $stmt->execute();
     }

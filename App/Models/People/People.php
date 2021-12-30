@@ -21,6 +21,7 @@ class People extends Model
     protected $fk_id_pcd;
     protected $fk_id_address;
     protected $fk_id_telephone;
+    protected $fk_id_account_state;
 
 
     public function __get($att)
@@ -108,5 +109,21 @@ class People extends Model
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    public function accountStates()
+    {
+
+        return $this->speedingUp(
+
+            "SELECT 
+            
+            situacao_conta.id_situacao_conta AS option_value , 
+            situacao_conta.situacao_conta AS option_text
+            
+            FROM situacao_conta"
+
+        );
     }
 }

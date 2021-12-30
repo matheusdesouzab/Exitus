@@ -51,7 +51,7 @@ class Admin extends People
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
         $stmt->bindValue(':fk_id_address', $this->__get('fk_id_address'));
         $stmt->bindValue(':fk_id_telephone', $this->__get('fk_id_telephone'));
-        $stmt->bindValue(':fk_id_account_status', $this->__get('fk_id_account_status'));
+        $stmt->bindValue(':fk_id_account_status', 1);
         $stmt->bindValue(':fk_id_hierarchy_function', $this->__get('fk_id_hierarchy_function'));
 
         $stmt->execute();
@@ -128,7 +128,9 @@ class Admin extends People
             telefone.id_telefone AS telephone_id ,
             telefone.numero_telefone AS telephone_number ,
             hierarquia_funcao.hierarquia_funcao AS hierarchy_function ,
-            hierarquia_funcao.id_hierarquia_funcao AS hierarchy_function_id 
+            hierarquia_funcao.id_hierarquia_funcao AS hierarchy_function_id ,
+            situacao_conta.id_situacao_conta AS account_state_id , 
+            situacao_conta.situacao_conta AS account_state 
             
             FROM administrador 
             
@@ -138,6 +140,7 @@ class Admin extends People
             INNER JOIN telefone ON(administrador.fk_id_telefone_administrador = telefone.id_telefone) 
             INNER JOIN endereco ON(administrador.fk_id_endereco_administrador = endereco.id_endereco)
             INNER JOIN hierarquia_funcao ON(administrador.fk_id_administrador_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao)
+            INNER JOIN situacao_conta ON(administrador.fk_id_situacao_conta_administrador = situacao_conta.id_situacao_conta)
             
             WHERE administrador.id_administrador = :id
             
@@ -191,7 +194,8 @@ class Admin extends People
             fk_id_pcd_administrador = :fk_id_pcd , 
             data_nascimento_administrador = :birthDate ,
             email_administrador = :email ,
-            fk_id_administrador_hierarquia_funcao = :fk_id_hierarchy_function
+            fk_id_administrador_hierarquia_funcao = :fk_id_hierarchy_function ,
+            fk_id_situacao_conta_administrador = :fk_id_account_state
          
             WHERE id_administrador = :id
         
@@ -210,6 +214,7 @@ class Admin extends People
         $stmt->bindValue(':id', $this->__get('id'));
         $stmt->bindValue(':email', $this->__get('email'));
         $stmt->bindValue(':fk_id_hierarchy_function', $this->__get('fk_id_hierarchy_function'));
+        $stmt->bindValue(':fk_id_account_state', $this->__get('fk_id_account_state'));
 
         $stmt->execute();
     }

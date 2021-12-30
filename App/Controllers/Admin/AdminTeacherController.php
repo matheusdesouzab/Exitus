@@ -51,6 +51,7 @@ class AdminTeacherController extends Action
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
         $Teacher->__set('fk_id_hierarchy_function', 3);
+        $Teacher->__set('fk_id_account_state', 1);
 
         $Teacher->__set('fk_id_telephone', $Telephone->insert());
         $Teacher->__set('fk_id_address', $Address->insert());
@@ -110,14 +111,15 @@ class AdminTeacherController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
         $ClassDiscipline =  Container::getModel('GeneralManagement\\ClassDiscipline');
 
-        $Teacher->__set('teacherId', $_GET['id']);
-        $ClassDiscipline->__set('fk_id_teacher', $_GET['id']);
+        $Teacher->__set('teacherId', ! isset($_GET['id']) ? $_GET['teacherId'] :  $_GET['id']);
+        $ClassDiscipline->__set('fk_id_teacher', ! isset($_GET['id']) ? $_GET['teacherId'] :  $_GET['id']);
 
         $this->view->teacherProfile = $Teacher->dataGeneral();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->bloodType = $Teacher->availablebloodType();
         $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
+        $this->view->accountStates = $Teacher->accountStates();
 
         $this->render('teacher/components/modalTeacherProfile', 'SimpleLayout');
     }
@@ -153,20 +155,12 @@ class AdminTeacherController extends Action
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
         $Teacher->__set('teacherId', $_POST['teacherId']);
+        $Teacher->__set('fk_id_account_state', $_POST['accountState']);
 
         $Telephone->update();
         $Address->update();
         $Teacher->update();
 
-        $this->view->teacherProfile = $Teacher->profile();
-        $this->view->typeTeacherList = 'normal';
-        $this->view->availableSex = $Teacher->availableSex();
-        $this->view->pcd = $Teacher->pcd();
-        $this->view->bloodType = $Teacher->availablebloodType();
-        $this->view->subjectsThatTeacherTeaches = $ClassDiscipline->subjectsThatTeacherTeaches();
-
-
-        $this->render('teacher/components/modalTeacherProfile', 'SimpleLayout');
     }
 
 
