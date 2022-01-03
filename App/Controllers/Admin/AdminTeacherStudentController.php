@@ -548,10 +548,10 @@ class AdminTeacherStudentController extends Action
             $Note->__set("fk_id_student_enrollment", $_GET["enrollmentId"]);
         }
 
-        $ClassDiscipline->__set("fk_id_class", isset($_GET['classId']) ? $_GET['classId'] : $_SESSION['Student']['classId']);
-        $Classe->__set("classId", isset($_GET['classId']) ? $_GET['classId'] : $_SESSION['Student']['classId']);
+        $ClassDiscipline->__set("fk_id_class",$_GET['classId']);
+        $Classe->__set("classId",$_GET['classId']);
 
-        $StudentEnrollment->__set("studentEnrollmentId", isset($_GET['enrollmentId']) ? $_GET['enrollmentId'] : $_SESSION['Student']['enrollmentId']);
+        $StudentEnrollment->__set("studentEnrollmentId", $_GET['enrollmentId']);
 
         $this->view->listStudent = $StudentEnrollment->dataGeneral();
         $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Note->readNoteByIdTeacher($Teacher) : $Note->readNoteByClassId($Classe);

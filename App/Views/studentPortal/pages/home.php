@@ -25,7 +25,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
             <div class="col-lg-12 p-0" id="studentPortal-accordion">
 
-                <nav id="studentPortalNavbar" class="navbar navbar-expand-lg">
+                <nav id="studentPortalNavbar" class="navbar navbar-expand">
 
                     <a class="navbar-brand" href="#"><?= $_SESSION['Student']['class'] ?></a>
 
@@ -53,13 +53,13 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                 <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#">Notas e medias</a>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item nav-fixed">
                                 <a class="nav-link" href="#">
                                     <img class="" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg">
                                 </a>
                             </li>
 
-                            <li class="nav-item mr-2">
+                            <li class="nav-item mr-2 nav-fixed">
                                 <a href="/portal-aluno/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a>
                             </li>
 
@@ -92,7 +92,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                             <div class="row mt-4 d-flex justify-content-between ">
 
-                                <div class="col-md-3 side-exams">
+                                <div class="col-sm-4 col-lg-3 side-exams">
 
                                     <div class="row side-exams-content">
 
@@ -112,19 +112,19 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         ?>
 
 
-                                        <h5 class="p-2 col-lg-11">Atividades agendadas</h5>
+                                        <h5 class="p-2 col-11 p-sm-0">Atividades agendadas</h5>
 
                                         <?php if (count($this->view->listExam) > 1) { ?>
 
                                             <?php foreach ($this->view->listExam as $key => $value) { ?>
 
-                                                <div class="col-lg-11 card mb-3">
+                                                <div class="col-11 card mb-3">
 
                                                     <div class="row d-flex justify-content-center align-items-center">
 
-                                                        <div class="col-lg-2"><img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                        <div class="col-2"><img class="miniature-photo" src='<?= $value->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value->profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                        <div class="col-lg-10 name-teacher"><?= $value->teacher_name ?></div>
+                                                        <div class="col-10 name-teacher"><?= $value->teacher_name ?></div>
 
                                                     </div>
 
@@ -157,9 +157,9 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                     <div class="row exam-description-footer">
 
-                                                        <div class="col-lg-6">Valor: <?= $value->exam_value ?> <?= $pointsOrTenths ?></div>
+                                                        <div class="col-6">Valor: <?= $value->exam_value ?> <?= $pointsOrTenths ?></div>
 
-                                                        <div class="col-lg-6">Data: <?= $data[2] ?>-<?= $data[1] ?>-<?= $data[0] ?></div>
+                                                        <div class="col-6">Data: <?= $data[2] ?>-<?= $data[1] ?>-<?= $data[0] ?></div>
 
                                                     </div>
 
@@ -179,11 +179,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                 </div>
 
-                                <div class="col-md-9 side-mural">
+                                <div class="col-sm-8 col-lg-9 side-mural">
 
                                     <div class="row">
 
-                                        <h5 class="p-2 col-lg-11 ml-4">Postagens recentes</h5>
+                                        <h5 class="title">Postagens recentes</h5>
 
                                         <?php
 
@@ -246,7 +246,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         <?php if (count($this->view->checkForRegistration) != 1 && $this->view->currentStatusRematrium[0]->option_value == 1 && $this->view->studentDataGeneral[0]->school_term_situation == 1) { ?>
 
-                                            <div class="col-lg-11 mx-auto card mb-3">
+                                            <div class="col-sm-11 mx-auto card mb-3">
 
                                                 <div class="row p-2">
 
@@ -311,45 +311,56 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                 if ($value['tipo'] == 'note') { ?>
 
-                                                    <div class="col-lg-11 mx-auto card mb-3">
+                                                    <div class="col-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-sm-1  d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                            <div class="col-lg-11">
+                                                            <div class="col-sm-11">
 
-                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu sua nota em <?= $value['value']->exam_description ?> da <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
-
-                                                                <div class="col-lg-12 p-0">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve <?= number_format($value['value']->note_value, 1, '.', '') ?> / <?= number_format($value['value']->exam_value, 1, '.', '') ?> </small></div>
-                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
-                                                                    </div>
-                                                                </div>
+                                                                <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu sua nota na avaliação - <?= $value['value']->exam_description ?> - da <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
 
                                                             </div>
 
                                                         </div>
 
-                                                    </div>
+                                                        <div class="row p-2">
 
+                                                            <div class="col-12">
+                                                                <div class="row">
+                                                                    <div class="col-lg-8"><small class="font-weight-bold text-important">Você obteve  <?= number_format($value['value']->note_value, 1, '.', '') ?> de um total de <?= number_format($value['value']->exam_value, 1, '.', '') ?> pontos</small></div>
+
+                                                                    <div class="col-lg-4 d-flex justify-content-end"><small class="text-muted p-0 mt-3"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
 
                                                 <?php } else if ($value['tipo'] == 'observation') { ?>
 
-                                                    <div class="col-lg-11 mx-auto card mb-3">
+                                                    <div class="col-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-start"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-sm-1 d-flex justify-content-center align-items-start mx-auto"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                            <div class="col-lg-11">
+                                                            <div class="col-sm-11">
 
                                                                 <p class="mt-2 text-description mb-3">Você recebeu uma observação de <?= $value['value']->teacher_name ?> referente a <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
 
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="row p-2">
+
+                                                            <div class="col-lg-12">
+
                                                                 <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->observation_description ?></textarea>
 
-                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small>
+                                                                <small class="text-muted col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small>
 
                                                             </div>
 
@@ -357,27 +368,32 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                     </div>
 
+
                                                 <?php } else if ($value['tipo'] == 'lack') { ?>
 
-                                                    <div class="col-lg-11 mx-auto card mb-3">
+                                                    <div class="col-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-sm-1 d-flex justify-content-center align-items-center mx-auto"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                            <div class="col-lg-11">
+                                                            <div class="col-sm-11">
 
                                                                 <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu suas faltas da <?= $value['value']->unity ?> unidade de <?= $value['value']->discipline_name ?></p>
 
-                                                                <div class="col-lg-12 p-0">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-8"><small class="font-weight-bold p-0">Você obteve um total de <?= $value['value']->total_lack ?> faltas</small></div>
-                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
-                                                                    </div>
-                                                                </div>
-
                                                             </div>
 
+                                                        </div>
+
+                                                        <div class="row p-2">
+
+                                                            <div class="col-lg-12">
+                                                                <div class="row">
+                                                                    <div class="col-lg-8"><small class="font-weight-bold text-important">Você obteve um total de <?= $value['value']->total_lack ?> faltas</small></div>
+
+                                                                    <div class="col-lg-4 d-flex justify-content-end mt-xs-3"><small class="text-muted p-0 mt-3"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
+                                                                </div>
+                                                            </div>
                                                         </div>
 
                                                     </div>
@@ -386,23 +402,28 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                 <?php } else if ($value['tipo'] == 'disciplineAverage') { ?>
 
 
-                                                    <div class="col-lg-11 mx-auto card mb-3">
+                                                    <div class="col-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-center"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-sm-1 d-flex justify-content-center align-items-center mx-auto"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                            <div class="col-lg-11">
+                                                            <div class="col-sm-11">
 
                                                                 <p class="mt-2 text-description mb-2"><?= $value['value']->teacher_name ?> atribuiu a sua média final na disciplina de <?= $value['value']->discipline_name ?></p>
 
-                                                                <div class="col-lg-12 p-0">
-                                                                    <div class="row">
-                                                                        <div class="col-lg-8"><small class="font-weight-bold p-0">Sua média final foi de <?= number_format($value['value']->average, 1, '.', '') ?> - Você está <?= lcfirst($value['value']->subtitle) ?> na disciplina</small></div>
-                                                                        <div class="col-lg-4 d-flex justify-content-end"><small class="font-weight-normal p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
-                                                                    </div>
-                                                                </div>
+                                                            </div>
 
+                                                        </div>
+
+                                                        <div class="row p-2">
+
+                                                            <div class="col-lg-12">
+                                                                <div class="row">
+                                                                    <div class="col-lg-8"><small class="font-weight-bold text-important">Sua média final foi de <?= number_format($value['value']->average, 1, '.', '') ?> - Você está <?= lcfirst($value['value']->subtitle) ?> na disciplina</small></div>
+
+                                                                    <div class="col-lg-4 d-flex justify-content-end mt-3"><small class="text-muted p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
+                                                                </div>
                                                             </div>
 
                                                         </div>
@@ -413,19 +434,26 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                 <?php } else if ($value['tipo'] == 'warning') { ?>
 
 
-                                                    <div class="col-lg-11 mx-auto card mb-3">
+                                                    <div class="col-11 mx-auto card mb-3">
 
                                                         <div class="row p-2">
 
-                                                            <div class="col-lg-1 d-flex justify-content-center align-items-start"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
+                                                            <div class="col-sm-1 mx-auto d-flex justify-content-center align-items-start"><img class="miniature-photo" src='<?= $value['value']->teacher_profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $value['value']->teacher_profile_photo ?>' alt="" onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>"'></div>
 
-                                                            <div class="col-lg-11">
+                                                            <div class="col-sm-11">
 
-                                                                <p class="mt-2 text-description mb-3"><?= $value['value']->teacher_name ?> adicionou um aviso referente a disciplina de <?= $value['value']->discipline_name ?></p>
+                                                                <p class="mt-2 text-description"><?= $value['value']->teacher_name ?> adicionou um aviso referente a disciplina de <?= $value['value']->discipline_name ?></p>
 
-                                                                <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="30" rows="3" value=""><?= $value['value']->warning ?></textarea>
+                                                            </div>
 
-                                                                <small class="font-weight-normal col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small>
+                                                        </div>
+
+                                                        <div class="row p-2">
+                                                            <div class="col-lg-12">
+
+                                                                <textarea class="col-lg-12 form-control p-3" disabled name="" id="" cols="40" rows="4" value=""><?= $value['value']->warning ?></textarea>
+
+                                                                <small class="text-muted col-lg-12 d-flex justify-content-end align-items-center mt-3 p-0"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small>
 
                                                             </div>
 
@@ -437,7 +465,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                             }
                                         } else { ?>
 
-                                            <div class="col-lg-11 mx-auto card mb-3">Nenhuma postagem até o momento</div>
+                                            <div class="col-sm-11 mx-auto card mb-3">Nenhuma postagem até o momento</div>
 
                                         <?php } ?>
 
@@ -453,7 +481,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     <div class="collapse mt-4" id="bulletin" data-parent="#studentPortal-accordion">
 
-                        <div containerBulletin class="col-lg-11 mx-auto card mb-4 mt-3 p-5"></div>
+                        <div containerBulletin class="col-lg-11 mx-auto card mb-4 mt-3 p-sm-5"></div>
 
                     </div>
 
@@ -470,10 +498,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         <p class="text-right">
 
                                             <a class="btn" type="button" data-toggle="collapse" data-target="#students" aria-expanded="true" aria-controls="students">
-                                                Alunos
+                                                <span><i class="fas fa-users mr-2"></i> Alunos</span>
                                             </a>
+
                                             <a class="btn" type="button" data-toggle="collapse" data-target="#teachers" aria-expanded="false" aria-controls="teachers">
-                                                Docentes
+                                                <span><i class="fas fa-chalkboard-teacher mr-2"></i> Docentes</span>
                                             </a>
 
                                         </p>
@@ -481,15 +510,15 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         <div id="students" class="collapse show" data-parent="#studentsTeachersAccordion">
 
-                                            <div class="card col-lg-12">
+                                            <div class="card col-lg-12 table-responsive mb-5">
 
-                                                <table class="table table-hover mt-3 table-borderless">
+                                                <table class="table table-hover mt-3 table-borderless" id="table-students">
 
                                                     <thead>
                                                         <tr>
                                                             <th colspan="2">Nome do aluno</th>
                                                             <th>Email</th>
-                                                            <th>Situação no período letivo</th>
+                                                            <th>Status</th>
                                                         </tr>
                                                     </thead>
 
@@ -507,9 +536,9 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                         <div id="teachers" class="collapse" data-parent="#studentsTeachersAccordion">
 
-                                            <div class="card col-lg-12">
+                                            <div class="card col-lg-12 table-responsive mb-5">
 
-                                                <table class="table table-hover mt-3 table-borderless">
+                                                <table class="table table-hover mt-3 table-borderless" id="table-teachers">
 
                                                     <thead>
                                                         <tr>
@@ -557,10 +586,10 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         <p class="text-right">
 
                                             <a class="btn" type="button" data-toggle="collapse" data-target="#notes" aria-expanded="true" aria-controls="notes">
-                                                Notas das avaliações
+                                                <i class="fas fa-grip-vertical mr-2"></i> Notas das avaliações
                                             </a>
                                             <a class="btn" type="button" data-toggle="collapse" data-target="#average" aria-expanded="false" aria-controls="average">
-                                                Médias gerais
+                                                <i class="fas fa-tasks mr-2"></i> Médias gerais
                                             </a>
 
                                         </p>
@@ -579,7 +608,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                         <div class="form-row mt-3">
 
-                                                            <div class="form-group col-lg-4">
+                                                            <div class="form-group col-lg-4 col-8">
 
                                                                 <label for="">Disciplina:</label>
 
@@ -597,7 +626,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                             </div>
 
-                                                            <div class="form-group col-lg-2">
+                                                            <div class="form-group col-lg-2 col-4">
 
                                                                 <label for="">Unidade:</label>
 
@@ -617,7 +646,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
 
 
-                                                            <div class="form-group col-lg-4">
+                                                            <div class="form-group col-lg-4 col-8">
 
                                                                 <label for="">Status da média:</label>
 
@@ -631,7 +660,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                             </div>
 
-                                                            <div class="form-group col-lg-2">
+                                                            <div class="form-group col-lg-2 col-4">
                                                                 <label for="">&nbsp;</label>
 
                                                                 <div>
@@ -645,7 +674,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                             <div class="form-row">
 
-                                                                <div class="form-group col-lg-3">
+                                                                <div class="form-group col-lg-3 col-6">
 
                                                                     <label for="">Ordenar por:</label>
 
@@ -659,7 +688,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                 </div>
 
-                                                                <div class="form-group col-lg-3">
+                                                                <div class="form-group col-lg-3 col-6">
 
                                                                     <label for="">Tipo da média:</label>
 
@@ -690,25 +719,77 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                             <div class="card col-lg-12">
 
-                                                <table class="table table-hover mt-3 table-borderless">
+                                                <div class="col-lg-11 mx-auto">
 
-                                                    <thead>
-                                                        <tr>
-                                                            <th colspan="2">Nome do docente</th>
-                                                            <th>Email</th>
-                                                            <th>Disciplina</th>
-                                                        </tr>
-                                                    </thead>
+                                                    <form id="seekNoteExamStudent" class="mt-3 text-dark" action="">
 
-                                                    <tbody class="">
-
-                                                        <?php require '../App/Views/admin/teacher/components/teacherListing.php' ?>
-
-                                                    </tbody>
-
-                                                </table>
+                                                        <input type="hidden" value="<?= $_SESSION['Student']['enrollmentId'] ?>" name="enrollmentId">
+                                                        <input type="hidden" value="<?= $_SESSION['Student']['classId'] ?>" name="classId">
 
 
+                                                        <div class="form-row mt-3">
+
+                                                            <div class="form-group col-lg-5">
+                                                                <label for="">Nome da avaliacão:</label>
+                                                                <input name="examDescription" id="examDescription" type="text" placeholder="Nome da avaliação" class="form-control">
+                                                            </div>
+
+                                                            <div class="form-group col-lg-4">
+
+                                                                <label for="">Disciplina:</label>
+
+                                                                <select id="disciplineClass" class="form-control custom-select" name="disciplineClass" required>
+
+                                                                    <option value="0">Todas</option>
+
+                                                                    <?php foreach ($this->view->linkedDisciplines as $key => $discipline) { ?>
+
+                                                                        <option value="<?= $discipline->option_value ?>"><?= $discipline->option_text ?></option>
+
+                                                                    <?php } ?>
+
+                                                                </select>
+
+                                                            </div>
+
+                                                            <div class="form-group col-lg-3">
+                                                                <label for="">Unidade:</label>
+
+                                                                <select id="unity" class="form-control custom-select" name="unity" required>
+
+                                                                    <option value="0">Todas</option>
+
+                                                                    <?php foreach ($this->view->unity as $key => $unity) { ?>
+
+                                                                        <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+
+                                                                    <?php } ?>
+
+                                                                </select>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </form>
+
+                                                    <div class="table-responsive">
+
+                                                        <table class="table col-lg-12 col-sm-10 mx-auto table-hover table-borderless table-striped" id="note-table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col">#</th>
+                                                                    <th scope="col">Descrição</th>
+                                                                    <th class="text-center" scope="col">Resultado</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody containerListNote></tbody>
+                                                        </table>
+                                                    </div>
+
+
+
+                                                </div>
 
                                             </div>
 
@@ -725,6 +806,34 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                     </div>
 
                 </div>
+                
+                <nav class="navbar fixed-bottom navbar-expand p-2 rounded-0" id="navbarBottomStudentPortal" style="border-radius: 0px">
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul class="navbar-nav">
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-expanded="true" href="#" data-toggle="collapse" data-target="#mural"><i class="fas fa-home"></i> <span>Home</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-expanded="false" data-toggle="collapse" data-target="#averageNote" href="#"><i class="fas fa-layer-group"></i> <span>Notas</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#class"><i class="fas fa-users"></i> <span>Turma</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin"><i class="fas fa-book-open"></i> <span>Boletim</span></a>
+                            </li> 
+
+                        </ul>
+
+                    </div>
+
+                </nav>
             </div>
         </div>
 

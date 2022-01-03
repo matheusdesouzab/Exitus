@@ -166,11 +166,16 @@ class Application {
 
         $container.text('')
 
+        $('.tooltip').hide()
+
         $.ajax({
             url: route,
             type: 'GET',
             data: formData,
-            success: data => $container.append(data),
+            success: data =>{
+                $container.append(data)
+                $('[data-toggle="tooltip"]').tooltip()
+            },
             error: erro => $container.append('<h5 class="mt-3">Houve um erro, tente novamente mais tarde</h5>')
         })
     }

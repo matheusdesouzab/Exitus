@@ -46,9 +46,13 @@ html body{
 
 }
 
-nav#navbarBottom {
+nav#navbarBottom, #navbarBottomStudentPortal {
     border-radius: 0px;
     border: none;
+
+    li{
+        padding-top: 5px;
+    }
 
     a{
         font-size: 12px;
@@ -78,6 +82,22 @@ nav#navbarBottom {
     .navbar-collapse {
         margin-top: -18px;
     }
+
+    .navbar-nav{
+
+    a[aria-expanded="true"]{
+        border-bottom: 3px solid #5C4CFF;
+        padding: 10px;
+        color: $color-dark-blue;
+        span{
+            display: inline-block;       
+        }
+        i.fas{
+            color: $color-dark-blue !important;
+        }
+        
+    }
+}
 
     .link-active {
         border-top: 3px solid #4285F4;

@@ -1,5 +1,7 @@
 #studentPortal {
 
+    background: #F9F8F8;
+
     textarea:disabled {
         background: white;
         border-radius: 10px;
@@ -25,7 +27,8 @@
         a{
             background-color: white;
             border: 1px solid #e5e5e5;
-            font-weight: 500;
+            font-family: Bold;
+            padding: 10px 15px;
         }
     }
 }
@@ -139,11 +142,11 @@
             }
         }
 
-        #profileClassModal {
+        
 
             #note-table-class {
 
-                width: 70vw;
+              
                 overflow: auto;
 
                 td,
@@ -152,7 +155,7 @@
           
                 }
             }
-        }
+        
 
         #note-table {
 
@@ -243,7 +246,7 @@
             }
 
             &::-webkit-scrollbar-track {
-                background-color: #F9EBEA;
+                background-color: #EAEDED;
                 -webkit-border-radius: 10px;
                 border-radius: 10px;
             }
@@ -256,6 +259,10 @@
         }
 
         #mural {
+
+            .title{
+                margin-left: 3vw;
+            }
 
             h5 {
                 font-size: 16px;
@@ -337,7 +344,7 @@
             border-radius: 50%;
         }
 
-        #navbarBottom {
+        #navbarBottom,#navbarBottomStudentPortal {
             display: none;
         }
 

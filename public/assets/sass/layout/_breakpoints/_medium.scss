@@ -1,15 +1,15 @@
-@media (max-width:992px){
+@media (max-width:992px) {
 
     body {
 
-        .sidebar-primary{
-            .portal i.fas{
+        .sidebar-primary {
+            .portal i.fas {
                 display: none;
             }
         }
 
-        #home{
-            .index-disciplines{
+        #home {
+            .index-disciplines {
                 margin-bottom: 20px;
             }
         }
@@ -31,7 +31,7 @@
         }
 
         #left-panel {
-            
+
             #sidebar {
 
                 .sidebar-header span {
@@ -44,7 +44,7 @@
                         font-size: 0.8vw;
                     }
 
-                    p{
+                    p {
                         font-size: 1vw;
                     }
 
@@ -58,6 +58,25 @@
 
         .side-panel {
             display: block;
+        }
+    }
+
+    #studentPortal {
+
+        nav#studentPortalNavbar {
+            a {
+                padding: 5px !important;
+            }
+
+            ul {
+                .nav-item {
+                    display: none;
+                }
+
+                .nav-fixed {
+                    display: block;
+                }
+            }
         }
     }
 

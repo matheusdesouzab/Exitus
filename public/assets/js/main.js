@@ -16,6 +16,7 @@ $(document).ready(function () {
     activeLinks('#navbarBottom li a')
     activeLinks('.navbarBottomTeacher li a')
     activeLinks('#teacherPortal .sidebar-lists li')
+    activeLinks('#teacherPortal .sidebar-lists li')
 })
 
 
@@ -267,8 +268,12 @@ $(document).on("blur", "#profileClassModal #addExam #disciplineClass , #addExam 
 })
 
 
-$(document).on("click", "#profileStudentModal [data-target='#class-student-profile-average'], [data-target='#averageNote']", function (e) {
+$(document).on("click", "#profileStudentModal [data-target='#class-student-profile-average']", function (e) {
     application.loadListElements("containerStudentsProfileAverage", "/admin/gestao/turma/perfil-turma/aluno/medias-gerais", "#addNote")
+})
+
+$(document).on("click", "[data-target='#averageNote']", function (e) {
+    application.loadListElements("containerStudentsProfileAverage", "/admin/gestao/turma/perfil-turma/aluno/medias-gerais", "#seekAverageStudentProfile")
 })
 
 
@@ -561,6 +566,11 @@ $(document).on("keyup", "#studentsAverageSeek #name", function (e) {
 $(document).on("keyup", "#seekNoteExamStudent #examDescription", function (e) {
     if (timeout) clearTimeout(timeout)
     timeout = setTimeout(() => application.seekElement("#seekNoteExamStudent", "containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar"), 2000)
+})
+
+
+$(document).on("click", '[data-target="#averageNote"]', function(e){
+    application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-notas", "#seekNoteExamStudent")
 })
 
 

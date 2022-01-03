@@ -178,7 +178,7 @@ array_multisort($order, $orderBy, $studentsEnd);
         } ?>
 
         <tr class="mt-4">
-            <td class="font-weight-bold text-right" colspan="8" style="pointer-events:none"><?= count($studentsEnd) ?> médias listadas <i class="fas fa-history ml-2"></i></td>
+            <td class="font-weight-bold text-right" colspan="8" style="pointer-events:none"><?= $total - 1 ?> médias listadas <i class="fas fa-history ml-2"></i></td>
         </tr>
 
 

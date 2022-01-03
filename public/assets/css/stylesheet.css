@@ -654,6 +654,9 @@ button {
   padding: 10px 0px;
 }
 
+#studentPortal {
+  background: #F9F8F8;
+}
 #studentPortal textarea:disabled {
   background: white;
   border-radius: 10px;
@@ -673,7 +676,8 @@ button {
 #studentPortal #studentsTeachersAccordion a, #studentPortal #averageAndNotes a {
   background-color: white;
   border: 1px solid #e5e5e5;
-  font-weight: 500;
+  font-family: Bold;
+  padding: 10px 15px;
 }
 
 #admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
@@ -786,18 +790,17 @@ button {
   font-family: Semi-bold;
   font-size: 12px;
 }
-#admin #pagina #profileClassModal #note-table-class,
-#teacherPortal #pagina #profileClassModal #note-table-class,
-#studentPortal #pagina #profileClassModal #note-table-class {
-  width: 70vw;
+#admin #pagina #note-table-class,
+#teacherPortal #pagina #note-table-class,
+#studentPortal #pagina #note-table-class {
   overflow: auto;
 }
-#admin #pagina #profileClassModal #note-table-class td,
-#admin #pagina #profileClassModal #note-table-class th,
-#teacherPortal #pagina #profileClassModal #note-table-class td,
-#teacherPortal #pagina #profileClassModal #note-table-class th,
-#studentPortal #pagina #profileClassModal #note-table-class td,
-#studentPortal #pagina #profileClassModal #note-table-class th {
+#admin #pagina #note-table-class td,
+#admin #pagina #note-table-class th,
+#teacherPortal #pagina #note-table-class td,
+#teacherPortal #pagina #note-table-class th,
+#studentPortal #pagina #note-table-class td,
+#studentPortal #pagina #note-table-class th {
   text-align: left;
 }
 #admin #pagina #note-table td,
@@ -932,7 +935,7 @@ button {
 #studentPortal #pagina .recently-enrolled::-webkit-scrollbar-track,
 #studentPortal #pagina .main-content::-webkit-scrollbar-track,
 #studentPortal #pagina .container-list-group::-webkit-scrollbar-track {
-  background-color: #F9EBEA;
+  background-color: #EAEDED;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
@@ -963,6 +966,11 @@ button {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: #ACBECC;
+}
+#admin #pagina #mural .title,
+#teacherPortal #pagina #mural .title,
+#studentPortal #pagina #mural .title {
+  margin-left: 3vw;
 }
 #admin #pagina #mural h5,
 #teacherPortal #pagina #mural h5,
@@ -1053,9 +1061,11 @@ button {
   border: none;
   border-radius: 50%;
 }
-#admin #pagina #navbarBottom,
+#admin #pagina #navbarBottom, #admin #pagina #navbarBottomStudentPortal,
 #teacherPortal #pagina #navbarBottom,
-#studentPortal #pagina #navbarBottom {
+#teacherPortal #pagina #navbarBottomStudentPortal,
+#studentPortal #pagina #navbarBottom,
+#studentPortal #pagina #navbarBottomStudentPortal {
   display: none;
 }
 #admin #pagina .school-term-active,
@@ -1456,181 +1466,235 @@ button {
 
 @media (max-width: 576px) {
   html body#admin .panel-side,
-html body#teacherPortal .panel-side {
+html body#teacherPortal .panel-side,
+html body#studentPortal .panel-side {
     display: none;
   }
   html body#admin .panel-side #left-panel #sidebar,
-html body#teacherPortal .panel-side #left-panel #sidebar {
+html body#teacherPortal .panel-side #left-panel #sidebar,
+html body#studentPortal .panel-side #left-panel #sidebar {
     z-index: 100000000;
     overflow: hidden;
     width: 50vw;
   }
   html body#admin .panel-side #left-panel #sidebar i.fas,
-html body#teacherPortal .panel-side #left-panel #sidebar i.fas {
+html body#teacherPortal .panel-side #left-panel #sidebar i.fas,
+html body#studentPortal .panel-side #left-panel #sidebar i.fas {
     margin-right: 0px;
   }
   html body#admin .panel-side #left-panel #sidebar .sidebar-header span,
-html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-header span {
+html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-header span,
+html body#studentPortal .panel-side #left-panel #sidebar .sidebar-header span {
     position: absolute;
     display: block;
     left: 15;
     margin-top: 5px;
   }
   html body#admin .panel-side #left-panel #sidebar .sidebar-lists,
-html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists {
+html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists,
+html body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists {
     padding: 5px;
   }
   html body#admin .panel-side #left-panel #sidebar .sidebar-lists a,
-html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists a {
+html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists a,
+html body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists a {
     font-size: 2.3vw;
   }
   html body#admin .panel-side #left-panel #sidebar .sidebar-lists p,
-html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists p {
+html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists p,
+html body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists p {
     font-size: 2.5vw;
   }
   html body#admin #pagina p,
-html body#teacherPortal #pagina p {
+html body#teacherPortal #pagina p,
+html body#studentPortal #pagina p {
     font-size: 3.5vw;
   }
   html body#admin #pagina form,
-html body#teacherPortal #pagina form {
+html body#teacherPortal #pagina form,
+html body#studentPortal #pagina form {
     font-size: 4vw;
   }
   html body#admin #pagina form label,
-html body#teacherPortal #pagina form label {
+html body#teacherPortal #pagina form label,
+html body#studentPortal #pagina form label {
     font-size: 3.5vw;
   }
   html body#admin #pagina form input,
 html body#admin #pagina form select,
 html body#teacherPortal #pagina form input,
-html body#teacherPortal #pagina form select {
+html body#teacherPortal #pagina form select,
+html body#studentPortal #pagina form input,
+html body#studentPortal #pagina form select {
     font-size: 3vw;
   }
   html body#admin #pagina form .btn,
-html body#teacherPortal #pagina form .btn {
+html body#teacherPortal #pagina form .btn,
+html body#studentPortal #pagina form .btn {
     font-size: 3vw;
   }
   html body#admin #pagina form span,
-html body#teacherPortal #pagina form span {
+html body#teacherPortal #pagina form span,
+html body#studentPortal #pagina form span {
     font-size: 3vw;
   }
   html body#admin #pagina table th,
-html body#teacherPortal #pagina table th {
+html body#teacherPortal #pagina table th,
+html body#studentPortal #pagina table th {
     font-size: 3.5vw;
   }
   html body#admin #pagina table td,
-html body#teacherPortal #pagina table td {
+html body#teacherPortal #pagina table td,
+html body#studentPortal #pagina table td {
     font-size: 3vw;
   }
   html body#admin #pagina table td .miniature-photo,
-html body#teacherPortal #pagina table td .miniature-photo {
+html body#teacherPortal #pagina table td .miniature-photo,
+html body#studentPortal #pagina table td .miniature-photo {
     width: 8vw;
   }
   html body#admin #pagina #home .card .card-title,
-html body#teacherPortal #pagina #home .card .card-title {
+html body#teacherPortal #pagina #home .card .card-title,
+html body#studentPortal #pagina #home .card .card-title {
     font-size: 2.5vw;
   }
   html body#admin #pagina #home .card .card-text,
-html body#teacherPortal #pagina #home .card .card-text {
+html body#teacherPortal #pagina #home .card .card-text,
+html body#studentPortal #pagina #home .card .card-text {
     font-size: 3vw;
   }
   html body#admin #pagina #home .card .teacher-name,
-html body#teacherPortal #pagina #home .card .teacher-name {
+html body#teacherPortal #pagina #home .card .teacher-name,
+html body#studentPortal #pagina #home .card .teacher-name {
     font-size: 4vw;
   }
   html body#admin #pagina #home .recent-activities .card-title,
-html body#teacherPortal #pagina #home .recent-activities .card-title {
+html body#teacherPortal #pagina #home .recent-activities .card-title,
+html body#studentPortal #pagina #home .recent-activities .card-title {
     font-size: 4vw;
     padding: 0px;
   }
   html body#admin #pagina #teacher-table,
-html body#teacherPortal #pagina #teacher-table {
+html body#teacherPortal #pagina #teacher-table,
+html body#studentPortal #pagina #teacher-table {
     overflow: auto;
     width: 700px;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion, html body#admin #pagina #profileStudentModal #main-accordion,
+  html body#admin #pagina #profileTeacherModal #main-accordion,
+html body#admin #pagina #profileStudentModal #main-accordion,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion,
-html body#teacherPortal #pagina #profileStudentModal #main-accordion {
+html body#teacherPortal #pagina #profileStudentModal #main-accordion,
+html body#studentPortal #pagina #profileTeacherModal #main-accordion,
+html body#studentPortal #pagina #profileStudentModal #main-accordion {
     background-color: white;
     border-radius: 15px;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar, html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar,
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar,
+html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar,
-html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar {
+html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar,
+html body#studentPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar,
+html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar {
     height: 55vh;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul, html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul,
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul,
-html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul {
+html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#studentPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul {
     width: 350px;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet, html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet,
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet,
+html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet,
-html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet {
+html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet,
+html body#studentPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet,
+html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet {
     margin-top: 10px;
     margin-bottom: 20px;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion .main-content, html body#admin #pagina #profileStudentModal #main-accordion .main-content,
+  html body#admin #pagina #profileTeacherModal #main-accordion .main-content,
+html body#admin #pagina #profileStudentModal #main-accordion .main-content,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion .main-content,
-html body#teacherPortal #pagina #profileStudentModal #main-accordion .main-content {
+html body#teacherPortal #pagina #profileStudentModal #main-accordion .main-content,
+html body#studentPortal #pagina #profileTeacherModal #main-accordion .main-content,
+html body#studentPortal #pagina #profileStudentModal #main-accordion .main-content {
     margin-top: 0px;
   }
   html body#admin #pagina #profileStudentModal .main-sheet,
-html body#teacherPortal #pagina #profileStudentModal .main-sheet {
+html body#teacherPortal #pagina #profileStudentModal .main-sheet,
+html body#studentPortal #pagina #profileStudentModal .main-sheet {
     margin-top: 10px !important;
   }
   html body#admin #pagina #profileStudentModal .modal-sidebar,
-html body#teacherPortal #pagina #profileStudentModal .modal-sidebar {
+html body#teacherPortal #pagina #profileStudentModal .modal-sidebar,
+html body#studentPortal #pagina #profileStudentModal .modal-sidebar {
     height: 45vh;
   }
   html body#admin #pagina #profileStudentModal .modal-sidebar .container-list-group nav,
-html body#teacherPortal #pagina #profileStudentModal .modal-sidebar .container-list-group nav {
+html body#teacherPortal #pagina #profileStudentModal .modal-sidebar .container-list-group nav,
+html body#studentPortal #pagina #profileStudentModal .modal-sidebar .container-list-group nav {
     border-bottom: 1px solid #e5e5e5;
   }
   html body#admin #pagina #profileStudentModal .main-content,
-html body#teacherPortal #pagina #profileStudentModal .main-content {
+html body#teacherPortal #pagina #profileStudentModal .main-content,
+html body#studentPortal #pagina #profileStudentModal .main-content {
     height: 55vh;
   }
   html body#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p,
-html body#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
+html body#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p,
+html body#studentPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
     font-size: 3vw;
   }
   html body#admin #pagina div.option-icon-group span,
-html body#teacherPortal #pagina div.option-icon-group span {
+html body#teacherPortal #pagina div.option-icon-group span,
+html body#studentPortal #pagina div.option-icon-group span {
     margin-top: 15px;
   }
   html body#admin #pagina .main-container,
-html body#teacherPortal #pagina .main-container {
+html body#teacherPortal #pagina .main-container,
+html body#studentPortal #pagina .main-container {
     margin-top: 60px;
     margin-bottom: 60px;
   }
   html body#admin #pagina .page-header h5,
-html body#teacherPortal #pagina .page-header h5 {
+html body#teacherPortal #pagina .page-header h5,
+html body#studentPortal #pagina .page-header h5 {
     font-size: 5vw;
   }
   html body#admin #pagina .page-header .collapse-options-container span,
-html body#teacherPortal #pagina .page-header .collapse-options-container span {
+html body#teacherPortal #pagina .page-header .collapse-options-container span,
+html body#studentPortal #pagina .page-header .collapse-options-container span {
     margin-bottom: 10px;
     margin-top: 20px;
     display: inline-block;
     font-size: 3vw !important;
   }
   html body#admin #pagina .page-header .breadcrumb-item,
-html body#teacherPortal #pagina .page-header .breadcrumb-item {
+html body#teacherPortal #pagina .page-header .breadcrumb-item,
+html body#studentPortal #pagina .page-header .breadcrumb-item {
     font-size: 3.5vw;
   }
   html body#admin #pagina #navbar-top b,
 html body#admin #pagina #navbar-top a,
 html body#teacherPortal #pagina #navbar-top b,
-html body#teacherPortal #pagina #navbar-top a {
+html body#teacherPortal #pagina #navbar-top a,
+html body#studentPortal #pagina #navbar-top b,
+html body#studentPortal #pagina #navbar-top a {
     font-size: 3.5vw;
   }
   html body#admin #pagina section#list-students table,
-html body#teacherPortal #pagina section#list-students table {
+html body#teacherPortal #pagina section#list-students table,
+html body#studentPortal #pagina section#list-students table {
     width: 800px;
   }
   html body#admin #pagina #navbarBottom,
-html body#teacherPortal #pagina #navbarBottom {
+html body#admin #pagina #navbarBottomStudentPortal,
+html body#teacherPortal #pagina #navbarBottom,
+html body#teacherPortal #pagina #navbarBottomStudentPortal,
+html body#studentPortal #pagina #navbarBottom,
+html body#studentPortal #pagina #navbarBottomStudentPortal {
     display: block;
     border-top-right-radius: 15px;
     padding: 2px;
@@ -1641,7 +1705,11 @@ html body#teacherPortal #pagina #navbarBottom {
     justify-content: center;
   }
   html body#admin #pagina #navbarBottom ul,
-html body#teacherPortal #pagina #navbarBottom ul {
+html body#admin #pagina #navbarBottomStudentPortal ul,
+html body#teacherPortal #pagina #navbarBottom ul,
+html body#teacherPortal #pagina #navbarBottomStudentPortal ul,
+html body#studentPortal #pagina #navbarBottom ul,
+html body#studentPortal #pagina #navbarBottomStudentPortal ul {
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -1649,23 +1717,35 @@ html body#teacherPortal #pagina #navbarBottom ul {
   }
   html body#admin #pagina #navbarBottom ul i.fas,
 html body#admin #pagina #navbarBottom ul i.bi,
+html body#admin #pagina #navbarBottomStudentPortal ul i.fas,
+html body#admin #pagina #navbarBottomStudentPortal ul i.bi,
 html body#teacherPortal #pagina #navbarBottom ul i.fas,
-html body#teacherPortal #pagina #navbarBottom ul i.bi {
+html body#teacherPortal #pagina #navbarBottom ul i.bi,
+html body#teacherPortal #pagina #navbarBottomStudentPortal ul i.fas,
+html body#teacherPortal #pagina #navbarBottomStudentPortal ul i.bi,
+html body#studentPortal #pagina #navbarBottom ul i.fas,
+html body#studentPortal #pagina #navbarBottom ul i.bi,
+html body#studentPortal #pagina #navbarBottomStudentPortal ul i.fas,
+html body#studentPortal #pagina #navbarBottomStudentPortal ul i.bi {
     font-size: 18px;
     color: #506177;
   }
   html body#admin #pagina section#discipline table,
-html body#teacherPortal #pagina section#discipline table {
+html body#teacherPortal #pagina section#discipline table,
+html body#studentPortal #pagina section#discipline table {
     width: 600px;
   }
   html body#admin #pagina section#class table,
-html body#teacherPortal #pagina section#class table {
+html body#teacherPortal #pagina section#class table,
+html body#studentPortal #pagina section#class table {
     width: 600px;
   }
   html body#admin #pagina #main-accordion-class,
 html body#admin #pagina #main-accordion-student,
 html body#teacherPortal #pagina #main-accordion-class,
-html body#teacherPortal #pagina #main-accordion-student {
+html body#teacherPortal #pagina #main-accordion-student,
+html body#studentPortal #pagina #main-accordion-class,
+html body#studentPortal #pagina #main-accordion-student {
     background-color: white;
     padding: 10px;
     border-radius: 15px;
@@ -1673,38 +1753,47 @@ html body#teacherPortal #pagina #main-accordion-student {
   html body#admin #pagina #main-accordion-class .row.card,
 html body#admin #pagina #main-accordion-student .row.card,
 html body#teacherPortal #pagina #main-accordion-class .row.card,
-html body#teacherPortal #pagina #main-accordion-student .row.card {
+html body#teacherPortal #pagina #main-accordion-student .row.card,
+html body#studentPortal #pagina #main-accordion-class .row.card,
+html body#studentPortal #pagina #main-accordion-student .row.card {
     box-shadow: none;
     border: none;
   }
   html body#admin #pagina #profileClassModal #note-table-class,
-html body#teacherPortal #pagina #profileClassModal #note-table-class {
+html body#teacherPortal #pagina #profileClassModal #note-table-class,
+html body#studentPortal #pagina #profileClassModal #note-table-class {
     width: 700px;
   }
   html body#admin #pagina #profileClassModal #tableListExam,
-html body#teacherPortal #pagina #profileClassModal #tableListExam {
+html body#teacherPortal #pagina #profileClassModal #tableListExam,
+html body#studentPortal #pagina #profileClassModal #tableListExam {
     width: 700px;
   }
   html body#admin #pagina .modal-profile,
-html body#teacherPortal #pagina .modal-profile {
+html body#teacherPortal #pagina .modal-profile,
+html body#studentPortal #pagina .modal-profile {
     overflow-y: auto;
   }
   html body#admin #pagina .modal-profile form i.fas,
-html body#teacherPortal #pagina .modal-profile form i.fas {
+html body#teacherPortal #pagina .modal-profile form i.fas,
+html body#studentPortal #pagina .modal-profile form i.fas {
     font-size: 3vw;
   }
   html body#admin #pagina .modal-profile form div .font-weight-bold,
-html body#teacherPortal #pagina .modal-profile form div .font-weight-bold {
+html body#teacherPortal #pagina .modal-profile form div .font-weight-bold,
+html body#studentPortal #pagina .modal-profile form div .font-weight-bold {
     font-size: 2.5vw;
   }
   html body#admin #pagina .modal-profile .modal-sidebar img,
-html body#teacherPortal #pagina .modal-profile .modal-sidebar img {
+html body#teacherPortal #pagina .modal-profile .modal-sidebar img,
+html body#studentPortal #pagina .modal-profile .modal-sidebar img {
     width: 25vw;
     height: 25vw;
     margin-bottom: 5px;
   }
   html body#admin #pagina .modal-profile .main-sheet,
-html body#teacherPortal #pagina .modal-profile .main-sheet {
+html body#teacherPortal #pagina .modal-profile .main-sheet,
+html body#studentPortal #pagina .modal-profile .main-sheet {
     order: 1;
     display: flex;
     border-radius: 10px;
@@ -1715,16 +1804,19 @@ html body#teacherPortal #pagina .modal-profile .main-sheet {
     margin-top: -8vw;
   }
   html body#admin #pagina .modal-profile .main-sheet span,
-html body#teacherPortal #pagina .modal-profile .main-sheet span {
+html body#teacherPortal #pagina .modal-profile .main-sheet span,
+html body#studentPortal #pagina .modal-profile .main-sheet span {
     font-size: 2.5vw;
     color: #506177;
   }
   html body#admin #pagina .modal-profile h5,
-html body#teacherPortal #pagina .modal-profile h5 {
+html body#teacherPortal #pagina .modal-profile h5,
+html body#studentPortal #pagina .modal-profile h5 {
     font-size: 4vw;
   }
   html body#admin #pagina .modal-profile .container-list-group,
-html body#teacherPortal #pagina .modal-profile .container-list-group {
+html body#teacherPortal #pagina .modal-profile .container-list-group,
+html body#studentPortal #pagina .modal-profile .container-list-group {
     order: 2;
     padding: 5px;
     display: block;
@@ -1735,42 +1827,49 @@ html body#teacherPortal #pagina .modal-profile .container-list-group {
     margin-top: -4vw;
   }
   html body#admin #pagina .modal-profile .container-list-group nav,
-html body#teacherPortal #pagina .modal-profile .container-list-group nav {
+html body#teacherPortal #pagina .modal-profile .container-list-group nav,
+html body#studentPortal #pagina .modal-profile .container-list-group nav {
     padding: 10px;
     overflow: auto;
     padding-bottom: 0;
   }
   html body#admin #pagina .modal-profile .container-list-group nav ul,
-html body#teacherPortal #pagina .modal-profile .container-list-group nav ul {
+html body#teacherPortal #pagina .modal-profile .container-list-group nav ul,
+html body#studentPortal #pagina .modal-profile .container-list-group nav ul {
     display: flex;
     justify-content: space-around;
     flex-grow: 1;
     width: 1300px;
   }
   html body#admin #pagina .modal-profile .container-list-group nav ul a,
-html body#teacherPortal #pagina .modal-profile .container-list-group nav ul a {
+html body#teacherPortal #pagina .modal-profile .container-list-group nav ul a,
+html body#studentPortal #pagina .modal-profile .container-list-group nav ul a {
     margin-bottom: 0;
     border-bottom: 2px solid white;
     border-radius: 0px;
     font-size: 2.5vw;
   }
   html body#admin #pagina .modal-profile .container-list-group nav ul [aria-expanded=true],
-html body#teacherPortal #pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
+html body#teacherPortal #pagina .modal-profile .container-list-group nav ul [aria-expanded=true],
+html body#studentPortal #pagina .modal-profile .container-list-group nav ul [aria-expanded=true] {
     border-bottom: 2px solid #363C90;
     background-color: transparent;
     color: #506177;
   }
   html body#admin #pagina .modal-profile .collapse-options-container,
-html body#teacherPortal #pagina .modal-profile .collapse-options-container {
+html body#teacherPortal #pagina .modal-profile .collapse-options-container,
+html body#studentPortal #pagina .modal-profile .collapse-options-container {
     margin-top: 20px;
     font-size: 10px;
   }
   html body#admin #pagina .modal-profile .collapse-options-container span,
-html body#teacherPortal #pagina .modal-profile .collapse-options-container span {
+html body#teacherPortal #pagina .modal-profile .collapse-options-container span,
+html body#studentPortal #pagina .modal-profile .collapse-options-container span {
     font-size: 3vw;
   }
   html body#admin #pagina .modal-profile .main-content,
-html body#teacherPortal #pagina .modal-profile .main-content {
+html body#teacherPortal #pagina .modal-profile .main-content,
+html body#studentPortal #pagina .modal-profile .main-content {
     margin-top: 30px;
     margin-bottom: 20px;
     box-shadow: none;
@@ -1778,50 +1877,62 @@ html body#teacherPortal #pagina .modal-profile .main-content {
     border: none;
   }
   html body#admin #pagina .modal-profile .main-content .row:nth-child(1),
-html body#teacherPortal #pagina .modal-profile .main-content .row:nth-child(1) {
+html body#teacherPortal #pagina .modal-profile .main-content .row:nth-child(1),
+html body#studentPortal #pagina .modal-profile .main-content .row:nth-child(1) {
     margin-top: 10px;
   }
   html body#admin #pagina .modal-profile .main-content table .miniature-photo,
-html body#teacherPortal #pagina .modal-profile .main-content table .miniature-photo {
+html body#teacherPortal #pagina .modal-profile .main-content table .miniature-photo,
+html body#studentPortal #pagina .modal-profile .main-content table .miniature-photo {
     width: 8vw;
   }
   html body#admin #pagina .modal-profile .main-content span i.fas,
-html body#teacherPortal #pagina .modal-profile .main-content span i.fas {
+html body#teacherPortal #pagina .modal-profile .main-content span i.fas,
+html body#studentPortal #pagina .modal-profile .main-content span i.fas {
     font-size: 3vw;
   }
   html body#admin #pagina .modal-profile .main-content #tableListExam,
-html body#teacherPortal #pagina .modal-profile .main-content #tableListExam {
+html body#teacherPortal #pagina .modal-profile .main-content #tableListExam,
+html body#studentPortal #pagina .modal-profile .main-content #tableListExam {
     width: 600px;
   }
   html body#admin #pagina .modal-profile .main-content #finalized-rematrecules table,
-html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules table {
+html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules table,
+html body#studentPortal #pagina .modal-profile .main-content #finalized-rematrecules table {
     width: 500px;
   }
   html body#admin #pagina .modal-profile .main-content #finalized-rematrecules table img,
-html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules table img {
+html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules table img,
+html body#studentPortal #pagina .modal-profile .main-content #finalized-rematrecules table img {
     width: 8vw;
   }
   html body#admin #pagina .modal-profile .main-content #finalized-rematrecules p,
-html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules p {
+html body#teacherPortal #pagina .modal-profile .main-content #finalized-rematrecules p,
+html body#studentPortal #pagina .modal-profile .main-content #finalized-rematrecules p {
     font-size: 2.5vw;
   }
   html body#admin #pagina .modal-profile .main-content #addRematrung img,
-html body#teacherPortal #pagina .modal-profile .main-content #addRematrung img {
+html body#teacherPortal #pagina .modal-profile .main-content #addRematrung img,
+html body#studentPortal #pagina .modal-profile .main-content #addRematrung img {
     width: 8vw;
   }
   html body#admin #pagina .modal-profile .main-content h5,
 html body#admin #pagina .modal-profile .main-content .h5,
 html body#teacherPortal #pagina .modal-profile .main-content h5,
-html body#teacherPortal #pagina .modal-profile .main-content .h5 {
+html body#teacherPortal #pagina .modal-profile .main-content .h5,
+html body#studentPortal #pagina .modal-profile .main-content h5,
+html body#studentPortal #pagina .modal-profile .main-content .h5 {
     font-size: 3vw;
     margin-bottom: 15px;
   }
   html body#admin #pagina .modal-profile .main-content th,
-html body#teacherPortal #pagina .modal-profile .main-content th {
+html body#teacherPortal #pagina .modal-profile .main-content th,
+html body#studentPortal #pagina .modal-profile .main-content th {
     font-size: 2.5vw;
   }
   html body#admin #pagina .modal-profile .modal-sidebar,
-html body#teacherPortal #pagina .modal-profile .modal-sidebar {
+html body#teacherPortal #pagina .modal-profile .modal-sidebar,
+html body#studentPortal #pagina .modal-profile .modal-sidebar {
     padding: 10px;
     border-radius: 10px;
     border: none;
@@ -1833,31 +1944,73 @@ html body#teacherPortal #pagina .modal-profile .modal-sidebar {
     border: none;
   }
   html body#admin #pagina #student-registration .registration-in-stages .connection-line,
-html body#teacherPortal #pagina #student-registration .registration-in-stages .connection-line {
+html body#teacherPortal #pagina #student-registration .registration-in-stages .connection-line,
+html body#studentPortal #pagina #student-registration .registration-in-stages .connection-line {
     width: 80vw;
   }
   html body#admin #pagina #student-registration .registration-in-stages .registration-header-by-step,
-html body#teacherPortal #pagina #student-registration .registration-in-stages .registration-header-by-step {
+html body#teacherPortal #pagina #student-registration .registration-in-stages .registration-header-by-step,
+html body#studentPortal #pagina #student-registration .registration-in-stages .registration-header-by-step {
     overflow: auto;
     display: block;
   }
   html body#admin #pagina #student-registration .registration-in-stages .registration-header-by-step .row,
-html body#teacherPortal #pagina #student-registration .registration-in-stages .registration-header-by-step .row {
+html body#teacherPortal #pagina #student-registration .registration-in-stages .registration-header-by-step .row,
+html body#studentPortal #pagina #student-registration .registration-in-stages .registration-header-by-step .row {
     width: 600px;
     display: flex;
     justify-content: space-around;
   }
   html body#admin #pagina #profileStudentModal .container-list-group nav,
-html body#teacherPortal #pagina #profileStudentModal .container-list-group nav {
+html body#teacherPortal #pagina #profileStudentModal .container-list-group nav,
+html body#studentPortal #pagina #profileStudentModal .container-list-group nav {
     width: 800px;
   }
   html body#admin #pagina #profileStudentModal .container-list-group nav ul a,
-html body#teacherPortal #pagina #profileStudentModal .container-list-group nav ul a {
+html body#teacherPortal #pagina #profileStudentModal .container-list-group nav ul a,
+html body#studentPortal #pagina #profileStudentModal .container-list-group nav ul a {
     border-left: none;
   }
   html body#admin #pagina #profileStudentModal .container-list-group nav ul [aria-expanded=true],
-html body#teacherPortal #pagina #profileStudentModal .container-list-group nav ul [aria-expanded=true] {
+html body#teacherPortal #pagina #profileStudentModal .container-list-group nav ul [aria-expanded=true],
+html body#studentPortal #pagina #profileStudentModal .container-list-group nav ul [aria-expanded=true] {
     border-left: none;
+  }
+  html #studentPortal #pagina #mural .title {
+    margin-left: 3vw;
+    margin-bottom: 15px;
+  }
+  html #studentPortal #pagina #mural .side-mural {
+    order: 1;
+  }
+  html #studentPortal #pagina #mural .side-mural div .miniature-photo {
+    width: 40px;
+  }
+  html #studentPortal #pagina #mural .side-mural p {
+    text-align: justify;
+  }
+  html #studentPortal #pagina #mural .side-mural .text-important {
+    border-left: 3px solid #28A745;
+    display: block;
+    padding-left: 5px;
+  }
+  html #studentPortal #pagina #mural .side-exams {
+    order: 2;
+  }
+  html #studentPortal #pagina .accordion p a {
+    font-size: 2.3vw;
+  }
+  html #studentPortal #pagina #table-students, html #studentPortal #pagina #table-teachers {
+    width: 500px;
+  }
+  html #studentPortal #pagina .collapse-options-container {
+    margin-top: 20px;
+  }
+  html #studentPortal #pagina .collapse-options-container span {
+    font-size: 3vw;
+  }
+  html #studentPortal #pagina #note-table-class {
+    width: 450px;
   }
 }
 @media (max-width: 769px) {
@@ -2017,6 +2170,16 @@ body #pagina #navbar-top a {
   body .side-panel {
     display: block;
   }
+
+  #studentPortal nav#studentPortalNavbar a {
+    padding: 5px !important;
+  }
+  #studentPortal nav#studentPortalNavbar ul .nav-item {
+    display: none;
+  }
+  #studentPortal nav#studentPortalNavbar ul .nav-fixed {
+    display: block;
+  }
 }
 html body #navbar-top {
   background-color: #ffffff;
@@ -2054,36 +2217,50 @@ html body #navbar-top #navbarDropdown {
   font-size: 14px;
   font-weight: 500;
 }
-html body nav#navbarBottom {
+html body nav#navbarBottom, html body #navbarBottomStudentPortal {
   border-radius: 0px;
   border: none;
 }
-html body nav#navbarBottom a {
+html body nav#navbarBottom li, html body #navbarBottomStudentPortal li {
+  padding-top: 5px;
+}
+html body nav#navbarBottom a, html body #navbarBottomStudentPortal a {
   font-size: 12px;
   font-family: Bold;
   display: flex;
   align-items: center;
   padding-top: 10px;
 }
-html body nav#navbarBottom i.fas {
+html body nav#navbarBottom i.fas, html body #navbarBottomStudentPortal i.fas {
   font-size: 10px;
 }
-html body nav#navbarBottom a:hover span {
+html body nav#navbarBottom a:hover span, html body #navbarBottomStudentPortal a:hover span {
   display: inline;
   color: #09023B;
 }
-html body nav#navbarBottom span {
+html body nav#navbarBottom span, html body #navbarBottomStudentPortal span {
   display: none;
   margin-left: 10px;
   transition: 1s ease-in-out infinite alternate-reverse both;
 }
-html body nav#navbarBottom .navbar-collapse {
+html body nav#navbarBottom .navbar-collapse, html body #navbarBottomStudentPortal .navbar-collapse {
   margin-top: -18px;
 }
-html body nav#navbarBottom .link-active {
+html body nav#navbarBottom .navbar-nav a[aria-expanded=true], html body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true] {
+  border-bottom: 3px solid #5C4CFF;
+  padding: 10px;
+  color: #09023B;
+}
+html body nav#navbarBottom .navbar-nav a[aria-expanded=true] span, html body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true] span {
+  display: inline-block;
+}
+html body nav#navbarBottom .navbar-nav a[aria-expanded=true] i.fas, html body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true] i.fas {
+  color: #09023B !important;
+}
+html body nav#navbarBottom .link-active, html body #navbarBottomStudentPortal .link-active {
   border-top: 3px solid #4285F4;
 }
-html body nav#navbarBottom .link-active i.fas {
+html body nav#navbarBottom .link-active i.fas, html body #navbarBottomStudentPortal .link-active i.fas {
   color: #09023B;
 }
 
