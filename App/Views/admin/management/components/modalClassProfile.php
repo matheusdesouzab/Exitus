@@ -501,7 +501,7 @@
 
                                         </div>
 
-                                        <div class="form-group col-sm-3">
+                                        <div class="form-group col-sm-3 col-7">
                                             <label for="">Unidade:</label>
 
                                             <select id="unity" class="form-control custom-select" name="unity" required>
@@ -518,7 +518,7 @@
 
                                         </div>
 
-                                        <div class="form-group col-sm-1 col-lg-2">
+                                        <div class="form-group col-sm-1 col-5 col-lg-2">
                                             <label for="">&nbsp;</label>
 
                                             <div>
@@ -881,7 +881,7 @@
 
                                         </div>
 
-                                        <div class="form-group col-sm-3 col-lg-2">
+                                        <div class="form-group col-sm-3 col-lg-2 col-7">
 
                                             <label for="">Unidade:</label>
 
@@ -902,7 +902,7 @@
                                         <input type="hidden" name="classId" value="<?= $this->view->classData[0]->class_id ?>">
                                         <input type="hidden" id="examDescription" name="examDescription" value="">
 
-                                        <div class="form-group col-lg-2 col-sm-1">
+                                        <div class="form-group col-lg-2 col-sm-1 col-5">
                                             <label for="">&nbsp;</label>
 
                                             <div>
@@ -916,7 +916,7 @@
 
                                         <div class="form-row">
 
-                                            <div class="form-group col-sm-4">
+                                            <div class="form-group col-sm-4 col-6">
 
                                                 <label for="">Ordenar por:</label>
 
@@ -930,7 +930,7 @@
 
                                             </div>
 
-                                            <div class="form-group col-sm-4">
+                                            <div class="form-group col-sm-4 col-6">
 
                                                 <label for="">Status da média:</label>
 

@@ -57,14 +57,16 @@ function getLocation() {
 
 function activeLinks(link) {
 
-    let url = window.location.href.replace('portal-docente', '').split('/')
+    let url = window.location.href.split('/')
     let links = $(`${link}`)
+
+    url.shift()
 
     $.each(links, function (value) {
 
         let name = $(links[value]).attr('name')
 
-        if (url.includes(name)) {
+        if (url.includes(name) || url.includes(`${name}#`)) {
             $(`${link}[name='${name}']`).addClass("link-active")
         }
 

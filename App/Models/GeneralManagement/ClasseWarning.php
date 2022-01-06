@@ -84,17 +84,25 @@ class ClasseWarning extends Model
             professor.nome_professor AS teacher_name , 
             professor.foto_perfil_professor AS teacher_profile_photo,
             aviso_turma.data_postagem AS post_date ,
-            disciplina.nome_disciplina AS discipline_name ,
+            disciplina.nome_disciplina AS discipline_name,
+            serie.sigla AS acronym_series , 
+            cedula_turma.cedula AS ballot , 
+            curso.sigla AS course , 
+            turno.nome_turno AS shift ,
             turma.id_turma AS class_id
            
             FROM aviso_turma 
             
             INNER JOIN turma_disciplina ON(aviso_turma.fk_id_turma_disciplina = turma_disciplina.id_turma_disciplina) 
             INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
-            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
             
             WHERE professor.id_professor = :teacherId
 

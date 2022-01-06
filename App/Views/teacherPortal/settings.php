@@ -76,7 +76,7 @@
 
 
 
-    <div class="col-lg-9 col-11 mx-auto">
+    <div class="col-lg-9 col-12 mx-auto">
 
         <div class="col-lg-12 card main-content">
 
@@ -88,7 +88,7 @@
 
                         <form id="adminDate<?= $teacher->id ?>" class="col-lg-12" action="">
 
-                            <input type="hidden" value="<?= $teacher->id ?>" name="id">
+                            <input type="hidden" value="<?= $teacher->id ?>" name="teacherId">
                             <input type="hidden" value="<?= $teacher->telephone_id ?>" name="telephoneId">
                             <input type="hidden" value="<?= $teacher->address_id ?>" name="addressId">
 
@@ -98,9 +98,9 @@
 
                                     <div class="row d-flex align-items-center">
 
-                                        <h5 class="col-lg-8">Dados pessoais</h5>
+                                        <h5 class="col-8">Dados pessoais</h5>
 
-                                        <div class="col-lg-4 d-flex justify-content-end">
+                                        <div class="col-4 d-flex justify-content-end">
 
                                             <span idElement="#adminDate<?= $teacher->id ?>" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
@@ -250,6 +250,8 @@
                                 </div>
                                 <input type="text" id="district" name="district" disabled class="form-control" value="<?= $teacher->district ?>" aria-label="Username" aria-describedby="addon-wrapping">
                             </div>
+
+                            <input type="hidden" value="1" name="accountState">
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                                 <div class="input-group-prepend">

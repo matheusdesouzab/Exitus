@@ -12,14 +12,14 @@
 
 		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
-			<li class="nav-item">
+			<li class="nav-item d-none d-md-block">
 				<div class="">
 					<img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
 				</div>
 
 			</li>
 
-			<li class="nav-item ml-3">
+			<li class="nav-item ml-3 d-none d-md-block">
 				<b><?= $_SESSION['Teacher']['name'] ?></b>
 			</li>
 

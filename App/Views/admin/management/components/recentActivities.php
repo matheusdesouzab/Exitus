@@ -70,7 +70,7 @@
 
                 <?php if ($value['tipo'] == 'exam') { ?>
 
-                    <div class="col-12 col-lg-11 mx-auto">
+                    <div class="col-11 mx-auto">
 
                         <div class="row d-flex align-items-center flex-nowrap justify-content-between">
 
@@ -95,7 +95,7 @@
 
                 <?php } else if ($value['tipo'] == 'note') { ?>
 
-                    <div class="col-12 col-lg-11 mx-auto">
+                    <div class="col-11 mx-auto">
 
                         <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 
@@ -121,7 +121,7 @@
 
                 <?php } else if ($value['tipo'] == 'lack') { ?>
 
-                    <div class="col-12 col-lg-11 mx-auto">
+                    <div class="col-11 mx-auto">
 
                         <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 
@@ -149,7 +149,7 @@
 
                 <?php } else if ($value['tipo'] == 'disciplineAverage') { ?>
 
-                    <div class="col-12 col-lg-11 mx-auto">
+                    <div class="col-11 mx-auto">
 
                         <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 
@@ -177,7 +177,7 @@
 
                 <?php } else if ($value['tipo'] == 'observation') { ?>
 
-                    <div class="col-12 col-lg-11 mx-auto">
+                    <div class="col-11 mx-auto">
 
                         <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 
@@ -203,7 +203,7 @@
 
                 <?php } else if ($value['tipo'] == 'warning') { ?>
 
-                    <div class="col-12 col-lg-11 mx-auto">
+                    <div class="col-11 mx-auto">
 
                         <div class="row d-flex align-items-center justify-content-between flex-nowrap">
 

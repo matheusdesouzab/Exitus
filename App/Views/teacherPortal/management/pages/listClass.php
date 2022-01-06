@@ -22,12 +22,12 @@
 
                 <div class="row mb-3">
 
-                    <div class="col-lg-12">
-                        <div class="collapse show card" id="class-list" data-parent="#class-accordion">
+                    <div class="col-lg-12 mb-3">
+                        <div class="collapse show card mb-5" id="class-list" data-parent="#class-accordion">
                             <div class="row">
                                 <div class="col-lg-11 mx-auto">
 
-                                    <form id="seekClassTeacher" class="mt-3 mb-3 text-dark" action="">
+                                    <form id="seekClassTeacher" class="mt-3 text-dark" action="">
 
                                         <div class="form-row mt-3">
 

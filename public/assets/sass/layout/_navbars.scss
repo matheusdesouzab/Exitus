@@ -1,112 +1,112 @@
-html body{
+html body {
 
-#navbar-top {
+    #navbar-top {
 
-    background-color: $color-white;
-    transition: 0.7s;
-    position: fixed;
-    z-index: 3;
-    padding: 15px;
+        background-color: $color-white;
+        transition: 0.7s;
+        position: fixed;
+        z-index: 3;
+        padding: 15px;
 
-    .navbar-brand {
-        font-weight: bold;
-    }
-
-    ul {
-        margin-right: 20px;
-    }
-
-    .fa-cog {
-        font-size: 20px;
-        color: $color-dark-gray;
-    }
-
-    .fa-bars {
-        color: $color-black;
-    }
-
-    a.bars-xs {
-        display: none;
-    }
-
-    img {
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        object-position: top;
-        object-fit: cover;
-        cursor: pointer;
-    }
-
-    #navbarDropdown {
-        color: $color-dark-gray;
-        font-size: 14px;
-        font-weight: 500;
-    }
-
-}
-
-nav#navbarBottom, #navbarBottomStudentPortal {
-    border-radius: 0px;
-    border: none;
-
-    li{
-        padding-top: 5px;
-    }
-
-    a{
-        font-size: 12px;
-        font-family: Bold;
-        display: flex;
-        align-items: center;
-        padding-top: 10px;
-    }
-
-    i.fas{
-        font-size: 10px;
-    }
-
-    a:hover{
-        span{
-            display: inline;
-            color: $color-dark-blue;
+        .navbar-brand {
+            font-weight: bold;
         }
-    }
 
-    span {
-        display: none;
-        margin-left: 10px;
-        transition: 1s ease-in-out infinite alternate-reverse both;
-    }
-
-    .navbar-collapse {
-        margin-top: -18px;
-    }
-
-    .navbar-nav{
-
-    a[aria-expanded="true"]{
-        border-bottom: 3px solid #5C4CFF;
-        padding: 10px;
-        color: $color-dark-blue;
-        span{
-            display: inline-block;       
+        ul {
+            margin-right: 20px;
         }
-        i.fas{
-            color: $color-dark-blue !important;
+
+        .fa-cog {
+            font-size: 20px;
+            color: $color-dark-gray;
         }
+
+        .fa-bars {
+            color: $color-black;
+        }
+
+        a.bars-xs {
+            display: none;
+        }
+
+        img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            object-position: top;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        #navbarDropdown {
+            color: $color-dark-gray;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+    }
+
+    nav#navbarBottom,
+    #navbarBottomStudentPortal {
+        border-radius: 0px;
+        border: none;
+
+        li {
+            padding-top: 5px;
+        }
+
+        a {
+            font-size: 12px;
+            font-family: Bold;
+            display: flex;
+            align-items: center;
+            padding-top: 10px;
+
+            
+        }
+
+        i.fas {
+            font-size: 10px;
+        }
+
+        a:hover {
+            span {
+                display: inline;
+                color: $color-dark-blue;
+            }
+        }
+
+        span {
+            display: none;
+            margin-left: 10px;
+            transition: 1s ease-in-out infinite alternate-reverse both;
+        }
+
         
-    }
-}
 
-    .link-active {
-        border-top: 3px solid #4285F4;
-        
-        i.fas{
-            color: $color-dark-blue;
+        .navbar-collapse {
+            margin-top: -18px;
         }
-    }
 
-}
+        .navbar-nav {
+
+            a[aria-expanded="true"],
+            .link-active {
+                border-bottom: 3px solid #5C4CFF;
+                padding: 10px;
+                color: $color-dark-blue;
+
+                span {
+                    display: inline-block;
+                }
+
+                i.fas {
+                    color: $color-dark-blue !important;
+                }
+
+            }
+        }
+
+    }
 
 }

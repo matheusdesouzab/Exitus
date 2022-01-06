@@ -182,6 +182,7 @@ class TeacherPortalController extends Action
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
         $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+        $Teacher->__set('fk_id_account_state', $_POST['accountState']);
 
         $Telephone->update();
         $Address->update();

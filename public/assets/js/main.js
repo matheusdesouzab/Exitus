@@ -16,7 +16,6 @@ $(document).ready(function () {
     activeLinks('#navbarBottom li a')
     activeLinks('.navbarBottomTeacher li a')
     activeLinks('#teacherPortal .sidebar-lists li')
-    activeLinks('#teacherPortal .sidebar-lists li')
 })
 
 
@@ -781,11 +780,13 @@ $(document).on('hide.bs.modal', '.modal', function () {
 
 $("#accessCode").on("keypress", e => $(e.target).mask("000.000"))
 
-$("#teacherPortal #class tbody tr").on('click', function (e) {
+$(document).on("click", "#teacherPortal #class tbody tr", function (e) {
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma", "containerClasseProfileModal", "#profileClassModal")
 })
 
-$("#teacherPortal #seekClassTeacher .custom-select").change(() => application.seekElement("#seekClassTeacher", "containerListClass", "/portal-docente/turmas/buscar"))
+$(document).on('change', "#teacherPortal #seekClassTeacher .custom-select", function(e){
+    application.seekElement("#seekClassTeacher", "containerListClass", "/portal-docente/turmas/buscar")
+})
 
 
 $(document).on('click', "#profileClassModal [data-target='#class-note-history']", function (e) {

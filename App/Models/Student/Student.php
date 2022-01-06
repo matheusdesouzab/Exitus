@@ -260,6 +260,7 @@ class Student extends People
             aluno.foto_perfil_aluno AS profile_photo , 
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
+            aluno.email_aluno AS email,
             curso.sigla AS course , 
             curso.nome_curso AS course_name ,
             turno.nome_turno AS shift , 

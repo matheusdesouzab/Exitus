@@ -30,19 +30,6 @@
 
                         }
 
-                        .sidebar-lists {
-                            padding: 5px;
-
-                            a {
-                                font-size: 2.3vw;
-                            }
-
-                            p {
-                                font-size: 2.5vw;
-                            }
-
-                        }
-
 
                     }
                 }
@@ -51,6 +38,17 @@
 
 
             #pagina {
+
+                #navbarBottom,
+                #navbarBottomStudentPortal {
+
+                    ul{
+                        img{
+                            width: 8vw;
+                        }
+                    }
+
+                }
 
                 p {
                     font-size: 3.5vw;
@@ -121,8 +119,22 @@
                     width: 700px;
                 }
 
+                #settingsModal{
+                    #accordion-data-admin{
+                        form{
+                            .input-group-text{
+                                font-size: 2.7vw;
+                            }
+                            input, select{
+                                font-size: 2.4vw;
+                            }
+                        }
+                    }
+                }
+
                 #profileTeacherModal,
                 #profileStudentModal {
+                    
                     #main-accordion {
                         background-color: white;
                         border-radius: 15px;
@@ -133,7 +145,7 @@
                             .container-list-group {
 
                                 nav ul {
-                                    width: 350px;
+                                    width: 350px;                                   
                                 }
 
                             }
@@ -147,6 +159,7 @@
 
                         .main-content {
                             margin-top: 0px;
+                            
                         }
                     }
                 }
@@ -170,7 +183,6 @@
                     }
 
                 }
-
 
 
                 .registration-in-stages {
@@ -203,7 +215,7 @@
                         margin-bottom: 10px;
                         margin-top: 20px;
                         display: inline-block;
-                        font-size: 3vw !important;
+                        font-size: 3vw;
                     }
 
                     .breadcrumb-item {
@@ -218,6 +230,10 @@
                     b,
                     a {
                         font-size: 3.5vw;
+
+                        i.fas {
+                            font-size: 15px;
+                        }
                     }
                 }
 
@@ -227,31 +243,7 @@
                     }
                 }
 
-                #navbarBottom,
-                #navbarBottomStudentPortal {
-                    display: block;
-                    border-top-right-radius: 15px;
-                    padding: 2px;
-                    border-top-left-radius: 15px;
-                    background-color: $color-white;
-                    box-shadow: 0 -2px 2px -2px #333;
-                    display: flex;
-                    justify-content: center;
 
-                    ul {
-                        display: flex;
-                        justify-content: space-around;
-                        width: 100%;
-                        margin-top: 10px;
-
-                        i.fas,
-                        i.bi {
-                            font-size: 18px;
-                            color: $color-dark-gray;
-                        }
-
-                    }
-                }
 
                 section#discipline {
                     table {
@@ -294,15 +286,7 @@
 
                     overflow-y: auto;
 
-                    form {
-                        i.fas {
-                            font-size: 3.0vw;
-                        }
-
-                        div .font-weight-bold {
-                            font-size: 2.5vw;
-                        }
-                    }
+                    
 
                     .modal-sidebar img {
                         width: 25vw;
@@ -330,6 +314,7 @@
                         font-size: 4vw;
                     }
 
+                    .modal-sidebar {
 
                     .container-list-group {
                         order: 2;
@@ -345,6 +330,8 @@
                             padding: 10px;
                             overflow: auto;
                             padding-bottom: 0;
+
+                           
 
                             ul {
                                 display: flex;
@@ -368,6 +355,7 @@
                         }
 
                     }
+                }
 
                     .collapse-options-container {
                         margin-top: 20px;
@@ -384,6 +372,26 @@
                         box-shadow: none;
                         padding-top: 0px;
                         border: none;
+
+                        form {
+                            i.fas {
+                                font-size: 3.0vw;
+                            }
+    
+                            div .font-weight-bold {
+                                font-size: 2.5vw;
+                            }
+    
+                            input,select{
+                                font-size: 2.4vw;
+                            }
+                        }
+
+                        #list-warning{
+                            .miniature-photo{
+                                width: 8vw;
+                            }
+                        }
 
                         .row:nth-child(1) {
                             margin-top: 10px;
@@ -498,57 +506,59 @@
 
         #studentPortal {
 
-            #pagina{
+            #pagina {
 
-            #mural {
-                .title {
-                    margin-left: 3vw;
-                    margin-bottom: 15px;
-                }
-
-                .side-mural {
-                    order: 1;
-
-                    div .miniature-photo {
-                        width: 40px;
+                #mural {
+                    .title {
+                        margin-left: 3vw;
+                        margin-bottom: 15px;
                     }
 
-                    p {
-                        text-align: justify;
+                    .side-mural {
+                        order: 1;
+
+                        div .miniature-photo {
+                            width: 40px;
+                        }
+
+                        p {
+                            text-align: justify;
+                        }
+
+                        .text-important {
+                            border-left: 3px solid $color-green;
+                            display: block;
+                            padding-left: 5px;
+                        }
                     }
 
-                    .text-important {
-                        border-left: 3px solid $color-green;
-                        display: block;
-                        padding-left: 5px;
+                    .side-exams {
+                        order: 2;
                     }
                 }
 
-                .side-exams {
-                    order: 2;
+                .accordion p a {
+                    font-size: 2.3vw;
                 }
-            }
 
-            .accordion p a{
-                font-size: 2.3vw;
-            }
-
-            #table-students,#table-teachers{
-                width: 500px;
-            }
-
-            .collapse-options-container{
-                margin-top: 20px;
-                span{
-                    font-size: 3vw;
+                #table-students,
+                #table-teachers {
+                    width: 500px;
                 }
-            }
 
-            #note-table-class {
-                width: 450px;
-            }
+                .collapse-options-container {
+                    margin-top: 20px;
 
-        }
+                    span {
+                        font-size: 3vw;
+                    }
+                }
+
+                #note-table-class {
+                    width: 450px;
+                }
+
+            }
 
         }
     }

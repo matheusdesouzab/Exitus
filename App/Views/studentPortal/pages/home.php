@@ -773,9 +773,13 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                     </form>
 
-                                                    <div class="table-responsive">
+                                                </div>
 
-                                                        <table class="table col-lg-12 col-sm-10 mx-auto table-hover table-borderless table-striped" id="note-table">
+                                                    <div class="col-lg-11 mx-auto table-responsive">
+
+                                                    <hr>
+
+                                                        <table class="table col-lg-12 table-hover table-borderless table-striped p-0" id="note-table">
                                                             <thead>
                                                                 <tr>
                                                                     <th scope="col">#</th>

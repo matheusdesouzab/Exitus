@@ -9,7 +9,7 @@
         </li>
 
         <li class="nav-item">
-            <a name="turmas" class="nav-link" href="/portal-docente/turmas"><i class="fas fa-sliders-h"></i> <span>Gestão</span></a>
+            <a name="turmas" class="nav-link" href="/portal-docente/turmas"><i class="fas fa-users"></i>  <span>Turmas</span></a>
         </li>
 
         <li class="nav-item">
@@ -17,7 +17,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-cog"></i> <span>Configurações</span></a>
+            <a class="nav-link" id="settingsTeacherPortal" href="#"><img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg"></a>
         </li>
 
     </ul>
