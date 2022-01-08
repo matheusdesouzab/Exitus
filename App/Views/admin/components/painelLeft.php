@@ -2,7 +2,7 @@
 
     <nav id="sidebar">
 
-        <div class="col-lg-12 title">Exitus</div>   
+    <div class="col-lg-12 logo d-flex justify-content-center mb-3"><img src="/assets/img/logo-completa-branca.png" alt=""></div>
 
         <ul class="sidebar-lists">
 

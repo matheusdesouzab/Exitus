@@ -146,6 +146,7 @@
 
                 #navbar-top {
                     padding: 10px;
+                    height: 70px;
 
                     .navbar-toggler .fa-bars {
                         font-size: 20px;
@@ -183,6 +184,14 @@
 
                     .navbar-toggler {
                         display: none;
+                    }
+
+                    .logo img{
+                        display: block;
+                         object-fit: cover;
+                        object-position: center;
+                        width: 150px;
+                        height: 40px;
                     }
                 }
 
@@ -231,7 +240,6 @@
 
                         [data-parent="#main-accordion-student"] {
                             margin-top: -3vw;
-                            border: 2px solid red;
                         }
 
                         h5 {

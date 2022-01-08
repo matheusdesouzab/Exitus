@@ -1,39 +1,41 @@
 <section id="home">
 
-    <div class="row main-container mb-3">
-
-        <h5 class="col-lg-11 pl-3 p-0 mx-auto mb-3">Visão Geral</h5>
+    <div class="row main-container">
 
         <div class="col-lg-11 mx-auto">
 
-            <div class="container">
+            <div class="row">
 
-                <div class="row">
+                <h5 class="col-lg-12">Visão Geral</h5>
+
+            </div>
+
+                <div class="row mt-2">
 
                     <div class="col-lg-7">
 
                         <div class="row">
 
-                        <div class="col-lg-4">
+                            <div class="col-lg-4 col-6">
 
-                            <div class="card">
+                                <div class="card">
 
-                                <div class="card-title">Alunos ativos</div>
+                                    <div class="card-title">Alunos ativos</div>
 
-                                <div class="row d-flex justify-content-center align-items-center">
+                                    <div class="row d-flex justify-content-center align-items-center">
 
-                                <div class="col-lg-7 total-student-enrolled"><i class="fas fa-user-check mr-2"></i></i> <?= $this->view->studentTotal ?></div>
+                                        <div class="col-7 total-student-enrolled"><i class="fas fa-user-check mr-2"></i></i> <?= $this->view->studentTotal ?></div>
 
-                                <div class="col-lg-5 total-students-enrolled-today">+ <?= $this->view->studentsAddedToday[0]->total_student ?></div>
+                                        <div class="col-5 total-students-enrolled-today">+ <?= $this->view->studentsAddedToday[0]->total_student ?></div>
+
+                                    </div>
+
+                                </div>
 
                             </div>
 
-                        </div>
 
-                        </div>
-
-                            
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 col-6">
 
                                 <div class="card">
 
@@ -50,7 +52,7 @@
                             </div>
 
 
-                            <div class="col-lg-4">
+                            <div class="col-lg-4 mt-3 mt-sm-0 d-none d-sm-block">
 
                                 <div class="card">
 
@@ -68,7 +70,7 @@
 
                         </div>
 
-                        <div class="row mt-3">
+                        <div class="row mt-3 mb-3 mb-lg-0">
 
                             <div class="col-lg-12">
                                 <canvas class="card" id="studenDivisionChartCourse"></canvas>
@@ -78,9 +80,9 @@
 
                     </div>
 
-                    <div class="col-lg-5 recently-enrolled">
+                    <div class="col-lg-5">
 
-                        <div class="col-lg-12 card">
+                        <div class="col-lg-12 card recently-enrolled">
 
                             <div class="card-title p-2">Recentes matrículados</div>
 
@@ -117,7 +119,7 @@
 
                 <div class="row mt-4 mb-4">
 
-                    <div class="col-lg-7">
+                    <div class="col-lg-7 admin-portal">
 
                         <div class="p-0 recent-activities">
 
@@ -130,19 +132,19 @@
 
                         <div class="col-lg-12 p-0">
 
-                            <div class="card mb-3" style="height:36vh">
+                            <div class="card mb-3 mt-3 mt-lg-0" style="height:36vh">
 
                                 <canvas class="" id="graphCurrentStudentSituation"></canvas>
 
                             </div>
 
-                                <div class="card" style="height:40vh">
+                            <div class="card" style="height:40vh">
 
-                                    <canvas class="" id="graphSituationEngramentesReceived"></canvas>
+                                <canvas class="" id="graphSituationEngramentesReceived"></canvas>
 
-                                </div>
+                            </div>
 
-                                <!--  <div class="col-lg-12 mb-4" style="height:36vh">
+                            <!--  <div class="col-lg-12 mb-4" style="height:36vh">
 
                                 <canvas class="card" id="grafico2"></canvas>
 
@@ -171,7 +173,7 @@
 
                 <div class="row d-flex">
 
-                   <!--  <div class="col-lg-5 pl-0">
+                    <!--  <div class="col-lg-5 pl-0">
 
                         <div class="col-lg-12 pl-0">
 
@@ -181,7 +183,7 @@
 
                     </div> -->
 
-                 <!--    <div class="col-lg-7 pr-0">
+                    <!--    <div class="col-lg-7 pr-0">
 
                         <div class="col-lg-12 pr-0 pl-0 h-100">
 
@@ -203,7 +205,7 @@
 
                 </div>
 
-            </div>
+            
 
         </div>
 

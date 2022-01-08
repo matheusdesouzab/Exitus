@@ -17,7 +17,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" id="settingsTeacherPortal" href="#"><img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg"></a>
+            <a class="nav-link" id="settingsTeacherPortal" href="#"><img class="foto-perfil" src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg"></a>
         </li>
 
     </ul>

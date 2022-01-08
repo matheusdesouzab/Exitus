@@ -61,7 +61,7 @@ foreach ($this->view->disciplineAverageList as $y => $discipline) {
 
             <div class="row collapse-options-container">
 
-                <a class="font-weight-bold" href=""><span id="printBuleetin" class="printer-icon"><i class="fas fa-download mr-2"></i> Baixar boletim</span></a>
+                <a class="font-weight-bold" href="#"><span id="printBuleetin" class="printer-icon"><i class="fas fa-download mr-2"></i> Baixar boletim</span></a>
 
             </div>
 

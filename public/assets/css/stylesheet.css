@@ -541,6 +541,12 @@ button {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #555;
 }
+#left-panel #sidebar .logo img {
+  max-width: 150px;
+  border-radius: 0px;
+  height: 40px;
+  margin-top: 10px;
+}
 #left-panel #sidebar .sidebar-header {
   color: #ffffff;
   padding: 12px;
@@ -628,6 +634,9 @@ button {
 }
 .sidebar-responsive #left-panel #sidebar .sidebar-header {
   display: none;
+}
+.sidebar-responsive #left-panel #sidebar .logo img {
+  max-width: 50px;
 }
 .sidebar-responsive #left-panel #sidebar .sidebar-lists i.fas, .sidebar-responsive #left-panel #sidebar .sidebar-lists i.bi {
   color: #C4C4C4;
@@ -744,7 +753,7 @@ button {
 #admin #pagina section#home .card .total-student-enrolled,
 #teacherPortal #pagina section#home .card .total-student-enrolled,
 #studentPortal #pagina section#home .card .total-student-enrolled {
-  font-size: 16px;
+  font-size: 14px;
   font-family: Bold;
 }
 #admin #pagina section#home .card .total-students-enrolled-today,
@@ -828,15 +837,27 @@ button {
   box-sizing: border-box;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
-#admin #pagina nav#studentPortalNavbar img,
-#teacherPortal #pagina nav#studentPortalNavbar img,
-#studentPortal #pagina nav#studentPortalNavbar img {
+#admin #pagina nav#studentPortalNavbar .foto-perfil,
+#teacherPortal #pagina nav#studentPortalNavbar .foto-perfil,
+#studentPortal #pagina nav#studentPortalNavbar .foto-perfil {
   border-radius: 50%;
   width: 40px;
   height: 40px;
   object-position: top;
   object-fit: cover;
   cursor: pointer;
+}
+#admin #pagina nav#studentPortalNavbar .logo img,
+#teacherPortal #pagina nav#studentPortalNavbar .logo img,
+#studentPortal #pagina nav#studentPortalNavbar .logo img {
+  width: 150px;
+  border-radius: 0px;
+  height: 45px;
+}
+#admin #pagina nav#studentPortalNavbar .class,
+#teacherPortal #pagina nav#studentPortalNavbar .class,
+#studentPortal #pagina nav#studentPortalNavbar .class {
+  margin-left: -30px;
 }
 #admin #pagina nav#studentPortalNavbar .fa-th,
 #teacherPortal #pagina nav#studentPortalNavbar .fa-th,
@@ -1345,12 +1366,15 @@ button {
   display: none;
 }
 
+#login {
+  background-color: white;
+}
 #login .container-login {
   border-radius: 15px;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
   margin-top: 40px;
-  background-image: linear-gradient(to bottom, #536DFE 0, #536DFE 50%, #EAEDED 50%);
+  background-image: linear-gradient(to bottom, #091954 0, #091954 50%, #EAEDED 50%);
   height: 86.4vh;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   /* .down-and-up{
@@ -1378,7 +1402,7 @@ button {
   }
 }
 #login .container-login .sidebar-primary {
-  background-color: #536DFE;
+  background-color: #091954;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 50px;
@@ -1395,7 +1419,7 @@ button {
   border: none;
 }
 #login .container-login .sidebar-primary .logo img {
-  width: 8vw;
+  width: 10vw;
   margin: auto;
 }
 #login .container-login .sidebar-primary .portal-disabled {
@@ -1403,7 +1427,7 @@ button {
   color: black;
 }
 #login .container-login .sidebar-primary .portal-active {
-  background-color: #2ECC71;
+  background-color: #28A745;
   color: white;
 }
 #login .container-login .sidebar-primary .portal a {
@@ -1411,7 +1435,7 @@ button {
   font-family: Bold;
 }
 #login .container-login .sidebar-secondary {
-  background-color: #EAEDED;
+  background-color: #e5e5e5;
   border-bottom-right-radius: 15px;
   border-top-left-radius: 50px;
   border-top-right-radius: 15px;
@@ -1443,6 +1467,19 @@ button {
 }
 #login .container-login .sidebar-secondary form input:hover {
   border-bottom: 2px solid #363C90;
+}
+#login .container-login .sidebar-secondary form .portal a {
+  font-size: 9px;
+  font-family: Bold;
+}
+#login .container-login .sidebar-secondary form .portal-active {
+  color: white;
+  background-color: #2ECC71;
+  border-radius: 5px;
+}
+#login .container-login .sidebar-secondary form .portal-disabled {
+  background-color: white;
+  color: black;
 }
 #login .container-login .sidebar-secondary form h5 {
   color: #506177;
@@ -1611,6 +1648,7 @@ html body#studentPortal #pagina table td .miniature-photo {
 html body#teacherPortal #pagina #navbar-top,
 html body#studentPortal #pagina #navbar-top {
     padding: 10px;
+    height: 70px;
   }
   html body#admin #pagina #navbar-top .navbar-toggler .fa-bars,
 html body#teacherPortal #pagina #navbar-top .navbar-toggler .fa-bars,
@@ -1660,6 +1698,15 @@ html body#teacherPortal #pagina #navbar-top .navbar-toggler,
 html body#studentPortal #pagina #navbar-top .navbar-toggler {
     display: none;
   }
+  html body#admin #pagina #navbar-top .logo img,
+html body#teacherPortal #pagina #navbar-top .logo img,
+html body#studentPortal #pagina #navbar-top .logo img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width: 150px;
+    height: 40px;
+  }
   html body#admin #pagina #profileClassModal .main-sheet,
 html body#teacherPortal #pagina #profileClassModal .main-sheet,
 html body#studentPortal #pagina #profileClassModal .main-sheet {
@@ -1702,7 +1749,6 @@ html body#studentPortal #pagina .modal-profile .main-content [data-parent="#main
 html body#teacherPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-student"],
 html body#studentPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-student"] {
     margin-top: -3vw;
-    border: 2px solid red;
   }
   html body#admin #pagina .modal-profile .main-content h5,
 html body#teacherPortal #pagina .modal-profile .main-content h5,
@@ -1767,6 +1813,18 @@ html body#studentPortal #pagina .modal-profile .option-list {
   }
 }
 @media (max-width: 576px) {
+  html #login {
+    background-color: #EAEDED;
+  }
+  html #login .container-login {
+    background-color: transparent;
+  }
+  html #login .container-login .sidebar-secondary {
+    background: transparent;
+  }
+  html #admin #navbar-top img {
+    margin-left: 24vw;
+  }
   html body#admin .panel-side,
 html body#teacherPortal .panel-side,
 html body#studentPortal .panel-side {
@@ -1792,12 +1850,15 @@ html body#studentPortal .panel-side #left-panel #sidebar .sidebar-header span {
     left: 15;
     margin-top: 5px;
   }
-  html body#admin #pagina #navbarBottom ul img,
-html body#admin #pagina #navbarBottomStudentPortal ul img,
-html body#teacherPortal #pagina #navbarBottom ul img,
-html body#teacherPortal #pagina #navbarBottomStudentPortal ul img,
-html body#studentPortal #pagina #navbarBottom ul img,
-html body#studentPortal #pagina #navbarBottomStudentPortal ul img {
+  html body#admin #pagina #navbarBottom ul .foto-perfil,
+html body#admin #pagina #navbarBottomStudentPortal ul .foto-perfil,
+html body#admin #pagina #navbarBottomTeacherPortal ul .foto-perfil,
+html body#teacherPortal #pagina #navbarBottom ul .foto-perfil,
+html body#teacherPortal #pagina #navbarBottomStudentPortal ul .foto-perfil,
+html body#teacherPortal #pagina #navbarBottomTeacherPortal ul .foto-perfil,
+html body#studentPortal #pagina #navbarBottom ul .foto-perfil,
+html body#studentPortal #pagina #navbarBottomStudentPortal ul .foto-perfil,
+html body#studentPortal #pagina #navbarBottomTeacherPortal ul .foto-perfil {
     width: 8vw;
   }
   html body#admin #pagina p,
@@ -1863,11 +1924,26 @@ html body#teacherPortal #pagina #home .card .teacher-name,
 html body#studentPortal #pagina #home .card .teacher-name {
     font-size: 4vw;
   }
+  html body#admin #pagina #home .recently-enrolled .card-title,
+html body#teacherPortal #pagina #home .recently-enrolled .card-title,
+html body#studentPortal #pagina #home .recently-enrolled .card-title {
+    font-size: 3vw;
+  }
+  html body#admin #pagina #home .recently-enrolled table tr td,
+html body#teacherPortal #pagina #home .recently-enrolled table tr td,
+html body#studentPortal #pagina #home .recently-enrolled table tr td {
+    font-size: 10px;
+  }
   html body#admin #pagina #home .recent-activities .card-title,
 html body#teacherPortal #pagina #home .recent-activities .card-title,
 html body#studentPortal #pagina #home .recent-activities .card-title {
     font-size: 4vw;
     padding: 0px;
+  }
+  html body#admin #pagina #home .admin-portal .recent-activities .teacher-name,
+html body#teacherPortal #pagina #home .admin-portal .recent-activities .teacher-name,
+html body#studentPortal #pagina #home .admin-portal .recent-activities .teacher-name {
+    font-size: 10px;
   }
   html body#admin #pagina #teacher-table,
 html body#teacherPortal #pagina #teacher-table,
@@ -1965,10 +2041,16 @@ html body#studentPortal #pagina .main-container {
     margin-top: 60px;
     margin-bottom: 60px;
   }
+  html body#admin #pagina .main-container h5:nth-child(1),
+html body#teacherPortal #pagina .main-container h5:nth-child(1),
+html body#studentPortal #pagina .main-container h5:nth-child(1) {
+    margin-top: 10px;
+  }
   html body#admin #pagina .page-header h5,
 html body#teacherPortal #pagina .page-header h5,
 html body#studentPortal #pagina .page-header h5 {
     font-size: 5vw;
+    margin-top: 20px;
   }
   html body#admin #pagina .page-header .collapse-options-container span,
 html body#teacherPortal #pagina .page-header .collapse-options-container span,
@@ -1982,6 +2064,11 @@ html body#studentPortal #pagina .page-header .collapse-options-container span {
 html body#teacherPortal #pagina .page-header .breadcrumb-item,
 html body#studentPortal #pagina .page-header .breadcrumb-item {
     font-size: 3.5vw;
+  }
+  html body#admin #pagina #navbar-top,
+html body#teacherPortal #pagina #navbar-top,
+html body#studentPortal #pagina #navbar-top {
+    height: 50px;
   }
   html body#admin #pagina #navbar-top b,
 html body#admin #pagina #navbar-top a,
@@ -1998,6 +2085,12 @@ html body#teacherPortal #pagina #navbar-top a i.fas,
 html body#studentPortal #pagina #navbar-top b i.fas,
 html body#studentPortal #pagina #navbar-top a i.fas {
     font-size: 15px;
+  }
+  html body#admin #pagina #navbar-top .logo img,
+html body#teacherPortal #pagina #navbar-top .logo img,
+html body#studentPortal #pagina #navbar-top .logo img {
+    width: 100px;
+    height: 30px;
   }
   html body#admin #pagina section#list-students table,
 html body#teacherPortal #pagina section#list-students table,
@@ -2262,6 +2355,12 @@ html body#teacherPortal #pagina #profileStudentModal .container-list-group nav u
 html body#studentPortal #pagina #profileStudentModal .container-list-group nav ul [aria-expanded=true] {
     border-left: none;
   }
+  html #studentPortal #pagina nav#studentPortalNavbar .logo img {
+    width: 150px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center;
+  }
   html #studentPortal #pagina #mural .title {
     margin-left: 3vw;
     margin-bottom: 15px;
@@ -2323,13 +2422,16 @@ html body #navbar-top .fa-bars {
 html body #navbar-top a.bars-xs {
   display: none;
 }
-html body #navbar-top img {
+html body #navbar-top .foto-perfil {
   border-radius: 50%;
   width: 30px;
   height: 30px;
   object-position: top;
   object-fit: cover;
   cursor: pointer;
+}
+html body #navbar-top .logo img {
+  display: none;
 }
 html body #navbar-top #navbarDropdown {
   color: #506177;

@@ -96,7 +96,7 @@
                 }
 
                 .total-student-enrolled {
-                    font-size: 16px;
+                    font-size: 14px;
                     font-family: Bold;
                 }
 
@@ -179,13 +179,23 @@
             box-sizing: border-box;
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
-            img {
+            .foto-perfil {
                 border-radius: 50%;
                 width: 40px;
                 height: 40px;
                 object-position: top;
                 object-fit: cover;
                 cursor: pointer;
+            }
+
+            .logo img{
+                width: 150px; 
+                border-radius: 0px; 
+                height: 45px;
+            }
+
+            .class{
+                margin-left: -30px;
             }
 
             .fa-th {

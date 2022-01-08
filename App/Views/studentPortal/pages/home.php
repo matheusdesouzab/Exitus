@@ -27,7 +27,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                 <nav id="studentPortalNavbar" class="navbar navbar-expand">
 
-                    <a class="navbar-brand" href="#"><?= $_SESSION['Student']['class'] ?></a>
+                    <a class="logo" href="#"><img src="/assets/img/logo-completa.png" alt=""></a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -53,11 +53,17 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                 <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#">Notas e medias</a>
                             </li>
 
-                            <li class="nav-item nav-fixed">
+                            
+                            <li class="nav-item nav-fixed d-none d-md-block">
                                 <a class="nav-link" href="#">
-                                    <img class="" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg">
+                                    <img class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg">
                                 </a>
                             </li>
+
+                            <li class="nav-item class">
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#"><?= $_SESSION['Student']['class'] ?></a>
+                            </li>
+
 
                             <li class="nav-item mr-2 nav-fixed">
                                 <a href="/portal-aluno/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a>
@@ -329,7 +335,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                             <div class="col-12">
                                                                 <div class="row">
-                                                                    <div class="col-lg-8"><small class="font-weight-bold text-important">Você obteve  <?= number_format($value['value']->note_value, 1, '.', '') ?> de um total de <?= number_format($value['value']->exam_value, 1, '.', '') ?> pontos</small></div>
+                                                                    <div class="col-lg-8"><small class="font-weight-bold text-important">Você obteve <?= number_format($value['value']->note_value, 1, '.', '') ?> de um total de <?= number_format($value['value']->exam_value, 1, '.', '') ?> pontos</small></div>
 
                                                                     <div class="col-lg-4 d-flex justify-content-end"><small class="text-muted p-0 mt-3"> <i class="fas fa-history mr-2"></i>Postado <?= currentDate($value['value']->post_date) ?></small></div>
                                                                 </div>
@@ -775,25 +781,23 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                 </div>
 
-                                                    <div class="col-lg-11 mx-auto table-responsive">
+                                                <div class="col-lg-11 mx-auto table-responsive">
 
                                                     <hr>
 
-                                                        <table class="table col-lg-12 table-hover table-borderless table-striped p-0" id="note-table">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th scope="col">#</th>
-                                                                    <th scope="col">Descrição</th>
-                                                                    <th class="text-center" scope="col">Resultado</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody containerListNote></tbody>
-                                                        </table>
-                                                    </div>
-
-
-
+                                                    <table class="table col-lg-12 table-hover table-borderless table-striped p-0" id="note-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Descrição</th>
+                                                                <th class="text-center" scope="col">Resultado</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody containerListNote></tbody>
+                                                    </table>
                                                 </div>
+
+
 
                                             </div>
 
@@ -810,36 +814,43 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                     </div>
 
                 </div>
-                
-                <nav class="navbar fixed-bottom navbar-expand p-2 rounded-0" id="navbarBottomStudentPortal" style="border-radius: 0px">
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                        <ul class="navbar-nav">
-
-                            <li class="nav-item">
-                                <a class="nav-link" aria-expanded="true" href="#" data-toggle="collapse" data-target="#mural"><i class="fas fa-home"></i> <span>Home</span></a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" aria-expanded="false" data-toggle="collapse" data-target="#averageNote" href="#"><i class="fas fa-layer-group"></i> <span>Notas</span></a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#class"><i class="fas fa-users"></i> <span>Turma</span></a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin"><i class="fas fa-book-open"></i> <span>Boletim</span></a>
-                            </li> 
-
-                        </ul>
-
-                    </div>
-
-                </nav>
             </div>
+
+            <nav class="navbar fixed-bottom navbar-expand p-2 rounded-0" id="navbarBottomStudentPortal" style="border-radius: 0px">
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-expanded="true" href="#" data-toggle="collapse" data-target="#mural"><i class="fas fa-home"></i> <span>Home</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-expanded="false" data-toggle="collapse" data-target="#averageNote" href="#"><i class="fas fa-layer-group"></i> <span>Notas</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#class"><i class="fas fa-users"></i> <span>Turma</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin"><i class="fas fa-book-open"></i> <span>Boletim</span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="settingsStudentPortal" href="#"><img class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg"></a>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
+            </nav>
         </div>
+    </div>
 
 </body>
 

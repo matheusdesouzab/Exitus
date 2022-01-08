@@ -38,8 +38,8 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                             <div class="row">
 
-                                <div class="col-lg-12 logo">
-                                    <h5 class='text-white'>Logo do site</h5>
+                            <div class="col-lg-12 logo">
+                                    <img src="/assets/img/logo-completa-branca.png" alt="">
                                 </div>
 
                             </div>

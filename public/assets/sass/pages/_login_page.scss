@@ -1,11 +1,13 @@
 #login {
 
+    background-color: white;
+
     .container-login {
         border-radius: 15px;
         border-bottom-right-radius: 50px;
         border-top-right-radius: 50px;
         margin-top: 40px;
-        background-image: linear-gradient(to bottom, #536DFE 0, #536DFE 50%, #EAEDED 50%);
+        background-image: linear-gradient(to bottom, #091954 0, #091954 50%, #EAEDED 50%);
         height: 86.4vh;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
@@ -37,7 +39,7 @@
         
 
         .sidebar-primary {
-            background-color: #536DFE;
+            background-color: #091954;
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 50px;
@@ -56,7 +58,7 @@
             }
 
             .logo img {
-                width: 8vw;
+                width: 10vw;
                 margin: auto;
             }
 
@@ -66,7 +68,7 @@
             }
 
             .portal-active {
-                background-color: #2ECC71;
+                background-color: $color-green;
                 color: white;
             }
 
@@ -77,7 +79,7 @@
         }
 
         .sidebar-secondary {
-            background-color: #EAEDED;
+            background-color: #e5e5e5;
             border-bottom-right-radius: 15px;
             border-top-left-radius: 50px;
             border-top-right-radius: 15px;
@@ -112,6 +114,22 @@
                     &:hover{
                         border-bottom: 2px solid $color-blue;
                     }
+                }
+
+                .portal a {
+                    font-size: 9px;
+                    font-family: Bold;
+                }
+                
+                .portal-active{
+                    color: white;
+                    background-color: #2ECC71;
+                    border-radius: 5px;
+                }
+
+                .portal-disabled {
+                    background-color: white;
+                    color: black;
                 }
 
                 h5 {

@@ -14,17 +14,19 @@
 			</li>
 		</ul>
 
+		<a class="logo" href=""><img src="/assets/img/logo-completa.png" alt=""></a>
+
 		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
 			</li>
 
-			<li class="nav-item">
+			<li class="nav-item d-none d-md-block">
 				<div class="">
-					<img src="/assets/img/adminProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
+					<img class="foto-perfil" src="/assets/img/adminProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
 				</div>
 			</li>
 
-			<li class="nav-item ml-3">
+			<li class="nav-item ml-3 d-none d-md-block">
 				<b><?= $_SESSION['Admin']['name'] ?></b>
 			</li>
 

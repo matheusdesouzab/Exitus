@@ -1,11 +1,13 @@
 <nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-10 ml-auto shadow-sm navbar-expand">
 
 	<a class="navbar-brand" id="bars" href="#"><i class="fas fa-bars"></i></a>
-	<a class="navbar-brand bars-xs" href="#"><i class="fas fa-bars"></i></a>
+	
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 		<i class="fas fa-bars"></i>
 	</button>
+
+	<a class="logo" href=""><img src="/assets/img/logo-completa.png" alt=""></a>
 
 
 	<div class="collapse navbar-collapse" id="navbarText">
@@ -14,7 +16,7 @@
 
 			<li class="nav-item d-none d-md-block">
 				<div class="">
-					<img src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
+					<img class="foto-perfil" src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
 				</div>
 
 			</li>

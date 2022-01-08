@@ -21,7 +21,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
 
 <body id="login">
 
-    <div class="container-fluid bg-white" style="height: 100%">
+    <div class="container-fluid" style="height: 100%">
 
         <div class="row">
 
@@ -29,16 +29,16 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
 
                 <div class="row">
 
-                    <div class="col-md-6 sidebar-primary p-4 d-flex align-items-center">
+                    <div class="col-md-6 mx-auto sidebar-primary p-4 d-flex align-items-center">
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 col-sm-11 mx-auto">
 
                             <div class="row">
 
-                                <div class="col-lg-12 logo">
-                                    <h5 class='text-white'>Logo do site</h5>
+                            <div class="col-lg-12 logo">
+                                    <img src="/assets/img/logo-completa-branca.png" alt="">
                                 </div>
-
+                                
                             </div>
 
                             <div class="row d-flex justify-content-center">
@@ -94,7 +94,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
 
                         <div class="row">
 
-                            <form id="adminLogin" class="col-md-9 mx-auto" action="/portal-aluno/login" method="POST">
+                            <form id="adminLogin" class="col-md-9 col-11 mx-auto" action="/portal-aluno/login" method="POST">
 
                                 <div class="form-row mt-2 form-body">
 
@@ -133,8 +133,50 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
                                         <?php } ?>
                                     </div>
 
+                                    <div class="col-lg-12 d-block d-sm-none">
+
+                                    <div class="row">
+
+                                        <div class="col-4">
+
+                                            <div class="col-lg-12 portal portal-disabled p-0 text-center">
+
+                                                <a class="text-dark btn p-2 w-100" href="/admin">Admin</a>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-4">
+
+                                            <div class="col-lg-12 portal portal-disabled p-0 text-center">
+
+                                                <a class="text-dark btn p-2 w-100" href="/portal-docente">Docente</a>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-4">
+
+                                            <div class="col-lg-12 portal portal-active p-0 text-center">
+
+                                                <a class="text-white w-100 btn p-2" href="/portal-aluno">Aluno</a>
+
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
+                                </div>
+
                             </form>
+
+                        
 
                         </div>
 

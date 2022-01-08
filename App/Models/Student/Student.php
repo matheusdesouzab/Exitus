@@ -406,7 +406,7 @@ class Student extends People
             matricula.id_matricula AS enrollment_id ,
             serie.sigla AS acronym_series , 
             cedula_turma.cedula AS ballot , 
-            curso.nome_curso AS course , 
+            curso.sigla AS course , 
             turno.nome_turno AS shift ,
             turma.id_turma AS class_id
             

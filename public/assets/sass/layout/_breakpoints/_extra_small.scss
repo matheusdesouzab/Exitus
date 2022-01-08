@@ -2,6 +2,22 @@
 
     html {
 
+        #login{
+            background-color: #EAEDED;
+            .container-login {
+                background-color: transparent;
+                .sidebar-secondary {
+                    background: transparent;
+                }
+            }
+        }
+
+        #admin{
+            #navbar-top img{
+                margin-left: 24vw;
+            }
+        }
+
         body#admin,
         body#teacherPortal,
         body#studentPortal {
@@ -40,13 +56,18 @@
             #pagina {
 
                 #navbarBottom,
-                #navbarBottomStudentPortal {
+                #navbarBottomStudentPortal,
+                #navbarBottomTeacherPortal
+                 {
 
                     ul{
-                        img{
+                        .foto-perfil{
                             width: 8vw;
                         }
+                        
                     }
+
+
 
                 }
 
@@ -106,10 +127,30 @@
                         }
                     }
 
+                    .recently-enrolled{
+                       
+                            .card-title {
+                                font-size: 3vw;
+                            }
+                            table tr td{
+                                font-size: 10px;
+                            }
+                        
+    
+                    }
+
                     .recent-activities {
                         .card-title {
                             font-size: 4vw;
                             padding: 0px;
+                        }
+                    }
+
+                    .admin-portal{
+                        .recent-activities{
+                            .teacher-name{
+                                font-size: 10px;
+                            }
                         }
                     }
                 }
@@ -203,12 +244,17 @@
                 .main-container {
                     margin-top: 60px;
                     margin-bottom: 60px;
+
+                    h5:nth-child(1){
+                        margin-top: 10px;
+                    }
                 }
 
                 .page-header {
 
                     h5 {
                         font-size: 5vw;
+                        margin-top: 20px;
                     }
 
                     .collapse-options-container span {
@@ -226,7 +272,8 @@
 
 
                 #navbar-top {
-
+                    height: 50px;
+                    
                     b,
                     a {
                         font-size: 3.5vw;
@@ -234,6 +281,11 @@
                         i.fas {
                             font-size: 15px;
                         }
+                    }
+
+                    .logo img{
+                        width: 100px;
+                        height: 30px;
                     }
                 }
 
@@ -507,6 +559,19 @@
         #studentPortal {
 
             #pagina {
+
+                nav#studentPortalNavbar {
+
+                    .logo{
+                        img{
+                            width: 150px;
+                            height: 40px;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+
+                }
 
                 #mural {
                     .title {

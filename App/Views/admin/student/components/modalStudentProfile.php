@@ -36,7 +36,7 @@
 
                                     <?php } else { ?>
 
-                                        <span class="col-lg-12"><?= $student->general_student_situation ?></span>
+                                        <span class="col-lg-12 d-none d-md-block"><?= $student->general_student_situation ?></span>
 
                                     <?php } ?>
 
@@ -1150,7 +1150,7 @@
 
                         <div class="col-lg-12 p-0">
 
-                            <form class="mt-2 p-3 border mt-3" id="switchClasses" action="">
+                            <form class="mt-2 p-3 mt-3" id="switchClasses" action="">
 
                                 <div class="form-row col-lg-12">
 

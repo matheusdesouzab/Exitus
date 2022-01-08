@@ -17,7 +17,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-cog"></i> <span>Configurações</span></a>
+            <a class="nav-link" id="settingsTeacherPortal" href="#"><img class="foto-perfil" src="/assets/img/adminProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg"></a>
         </li>
 
     </ul>

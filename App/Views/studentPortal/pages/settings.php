@@ -16,9 +16,7 @@
 
                             <img class="mx-auto" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
-                            <div class="col-lg-12 main-sheet d-block d-sm-none">
-                                <div class="row p-3"><span class="col-lg-12"><?= $student->hierarchy_function ?></span></div>
-                            </div>
+                           
 
                             <div class="col-lg-10 mx-auto main-sheet d-none d-sm-block">
                                 <div class="row p-3">

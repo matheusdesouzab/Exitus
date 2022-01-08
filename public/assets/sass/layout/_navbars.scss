@@ -29,13 +29,17 @@ html body {
             display: none;
         }
 
-        img {
+        .foto-perfil {
             border-radius: 50%;
             width: 30px;
             height: 30px;
             object-position: top;
             object-fit: cover;
             cursor: pointer;
+        }
+
+        .logo img{
+            display: none;
         }
 
         #navbarDropdown {
@@ -60,9 +64,7 @@ html body {
             font-family: Bold;
             display: flex;
             align-items: center;
-            padding-top: 10px;
-
-            
+            padding-top: 10px;         
         }
 
         i.fas {
@@ -80,9 +82,7 @@ html body {
             display: none;
             margin-left: 10px;
             transition: 1s ease-in-out infinite alternate-reverse both;
-        }
-
-        
+        }       
 
         .navbar-collapse {
             margin-top: -18px;

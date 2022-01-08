@@ -468,7 +468,7 @@ $('#settingsModal , #profileStudentModal').on('show.bs.modal', function (e) {
 })
 
 
-$("#studentPortalNavbar img").on("click", function (e) {
+$("#studentPortalNavbar img, #settingsStudentPortal").on("click", function (e) {
     application.showModal(0, "/portal-aluno/configuracoes", "containerSettingsModal", "#settingsModal")
 })
 
@@ -796,18 +796,11 @@ $(document).on('click', "#profileClassModal [data-target='#class-note-history']"
 
 $(document).on("click", "#printBuleetin", function (e) {
 
-    let myTable = document.getElementById('table-bulletin-print').innerHTML
-    var win = window.open('', '', 'height=700,width=700')
-    win.document.write('<html><head>')
-    win.document.write('<title>Boletim</title>')
-    win.document.write('<meta charset="utf-8">')
-    win.document.write('<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">')
-    win.document.write('</head>')
-    win.document.write('<body>')
-    win.document.write('<h2>Aluno: Matheus de Souza</h2>')
-    win.document.write(myTable)
-    win.document.write('</body></html>')
-    win.document.close()
-    win.print()
+    const doc = new jsPDF()
 
+// It can parse html:
+// <table id="my-table"><!-- ... --></table>
+doc.autoTable({ html: '#table-bulletin' })
+
+doc.save('table.pdf')
 })

@@ -1,16 +1,26 @@
 function sideState() {
 
-    let $sidebarLogo = $('#painel-left .logo img')
-
-    $("#navbar-top").toggleClass('col-lg-11 col-lg-10').toggleClass('col-md-11 col-md-10')
-
-    $("#pagina").toggleClass('col-md-10 col-md-9').toggleClass('col-lg-11 col-lg-10')
-
-    $('.panel-side').toggleClass('col-lg-1 col-lg-2')
+    let $sidebarLogo = $('#left-panel .logo img')
 
     $('body').toggleClass('sidebar-responsive')
-    /* 
-        $('#painel-left ul').hasClass('side-bar-responsivo') ? [$sidebarLogo.attr('src', '/assets/img/logo.png'), $('.fa-bars').addClass('ml-2')] : [$sidebarLogo.attr('src', '/assets/img/logo-completo.png'), $('.fa-bars').removeClass('ml-2')] */
+
+    setTimeout(() => {
+
+        $('body').hasClass('sidebar-responsive') ?
+        $sidebarLogo.attr('src', '/assets/img/logo.png') : $sidebarLogo.attr('src', '/assets/img/logo-completa-branca.png') 
+
+    }, 100)
+
+    setTimeout(() => {
+
+        $("#navbar-top").toggleClass('col-lg-11 col-lg-10').toggleClass('col-md-11 col-md-10')
+
+        $("#pagina").toggleClass('col-md-10 col-md-9').toggleClass('col-lg-11 col-lg-10')
+
+        $('.panel-side').toggleClass('col-lg-1 col-lg-2')
+
+    }, 200)
+
 }
 
 
