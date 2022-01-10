@@ -30,8 +30,13 @@
             font-size: 1.1vw;
         }
 
+        label {
+            font-weight: bold;          
+        }
+
         select,input{
             font-size: 1.1vw;
+            color: $color-dark-blue;
         }
 
     }

@@ -30,6 +30,10 @@
 				<b><?= $_SESSION['Admin']['name'] ?></b>
 			</li>
 
+			<!-- <li class="nav-item ml-3">
+				<b><?= $_SESSION['Admin']['hierarchyFunction'] == 1 ? 'Administrador' : 'Co-administrador' ?></b>
+			</li>
+ -->
 			<li class="nav-item ml-4 mr-2">
 				<a href="#"><a href="/admin/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a></a>
 			</li>

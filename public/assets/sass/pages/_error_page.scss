@@ -1,0 +1,31 @@
+#errorPage {
+    background-color: white;
+
+    nav {
+        img {
+            width: 150px;
+        }
+
+        background-color: transparent;
+    }
+
+    .container-fluid {
+        margin-top: 20px;
+
+        img {
+            width: 400px;
+        }
+
+        h1 {
+            font-family: Bold;
+            font-size: 40px;
+            color: #3F3D56;
+        }
+
+        p {
+            font-size: 18px;
+            letter-spacing: 1px;
+            color: $color-dark-gray;
+        }
+    }
+}

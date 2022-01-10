@@ -333,7 +333,8 @@ class AdminManagementController extends Action
         $this->view->availableCourse = $Course->listForSelect();
         $this->view->availableClassRoom = $ClassRoom->listForSelect();
         $this->view->listClass = $Classe->readAll();
-        $this->view->activeSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
+        $this->view->activeScheduledSchoolTerm = $SchoolTerm->activeScheduledSchoolTerm();
+        $this->view->allSchoolTerm = $SchoolTerm->allSchoolTerm();
 
         $this->render('management/pages/classeManagement', 'AdminLayout');
     }

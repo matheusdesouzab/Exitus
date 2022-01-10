@@ -12,7 +12,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
-
+    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo.png"/>
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
@@ -36,14 +36,14 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
                             <div class="row">
 
                             <div class="col-lg-12 logo">
-                                    <img src="/assets/img/logo-completa-branca.png" alt="">
+                                    <img src="/assets/img/logo-completa.png" alt="">
                                 </div>
                                 
                             </div>
 
                             <div class="row d-flex justify-content-center">
 
-                                <img class="down-and-up" style="width: 25vw" src="/assets/img/undraw_programmer_re_owql.svg" alt="">
+                                <img class="down-and-up" style="width: 22vw" src="/assets/img/undraw_programmer_re_owql.svg" alt="">
 
                                 <div class="col-lg-12 mt-5">
 

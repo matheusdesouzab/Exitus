@@ -6,8 +6,6 @@
             height: 48vh;
             overflow: auto;
         }
-
-
     }
 
     .modal-full {
@@ -21,7 +19,6 @@
         z-index: 9999;
     }
     
-
     .modal {
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(5px);
@@ -38,7 +35,6 @@
     }
 
     .modal-profile {
-
         overflow-y: hidden;
 
         button {
@@ -50,7 +46,7 @@
         }
 
         .main-sheet {          
-            border-bottom: 1px solid #e5e5e5 !important;
+            border-bottom: 1px solid #e5e5e5;
 
             span {
                 text-align: center;
@@ -78,8 +74,7 @@
             .modal-content {
                 border-radius: 15px;
                 border: 2px solid #e5e5e5;
-                background-color: white;
-                
+                background-color: white;          
             }
             
             input[type="file"] {
@@ -173,7 +168,6 @@
             overflow-x: auto;
             border: 1px solid #e5e5e5;
 
-
             td{
                 font-size: 1vw;
             }
@@ -255,7 +249,6 @@
 
     #profileClassModal {
 
-
         img {
             margin-top: 0px;
         }
@@ -278,6 +271,4 @@
         }
 
     }
-
-
 }

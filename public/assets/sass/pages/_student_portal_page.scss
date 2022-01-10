@@ -1,0 +1,159 @@
+#studentPortal {
+    background: #F9F8F8;
+
+    #pagina {
+        background-color: #f9f8f8;
+    }
+
+    nav#studentPortalNavbar {
+        border-bottom: 1px solid #e5e5e5;
+        color: #8B8E90;
+        background-color: white;
+        font-family: Bold;
+        font-size: 13px;
+        box-sizing: border-box;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+        .foto-perfil {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            object-position: top;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .logo img {
+            width: 150px;
+            border-radius: 0px;
+            height: 45px;
+        }
+
+        .class {
+            margin-left: -30px;
+        }
+
+        .fa-th {
+            color: #8B8E90;
+            font-size: 25px;
+            margin-right: 30px;
+        }
+
+        a {
+            color: #8B8E90;
+            padding: 5px 25px;
+        }
+
+        .fa-sign-out-alt {
+            font-size: 15px;
+        }
+
+        .navbar-brand {
+            font-family: Bold;
+            font-size: 14px;
+        }
+
+        [aria-expanded="true"] {
+            color: $color-blue;
+            border-bottom: 2px solid $color-blue;
+        }
+    }
+
+    textarea:disabled {
+        background: white;
+        border-radius: 10px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    [containerBulletin] {
+        h5 {
+            margin-top: 30px;
+        }
+    }
+
+    #studentsTeachersAccordion,
+    #averageAndNotes {
+        [aria-expanded="true"] {
+            background-color: blue;
+            color: white;
+        }
+
+        a {
+            background-color: white;
+            border: 1px solid #e5e5e5;
+            font-family: Bold;
+            padding: 10px 15px;
+        }
+    }
+
+    #mural {
+
+        .title {
+            margin-left: 3vw;
+        }
+
+        h5 {
+            font-size: 16px;
+        }
+
+        .main-content {
+            margin-bottom: 50px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .side-exams {
+            height: 78vh;
+            width: 400px;
+            font-family: Bold;
+            font-size: 11px;
+            background-color: transparent;
+            border-radius: 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            .miniature-photo {
+                width: 30px;
+                height: 30px;
+                border: 2px solid white;
+            }
+
+            .exam-description {
+                margin-top: 12px;
+            }
+
+            .exam-description-footer {
+                margin-top: 10px;
+                color: $color-black;
+            }
+
+            .name-teacher {
+                font-size: 13px;
+                color: $color-dark-gray;
+            }
+        }
+
+        .side-mural {
+            overflow-y: scroll;
+            height: 78vh;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    }
+
+    #statistics {
+
+        .side-students,
+        .side-teachers {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 80vh;
+
+            h5 {
+                margin-left: 3vw;
+                margin-top: 15px;
+            }
+        }
+    }
+}

@@ -1,78 +1,76 @@
-#studentPortal {
-
-    background: #F9F8F8;
-
-    textarea:disabled {
-        background: white;
-        border-radius: 10px;
-        font-weight: 500;
-        font-size: 14px;
-    }
-
-    [containerBulletin] {
-        h5 {
-            margin-top: 30px;
-        }
-    }
-
-    #pagina {
-        background-color: #f9f8f8 !important;
-    }
-
-    #studentsTeachersAccordion, #averageAndNotes{
-        [aria-expanded="true"]{
-            background-color: blue;
-            color: white;
-        }
-        a{
-            background-color: white;
-            border: 1px solid #e5e5e5;
-            font-family: Bold;
-            padding: 10px 15px;
-        }
-    }
-}
-
-
 #admin,
 #teacherPortal,
 #studentPortal {
 
     #pagina {
 
-        .table-striped>tbody>tr:nth-child(2n+1)>td,
-        .table-striped>tbody>tr:nth-child(2n+1)>th {
-            background-color: #F4F6F6;
-        }
-
-        #table-bulletin-print thead{
+        #table-bulletin-print thead {
             background: #E8F0FE;
         }
+        
+        #note-table-class {
+            overflow: auto;
+        
+            td,
+            th {
+                text-align: left;
+            }
+        }
+        
+        #note-table {
+        
+            td,
+            th {
+                text-align: left;
+            }
+        }
+        
+        #profileStudentModal {
+        
+            #table-bulletin {
+                font-size: 13px;
+                width: 1000px;
+                font-family: Bold;
+        
+                th {
+                    color: black;
+                }
+            }
+        }
+        
+        #tableListExam {
+            font-size: 15px;
+        
+            td,
+            th {
+                margin: 3px;
+                text-align: left;
+            }
+        }
 
-        span.box-icon{
+        span.box-icon {
             width: 30px;
             display: inline-block;
         }
 
-        .limited-text-description{
+        .limited-text-description {
             max-width: 50ch;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        #class-discipline-accordion{
-            img{
+        #class-discipline-accordion {
+            img {
                 width: 20vw;
             }
         }
 
-        #class-rematrug{
-            img{
+        #class-rematrug {
+            img {
                 width: 30vw;
             }
         }
-
 
         section#home {
 
@@ -107,12 +105,11 @@
                 }
             }
 
-            #finalized-rematrecules{
-                    img{
-                        width: 3vw;
-                    }
+            #finalized-rematrecules {
+                img {
+                    width: 3vw;
                 }
-            
+            }
 
             .recently-enrolled {
                 height: 60vh;
@@ -121,7 +118,6 @@
             }
 
             .recent-activities {
-
                 height: 79vh;
                 overflow-y: auto;
                 overflow-x: hidden;
@@ -142,99 +138,9 @@
             }
         }
 
-        
-
-            #note-table-class {
-           
-                overflow: auto;
-
-                td,
-                th {
-                    text-align: left;
-          
-                }
-            }
-        
-
-        #note-table {
-
-            td,
-            th {
-                text-align: left;
-            }
-        }
-
         .text-description {
             font-family: Semi-bold;
             font-size: 13px;
-        }
-
-
-        nav#studentPortalNavbar {
-            border-bottom: 1px solid #e5e5e5;
-            color: #8B8E90;
-            background-color: white;
-            font-family: Bold;
-            font-size: 13px;
-            box-sizing: border-box;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-
-            .foto-perfil {
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                object-position: top;
-                object-fit: cover;
-                cursor: pointer;
-            }
-
-            .logo img{
-                width: 150px; 
-                border-radius: 0px; 
-                height: 45px;
-            }
-
-            .class{
-                margin-left: -30px;
-            }
-
-            .fa-th {
-                color: #8B8E90;
-                font-size: 25px;
-                margin-right: 30px;
-            }
-
-            a {
-                color: #8B8E90;
-                padding: 5px 25px;
-            }
-
-            .fa-sign-out-alt{
-                font-size: 15px;
-            }
-
-            .navbar-brand {
-                font-family: Bold;
-                font-size: 14px;
-            }
-
-            [aria-expanded="true"] {
-                color: $color-blue;
-                border-bottom: 2px solid $color-blue;
-            }
-        }
-
-        #profileStudentModal {
-
-            #table-bulletin {
-                font-size: 13px;
-                width: 1000px;
-                font-family: Bold;
-
-                th {
-                    color: black;
-                }
-            }
         }
 
         .main-container {
@@ -267,81 +173,7 @@
             }
         }
 
-        #mural {
-
-            .title{
-                margin-left: 3vw;
-            }
-
-            h5 {
-                font-size: 16px;
-            }
-
-            .main-content {
-                margin-bottom: 50px;
-                overflow: hidden;
-                border-radius: 10px;
-            }
-
-            .side-exams {
-                height: 78vh;
-                width: 400px;
-                font-family: Bold;
-                font-size: 11px;
-                background-color: transparent;
-                border-radius: 10px;
-                overflow-y: auto;
-                overflow-x: hidden;
-
-                .miniature-photo {
-                    width: 30px;
-                    height: 30px;
-                    border: 2px solid white;
-                }
-
-                .exam-description {
-                    margin-top: 12px;
-                }
-
-                .exam-description-footer {
-                    margin-top: 10px;
-                    color: $color-black;
-                }
-
-                .name-teacher {
-                    font-size: 13px;
-                    color: $color-dark-gray;
-                }
-
-
-            }
-
-            .side-mural {
-                overflow-y: scroll;
-                height: 78vh;
-                border-radius: 10px;
-                margin-bottom: 20px;
-            }
-        }
-
-
-        #statistics {
-
-            .side-students,
-            .side-teachers {
-                overflow-y: scroll;
-                overflow-x: hidden;
-                height: 80vh;
-
-                h5 {
-                    margin-left: 3vw;
-                    margin-top: 15px;
-                }
-            }
-
-        }
-
-        p{
+        p {
             font-size: 1.0vw;
         }
 
@@ -353,7 +185,8 @@
             border-radius: 50%;
         }
 
-        #navbarBottom,#navbarBottomStudentPortal {
+        #navbarBottom,
+        #navbarBottomStudentPortal {
             display: none;
         }
 
@@ -438,28 +271,21 @@
                         margin-top: 5px;
                         font-size: 13px;
                     }
-
-
                 }
             }
         }
 
         #teacher-registration {
-
             .connection-line {
                 width: 68%;
             }
 
         }
 
-
         // Accordion container ( Recipiente do acordeão) 
 
-
         .accordion-container {
-
             height: 87vh;
-            
 
             &::-webkit-scrollbar {
                 width: 0;
@@ -467,29 +293,11 @@
             }
         }
 
-  
-
-
-        #tableListExam {
-            font-size: 15px;
-
-            td,
-            th {
-                margin: 3px;
-                text-align: left;
-            }
-
-        }
-
-
-
         #seekNoteExam a {
             border: 1px solid $color-smooth-gray;
         }
 
-
         // Collapse options container ( Recipiente das opções de colapso )
-
 
         .collapse-options-container {
             display: flex;
@@ -508,21 +316,16 @@
         }
 
         .collapse-options-container {
-
             [aria-expanded="true"] {
-
                 span {
                     background: #363C90;
                     color: $color-white;
                     border: none;
                 }
             }
-
         }
 
-
         // All edges of images ( Todas as bordas das imagens )
-
 
         .horizontal-control-list {
 
@@ -543,30 +346,9 @@
 
         }
 
-
         .gif-loading {
-
             img {
                 width: 20%;
-            }
-        }
-
-        #toastContainer {
-            position: fixed;
-            right: 15px;
-            bottom: 0;
-            max-width: 40vw;
-        }
-
-        .toast {
-            border-radius: 15px;
-            background-color: transparent !important;
-            position: absolute;
-            z-index: 100000000;
-
-            .toast-header {
-                border-radius: 5px;
-                padding: 10px 15px;
             }
         }
 
@@ -584,6 +366,5 @@
         [containerRegistrationError] {
             display: none;
         }
-
     }
 }

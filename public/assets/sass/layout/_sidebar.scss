@@ -153,7 +153,7 @@
 
 }
 
-.sidebar-responsive {
+html > .sidebar-responsive {
 
     #left-panel {
 
@@ -177,13 +177,13 @@
                     margin-left: 15px;            
                 }
 
+                span.link-name,
+                    [fa-angle-right].fa-angle-right{
+                        display: none;
+                    }
+
                 a {
                     text-align: center;                   
-
-                    span.link-name,
-                    i.fa-angle-right,i.fa-angle-down {
-                        display: none !important;
-                    }
 
                     i.fas , i.bi{
                         font-size: 17px;
@@ -209,3 +209,4 @@
     }
 
 }
+

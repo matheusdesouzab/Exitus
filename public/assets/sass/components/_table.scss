@@ -1,0 +1,39 @@
+table {
+
+    tbody>tr>td {
+        vertical-align: middle;
+    }
+
+    th {
+        color: $color-dark-blue;
+        border-top: none;
+    }
+
+    thead {
+        border-top: none;
+    }
+
+    td {
+        line-height: 30px;
+        color: $color-black;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 30px;
+    }
+
+    tr {
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+
+.table-striped>tbody>tr:nth-child(2n+1)>td,
+.table-striped>tbody>tr:nth-child(2n+1)>th {
+    background-color: #F4F6F6;
+}
+

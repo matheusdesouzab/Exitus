@@ -22,10 +22,14 @@ abstract class Bootstrap {
 	}
 
 	protected function run($url) {
+
+		$statePage = false ;
 		
 		foreach ($this->getRoutes() as $key => $route) {
 
 			if($url == $route['route']) {
+
+				$statePage = true;
 				
 				$class = "App\\Controllers\\".ucfirst($route['controller']);
 
@@ -34,7 +38,14 @@ abstract class Bootstrap {
 				$action = $route['action'];
 
 				$controller->$action();
+
 			}
+		}
+
+		if($statePage == false){
+			$class = "App\\Controllers\\Admin\\AdminController";
+			$Admin = new $class;
+			$Admin->error();
 		}
 	}
 

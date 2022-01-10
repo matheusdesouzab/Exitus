@@ -21,7 +21,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
     <div class="container-fluid">
 
-        <div id="pagina" class="row accordion bg-white">
+        <div id="pagina" class="row accordion">
 
             <div class="col-lg-12 p-0" id="studentPortal-accordion">
 

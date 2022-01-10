@@ -2,7 +2,7 @@
 
 if (!isset($_SESSION)) session_start();
 
-if (isset($_SESSION['Admin'])) header("Location: /admin/gestao/turmas");
+if (isset($_SESSION['Admin'])) header("Location: /admin/home");
 if (isset($_SESSION['Teacher'])) header("Location: /portal-docente/home");
 if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
@@ -15,7 +15,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
-
+    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo.png"/>
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
@@ -24,7 +24,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
 <body id="login">
 
-    <div class="container-fluid bg-white" style="height: 100%">
+    <div class="container-fluid" style="height: 100%">
 
         <div class="row">
 
@@ -39,7 +39,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
                             <div class="row">
 
                             <div class="col-lg-12 logo">
-                                    <img src="/assets/img/logo-completa-branca.png" alt="">
+                                    <img src="/assets/img/logo-completa.png" alt="">
                                 </div>
 
                             </div>

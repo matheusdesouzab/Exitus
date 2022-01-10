@@ -29,6 +29,10 @@
 
 @import 'components/icons';
 
+@import 'components/toast';
+
+@import 'components/table';
+
 
 // Layout
 
@@ -36,9 +40,15 @@
 
 // Pages/Page General
 
-@import 'pages/admin_page';
+@import 'pages/index_page';
+
+@import 'pages/error_page';
+
+@import 'pages/general_page';
 
 @import 'pages/login_page';
+
+@import 'pages/student_portal_page';
 
 @import 'layout/breakpoints_all';
 

@@ -113,7 +113,7 @@
 
                                             <option value="0">Todos</option>
 
-                                            <?php foreach ($this->view->activeSchoolTerm as $key => $schoolTerm) { ?>
+                                            <?php foreach ($this->view->allSchoolTerm as $key => $schoolTerm) { ?>
 
                                                 <option value="<?= $schoolTerm->option_value ?>"><?= $schoolTerm->option_text ?> - <?= $schoolTerm->situation ?></option>
 
@@ -345,7 +345,7 @@
 
                                         <select id="schoolTerm" name="schoolTerm" class="form-control custom-select">
 
-                                            <?php foreach ($this->view->activeSchoolTerm as $key => $schoolTerm) { ?>
+                                            <?php foreach ($this->view->activeScheduledSchoolTerm as $key => $schoolTerm) { ?>
 
                                                 <option value="<?= $schoolTerm->option_value ?>"><?= $schoolTerm->option_text ?> - <?= $schoolTerm->situation ?></option>
 

@@ -2,18 +2,35 @@
 
     html {
 
-        #login{
+        #errorPage {
+
+            .container-fluid {
+                img {
+                    width: 200px;
+                }
+
+                p {
+                    font-size: 12px;
+                    text-align: justify;
+                }
+            }
+
+        }
+
+        #login {
             background-color: #EAEDED;
+
             .container-login {
                 background-color: transparent;
+
                 .sidebar-secondary {
                     background: transparent;
                 }
             }
         }
 
-        #admin{
-            #navbar-top img{
+        #admin {
+            #navbar-top img {
                 margin-left: 24vw;
             }
         }
@@ -43,13 +60,9 @@
                                 left: 15;
                                 margin-top: 5px;
                             }
-
                         }
-
-
                     }
                 }
-
             }
 
 
@@ -57,18 +70,13 @@
 
                 #navbarBottom,
                 #navbarBottomStudentPortal,
-                #navbarBottomTeacherPortal
-                 {
+                #navbarBottomTeacherPortal {
 
-                    ul{
-                        .foto-perfil{
+                    ul {
+                        .foto-perfil {
                             width: 8vw;
                         }
-                        
                     }
-
-
-
                 }
 
                 p {
@@ -127,16 +135,15 @@
                         }
                     }
 
-                    .recently-enrolled{
-                       
-                            .card-title {
-                                font-size: 3vw;
-                            }
-                            table tr td{
-                                font-size: 10px;
-                            }
-                        
-    
+                    .recently-enrolled {
+
+                        .card-title {
+                            font-size: 3vw;
+                        }
+
+                        table tr td {
+                            font-size: 10px;
+                        }
                     }
 
                     .recent-activities {
@@ -146,9 +153,9 @@
                         }
                     }
 
-                    .admin-portal{
-                        .recent-activities{
-                            .teacher-name{
+                    .admin-portal {
+                        .recent-activities {
+                            .teacher-name {
                                 font-size: 10px;
                             }
                         }
@@ -160,13 +167,15 @@
                     width: 700px;
                 }
 
-                #settingsModal{
-                    #accordion-data-admin{
-                        form{
-                            .input-group-text{
+                #settingsModal {
+                    #accordion-data-admin {
+                        form {
+                            .input-group-text {
                                 font-size: 2.7vw;
                             }
-                            input, select{
+
+                            input,
+                            select {
                                 font-size: 2.4vw;
                             }
                         }
@@ -175,7 +184,7 @@
 
                 #profileTeacherModal,
                 #profileStudentModal {
-                    
+
                     #main-accordion {
                         background-color: white;
                         border-radius: 15px;
@@ -186,7 +195,7 @@
                             .container-list-group {
 
                                 nav ul {
-                                    width: 350px;                                   
+                                    width: 350px;
                                 }
 
                             }
@@ -200,7 +209,7 @@
 
                         .main-content {
                             margin-top: 0px;
-                            
+
                         }
                     }
                 }
@@ -208,7 +217,7 @@
 
                 #profileStudentModal {
                     .main-sheet {
-                        margin-top: 10px !important;
+                        margin-top: 10px;
                     }
 
                     .modal-sidebar {
@@ -245,7 +254,7 @@
                     margin-top: 60px;
                     margin-bottom: 60px;
 
-                    h5:nth-child(1){
+                    h5:nth-child(1) {
                         margin-top: 10px;
                     }
                 }
@@ -273,7 +282,7 @@
 
                 #navbar-top {
                     height: 50px;
-                    
+
                     b,
                     a {
                         font-size: 3.5vw;
@@ -283,7 +292,7 @@
                         }
                     }
 
-                    .logo img{
+                    .logo img {
                         width: 100px;
                         height: 30px;
                     }
@@ -294,8 +303,6 @@
                         width: 800px;
                     }
                 }
-
-
 
                 section#discipline {
                     table {
@@ -333,12 +340,9 @@
 
                 }
 
-
                 .modal-profile {
 
                     overflow-y: auto;
-
-                    
 
                     .modal-sidebar img {
                         width: 25vw;
@@ -368,46 +372,44 @@
 
                     .modal-sidebar {
 
-                    .container-list-group {
-                        order: 2;
-                        padding: 5px;
-                        display: block;
-                        border: none;
-                        border-bottom: 2px solid #e5e5e5;
-                        border-radius: 0px;
-                        padding-bottom: 0;
-                        margin-top: -4vw;
-
-                        nav {
-                            padding: 10px;
-                            overflow: auto;
+                        .container-list-group {
+                            order: 2;
+                            padding: 5px;
+                            display: block;
+                            border: none;
+                            border-bottom: 2px solid #e5e5e5;
+                            border-radius: 0px;
                             padding-bottom: 0;
+                            margin-top: -4vw;
 
-                           
+                            nav {
+                                padding: 10px;
+                                overflow: auto;
+                                padding-bottom: 0;
 
-                            ul {
-                                display: flex;
-                                justify-content: space-around;
-                                flex-grow: 1;
-                                width: 1300px;
+                                ul {
+                                    display: flex;
+                                    justify-content: space-around;
+                                    flex-grow: 1;
+                                    width: 1300px;
 
-                                a {
-                                    margin-bottom: 0;
-                                    border-bottom: 2px solid white;
-                                    border-radius: 0px;
-                                    font-size: 2.5vw;
-                                }
+                                    a {
+                                        margin-bottom: 0;
+                                        border-bottom: 2px solid white;
+                                        border-radius: 0px;
+                                        font-size: 2.5vw;
+                                    }
 
-                                [aria-expanded="true"] {
-                                    border-bottom: 2px solid $color-blue;
-                                    background-color: transparent;
-                                    color: $color-dark-gray;
+                                    [aria-expanded="true"] {
+                                        border-bottom: 2px solid $color-blue;
+                                        background-color: transparent;
+                                        color: $color-dark-gray;
+                                    }
                                 }
                             }
-                        }
 
+                        }
                     }
-                }
 
                     .collapse-options-container {
                         margin-top: 20px;
@@ -429,18 +431,19 @@
                             i.fas {
                                 font-size: 3.0vw;
                             }
-    
+
                             div .font-weight-bold {
                                 font-size: 2.5vw;
                             }
-    
-                            input,select{
+
+                            input,
+                            select {
                                 font-size: 2.4vw;
                             }
                         }
 
-                        #list-warning{
-                            .miniature-photo{
+                        #list-warning {
+                            .miniature-photo {
                                 width: 8vw;
                             }
                         }
@@ -485,9 +488,7 @@
                             }
                         }
 
-
-
-                        h5,
+                         h5,
                         .h5 {
                             font-size: 3vw;
                             margin-bottom: 15px;
@@ -562,8 +563,8 @@
 
                 nav#studentPortalNavbar {
 
-                    .logo{
-                        img{
+                    .logo {
+                        img {
                             width: 150px;
                             height: 40px;
                             object-fit: cover;

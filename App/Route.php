@@ -13,6 +13,12 @@ class Route extends Bootstrap
 		// Admin routes
 
 
+			$routes['index'] = array(
+				'route' => '/',
+				'controller' => 'Index\\IndexController',
+				'action' => 'index'
+			);
+
 			$routes['admin'] = array(
 				'route' => '/admin',
 				'controller' => 'Admin\\AdminController',

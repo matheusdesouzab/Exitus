@@ -1,0 +1,18 @@
+#toastContainer {
+    position: fixed;
+    right: 15px;
+    bottom: 0;
+    max-width: 40vw;
+}
+
+.toast {
+    border-radius: 15px;
+    background-color: transparent;
+    position: absolute;
+    z-index: 100000000;
+
+    .toast-header {
+        border-radius: 5px;
+        padding: 10px 15px;
+    }
+}

@@ -1,13 +1,13 @@
 #login {
 
-    background-color: white;
+    background-color: #82EBE1;
 
     .container-login {
         border-radius: 15px;
         border-bottom-right-radius: 50px;
         border-top-right-radius: 50px;
         margin-top: 40px;
-        background-image: linear-gradient(to bottom, #091954 0, #091954 50%, #EAEDED 50%);
+        background-image: linear-gradient(to bottom, white 0, white 50%, #F2F2F2 50%);
         height: 86.4vh;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
@@ -23,23 +23,25 @@
             0% {
                 transform: scale(1.0);
             }
+
             100% {
                 transform: scale(1.1);
             }
         }
 
-        @keyframes from-side-to-side{
+        @keyframes from-side-to-side {
             0% {
                 transform: translateX(20px);
-              }
-              100% {
+            }
+
+            100% {
                 transform: translateX(-20px);
-              }
-          }
-        
+            }
+        }
+
 
         .sidebar-primary {
-            background-color: #091954;
+            background-color: white;
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 50px;
@@ -58,17 +60,18 @@
             }
 
             .logo img {
-                width: 10vw;
+                width: 12vw;
                 margin: auto;
             }
 
             .portal-disabled {
-                background-color: white;
+                background-color: #F2F2F2;
                 color: black;
+                border: 1px solid #e5e5e5;
             }
 
             .portal-active {
-                background-color: $color-green;
+                background-color: #6C63FF;
                 color: white;
             }
 
@@ -79,7 +82,7 @@
         }
 
         .sidebar-secondary {
-            background-color: #e5e5e5;
+            background-color: #F2F2F2;
             border-bottom-right-radius: 15px;
             border-top-left-radius: 50px;
             border-top-right-radius: 15px;
@@ -98,11 +101,11 @@
                     transition: all 0.6s ease;
                 }
 
-                .input-group-text{
+                .input-group-text {
                     border: none;
                     border-radius: 0px;
                     border-bottom: 2px solid $color-blue;
-                    color: $color-dark-gray;
+                    color: #3F3D56;
                 }
 
                 input {
@@ -111,7 +114,7 @@
                     transition: 0.9s;
                     border-bottom: 2px solid $color-extra-light-blue;
 
-                    &:hover{
+                    &:hover {
                         border-bottom: 2px solid $color-blue;
                     }
                 }
@@ -120,8 +123,8 @@
                     font-size: 9px;
                     font-family: Bold;
                 }
-                
-                .portal-active{
+
+                .portal-active {
                     color: white;
                     background-color: #2ECC71;
                     border-radius: 5px;
@@ -140,8 +143,8 @@
                 }
 
                 label {
-                    font-weight: bold;
                     font-size: 17px;
+                    font-family: Semi-bold;
                 }
 
                 .form-body {
@@ -154,11 +157,8 @@
                         font-weight: bold;
                         color: white;
                     }
-
                 }
-
             }
         }
     }
-
 }
