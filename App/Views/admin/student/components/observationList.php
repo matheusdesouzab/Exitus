@@ -48,7 +48,20 @@
 
                 <?php
 
-                $date = explode('-', $observation->post_date);
+function currentDate($array)
+{
+
+    date_default_timezone_set('America/Sao_Paulo');
+    $today = date('d-m');
+
+    $data = explode(' ', $array);
+    $data = explode('-', $data[0]);
+    $data = $data[2] . '/' . $data[1];
+
+    $data = ($data == $today ? 'Hoje' : $data);
+
+    return $data;
+}
 
                 ?>
 
@@ -59,7 +72,7 @@
                     <div class="">
                         <div class="row">
                             <small class="col-lg-5 font-weight-bold"><?= $observation->course ?>-<?= $observation->series_acronym ?><?= $shift ?>-<?= $observation->ballot ?> </small>
-                            <small class="col-lg-7 text-right font-weight-bold"> <i class="fas fa-history mr-2"></i> Realizada em <?= $date[2] ?> / <?= $date[1] ?></small>
+                            <small class="col-lg-7 text-right font-weight-bold"> <i class="fas fa-history mr-2"></i> Realizada em <?= currentDate($observation->post_date) ?></small>
                         </div>
 
                     </div>

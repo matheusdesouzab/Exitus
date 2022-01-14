@@ -35,8 +35,6 @@
             </div>         
 
             <li><a href="/admin/gestao"><i class="fas fa-chart-pie"></i><span class="link-name">BI</span></a></li>
-
-            <li><a href="/admin/gestao"><i class="fas fa-book"></i><span class="link-name">Biblioteca</span></a></li> 
             
             <li data-toggle="collapse" href="#administrador" role="button" aria-expanded="false" aria-controls="admin" class="active link-collapse" name="administrador">
                 <a><i class="fas fa-user-cog"></i><span class="link-name">Administrador</span><i fa-angle-right class="fas fa-angle-right pr-3"></i></a>

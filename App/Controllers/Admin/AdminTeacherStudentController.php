@@ -196,6 +196,7 @@ class AdminTeacherStudentController extends Action
         $StudentEnrollment->__set('studentEnrollmentId', $_GET['enrollmentId']);
 
         $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->notesLinkedStudentClassTeacher($StudentEnrollment) : $Note->readByIdStudent();
+        $this->view->listNoteType = 'student';
 
         $this->render('student/components/studentGradeList', 'SimpleLayout');
     }

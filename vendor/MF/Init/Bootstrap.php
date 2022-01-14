@@ -43,9 +43,9 @@ abstract class Bootstrap {
 		}
 
 		if($statePage == false){
-			$class = "App\\Controllers\\Admin\\AdminController";
-			$Admin = new $class;
-			$Admin->error();
+			$class = "App\\Controllers\\Index\\IndexController";
+			$Index = new $class;
+			$Index->error();
 		}
 	}
 

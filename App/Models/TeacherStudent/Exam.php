@@ -449,8 +449,6 @@ class Exam extends Model
             
             WHERE turma.id_turma = :classId 
 
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
-
             ORDER BY avaliacoes.id_avaliacao ASC
             
         ";
@@ -503,8 +501,6 @@ class Exam extends Model
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
             
             WHERE professor.id_professor = :teacherId
-
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
 
             ORDER BY avaliacoes.id_avaliacao ASC
             

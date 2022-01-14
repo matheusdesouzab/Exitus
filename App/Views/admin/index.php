@@ -19,6 +19,8 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link rel="shortcut icon" type="imagem/x-icon" href="/assets/img/logo.png" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 
@@ -39,14 +41,14 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
                             <div class="row">
 
                             <div class="col-lg-12 logo">
-                                    <img src="/assets/img/logo-completa.png" alt="">
+                                    <img  src="/assets/img/logo-completa.png" alt="">
                                 </div>
 
                             </div>
 
                             <div class="row d-flex justify-content-center">
 
-                                <img class="down-and-up" src="/assets/img/undraw_programming_re_kg9v.svg" alt="">
+                                <img class="down-and-up" src="/assets/img/administrador-computador.svg" alt="">
 
                                 <div class="col-lg-12 mt-5">
 
@@ -174,6 +176,8 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 <script src="/assets/js/utilities/Management.js"></script>
 
 <script src="/assets/js/utilities/style.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script src="/assets/js/main.js"></script>
 

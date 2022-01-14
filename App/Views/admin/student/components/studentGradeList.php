@@ -1,3 +1,5 @@
+
+
 <?php if (count($this->view->listNote) >= 1) {
 
     $total = 1 ;
@@ -26,7 +28,7 @@ foreach ($this->view->listNote as $i => $note) { ?>
 <?php } else { ?>
 
 <tr class="mt-4">
-    <td class="text-center" colspan="<?= $this->view->listNoteType == 'class' ? '7' : '5' ?>" style="pointer-events:none">Nenhuma avaliação encrontada <i class="fas fa-history ml-2"></i></td>
+    <td class="text-center" colspan="<?= $this->view->listNoteType == 'class' ? '7' : '8' ?>" style="pointer-events:none">Nenhuma avaliação encrontada <i class="fas fa-history ml-2"></i></td>
 </tr>
 
 <?php } ?>

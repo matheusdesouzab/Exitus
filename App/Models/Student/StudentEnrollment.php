@@ -204,7 +204,7 @@ class StudentEnrollment extends Model
     }
 
 
-    public function dataGeneral($scholTermSituation = '= 1')
+    public function dataGeneral()
     {
 
         $query =
@@ -246,7 +246,7 @@ class StudentEnrollment extends Model
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
-            WHERE matricula.id_matricula = :studentEnrollmentId AND situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation
+            WHERE matricula.id_matricula = :studentEnrollmentId
             
         ";
 

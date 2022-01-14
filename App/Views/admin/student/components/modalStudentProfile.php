@@ -14,13 +14,7 @@
 
                         <div class="row">
 
-                            <img class="mx-auto" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
-
-                            <div class="col-lg-2 d-flex align-items-center position-absolute" style="bottom: 59vh; right: 100px">
-
-                                <span class="bg-primary p-2 edit-image-button" data-toggle="modal" data-target="#profilePhotoModal"><i class="fas fa-pen text-white"></i></span>
-
-                            </div> 
+                            <img class="mx-auto" data-toggle="modal" data-target="#profilePhotoModal" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
 
                             <div class="col-lg-10 col-11  main-sheet mx-auto d-block d-sm-none">
                                 <div class="row p-3"><span class="col-lg-12"><?= $student->name ?> - <?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span></div>
@@ -36,7 +30,7 @@
 
                                     <?php } else { ?>
 
-                                        <span class="col-lg-12 d-none d-md-block"><?= $student->general_student_situation ?></span>
+                                        <span class="col-lg-12 d-none d-md-block"><?= $student->general_situation ?></span>
 
                                     <?php } ?>
 
@@ -60,7 +54,7 @@
 
                                     <?php if ($this->view->studentDataEnrollment[0]->situation_id != 4) { ?>
 
-                                        <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_situation) { ?>
+                                        <?php if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
 
                                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">
                                                 <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações
@@ -88,14 +82,15 @@
 
                                             <?php if (!isset($_SESSION)) session_start();
 
-                                            if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
+                                            if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { 
+
+                                            if ($this->view->schoolTermActive[0]->option_value ==  $this->view->studentDataEnrollment[0]->school_term_id) { ?>
 
                                                 <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-settings">
                                                     <span class="box-icon"><i class="fas fa-sync-alt mr-3"></i></span> Troca de turma
                                                 </a>
 
-
-                                    <?php }
+                                    <?php }}
                                         }
                                     } ?>
 
@@ -192,7 +187,7 @@
 
                                 ?>
 
-                                    <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_situation) {
+                                    <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_id) {
 
                                         if ($this->view->studentDataEnrollment[0]->situation_id != 4) {
 
@@ -1127,13 +1122,15 @@
 
                                 <h5 class="col-8">Troca de turma</h5>
 
-                                <?php if (!isset($_SESSION)) session_start();
+                                <?php 
+                                
+                                if (!isset($_SESSION)) session_start();
 
                                 if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
 
                                 ?>
 
-                                    <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_situation) { ?>
+                                    <?php if ($this->view->schoolTermActive[0]->option_value == $this->view->studentDataEnrollment[0]->school_term_id) { ?>
 
                                         <div class="col-4 d-flex justify-content-end">
 
@@ -1150,7 +1147,7 @@
 
                         <div class="col-lg-12 p-0">
 
-                            <form class="mt-2 p-3 mt-3" id="switchClasses" action="">
+                            <form class="mt-2 p-3 mt-3 card" id="switchClasses" action="">
 
                                 <div class="form-row col-lg-12">
 
@@ -1166,11 +1163,13 @@
 
                                             <?php foreach ($this->view->classesWhereStudentEnrolledSameYear as $key => $value) {
 
-                                                if ($value->student_capacity > 0) { ?>
+                                                if ($value->student_capacity > 0) { 
+
+                                                    if($this->view->studentDataEnrollment[0]->class_id != $value->class_id){ ?>
 
                                                     <option value="<?= $value->class_id ?>"><?= $value->series ?> ª <?= $value->ballot ?> - <?= $value->course ?> - <?= $value->shift ?> - <?= $value->school_year ?> - Vagas: <?= $value->student_capacity - $value->student_total ?></option>
 
-                                            <?php }
+                                            <?php }}
                                             } ?>
 
                                         </select>

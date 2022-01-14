@@ -177,7 +177,7 @@ class Student extends People
      * 
      * @return array
      */
-    public function dataGeneral($scholTermSituation = "= 1")
+    public function dataGeneral($enrollment)
     {
 
         $query =
@@ -228,12 +228,12 @@ class Student extends People
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
-            WHERE aluno.id_aluno = :id AND situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation 
+            WHERE matricula.id_matricula = :fk_id_enrollment_id 
             
         ";
 
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':id', $this->__get('studentId'));
+        $stmt->bindValue(':fk_id_enrollment_id', $enrollment->__get('studentEnrollmentId'));
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
@@ -305,7 +305,7 @@ class Student extends People
 
             AND
 
-            situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+            CASE WHEN :fk_id_school_term = 0 THEN periodo_letivo.id_ano_letivo <> :fk_id_school_term ELSE periodo_letivo.id_ano_letivo = :fk_id_school_term END
 
             AND
 
@@ -320,6 +320,7 @@ class Student extends People
         $stmt->bindValue(':fk_id_course', $classe->__get('fk_id_course'));
         $stmt->bindValue(':fk_id_shift', $classe->__get('fk_id_shift'));
         $stmt->bindValue(':fk_id_series', $classe->__get('fk_id_series'));
+        $stmt->bindValue(':fk_id_school_term', $classe->__get('fk_id_school_term'));
 
         $stmt->execute();
 

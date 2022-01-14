@@ -34,6 +34,7 @@ class AdminStudentController extends Action
         $Student = Container::getModel('Student\\Student');
         $Shift = Container::getModel('GeneralManagement\\Shift');
         $Series = Container::getModel('GeneralManagement\\Series');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
 
         $this->view->listStudent = $Student->readAll();
         $this->view->availableCourse = $Course->listForSelect();
@@ -42,6 +43,7 @@ class AdminStudentController extends Action
         $this->view->availableShift = $Shift->listForSelect();
         $this->view->availableSeries = $Series->listForSelect();
         $this->view->typeStudentList = 'normal';
+        $this->view->allSchoolTerm = $SchoolTerm->allSchoolTerm();
 
         $this->render('student/studentList', 'AdminLayout');
     }
@@ -79,6 +81,7 @@ class AdminStudentController extends Action
         $Classe->__set('fk_id_course', $_GET['course']);
         $Classe->__set('fk_id_series', $_GET['series']);
         $Classe->__set('fk_id_shift', $_GET['shift']);
+        $Classe->__set('fk_id_school_term', $_GET['schoolTerm']);
 
         $this->view->listStudent = $Student->seek($Classe);
         $this->view->typeStudentList = 'normal';
@@ -104,7 +107,7 @@ class AdminStudentController extends Action
 
         $Student->__set('studentId', $this->view->studentDataEnrollment[0]->id);
 
-        $this->view->studentDataGeneral = $Student->dataGeneral();
+        $this->view->studentDataGeneral = $Student->dataGeneral($StudentEnrollment);
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->unity = $Unity->readOpenUnits();

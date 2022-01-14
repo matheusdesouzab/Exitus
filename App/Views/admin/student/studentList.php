@@ -65,8 +65,6 @@
                                     </select>
                                 </div>
 
-
-
                                 <div class="form-group col-12 col-lg-3">
                                     <label for="">Série:</label>
                                     <select class="form-control custom-select" name="series" id="series">
@@ -75,6 +73,24 @@
                                             <option value="<?= $series->option_value ?>"><?= $series->option_text ?></option>
                                         <?php } ?>
                                     </select>
+                                </div>
+
+                                <div class="form-group col-6 col-sm-3">
+
+                                    <label for="shift">Período Letivo</label>
+
+                                    <select id="schoolTerm" name="schoolTerm" class="form-control custom-select">
+
+                                        <option value="0">Todos</option>
+
+                                        <?php foreach ($this->view->allSchoolTerm as $key => $schoolTerm) { ?>
+
+                                            <option value="<?= $schoolTerm->option_value ?>"><?= $schoolTerm->option_text ?> - <?= $schoolTerm->situation ?></option>
+
+                                        <?php } ?>
+
+                                    </select>
+
                                 </div>
 
                             </div>

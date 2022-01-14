@@ -11,10 +11,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title> Web Gest </title>
+    <title> Exitus - Portal do aluno </title>
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
+    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo.png"/>
 </head>
 
 <body id="studentPortal">
@@ -53,15 +54,16 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                 <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#">Notas e medias</a>
                             </li>
 
+                            <?php $photo = empty($_SESSION['Student']['profilePhoto']) ? 'foto-vazia.jpg' : $_SESSION['Student']['profilePhoto'] ?>
                             
                             <li class="nav-item nav-fixed d-none d-md-block">
                                 <a class="nav-link" href="#">
-                                    <img class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg">
+                                    <img class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $photo ?>">
                                 </a>
                             </li>
 
                             <li class="nav-item class">
-                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#"><?= $_SESSION['Student']['class'] ?></a>
+                                <a class="nav-link" aria-expanded="false" href="#"><?= $_SESSION['Student']['class'] ?></a>
                             </li>
 
 

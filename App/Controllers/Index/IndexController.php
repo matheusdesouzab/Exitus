@@ -14,6 +14,11 @@ class IndexController extends Action
 
         $this->render("index", "SimpleLayout");
     }
+
+    public function error()
+    {
+        $this->render('errorPage', 'SimpleLayout');
+    }
 }
 
 ?>

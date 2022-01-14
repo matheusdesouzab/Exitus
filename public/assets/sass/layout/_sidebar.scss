@@ -11,7 +11,7 @@
         transition: all 0.7s ease;
         left: 0;
         height: 100vh;
-        background-color: black;
+        background-color: #091954;
         overflow: auto;
         box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 
@@ -65,7 +65,6 @@
 
         .sidebar-lists {
             padding: 15px;
-            border: 2px solid black;
 
             p {
                 color: $color-white;
@@ -103,7 +102,7 @@
                 width: 100%;
 
                 &:hover {
-                    background-color: #202124;
+                    background-color: #3F3D56;
                 }
             }
 
@@ -112,8 +111,8 @@
             }
 
             .link-active{
-                background-color: #202124;
-                border-left: 5px solid $color-blue;
+                background-color: #3F3D56;
+                border-left: 5px solid #00D8C3;
             }
 
             .footer-panel{
@@ -124,12 +123,12 @@
             .collapse {
 
                 li {
-                    background-color: $color-black;
+                    background-color: #3F3D56;
                     padding: 10px 18px;
                     margin-top: 0;
                     transition: 1s;
                     width: 100%;
-                    border-left: 5px solid $color-blue;
+                    border-left: 5px solid $color-green-water;
 
                     &:hover {
                         background-color: #2C2D32;
@@ -160,7 +159,6 @@ html > .sidebar-responsive {
         #sidebar {
 
             width: 8.2vw;
-            background-color: $color-black;
 
             .sidebar-header {
                 display: none;

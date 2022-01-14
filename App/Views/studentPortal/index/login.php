@@ -43,7 +43,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
 
                             <div class="row d-flex justify-content-center">
 
-                                <img class="down-and-up" style="width: 22vw" src="/assets/img/undraw_programmer_re_owql.svg" alt="">
+                                <img class="down-and-up" style="width: 26vw" src="/assets/img/alunos.svg" alt="">
 
                                 <div class="col-lg-12 mt-5">
 

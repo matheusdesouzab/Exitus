@@ -146,6 +146,63 @@ class Teacher extends People
      * 
      * @return array
      */
+    public function seek()
+    {
+
+        $query =
+
+            "SELECT DISTINCT
+
+            (SELECT COUNT(turma.id_turma) 
+
+            FROM turma_disciplina           
+                
+            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma) 
+            LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)         
+            LEFT JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
+
+            WHERE turma_disciplina.fk_id_professor = professor.id_professor 
+            
+            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS total_discipline ,
+                                  
+            professor.id_professor AS id , 
+            professor.nome_professor AS name , 
+            professor.cpf_professor AS cpf , 
+            sexo.id_sexo AS sex_id , 
+            email_professor AS email ,
+            sexo.sexo AS sex ,  
+            professor.foto_perfil_professor AS profile_photo ,
+            situacao_conta.situacao_conta AS account_status
+        
+            FROM professor 
+            
+            LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)
+            LEFT JOIN situacao_conta ON(professor.fk_id_situacao_conta_professor = situacao_conta.id_situacao_conta)
+            LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)
+
+            WHERE professor.nome_professor LIKE :teacherName 
+
+            AND
+
+            CASE WHEN :fk_id_sex = 0 THEN sexo.id_sexo <> :fk_id_sex ELSE sexo.id_sexo = :fk_id_sex END
+            
+        ";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':teacherName', "%" . $this->__get('name') . "%", \PDO::PARAM_STR);
+        $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    }
+
+
+    /**
+     * Retorna todos os docentes cadastrados
+     * 
+     * @return array
+     */
     public function readAll()
     {
 
@@ -736,10 +793,4 @@ class Teacher extends People
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
-
-
-    
-
-
-    
 }

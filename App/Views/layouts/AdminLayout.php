@@ -11,10 +11,11 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title> Web Gest </title>
+	<title> Exitus </title>
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
+	<link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo.png"/>
 </head>
 
 <body id="admin">

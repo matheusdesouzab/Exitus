@@ -144,8 +144,6 @@ class Lack extends Model
 
             WHERE falta_aluno.fk_id_matricula_falta = :fk_id_enrollment
 
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
-
             ORDER BY falta_aluno.total_faltas DESC
         
         ";

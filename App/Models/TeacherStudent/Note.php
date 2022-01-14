@@ -101,8 +101,6 @@ class Note extends Model
             
             WHERE matricula.id_matricula = :fk_id_student_enrollment 
 
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
-
             ORDER BY nota_avaliacao.valor_nota DESC
             
         ";
@@ -293,8 +291,6 @@ class Note extends Model
             AND
 
             CASE WHEN :fk_id_teacher = 0 THEN turma_disciplina.fk_id_professor <> 0 ELSE turma_disciplina.fk_id_professor = :fk_id_teacher END
-
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
 
             ORDER BY nota_avaliacao.valor_nota $orderBy
              

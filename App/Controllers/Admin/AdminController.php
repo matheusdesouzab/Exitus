@@ -14,11 +14,6 @@ class AdminController extends Action
         $this->render('index', 'SimpleLayout');
     }
 
-    public function error()
-    {
-        $this->render('error404', 'SimpleLayout', '');
-    }
-
 
     public function adminRegistration()
     {

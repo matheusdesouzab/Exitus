@@ -804,3 +804,5 @@ doc.autoTable({ html: '#table-bulletin' })
 
 doc.save('table.pdf')
 })
+
+AOS.init()

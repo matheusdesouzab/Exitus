@@ -20,7 +20,7 @@
                             </div>
 
 
-                            <div class="form-group col-10 col-sm-4">
+                            <div class="form-group col-10 col-sm-5">
                                 <label for="">Sexo:</label>
                                 <select class="form-control custom-select" name="sex">
                                     <option value="0">Todos</option>
@@ -31,12 +31,12 @@
                             </div>
 
 
-                            <div class="form-group col-2 col-sm-1">
+                            <!-- <div class="form-group col-2 col-sm-1">
                                 <label for="">&nbsp;</label><br>
                                 <div id="heading-busca-avancada">
                                     <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 

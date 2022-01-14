@@ -63,8 +63,8 @@
         #profilePhotoModal {
 
             img {
-                width: 250px;
-                height: 250px;
+                width: 400px;
+                height: 400px;
                 
                 &:hover {
                     transform: none;
@@ -159,6 +159,10 @@
             object-fit: cover;
             cursor: pointer;
             border: 5px solid #E8F0FE;
+
+            &:hover{
+                transform: scale(1.1);
+            }
         }
 
         .main-content {
