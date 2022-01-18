@@ -164,6 +164,22 @@ class AdminTeacherController extends Action
     }
 
 
+    public function seek()
+    {
+
+        $Teacher = Container::getModel('Teacher\\Teacher');
+
+        $Teacher->__set('name', $_GET['name']);
+        $Teacher->__set('fk_id_sex', $_GET['sex']);
+
+        $this->view->typeTeacherList = 'normal';
+        $this->view->listTeacher = $Teacher->seek();
+
+        $this->render('teacher/components/teacherListing', 'SimpleLayout');
+
+    }
+
+
     public function updateTeacherProfilePicture()
     {
 

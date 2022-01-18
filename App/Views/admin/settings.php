@@ -14,12 +14,6 @@
 
                         <img class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
-                        <div class="col-lg-2 d-flex align-items-center position-absolute" style="bottom: 32.2vh; right: 100px">
-
-                            <span class="bg-primary p-2 edit-image-button" data-toggle="modal" data-target="#profilePhotoModal"><i class="fas fa-pen text-white"></i></span>
-
-                        </div>
-
                         <div class="col-lg-10 mx-auto main-sheet d-none d-sm-block">
                             <div class="row p-3">
                                 <span class="col-lg-12"><?= $this->view->data[0]->name ?></span>

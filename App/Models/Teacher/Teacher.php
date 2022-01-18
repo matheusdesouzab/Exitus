@@ -724,8 +724,6 @@ class Teacher extends People
     }
 
 
-
-
     /**
      * Retorna todas as médias finais de um aluno
      * 

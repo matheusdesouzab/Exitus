@@ -472,7 +472,7 @@ class Student extends People
             
             aluno.nome_aluno AS student_name , 
             aluno.foto_perfil_aluno AS profile_photo , 
-            aluno.data_matricula_inicial AS initial_enrollment_date 
+            aluno.data_matricula_inicial AS initial_enrollment_date
             
             FROM aluno 
             

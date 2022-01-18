@@ -164,7 +164,7 @@ class AdminStudentController extends Action
         $Student->__set('fk_id_sex', $_POST['sex']);
         $Student->__set('fk_id_blood_type', $_POST['bloodType']);
         $Student->__set('fk_id_pcd', $_POST['pcd']);
-        $Student->__set('studentId', empty($_GET['id']) ? $_POST['id'] : $_GET['id']);
+        $Student->__set('studentId', $_POST['studentId']);
         $Student->__set('fk_id_general_situation', $_POST['situationStudentGeneral']);
 
         $StudentEnrollment->__set('studentEnrollmentId', $_POST['enrollmentId']);

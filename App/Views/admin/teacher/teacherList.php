@@ -10,13 +10,13 @@
 
                 <div class="card p-3 mb-3">
 
-                    <form class="col-lg-11 accordion mx-auto mt-3" id="advanced-search-accordion">
+                    <form class="col-lg-11 accordion mx-auto mt-3" id="seekTeacher">
 
                         <div class="form-row">
 
                             <div class="form-group col-12 col-sm-7">
                                 <label for="">Professor:</label>
-                                <input class="form-control" type="text" name="" placeholder="Nome do professor" id="">
+                                <input class="form-control" type="text" name="name" placeholder="Nome do professor" id="">
                             </div>
 
 

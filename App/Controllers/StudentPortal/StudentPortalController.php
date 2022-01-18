@@ -129,7 +129,7 @@ class StudentPortalController extends Action
         $StudentEnrollment->__set('studentEnrollmentId', $_SESSION['Student']['enrollmentId']);
         $StudentEnrollment->__set('fk_id_student', $_SESSION['Student']['id']);
 
-        $this->view->studentProfile = $Student->dataGeneral();
+        $this->view->studentProfile = $Student->dataGeneral($StudentEnrollment);
         $this->view->availableSex = $Student->availableSex();
         $this->view->pcd = $Student->pcd();
         $this->view->bloodType = $Student->availablebloodType();

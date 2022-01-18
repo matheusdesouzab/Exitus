@@ -151,6 +151,12 @@ class Route extends Bootstrap
 				'action' => 'teacherListing'
 			);
 
+			$routes['adminTeacherSeek'] = array(
+				'route' => '/admin/professor/lista/buscar',
+				'controller' => 'Admin\\AdminTeacherController',
+				'action' => 'seek'
+			);
+
 			$routes['adminTeacherProfile'] = array(
 				'route' => '/admin/professor/lista/perfil-professor',
 				'controller' => 'Admin\\AdminTeacherController',

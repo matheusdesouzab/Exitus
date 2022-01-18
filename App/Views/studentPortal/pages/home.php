@@ -26,7 +26,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
             <div class="col-lg-12 p-0" id="studentPortal-accordion">
 
-                <nav id="studentPortalNavbar" class="navbar navbar-expand">
+                <nav id="studentPortalNavbar" class="navbar navbar-expand d-flex align-items-center">
 
                     <a class="logo" href="#"><img src="/assets/img/logo-completa.png" alt=""></a>
 
@@ -36,7 +36,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                     <div class="collapse navbar-collapse" id="navbarNav">
 
-                        <ul class="navbar-nav ml-auto d-flex align-items-center">
+                        <ul class="navbar-nav d-flex align-items-center justify-content-center">
 
                             <li class="nav-item active">
                                 <a class="nav-link" aria-expanded="true" href="#" data-toggle="collapse" data-target="#mural">Mural</a>
@@ -54,6 +54,10 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                 <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#">Notas e medias</a>
                             </li>
 
+                        </ul>
+
+                        <ul class="navbar-nav ml-auto d-flex align-items-center">
+
                             <?php $photo = empty($_SESSION['Student']['profilePhoto']) ? 'foto-vazia.jpg' : $_SESSION['Student']['profilePhoto'] ?>
                             
                             <li class="nav-item nav-fixed d-none d-md-block">
@@ -65,7 +69,6 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                             <li class="nav-item class">
                                 <a class="nav-link" aria-expanded="false" href="#"><?= $_SESSION['Student']['class'] ?></a>
                             </li>
-
 
                             <li class="nav-item mr-2 nav-fixed">
                                 <a href="/portal-aluno/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a>
@@ -240,7 +243,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                             $data = explode('-', $dataFull[0]);
                                             $horas = explode(':', $dataFull[1]);
 
-                                            $data = $data[2] . '-' . $data[1];
+                                            $data = $data[2] . '/' . $data[1];
                                             $horas = $horas[0] . ':' . $horas[1];
 
                                             $data = ($data == $today ? ' Hoje' : ' em ' . $data . ' as ' . $horas);

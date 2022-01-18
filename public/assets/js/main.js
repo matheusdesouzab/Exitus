@@ -271,6 +271,7 @@ $(document).on("click", "#profileStudentModal [data-target='#class-student-profi
     application.loadListElements("containerStudentsProfileAverage", "/admin/gestao/turma/perfil-turma/aluno/medias-gerais", "#addNote")
 })
 
+
 $(document).on("click", "[data-target='#averageNote']", function (e) {
     application.loadListElements("containerStudentsProfileAverage", "/admin/gestao/turma/perfil-turma/aluno/medias-gerais", "#seekAverageStudentProfile")
 })
@@ -544,6 +545,12 @@ $("#seekDiscipline input[name='seekName']").keyup(function (e) {
 })
 
 
+$("#seekTeacher input[name='name']").keyup(function (e) {
+    if (timeout) clearTimeout(timeout)
+    timeout = setTimeout(() => application.seekElement("#seekTeacher", "containerListTeacher", "/admin/professor/lista/buscar"), 1000)
+})
+
+
 $("#seekStudent input[name='name']").keyup(function (e) {
     if (timeout) clearTimeout(timeout);
     timeout = setTimeout(() => application.seekElement("#seekStudent", "containerListStudent", "/admin/aluno/lista/buscar"), 1500)
@@ -581,6 +588,10 @@ $(document).on("keyup", "#seekNoteExamClass #examDescription", function (e) {
 
 $(document).on('change', "#seekNoteExamStudent select", function (e) {
     application.seekElement("#seekNoteExamStudent", "containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar")
+})
+
+$("#seekTeacher select").on('change', function (e) {
+    application.seekElement("#seekTeacher", "containerListTeacher", "/admin/professor/lista/buscar")
 })
 
 

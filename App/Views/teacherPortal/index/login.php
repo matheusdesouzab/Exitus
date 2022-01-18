@@ -8,13 +8,12 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
 ?>
 
-
 <html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Login - Portal do docente</title>
     <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo.png"/>
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
