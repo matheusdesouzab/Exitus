@@ -17,6 +17,26 @@
 
         }
 
+        #index {
+            nav{
+                img{
+                    width: 30vw;
+                }
+            }
+            .box{
+                .box-card{
+                    margin-bottom: 15px;
+                    width: 250px;
+                }
+                .card{
+                    height: 250px;
+                    .card-img img {
+                        width: 100px;
+                    } 
+                }
+            }
+        }
+
         #login {
             background-color: #EAEDED;
 

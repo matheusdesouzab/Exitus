@@ -1,5 +1,5 @@
 
-insert into situacao_periodo_letivo(situacao_periodo_letivo) values ('Ativo'),('Finalizado'),('Agendado');
+INSERT INTO situacao_periodo_letivo(situacao_periodo_letivo) values ('Ativo'),('Finalizado'),('Agendado');
 
 insert into periodo_disponivel(ano_letivo) values ('2021'),('2022'),('2023'),('2024'),('2025'),('2026'),('2027'),('2028'),('2029'),('2030'),('2031'),('2032'),('2033'),('2034'),('2035'),('2036'),('2037'),('2038'),('2039'),('2040'),('2041'),('2042'),('2043'),('2044'),('2045'),('2046'),('2047'),('2048'),('2049'),('2050');
 
@@ -21,7 +21,7 @@ insert into pcd (pcd) values ('Não'),('Sim');
 
 insert into tipo_sanguineo(tipo_sanguineo) values ('Não informado'),('AB+'),('AB-'),('A+'),('A-'),('B+'),('B-'),('O+'),('O-');
 
-insert into situacao_aluno_ano_letivo (situacao_aluno) values ('Matriculado');
+insert into situacao_aluno_ano_letivo (situacao_aluno) values ('Matriculado'),('Aprovado'),('Reprovado'),('Mudou de turma');
 
 insert into hierarquia_funcao(hierarquia_funcao) values ('Administrador'),('Co-administrador'),('Docente'),('Aluno');
 
@@ -29,17 +29,17 @@ INSERT INTO telefone (numero_telefone) VALUES (75988787643);
 
 INSERT INTO endereco (cep , bairro , endereco , municipio , uf) VALUES (48601340 , 'Centro' , 'Rua São Jorge n 100' , 'Paulo Afonso' , 'BA');
 
-INSERT INTO administrador(codigo_acesso , cpf_administrador , data_nascimento_administrador , email_administrador , nacionalidade_administrador , naturalidade_administrador , nome_administrador , foto_perfil_administrador , fk_id_tipo_sanguineo_administrador , fk_id_telefone_administrador , fk_id_sexo_administrador , fk_id_pcd_administrador , fk_id_telefone_administrador , fk_id_endereco_administrador , fk_id_administrador_hierarquia_funcao) VALUES (804402 , 73893245723 , '2001-10-09' , 'matheus@gmail.com' , 'Brasileiro' , 'Paulo Afonso' , 'Matheus de Souza' , '787837.jpg' , 1 , 1 , 1 , 1 , 1 , 1 , 1);
+INSERT INTO situacao_conta (situacao_conta) VALUES ('Ativa'),('Desativada');
+
+INSERT INTO administrador(codigo_acesso , cpf_administrador , data_nascimento_administrador , email_administrador , nacionalidade_administrador , naturalidade_administrador , nome_administrador , foto_perfil_administrador , fk_id_tipo_sanguineo_administrador , fk_id_sexo_administrador , fk_id_pcd_administrador , fk_id_telefone_administrador , fk_id_endereco_administrador , fk_id_administrador_hierarquia_funcao) VALUES (804402 , 73893245723 , '2001-10-09' , 'matheus@gmail.com' , 'Brasileiro' , 'Paulo Afonso' , 'Matheus de Souza' , '787837.jpg' , 1 , 1 , 1 , 1 , 1 , 1);
 
 INSERT INTO legenda(legenda) VALUES ('Aprovado'),('Reprovado'),('Regime de Progressão Parcial'),('Reprovado por Falta'),('Recuperação Final');
 
+INSERT INTO controle_rematricula(situacao) VALUE ('Aberta'),('Fechada');
+
 INSERT INTO controle_unidade(situacao)VALUES("Somente a Primeira"),("Primeira e Segunda"),("Todas");
 
-INSERT INTO configuracao(fk_id_controle_unidade)values(1);
-
 INSERT INTO situacao_rematricula(situacao)VALUES('Sim'),('Não');
-
-INSERT INTO controle_rematricula(situacao) VALUE ('Aberta'),('Fechada');
 
 INSERT INTO configuracao(fk_id_controle_unidade , fk_id_controle_rematricula) VALUES (1, 2);
 

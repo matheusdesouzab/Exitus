@@ -702,6 +702,7 @@ html > .sidebar-responsive #left-panel #sidebar li {
   border-radius: 10px;
   padding: 15px 10px;
   height: 360px;
+  margin-bottom: 10px;
   transition: 0.6s;
   cursor: pointer;
 }
@@ -1981,6 +1982,19 @@ html body#studentPortal #pagina .modal-profile .option-list {
   html #errorPage .container-fluid p {
     font-size: 12px;
     text-align: justify;
+  }
+  html #index nav img {
+    width: 30vw;
+  }
+  html #index .box .box-card {
+    margin-bottom: 15px;
+    width: 250px;
+  }
+  html #index .box .card {
+    height: 250px;
+  }
+  html #index .box .card .card-img img {
+    width: 100px;
   }
   html #login {
     background-color: #EAEDED;
