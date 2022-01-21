@@ -89,7 +89,7 @@ $totalRequest = 0;
 
         <div class="row">
 
-            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="/assets/img/undraw_arrived_re_t2bw.svg" alt=""></div> 
+            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="/assets/img/illustrations/arrived.svg" alt=""></div> 
 
             <h5 class="col-lg-12 mt-4 text-center">Nenhuma solicitação recebida</h5>
 

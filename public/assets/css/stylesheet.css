@@ -967,9 +967,11 @@ html > .sidebar-responsive #left-panel #sidebar li {
 #studentPortal #pagina #class-discipline-accordion img {
   width: 20vw;
 }
-#admin #pagina #class-rematrug img,
+#admin #pagina #class-rematrug img, #admin #pagina .illustrations img,
 #teacherPortal #pagina #class-rematrug img,
-#studentPortal #pagina #class-rematrug img {
+#teacherPortal #pagina .illustrations img,
+#studentPortal #pagina #class-rematrug img,
+#studentPortal #pagina .illustrations img {
   width: 30vw;
 }
 #admin #pagina section#home .card,
@@ -1402,7 +1404,7 @@ html > .sidebar-responsive #left-panel #sidebar li {
 }
 
 #login {
-  background-color: #82EBE1;
+  background-color: #091954;
 }
 #login .container-login {
   border-radius: 15px;

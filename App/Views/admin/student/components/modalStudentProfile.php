@@ -306,6 +306,13 @@
                                 <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $student->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                             </div>
 
+                            <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Data de matricula no cólegio:</span>
+                                </div>
+                                <input id="" name="" type="text" disabled class="form-control" value="<?= date("d/m/Y - H:i:s", strtotime($student->initial_enrollment_date)) ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                            </div>
+
                         <?php } ?>
 
                         <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">

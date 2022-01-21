@@ -139,7 +139,7 @@
                                             <th scope="col">Sala</th>
                                             <th scope="col">Total de alunos</th>
                                             <th scope="col">Período letivo</th>
-                                            <th scope="col">Média da turma</th>
+
                                         </tr>
                                     </thead>
 

@@ -571,7 +571,7 @@ class Classe extends Model
             
             AND turma.fk_id_curso = :fk_id_course
             
-            OR turma.fk_id_serie = :fk_id_series - 1 OR turma.fk_id_serie = :fk_id_series + 1
+            AND ( turma.fk_id_serie = :fk_id_series - 1 OR turma.fk_id_serie = :fk_id_series + 1 )
         
         ";
 

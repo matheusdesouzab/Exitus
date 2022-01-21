@@ -93,6 +93,7 @@ class Teacher extends People
             professor.cpf_professor AS cpf , 
             sexo.id_sexo AS sex_id , 
             sexo.sexo AS sex , 
+            data_hora_matricula AS initial_enrollment_date,
             professor.codigo_acesso AS access_code ,
             professor.data_nascimento_professor AS birth_date , 
             professor.naturalidade_professor AS naturalness , 

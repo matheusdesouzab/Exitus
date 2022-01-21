@@ -2,7 +2,7 @@
 
     <nav id="sidebar">
 
-        <div class="col-lg-12 logo d-flex justify-content-center"><img src="/assets/img/logo-completa-branca.png" alt=""></div> 
+        <div class="col-lg-12 logo d-flex justify-content-center"><img src="/assets/img/logo-components/logo-completa-branca.png" alt=""></div> 
 
         <ul class="sidebar-lists">
 

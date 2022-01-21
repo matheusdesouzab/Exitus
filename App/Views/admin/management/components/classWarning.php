@@ -67,7 +67,16 @@
     <?php }
 } else { ?>
 
-    <h5 class="mt-3">Nenhuma observação encontrada</h5>
+<div class="col-lg-12">
 
+    <div class="row">
+
+        <div class="col-lg-12 d-flex justify-content-center illustrations"><img class="" src="/assets/img/illustrations/warning.svg" alt=""></div> 
+
+        <h5 class="col-lg-12 mt-4 text-center">Nenhum aviso adicionado</h5>
+
+    </div>
+
+</div>
 
 <?php } ?>

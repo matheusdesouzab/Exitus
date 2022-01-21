@@ -29,6 +29,7 @@ $(document).on('click', '.sidebar-responsive .sidebar-lists li a', function (e) 
 $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
 
     e.preventDefault()
+    
     let $form = $("#addExam").serialize()
 
     $.ajax({

@@ -141,8 +141,8 @@
                                             <thead>
                                                 <tr>
                                                     <th colspan="2">Nome do aluno</th>
-                                                    <th>Situação atual</th>
                                                     <th>Email</th>
+                                                    <th>Situação atual</th>
                                                 </tr>
                                             </thead>
 
@@ -437,7 +437,7 @@
 
                                         <div class="form-group col-lg-3 ml-auto">
                                             <label for="">&nbsp;</label>
-                                            <button id="buttonAddExam" class="btn btn-success w-100">Adicionar</button>
+                                            <a disabled id="buttonAddExam" class="btn btn-success w-100 disabled">Adicionar</a>
                                         </div>
 
                                     </div>

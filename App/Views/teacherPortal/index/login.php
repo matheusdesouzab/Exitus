@@ -14,7 +14,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login - Portal do docente</title>
-    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo.png"/>
+    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo-components/logo.png"/>
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
@@ -38,14 +38,14 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
                             <div class="row">
 
                                 <div class="col-lg-12 logo">
-                                    <img src="/assets/img/logo-completa.png" alt="">
+                                    <img src="/assets/img/logo-components/logo-completa.png" alt="">
                                 </div>
 
                             </div>
 
                             <div class="row d-flex justify-content-center">
 
-                                <img class="down-and-up" style="width: 27vw" src="/assets/img/professor.svg" alt="">
+                                <img class="down-and-up" style="width: 27vw" src="/assets/img/illustrations/teacher.svg" alt="">
 
                                 <div class="col-lg-12 mt-5">
 

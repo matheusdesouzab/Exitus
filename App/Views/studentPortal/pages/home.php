@@ -28,7 +28,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                 <nav id="studentPortalNavbar" class="navbar navbar-expand d-flex align-items-center">
 
-                    <a class="logo" href="#"><img src="/assets/img/logo-completa.png" alt=""></a>
+                    <a class="logo" href="#"><img src="/assets/img/logo-components/logo-completa.png" alt=""></a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

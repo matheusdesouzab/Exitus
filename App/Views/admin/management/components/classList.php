@@ -11,7 +11,6 @@ if (count($this->view->listClass) >= 1) {
             <td><?= $class->classroom_number ?></td>
             <td><?= $class->student_total ?></td>
             <td><?= $class->school_term ?></td>
-            <td>0.0</td>
         </tr>
 
     <?php } ?>

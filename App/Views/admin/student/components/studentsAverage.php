@@ -4,6 +4,7 @@ $students = [];
 $clasSubjects = [];
 $exams = [];
 
+if(count($this->view->listStudent) >= 1){
 
 foreach ($this->view->listStudent as $key => $value) {
 
@@ -127,6 +128,8 @@ $orderBy = ($this->view->orderBy == 'lowestGrade' || $this->view->orderBy == 'al
 
 array_multisort($order, $orderBy, $studentsEnd);
 
+}
+
 ?>
 
 <hr>
@@ -148,7 +151,11 @@ array_multisort($order, $orderBy, $studentsEnd);
 
         <?php $total = 1 ?>
 
-        <?php foreach ($studentsEnd as $key => $value) {
+        <?php 
+
+if(count($this->view->listStudent) >= 1){
+        
+        foreach ($studentsEnd as $key => $value) {
 
             if (in_array($this->view->noteStatus, $value['noteStatus'])) {
 
@@ -175,7 +182,7 @@ array_multisort($order, $orderBy, $studentsEnd);
                 </tr>
 
         <?php }
-        } ?>
+        }} ?>
 
         <tr class="mt-4">
             <td class="font-weight-bold text-right" colspan="8" style="pointer-events:none"><?= $total - 1 ?> médias listadas <i class="fas fa-history ml-2"></i></td>

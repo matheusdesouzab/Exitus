@@ -20,7 +20,7 @@
 
         <div class="row">
 
-           <div class="col-lg-12"><img class="mx-auto d-block mb-4" src="/assets/img/undraw_page_not_found_re_e9o6.svg" alt=""></div> 
+           <div class="col-lg-12"><img class="mx-auto d-block mb-4" src="/assets/img/illustrations/page_not_found.svg" alt=""></div> 
 
             <div class="col-lg-12 text-center"><h1 class="">Página não encontrada</h1></div>
 

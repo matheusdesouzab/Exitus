@@ -29,12 +29,12 @@
         </ul> 
 
         <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center">
-            <a class="navbar-brand" href="#"><img data-aos-duration="2000" data-aos="zoom-in" src="/assets/img/logo-completa-branca.png" alt=""></a>
+            <a class="navbar-brand" href="#"><img data-aos-duration="2000" data-aos="zoom-in" src="/assets/img/logo-components/logo-completa-branca.png" alt=""></a>
         </nav>
 
         <div class="row">
 
-            <p class="text-center text-white col-lg-12 title" data-aos="fade-up" data-aos-duration="2000">Bem vindo ao Exitus, escolha seu tipo de acesso</p>
+            <p class="text-center text-white col-lg-12 title" data-aos="fade-up" data-aos-duration="2000">Bem vindo ao Exitus, escolha seu tipo de acesso: </p>
 
             <div class="col-lg-10 mx-auto box">
 
@@ -43,7 +43,7 @@
                     <div class="box-card" data-aos="zoom-in-right" data-aos-duration="3000">
                         <div class="card">
                             <div class="card-title">Admin</div>
-                            <div class="card-img mb-3"><img src="/assets/img/administrador-computador.svg" alt=""></div>
+                            <div class="card-img mb-3"><img src="/assets/img/illustrations/admin.svg" alt=""></div>
                             <a href="/admin"><i class="fas fa-sign-in-alt mr-2"></i> Acessar</a>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
                     <div class="box-card" data-aos="zoom-out" data-aos-duration="2500">
                         <div class="card">
                             <div class="card-title">Docente</div>
-                            <div class="card-img"><img src="/assets/img/professor.svg" alt=""></div>
+                            <div class="card-img"><img src="/assets/img/illustrations/teacher.svg" alt=""></div>
                             <a href="/portal-docente"><i class="fas fa-sign-in-alt mr-2"></i> Acessar</a>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                     <div class="box-card" data-aos="zoom-in-left" data-aos-duration="3000">
                         <div class="card">
                             <div class="card-title">Aluno</div>
-                            <div class="card-img"><img src="/assets/img/alunos.svg" alt=""></div>
+                            <div class="card-img"><img src="/assets/img/illustrations/students.svg" alt=""></div>
                             <a href="/portal-aluno"><i class="fas fa-sign-in-alt mr-2"></i> Acessar</a>
                         </div>
                     </div>

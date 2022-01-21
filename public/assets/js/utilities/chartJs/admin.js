@@ -188,7 +188,7 @@ $.ajax({
     let datas = []
 
     $.each(data, i => {
-        labels.push('Marcaram ' + data[i].rematrugAnswer)
+        labels.push(`Marcaram "${data[i].rematrugAnswer}"`)
         datas.push(data[i].totalAnswer)
       }),
 

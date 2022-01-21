@@ -84,7 +84,7 @@
 
                         <div class="row">
 
-                            <p class="mt-3 text-justify">Criou a avaliação "<?= $value['value']->exam_description ?>" referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?> na turma do <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?></p>
+                            <p class="mt-3 text-justify">Criou a avaliação "<?= $value['value']->exam_description ?>" referente a <?= $value['value']->unity ?>ª unidade da disciplina de <?= $value['value']->discipline_name ?> na turma do <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?></p>
 
                         </div>
 
@@ -111,7 +111,7 @@
 
                         <div class="row">
 
-                            <p class="mt-3 col-lg-12 p-0 text-justify">Lançou a nota do aluno(a): <?= $value['value']->student_name ?> referente a avaliação "<?= $value['value']->exam_description  ?>" da <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?></p>
+                            <p class="mt-3 col-lg-12 p-0 text-justify">Lançou a nota do aluno(a): <?= $value['value']->student_name ?> referente a avaliação "<?= $value['value']->exam_description  ?>" da <?= $value['value']->unity ?>ª unidade da disciplina de <?= $value['value']->discipline_name ?></p>
 
                         </div>
 
@@ -137,7 +137,7 @@
 
                         <div class="row">
 
-                            <p class="mt-3 col-lg-12 p-0 text-justify">Lançou as faltas do aluno(a): <?= $value['value']->student_name ?> referente a <?= $value['value']->unity ?> unidade da disciplina de <?= $value['value']->discipline_name ?></p>
+                            <p class="mt-3 col-lg-12 p-0 text-justify">Lançou as faltas do aluno(a): <?= $value['value']->student_name ?> referente a <?= $value['value']->unity ?>ª unidade da disciplina de <?= $value['value']->discipline_name ?></p>
 
                         </div>
 
@@ -217,7 +217,7 @@
 
                         <div class="row">
 
-                            <p class="mt-3 col-lg-12 p-0 text-justify">Adicionou na turma <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?> o seguite aviso "<?= $value['value']->warning ?>"</p>
+                            <p class="mt-3 col-lg-12 p-0 text-justify">Adicionou na turma <?= $value['value']->acronym_series ?>ª <?= $value['value']->ballot ?>-<?= $value['value']->course ?>-<?= $value['value']->shift ?> o seguite aviso: "<?= $value['value']->warning ?>"</p>
 
                         </div>
 

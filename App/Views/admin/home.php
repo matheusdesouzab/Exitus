@@ -84,7 +84,7 @@
 
                         <div class="col-lg-12 card recently-enrolled">
 
-                            <div class="card-title p-2">Recentes matrículados</div>
+                            <div class="card-title p-2">Matrículados recentementes</div>
 
                             <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 

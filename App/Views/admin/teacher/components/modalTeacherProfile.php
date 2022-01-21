@@ -255,6 +255,20 @@
 
                                 </div>
 
+                                <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">Data de cadastro no cólegio:</span>
+                                </div>
+                                <input id="" name="" type="text" disabled class="form-control" value="<?= date("d/m/Y - H:i:s", strtotime($teacher->initial_enrollment_date)) ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                            </div>
+
+                            <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
+                                    </div>
+                                    <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $teacher->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                                </div>
+
 
                                 <h5 class="mt-5 mb-3 ml-4">Endereço e contato:</h5>
 
@@ -300,12 +314,7 @@
                                     <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $teacher->telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                 </div>
 
-                                <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
-                                    </div>
-                                    <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $teacher->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
-                                </div>
+                               
 
                             <?php } ?>
 

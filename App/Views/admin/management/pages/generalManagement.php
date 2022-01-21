@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Período Letivo</h5>
-                            <p class="card-text">Defina o período letivo atual do cólegio, ou finalize o mesmo</p>
+                            <p class="card-text">Defina o período letivo atual do cólegio, o edite ou o finalize.</p>
                             <a href='/admin/gestao/periodo-letivo' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Sala</h5>
-                            <p class="card-text">Crie as salas onde serão realizadas as aulas</p>
+                            <p class="card-text">Crie e edite as salas onde serão realizadas as aulas do cólegio.</p>
                             <a href='/admin/gestao/sala' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Curso</h5>
-                            <p class="card-text">Defina os cursos que serão ofertados para os alunos</p>
+                            <p class="card-text">Defina os cursos que serão ofertados para os alunos.</p>
                             <a href='/admin/gestao/curso' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Disciplina</h5>
-                            <p class="card-text">Crie as disciplinas que serão ensinadas pelos docentes</p>
+                            <p class="card-text">Crie as disciplinas que serão ministradas pelos docentes.</p>
                             <a href='/admin/gestao/disciplina' class="btn btn-primary">Acessar <i class="fas fa-arrow-circle-right ml-3"></i></a>
                         </div>
                     </div>

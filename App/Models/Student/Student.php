@@ -210,6 +210,7 @@ class Student extends People
             endereco.id_endereco as address_id , 
             telefone.id_telefone AS telephone_id ,
             email_aluno AS email ,
+            data_matricula_inicial AS initial_enrollment_date,
             situacao_geral_aluno.situacao_geral AS general_situation ,
             situacao_geral_aluno.id_situacao_geral AS general_situation_id ,
             hierarquia_funcao.hierarquia_funcao AS hierarchy_function 
