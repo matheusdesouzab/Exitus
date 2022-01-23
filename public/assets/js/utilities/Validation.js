@@ -33,7 +33,7 @@ class Validation {
             if (!this.cpfAlreadyInformed()) {
 
                 $('#cpf').removeClass('is-valid')
-                message = 'Cpf já informado'
+                message = 'Cpf já cadastrado no sistema'
 
             } else {
 

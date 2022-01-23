@@ -17,6 +17,15 @@
 
         }
 
+        #general-management{
+            .card-title{
+                font-size: 4.5vw;
+            }
+            .btn{
+                font-size: 2.5vw;
+            }
+        }
+
         #index {
             nav{
                 img{
@@ -153,6 +162,9 @@
                         .teacher-name {
                             font-size: 4vw;
                         }
+                        .total-student-enrolled{
+                            font-size: 3.5vw;
+                        }
                     }
 
                     .recently-enrolled {
@@ -203,9 +215,10 @@
                 }
 
                 #profileTeacherModal,
-                #profileStudentModal {
+                #profileStudentModal,
+                #settingsModal{
 
-                    #main-accordion {
+                    #main-accordion , #main-accordion-settings {
                         background-color: white;
                         border-radius: 15px;
 

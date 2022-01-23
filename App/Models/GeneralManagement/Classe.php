@@ -261,6 +261,7 @@ class Classe extends Model
             sala.id_sala AS classroom_id ,
             periodo_disponivel.ano_letivo AS school_term ,
             periodo_letivo.id_ano_letivo AS school_term_id ,
+            situacao_periodo_letivo.id_situacao_periodo_letivo AS school_term_situation ,
 
             (SELECT COUNT(matricula.id_matricula) FROM matricula WHERE matricula.fk_id_turma_matricula = turma.id_turma ) as student_total
             

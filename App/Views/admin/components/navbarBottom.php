@@ -10,15 +10,15 @@
 
         <li class="nav-item">
             <a name="gestao" class="nav-link" href="/admin/gestao"><i class="fas fa-sliders-h"></i> <span>Gestão</span></a>
+        </li> 
+
+        <li class="nav-item">
+            <a name="configuracoes" class="nav-link" id="settingsAdminPortal" href="#"><i class="fas fa-cog"></i> <span>Configurações</span></a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-chart-pie"></i> <span>BI</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" id="settingsTeacherPortal" href="#"><img class="foto-perfil" src="/assets/img/adminProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg"></a>
-        </li>
+            <a name="sair" class="nav-link" href="/admin/gestao"><i class="fas fa-sign-out-alt text-dark"></i> <span>Sair da conta</span></a>
+		</li>
 
     </ul>
 

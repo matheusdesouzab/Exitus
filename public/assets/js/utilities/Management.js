@@ -108,7 +108,7 @@ class Management {
 
                         $(button).addClass('disabled')
 
-                        tools.showToast('Todos os dados já vinculados a outras turmas', 'bg-info')
+                        tools.showToast('Todos os dados já vinculados a outra turma', 'bg-info')
 
                         $(`${$form} #classRoom , ${$form} #shift`).addClass('is-invalid')
 

@@ -540,7 +540,7 @@ class Student extends People
      * 
      * @return array
      */
-    public function readStudentsLinkedClass($classe, $scholTermSituation = '= 1')
+    public function readStudentsLinkedClass($classe)
     {
 
         $query =
@@ -581,10 +581,6 @@ class Student extends People
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
             WHERE turma.id_turma = :classId      
-
-            AND 
-            
-            situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation
             
         ";
 

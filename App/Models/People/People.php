@@ -95,17 +95,20 @@ class People extends Model
 
         $query =
 
-            "SELECT aluno.cpf_aluno FROM aluno WHERE aluno.cpf_aluno = :cpfStudent
+            "SELECT aluno.cpf_aluno FROM aluno WHERE aluno.cpf_aluno = :cpf
 
             UNION
             
-            SELECT professor.cpf_professor FROM professor WHERE professor.cpf_professor = :cpfTeacher
+            SELECT professor.cpf_professor FROM professor WHERE professor.cpf_professor = :cpf
+
+            UNION
+
+            SELECT administrador.cpf_administrador FROM administrador WHERE administrador.cpf_administrador = :cpf
         
         ";
 
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(':cpfStudent', $this->__get('cpf'));
-        $stmt->bindValue(':cpfTeacher', $this->__get('cpf'));
+        $stmt->bindValue(':cpf', $this->__get('cpf'));
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);

@@ -7,13 +7,13 @@
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
-    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo.png"/>
+    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo-components/logo.png"/>
 </head>
 
 <body id="errorPage">
 
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#"><img src="/assets/img/logo-completa.png" alt=""></a>
+        <a class="navbar-brand" href="#"><img src="/assets/img/logo-components/logo-completa.png" alt=""></a>
     </nav>
 
     <div class="container-fluid">

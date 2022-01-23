@@ -32,6 +32,8 @@
                                     <span class="box-icon"><i class="fas fa-poll"></i></span> Médias dos alunos
                                 </a>
 
+                                <?php if($this->view->classData[0]->school_term_situation == 1){ ?>
+
                                 <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-warning">
                                         <span class="box-icon"><i class="fas fa-exclamation-circle"></i></span> Avisos
                                     </a>
@@ -55,7 +57,7 @@
                                     </a>
 
 
-                                <?php } ?>
+                                <?php }} ?>
 
 
                             </ul>

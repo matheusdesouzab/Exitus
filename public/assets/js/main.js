@@ -118,7 +118,9 @@ $(document).on("click", "#profileStudentModal #buttonSwitchClasses", function (e
 
 $("#class #buttonAddClass").on("click", function () {
     application.addSinglePart("#addClass", "/admin/gestao/turma/inserir", "Turma adicionada")
-    management.checkClass('#addClass', 'add', '#buttonAddClass')
+
+    management.checkClass('#addClass', 'add', '#buttonAddClass') 
+
 })
 
 
@@ -452,7 +454,7 @@ $(document).on("click", "#profileClassModal #list-exam tbody tr", function () {
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma/avaliacoes/dados", "containerModalExam", "#modalExam")
 })
 
-$(document).on("click", "#sidebar #settings", function () {
+$(document).on("click", "#sidebar #settings, #admin #settingsAdminPortal", function () {
     application.showModal(0, "/admin/configuracoes", "containerSettingsModal", "#settingsModal")
 })
 
@@ -805,16 +807,25 @@ $(document).on('click', "#profileClassModal [data-target='#class-note-history']"
     application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas", "#formClassId")
 })
 
-
 $(document).on("click", "#printBuleetin", function (e) {
 
-    const doc = new jsPDF()
+    let studentName = $('#accordion-data-student form input#name').val()
 
-// It can parse html:
-// <table id="my-table"><!-- ... --></table>
-doc.autoTable({ html: '#table-bulletin' })
+    let myTable = document.getElementById('table-bulletin-print').innerHTML
+    var win = window.open()
+    win.document.write('<html><head>')
+    win.document.write('<title>Boletim</title>')
+    win.document.write('<meta charset="utf-8">')
+    win.document.write('<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">')
+    win.document.write('<link rel="stylesheet" href="/assets/css/stylesheet.css">')
+    win.document.write('</head>')
+    win.document.write('<body id="table-print">')
+    win.document.write(`<div class="p-3"><h5>Aluno: ${studentName}</h5>`)
+    win.document.write(`${myTable}`)
+    win.document.write('</div></body></html>')
+    win.document.close()
 
-doc.save('table.pdf')
 })
+
 
 AOS.init()

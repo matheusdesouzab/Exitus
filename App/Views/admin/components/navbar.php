@@ -1,6 +1,6 @@
 <nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-10 ml-auto shadow-sm navbar-expand">
 
-	<a class="navbar-brand bars-xs" href="#"><i class="fas fa-bars"></i></a>
+	<a class="navbar-brand bars-xs" href="#"><i class="fas fa-bars"></i></a> 
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 		<i class="fas fa-bars"></i>
@@ -14,7 +14,7 @@
 			</li>
 		</ul>
 
-		<a class="logo" href=""><img src="/assets/img/logo-completa.png" alt=""></a>
+		<a class="logo" href=""><img class="mx-auto" src="/assets/img/logo-components/logo-completa.png" alt=""></a>
 
 		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
@@ -32,9 +32,9 @@
 
 			<!-- <li class="nav-item ml-3">
 				<b><?= $_SESSION['Admin']['hierarchyFunction'] == 1 ? 'Administrador' : 'Co-administrador' ?></b>
-			</li>
- -->
-			<li class="nav-item ml-4 mr-2">
+			</li> -->
+ 
+			<li class="nav-item ml-4 mr-2 d-none d-md-block">
 				<a href="#"><a href="/admin/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a></a>
 			</li>
 

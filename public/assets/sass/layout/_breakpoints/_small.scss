@@ -27,9 +27,15 @@
         body#teacherPortal,
         body#studentPortal {
 
-            #painel-left {
+            .panel-side {
+                display: none;
+
+                #left-panel {
+                    #sidebar {
                 z-index: 120000000;
             }
+        }
+        }
 
         
                 nav#studentPortalNavbar {
@@ -167,6 +173,8 @@
 
                     a.bars-xs {
                         display: block;
+                        position: absolute;
+                        left: 10px;
                     }
 
                     .navbar-toggler {
@@ -188,7 +196,13 @@
 
                     .logo img{
                         display: block;
-                         object-fit: cover;
+                        position: absolute;
+                        margin-left: auto;
+                        left: 0;
+                        top: 10px;
+                        margin-right: auto;
+                        right: 0;
+                        object-fit: cover;
                         object-position: center;
                         width: 150px;
                         height: 40px;

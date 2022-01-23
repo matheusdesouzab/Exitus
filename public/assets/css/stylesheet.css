@@ -104,7 +104,7 @@ h5 {
   color: white;
 }
 
-#pagina #profileStudentModal .container-list-group {
+#pagina #profileStudentModal .container-list-group, #pagina #settingsModal .container-list-group {
   height: 48vh;
   overflow: auto;
 }
@@ -894,6 +894,14 @@ html > .sidebar-responsive #left-panel #sidebar li {
   font-size: 18px;
   letter-spacing: 1px;
   color: #506177;
+}
+
+#table-print {
+  font-family: Bold;
+  background: white;
+}
+#table-print #table-bulletin thead {
+  background: #E8F0FE;
 }
 
 #admin #pagina #table-bulletin-print thead,
@@ -1716,9 +1724,14 @@ html > .sidebar-responsive #left-panel #sidebar li {
   html #login .container-login .sidebar-secondary form {
     padding: 15px;
   }
-  html body#admin #painel-left,
-html body#teacherPortal #painel-left,
-html body#studentPortal #painel-left {
+  html body#admin .panel-side,
+html body#teacherPortal .panel-side,
+html body#studentPortal .panel-side {
+    display: none;
+  }
+  html body#admin .panel-side #left-panel #sidebar,
+html body#teacherPortal .panel-side #left-panel #sidebar,
+html body#studentPortal .panel-side #left-panel #sidebar {
     z-index: 120000000;
   }
   html body#admin nav#studentPortalNavbar a,
@@ -1878,6 +1891,8 @@ html body#studentPortal #pagina #navbar-top a#bars {
 html body#teacherPortal #pagina #navbar-top a.bars-xs,
 html body#studentPortal #pagina #navbar-top a.bars-xs {
     display: block;
+    position: absolute;
+    left: 10px;
   }
   html body#admin #pagina #navbar-top .navbar-toggler,
 html body#teacherPortal #pagina #navbar-top .navbar-toggler,
@@ -1903,6 +1918,12 @@ html body#studentPortal #pagina #navbar-top .navbar-toggler {
 html body#teacherPortal #pagina #navbar-top .logo img,
 html body#studentPortal #pagina #navbar-top .logo img {
     display: block;
+    position: absolute;
+    margin-left: auto;
+    left: 0;
+    top: 10px;
+    margin-right: auto;
+    right: 0;
     object-fit: cover;
     object-position: center;
     width: 150px;
@@ -1984,6 +2005,12 @@ html body#studentPortal #pagina .modal-profile .option-list {
   html #errorPage .container-fluid p {
     font-size: 12px;
     text-align: justify;
+  }
+  html #general-management .card-title {
+    font-size: 4.5vw;
+  }
+  html #general-management .btn {
+    font-size: 2.5vw;
   }
   html #index nav img {
     width: 30vw;
@@ -2109,6 +2136,11 @@ html body#teacherPortal #pagina #home .card .teacher-name,
 html body#studentPortal #pagina #home .card .teacher-name {
     font-size: 4vw;
   }
+  html body#admin #pagina #home .card .total-student-enrolled,
+html body#teacherPortal #pagina #home .card .total-student-enrolled,
+html body#studentPortal #pagina #home .card .total-student-enrolled {
+    font-size: 3.5vw;
+  }
   html body#admin #pagina #home .recently-enrolled .card-title,
 html body#teacherPortal #pagina #home .recently-enrolled .card-title,
 html body#studentPortal #pagina #home .recently-enrolled .card-title {
@@ -2149,46 +2181,101 @@ html body#studentPortal #pagina #settingsModal #accordion-data-admin form input,
 html body#studentPortal #pagina #settingsModal #accordion-data-admin form select {
     font-size: 2.4vw;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion,
+  html body#admin #pagina #profileTeacherModal #main-accordion, html body#admin #pagina #profileTeacherModal #main-accordion-settings,
 html body#admin #pagina #profileStudentModal #main-accordion,
+html body#admin #pagina #profileStudentModal #main-accordion-settings,
+html body#admin #pagina #settingsModal #main-accordion,
+html body#admin #pagina #settingsModal #main-accordion-settings,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion-settings,
 html body#teacherPortal #pagina #profileStudentModal #main-accordion,
+html body#teacherPortal #pagina #profileStudentModal #main-accordion-settings,
+html body#teacherPortal #pagina #settingsModal #main-accordion,
+html body#teacherPortal #pagina #settingsModal #main-accordion-settings,
 html body#studentPortal #pagina #profileTeacherModal #main-accordion,
-html body#studentPortal #pagina #profileStudentModal #main-accordion {
+html body#studentPortal #pagina #profileTeacherModal #main-accordion-settings,
+html body#studentPortal #pagina #profileStudentModal #main-accordion,
+html body#studentPortal #pagina #profileStudentModal #main-accordion-settings,
+html body#studentPortal #pagina #settingsModal #main-accordion,
+html body#studentPortal #pagina #settingsModal #main-accordion-settings {
     background-color: white;
     border-radius: 15px;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar,
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar, html body#admin #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar,
 html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar,
+html body#admin #pagina #profileStudentModal #main-accordion-settings .modal-sidebar,
+html body#admin #pagina #settingsModal #main-accordion .modal-sidebar,
+html body#admin #pagina #settingsModal #main-accordion-settings .modal-sidebar,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar,
 html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar,
+html body#teacherPortal #pagina #profileStudentModal #main-accordion-settings .modal-sidebar,
+html body#teacherPortal #pagina #settingsModal #main-accordion .modal-sidebar,
+html body#teacherPortal #pagina #settingsModal #main-accordion-settings .modal-sidebar,
 html body#studentPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar,
-html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar {
+html body#studentPortal #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar,
+html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar,
+html body#studentPortal #pagina #profileStudentModal #main-accordion-settings .modal-sidebar,
+html body#studentPortal #pagina #settingsModal #main-accordion .modal-sidebar,
+html body#studentPortal #pagina #settingsModal #main-accordion-settings .modal-sidebar {
     height: 55vh;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul,
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul, html body#admin #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar .container-list-group nav ul,
 html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#admin #pagina #profileStudentModal #main-accordion-settings .modal-sidebar .container-list-group nav ul,
+html body#admin #pagina #settingsModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#admin #pagina #settingsModal #main-accordion-settings .modal-sidebar .container-list-group nav ul,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar .container-list-group nav ul,
 html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#teacherPortal #pagina #profileStudentModal #main-accordion-settings .modal-sidebar .container-list-group nav ul,
+html body#teacherPortal #pagina #settingsModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#teacherPortal #pagina #settingsModal #main-accordion-settings .modal-sidebar .container-list-group nav ul,
 html body#studentPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .container-list-group nav ul,
-html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul {
+html body#studentPortal #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar .container-list-group nav ul,
+html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#studentPortal #pagina #profileStudentModal #main-accordion-settings .modal-sidebar .container-list-group nav ul,
+html body#studentPortal #pagina #settingsModal #main-accordion .modal-sidebar .container-list-group nav ul,
+html body#studentPortal #pagina #settingsModal #main-accordion-settings .modal-sidebar .container-list-group nav ul {
     width: 350px;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet,
+  html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet, html body#admin #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar .main-sheet,
 html body#admin #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet,
+html body#admin #pagina #profileStudentModal #main-accordion-settings .modal-sidebar .main-sheet,
+html body#admin #pagina #settingsModal #main-accordion .modal-sidebar .main-sheet,
+html body#admin #pagina #settingsModal #main-accordion-settings .modal-sidebar .main-sheet,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar .main-sheet,
 html body#teacherPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet,
+html body#teacherPortal #pagina #profileStudentModal #main-accordion-settings .modal-sidebar .main-sheet,
+html body#teacherPortal #pagina #settingsModal #main-accordion .modal-sidebar .main-sheet,
+html body#teacherPortal #pagina #settingsModal #main-accordion-settings .modal-sidebar .main-sheet,
 html body#studentPortal #pagina #profileTeacherModal #main-accordion .modal-sidebar .main-sheet,
-html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet {
+html body#studentPortal #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar .main-sheet,
+html body#studentPortal #pagina #profileStudentModal #main-accordion .modal-sidebar .main-sheet,
+html body#studentPortal #pagina #profileStudentModal #main-accordion-settings .modal-sidebar .main-sheet,
+html body#studentPortal #pagina #settingsModal #main-accordion .modal-sidebar .main-sheet,
+html body#studentPortal #pagina #settingsModal #main-accordion-settings .modal-sidebar .main-sheet {
     margin-top: 10px;
     margin-bottom: 20px;
   }
-  html body#admin #pagina #profileTeacherModal #main-accordion .main-content,
+  html body#admin #pagina #profileTeacherModal #main-accordion .main-content, html body#admin #pagina #profileTeacherModal #main-accordion-settings .main-content,
 html body#admin #pagina #profileStudentModal #main-accordion .main-content,
+html body#admin #pagina #profileStudentModal #main-accordion-settings .main-content,
+html body#admin #pagina #settingsModal #main-accordion .main-content,
+html body#admin #pagina #settingsModal #main-accordion-settings .main-content,
 html body#teacherPortal #pagina #profileTeacherModal #main-accordion .main-content,
+html body#teacherPortal #pagina #profileTeacherModal #main-accordion-settings .main-content,
 html body#teacherPortal #pagina #profileStudentModal #main-accordion .main-content,
+html body#teacherPortal #pagina #profileStudentModal #main-accordion-settings .main-content,
+html body#teacherPortal #pagina #settingsModal #main-accordion .main-content,
+html body#teacherPortal #pagina #settingsModal #main-accordion-settings .main-content,
 html body#studentPortal #pagina #profileTeacherModal #main-accordion .main-content,
-html body#studentPortal #pagina #profileStudentModal #main-accordion .main-content {
+html body#studentPortal #pagina #profileTeacherModal #main-accordion-settings .main-content,
+html body#studentPortal #pagina #profileStudentModal #main-accordion .main-content,
+html body#studentPortal #pagina #profileStudentModal #main-accordion-settings .main-content,
+html body#studentPortal #pagina #settingsModal #main-accordion .main-content,
+html body#studentPortal #pagina #settingsModal #main-accordion-settings .main-content {
     margin-top: 0px;
   }
   html body#admin #pagina #profileStudentModal .main-sheet,

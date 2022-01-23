@@ -1,3 +1,13 @@
+#table-print{
+    font-family: Bold;
+    background: white;
+    #table-bulletin thead {
+        background: #E8F0FE;
+    }
+}
+
+
+
 #admin,
 #teacherPortal,
 #studentPortal {
@@ -7,7 +17,7 @@
         #table-bulletin-print thead {
             background: #E8F0FE;
         }
-        
+   
         #note-table-class {
             overflow: auto;
         

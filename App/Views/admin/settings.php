@@ -1,6 +1,6 @@
-<div class="row mb-4 d-flex justify-content-around" id="main-accordion-settings">
+<div class="row mb-4 d-flex justify-content-center" id="main-accordion-settings">
 
-    <div class="col-lg-3 col-11 mx-auto">
+    <div class="col-lg-3 col-12 col-sm-4">
 
         <div class="col-lg-12 modal-sidebar">
 
@@ -14,7 +14,7 @@
 
                         <img class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 
-                        <div class="col-lg-10 mx-auto main-sheet d-none d-sm-block">
+                        <div class="col-lg-10 mx-auto main-sheet">
                             <div class="row p-3">
                                 <span class="col-lg-12"><?= $this->view->data[0]->name ?></span>
                                 <span class="col-lg-12"><?= $this->view->data[0]->hierarchy_function ?></span>
@@ -25,7 +25,7 @@
 
                     <div class="row">
 
-                        <div class="col-lg-12 container-list-group mt-3 p-0">
+                        <div class="col-lg-12 container-list-group p-0">
 
                             <nav>
 
@@ -102,7 +102,7 @@
     </div>
 
 
-    <div class="col-lg-9 col-11 mx-auto">
+    <div class="col-lg-9 col-sm-8 col-12 mx-auto">
 
         <div class="col-lg-12 card main-content">
 
@@ -202,9 +202,9 @@
 
                                     <div class="row d-flex align-items-center">
 
-                                        <h5 class="col-lg-8">Dados pessoais</h5>
+                                        <h5 class="col-8">Dados pessoais</h5>
 
-                                        <div class="col-lg-4 d-flex justify-content-end">
+                                        <div class="col-4 d-flex justify-content-end">
 
                                             <span idElement="#adminDate<?= $admin->id ?>" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 
