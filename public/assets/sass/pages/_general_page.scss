@@ -1,6 +1,47 @@
-#table-print{
-    font-family: Bold;
+#table-print {
+
     background: white;
+
+    .header {
+
+        .logo-site {
+            width: 15vw;
+        }
+
+        .logo-school{
+            width: 8vw;
+        }
+
+        h4 {
+            font-family: Bold;
+            font-size: 20px;
+        }
+
+        h5 {
+            font-family: Semi-bold;
+            font-size: 18px;
+            color: black;
+        }
+    }
+
+    .sub-header {
+
+        p,div {
+            font-family: Semi-bold;
+            color: $color-dark-blue;
+            margin-bottom: 5px;
+        }
+
+        span {
+            font-family: Bold;
+            color: black;
+        }
+    }
+
+    small{
+        font-family: Medio;
+    }
+
     #table-bulletin thead {
         background: #E8F0FE;
     }
@@ -17,40 +58,40 @@
         #table-bulletin-print thead {
             background: #E8F0FE;
         }
-   
+
         #note-table-class {
             overflow: auto;
-        
+
             td,
             th {
                 text-align: left;
             }
         }
-        
+
         #note-table {
-        
+
             td,
             th {
                 text-align: left;
             }
         }
-        
+
         #profileStudentModal {
-        
+
             #table-bulletin {
                 font-size: 13px;
                 width: 1000px;
                 font-family: Bold;
-        
+
                 th {
                     color: black;
                 }
             }
         }
-        
+
         #tableListExam {
             font-size: 15px;
-        
+
             td,
             th {
                 margin: 3px;
@@ -76,7 +117,8 @@
             }
         }
 
-        #class-rematrug,.illustrations {
+        #class-rematrug,
+        .illustrations {
             img {
                 width: 30vw;
             }

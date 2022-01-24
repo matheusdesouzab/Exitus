@@ -222,6 +222,8 @@ class StudentEnrollment extends Model
             curso.id_curso AS course_id , 
             curso.nome_curso AS course_name ,
             turno.nome_turno AS shift , 
+            modalidade_curso.modalidade_curso AS course_modality ,
+            modalidade_curso.id_modalidade_curso AS course_modality_id ,
             numero_sala_aula.numero_sala_aula AS number_classroom , 
             situacao_aluno_ano_letivo.situacao_aluno as situation , 
             situacao_aluno_ano_letivo.id_situacao_aluno as situation_id , 
@@ -238,6 +240,7 @@ class StudentEnrollment extends Model
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
             INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
             INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN modalidade_curso ON(curso.fk_id_modalidade_curso = modalidade_curso.id_modalidade_curso)
             INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
             INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno) 
             INNER JOIN sala ON(turma.fk_id_sala = sala.id_sala) 

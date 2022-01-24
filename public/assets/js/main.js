@@ -807,25 +807,5 @@ $(document).on('click', "#profileClassModal [data-target='#class-note-history']"
     application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas", "#formClassId")
 })
 
-$(document).on("click", "#printBuleetin", function (e) {
-
-    let studentName = $('#accordion-data-student form input#name').val()
-
-    let myTable = document.getElementById('table-bulletin-print').innerHTML
-    var win = window.open()
-    win.document.write('<html><head>')
-    win.document.write('<title>Boletim</title>')
-    win.document.write('<meta charset="utf-8">')
-    win.document.write('<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">')
-    win.document.write('<link rel="stylesheet" href="/assets/css/stylesheet.css">')
-    win.document.write('</head>')
-    win.document.write('<body id="table-print">')
-    win.document.write(`<div class="p-3"><h5>Aluno: ${studentName}</h5>`)
-    win.document.write(`${myTable}`)
-    win.document.write('</div></body></html>')
-    win.document.close()
-
-})
-
 
 AOS.init()

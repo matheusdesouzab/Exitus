@@ -22,11 +22,11 @@
 
                             <div class="col-lg-10 mx-auto main-sheet d-none d-sm-block">
                                 <div class="row pb-3">
-                                    <span class="col-lg-12 mt-2"><?= $student->name ?></span>
+                                    <span class="col-lg-12 mt-2"><?= $student->name ?> </span>
 
-                                    <?php if ($this->view->schoolTermActive[0]->option_value ==  $this->view->studentDataEnrollment[0]->school_term_situation) { ?>
+                                    <?php if ($this->view->schoolTermActive[0]->option_value ==  $this->view->studentDataEnrollment[0]->school_term_id) { ?>
 
-                                        <span class="col-lg-12"><?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span>
+                                        <span class="col-lg-12 class-data"><?= $this->view->studentDataEnrollment[0]->acronym_series ?> <?= $this->view->studentDataEnrollment[0]->ballot ?> - <?= $this->view->studentDataEnrollment[0]->course ?> - <?= $this->view->studentDataEnrollment[0]->shift ?></span>
 
                                     <?php } else { ?>
 
@@ -171,7 +171,12 @@
                     <input type="hidden" value="<?= $student->id ?>" name="studentId">
                     <input type="hidden" value="<?= $student->telephone_id ?>" name="telephoneId">
                     <input type="hidden" value="<?= $student->address_id ?>" name="addressId">
+                    <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->number_classroom ?>" id="classroom_number">
                     <input value="<?= $this->view->studentDataEnrollment[0]->enrollment_id ?>" type="hidden" name="enrollmentId">
+                    <input value="<?= $this->view->studentDataEnrollment[0]->school_year ?>" type="hidden" id="schoolYear">
+                    <input id="courseModality" value="<?= $this->view->studentDataEnrollment[0]->course_modality ?>" type="hidden" name="courseModality">
+                    <?php $modality = $this->view->studentDataEnrollment[0]->course_modality_id == 1 ? '' : 'Técnico' ?>
+                    <input type="hidden" id="series" value="<?=  $this->view->studentDataEnrollment[0]->acronym_series ?>ª - <?= $modality ?> em <?= $this->view->studentDataEnrollment[0]->course_name ?> ">
 
                     <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
 

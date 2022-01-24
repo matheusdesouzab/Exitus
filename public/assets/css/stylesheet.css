@@ -897,8 +897,34 @@ html > .sidebar-responsive #left-panel #sidebar li {
 }
 
 #table-print {
-  font-family: Bold;
   background: white;
+}
+#table-print .header .logo-site {
+  width: 15vw;
+}
+#table-print .header .logo-school {
+  width: 8vw;
+}
+#table-print .header h4 {
+  font-family: Bold;
+  font-size: 20px;
+}
+#table-print .header h5 {
+  font-family: Semi-bold;
+  font-size: 18px;
+  color: black;
+}
+#table-print .sub-header p, #table-print .sub-header div {
+  font-family: Semi-bold;
+  color: #09023B;
+  margin-bottom: 5px;
+}
+#table-print .sub-header span {
+  font-family: Bold;
+  color: black;
+}
+#table-print small {
+  font-family: Medio;
 }
 #table-print #table-bulletin thead {
   background: #E8F0FE;
@@ -975,7 +1001,8 @@ html > .sidebar-responsive #left-panel #sidebar li {
 #studentPortal #pagina #class-discipline-accordion img {
   width: 20vw;
 }
-#admin #pagina #class-rematrug img, #admin #pagina .illustrations img,
+#admin #pagina #class-rematrug img,
+#admin #pagina .illustrations img,
 #teacherPortal #pagina #class-rematrug img,
 #teacherPortal #pagina .illustrations img,
 #studentPortal #pagina #class-rematrug img,

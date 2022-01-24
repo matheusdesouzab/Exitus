@@ -100,5 +100,7 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
 <script src="/assets/js/main.js"></script>
 
+<script src="/assets/js/utilities/Bulletin.js"></script>
+
 
 </html>
