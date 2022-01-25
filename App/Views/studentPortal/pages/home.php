@@ -494,6 +494,17 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                         <div containerBulletin class="col-lg-11 mx-auto card mb-4 mt-3 p-sm-5"></div>
 
+                        <input id="name" type="hidden" value="<?= $_SESSION['Student']['name'] ?>">
+                        <input id="courseModality" value="<?= $this->view->studentDataGeneral[0]->course_modality ?>" type="hidden">
+                        <input type="hidden" id="schoolYear" value="<?= $this->view->studentDataGeneral[0]->school_year ?>">
+                        <input type="hidden" id="numberClassroom" value="<?= $this->view->studentDataGeneral[0]->number_classroom ?>">
+                        
+                        <input type="hidden" id="classData" value="<?= $this->view->studentDataGeneral[0]->acronym_series ?> <?= $this->view->studentDataGeneral[0]->ballot ?> - <?= $this->view->studentDataGeneral[0]->course ?> - <?= $this->view->studentDataGeneral[0]->shift ?>">
+                        
+                        <?php $modality = $this->view->studentDataGeneral[0]->course_modality_id == 1 ? '' : 'Técnico' ?>
+
+                        <input type="hidden" id="series" value="<?=  $this->view->studentDataGeneral[0]->acronym_series ?>ª - <?= $modality ?> em <?= $this->view->studentDataGeneral[0]->course_name ?> ">
+
                     </div>
 
                     <div class="collapse mt-3" id="class" data-parent="#studentPortal-accordion">
@@ -883,5 +894,6 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
 <script src="/assets/js/main.js"></script>
 
+<script src="/assets/js/utilities/Bulletin.js"></script>
 
 </html>

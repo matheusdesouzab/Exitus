@@ -31,8 +31,8 @@ class Settings extends Model
     public function update()
     {
 
-        $query = 
-        
+        $query =
+
             "UPDATE configuracao SET 
             
             fk_id_controle_unidade = :fk_id_control_unity , 
@@ -82,7 +82,7 @@ class Settings extends Model
             
             FROM configuracao 
             
-            LEFT JOIN controle_unidade ON(configuracao.fk_id_controle_unidade = controle_unidade.id_controle_unidade)"
+            INNER JOIN controle_unidade ON(configuracao.fk_id_controle_unidade = controle_unidade.id_controle_unidade)"
 
         );
     }
@@ -105,7 +105,7 @@ class Settings extends Model
             
             FROM configuracao 
             
-            LEFT JOIN controle_rematricula ON(configuracao.fk_id_controle_rematricula = controle_rematricula.id_situacao_abertura_rematricula)"
+            INNER JOIN controle_rematricula ON(configuracao.fk_id_controle_rematricula = controle_rematricula.id_situacao_abertura_rematricula)"
 
         );
     }

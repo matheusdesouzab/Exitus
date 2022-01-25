@@ -1,14 +1,13 @@
-
-
 $(document).on("click", "#printBuleetin", function (e) {
 
-    let studentName = $('#accordion-data-student form input#name').val()
-    let courseModality = $('#accordion-data-student form input#courseModality').val()
-    let series = $('#accordion-data-student form input#series').val()
-    let schoolYear = $('#accordion-data-student form input#schoolYear').val()
-    let class_data = $('.class-data').text().split('-')
+    let studentName = $('#accordion-data-student form input#name').val() || $('#studentPortal #bulletin #name').val()
+    let courseModality = $('#accordion-data-student form input#courseModality').val() || $('#studentPortal #bulletin #courseModality').val()
+    let series = $('#accordion-data-student form input#series').val() || $('#studentPortal #bulletin #series').val()
+    let schoolYear = $('#accordion-data-student form input#schoolYear').val() || $('#studentPortal #bulletin #schoolYear').val()
+    let classroom_number = $('#accordion-data-student form input#classroom_number').val() || $('#studentPortal #bulletin #numberClassroom').val()
+    let class_data = $('.class-data').text() || $('#studentPortal #bulletin #classData').val()
 
-    let classroom_number = $('#accordion-data-student form input#classroom_number').val()
+    class_data = class_data.split('-')
 
     let myTable = document.getElementById('table-bulletin-print').innerHTML
     let win = window.open()

@@ -236,7 +236,7 @@ class Classe extends Model
 
 
     /**
-     * Retorna uma única turma pelo id da mesma
+     * Retorna os dados gerais de uma única turma 
      * 
      * @return array
      */
@@ -486,6 +486,11 @@ class Classe extends Model
     }
 
 
+    /**
+     * Retorna todas as turmas onde o aluno pode ser rematrículado
+     * 
+     * @return array
+     */
     public function classesWhereStudentEnrolledSameYear()
     {
 
@@ -585,6 +590,4 @@ class Classe extends Model
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
     }
-
-
 }

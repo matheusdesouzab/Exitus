@@ -101,4 +101,6 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 
 <script src="/assets/js/main.js"></script>
 
+<script src="/assets/js/utilities/Bulletin.js"></script>
+
 </html>

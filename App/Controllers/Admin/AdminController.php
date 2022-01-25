@@ -18,12 +18,13 @@ class AdminController extends Action
     public function adminRegistration()
     {
         $Admin = Container::getModel('Admin\\Admin');
+        $HierarchyFunction = Container::getModel('GeneralManagement\\HierarchyFunction');
 
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->availablebloodType();
 
-        $this->listHierarchyFunction = $Admin->listHierarchyFunction();
+        $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
         $this->render('admin/adminRegistration', 'AdminLayout');
     }
 
@@ -101,6 +102,7 @@ class AdminController extends Action
 
         $Settings = Container::getModel('Admin\\Settings');
         $Admin = Container::getModel('Admin\\Admin');
+        $HierarchyFunction = Container::getModel('GeneralManagement\\HierarchyFunction');
 
         if (!isset($_SESSION)) session_start();
 
@@ -114,7 +116,7 @@ class AdminController extends Action
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->availablebloodType();
-        $this->listHierarchyFunction = $Admin->listHierarchyFunction();
+        $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
         $this->view->modalType = 'data-and-config';
         $this->view->accountStates = $Admin->accountStates();
 
@@ -197,6 +199,7 @@ class AdminController extends Action
     {
 
         $Admin = Container::getModel('Admin\\Admin');
+        $HierarchyFunction = Container::getModel('GeneralManagement\\HierarchyFunction');
 
         $Admin->__set('id', $_GET['id']);
 
@@ -205,7 +208,7 @@ class AdminController extends Action
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->availablebloodType();
-        $this->listHierarchyFunction = $Admin->listHierarchyFunction();
+        $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
         $this->view->accountStates = $Admin->accountStates();
 
         $this->render('settings', 'SimpleLayout');
@@ -237,7 +240,7 @@ class AdminController extends Action
         $Admin->__set('naturalness', $_POST['naturalness']);
         $Admin->__set('nationality', $_POST['nationality']);
         $Admin->__set('email', $_POST['email']);
-        $Admin->__set('fk_id_account_status', 1);
+        $Admin->__set('fk_id_account_state', 1);
         $Admin->__set('fk_id_hierarchy_function', $_POST['hierarchyFunction']);
         $Admin->__set('fk_id_sex', $_POST['sex']);
         $Admin->__set('fk_id_blood_type', $_POST['bloodType']);

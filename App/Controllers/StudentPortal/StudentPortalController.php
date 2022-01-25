@@ -156,7 +156,7 @@ class StudentPortalController extends Action
         $Classe->__set('classId', $class[0]->class_id);
         $class0 = $Classe->dataGeneral("<> 0");
 
-        $_SESSION['Student']['class'] = $class0[0]->series_id . 'ª ' . $class0[0]->ballot . ' - ' . $class0[0]->course_name . ' - ' . $class0[0]->shift; 
+        $_SESSION['Student']['class'] = $class0[0]->series_id . 'ª ' . $class0[0]->ballot . ' - ' . $class0[0]->course_name . ' - ' . $class0[0]->shift;
     }
 
 

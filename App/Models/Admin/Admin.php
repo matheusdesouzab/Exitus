@@ -7,19 +7,22 @@ use App\Models\People\People;
 class Admin extends People
 {
 
-    public $fk_id_account_status;
-
     public function __get($att)
     {
         return $this->$att;
     }
-
 
     public function __set($att, $newValue)
     {
         return $this->$att = $newValue;
     }
 
+
+    /**
+     * Criar a conta de um administrador
+     * 
+     * @return void
+     */
 
     public function insert()
     {
@@ -30,11 +33,11 @@ class Admin extends People
         
             (nome_administrador, cpf_administrador, data_nascimento_administrador, naturalidade_administrador, foto_perfil_administrador,nacionalidade_administrador, fk_id_sexo_administrador, fk_id_tipo_sanguineo_administrador, fk_id_pcd_administrador, fk_id_endereco_administrador, fk_id_telefone_administrador , codigo_acesso , fk_id_administrador_hierarquia_funcao , email_administrador, fk_id_situacao_conta_administrador) 
 
-        VALUES 
+            VALUES 
         
-            (:adminName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, :fk_id_account_status)
+            (:adminName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, :fk_id_account_state)
             
-    ";
+        ";
 
         $stmt = $this->db->prepare($query);
 
@@ -51,7 +54,7 @@ class Admin extends People
         $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
         $stmt->bindValue(':fk_id_address', $this->__get('fk_id_address'));
         $stmt->bindValue(':fk_id_telephone', $this->__get('fk_id_telephone'));
-        $stmt->bindValue(':fk_id_account_status', 1);
+        $stmt->bindValue(':fk_id_account_state', 1);
         $stmt->bindValue(':fk_id_hierarchy_function', $this->__get('fk_id_hierarchy_function'));
 
         $stmt->execute();
@@ -174,7 +177,7 @@ class Admin extends People
 
 
     /**
-     * Atualiza os dados de um administrador
+     * Atualiza os dados da conta de um administrador
      * 
      * @return void
      */
@@ -220,11 +223,16 @@ class Admin extends People
     }
 
 
+    /**
+     * Retorna uma lista de todos os administradores presente no sistema
+     * 
+     * @return array
+     */
     public function list()
     {
 
         return $this->speedingUp(
-            
+
             "SELECT 
             
             administrador.id_administrador AS id , 
@@ -236,40 +244,33 @@ class Admin extends People
             
             FROM administrador 
             
-            LEFT JOIN hierarquia_funcao ON(administrador.fk_id_administrador_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao) 
-            LEFT JOIN situacao_conta ON(administrador.fk_id_situacao_conta_administrador = situacao_conta.id_situacao_conta)
+            INNER JOIN hierarquia_funcao ON(administrador.fk_id_administrador_hierarquia_funcao = hierarquia_funcao.id_hierarquia_funcao) 
+            INNER JOIN situacao_conta ON(administrador.fk_id_situacao_conta_administrador = situacao_conta.id_situacao_conta)
 
-        ");
-    }
-
-
-    /**
-     * Esse método retorna a lista de estados da hierarquia de funções. Entretanto, ele deve ser usado para peencher a tag select na View.
-     * 
-     * @return array
-     */
-    public function listHierarchyFunction()
-    {
-
-        return $this->speedingUp(
-
-            "SELECT 
-            
-            id_hierarquia_funcao AS option_value , 
-            hierarquia_funcao AS option_text 
-            
-            FROM hierarquia_funcao 
-            
-            WHERE id_hierarquia_funcao BETWEEN 1 AND 2"
-
+        "
         );
     }
 
 
+    /**
+     * Esse método verifica se a conta do administrador está ativada ou desativada
+     * 
+     * @return array
+     */
     public function accountStatus()
     {
 
-        $query = "SELECT administrador.fk_id_situacao_conta_administrador AS account_status FROM administrador WHERE administrador.codigo_acesso = :accessCode AND administrador.nome_administrador = :name";
+        $query =
+
+            "SELECT 
+            
+            administrador.fk_id_situacao_conta_administrador AS account_status 
+            
+            FROM administrador 
+            
+            WHERE administrador.codigo_acesso = :accessCode AND administrador.nome_administrador = :name
+            
+        ";
 
         $stmt = $this->db->prepare($query);
 

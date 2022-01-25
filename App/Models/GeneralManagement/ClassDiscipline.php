@@ -26,7 +26,7 @@ class ClassDiscipline extends Model
 
 
     /**
-     * Vincula disciplina a turma
+     * Vincula disciplina a professor em uma turma
      * 
      * @return void
      */
@@ -152,27 +152,27 @@ class ClassDiscipline extends Model
 
             FROM turma_disciplina           
                    
-            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma) 
-            LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
-            LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)         
-            LEFT JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)         
+            INNER JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
 
             WHERE turma_disciplina.fk_id_professor = professor.id_professor AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1) AS total_discipline
             
             FROM professor 
 
-            LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)  
-            LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
-            LEFT JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
-            LEFT JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
-            LEFT JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
-            LEFT JOIN turno ON(turma.fk_id_turno = turno.id_turno)
-            LEFT JOIN sala ON(turma.fk_id_sala = sala.fk_id_numero_sala) 
-            LEFT JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula) 
-            LEFT JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
-            LEFT JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)         
-            LEFT JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
-            LEFT JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel)       
+            INNER JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)  
+            INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
+            INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
+            INNER JOIN curso ON(turma.fk_id_curso = curso.id_curso) 
+            INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie) 
+            INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)
+            INNER JOIN sala ON(turma.fk_id_sala = sala.fk_id_numero_sala) 
+            INNER JOIN numero_sala_aula ON(sala.fk_id_numero_sala = numero_sala_aula.id_numero_sala_aula) 
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)         
+            INNER JOIN disciplina ON(disciplina.id_disciplina = turma_disciplina.fk_id_disciplina)
+            INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel)       
 
             WHERE professor.id_professor = :fk_id_teacher AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
         
@@ -384,6 +384,11 @@ class ClassDiscipline extends Model
     }
 
 
+    /**
+     * Retorna as notas das avaliações vinculadas somente a determinado professor da turma
+     * 
+     * @return array
+     */
     public function notesLinkedTeacherClass()
     {
 
@@ -442,6 +447,11 @@ class ClassDiscipline extends Model
     }
 
 
+    /**
+     * Retorna as notas das avaliações vinculadas somente a determinado professor e aluno da turma
+     * 
+     * @return array
+     */
     public function notesLinkedStudentClassTeacher($studentEnrollment)
     {
 
@@ -478,14 +488,11 @@ class ClassDiscipline extends Model
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
             INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno)
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
-            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
-            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)  
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
             
             WHERE professor.id_professor = :fk_id_teacher
 
             AND matricula.id_matricula = :fk_id_enrollment
-
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
 
             ORDER BY avaliacoes.id_avaliacao ASC
             

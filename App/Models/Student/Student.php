@@ -410,7 +410,7 @@ class Student extends People
             cedula_turma.cedula AS ballot , 
             curso.sigla AS course , 
             turno.nome_turno AS shift ,
-            turma.id_turma AS class_id
+            turma.id_turma AS class_id 
             
             FROM aluno
 
@@ -421,7 +421,7 @@ class Student extends People
             INNER JOIN cedula_turma ON(turma.fk_id_cedula = cedula_turma.id_cedula_turma) 
             INNER JOIN turno ON(turma.fk_id_turno = turno.id_turno)          
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
-            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)        
                                    
             WHERE codigo_acesso = :accessCode AND nome_aluno = :studentName
             
