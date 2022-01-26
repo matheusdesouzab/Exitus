@@ -143,7 +143,7 @@ class Teacher extends People
 
 
     /**
-     * Retorna todos os docentes cadastrados
+     * Buscar docentes
      * 
      * @return array
      */
@@ -409,7 +409,7 @@ class Teacher extends People
 
 
     /**
-     * Esse método retorna o total de alunos que foram aprovados e reprovados, nas disciplinas que o docente ministra
+     * Busca turmas no portal do docente
      * 
      * @return array
      */
@@ -665,7 +665,7 @@ class Teacher extends People
 
 
     /**
-     * Retorna todas as observações de um aluno
+     * Retorna todas as observações de um aluno com base no id do docente
      * 
      * @return array
      */
@@ -728,11 +728,9 @@ class Teacher extends People
     /**
      * Retorna todas as médias finais de um aluno
      * 
-     * @param int $currentSchoolTerm;
-     * 
      * @return array
      */
-    public function readByIdTeacher($currentSchoolTerm = 0)
+    public function readByIdTeacherAverage()
     {
 
         $query =
@@ -767,7 +765,7 @@ class Teacher extends People
 
             AND
 
-            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
         ";
 
         $stmt = $this->db->prepare($query);
@@ -778,6 +776,11 @@ class Teacher extends People
     }
 
 
+    /**
+     * Verifica se a conta do docente está ativa
+     * 
+     * @return array
+     */
     public function accountStatus()
     {
 

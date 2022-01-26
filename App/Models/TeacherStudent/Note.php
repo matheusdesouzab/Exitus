@@ -174,11 +174,9 @@ class Note extends Model
     /**
      * Retorna as notas das avaliações 
      * 
-     * @param int $currentSchoolTerm
-     * 
      * @return array
      */
-    public function readAll($currentSchoolTerm = 0)
+    public function readAll()
     {
 
         return $this->speedingUp(
@@ -219,7 +217,7 @@ class Note extends Model
             
             WHERE
            
-            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+           situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
 
             ORDER BY nota_avaliacao.valor_nota DESC"
 
@@ -227,10 +225,11 @@ class Note extends Model
     }
 
 
-
     /**
      * Buscar nota de avaliação
      * 
+     * @param object $classe
+     * @param object $teacher
      * @param string $orderBy
      * 
      * @return array
@@ -455,8 +454,6 @@ class Note extends Model
 
     /**
      * Retorna as notas das avaliações vinculadas a um aluno
-     * 
-     * @param int $currentSchoolTerm
      * 
      * @return array
      */

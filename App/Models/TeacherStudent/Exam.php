@@ -91,7 +91,7 @@ class Exam extends Model
 
 
     /**
-     * Retorna as avaliações que foram adicionadas em uma turma
+     * Retorna os dados gerais de uma avaliação
      * 
      * @return array
      */
@@ -130,12 +130,9 @@ class Exam extends Model
             INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
             INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
             INNER JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor) 
-            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
-            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)     
             
             WHERE avaliacoes.id_avaliacao = :examId 
-
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1
 
             ORDER BY avaliacoes.id_avaliacao ASC
             
@@ -150,7 +147,7 @@ class Exam extends Model
 
 
     /**
-     * Atualizar avaliação
+     * Atualizar os dados de uma avaliação
      * 
      * @return void
      */
@@ -350,13 +347,11 @@ class Exam extends Model
 
 
     /**
-     * Retorna as avaliações que foram adicionadas em uma turma
-     * 
-     * @param int $currentSchoolTerm
+     * Retorna todas as avaliações que foram adicionadas no período letivo
      * 
      * @return array
      */
-    public function readAll($currentSchoolTerm = 0)
+    public function readAll()
     {
 
         return $this->speedingUp(
@@ -396,7 +391,7 @@ class Exam extends Model
             
             WHERE 
          
-            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+            situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
 
             ORDER BY avaliacoes.id_avaliacao ASC"
 
@@ -461,6 +456,11 @@ class Exam extends Model
     }
 
 
+    /**
+     * Retorna as avaliações vínculadas a um professor
+     * 
+     * @return array
+     */
     public function readExamByIdTeacher($teacher)
     {
 
@@ -500,7 +500,7 @@ class Exam extends Model
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)      
             
-            WHERE professor.id_professor = :teacherId
+            WHERE professor.id_professor = :teacherId AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
 
             ORDER BY avaliacoes.id_avaliacao ASC
             

@@ -28,7 +28,7 @@ class Address extends Model
 
 
     /**
-     * Inserir localidade
+     * Inserir endereço
      * 
      * @return void
      */
@@ -61,7 +61,7 @@ class Address extends Model
 
 
     /**
-     * Atualizar localidade
+     * Atualizar dados de um endereço
      * 
      * @return void
      */

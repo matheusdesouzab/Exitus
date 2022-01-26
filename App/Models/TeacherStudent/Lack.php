@@ -57,7 +57,7 @@ class Lack extends Model
 
 
     /**
-     * Retorna todas as faltas de um aluno
+     * Retorna os dados gerais de uma falta de um aluno
      * 
      * @return array
      */
@@ -106,7 +106,7 @@ class Lack extends Model
     }
 
 
-     /**
+    /**
      * Retorna todas as faltas de um aluno pelo id
      * 
      * @return array
@@ -156,7 +156,7 @@ class Lack extends Model
     }
 
 
-     /**
+    /**
      * Retorna todas as faltas de um aluno pelo id do docente e aluno
      * 
      * @return array
@@ -190,11 +190,8 @@ class Lack extends Model
             LEFT JOIN professor ON(turma_disciplina.fk_id_professor = professor.id_professor)
             INNER JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
-            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
            
             WHERE turma_disciplina.fk_id_professor = :fk_id_teacher AND falta_aluno.fk_id_matricula_falta = :fk_id_enrollment
-
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
    
             ORDER BY falta_aluno.total_faltas DESC
         
@@ -209,14 +206,12 @@ class Lack extends Model
     }
 
 
-     /**
-     * Retorna todas as faltas dos alunos
-     * 
-     * @param int $currentSchoolTerm
+    /**
+     * Retorna todas as faltas dos alunos de um período letivo
      * 
      * @return array
      */
-    public function readAll($currentSchoolTerm = 0)
+    public function readAll()
     {
 
         return $this->speedingUp(
@@ -247,12 +242,10 @@ class Lack extends Model
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
 
-            WHERE 
-                      
-            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 
 
             ORDER BY falta_aluno.total_faltas DESC"
-        
+
         );
     }
 

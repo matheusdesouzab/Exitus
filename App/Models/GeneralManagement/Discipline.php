@@ -102,9 +102,8 @@ class Discipline extends Model
             FROM disciplina 
             
             INNER JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina)
-            WHERE 
-            
-            disciplina.id_disciplina = :disciplineId 
+
+            WHERE disciplina.id_disciplina = :disciplineId 
         ";
 
         $stmt = $this->db->prepare($query);
@@ -131,13 +130,13 @@ class Discipline extends Model
             modalidade_disciplina.modalidade_disciplina AS option_text 
 
             FROM modalidade_disciplina"
-            
+
         );
     }
 
 
     /**
-     * Atualizar disciplina
+     * Atualizar dados de uma disciplina
      * 
      * @return void
      */
@@ -220,5 +219,4 @@ class Discipline extends Model
         $stmt->bindValue(":disciplineId", $this->__get("disciplineId"));
         $stmt->execute();
     }
-
 }

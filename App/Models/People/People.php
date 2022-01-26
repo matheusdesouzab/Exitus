@@ -115,6 +115,11 @@ class People extends Model
     }
 
 
+    /**
+     * Retorna todos os estados que uma conta pode se encrontar
+     * 
+     * @return array
+     */
     public function accountStates()
     {
 

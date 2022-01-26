@@ -153,11 +153,9 @@ class DisciplineAverage extends Model
     /**
      * Retorna todas as médias finais de um aluno
      * 
-     * @param int $currentSchoolTerm;
-     * 
      * @return array
      */
-    public function readByIdStudent($currentSchoolTerm = 0)
+    public function readByIdStudent()
     {
 
         $query =
@@ -193,7 +191,7 @@ class DisciplineAverage extends Model
 
             AND
 
-            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+            situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 
 
         ";
 
@@ -206,13 +204,11 @@ class DisciplineAverage extends Model
 
 
     /**
-     * Retorna todas as médias finais de um aluno
-     * 
-     * @param int $currentSchoolTerm;
+     * Retorna todas as médias finais de um aluno com base no id do docente
      * 
      * @return array
      */
-    public function readByIdTeacher($teacher , $currentSchoolTerm = 0)
+    public function readByIdTeacher($teacher)
     {
 
         $query =
@@ -250,7 +246,7 @@ class DisciplineAverage extends Model
 
             AND
 
-            CASE WHEN $currentSchoolTerm = 0 THEN situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 ELSE situacao_periodo_letivo.id_situacao_periodo_letivo = 1 END
+            situacao_periodo_letivo.id_situacao_periodo_letivo <> 0 
         ";
 
         $stmt = $this->db->prepare($query);
@@ -265,9 +261,7 @@ class DisciplineAverage extends Model
 
 
     /**
-     * Retorna todas as médias finais de um aluno
-     * 
-     * @param int $currentSchoolTerm;
+     * Retorna todas as médias finais de todos os alunos
      * 
      * @return array
      */
@@ -307,7 +301,6 @@ class DisciplineAverage extends Model
             
         );
     }
-
 
 
     /**

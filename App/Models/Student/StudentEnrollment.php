@@ -95,12 +95,12 @@ class StudentEnrollment extends Model
             
             FROM nota_avaliacao 
             
-            LEFT JOIN avaliacoes ON(nota_avaliacao.fk_id_avaliacao = avaliacoes.id_avaliacao) 
-            LEFT JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
-            LEFT JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
-            LEFT JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
-            LEFT JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula) 
-            LEFT JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno) 
+            INNER JOIN avaliacoes ON(nota_avaliacao.fk_id_avaliacao = avaliacoes.id_avaliacao) 
+            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
+            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
+            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
+            INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula) 
+            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno) 
             
             WHERE matricula.id_matricula = :studentEnrollmentId
             
@@ -117,6 +117,8 @@ class StudentEnrollment extends Model
 
     /**
      * Retorna os dados necessários para a criação do boletim do aluno com filtro de disciplinas
+     * 
+     * @param object $teacher
      * 
      * @return array
      */
@@ -204,6 +206,11 @@ class StudentEnrollment extends Model
     }
 
 
+    /**
+     * Retorna os dados de um aluno com base na sua matrícula
+     * 
+     * @return array
+     */
     public function dataGeneral()
     {
 
@@ -261,6 +268,11 @@ class StudentEnrollment extends Model
     }
 
 
+    /**
+     * Retorna todas as matrículas que um aluno possui no sistema
+     * 
+     * @return array
+     */
     public function allRegistrations()
     {
 
@@ -315,6 +327,11 @@ class StudentEnrollment extends Model
     }
 
 
+    /**
+     * Muda o aluno de uma turma para outra
+     * 
+     * @return array
+     */
     public function changeStudentFromClass()
     {
 
@@ -326,7 +343,5 @@ class StudentEnrollment extends Model
         $stmt->bindValue(':studentEnrollmentId', $this->__get('studentEnrollmentId'));
 
         $stmt->execute();
-
     }
-
 }

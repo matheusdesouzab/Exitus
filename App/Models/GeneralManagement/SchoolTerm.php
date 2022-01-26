@@ -43,7 +43,7 @@ class SchoolTerm extends Model
 
         if ($schoolTermSituation == 1 || $schoolTermSituation == 3) { # Caso a situacao do PL seja 1-Ativo ou 3-Agendado, a função prosseguirá.
 
-            $state = ( $schoolTermSituation == 1 ? 1 : 3 );
+            $state = ($schoolTermSituation == 1 ? 1 : 3);
 
             $query =
 
@@ -93,7 +93,7 @@ class SchoolTerm extends Model
 
 
     /**
-     * Atualizar período letivo
+     * Atualizar dados do período letivo
      * 
      * @return void
      */

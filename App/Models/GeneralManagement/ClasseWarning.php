@@ -24,6 +24,11 @@ class ClasseWarning extends Model
     }
 
 
+    /**
+     * Cria um aviso em uma determinada turma
+     * 
+     * @return void
+     */
     public function insert()
     {
 
@@ -37,6 +42,11 @@ class ClasseWarning extends Model
     }
 
 
+    /**
+     * Retorna todos os avisos vinculados a uma turma
+     * 
+     * @return array
+     */
     public function readByIdClasse($classe)
     {
 
@@ -72,6 +82,11 @@ class ClasseWarning extends Model
     }
 
 
+    /**
+     * Retorna todos os avisos vinculados a um professor de uma turma
+     * 
+     * @return array
+     */
     public function readByIdTeacher($teacher)
     {
 
@@ -119,6 +134,11 @@ class ClasseWarning extends Model
     }
 
 
+    /**
+     * Retorna todos os avisos vinculados a um período letivo
+     * 
+     * @return array
+     */
     public function readAll()
     {
 
@@ -156,6 +176,11 @@ class ClasseWarning extends Model
     }
 
 
+    /**
+     * Atualiza os dados de um aviso
+     * 
+     * @return void
+     */
     public function update()
     {
 
@@ -168,6 +193,11 @@ class ClasseWarning extends Model
     }
 
 
+    /**
+     * Deletar um aviso
+     * 
+     * @return void
+     */
     public function delete()
     {
 

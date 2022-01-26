@@ -59,11 +59,9 @@ class Observation extends Model
     /**
      * Retorna todas as observações de um aluno
      * 
-     * @param int $currentSchoolTerm
-     * 
      * @return array
      */
-    public function readByIdStudent($currentSchoolTerm = 0)
+    public function readByIdStudent()
     {
 
         $query =
@@ -118,7 +116,7 @@ class Observation extends Model
 
 
     /**
-     * Retorna todas as observações de um aluno
+     * Retorna todas as observações de um aluno com base no id do docente
      * 
      * @return array
      */
@@ -164,9 +162,7 @@ class Observation extends Model
 
             WHERE professor.id_professor = :fk_id_teacher
 
-            AND observacao_aluno.fk_id_matricula_observacao = :fk_id_enrollment
-
-            AND situacao_periodo_letivo.id_situacao_periodo_letivo = 1     
+            AND observacao_aluno.fk_id_matricula_observacao = :fk_id_enrollment     
 
             ORDER BY observacao_aluno.data_postagem DESC
    
@@ -182,7 +178,7 @@ class Observation extends Model
 
 
     /**
-     * Retorna todas as observações de um aluno
+     * Retorna todas as observações dos alunos no período letivo
      * 
      * @return array
      */
@@ -235,7 +231,7 @@ class Observation extends Model
 
 
     /**
-     * Atualizar observação
+     * Atualizar dados da observação
      * 
      * @return void
      */

@@ -120,13 +120,11 @@ class Student extends People
 
 
     /**
-     * Retorna todos os alunos
-     * 
-     * @param string $scholTermSituation 
+     * Retorna todos os alunos vinculados ao período letivo ativo
      * 
      * @return array
      */
-    public function readAll($scholTermSituation = '= 1')
+    public function readAll()
     {
 
         return $this->speedingUp(
@@ -166,7 +164,7 @@ class Student extends People
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
-            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo $scholTermSituation "
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
 
         );
     }
@@ -174,6 +172,8 @@ class Student extends People
 
     /**
      * Retorna todos os dados de um aluno
+     * 
+     * @param object $enrollment
      * 
      * @return array
      */
@@ -369,7 +369,6 @@ class Student extends People
     }
 
 
-
     /**
      * Atualizar foto do perfil do aluno
      * 
@@ -390,7 +389,7 @@ class Student extends People
 
 
     /**
-     * Esse método verifica se os dados recebidos, correspondem a conta de um aluno.
+     * Esse método verifica se os dados recebidos, correspondem a conta de um aluno
      *  
      * @return array
      */
@@ -464,7 +463,7 @@ class Student extends People
      * 
      * @return array
      */
-    public function recentlyEnrolledStudents($limit = 5000)
+    public function recentlyEnrolledStudents($limit = 100)
     {
 
         return $this->speedingUp(
@@ -509,7 +508,7 @@ class Student extends People
 
 
     /**
-     * Retorna a quantidade de alunos do sexo masculino e feminino
+     * Retorna a quantidade de alunos baseado no sexo
      * 
      * @return array
      */
@@ -534,7 +533,7 @@ class Student extends People
 
 
     /**
-     * Retorna os alunos vínculados a uma turma
+     * Retorna os alunos vínculados a uma turma 
      * 
      * @param string $scholTermSituation 
      * 

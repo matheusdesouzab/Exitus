@@ -77,7 +77,7 @@ class TeacherPortalController extends Action
         $this->view->listNote = $Teacher->readNoteByIdTeacher();
         $this->view->listLack = $Teacher->readLackByIdTeacher();
         $this->view->listObservation = $Teacher->readObservationByIdTeacher();
-        $this->view->listDisciplineAverage = $Teacher->readByIdTeacher();
+        $this->view->listDisciplineAverage = $Teacher->readByIdTeacherAverage();
         $this->view->listWarning = $ClasseWarning->readByIdTeacher($Teacher);
 
         $this->render('home', 'TeacherPortalLayout', 'TeacherPortal');

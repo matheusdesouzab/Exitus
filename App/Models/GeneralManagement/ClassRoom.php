@@ -68,7 +68,7 @@ class ClassRoom extends Model
 
 
     /**
-     * Atualizar sala
+     * Atualizar dados da sala
      * 
      * @return void
      */

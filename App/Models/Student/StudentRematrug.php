@@ -24,7 +24,7 @@ class StudentRematrug extends Model
 
 
     /**
-     * Criar solicitação de rematrícula
+     * Criar uma solicitação de rematrícula
      * 
      * @return void
      */
