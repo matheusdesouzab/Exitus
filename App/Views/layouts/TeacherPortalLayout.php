@@ -93,8 +93,6 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script src="/assets/js/utilities/chart.js"></script>
-
 <script src="/assets/js/utilities/chartJs/config.js"></script> 
 
 <script src="/assets/js/utilities/chartJs/teacherPortal.js"></script> 

@@ -17,6 +17,7 @@ class AdminController extends Action
 
     public function adminRegistration()
     {
+
         $Admin = Container::getModel('Admin\\Admin');
         $HierarchyFunction = Container::getModel('GeneralManagement\\HierarchyFunction');
 
@@ -25,6 +26,7 @@ class AdminController extends Action
         $this->view->bloodType = $Admin->availablebloodType();
 
         $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
+
         $this->render('admin/adminRegistration', 'AdminLayout');
     }
 
@@ -73,6 +75,7 @@ class AdminController extends Action
         if (count($auth) != 1) {
 
             header('Location: /admin?error=true');
+
         } else {
 
             if ($account_status[0]->account_status == 1) {
@@ -89,6 +92,7 @@ class AdminController extends Action
                 ];
 
                 header('Location: /admin/home');
+
             } else {
 
                 header("Location: /admin?error=conta-desativada");
@@ -191,6 +195,7 @@ class AdminController extends Action
 
         $Admin->updateProfilePicture();
         $profilePhoto = $Admin->dataGeneral();
+        
         $_SESSION['Admin']['profilePhoto'] = $profilePhoto[0]->profile_photo;
     }
 

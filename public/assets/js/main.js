@@ -1,4 +1,4 @@
-// Declaration of required objects
+// Declaração de objetos necessários 
 
 const validation = new Validation()
 const application = new Application()
@@ -6,10 +6,14 @@ const tools = new Tools()
 const management = new Management()
 
 
+// Iniciando o tooltip
+
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
 
+
+// Função para definir o link ativo
 
 $(document).ready(function () {
     activeLinks('.sidebar-lists li')
@@ -19,11 +23,16 @@ $(document).ready(function () {
 })
 
 
+// Função que bloqueia o show de links quando a sidebar estiver no modo responsive
+
 $(document).on('click', '.sidebar-responsive .sidebar-lists li a', function (e) {
     e.preventDefault()
     $('.sidebar-responsive .sidebar-lists div').removeClass('show')
     sideState()
 })
+
+
+// Área de funções relacionadas a inserção de dados no sistema
 
 
 $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
@@ -807,5 +816,3 @@ $(document).on('click', "#profileClassModal [data-target='#class-note-history']"
     application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas", "#formClassId")
 })
 
-
-AOS.init()

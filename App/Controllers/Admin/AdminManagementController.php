@@ -14,9 +14,6 @@ class AdminManagementController extends Action
     }
 
 
-    // School Term
-
-
     public function schoolTermManagement()
     {
 
@@ -163,8 +160,10 @@ class AdminManagementController extends Action
     public function courseManagement()
     {
         $Course = Container::getModel('GeneralManagement\\Course');
+
         $this->view->listCourse = $Course->list();
         $this->view->courseMode = $Course->courseMode();
+        
         $this->render('management/pages/courseManagement', 'AdminLayout');
     }
 
@@ -185,8 +184,10 @@ class AdminManagementController extends Action
     public function courseList()
     {
         $Course = Container::getModel('GeneralManagement\\Course');
+
         $this->view->listCourse = $Course->list();
         $this->view->courseMode = $Course->courseMode();
+
         $this->render('management/components/coursesList', 'SimpleLayout');
     }
 
@@ -427,7 +428,6 @@ class AdminManagementController extends Action
         $Ballot = Container::getModel('GeneralManagement\\Ballot');
         
         if (!isset($_SESSION)) session_start();
-
         if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
         $ClassDiscipline->__set("fk_id_class", !isset($_GET['id']) ? $_GET['classId'] : $_GET['id']);
@@ -542,7 +542,6 @@ class AdminManagementController extends Action
         $Classe = Container::getModel('GeneralManagement\\Classe');
 
         $Classe->__set('classId', $_GET['classId']);
-
         $Classe->__set('fk_id_course', $_GET['course']);
         $Classe->__set('fk_id_series', $_GET['series']);
 
@@ -587,7 +586,6 @@ class AdminManagementController extends Action
     {
 
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
-        $Discipline = Container::getModel('GeneralManagement\\Discipline');
         $Teacher = Container::getModel('Teacher\\Teacher');
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
@@ -642,7 +640,6 @@ class AdminManagementController extends Action
         $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
 
         if (!isset($_SESSION)) session_start();
-
         if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
@@ -655,6 +652,7 @@ class AdminManagementController extends Action
     {
 
         $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
+
         $ClasseWarning->__set('warning', $_POST['description']);
         $ClasseWarning->__set('fk_id_discipline_class', $_POST['disciplineClass']);
 
@@ -670,8 +668,8 @@ class AdminManagementController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
 
         if (!isset($_SESSION)) session_start();
-
         if(isset($_SESSION['Teacher']['id'])) $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
+
         $Classe->__set('classId', $_GET['classId']);
 
         $this->view->listWarning = isset($_SESSION['Teacher']['id']) ? $ClasseWarning->readByIdTeacher($Teacher) : $ClasseWarning->readByIdClasse($Classe);
@@ -697,7 +695,6 @@ class AdminManagementController extends Action
 
         $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
         $ClasseWarning->__set('classeWarningId', $_POST['id']);
-
         $ClasseWarning->delete();
     }
 }

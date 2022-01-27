@@ -30,6 +30,7 @@ class StudentPortalController extends Action
         if (count($auth) != 1) {
 
             header('Location: /portal-aluno?error=true');
+
         } else {
 
             if (!isset($_SESSION)) session_start();
@@ -80,9 +81,9 @@ class StudentPortalController extends Action
         $Classe->__set('classId', $_SESSION['Student']['classId']);
         $ClassDiscipline->__set("fk_id_class", $_SESSION['Student']['classId']);
         $Exam->__set("fk_id_class", $_SESSION['Student']['classId']);
+
         $this->view->listWarning = $ClasseWarning->readByIdClasse($Classe);
         $this->view->unity = $Unity->readOpenUnits();
-
         $this->view->listNote = $Note->readByIdStudent();
         $this->view->listObservation = $Observation->readByIdStudent();
         $this->view->lackList = $Lack->readByIdStudent();
@@ -142,7 +143,6 @@ class StudentPortalController extends Action
     public function updateSettings()
     {
 
-        $Student = Container::getModel('Student\\Student');
         $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
         $Classe = Container::getModel('GeneralManagement\\Classe');
 

@@ -88,9 +88,7 @@ class Application {
         $.each(elements, i => {
 
             let form = elements[i][3] == '' ? 'form' : elements[i][3]
-
             let $data = $(`${elements[i][4]}`).serialize() || 'form'
-
             let $selectSituation = $(`${form} select[name="${elements[i][0]}"]`)
 
             elements[i][2] == 'clean' ? $selectSituation.empty() : ''
@@ -133,7 +131,6 @@ class Application {
     loadListElements(container, route, form = '') {
 
         let $container = $(`[${container}]`)
-
         let $formData = $(`${form}`).serialize()
 
         let loading = '<div class="d-flex justify-content-center loading"><div class="spinner-grow text-primary" role="status"></div></div>'
@@ -160,9 +157,8 @@ class Application {
 
     seekElement(form, container, route) {
 
-        let formData = $(form).serialize()
-
         let $container = $(`[${container}]`)
+        let formData = $(form).serialize()
 
         $container.text('')
 
@@ -184,7 +180,6 @@ class Application {
     showModal(formId, route, container, modal) {
 
         let id = formId == 0 ? '' : formId.replace(/[^0-9]/g, '')
-
         let $container = $(`[${container}]`)
 
         $container.text('')

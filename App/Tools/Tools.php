@@ -6,8 +6,7 @@ class Tools
 {
 
 	protected $url;
-	protected $error = [];
-
+	
 
 	public function __get($att)
 	{

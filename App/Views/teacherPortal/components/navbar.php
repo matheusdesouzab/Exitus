@@ -7,7 +7,7 @@
 		<i class="fas fa-bars"></i>
 	</button>
 
-	<a class="logo" href=""><img src="/assets/img/logo-completa.png" alt=""></a>
+	<a class="logo" href=""><img src="/assets/img/logo-components/logo-completa.png" alt=""></a>
 
 
 	<div class="collapse navbar-collapse" id="navbarText">
@@ -25,8 +25,8 @@
 				<b><?= $_SESSION['Teacher']['name'] ?></b>
 			</li>
 
-			<li class="nav-item ml-4 mr-2">
-				<a href="#"><a href="/portal-docente/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a></a>
+			<li class="nav-item ml-4 mr-2 d-none d-md-block">
+				<a href="/portal-docente/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a>
 			</li>
 
 		</ul>

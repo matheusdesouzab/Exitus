@@ -133,7 +133,6 @@ class AdminTeacherStudentController extends Action
         $Exam->__set("fk_id_discipline_class", $_GET['disciplineClass']);
 
         $this->view->listExam = $Exam->recents();
-
         $this->view->typeListExam = 'recent';
 
         $this->render('management/components/examList', 'SimpleLayout');
@@ -619,7 +618,5 @@ class AdminTeacherStudentController extends Action
 
         $this->render('student/components/studentsAverage', 'SimpleLayout');
     }
-
-
-    
+  
 }

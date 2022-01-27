@@ -114,7 +114,6 @@ class AdminStudentController extends Action
         $this->view->bloodType = $Student->availablebloodType();
 
         if (!isset($_SESSION)) session_start();
-
         if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
         $ClassDiscipline->__set("fk_id_class", $this->view->studentDataEnrollment[0]->class_id);

@@ -1,3 +1,4 @@
+let studentsTotal;
 
 $.ajax({
   type: "GET",
@@ -14,7 +15,7 @@ $.ajax({
       }),
 
       setTimeout(function () {
-        new Chart(
+        studentsTotal = new Chart(
           document.getElementById('studenDivisionChartCourse'), {
             type: 'bar',
             data: {
@@ -56,63 +57,9 @@ $.ajax({
   }
 })
 
-
-$.ajax({
-  type: "GET",
-  url: "/admin/gestao/curso/total-alunos-curso",
-  dataType: 'json',
-  success: data => {
-
-    let labels = []
-    let datas = []
-
-    $.each(data, i => {
-        labels.push(data[i].courseName)
-        datas.push(data[i].totalStudensCourse)
-      }),
-
-      setTimeout(function () {
-        new Chart(
-          document.getElementById('city'), {
-            type: 'bar',
-            data: {
-              labels: labels,
-              datasets: [{
-                label: 'Total de alunos',
-                backgroundColor: colors['primary'],
-                borderColor: '#e5e5e5',
-                data: datas
-              }]
-            },
-            options: {
-              plugins: {
-                title: {
-                  display: true,
-                  text: 'Divisão de alunos por curso',
-                  padding: {
-                    top: 10,
-                    bottom: 30
-                  }
-                }
-              },
-              scales: {
-                x: {
-                  grid: {
-                    display: false
-                  }
-                },
-                y: {
-                  grid: {
-                    display: false
-                  }
-                }
-              }
-            }
-          }
-        )
-      }, 1500)
-  }
-})
+if (studentsTotal instanceof Chart) {
+  studentsTotal.destroy();
+}
 
 
 $.ajax({
@@ -142,8 +89,8 @@ $.ajax({
                 backgroundColor: [
                   colors['info'],
                   colors['success'],
-                  colors['danger'] ,
-                  colors['warning'] 
+                  colors['danger'],
+                  colors['warning']
                 ],
                 borderRadius: 5,
                 padding: {
@@ -237,7 +184,7 @@ $.ajax({
 })
 
 
-$.ajax({
+/* $.ajax({
   type: "GET",
   url: "/admin/gestao/home/divisao-alunos-sexo",
   dataType: 'json',
@@ -293,5 +240,4 @@ $.ajax({
       }, 1500)
 
   }
-})
-
+}) */

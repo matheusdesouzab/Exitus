@@ -69,7 +69,6 @@ class AdminTeacherController extends Action
         $ClassDiscipline->__set("fk_id_class", $_GET['classId']);
 
         $this->view->typeTeacherList = 'class';
-
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
 
         $this->render('teacher/components/teacherListing', 'SimpleLayout');
@@ -80,14 +79,12 @@ class AdminTeacherController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $Classe = Container::getModel('GeneralManagement\\Classe');
 
         $this->view->listTeacher = $Teacher->readAll();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->typeTeacherList = 'normal';
         $this->view->bloodType = $Teacher->availablebloodType();
-        //$this->view->availableClass = $Classe->availableListClass();
 
         $this->render('teacher/teacherList', 'AdminLayout');
     }
@@ -184,7 +181,6 @@ class AdminTeacherController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-
         $Tool = new Tools();
 
         empty($_GET['oldPhoto']) ? '' : unlink('../public/assets/img/teacherProfilePhotos/' . $_POST['oldPhoto']);

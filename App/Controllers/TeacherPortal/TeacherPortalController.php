@@ -88,7 +88,6 @@ class TeacherPortalController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
-        $Classe = Container::getModel('GeneralManagement\\Classe');
         $Course = Container::getModel('GeneralManagement\\Course');
         $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
         $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
