@@ -924,7 +924,7 @@ html > .sidebar-responsive #left-panel #sidebar li {
   color: black;
 }
 #table-print small {
-  font-family: Medio;
+  font-family: Bold;
 }
 #table-print #table-bulletin thead {
   background: #E8F0FE;
@@ -2657,8 +2657,8 @@ html body#studentPortal #pagina #profileStudentModal .container-list-group nav u
     border-left: none;
   }
   html #studentPortal #pagina nav#studentPortalNavbar .logo img {
-    width: 150px;
-    height: 40px;
+    width: 100px;
+    height: 30px;
     object-fit: cover;
     object-position: center;
   }

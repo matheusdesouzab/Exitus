@@ -110,7 +110,7 @@
 
                 <?php if ($this->view->modalType == 'data-and-config') { ?>
 
-                    <div class="col-lg-11 mx-auto collapse" id="accordion-settings" data-parent="#main-accordion-settings">
+                    <div class="col-11 mx-auto collapse" id="accordion-settings" data-parent="#main-accordion-settings">
 
                         <div class="row">
 
@@ -118,9 +118,9 @@
 
                                 <div class="form-row d-flex align-items-center">
 
-                                    <h5 class="col-lg-8 p-0">Configurações</h5>
+                                    <h5 class="col-8 p-0">Configurações</h5>
 
-                                    <div class="col-lg-4 d-flex justify-content-end">
+                                    <div class="col-4 d-flex justify-content-end">
 
                                         <span idElement="#formSettings" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
 

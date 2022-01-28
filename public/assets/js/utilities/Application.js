@@ -155,28 +155,6 @@ class Application {
     }
 
 
-    seekElement(form, container, route) {
-
-        let $container = $(`[${container}]`)
-        let formData = $(form).serialize()
-
-        $container.text('')
-
-        $('.tooltip').hide()
-
-        $.ajax({
-            url: route,
-            type: 'GET',
-            data: formData,
-            success: data =>{
-                $container.append(data)
-                $('[data-toggle="tooltip"]').tooltip()
-            },
-            error: erro => $container.append('<h5 class="mt-3">Houve um erro, tente novamente mais tarde</h5>')
-        })
-    }
-
-
     showModal(formId, route, container, modal) {
 
         let id = formId == 0 ? '' : formId.replace(/[^0-9]/g, '')

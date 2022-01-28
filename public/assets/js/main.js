@@ -32,13 +32,13 @@ $(document).on('click', '.sidebar-responsive .sidebar-lists li a', function (e) 
 })
 
 
-// Área de funções relacionadas a inserção de dados no sistema
+// Sessão de funções relacionadas a inserção de dados no sistema
 
 
 $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
 
     e.preventDefault()
-    
+
     let $form = $("#addExam").serialize()
 
     $.ajax({
@@ -67,6 +67,7 @@ $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
 $(document).on("click", "#profileStudentModal #buttonAddNoteStudent", function (e) {
 
     application.addSinglePart("#addNote", "/admin/gestao/turma/perfil-turma/aluno/boletim/adicionar-nota-avaliacao", "Nota adicionada", false)
+
     application.loadOptions([
         ["examDescription", "/admin/gestao/turma/perfil-turma/aluno/notas-disponiveis", "clean", "#addNote", "#addNote", "Todas avaliações já adicionadas", "#buttonAddNoteStudent"]
     ])
@@ -91,16 +92,9 @@ $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function
 })
 
 
-$(document).on('click', '#updateStudentPortalData', function (e) {
-    application.updateElement("#formSettingsStudent", "/portal-aluno/configuracoes/atualizar", "Configurações atualizadas")
-    location.reload()
-})
-
-
 $("#schoolTerm #buttonAddSchoolTerm").on("click", function () {
 
     tools.automaticDate()
-
     application.addSinglePart("#addSchoolTerm", "/admin/gestao/periodo-letivo/inserir", "Período letivo adicionado")
     application.loadOptions([
         ["schoolYear", "/admin/gestao/periodo-letivo/lista-anos-disponiveis", "clean", "", "Nenhum ano disponível", "#buttonAddSchoolTerm"]
@@ -127,14 +121,8 @@ $(document).on("click", "#profileStudentModal #buttonSwitchClasses", function (e
 
 $("#class #buttonAddClass").on("click", function () {
     application.addSinglePart("#addClass", "/admin/gestao/turma/inserir", "Turma adicionada")
-
-    management.checkClass('#addClass', 'add', '#buttonAddClass') 
-
+    management.checkClass('#addClass', 'add', '#buttonAddClass')
 })
-
-
-$(document).on('change', '#updateClass .form-control', () => management.checkClass('#updateClass', 'update', '#buttonUpdateClass'))
-$("#addClass .form-control").change(() => management.checkClass('#addClass', 'add', "#buttonAddClass"))
 
 
 $("#discipline #buttonAddDiscipline").on("click", function (e) {
@@ -187,26 +175,25 @@ $(document).on('click', "#buttonAddObservationStudent", function (e) {
 $(document).on('click', "#buttonAddLackStudent", function (e) {
 
     application.addSinglePart("#addLack", "/admin/gestao/turma/perfil-turma/aluno/faltas/inserir", "Falta adicionada", "")
-
     management.availableLack()
-
     $("#addLack #totalLack").val('')
 
 })
 
 
 $(document).on("click", "#buttonAddDisciplineFinalData", function (e) {
-    application.addSinglePart("#addDisciplineFinalData", "/admin/gestao/turma/perfil-turma/aluno/medias-finais/inserir", "Média adicionada", "")
 
+    application.addSinglePart("#addDisciplineFinalData", "/admin/gestao/turma/perfil-turma/aluno/medias-finais/inserir", "Média adicionada", "")
     management.disciplineFinalData("#addDisciplineFinalData")
     management.disciplineAverageAlreadyAdded()
+
 })
 
 
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Data loading session
+//* Sessão de funções relacionadas ao carregamento de elementos
 
 
 $("#schoolTerm #collapseListSchoolTerm").on("click", function (e) {
@@ -221,6 +208,11 @@ $("#classRoom #collapseListClassRoom").on("click", function (e) {
 
 $("#course #collapseListCourse").on("click", function (e) {
     application.loadListElements("containerListCourse", "/admin/gestao/curso/lista")
+})
+
+
+$(document).on('click', "#profileClassModal [data-target='#class-note-history']", function (e) {
+    application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas", "#formClassId")
 })
 
 
@@ -245,7 +237,7 @@ $(document).on("click", "#profileClassModal [data-target='#list-discipline']", f
 })
 
 
-$(document).on("click", "#profileClassModal [data-target='#list-exam'] , #profileClassModal [data-target='#class-profile-assessments'] ", function (e) {
+$(document).on("click", "#profileClassModal [data-target='#list-exam'], #profileClassModal [data-target='#class-profile-assessments'] ", function (e) {
     application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/lista", "#formClassId")
 })
 
@@ -304,11 +296,6 @@ $(document).on("blur", "#seekAverageStudentProfile #disciplineClass, #seekAverag
 })
 
 
-$(document).on("click", "#profileStudentModal #activateButtonSwitchClasses", function (e) {
-    $("#buttonSwitchClasses").removeClass("disabled")
-})
-
-
 $(document).on("click", "#profileClassModal list-exam-list", function (e) {
 
     application.loadOptions([
@@ -355,27 +342,16 @@ $(document).on("click", "#profileStudentModal [data-target='#class-profile-disci
 })
 
 
-$(document).on("click", "[data-target='#add-disciplineFinalData']", function (e) {
-    management.disciplineFinalData("#addDisciplineFinalData")
-    management.disciplineAverageAlreadyAdded()
-})
-
-
-$(document).on("change", "#addDisciplineFinalData .form-control", function (e) {
-    management.disciplineFinalData("#addDisciplineFinalData")
-    management.disciplineAverageAlreadyAdded()
-})
-
-
-$(document).on("click", ".refesh-data-icon", function (e) {
-    management.disciplineFinalData($(this).attr('form'))
+$(document).on('click', '#buttonUpdateClass', function (e) {
+    application.updateElement('#updateClass', '/admin/gestao/turma/perfil-turma/atualizar', 'Dados atualizados')
+    application.loadListElements('containerClasseProfileModal', '/admin/gestao/turma/perfil-turma', '#updateClass')
 })
 
 
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Option loading session
+//* Sessão das funções relacionadas ao carregamento de dados em campos options
 
 
 $("#schoolTerm #collapseAddSchoolTerm").on("click", function () {
@@ -413,19 +389,19 @@ $(document).on("click", "#profileStudentModal #student-exam [data-target='#add-r
 })
 
 
-$(document).on("change", "#profileStudentModal #addLack select", function (e) {
-    management.availableLack()
-})
-
-
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Modal opening session
+//* Sessão das funções relacionadas ao carregamento e show do modals
 
 
 $(document).on("click", "#discipline tr", function () {
     application.showModal(this.id, "/admin/gestao/disciplina/dados", "containerModal", "#modalDiscipline")
+})
+
+
+$(document).on("click", "#teacherPortal #class tbody tr", function (e) {
+    application.showModal(this.id, "/admin/gestao/turma/perfil-turma", "containerClasseProfileModal", "#profileClassModal")
 })
 
 
@@ -463,13 +439,28 @@ $(document).on("click", "#profileClassModal #list-exam tbody tr", function () {
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma/avaliacoes/dados", "containerModalExam", "#modalExam")
 })
 
+
 $(document).on("click", "#sidebar #settings, #admin #settingsAdminPortal", function () {
     application.showModal(0, "/admin/configuracoes", "containerSettingsModal", "#settingsModal")
 })
 
+
 $(document).on("click", "#settingsTeacherPortal", function () {
     application.showModal(0, "/portal-docente/configuracoes", "containerSettingsModal", "#settingsModal")
 })
+
+
+$("#studentPortalNavbar img, #settingsStudentPortal").on("click", function (e) {
+    application.showModal(0, "/portal-aluno/configuracoes", "containerSettingsModal", "#settingsModal")
+})
+
+
+$(document).on("click", "#profileClassModal #students-list tbody tr", function (e) {
+    application.showModal(this.id, "/admin/aluno/lista/perfil-aluno", "containerStudentProfileModal", "#profileStudentModal")
+})
+
+
+// Aplicando máscaras de formatação em dados que estão dentro do modal
 
 
 $('#settingsModal , #profileStudentModal').on('show.bs.modal', function (e) {
@@ -481,9 +472,7 @@ $('#settingsModal , #profileStudentModal').on('show.bs.modal', function (e) {
 })
 
 
-$("#studentPortalNavbar img, #settingsStudentPortal").on("click", function (e) {
-    application.showModal(0, "/portal-aluno/configuracoes", "containerSettingsModal", "#settingsModal")
-})
+// Configurações necessária para que um modal possa fica na frente do outro
 
 
 $('.modal').on('show.bs.modal', function (event) {
@@ -506,20 +495,10 @@ $('.modal').on('hidden.bs.modal', function (event) {
 });
 
 
-$(document).on("click", "#profileClassModal #students-list tbody tr", function (e) {
-    application.showModal(this.id, "/admin/aluno/lista/perfil-aluno", "containerStudentProfileModal", "#profileStudentModal")
-})
-
-
-$(document).on('click', '#buttonUpdateClass', function (e) {
-    application.updateElement('#updateClass', '/admin/gestao/turma/perfil-turma/atualizar', 'Dados atualizados')
-    application.loadListElements('containerClasseProfileModal', '/admin/gestao/turma/perfil-turma', '#updateClass')
-})
-
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Controls for editing, updating and deleting
+//* Controles de edição, atualização e delete
 
 
 $(document).on("click", ".edit-data-icon", function () {
@@ -546,86 +525,96 @@ $(document).on("click", ".delete-data-icon", function () {
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Element search session
+//* Sessão de carregamento de elementos através de busca
 
 
 let timeout = null
 
 $("#seekDiscipline input[name='seekName']").keyup(function (e) {
     if (timeout) clearTimeout(timeout)
-    timeout = setTimeout(() => application.seekElement("#seekDiscipline", "containerListDiscipline", "/admin/gestao/disciplina/buscar"), 1000)
+    timeout = setTimeout(() => application.loadListElements("containerListDiscipline", "/admin/gestao/disciplina/buscar", "#seekDiscipline"), 1000)
 })
 
 
 $("#seekTeacher input[name='name']").keyup(function (e) {
     if (timeout) clearTimeout(timeout)
-    timeout = setTimeout(() => application.seekElement("#seekTeacher", "containerListTeacher", "/admin/professor/lista/buscar"), 1000)
+    timeout = setTimeout(() => application.loadListElements("containerListTeacher", "/admin/professor/lista/buscar", "#seekTeacher"), 1000)
 })
 
 
 $("#seekStudent input[name='name']").keyup(function (e) {
     if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(() => application.seekElement("#seekStudent", "containerListStudent", "/admin/aluno/lista/buscar"), 1500)
+    timeout = setTimeout(() => application.loadListElements("containerListStudent", "/admin/aluno/lista/buscar", "#seekStudent"), 1500)
 })
 
 
 $(document).on("keyup", "#seekExam #examDescription", function (e) {
     if (timeout) clearTimeout(timeout)
-    timeout = setTimeout(() => application.seekElement("#seekExam", "containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/buscar"), 1500)
+    timeout = setTimeout(() => application.loadListElements("containerExamsList", "/admin/gestao/turma/perfil-turma/avaliacoes/buscar", "#seekExam"), 1500)
 })
 
 
 $(document).on("keyup", "#studentsAverageSeek #name", function (e) {
     if (timeout) clearTimeout(timeout)
-    timeout = setTimeout(() => application.seekElement("#studentsAverageSeek", "containerStudentsAverage", "/admin/gestao/turma/perfil-turma/medias-alunos/buscar"), 1500)
+    timeout = setTimeout(() => application.loadListElements("containerStudentsAverage", "/admin/gestao/turma/perfil-turma/medias-alunos/buscar", "#studentsAverageSeek"), 1500)
 })
 
 
 $(document).on("keyup", "#seekNoteExamStudent #examDescription", function (e) {
     if (timeout) clearTimeout(timeout)
-    timeout = setTimeout(() => application.seekElement("#seekNoteExamStudent", "containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar"), 2000)
+    timeout = setTimeout(() => application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar", "#seekNoteExamStudent"), 2000)
 })
 
 
-$(document).on("click", '[data-target="#averageNote"]', function(e){
+$(document).on("click", '[data-target="#averageNote"]', function (e) {
     application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-notas", "#seekNoteExamStudent")
 })
 
 
 $(document).on("keyup", "#seekNoteExamClass #examDescription", function (e) {
     if (timeout) clearTimeout(timeout)
-    timeout = setTimeout(() => application.seekElement("#seekNoteExamClass", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar"), 1500)
+    timeout = setTimeout(() => application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar", "#seekNoteExamClass"), 1500)
 })
 
 
 $(document).on('change', "#seekNoteExamStudent select", function (e) {
-    application.seekElement("#seekNoteExamStudent", "containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar")
+    application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/aluno/lista-avaliacoes/buscar", "#seekNoteExamStudent")
 })
 
+
 $("#seekTeacher select").on('change', function (e) {
-    application.seekElement("#seekTeacher", "containerListTeacher", "/admin/professor/lista/buscar")
+    application.loadListElements("containerListTeacher", "/admin/professor/lista/buscar", "#seekTeacher")
 })
 
 
 $(document).on('change', "#seekNoteExamClass select", function (e) {
-    application.seekElement("#seekNoteExamClass", "containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar")
+    application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas/buscar", "#seekNoteExamClass")
 })
 
 
-$("#seekClass .custom-select").change(() => application.seekElement("#seekClass", "containerListClass", "/admin/gestao/turma/buscar"))
+$(document).on('change', "#teacherPortal #seekClassTeacher .custom-select", function (e) {
+    application.loadListElements("containerListClass", "/portal-docente/turmas/buscar", "#seekClassTeacher")
+})
 
-$("#seekDiscipline select[name='seekModality']").change(() => application.seekElement("#seekDiscipline", "containerListDiscipline", "/admin/gestao/disciplina/buscar"))
-
-$("#seekStudent select").change(() => application.seekElement("#seekStudent", "containerListStudent", "/admin/aluno/lista/buscar"))
 
 $(document).on("change", "#seekLackStudent select", function (e) {
     application.loadListElements("containerListLack", "/admin/gestao/turma/perfil-turma/aluno/faltas/buscar", "#seekLackStudent")
 })
 
+
+$("#seekClass .custom-select").change(() => application.loadListElements("containerListClass", "/admin/gestao/turma/buscar", "#seekClass"))
+
+
+$("#seekDiscipline select[name='seekModality']").change(() => application.loadListElements("containerListDiscipline", "/admin/gestao/disciplina/buscar", "#seekDiscipline"))
+
+
+$("#seekStudent select").change(() => application.loadListElements("containerListStudent", "/admin/aluno/lista/buscar", "#seekStudent"))
+
+
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Validation session
+//* Sessão de validação de dados
 
 
 let commonElements = ["#name , #birthDate", "#naturalness", "#nationality", "#motherName", "#fatherName", "#county", "#district", "#address", "#uf", "#email"]
@@ -647,7 +636,7 @@ $('#email').on('blur', e => validation.checkEmail(e.target.value))
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Note and exam controllers session
+//* Controle de notas e exames
 
 
 $(document).on("keypress", `#addExam #examValue`, function (e) {
@@ -691,7 +680,7 @@ $(document).on("blur", "#addExam #examDescription", function (e) {
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Masks via @Jquery-mask-plugin
+//* Máscaras via @Jquery-mask-plugin
 
 
 $(document).on("keypress", "#cpf", e => $(e.target).mask("000.000.000-00"))
@@ -704,12 +693,14 @@ $(document).on("keypress", "#totalLack", e => $(e.target).mask(("00")))
 
 $("input[name='acronym'] , input[name='uf']").on("keyup", e => e.target.value = e.target.value.toUpperCase())
 
+$("#accessCode").on("keypress", e => $(e.target).mask("000.000"))
+
 $("#zipCode").on("blur", getLocation)
 
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Field validation of students is teachers
+//* Campo de validação de dados no cadastro 
 
 
 $("[data-target='#student-registration-finishing']").on("click", function (e) {
@@ -730,7 +721,7 @@ $("[data-target='#admin-registration-finishing']").on("click", function (e) {
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Image update control session
+//* Update de foto do perfil
 
 
 $(document).on("click", "#profilePhotoModal img", function () {
@@ -769,7 +760,7 @@ $(document).on("click", "#settingsModal #updateImg", function (e) {
 /////////////////////////////////////////////////////////////////////////
 
 
-//* Session style elements
+//* Sessão de estilo de elementos
 
 
 $(".sidebar-lists [data-toggle='collapse']").on("click", function (e) {
@@ -791,28 +782,55 @@ $("#bars").on("click", function (e) {
     $('.sidebar-responsive .sidebar-lists div').removeClass('show')
 })
 
+
 $(document).on('show.bs.modal', '.modal', function () {
     $('html').css("overflow", "hidden")
 })
+
 
 $(document).on('hide.bs.modal', '.modal', function () {
     $('html').css("overflow", "auto")
 })
 
 
-
-$("#accessCode").on("keypress", e => $(e.target).mask("000.000"))
-
-$(document).on("click", "#teacherPortal #class tbody tr", function (e) {
-    application.showModal(this.id, "/admin/gestao/turma/perfil-turma", "containerClasseProfileModal", "#profileClassModal")
-})
-
-$(document).on('change', "#teacherPortal #seekClassTeacher .custom-select", function(e){
-    application.seekElement("#seekClassTeacher", "containerListClass", "/portal-docente/turmas/buscar")
+$(document).on("click", "#profileStudentModal #activateButtonSwitchClasses", function (e) {
+    $("#buttonSwitchClasses").removeClass("disabled")
 })
 
 
-$(document).on('click', "#profileClassModal [data-target='#class-note-history']", function (e) {
-    application.loadListElements("containerListNote", "/admin/gestao/turma/perfil-turma/lista-notas", "#formClassId")
+/////////////////////////////////////////////////////////////////////////
+
+
+// Demais funções
+
+
+$(document).on("change", "#profileStudentModal #addLack select", function (e) {
+    management.availableLack()
 })
 
+
+$(document).on('change', '#updateClass .form-control', () => management.checkClass('#updateClass', 'update', '#buttonUpdateClass'))
+
+$("#addClass .form-control").change(() => management.checkClass('#addClass', 'add', "#buttonAddClass"))
+
+$(document).on("click", "[data-target='#add-disciplineFinalData']", function (e) {
+    management.disciplineFinalData("#addDisciplineFinalData")
+    management.disciplineAverageAlreadyAdded()
+})
+
+
+$(document).on("change", "#addDisciplineFinalData .form-control", function (e) {
+    management.disciplineFinalData("#addDisciplineFinalData")
+    management.disciplineAverageAlreadyAdded()
+})
+
+
+$(document).on("click", ".refesh-data-icon", function (e) {
+    management.disciplineFinalData($(this).attr('form'))
+})
+
+
+$(document).on('click', '#updateStudentPortalData', function (e) {
+    application.updateElement("#formSettingsStudent", "/portal-aluno/configuracoes/atualizar", "Configurações atualizadas")
+    location.reload()
+})

@@ -33,7 +33,7 @@
 <?php } else { ?>
 
     <tr class="mt-4">
-        <td class="text-center" colspan="3" style="pointer-events:none">Nenhuma avaliação encrontada <i class="fas fa-history ml-2"></i></td>
+        <td class="text-center" colspan="5" style="pointer-events:none">Nenhuma avaliação encrontada <i class="fas fa-history ml-2"></i></td>
     </tr>
 
 <?php } ?>

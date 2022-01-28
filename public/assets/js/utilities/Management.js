@@ -1,5 +1,6 @@
 class Management {
 
+
     getGrade(event, e, sumNote) {
 
         let code = (e.keyCode || e.which)

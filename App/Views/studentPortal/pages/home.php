@@ -15,7 +15,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
-    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo.png"/>
+    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo-components/logo.png"/>
 </head>
 
 <body id="studentPortal">
@@ -250,8 +250,6 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                             return $data;
                                         }
-
-
 
                                         ?>
 
