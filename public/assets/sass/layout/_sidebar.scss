@@ -11,7 +11,7 @@
         transition: all 0.7s ease;
         left: 0;
         height: 100vh;
-        background-color: #091954;
+        @include color-dark-blue-background;
         overflow: auto;
         box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 

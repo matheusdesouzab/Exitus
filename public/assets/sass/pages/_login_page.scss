@@ -1,6 +1,8 @@
 #login {
 
-    background-color: #091954;
+    background-color: #111927;
+    background-image: radial-gradient(at 47% 33%, hsl(227.20, 81%, 18%) 0, transparent 59%), 
+    radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
 
     .container-login {
         border-radius: 15px;
@@ -10,35 +12,6 @@
         background-image: linear-gradient(to bottom, white 0, white 50%, #F2F2F2 50%);
         height: 86.4vh;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
-        /* .down-and-up{
-            animation: up-down 4s ease-in-out infinite alternate-reverse both;
-        }
-
-        .from-side-to-side{
-            animation: from-side-to-side 3s ease-in-out infinite alternate-reverse both;
-        } */
-
-        @keyframes up-down {
-            0% {
-                transform: scale(1.0);
-            }
-
-            100% {
-                transform: scale(1.1);
-            }
-        }
-
-        @keyframes from-side-to-side {
-            0% {
-                transform: translateX(20px);
-            }
-
-            100% {
-                transform: translateX(-20px);
-            }
-        }
-
 
         .sidebar-primary {
             background-color: white;

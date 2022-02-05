@@ -165,6 +165,8 @@ class Validation {
 
                 if (data[0] != null) {
 
+                    console.log(data)
+
                     tools.showToast('Nome já vinculado a uma avaliação nessa unidade', 'bg-info', 6000)
 
                     $(button).addClass('disabled')

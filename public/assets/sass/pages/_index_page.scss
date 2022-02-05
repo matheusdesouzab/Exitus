@@ -1,5 +1,5 @@
 #index {
-    background: #091954;
+    @include color-dark-blue-background;
 
     .title {
         font-size: 16px;
@@ -32,6 +32,11 @@
             margin-bottom: 10px;
             transition: 0.6s;
             cursor: pointer;
+            backdrop-filter: blur(8px) saturate(180%);
+            -webkit-backdrop-filter: blur(8px) saturate(180%);
+            background-color: rgba(255, 255, 255, 0.83);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.125);
 
             .card-title {
                 text-align: center;
@@ -57,6 +62,8 @@
                 display: block;
                 margin: auto;
             }
+
+
 
             a {
                 color: #091954;

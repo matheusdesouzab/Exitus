@@ -83,9 +83,9 @@ $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function
 
     application.loadOptions([
 
-        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId", "Todas disciplinas já adicionadas", "#buttonAddClassDiscipline"],
-
-        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "#seekExam", "#formClassId", "Nenhuma disciplina vincula a turma"]
+        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "", "#formClassId", "Nenhuma disciplina vincula a turma"] ,
+        
+        ["disciplineClassAdd", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId", "Todas disciplinas já adicionadas", "#buttonAddClassDiscipline"]
 
     ])
 
@@ -268,6 +268,8 @@ $(document).on("blur", "#profileClassModal #addExam #disciplineClass , #addExam 
 
     $("#addExam #examValue").val("0")
 
+    validation.checkRedundantName("/admin/gestao/turma/perfil-turma/avaliacoes/verificar-nome", "#addExam", "#buttonAddExam")
+
 })
 
 
@@ -370,7 +372,7 @@ $("#classRoom #collapseAddClassRoom").on("click", function () {
 
 $(document).on("click", "#profileClassModal [data-target='#add-discipline']", function (e) {
     application.loadOptions([
-        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId", "Todas disciplinas já adicionadas", "#buttonAddClassDiscipline"]
+        ["disciplineClassAdd", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId", "Todas disciplinas já adicionadas", "#buttonAddClassDiscipline"]
     ])
 })
 

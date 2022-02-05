@@ -27,7 +27,13 @@ if (count($this->view->listCourse) >= 1) {
 
                     </span>
 
-                    <?php if($_SESSION['Admin']['hierarchyFunction'] == 1){ ?>
+                    <?php 
+
+                    if (!isset($_SESSION)) session_start();
+                    
+                    if($_SESSION['Admin']['hierarchyFunction'] == 1){ 
+                        
+                    ?>
 
                     <span idElement="#formCourse<?= $course->course_id ?>" routeDelete="/admin/gestao/curso/deletar" toastData="Curso Atualizado" container="containerListCourse" routeList="/admin/gestao/curso/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
 
@@ -48,12 +54,12 @@ if (count($this->view->listCourse) >= 1) {
                     <input class="form-control" disabled value="<?= $course->course_name ?>" type="text" name="courseName" id="">
                 </div>
 
-                <div class="form-group col-lg-3">
+                <div class="form-group col-lg-2">
                     <label for="">Sigla:</label>
                     <input class="form-control" maxlength="4" disabled onkeyup="this.value = this.value.toUpperCase()" value="<?= $course->acronym ?>" type="text" name="acronym" id="">
                 </div>
 
-                <div class="form-group col-lg-4">
+                <div class="form-group col-lg-5">
 
                     <label for="">Modalidade:</label>
 

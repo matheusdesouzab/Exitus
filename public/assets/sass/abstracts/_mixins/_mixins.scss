@@ -26,4 +26,10 @@
 
 }
 
+@mixin color-dark-blue-background(){
+    background-color: #111927;
+    background-image: radial-gradient(at 47% 33%, hsl(227.20, 81%, 18%) 0, transparent 59%), 
+    radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+}
+
 

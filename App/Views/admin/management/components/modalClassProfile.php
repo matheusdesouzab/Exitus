@@ -262,7 +262,7 @@
 
                                                     <label for="">Disciplina</label>
 
-                                                    <select id="disciplineClass" name="disciplineClass" class="form-control custom-select" required></select>
+                                                    <select id="disciplineClassAdd" name="disciplineClassAdd" class="form-control custom-select" required></select>
 
                                                 </div>
 
@@ -311,7 +311,7 @@
 
                                         <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
 
-                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
+                                        <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class=""><i class="fas fa-plus mr-2"></i> Criar</span></a>
 
                                     </div>
 
@@ -439,7 +439,7 @@
 
                                         <div class="form-group col-lg-3 ml-auto">
                                             <label for="">&nbsp;</label>
-                                            <a disabled id="buttonAddExam" class="btn btn-success w-100 disabled">Adicionar</a>
+                                            <a disabled id="buttonAddExam" class="btn btn-success w-100 disabled">Criar</a>
                                         </div>
 
                                     </div>
@@ -674,6 +674,8 @@
                                         </div>
 
                                     </div>
+
+                                    
 
                                     <div class="form-row">
 

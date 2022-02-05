@@ -4,7 +4,7 @@
 
         <h5 class="col-11 col-lg-11 mx-auto mb-4 mt-3">Cadastrar aluno</h5>
 
-        <div class="card col-lg-10 col-11 mx-auto mb-4" id="student-record-accordion">
+        <div class="card col-11 mx-auto mb-4" id="student-record-accordion">
 
             <div class="registration-in-stages mb-2 accordion">
 
