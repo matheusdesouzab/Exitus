@@ -269,7 +269,7 @@ CREATE TABLE `media_disciplina` (
 
 CREATE TABLE `modalidade_curso` (
   `id_modalidade_curso` int(11) NOT NULL,
-  `modalidade_curso` varchar(30) NOT NULL,
+  `modalidade_curso` varchar(60) NOT NULL,
   `modalidade_curso_sigla` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -369,7 +369,7 @@ CREATE TABLE `periodo_letivo` (
 CREATE TABLE `professor` (
   `id_professor` int(11) NOT NULL,
   `nome_professor` varchar(100) NOT NULL,
-  `data_hora_matricula` datetime NOT NULL DEFAULT current_timestamp()
+  `data_hora_matricula` datetime NOT NULL DEFAULT current_timestamp(),
   `fk_id_sexo_professor` int(11) NOT NULL,
   `data_nascimento_professor` date NOT NULL,
   `foto_perfil_professor` varchar(100) DEFAULT NULL,

@@ -98,6 +98,6 @@ if (count($this->view->listSchoolTerm) >= 1) {
     <?php }
 } else { ?>
 
-    <h5 class="mt-3">Nenhuma periodo letivo encontrado</h5>
+    <h5 class="mt-3">Nenhuma periodo letivo adicionado</h5>
 
 <?php } ?>

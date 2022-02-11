@@ -60,7 +60,7 @@
 
                                     <div class="row d-flex justify-content-center align-items-center">
 
-                                        <div class="col-lg-12 total-student-enrolled"><i class="far fa-calendar-alt mr-2"></i> <?= $this->view->SchoolTermActive[0]->option_text ?></div>
+                                        <div class="col-lg-12 total-student-enrolled"><i class="far fa-calendar-alt mr-2"></i> <?= isset($this->view->SchoolTermActive[0]->option_text) ? $this->view->SchoolTermActive[0]->option_text : 'Não definido' ?></div>
 
                                     </div>
 
@@ -84,15 +84,17 @@
 
                         <div class="col-lg-12 card recently-enrolled">
 
-                            <div class="card-title p-2">Matrículados recentementes</div>
+                            <div class="card-title p-2"><?= count($this->view->recentlyEnrolledStudents) > 1 ? 'Matrículados recentementes' : 'Nenhum aluno matrículado ainda' ?></div>
 
                             <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
+
+                            <?php if(count($this->view->recentlyEnrolledStudents) > 1){ ?>
 
                             <table class="table table-hover table-borderless border-top">
 
                                 <tbody>
 
-                                    <?php foreach ($this->view->recentlyEnrolledStudents as $key => $value) {
+                                <?php foreach ($this->view->recentlyEnrolledStudents as $key => $value) {
 
                                         $date = explode(" ", $value->initial_enrollment_date);
                                         $date = explode("-", $date[0]);
@@ -105,11 +107,31 @@
                                             <td><?= $date[2] ?> / <?= $date[1] ?></td>
                                         </tr>
 
-                                    <?php } ?>
+                                    <?php }?>                                
 
                                 </tbody>
 
                             </table>
+
+                            <?php }else{ ?>
+
+                                <div class="row">
+
+                                    <div class="col-lg-12">
+
+                                        <img class="enrollment-null d-block mx-auto" src="/assets/img/illustrations/enrollment_null.svg" alt="">
+
+                                    </div>
+
+                                    <div class="col-lg-12 d-flex justify-content-center mt-4">
+
+                                        <a href="/admin/aluno/cadastro" class="btn btn-success">Matrícular alunos</a>
+
+                                    </div>
+
+                                </div>
+
+                                <?php } ?>
 
                         </div>
 
@@ -144,64 +166,9 @@
 
                             </div>
 
-                            <!--  <div class="col-lg-12 mb-4" style="height:36vh">
-
-                                <canvas class="card" id="grafico2"></canvas>
-
-                            </div>  -->
-
-                            <!--  <div class="row mt-3">
-
-                            <div class="col-lg-12 p-0">
-
-                                <div class="card col-lg-12">
-
-                                    <div class="text-center font-weight-bold card-title m-0 p-2" id="clock"></div>
-
-                                </div>
-
-                            </div>
-
-                        </div> -->
-
-
                         </div>
 
                     </div>
-
-                </div>
-
-                <div class="row d-flex">
-
-                    <!--  <div class="col-lg-5 pl-0">
-
-                        <div class="col-lg-12 pl-0">
-
-                            <canvas class="card" id="studentSex"></canvas>
-
-                        </div>
-
-                    </div> -->
-
-                    <!--    <div class="col-lg-7 pr-0">
-
-                        <div class="col-lg-12 pr-0 pl-0 h-100">
-
-                            <canvas class="card h-100" id="city"></canvas>
-
-                        </div>
-
-                    </div> -->
-
-                    <!--   <div class="col-lg-4 p-0">
-
-                        <div class="col-lg-12 p-0">
-
-                            <div class="card">9999999999</div>
-
-                        </div>
-
-                    </div> -->
 
                 </div>
 

@@ -53,7 +53,7 @@
     <?php }
 } else { ?>
 
-    <h5 class="mt-3">Nenhuma sala encontrada</h5>
+    <h5 class="mt-3">Nenhuma sala adicionada</h5>
 
 
 <?php } ?>

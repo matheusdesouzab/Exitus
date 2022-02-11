@@ -21,7 +21,7 @@
                                 <?php if (!isset($_SESSION)) session_start(); ?>
 
                                 <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">
-                                    <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações
+                                    <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações 
                                 </a>
 
                                 <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history">

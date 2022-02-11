@@ -51,7 +51,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#">Notas e medias</a>
+                                <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#averageNote" href="#">Notas e médias</a>
                             </li>
 
                         </ul>

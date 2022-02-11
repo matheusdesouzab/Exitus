@@ -43,6 +43,8 @@ INSERT INTO situacao_rematricula(situacao)VALUES('Sim'),('Não');
 
 INSERT INTO configuracao(fk_id_controle_unidade , fk_id_controle_rematricula) VALUES (1, 2);
 
+INSERT INTO `modalidade_curso` (`modalidade_curso`, `modalidade_curso_sigla`) VALUES ('Ensino Médio', 'EM'), ('Ensino Profissional, médio integrado', 'ET');
+
 
 
 

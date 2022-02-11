@@ -237,7 +237,7 @@
                                     </select>
 
                                 </div>
-                                
+
                                 <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
 
                                     <div class="input-group-prepend">
@@ -256,13 +256,13 @@
                                 </div>
 
                                 <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="addon-wrapping">Data de cadastro no cólegio:</span>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="addon-wrapping">Data de cadastro no cólegio:</span>
+                                    </div>
+                                    <input id="" name="" type="text" disabled class="form-control" value="<?= date("d/m/Y - H:i:s", strtotime($teacher->initial_enrollment_date)) ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                                 </div>
-                                <input id="" name="" type="text" disabled class="form-control" value="<?= date("d/m/Y - H:i:s", strtotime($teacher->initial_enrollment_date)) ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
-                            </div>
 
-                            <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
+                                <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
                                     </div>
@@ -314,7 +314,7 @@
                                     <input id="telephoneNumber" name="telephoneNumber" type="text" disabled class="form-control" value="<?= $teacher->telephone_number ?>" aria-label="Username" aria-describedby="addon-wrapping">
                                 </div>
 
-                               
+
 
                             <?php } ?>
 
@@ -385,12 +385,17 @@
                                 <?php }
                             } else { ?>
 
-                                <div class="card col-lg-12 card-hover bg-white mb-3">
+                                <h5>Docente não está vinculado a nenhuma turma</h5>
 
-                                    <div class="card-body">
-                                        <h5 class="card-title text-center"> Vincule uma disciplina a <?= $teacher->name ?></h5>
-                                        <p class="card-text d-flex justify-content-end"><a class="btn btn-success mt-3 w-30" href="/admin/gestao/turma">Turmas disponíveis</a></p>
-                                    </div>
+                                <div class="col-lg-12 mt-3">
+
+                                    <img class="link_discipline d-block mx-auto" src="/assets/img/illustrations/link_discipline.svg" alt="">
+
+                                </div>
+
+                                <div class="col-lg-12 d-flex justify-content-center mt-4">
+
+                                    <a href="/admin/gestao/turma" class="btn btn-success">Ir para turmas</a>
 
                                 </div>
 

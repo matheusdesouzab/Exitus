@@ -31,6 +31,10 @@
         font-family: Bold;
     }
 
+    .link_discipline{
+        width: 30vw;
+    }
+
     .modal-backdrop {
         display: none !important;
     }
@@ -86,9 +90,7 @@
         }
 
         .modal-content {
-            background-color: #FFDEE9;
-background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
-
+            background-color: #e9ebfa;
 
             .card {
                 box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);

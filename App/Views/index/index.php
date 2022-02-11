@@ -15,7 +15,7 @@
 
     <div class="container-fluid p-0 area">
 
-       <ul class="circles">
+       <!-- <ul class="circles">
             <li></li>
             <li></li>
             <li></li>
@@ -26,7 +26,7 @@
             <li></li>
             <li></li>
             <li></li>
-        </ul> 
+        </ul>  -->
 
         <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center">
             <a class="navbar-brand" href="#"><img data-aos-duration="2000" data-aos="zoom-in" src="/assets/img/logo-components/logo-completa-branca.png" alt=""></a>

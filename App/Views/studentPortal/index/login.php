@@ -104,7 +104,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
                                             <div class="input-group-prepend bg-white">
                                                 <div class="input-group-text bg-white"><i class='fas fa-user'></i></div>
                                             </div>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Nome completo">
                                         </div>
                                     </div>
 
@@ -114,21 +114,21 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
                                             <div class="input-group-prepend bg-white">
                                                 <div class="input-group-text bg-white"><i class="fas fa-key"></i></div>
                                             </div>
-                                            <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="">
+                                            <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="000.000">
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-10 mx-auto">
                                         <label for="exampleFormControlInput1">&nbsp;</label>
                                         <button class="w-100 btn">Entrar</button>
-                                        <small class="text-center text-secondary d-block mt-3">Esqueceu sua senha?</small>
+                                        <small class="text-center text-secondary d-block mt-3">Caso esqueça o seu código de acesso, entre em contato com a direção da sua escola</small>
                                     </div>
 
 
                                     <div class="form-group col-md-10 mx-auto">
                                         <?php if (isset($_GET['error'])) { ?>
-                                            <div class="alert alert-danger text-center" role="alert">
-                                                <i class="fas fa-exclamation-circle mr-3"></i> Dados incorretos
+                                            <div class="alert alert-warning text-center" role="alert">
+                                                <i class="fas fa-exclamation-triangle mr-3"></i> <?= ucfirst(str_replace('-', ' ', $_GET['error'])) ?>
                                             </div>
                                         <?php } ?>
                                     </div>

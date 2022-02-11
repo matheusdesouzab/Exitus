@@ -1,5 +1,72 @@
 #index {
-    @include color-dark-blue-background;
+    
+    animation: theme 21s linear infinite;
+    
+    &:after,
+    &:before {
+        content: '';
+        display: block;
+        position: fixed;
+        z-index: -1;
+        top: 0;
+        width: 100vw;  // IE/Edge
+        height: 100vh; // fallback
+        width: 100vmax;
+        height: 100vmax;
+        background: rgba(0,0,0,0.05);
+        animation: background 90s linear infinite;
+    }
+
+    &:after {
+        left: 15vw;
+    }
+
+    &:before {
+        right: 15vw;
+        animation-delay: -30s;
+        animation-direction: reverse;
+    }
+}
+
+@keyframes theme {
+    0% {
+        background: #012a4a;
+    }
+    
+    16% {
+        background: #012a4a;
+    }
+    
+    33% {
+        background: #013a63;
+    }
+    
+    50% {
+        background: #014f86;
+    }
+    
+    66% {
+        background: #014f86;
+    }    
+    
+    83% {
+        background: #013a63;
+    }
+
+    100% {
+        background: #012a4a;
+    }
+}
+
+@keyframes background {
+    0% {
+        transform: rotate(0deg);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
     .title {
         font-size: 16px;
@@ -137,12 +204,13 @@
         animation: animate 25s linear infinite;
         bottom: -150px;
         border: 1px solid white;
+        border-radius: 50% !important;
     }
 
     .circles li:nth-child(1) {
         left: 25%;
-        width: 80px;
-        height: 80px;
+        width: 30px;
+        height: 30px;
         animation-delay: 0s;
     }
 
@@ -164,8 +232,8 @@
 
     .circles li:nth-child(4) {
         left: 40%;
-        width: 60px;
-        height: 60px;
+        width: 10px;
+        height: 10px;
         animation-delay: 0s;
         animation-duration: 18s;
     }
@@ -179,8 +247,8 @@
 
     .circles li:nth-child(6) {
         left: 75%;
-        width: 110px;
-        height: 110px;
+        width: 40px;
+        height: 40px;
         animation-delay: 3s;
     }
 
@@ -209,8 +277,8 @@
 
     .circles li:nth-child(10) {
         left: 85%;
-        width: 100px;
-        height: 100px;
+        width: 40px;
+        height: 40px;
         animation-delay: 0s;
         animation-duration: 11s;
     }
@@ -232,4 +300,3 @@
         }
 
     }
-}

@@ -74,7 +74,7 @@ class AdminController extends Action
 
         if (count($auth) != 1) {
 
-            header('Location: /admin?error=true');
+            header('Location: /admin?error=dados-incorretos');
 
         } else {
 
@@ -95,7 +95,7 @@ class AdminController extends Action
 
             } else {
 
-                header("Location: /admin?error=conta-desativada");
+                header("Location: /admin?error=Conta desativada");
             }
         }
     }

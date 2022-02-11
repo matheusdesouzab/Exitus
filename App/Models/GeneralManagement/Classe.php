@@ -414,7 +414,7 @@ class Classe extends Model
             INNER JOIN situacao_rematricula ON(rematricula.fk_id_situacao_rematricula = situacao_rematricula.id_situacao_rematricula) 
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
             INNER JOIN serie ON(turma.fk_id_serie = serie.id_serie)
-            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_periodo_letivo_matricula = situacao_aluno_ano_letivo.id_situacao_aluno) 
+            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno) 
             INNER JOIN situacao_geral_aluno ON(aluno.fk_id_situacao_geral_aluno = situacao_geral_aluno.id_situacao_geral)
 
             WHERE turma.id_turma = :classId
@@ -577,7 +577,7 @@ class Classe extends Model
             
             AND turma.fk_id_curso = :fk_id_course
             
-            AND ( turma.fk_id_serie = :fk_id_series - 1 OR turma.fk_id_serie = :fk_id_series + 1 )
+            AND ( turma.fk_id_serie = :fk_id_series OR turma.fk_id_serie = :fk_id_series + 1 )
         
         ";
 

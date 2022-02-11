@@ -83,7 +83,7 @@
                                                     <input class="form-control is-valid" maxlength="4" value="" type="text" name="acronym" id="acronym" required>
                                                 </div>
 
-                                                <div class="form-group col-sm-3">
+                                                <div class="form-group col-sm-4">
 
                                                     <label for="courseMode">Modalidade:</label>
 
@@ -98,7 +98,7 @@
                                                 </div>
 
 
-                                                <div class="form-group col-sm-3">
+                                                <div class="form-group col-sm-2">
                                                     <label for="">&nbsp;</label>
                                                     <a id="buttonAddCourse" type="submit" class="btn btn-success w-100 text-center" href="#">Adicionar curso</a>
                                                 </div>

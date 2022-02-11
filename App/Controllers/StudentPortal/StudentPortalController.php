@@ -29,7 +29,7 @@ class StudentPortalController extends Action
 
         if (count($auth) != 1) {
 
-            header('Location: /portal-aluno?error=true');
+            header('Location: /portal-aluno?error=dados-incorretos');
 
         } else {
 

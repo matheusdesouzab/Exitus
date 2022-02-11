@@ -18,21 +18,13 @@
 
 		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
-			</li>
-
-			<li class="nav-item d-none d-md-block">
-				<div class="">
-					<img class="foto-perfil" src="/assets/img/adminProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
-				</div>
+			<li class="nav-item d-none d-md-block">			
+				<img class="foto-perfil m-auto" src="/assets/img/adminProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/AdminProfilePhotos/foto-vazia.jpg">			
 			</li>
 
 			<li class="nav-item ml-3 d-none d-md-block">
 				<b><?= $_SESSION['Admin']['name'] ?></b>
 			</li>
-
-			<!-- <li class="nav-item ml-3">
-				<b><?= $_SESSION['Admin']['hierarchyFunction'] == 1 ? 'Administrador' : 'Co-administrador' ?></b>
-			</li> -->
  
 			<li class="nav-item ml-4 mr-2 d-none d-md-block">
 				<a href="#"><a href="/admin/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a></a>

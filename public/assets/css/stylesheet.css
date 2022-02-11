@@ -127,6 +127,9 @@ h5 {
 #pagina .card-title {
   font-family: Bold;
 }
+#pagina .link_discipline {
+  width: 30vw;
+}
 #pagina .modal-backdrop {
   display: none !important;
 }
@@ -167,8 +170,7 @@ h5 {
   display: none;
 }
 #pagina .modal-profile .modal-content {
-  background-color: #FFDEE9;
-  background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+  background-color: #e9ebfa;
 }
 #pagina .modal-profile .modal-content .card {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -533,8 +535,7 @@ table tr {
   transition: all 0.7s ease;
   left: 0;
   height: 100vh;
-  background-color: #111927;
-  background-image: radial-gradient(at 47% 33%, #091953 0, transparent 59%), radial-gradient(at 82% 65%, #111927 0, transparent 55%);
+  background: #09023B;
   overflow: auto;
   box-shadow: 5px 0 4px -4px #999, -6px 0 4px -4px #999;
 }
@@ -681,10 +682,62 @@ html > .sidebar-responsive #left-panel #sidebar li {
 }
 
 #index {
-  background-color: #111927;
-  background-image: radial-gradient(at 47% 33%, #091953 0, transparent 59%), radial-gradient(at 82% 65%, #111927 0, transparent 55%);
+  animation: theme 21s linear infinite;
 }
-#index .title {
+#index:after, #index:before {
+  content: "";
+  display: block;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  width: 100vmax;
+  height: 100vmax;
+  background: rgba(0, 0, 0, 0.05);
+  animation: background 90s linear infinite;
+}
+#index:after {
+  left: 15vw;
+}
+#index:before {
+  right: 15vw;
+  animation-delay: -30s;
+  animation-direction: reverse;
+}
+
+@keyframes theme {
+  0% {
+    background: #012a4a;
+  }
+  16% {
+    background: #012a4a;
+  }
+  33% {
+    background: #013a63;
+  }
+  50% {
+    background: #014f86;
+  }
+  66% {
+    background: #014f86;
+  }
+  83% {
+    background: #013a63;
+  }
+  100% {
+    background: #012a4a;
+  }
+}
+@keyframes background {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.title {
   font-size: 16px;
   letter-spacing: 1;
   margin-top: 20px;
@@ -692,17 +745,19 @@ html > .sidebar-responsive #left-panel #sidebar li {
   margin-bottom: 30px;
   text-transform: uppercase;
 }
-#index nav {
+
+nav {
   background: transparent;
 }
-#index nav img {
+nav img {
   width: 15vw;
   margin-top: 20px;
 }
-#index .box .box-card {
+
+.box .box-card {
   width: 330px;
 }
-#index .box .card {
+.box .card {
   border-radius: 10px;
   padding: 15px 10px;
   height: 360px;
@@ -715,7 +770,7 @@ html > .sidebar-responsive #left-panel #sidebar li {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
-#index .box .card .card-title {
+.box .card .card-title {
   text-align: center;
   font-weight: bold;
   color: #464747;
@@ -724,7 +779,7 @@ html > .sidebar-responsive #left-panel #sidebar li {
   text-transform: uppercase;
   letter-spacing: 1;
 }
-#index .box .card .card-title::after {
+.box .card .card-title::after {
   content: "";
   display: block;
   width: 100px;
@@ -732,12 +787,12 @@ html > .sidebar-responsive #left-panel #sidebar li {
   background: #00D8C3;
   margin: 5px auto;
 }
-#index .box .card .card-img img {
+.box .card .card-img img {
   width: 250px;
   display: block;
   margin: auto;
 }
-#index .box .card a {
+.box .card a {
   color: #091954;
   background: #00D8C3;
   border: none;
@@ -757,31 +812,34 @@ html > .sidebar-responsive #left-panel #sidebar li {
   transition: 0.6s;
   width: 130px;
 }
-#index .box .card a:hover {
+.box .card a:hover {
   background: #28A745;
   color: white;
   bottom: 25px;
 }
-#index footer {
+
+footer {
   margin-top: 20px;
 }
-#index footer img {
+footer img {
   width: 10vw;
   margin-left: 20px;
 }
-#index footer p {
+footer p {
   color: white;
   font-size: 12px;
   text-align: center;
   font-weight: 500;
   letter-spacing: 1;
 }
-#index .area {
+
+.area {
   background: -webkit-linear-gradient(to left, #091954, #091954);
   width: 100%;
   height: 100vh;
 }
-#index .circles {
+
+.circles {
   position: absolute;
   top: 0;
   left: 0;
@@ -789,7 +847,8 @@ html > .sidebar-responsive #left-panel #sidebar li {
   height: 100%;
   overflow: hidden;
 }
-#index .circles li {
+
+.circles li {
   position: absolute;
   display: block;
   opacity: 0.7;
@@ -800,72 +859,84 @@ html > .sidebar-responsive #left-panel #sidebar li {
   animation: animate 25s linear infinite;
   bottom: -150px;
   border: 1px solid white;
+  border-radius: 50% !important;
 }
-#index .circles li:nth-child(1) {
+
+.circles li:nth-child(1) {
   left: 25%;
-  width: 80px;
-  height: 80px;
+  width: 30px;
+  height: 30px;
   animation-delay: 0s;
 }
-#index .circles li:nth-child(2) {
+
+.circles li:nth-child(2) {
   left: 10%;
   width: 20px;
   height: 20px;
   animation-delay: 2s;
   animation-duration: 12s;
 }
-#index .circles li:nth-child(3) {
+
+.circles li:nth-child(3) {
   left: 70%;
   width: 20px;
   height: 20px;
   animation-delay: 4s;
 }
-#index .circles li:nth-child(4) {
+
+.circles li:nth-child(4) {
   left: 40%;
-  width: 60px;
-  height: 60px;
+  width: 10px;
+  height: 10px;
   animation-delay: 0s;
   animation-duration: 18s;
 }
-#index .circles li:nth-child(5) {
+
+.circles li:nth-child(5) {
   left: 65%;
   width: 20px;
   height: 20px;
   animation-delay: 0s;
 }
-#index .circles li:nth-child(6) {
+
+.circles li:nth-child(6) {
   left: 75%;
-  width: 110px;
-  height: 110px;
+  width: 40px;
+  height: 40px;
   animation-delay: 3s;
 }
-#index .circles li:nth-child(7) {
+
+.circles li:nth-child(7) {
   left: 35%;
   width: 100px;
   height: 100px;
   animation-delay: 7s;
 }
-#index .circles li:nth-child(8) {
+
+.circles li:nth-child(8) {
   left: 50%;
   width: 25px;
   height: 25px;
   animation-delay: 15s;
   animation-duration: 45s;
 }
-#index .circles li:nth-child(9) {
+
+.circles li:nth-child(9) {
   left: 20%;
   width: 15px;
   height: 15px;
   animation-delay: 2s;
   animation-duration: 35s;
 }
-#index .circles li:nth-child(10) {
+
+.circles li:nth-child(10) {
   left: 85%;
-  width: 100px;
-  height: 100px;
+  width: 40px;
+  height: 40px;
   animation-delay: 0s;
   animation-duration: 11s;
 }
+
 @keyframes animate {
   0% {
     transform: translateY(0) rotate(0deg);
@@ -878,7 +949,6 @@ html > .sidebar-responsive #left-panel #sidebar li {
     border-radius: 50%;
   }
 }
-
 #errorPage {
   background-color: white;
 }
@@ -1017,6 +1087,12 @@ html > .sidebar-responsive #left-panel #sidebar li {
 #studentPortal #pagina #class-rematrug img,
 #studentPortal #pagina .illustrations img {
   width: 30vw;
+}
+#admin #pagina section#home .enrollment-null,
+#teacherPortal #pagina section#home .enrollment-null,
+#studentPortal #pagina section#home .enrollment-null {
+  height: 15vw;
+  margin-top: 15px;
 }
 #admin #pagina section#home .card,
 #teacherPortal #pagina section#home .card,
@@ -2692,7 +2768,7 @@ html body #navbar-top {
   transition: 0.7s;
   position: fixed;
   z-index: 3;
-  padding: 15px;
+  padding: 10px 15px;
 }
 html body #navbar-top .navbar-brand {
   font-weight: bold;
@@ -2712,14 +2788,15 @@ html body #navbar-top a.bars-xs {
 }
 html body #navbar-top .foto-perfil {
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   object-position: top;
   object-fit: cover;
   cursor: pointer;
+  border: 1px solid #e5e5e5;
 }
-html body #navbar-top .logo img {
-  display: none;
+html body #navbar-top .logo {
+  display: none !important;
 }
 html body #navbar-top #navbarDropdown {
   color: #506177;

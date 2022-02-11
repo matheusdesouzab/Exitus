@@ -83,6 +83,6 @@ if (count($this->view->listCourse) >= 1) {
     <?php }
 } else { ?>
 
-    <h5 class="mt-3">Nenhum curso encontrado</h5>
+    <h5 class="mt-3">Nenhum curso adicionado</h5>
 
 <?php } ?>
