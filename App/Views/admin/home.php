@@ -84,11 +84,11 @@
 
                         <div class="col-lg-12 card recently-enrolled">
 
-                            <div class="card-title p-2"><?= count($this->view->recentlyEnrolledStudents) > 1 ? 'Matrículados recentementes' : 'Nenhum aluno matrículado ainda' ?></div>
+                            <div class="card-title p-2"><?= count($this->view->recentlyEnrolledStudents) >= 1 ? 'Matrículados recentementes' : 'Nenhum aluno matrículado ainda' ?></div>
 
                             <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
 
-                            <?php if(count($this->view->recentlyEnrolledStudents) > 1){ ?>
+                            <?php if(count($this->view->recentlyEnrolledStudents) >= 1){ ?>
 
                             <table class="table table-hover table-borderless border-top">
 

@@ -27,22 +27,6 @@ if (count($this->view->listCourse) >= 1) {
 
                     </span>
 
-                    <?php 
-
-                    if (!isset($_SESSION)) session_start();
-                    
-                    if($_SESSION['Admin']['hierarchyFunction'] == 1){ 
-                        
-                    ?>
-
-                    <span idElement="#formCourse<?= $course->course_id ?>" routeDelete="/admin/gestao/curso/deletar" toastData="Curso Atualizado" container="containerListCourse" routeList="/admin/gestao/curso/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
-
-                        <i class="fas fa-trash-alt"></i>
-
-                    </span>
-
-                    <?php } ?>
-
                 </div>
 
             </div>

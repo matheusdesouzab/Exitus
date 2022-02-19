@@ -28,7 +28,9 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                 <nav id="studentPortalNavbar" class="navbar navbar-expand d-flex align-items-center">
 
-                    <a class="logo" href="#"><img src="/assets/img/logo-components/logo-completa.png" alt=""></a>
+                    <a class="logo" href="#">
+                        <img class="d-block" src="/assets/img/logo-components/logo-completa.png" alt="">
+                    </a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -60,7 +62,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                             <?php $photo = empty($_SESSION['Student']['profilePhoto']) ? 'foto-vazia.jpg' : $_SESSION['Student']['profilePhoto'] ?>
                             
-                            <li class="nav-item nav-fixed d-none d-md-block">
+                            <li class="nav-item nav-fixed d-none d-md-block d-flex align-items-center">
                                 <a class="nav-link" href="#">
                                     <img class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $photo ?>">
                                 </a>
@@ -194,7 +196,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                     <div class="row">
 
-                                        <h5 class="title">Postagens recentes</h5>
+                                        <h5 class="title-mural">Postagens recentes</h5>
 
                                         <?php
 

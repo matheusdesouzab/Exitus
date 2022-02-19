@@ -23,6 +23,8 @@ insert into tipo_sanguineo(tipo_sanguineo) values ('Não informado'),('AB+'),('A
 
 insert into situacao_aluno_ano_letivo (situacao_aluno) values ('Matriculado'),('Aprovado'),('Reprovado'),('Mudou de turma');
 
+INSERT INTO situacao_geral_aluno (`situacao_geral`) VALUES ('Matriculado'),('Desistente'),('Concluído');
+
 insert into hierarquia_funcao(hierarquia_funcao) values ('Administrador'),('Co-administrador'),('Docente'),('Aluno');
 
 INSERT INTO telefone (numero_telefone) VALUES (75988787643);

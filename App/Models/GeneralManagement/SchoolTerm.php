@@ -159,7 +159,7 @@ class SchoolTerm extends Model
      * 
      * @return void
      */
-    public function delete()
+    /* public function delete()
     {
 
         $query =
@@ -180,7 +180,7 @@ class SchoolTerm extends Model
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id', $this->__get('schoolTermId'));
         $stmt->execute();
-    }
+    } */
 
 
     /**

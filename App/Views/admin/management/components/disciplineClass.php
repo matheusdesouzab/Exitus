@@ -77,7 +77,7 @@ if (count($this->view->listTeacher) >= 1) {
 
         <div class="row">
 
-            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="/assets/img/illustrations/arrived.svg" alt=""></div>
+            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="/assets/img/illustrations/discipline_link.svg" alt=""></div>
 
             <h5 class="col-lg-12 mt-4 text-center">Nenhuma disciplina vinculada a turma</h5>
 

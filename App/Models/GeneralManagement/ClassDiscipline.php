@@ -197,7 +197,7 @@ class ClassDiscipline extends Model
         # Inicialmente em $disciplineAll, será armazenado todas as disciplinas criadas no sistema.
 
         $disciplineAll = $this->speedingUp(
-            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina"
+            "SELECT disciplina.id_disciplina AS option_value , disciplina.nome_disciplina AS option_text FROM disciplina ORDER BY nome_disciplina"
         );
 
         # Em seguida, em  $disciplineAlreadyAdded será armazenado todas as disciplinas que já foram vinculadas a essa turma.
@@ -214,6 +214,8 @@ class ClassDiscipline extends Model
             LEFT JOIN turma ON(turma_disciplina.fk_id_turma = turma.id_turma)
 
             WHERE turma.id_turma = :fk_id_class 
+
+            ORDER BY nome_disciplina
             
         ";
 
@@ -242,6 +244,8 @@ class ClassDiscipline extends Model
                 array_push($availableDiscipline, array("option_value" => $discipline->option_value, "option_text" => $discipline->option_text));
             }
         }
+
+        
 
         return $availableDiscipline;
     }

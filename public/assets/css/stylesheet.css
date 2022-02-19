@@ -1524,8 +1524,7 @@ footer p {
 }
 
 #login {
-  background-color: #111927;
-  background-image: radial-gradient(at 47% 33%, #091953 0, transparent 59%), radial-gradient(at 82% 65%, #111927 0, transparent 55%);
+  background: #3F3D56;
 }
 #login .container-login {
   border-radius: 15px;
@@ -1560,10 +1559,11 @@ footer p {
 #login .container-login .sidebar-primary .portal-disabled {
   background-color: #F2F2F2;
   color: black;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #00D8C3;
 }
 #login .container-login .sidebar-primary .portal-active {
   background-color: #00D8C3;
+  border: 1px solid #00D8C3;
   color: white;
 }
 #login .container-login .sidebar-primary .portal a {
@@ -1579,7 +1579,7 @@ footer p {
 }
 #login .container-login .sidebar-secondary form {
   padding: 5px;
-  border: 1px solid #D0CDE1;
+  border: 1px solid #00D8C3;
   background-color: white;
   border-radius: 15px;
 }
@@ -1649,6 +1649,7 @@ footer p {
   background-color: white;
   font-family: Bold;
   font-size: 13px;
+  padding: 10px;
   box-sizing: border-box;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
@@ -1659,11 +1660,13 @@ footer p {
   object-position: top;
   object-fit: cover;
   cursor: pointer;
+  margin-top: -2px;
 }
 #studentPortal nav#studentPortalNavbar .logo img {
   width: 150px;
   border-radius: 0px;
   height: 45px;
+  margin: auto;
 }
 #studentPortal nav#studentPortalNavbar .class {
   margin-left: -30px;
@@ -1709,7 +1712,7 @@ footer p {
   font-family: Bold;
   padding: 10px 15px;
 }
-#studentPortal #mural .title {
+#studentPortal #mural .title-mural {
   margin-left: 3vw;
 }
 #studentPortal #mural h5 {

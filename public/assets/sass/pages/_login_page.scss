@@ -1,8 +1,6 @@
 #login {
 
-    background-color: #111927;
-    background-image: radial-gradient(at 47% 33%, hsl(227.20, 81%, 18%) 0, transparent 59%), 
-    radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+    background: #3F3D56;
 
     .container-login {
         border-radius: 15px;
@@ -40,11 +38,12 @@
             .portal-disabled {
                 background-color: #F2F2F2;
                 color: black;
-                border: 1px solid #e5e5e5;
+                border: 1px solid #00D8C3;
             }
 
             .portal-active {
                 background-color: #00D8C3;
+                border: 1px solid #00D8C3;
                 color: white;
             }
 
@@ -63,7 +62,7 @@
 
             form {
                 padding: 5px;
-                border: 1px solid #D0CDE1;
+                border: 1px solid #00D8C3;
                 background-color: white;
                 border-radius: 15px;
 

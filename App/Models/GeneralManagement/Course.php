@@ -76,7 +76,7 @@ class Course extends Model
      * 
      * @return void
      */
-    public function delete()
+   /*  public function delete()
     {
 
         $query = "DELETE FROM curso WHERE curso.id_curso = :courseId";
@@ -84,7 +84,7 @@ class Course extends Model
         $stmt->bindValue(":courseId", $this->__get("courseId"));
         $stmt->execute();
     }
-
+ */
 
     /**
      * Atualizar dados do curso
