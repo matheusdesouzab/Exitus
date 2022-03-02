@@ -38,7 +38,7 @@ class Settings extends Model
             fk_id_controle_unidade = :fk_id_control_unity , 
             fk_id_controle_rematricula = :fk_id_control_rematrug 
             
-            WHERE id_configuracao = 2
+            WHERE id_configuracao = 1
         
         ";
 

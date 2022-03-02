@@ -32,9 +32,12 @@
                                 <ul>
 
                                     <a class="collapse" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-admin">
-                                        <span class="box-icon"><i class="fas fa-user"></i></span> Seu perfil</a>
+                                        <span class="box-icon"><i class="fas fa-user"></i></span> Dados gerais</a>
 
-                                    <?php if ($this->view->modalType == 'data-and-config') { ?>
+
+                                    <?php if ($this->view->modalType == 'data-and-config' && $_SESSION['Admin']['hierarchyFunction'] == 1) { 
+                                        
+                                    ?>
 
                                         <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-settings">
                                             <span class="box-icon"><i class="fas fa-cogs"></i></span> Configurações</a>

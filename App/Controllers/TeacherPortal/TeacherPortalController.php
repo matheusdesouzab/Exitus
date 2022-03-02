@@ -65,6 +65,7 @@ class TeacherPortalController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
         $Exam = Container::getModel('TeacherStudent\\Exam');
         $ClasseWarning = Container::getModel('GeneralManagement\\ClasseWarning');
+        $Tools = new Tools();
 
         if (!isset($_SESSION)) session_start();
 
@@ -79,6 +80,7 @@ class TeacherPortalController extends Action
         $this->view->listObservation = $Teacher->readObservationByIdTeacher();
         $this->view->listDisciplineAverage = $Teacher->readByIdTeacherAverage();
         $this->view->listWarning = $ClasseWarning->readByIdTeacher($Teacher);
+        $this->view->tools = $Tools;
 
         $this->render('home', 'TeacherPortalLayout', 'TeacherPortal');
     }

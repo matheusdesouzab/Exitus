@@ -474,6 +474,12 @@ h5 {
   font-size: 10px;
   text-align: justify;
 }
+#pagina .carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+#pagina .carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
 
 #toastContainer {
   position: fixed;
@@ -1014,6 +1020,32 @@ footer p {
 #studentPortal #pagina #table-bulletin-print thead {
   background: #E8F0FE;
 }
+#admin #pagina .avaliacoes-agendadas,
+#teacherPortal #pagina .avaliacoes-agendadas,
+#studentPortal #pagina .avaliacoes-agendadas {
+  overflow: auto;
+  overflow-x: hidden;
+  height: 63vh;
+}
+#admin #pagina .avaliacoes-agendadas .row .card,
+#teacherPortal #pagina .avaliacoes-agendadas .row .card,
+#studentPortal #pagina .avaliacoes-agendadas .row .card {
+  border: none;
+  box-shadow: none;
+}
+#admin #pagina .avaliacoes-agendadas p,
+#teacherPortal #pagina .avaliacoes-agendadas p,
+#studentPortal #pagina .avaliacoes-agendadas p {
+  font-family: Bold;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+#admin #pagina .avaliacoes-agendadas .class-and-value,
+#teacherPortal #pagina .avaliacoes-agendadas .class-and-value,
+#studentPortal #pagina .avaliacoes-agendadas .class-and-value {
+  font-family: Semi-bold;
+  font-size: 12px;
+}
 #admin #pagina #note-table-class,
 #teacherPortal #pagina #note-table-class,
 #studentPortal #pagina #note-table-class {
@@ -1186,6 +1218,7 @@ footer p {
 #admin #pagina .recently-enrolled::-webkit-scrollbar,
 #admin #pagina .main-content::-webkit-scrollbar,
 #admin #pagina .container-list-group::-webkit-scrollbar,
+#admin #pagina .avaliacoes-agendadas::-webkit-scrollbar,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar,
 #teacherPortal #pagina .side-students::-webkit-scrollbar,
@@ -1194,6 +1227,7 @@ footer p {
 #teacherPortal #pagina .recently-enrolled::-webkit-scrollbar,
 #teacherPortal #pagina .main-content::-webkit-scrollbar,
 #teacherPortal #pagina .container-list-group::-webkit-scrollbar,
+#teacherPortal #pagina .avaliacoes-agendadas::-webkit-scrollbar,
 #studentPortal #pagina .side-exams::-webkit-scrollbar,
 #studentPortal #pagina .side-mural::-webkit-scrollbar,
 #studentPortal #pagina .side-students::-webkit-scrollbar,
@@ -1201,7 +1235,8 @@ footer p {
 #studentPortal #pagina .recent-activities::-webkit-scrollbar,
 #studentPortal #pagina .recently-enrolled::-webkit-scrollbar,
 #studentPortal #pagina .main-content::-webkit-scrollbar,
-#studentPortal #pagina .container-list-group::-webkit-scrollbar {
+#studentPortal #pagina .container-list-group::-webkit-scrollbar,
+#studentPortal #pagina .avaliacoes-agendadas::-webkit-scrollbar {
   width: 10px;
 }
 #admin #pagina .side-exams::-webkit-scrollbar-track,
@@ -1212,6 +1247,7 @@ footer p {
 #admin #pagina .recently-enrolled::-webkit-scrollbar-track,
 #admin #pagina .main-content::-webkit-scrollbar-track,
 #admin #pagina .container-list-group::-webkit-scrollbar-track,
+#admin #pagina .avaliacoes-agendadas::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar-track,
 #teacherPortal #pagina .side-students::-webkit-scrollbar-track,
@@ -1220,6 +1256,7 @@ footer p {
 #teacherPortal #pagina .recently-enrolled::-webkit-scrollbar-track,
 #teacherPortal #pagina .main-content::-webkit-scrollbar-track,
 #teacherPortal #pagina .container-list-group::-webkit-scrollbar-track,
+#teacherPortal #pagina .avaliacoes-agendadas::-webkit-scrollbar-track,
 #studentPortal #pagina .side-exams::-webkit-scrollbar-track,
 #studentPortal #pagina .side-mural::-webkit-scrollbar-track,
 #studentPortal #pagina .side-students::-webkit-scrollbar-track,
@@ -1227,7 +1264,8 @@ footer p {
 #studentPortal #pagina .recent-activities::-webkit-scrollbar-track,
 #studentPortal #pagina .recently-enrolled::-webkit-scrollbar-track,
 #studentPortal #pagina .main-content::-webkit-scrollbar-track,
-#studentPortal #pagina .container-list-group::-webkit-scrollbar-track {
+#studentPortal #pagina .container-list-group::-webkit-scrollbar-track,
+#studentPortal #pagina .avaliacoes-agendadas::-webkit-scrollbar-track {
   background-color: #EAEDED;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -1240,6 +1278,7 @@ footer p {
 #admin #pagina .recently-enrolled::-webkit-scrollbar-thumb,
 #admin #pagina .main-content::-webkit-scrollbar-thumb,
 #admin #pagina .container-list-group::-webkit-scrollbar-thumb,
+#admin #pagina .avaliacoes-agendadas::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-exams::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-mural::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .side-students::-webkit-scrollbar-thumb,
@@ -1248,6 +1287,7 @@ footer p {
 #teacherPortal #pagina .recently-enrolled::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .main-content::-webkit-scrollbar-thumb,
 #teacherPortal #pagina .container-list-group::-webkit-scrollbar-thumb,
+#teacherPortal #pagina .avaliacoes-agendadas::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-exams::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-mural::-webkit-scrollbar-thumb,
 #studentPortal #pagina .side-students::-webkit-scrollbar-thumb,
@@ -1255,7 +1295,8 @@ footer p {
 #studentPortal #pagina .recent-activities::-webkit-scrollbar-thumb,
 #studentPortal #pagina .recently-enrolled::-webkit-scrollbar-thumb,
 #studentPortal #pagina .main-content::-webkit-scrollbar-thumb,
-#studentPortal #pagina .container-list-group::-webkit-scrollbar-thumb {
+#studentPortal #pagina .container-list-group::-webkit-scrollbar-thumb,
+#studentPortal #pagina .avaliacoes-agendadas::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: #ACBECC;

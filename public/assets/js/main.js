@@ -402,7 +402,7 @@ $(document).on("click", "#discipline tr", function () {
 })
 
 
-$(document).on("click", "#teacherPortal #class tbody tr", function (e) {
+$(document).on("click", "#teacherPortal #table-class-teacher tbody tr", function (e) {
     application.showModal(this.id, "/admin/gestao/turma/perfil-turma", "containerClasseProfileModal", "#profileClassModal")
 })
 

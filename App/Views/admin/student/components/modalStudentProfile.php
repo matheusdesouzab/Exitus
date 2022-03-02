@@ -54,7 +54,7 @@
 
                                     <?php if ($this->view->studentDataEnrollment[0]->situation_id != 4) { ?>
 
-                                        <?php if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) { ?>
+                                        <?php if (isset($_SESSION['Admin']) || isset($_SESSION['Teacher'])) { ?>
 
                                             <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#student-exam">
                                                 <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações

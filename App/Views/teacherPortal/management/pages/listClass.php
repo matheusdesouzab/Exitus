@@ -93,7 +93,7 @@
 
                                     <div class="table-responsive">
 
-                                        <table class="col-lg-12 table table-borderless table-hover">
+                                        <table class="col-lg-12 table table-borderless table-hover" id="table-class-teacher">
 
                                             <thead>
 

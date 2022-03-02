@@ -17,7 +17,7 @@
                             <div class="row collapse-options-container">                     
 
                             <a href="#" class="font-weight-bold" id="collapseListSchoolTerm" aria-expanded="true" data-toggle="collapse" data-target="#list-terms">
-                                <span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Períodos</span>
+                                <span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>Períodos</span>
                             </a>
 
                             <a href="#" class="collapsed font-weight-bold" id="collapseAddSchoolTerm" aria-expanded="false" data-toggle="collapse" data-target="#add-school-term">

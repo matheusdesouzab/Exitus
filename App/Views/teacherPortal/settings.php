@@ -137,7 +137,7 @@
                                     <span class="input-group-text" id="addon-wrapping">Sexo:</span>
                                 </div>
 
-                                <select id="sex" name="sex" disabled class="form-control custom-select">
+                                <select id="sex" name="sex" disabled class="form-control custom-select" style="pointer-events:none">
                                     <option value="<?= $teacher->sex_id ?>"><?= $teacher->sex ?></option>
                                     <?php foreach ($this->view->availableSex as $key => $sex) { ?>
                                         <?php if ($sex->option_value != $teacher->sex_id) { ?>

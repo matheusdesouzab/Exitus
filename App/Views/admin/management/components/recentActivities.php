@@ -235,7 +235,7 @@
 
                     <img class="enrollment-null d-block mx-auto" src="/assets/img/illustrations/timeline.svg" alt="">
 
-                    <p class="mt-3 col-lg-12 p-0 text-justify">A linha do tempo está vazia</p>
+                    <p class="mt-3 col-lg-12 p-0 text-justify text-right">A linha do tempo está vazia</p>
 
                 </div>
 

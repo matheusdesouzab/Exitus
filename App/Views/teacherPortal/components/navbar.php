@@ -1,7 +1,6 @@
 <nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-10 ml-auto shadow-sm navbar-expand">
 
 	<a class="navbar-brand" id="bars" href="#"><i class="fas fa-bars"></i></a>
-	
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 		<i class="fas fa-bars"></i>
@@ -14,11 +13,10 @@
 
 		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
-			<li class="nav-item d-none d-md-block">
-				<div class="">
-					<img class="foto-perfil" src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg">
-				</div>
+		<?php $photo = ($_SESSION['Teacher']['profilePhoto'] ? $_SESSION['Teacher']['profilePhoto'] : 'foto-vazia.jpg') ?>
 
+			<li class="nav-item d-none d-md-block">			
+				<img class="foto-perfil m-auto" src="/assets/img/teacherProfilePhotos/<?= $photo ?>" alt="">
 			</li>
 
 			<li class="nav-item ml-3 d-none d-md-block">

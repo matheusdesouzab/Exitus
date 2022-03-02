@@ -18,26 +18,6 @@
                                     <span class="box-icon"><i class="fas fa-user-friends"></i></span> Dados da turma
                                 </a>
 
-                                <?php if (!isset($_SESSION)) session_start(); ?>
-
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">
-                                    <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações 
-                                </a>
-
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history">
-                                    <span class="box-icon"><i class="fas fa-poll-h"></i></span> Notas das avaliações
-                                </a>
-
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average">
-                                    <span class="box-icon"><i class="fas fa-poll"></i></span> Médias dos alunos
-                                </a>
-
-                                <?php if($this->view->classData[0]->school_term_situation == 1){ ?>
-
-                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-warning">
-                                        <span class="box-icon"><i class="fas fa-exclamation-circle"></i></span> Avisos
-                                    </a>
-
                                 <?php
 
                                 if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
@@ -48,16 +28,47 @@
                                         <span class="box-icon"><i class="fas fa-boxes"></i></span> Disciplinas
                                     </a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">
-                                        <span class="box-icon"><i class="fas fa-redo"></i></span> Rematrícula
+
+                                <?php } ?>
+
+                                <?php if (!isset($_SESSION)) session_start(); ?>
+
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-profile-assessments">
+                                    <span class="box-icon"><i class="fas fa-paste"></i></span> Avaliações
+                                </a>
+
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-note-history">
+                                    <span class="box-icon"><i class="fas fa-poll-h"></i></span> Notas das avaliações
+                                </a>
+
+                                <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-student-average">
+                                    <span class="box-icon"><i class="fas fa-poll"></i></span> Médias dos alunos
+                                </a>
+
+                                <?php if ($this->view->classData[0]->school_term_situation == 1) { ?>
+
+                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-warning">
+                                        <span class="box-icon"><i class="fas fa-exclamation-circle"></i></span> Avisos
                                     </a>
 
-                                    <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings">
-                                        <span class="box-icon"><i class="fas fa-cog"></i></span> Configurações
-                                    </a>
+                                    <?php
+
+                                    if (isset($_SESSION['Admin']) && $_SESSION['Admin']['hierarchyFunction'] <= 2) {
+
+                                    ?>
 
 
-                                <?php }} ?>
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-rematrug">
+                                            <span class="box-icon"><i class="fas fa-redo"></i></span> Rematrícula
+                                        </a>
+
+                                        <a class="collapsed" href="#" data-toggle="collapse" aria-expanded="false" data-target="#class-settings">
+                                            <span class="box-icon"><i class="fas fa-cog"></i></span> Configurações
+                                        </a>
+
+
+                                <?php }
+                                } ?>
 
 
                             </ul>
@@ -204,7 +215,7 @@
 
                                 <div class="row collapse-options-container">
 
-                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-discipline"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Disciplinas</span></a>
+                                    <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-discipline"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Lista</span></a>
 
                                     <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-discipline"><span class=""><i class="fas fa-plus mr-2"></i> Adicionar</span></a>
 
@@ -309,7 +320,7 @@
 
                                     <div class="row collapse-options-container">
 
-                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Avaliações</span></a>
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-exam"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i> Lista</span></a>
 
                                         <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#add-assessments"><span class=""><i class="fas fa-plus mr-2"></i> Criar</span></a>
 
@@ -642,7 +653,7 @@
 
                                     <div class="row collapse-options-container">
 
-                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-warning"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>Avisos</span></a>
+                                        <a class="font-weight-bold" aria-expanded="true" data-toggle="collapse" data-target="#list-warning"><span class="mr-2"><i class="fas fa-grip-vertical mr-2"></i>Lista</span></a>
 
                                         <a class="collapsed font-weight-bold" aria-expanded="false" data-toggle="collapse" data-target="#create-warning"><span class=""><i class="fas fa-check-circle mr-2"></i> Criar</span></a>
 
@@ -675,7 +686,7 @@
 
                                     </div>
 
-                                    
+
 
                                     <div class="form-row">
 
@@ -695,7 +706,7 @@
 
                                         </div>
 
-                            
+
                                         <div class="form-group col-lg-4 ml-auto">
                                             <label for="">&nbsp;</label>
                                             <a id="buttonAddWarning" class="btn btn-success w-100">Adicionar</a>

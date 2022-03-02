@@ -18,6 +18,10 @@ class AdminController extends Action
     public function adminRegistration()
     {
 
+        session_start();
+
+        if($_SESSION['Admin']['hierarchyFunction'] == 1){
+
         $Admin = Container::getModel('Admin\\Admin');
         $HierarchyFunction = Container::getModel('GeneralManagement\\HierarchyFunction');
 
@@ -28,6 +32,10 @@ class AdminController extends Action
         $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
 
         $this->render('admin/adminRegistration', 'AdminLayout');
+
+        }else{
+            header('Location: /admin/home');
+        }
     }
 
 
@@ -262,11 +270,19 @@ class AdminController extends Action
     public function adminList()
     {
 
-        $Admin = Container::getModel('Admin\\Admin');
+        session_start();
 
-        $this->view->listAdmin = $Admin->list();
+        if($_SESSION['Admin']['hierarchyFunction'] == 1){
 
-        $this->render('admin/adminList', 'AdminLayout');
+            $Admin = Container::getModel('Admin\\Admin');
+
+            $this->view->listAdmin = $Admin->list();
+
+            $this->render('admin/adminList', 'AdminLayout');
+
+        }else{
+            header('Location: /admin/home');
+        }
     }
 
 

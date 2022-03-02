@@ -281,7 +281,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                     <div class="form-group col-lg-8">
 
-                                                                        <label for="">Você deseja se rematriculado ?</label><br>
+                                                                        <label for="">Você deseja ser rematrículado ?</label><br>
 
                                                                         <?php foreach ($this->view->rematrugSituationList as $key => $value) { ?>
 

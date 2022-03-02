@@ -42,4 +42,21 @@ class Tools
 			$model->__set('profilePhoto', $new_name);
 		}
 	}
+
+
+	function currentDate($array)
+    {
+
+        date_default_timezone_set('America/Sao_Paulo');
+        $today = date('d-m');
+
+        $data = explode(' ', $array);
+        $data = explode('-', $data[0]);
+        $data = $data[2] . '/' . $data[1];
+
+        $data = ($data == $today ? 'Hoje' : $data);
+
+        return $data;
+    }
+
 }

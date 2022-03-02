@@ -34,7 +34,7 @@
                 <li><a href='/admin/professor/lista'>Buscar</a></li>
             </div>         
 
-            <!-- <li><a href="/admin/gestao"><i class="fas fa-chart-pie"></i><span class="link-name">BI</span></a></li> -->
+            <?php if(($_SESSION['Admin']['hierarchyFunction'] == 1)){ ?>
             
             <li data-toggle="collapse" href="#administrador" role="button" aria-expanded="false" aria-controls="admin" class="active link-collapse" name="administrador">
                 <a><i class="fas fa-user-cog"></i><span class="link-name">Administrador</span><i fa-angle-right class="fas fa-angle-right pr-3"></i></a>
@@ -44,6 +44,8 @@
                 <li><a href='/admin/administrador/cadastro'>Cadastrar</a></li>
                 <li><a href='/admin/administrador/lista'>Buscar</a></li>
             </div>
+
+            <?php } ?>
 
             <div class="footer-panel">
                 <li><a class="" href="#" id="settings"><i class="fas fa-cog"></i><span class="link-name">Configurações</span></a></li>

@@ -18,8 +18,10 @@
 
 		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
+		<?php $photo = ($_SESSION['Admin']['profilePhoto'] ? $_SESSION['Admin']['profilePhoto'] : 'foto-vazia.jpg') ?>
+
 			<li class="nav-item d-none d-md-block">			
-				<img class="foto-perfil m-auto" src="/assets/img/adminProfilePhotos/<?= $_SESSION['Admin']['profilePhoto'] ?>" alt="" onerror="/assets/img/AdminProfilePhotos/foto-vazia.jpg">			
+				<img class="foto-perfil m-auto" src="/assets/img/adminProfilePhotos/<?= $photo ?>">			
 			</li>
 
 			<li class="nav-item ml-3 d-none d-md-block">

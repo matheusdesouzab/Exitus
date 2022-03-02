@@ -12,8 +12,10 @@
                 <a name="turmas" class="nav-link" href="/portal-docente/turmas"><i class="fas fa-users"></i> <span>Turmas</span></a>
             </li>
 
+            <?php $photo = ($_SESSION['Teacher']['profilePhoto'] ? $_SESSION['Teacher']['profilePhoto'] : 'foto-vazia.jpg') ?>
+
             <li class="nav-item">
-                <a class="nav-link" id="settingsTeacherPortal" href="#"><img class="foto-perfil" src="/assets/img/teacherProfilePhotos/<?= $_SESSION['Teacher']['profilePhoto'] ?>" alt="" onerror="/assets/img/teacherProfilePhotos/foto-vazia.jpg"></a>
+                <a class="nav-link" id="settingsTeacherPortal" href="#"><img class="foto-perfil" src="/assets/img/teacherProfilePhotos/<?= $photo ?>" alt=""></a>
             </li>
 
             <li class="nav-item">

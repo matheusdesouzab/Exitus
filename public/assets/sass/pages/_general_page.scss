@@ -59,6 +59,29 @@
             background: #E8F0FE;
         }
 
+        .avaliacoes-agendadas{
+            overflow: auto;
+            overflow-x: hidden;
+            height: 63vh;
+
+            .row .card{
+                border: none;
+                box-shadow: none;
+            }
+
+
+            p{
+                font-family: Bold;
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+
+            .class-and-value{
+                font-family: Semi-bold;
+                font-size: 12px;
+            }
+        }
+
         #note-table-class {
             overflow: auto;
 
@@ -211,7 +234,8 @@
         .recent-activities,
         .recently-enrolled,
         .main-content,
-        .container-list-group {
+        .container-list-group,
+        .avaliacoes-agendadas {
 
             &::-webkit-scrollbar {
                 width: 10px;
