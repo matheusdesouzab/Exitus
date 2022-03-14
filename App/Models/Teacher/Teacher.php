@@ -237,7 +237,9 @@ class Teacher extends People
             
             LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)
             LEFT JOIN situacao_conta ON(professor.fk_id_situacao_conta_professor = situacao_conta.id_situacao_conta)
-            LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)"
+            LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)
+
+            ORDER BY professor.nome_professor ASC"
 
         );
     }
@@ -297,7 +299,7 @@ class Teacher extends People
     {
 
         return $this->speedingUp(
-            "SELECT professor.id_professor AS option_value , professor.nome_professor AS option_text FROM professor;"
+            "SELECT professor.id_professor AS option_value , professor.nome_professor AS option_text FROM professor ORDER BY professor.nome_professor ASC;"
         );
     }
 

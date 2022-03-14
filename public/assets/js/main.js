@@ -5,6 +5,8 @@ const application = new Application()
 const tools = new Tools()
 const management = new Management()
 
+let botaoClicado = true
+
 
 // Iniciando o tooltip
 
@@ -58,6 +60,8 @@ $(document).on("click", "#profileClassModal #buttonAddExam", function (e) {
                 $("#addExam #examValue").val("0")
                 $("#addExam #examDescription").val("")
                 $("#addExam #realizeDate").val("")
+
+                application.loadListElements("containerListExam", "/admin/gestao/turma/perfil-turma/avaliacoes/lista-recentes", "#addExam")
             }
         }
     })
@@ -146,13 +150,20 @@ $(document).on("click", "#buttonAddRematrung", function (e) {
 })
 
 
+
 $("#addTeacher").submit(function (e) {
-    application.addMultipleParts(this, "/admin/professor/cadastro/inserir")
+    if(botaoClicado){
+        application.addMultipleParts(this, "/admin/professor/cadastro/inserir")
+        botaoClicado = false
+    }
 })
 
 
 $("#student-registration #addStudent").submit(function (e) {
-    application.addMultipleParts(this, "/admin/aluno/cadastro/inserir")
+    if(botaoClicado){
+        application.addMultipleParts(this, "/admin/aluno/cadastro/inserir")
+        botaoClicado = false
+    }
 })
 
 

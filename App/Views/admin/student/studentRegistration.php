@@ -304,56 +304,53 @@
 
                                     <div class="row">
 
-                                    <div containerRegistrationSuccess class="col-lg-12">
+                                        <div containerRegistrationSuccess class="col-lg-12">
 
-                                    <div class="row">
+                                            <div class="row">
 
-                                        <p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p>
+                                                <p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p>
 
-                                        <p class="col-lg-12 p-0 font-weight-bold"><i class="fas text-info fa-info-circle mr-2"></i> Informe ao aluno seu código de acesso ao portal</p>
+                                                <p class="col-lg-12 p-0 font-weight-bold"><i class="fas text-info fa-info-circle mr-2"></i> Informe ao aluno seu código de acesso ao portal</p>
 
-                                        <p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p>
+                                                <p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div containerRegistrationError class="col-lg-12 p-0">
+
+                                            <div class="row">
+
+                                                <p class="col-12 mx-auto mb-4">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <input type="hidden" name="accessCode" id="accessCode" value="">
+
+                                    <div class="col-lg-12 col-11 mx-auto p-0">
+
+                                        <div class="row d-flex justify-content-between">
+
+                                            <a type="button" data-toggle="collapse" data-target="#student-registration-class" class="btn bg-secondary text-white collapsed" href=""><i class="fas fa-angle-left mr-3"></i> Voltar</a>
+
+                                            <button type="submit" id="buttonAddStudent" disabled class="btn btn-success">Cadastra aluno (a)</button>
+
+                                        </div>
 
                                     </div>
 
                                 </div>
-
-                                <div containerRegistrationError class="col-lg-12 p-0">
-
-                                <div class="row">
-
-                                    <p class="col-12 mx-auto mb-4">Verifique se todos os campos foram preenchidos de forma correta <i class="fas text-info fa-info-circle mr-2"></i></p>
-
-                                    </div>
-
-                                </div>
-
-                                    </div>
-
-                                <input type="hidden" name="accessCode" id="accessCode" value="">
-
-                                <div class="col-lg-12 col-11 mx-auto p-0">
-
-                                    <div class="row d-flex justify-content-between">
-
-                                        <a type="button" data-toggle="collapse" data-target="#student-registration-class" class="btn bg-secondary text-white collapsed ml-3" href=""><i class="fas fa-angle-left mr-3"></i> Voltar</a>
-
-                                        <button type="submit" id="buttonAddStudent" disabled class="btn btn-success">Cadastra aluno (a)</button>
-
-                                    </div>
-
-
-
-
-                                </div>
-
                             </div>
                         </div>
-                    </div>
 
                     </div>
 
-                    
+
 
                     <div class="modal fade" id="profilePhotoModal" tabindex="-1" aria-labelledby="profilePhotoModal" aria-hidden="true">
                         <div class="modal-dialog">

@@ -56,7 +56,17 @@ if (count($this->view->disciplineAverageList) >= 1) {
     <?php }
 } else { ?>
 
-    <h5 class="mt-3">Nenhuma disciplina encontrada</h5>
+    <div class="col-lg-12">
+
+        <div class="row">
+
+            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="/assets/img/illustrations/discipline_link.svg" alt="" style="width: 30vw"></div>
+
+            <h5 class="col-lg-12 mt-4 text-center">Nenhuma média final criada</h5>
+
+        </div>
+
+    </div>
 
 
 <?php } ?>

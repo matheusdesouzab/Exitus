@@ -51,7 +51,7 @@
 
                 <div class="form-group col-lg-12">
                     <label for="">Descrição do aviso:</label>
-                    <textarea class="form-control mb-3 mt-2" name="description" disabled id="description" rows="3"><?= $warning->warning ?></textarea>
+                    <textarea class="form-control mb-3 mt-2" name="description" disabled id="description" rows="5"><?= $warning->warning ?></textarea>
 
                     <div class="row">
 

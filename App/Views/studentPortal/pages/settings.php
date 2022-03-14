@@ -334,7 +334,7 @@
 
                                                         <?php if ($_SESSION['Student']['classId'] <> $value->class_id) { ?>
 
-                                                            <option value="<?= $value->enrollment_id ?>"><?= $value->acronym_series ?> ª <?= $value->ballot ?> - <?= $value->course_name ?> - <?= $value->shift ?></option>
+                                                            <option value="<?= $value->enrollment_id ?>"><?= $value->acronym_series ?> ª <?= $value->ballot ?> - <?= $value->course ?> - <?= $value->shift ?></option>
 
                                                     <?php }
                                                     } ?>

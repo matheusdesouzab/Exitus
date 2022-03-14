@@ -681,7 +681,7 @@
 
                                         <div class="form-group col-lg-12">
                                             <label for="">Descrição do aviso: </label>
-                                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                                            <textarea class="form-control" name="description" id="description" rows="5"></textarea>
                                         </div>
 
                                     </div>

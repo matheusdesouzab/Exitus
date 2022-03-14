@@ -85,6 +85,8 @@ class ClassDiscipline extends Model
             WHERE disciplina.nome_disciplina IS NOT NULL 
             
             AND turma_disciplina.fk_id_turma = :fk_id_class
+
+            ORDER BY disciplina.nome_disciplina ASC
         
         ";
 

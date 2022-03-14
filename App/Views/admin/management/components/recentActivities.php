@@ -32,12 +32,13 @@
 
     if (count($data) != 0) {
 
-        foreach ($data['dados'] as $key => $part) {
-            $date = explode(' ', $part['value']->post_date);
-            $sort[$key] = strtotime($date[0]);
+        $ord = [];
+
+        foreach ($data['dados'] as $key => $part){
+            $ord[] = strtotime($part['value']->post_date);
         }
 
-        array_multisort($sort, SORT_DESC, $data['dados']);
+        array_multisort($ord, SORT_DESC, $data['dados']);
     }
 
     function currentDate($array)
@@ -59,6 +60,7 @@
     $photoStudentDir =  "/assets/img/studentProfilePhotos/";
 
     ?>
+
 
     <div class="row p-2">
 
