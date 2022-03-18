@@ -1674,6 +1674,10 @@ footer p {
   background-color: #00D8C3;
   font-weight: bold;
   color: white;
+  transition: all 0.5s ease;
+}
+#login .container-login .sidebar-secondary form .form-body button:hover {
+  background-color: #5B5583;
 }
 
 #studentPortal {
@@ -2181,6 +2185,11 @@ html body#studentPortal .panel-side #left-panel #sidebar {
     overflow: hidden;
     width: 50vw;
   }
+  html body#admin .panel-side #left-panel #sidebar .logo img,
+html body#teacherPortal .panel-side #left-panel #sidebar .logo img,
+html body#studentPortal .panel-side #left-panel #sidebar .logo img {
+    width: 120px;
+  }
   html body#admin .panel-side #left-panel #sidebar i.fas,
 html body#teacherPortal .panel-side #left-panel #sidebar i.fas,
 html body#studentPortal .panel-side #left-panel #sidebar i.fas {
@@ -2193,6 +2202,11 @@ html body#studentPortal .panel-side #left-panel #sidebar .sidebar-header span {
     display: block;
     left: 15;
     margin-top: 5px;
+  }
+  html body#admin #pagina .navbarBottomTeacher ul li .foto-perfil,
+html body#teacherPortal #pagina .navbarBottomTeacher ul li .foto-perfil,
+html body#studentPortal #pagina .navbarBottomTeacher ul li .foto-perfil {
+    margin-top: -5px;
   }
   html body#admin #pagina #navbarBottom ul .foto-perfil,
 html body#admin #pagina #navbarBottomStudentPortal ul .foto-perfil,
@@ -2491,9 +2505,15 @@ html body#studentPortal #pagina #navbar-top b i.fas,
 html body#studentPortal #pagina #navbar-top a i.fas {
     font-size: 15px;
   }
+  html body#admin #pagina #navbar-top .logo,
+html body#teacherPortal #pagina #navbar-top .logo,
+html body#studentPortal #pagina #navbar-top .logo {
+    display: block;
+  }
   html body#admin #pagina #navbar-top .logo img,
 html body#teacherPortal #pagina #navbar-top .logo img,
 html body#studentPortal #pagina #navbar-top .logo img {
+    margin-top: -2px;
     width: 100px;
     height: 30px;
   }
@@ -2838,7 +2858,7 @@ html body #navbar-top .foto-perfil {
   border: 1px solid #e5e5e5;
 }
 html body #navbar-top .logo {
-  display: none !important;
+  display: none;
 }
 html body #navbar-top #navbarDropdown {
   color: #506177;
@@ -2861,6 +2881,7 @@ html body #navbarBottomStudentPortal a {
   display: flex;
   align-items: center;
   padding-top: 10px;
+  border-bottom: 3px solid white;
 }
 html body nav#navbarBottom i.fas,
 html body #navbarBottomStudentPortal i.fas {

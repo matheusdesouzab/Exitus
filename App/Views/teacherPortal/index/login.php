@@ -144,7 +144,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                             <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <a class="text-dark btn p-2 w-100" href="/admin">Admin</a>
+                                                <a class="text-dark btn p-2 w-100 border border-info" href="/admin">Admin</a>
 
                                             </div>
 
@@ -164,7 +164,7 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
                                             <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <a class="text-dark w-100 btn p-2" href="/portal-aluno">Aluno</a>
+                                                <a class="text-dark w-100 btn p-2 border border-info" href="/portal-aluno">Aluno</a>
 
                                             </div>
 

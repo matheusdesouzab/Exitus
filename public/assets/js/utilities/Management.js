@@ -131,6 +131,8 @@ class Management {
 
         ).join('').replace(/(\d{3})(\d{3})/, "$1.$2")
 
+        randPassword.length < 5 ? randPassword + '7' : ''
+
         return randPassword
     }
 

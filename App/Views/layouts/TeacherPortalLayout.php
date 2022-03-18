@@ -35,7 +35,8 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 
 				<div class="toast" id="toastContainer">
 					<div class="toast-header text-white">
-						<strong class="text-center mx-auto toast-data"></strong>
+						<strong class="text-center mx-auto"><span class="icon-toast mr-3"><i class="fas text-white"></i></span>
+						<span class="toast-data"></span></strong>
 					</div>
 				</div>
 

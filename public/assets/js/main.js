@@ -7,7 +7,6 @@ const management = new Management()
 
 let botaoClicado = true
 
-
 // Iniciando o tooltip
 
 $(function () {

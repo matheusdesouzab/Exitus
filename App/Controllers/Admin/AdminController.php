@@ -53,7 +53,7 @@ class AdminController extends Action
         $Observation = Container::getModel('TeacherStudent\\Observation');
 
         $this->view->recentlyEnrolledStudents = $Student->recentlyEnrolledStudents(1000);
-        $this->view->studentTotal = count($Student->recentlyEnrolledStudents(1000));
+        $this->view->studentTotal = count($Student->readAll());
         $this->view->studentsAddedToday = $Student->studentsAddedToday();
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->SchoolTermActive = $SchoolTerm->active();

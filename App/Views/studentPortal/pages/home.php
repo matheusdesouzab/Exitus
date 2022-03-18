@@ -855,11 +855,6 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                             <a class="nav-link" aria-expanded="false" href="#" data-toggle="collapse" data-target="#bulletin"><i class="fas fa-book-open"></i> <span>Boletim</span></a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" id="settingsStudentPortal" href="#"><img class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $_SESSION['Student']['profilePhoto'] ?>" alt="" onerror="/assets/img/studentProfilePhotos/foto-vazia.jpg"></a>
-                        </li>
-
-
                     </ul>
 
                 </div>

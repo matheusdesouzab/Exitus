@@ -40,7 +40,7 @@ html body {
         }
 
         .logo{
-            display: none !important;
+            display: none;
         }
 
         #navbarDropdown {
@@ -65,7 +65,8 @@ html body {
             font-family: Bold;
             display: flex;
             align-items: center;
-            padding-top: 10px;         
+            padding-top: 10px; 
+            border-bottom: 3px solid white;        
         }
 
         i.fas {

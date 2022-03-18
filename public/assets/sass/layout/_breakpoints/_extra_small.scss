@@ -77,6 +77,10 @@
                         overflow: hidden;
                         width: 50vw;
 
+                        .logo img{
+                            width: 120px;
+                        }
+
                         i.fas {
                             margin-right: 0px;
                         }
@@ -96,6 +100,16 @@
 
 
             #pagina {
+
+                .navbarBottomTeacher{
+                    ul{
+                        li{
+                            .foto-perfil{
+                                margin-top: -5px;
+                            }
+                        }
+                    }
+                }
 
                 #navbarBottom,
                 #navbarBottomStudentPortal,
@@ -325,7 +339,12 @@
                         }
                     }
 
+                    .logo{
+                        display: block;
+                    }
+
                     .logo img {
+                        margin-top: -2px;
                         width: 100px;
                         height: 30px;
                     }

@@ -141,7 +141,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
 
                                             <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <a class="text-dark btn p-2 w-100" href="/admin">Admin</a>
+                                                <a class="text-dark btn p-2 w-100 border border-info" href="/admin">Admin</a>
 
                                             </div>
 
@@ -151,7 +151,7 @@ isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
 
                                             <div class="col-lg-12 portal portal-disabled p-0 text-center">
 
-                                                <a class="text-dark btn p-2 w-100" href="/portal-docente">Docente</a>
+                                                <a class="text-dark btn p-2 w-100 border border-info" href="/portal-docente">Docente</a>
 
                                             </div>
 
