@@ -24,15 +24,15 @@
 
                 <div class="col-lg-4 d-flex justify-content-end option-icon-group mt-2">
 
-                    <span idElement="#formWarning<?= $warning->id ?>" formGroup="containerListWarning" class="mr-2 edit-data-icon">
+                    <span idElement="#formWarning<?= $warning->id ?>" formGroup="containerListWarning" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
                         <i class="fas fa-edit"></i>
                     </span>
 
-                    <span idElement="#formWarning<?= $warning->id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aviso/atualizar" toastData="Aviso Atualizado" container="containerListWarning" routeList="/admin/gestao/turma/perfil-turma/aviso/listagem" class="mr-2 update-data-icon" routeData="#formWarning<?= $warning->id ?>">
+                    <span idElement="#formWarning<?= $warning->id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aviso/atualizar" toastData="Aviso Atualizado" container="containerListWarning" routeList="/admin/gestao/turma/perfil-turma/aviso/listagem" class="mr-2 update-data-icon" routeData="#formWarning<?= $warning->id ?>" data-toggle="tooltip" data-placement="top" title="Atualizar">
                         <i class="fas fa-check"></i>
                     </span>
 
-                    <span idElement="#formWarning<?= $warning->id ?>" routeDelete="/admin/gestao/turma/perfil-turma/aviso/deletar" toastData="Aviso Deletado" routeData="#formWarning<?= $warning->id ?>" container="containerListWarning" routeList="/admin/gestao/turma/perfil-turma/aviso/listagem" class="mr-2 delete-data-icon">
+                    <span idElement="#formWarning<?= $warning->id ?>" routeDelete="/admin/gestao/turma/perfil-turma/aviso/deletar" toastData="Aviso Deletado" routeData="#formWarning<?= $warning->id ?>" container="containerListWarning" routeList="/admin/gestao/turma/perfil-turma/aviso/listagem" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
                         <i class="fas fa-trash-alt"></i>
                     </span>
 

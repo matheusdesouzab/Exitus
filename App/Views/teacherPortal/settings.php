@@ -60,7 +60,7 @@
 
                         <div class="container-img col-lg-12 d-flex justify-content-center">
 
-                            <img class="mx-auto" src='<?= $this->view->Data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->Data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
+                            <img style="border-radius:50%" class="mx-auto" src='<?= $this->view->Data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->Data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
 
                         </div>
 
@@ -102,9 +102,9 @@
 
                                         <div class="col-4 d-flex justify-content-end">
 
-                                            <span idElement="#adminDate<?= $teacher->id ?>" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                            <span idElement="#adminDate<?= $teacher->id ?>" formGroup="containerSettingsModal" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
 
-                                            <span idElement="#adminDate<?= $teacher->id ?>" routeUpdate="/portal-docente/perfil/atualizar" toastData="Dados atualizados" routeData="#adminDate<?= $teacher->id ?>" container="containerSettingsModal" routeList="/portal-docente/configuracoes" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                            <span idElement="#adminDate<?= $teacher->id ?>" routeUpdate="/portal-docente/perfil/atualizar" toastData="Dados atualizados" routeData="#adminDate<?= $teacher->id ?>" container="containerSettingsModal" routeList="/portal-docente/configuracoes" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="fas fa-check"></i></span>
 
                                         </div>
 

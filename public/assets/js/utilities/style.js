@@ -36,7 +36,7 @@ function getLocation() {
 
         $.ajax({
             type: 'GET',
-            url: `https://viacep.com.br/ws/${zipCode}/json/unicode/`,
+            url: `https://viacep.com.br/ws/${zipCode}/json/`,
             dataType: 'json',
             success: data => {
 
@@ -53,7 +53,7 @@ function getLocation() {
                 address.forEach(element => validation.validateByContent(element))
 
             },
-            error: erro => showToast('CEP inválido', 'bg-danger')
+            error: erro => tools.showToast('CEP inválido', 'bg-danger')
         })
 
     } else {

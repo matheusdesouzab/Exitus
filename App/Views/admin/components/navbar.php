@@ -10,7 +10,7 @@
 
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 			<li class="nav-item">
-				<a class="navbar-brand" id="bars" href="#"><i class="fas fa-bars"></i></a>
+				<a class="navbar-brand" id="bars" href="#" data-toggle="tooltip" data-placement="right" title="Explandir"><i class="fas fa-bars"></i></a>
 			</li>
 		</ul>
 

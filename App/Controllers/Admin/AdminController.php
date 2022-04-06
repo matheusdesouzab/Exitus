@@ -194,7 +194,7 @@ class AdminController extends Action
         $Admin = Container::getModel('Admin\\Admin');
         $Tool = new Tools();
 
-        empty($_GET['oldPhoto']) ? '' : unlink('../public/assets/img/studentProfilePhotos/' . $_POST['oldPhoto']);
+        empty($_GET['oldPhoto']) ? '' : unlink('../public/assets/img/adminProfilePhotos/' . $_POST['oldPhoto']);
 
         $Tool->image($Admin, '../public/assets/img/adminProfilePhotos/');
         $Admin->__set('id', $_POST['id']);

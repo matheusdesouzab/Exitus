@@ -6,11 +6,11 @@
             <H5 discipline class="col-lg-6 pl-0">Registro de falta</H5>
             <div class="col-lg-6 d-flex justify-content-end pr-0">
 
-                <span idElement="#formLack<?= $this->view->lackData[0]->lack_id ?>" class="mr-2 edit-data-icon">
+                <span idElement="#formLack<?= $this->view->lackData[0]->lack_id ?>" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
                     <i class="fas fa-edit"></i>
                 </span>
 
-                <span idElement="#formLack<?= $this->view->lackData[0]->lack_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/faltas/atualizar" toastData="Falta atualizada" container="containerListLack" routeList="/admin/gestao/turma/perfil-turma/aluno/faltas/lista" class="mr-2 update-data-icon" routeData="#formLack<?= $this->view->lackData[0]->lack_id ?>">
+                <span idElement="#formLack<?= $this->view->lackData[0]->lack_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/faltas/atualizar" toastData="Falta atualizada" container="containerListLack" routeList="/admin/gestao/turma/perfil-turma/aluno/faltas/lista" class="mr-2 update-data-icon" routeData="#formLack<?= $this->view->lackData[0]->lack_id ?>" data-toggle="tooltip" data-placement="right" title="Atualizar">
                     <i class="fas fa-check"></i>
                 </span>
 

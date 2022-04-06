@@ -1,6 +1,6 @@
 <nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-10 ml-auto shadow-sm navbar-expand">
 
-	<a class="navbar-brand" id="bars" href="#"><i class="fas fa-bars"></i></a>
+	<a class="navbar-brand" id="bars" href="#" data-toggle="tooltip" data-placement="right" title="Explandir"><i class="fas fa-bars"></i></a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 		<i class="fas fa-bars"></i>

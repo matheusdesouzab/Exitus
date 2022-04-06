@@ -164,7 +164,9 @@ class Student extends People
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
-            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1"
+            WHERE situacao_periodo_letivo.id_situacao_periodo_letivo = 1
+
+            ORDER BY aluno.nome_aluno"
 
         );
     }
@@ -213,7 +215,9 @@ class Student extends People
             data_matricula_inicial AS initial_enrollment_date,
             situacao_geral_aluno.situacao_geral AS general_situation ,
             situacao_geral_aluno.id_situacao_geral AS general_situation_id ,
-            hierarquia_funcao.hierarquia_funcao AS hierarchy_function 
+            situacao_aluno_ano_letivo.situacao_aluno as situation ,
+            hierarquia_funcao.hierarquia_funcao AS hierarchy_function ,
+            matricula.id_matricula AS enrollment_id
             
             FROM aluno 
 
@@ -228,6 +232,7 @@ class Student extends People
             INNER JOIN turma ON(matricula.fk_id_turma_matricula = turma.id_turma) 
             INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo)
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
+            INNER JOIN situacao_aluno_ano_letivo ON(matricula.fk_id_situacao_aluno = situacao_aluno_ano_letivo.id_situacao_aluno) 
             
             WHERE matricula.id_matricula = :fk_id_enrollment_id 
             
@@ -311,6 +316,8 @@ class Student extends People
             AND
 
             aluno.nome_aluno LIKE :studentName 
+
+            ORDER BY aluno.nome_aluno
         
         ";
 
@@ -579,7 +586,9 @@ class Student extends People
             INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
 
-            WHERE turma.id_turma = :classId      
+            WHERE turma.id_turma = :classId  
+
+            ORDER BY aluno.nome_aluno ASC    
             
         ";
 

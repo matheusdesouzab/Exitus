@@ -12,7 +12,7 @@
 
                         <?php $photoDir =  "/assets/img/adminProfilePhotos/" ?>
 
-                        <img class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
+                        <img class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" <?= $this->view->modalType != 'data-and-config' ? 'data-target="#profilePhotoModal"' : '' ?> >
 
                         <div class="col-lg-10 mx-auto main-sheet">
                             <div class="row p-3">
@@ -71,7 +71,7 @@
 
                         <div class="container-img col-lg-12 d-flex justify-content-center">
 
-                            <img class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
+                            <img data-toggle="tooltip" data-placement="left" title="Para editar a foto de perfil do administrador, clique na área da imagem" class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' style="border-radius: 50%; cursor: pointer">
 
                         </div>
 
@@ -125,9 +125,9 @@
 
                                     <div class="col-4 d-flex justify-content-end">
 
-                                        <span idElement="#formSettings" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                        <span idElement="#formSettings" formGroup="containerSettingsModal" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
 
-                                        <span idElement="#formSettings" routeUpdate="/admin/configuracoes/atualizar" toastData="Configurações atualizadas" routeData="#formSettings" container="containerSettingsModal" routeList="/admin/configuracoes" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                        <span idElement="#formSettings" routeUpdate="/admin/configuracoes/atualizar" toastData="Configurações atualizadas" routeData="#formSettings" container="containerSettingsModal" routeList="/admin/configuracoes" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="fas fa-check"></i></span>
 
                                     </div>
 
@@ -209,9 +209,9 @@
 
                                         <div class="col-4 d-flex justify-content-end">
 
-                                            <span idElement="#adminDate<?= $admin->id ?>" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                            <span idElement="#adminDate<?= $admin->id ?>" formGroup="containerSettingsModal" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
 
-                                            <span idElement="#adminDate<?= $admin->id ?>" routeUpdate="/admin/configuracoes/perfil/atualizar" toastData="Dados atualizados" routeData="#adminDate<?= $admin->id ?>" container="containerSettingsModal" routeList="/admin/configuracoes" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                            <span idElement="#adminDate<?= $admin->id ?>" routeUpdate="/admin/configuracoes/perfil/atualizar" toastData="Dados atualizados" routeData="#adminDate<?= $admin->id ?>" container="containerSettingsModal" routeList="/admin/configuracoes" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="fas fa-check"></i></span>
 
                                         </div>
 

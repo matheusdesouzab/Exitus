@@ -28,15 +28,15 @@
 
                 <div class="col-lg-4 d-flex justify-content-end option-icon-group mt-2">
 
-                    <span idElement="#formObservation<?= $observation->observation_id ?>" formGroup="containerObservation" class="mr-2 edit-data-icon">
+                    <span idElement="#formObservation<?= $observation->observation_id ?>" formGroup="containerObservation" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
                         <i class="fas fa-edit"></i>
                     </span>
 
-                    <span idElement="#formObservation<?= $observation->observation_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/obervacoes/atualizar" toastData="Observação Atualizada" container="containerObservation" routeList="/admin/gestao/turma/perfil-turma/aluno/obervacoes/lista" class="mr-2 update-data-icon" routeData="#formObservation<?= $observation->observation_id ?>">
+                    <span idElement="#formObservation<?= $observation->observation_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/obervacoes/atualizar" toastData="Observação Atualizada" container="containerObservation" routeList="/admin/gestao/turma/perfil-turma/aluno/obervacoes/lista" class="mr-2 update-data-icon" routeData="#formObservation<?= $observation->observation_id ?>" data-toggle="tooltip" data-placement="bottom" title="Atualizar">
                         <i class="fas fa-check"></i>
                     </span>
 
-                    <span idElement="#formObservation<?= $observation->observation_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/aluno/obervacoes/deletar" toastData="Observação Deletada" routeData="#formObservation<?= $observation->observation_id ?>" container="containerObservation" routeList="/admin/gestao/turma/perfil-turma/aluno/obervacoes/lista" class="mr-2 delete-data-icon">
+                    <span idElement="#formObservation<?= $observation->observation_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/aluno/obervacoes/deletar" toastData="Observação Deletada" routeData="#formObservation<?= $observation->observation_id ?>" container="containerObservation" routeList="/admin/gestao/turma/perfil-turma/aluno/obervacoes/lista" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
                         <i class="fas fa-trash-alt"></i>
                     </span>
 

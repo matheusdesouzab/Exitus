@@ -64,7 +64,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                             
                             <li class="nav-item nav-fixed d-none d-md-block d-flex align-items-center">
                                 <a class="nav-link" href="#">
-                                    <img class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $photo ?>">
+                                    <img data-toggle="tooltip" data-placement="bottom" title="Ver perfil do aluno" class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $photo ?>">
                                 </a>
                             </li>
 
@@ -267,7 +267,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                             <h5 class="col-lg-8">Rematrícula</h5>
 
-                                                            <div class="col-lg-4 d-flex justify-content-end align-items-center"><i class="fas fa-paperclip text-secondary"></i></div>
+                                                            <div class="col-lg-4 d-flex justify-content-end align-items-center"><i class="fas fa-paperclip text-secondary" data-toggle="tooltip" data-placement="left" title="Fixado"></i></div>
 
                                                         </div>
 
@@ -686,7 +686,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                                                 <label for="">&nbsp;</label>
 
                                                                 <div>
-                                                                    <a class="btn btn-light w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-filter"></i></a>
+                                                                    <a class="btn btn-light w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion" data-toggle="tooltip" data-placement="top" title="Busca avançada"><i class="fas fa-filter"></i></a>
                                                                 </div>
                                                             </div>
 

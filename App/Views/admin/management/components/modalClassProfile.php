@@ -739,7 +739,7 @@
 
                                 <div class="col-sm-6 d-flex justify-content-end">
 
-                                    <a id="buttonUpdateClass" class="btn btn-success text-center disabled" href="#"><i class="fas fa-check"></i></a>
+                                    <a id="buttonUpdateClass" class="btn btn-success text-center disabled" href="#" data-toggle="tooltip" data-placement="top" title="Atualizar dados da turma"><i class="fas fa-check"></i></a>
 
                                 </div>
 

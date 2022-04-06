@@ -6,15 +6,15 @@
             <H5 discipline class="col-lg-6 pl-0"><?= $this->view->noteData[0]->exam_description ?></H5>
             <div class="col-lg-6 d-flex justify-content-end pr-0">
 
-                <span idElement="#formNote<?= $this->view->noteData[0]->note_id ?>" class="mr-2 edit-data-icon">
+                <span idElement="#formNote<?= $this->view->noteData[0]->note_id ?>" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar">
                     <i class="fas fa-edit"></i>
                 </span>
 
-                <span idElement="#formNote<?= $this->view->noteData[0]->note_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/atualizar" toastData="Nota atualizada" container="containerListNote" routeList="/admin/gestao/turma/perfil-turma/aluno/lista-notas" class="mr-2 update-data-icon" routeData="#formNote<?= $this->view->noteData[0]->note_id ?>">
+                <span idElement="#formNote<?= $this->view->noteData[0]->note_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/atualizar" toastData="Nota atualizada" container="containerListNote" routeList="/admin/gestao/turma/perfil-turma/aluno/lista-notas" class="mr-2 update-data-icon" routeData="#formNote<?= $this->view->noteData[0]->note_id ?>" data-toggle="tooltip" data-placement="top" title="Atualizar">
                     <i class="fas fa-check"></i>
                 </span>
 
-                <span idElement="#formNote<?= $this->view->noteData[0]->note_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/deletar" toastData="Avaliação deletada" routeData="#formNote<?= $this->view->noteData[0]->note_id ?>" container="containerListNote" routeList="/admin/gestao/turma/perfil-turma/aluno/lista-notas" class="mr-2 delete-data-icon">
+                <span idElement="#formNote<?= $this->view->noteData[0]->note_id ?>" routeDelete="/admin/gestao/turma/perfil-turma/aluno/avaliacoes/dados/deletar" toastData="Avaliação deletada" routeData="#formNote<?= $this->view->noteData[0]->note_id ?>" container="containerListNote" routeList="/admin/gestao/turma/perfil-turma/aluno/lista-notas" class="mr-2 delete-data-icon" data-toggle="tooltip" data-placement="right" title="Deletar">
                     <i class="fas fa-trash-alt"></i>
                 </span>
 

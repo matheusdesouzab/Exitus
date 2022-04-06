@@ -14,9 +14,7 @@
 
                         <div class="row">
 
-                            <img class="mx-auto" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
-
-                           
+                            <img class="mx-auto" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">               
 
                             <div class="col-lg-10 mx-auto main-sheet d-none d-sm-block">
                                 <div class="row p-3">
@@ -308,9 +306,9 @@
 
                                                     <div class="row col-lg-7 d-flex justify-content-end">
 
-                                                        <span idElement="#formSettingsStudent" formGroup="containerSettingsModal" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                        <span idElement="#formSettingsStudent" formGroup="containerSettingsModal" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
 
-                                                        <span id="updateStudentPortalData" class=" update-data-icon"><i class="fas fa-check"></i></span>
+                                                        <span id="updateStudentPortalData" class=" update-data-icon" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="fas fa-check"></i></span>
 
                                                     </div>
 

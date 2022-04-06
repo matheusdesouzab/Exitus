@@ -18,11 +18,11 @@ if (count($this->view->disciplineAverageList) >= 1) {
 
                 <div class="col-lg-4 d-flex justify-content-end mt-2">
 
-                    <span idElement="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" formGroup="containerDisciplineAverageList" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                    <span idElement="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" formGroup="containerDisciplineAverageList" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
 
-                    <span idElement="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/medias-finais/atualizar" toastData="Média atualizada" container="containerDisciplineAverageList" routeList="/admin/gestao/turma/perfil-turma/aluno/medias-finais/lista" routeData="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                    <span idElement="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" routeUpdate="/admin/gestao/turma/perfil-turma/aluno/medias-finais/atualizar" toastData="Média atualizada" container="containerDisciplineAverageList" routeList="/admin/gestao/turma/perfil-turma/aluno/medias-finais/lista" routeData="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="bottom" title="Atualizar"><i class="fas fa-check"></i></span>
 
-                    <span form="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" class="mr-2 refesh-data-icon"><i class="fas fa-sync-alt"></i></span>
+                    <span form="#formDisciplineAverage<?= $discipline->discipline_avarage_id ?>" class="mr-2 refesh-data-icon" data-toggle="tooltip" data-placement="right" title="Ver dados atuais"><i class="fas fa-sync-alt"></i></span>
 
                 </div>
 

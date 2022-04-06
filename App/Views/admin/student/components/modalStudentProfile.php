@@ -30,7 +30,7 @@
 
                                     <?php } else { ?>
 
-                                        <span class="col-lg-12 d-none d-md-block"><?= $student->general_situation ?></span>
+                                        <span class="col-lg-12 d-none d-md-block"><?= $student->situation ?></span>
 
                                     <?php } ?>
 
@@ -121,7 +121,7 @@
 
                                 <div class="col-lg-12 d-flex justify-content-center">
 
-                                    <img class="mx-auto" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
+                                    <img data-toggle="tooltip" data-placement="left" title="Para editar a foto de perfil do aluno, clique na área da imagem" class="mx-auto" src='<?= $student->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $student->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" '>
 
                                 </div>
 
@@ -200,9 +200,9 @@
 
                                             <div class="col-4 d-flex justify-content-end">
 
-                                                <span idElement="#studentModal<?= $student->id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                <span idElement="#studentModal<?= $student->id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
 
-                                                <span idElement="#studentModal<?= $student->id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" routeData="#studentModal<?= $student->id ?>" container="containerStudentProfileModal" routeList="/admin/aluno/lista/perfil-aluno" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                <span idElement="#studentModal<?= $student->id ?>" routeUpdate="/admin/aluno/lista/perfil-aluno/atualizar" toastData="Dados atualizados" routeData="#studentModal<?= $student->id ?>" container="containerStudentProfileModal" routeList="/admin/aluno/lista/perfil-aluno" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="bottom" title="Atualizar"><i class="fas fa-check"></i></span>
 
                                             </div>
 
@@ -738,7 +738,7 @@
                                 <div class="form-row mt-3">
 
                                     <div class="form-group col-lg-12">
-                                        <label for="">Descrição da observação</label>
+                                        <label for="">Descrição da observação:</label>
                                         <textarea class="form-control" name="description" id="description" rows="3"></textarea>
                                     </div>
 
@@ -1146,7 +1146,7 @@
 
                                         <div class="col-4 d-flex justify-content-end">
 
-                                            <span id="activateButtonSwitchClasses" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                            <span id="activateButtonSwitchClasses" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Ativar botão de Realizar troca"><i class="fas fa-edit"></i></span>
 
                                         </div>
 
