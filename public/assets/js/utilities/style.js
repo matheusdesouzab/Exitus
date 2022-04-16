@@ -1,3 +1,6 @@
+
+// Função para explandir e diminuir a tela principal do Sistema 
+
 function sideState() {
 
     let $sidebarLogo = $('#left-panel .logo img')
@@ -7,7 +10,7 @@ function sideState() {
     setTimeout(() => {
 
         $('body').hasClass('sidebar-responsive') ?
-        $sidebarLogo.attr('src', '/assets/img/logo-components/logo.png') : $sidebarLogo.attr('src', '/assets/img/logo-components/logo-completa-branca.png') 
+            $sidebarLogo.attr('src', '/assets/img/logo-components/logo.png') : $sidebarLogo.attr('src', '/assets/img/logo-components/logo-completa-branca.png')
 
     }, 100)
 
@@ -23,7 +26,7 @@ function sideState() {
 
 }
 
-
+// Função usada para o preenchimento de forma automática dos campos de localidades  
 
 function getLocation() {
 
@@ -64,6 +67,7 @@ function getLocation() {
     }
 }
 
+// Essa função torna ativo um link da barra de navegação lateral, de modo que o usuário passe a saber o local onde ele está na aplicação 
 
 function activeLinks(link) {
 

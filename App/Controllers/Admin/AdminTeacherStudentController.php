@@ -550,13 +550,14 @@ class AdminTeacherStudentController extends Action
 
         $ClassDiscipline->__set("fk_id_class",$_GET['classId']);
         $Classe->__set("classId",$_GET['classId']);
+        $Unity->__set('unityId', 0);
 
         $StudentEnrollment->__set("studentEnrollmentId", $_GET['enrollmentId']);
 
         $this->view->listStudent = $StudentEnrollment->dataGeneral();
         $this->view->listNote = isset($_SESSION['Teacher']['id']) ? $Note->readNoteByIdTeacher($Teacher) : $Note->readNoteByClassId($Classe);
         $this->view->linkedDisciplines = isset($_SESSION['Teacher']['id']) ? $ClassDiscipline->teacherLinkedDisciplines() : $ClassDiscipline->classLinkedSubjects();
-        $this->view->unity = $Unity->readOpenUnits();
+        $this->view->unity = $Unity->searchSpecificUniy();
         $this->view->listExam = $Exam->readExamByIdClass($Classe);
         $this->view->noteStatus = 0;
         $this->view->orderBy = 'alphabetical';

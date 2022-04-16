@@ -6,5 +6,4 @@
 
 	$route = new \App\Route;
 	
-
 ?>

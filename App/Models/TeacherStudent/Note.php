@@ -101,7 +101,7 @@ class Note extends Model
             
             WHERE matricula.id_matricula = :fk_id_student_enrollment 
 
-            ORDER BY nota_avaliacao.valor_nota DESC
+            ORDER BY avaliacoes.descricao_avaliacao ASC
             
         ";
 

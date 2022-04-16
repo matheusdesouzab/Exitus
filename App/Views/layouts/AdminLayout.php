@@ -79,8 +79,6 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
 <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
-<script src="/node_modules/jquery.countdown-2.2.0/jquery.countdown.js"></script>
-
 <script src="/assets/js/utilities/Tools.js"></script>
 
 <script src="/assets/js/utilities/Validation.js"></script>
@@ -96,8 +94,6 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 <script src="/assets/js/utilities/chartJs/config.js"></script> 
 
 <script src="/assets/js/utilities/chartJs/admin.js"></script> 
-
-<script src="https://unpkg.com/jspdf-autotable@3.5.23/dist/jspdf.plugin.autotable.js"></script>
 
 <script src="/assets/js/main.js"></script>
 

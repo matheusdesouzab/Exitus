@@ -1,5 +1,6 @@
 class Tools {
 
+    // Torna ativo os campos de input de um elemento 
 
     editElement(activeForm, formGroup = 'X') {
 
@@ -12,6 +13,7 @@ class Tools {
 
     }
 
+    // Carregar prévia da imagem
 
     imagePreview(input, img) {
 
@@ -27,6 +29,7 @@ class Tools {
         }
     }
 
+    // Arredondar valor
 
     round(num, places) {
 
@@ -48,15 +51,17 @@ class Tools {
         }
     }
 
+    // Carregar Toast
+
     showToast(description, background, delay = 3000) {
 
         $('.icon-toast i').removeClass('fa-edit fa-check-circle fa-trash-alt fa-info-circle')
 
-        if(background == 'bg-success') $('.icon-toast i').addClass('fa-check-circle')
-        if(background == 'bg-primary') $('.icon-toast i').addClass('fa-edit')
-        if(background == 'bg-danger') $('.icon-toast i').addClass('fa-trash-alt')
-        if(background == 'bg-info') $('.icon-toast i').addClass('fa-info-circle')
-         
+        if (background == 'bg-success') $('.icon-toast i').addClass('fa-check-circle')
+        if (background == 'bg-primary') $('.icon-toast i').addClass('fa-edit')
+        if (background == 'bg-danger') $('.icon-toast i').addClass('fa-trash-alt')
+        if (background == 'bg-info') $('.icon-toast i').addClass('fa-info-circle')
+
 
         $('.toast-data').text(description)
 
@@ -67,6 +72,8 @@ class Tools {
         }).toast('show')
 
     }
+
+    // Caso nenhuma data de início ou de fim seja preenchida na criação de um ano letivo, essa função vai definir de forma automática 
 
     automaticDate() {
 

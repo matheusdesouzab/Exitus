@@ -15,7 +15,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
     <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/stylesheet.css">
-    <link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo-components/logo.png"/>
+    <link rel="shortcut icon" type="imagem/x-icon" href="/assets/img/logo-components/logo.png" />
 </head>
 
 <body id="studentPortal">
@@ -61,7 +61,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                         <ul class="navbar-nav ml-auto d-flex align-items-center">
 
                             <?php $photo = empty($_SESSION['Student']['profilePhoto']) ? 'foto-vazia.jpg' : $_SESSION['Student']['profilePhoto'] ?>
-                            
+
                             <li class="nav-item nav-fixed d-none d-md-block d-flex align-items-center">
                                 <a class="nav-link" href="#">
                                     <img data-toggle="tooltip" data-placement="bottom" title="Ver perfil do aluno" class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $photo ?>">
@@ -498,12 +498,12 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                         <input id="courseModality" value="<?= $this->view->studentDataGeneral[0]->course_modality ?>" type="hidden">
                         <input type="hidden" id="schoolYear" value="<?= $this->view->studentDataGeneral[0]->school_year ?>">
                         <input type="hidden" id="numberClassroom" value="<?= $this->view->studentDataGeneral[0]->number_classroom ?>">
-                        
+
                         <input type="hidden" id="classData" value="<?= $this->view->studentDataGeneral[0]->acronym_series ?> <?= $this->view->studentDataGeneral[0]->ballot ?> - <?= $this->view->studentDataGeneral[0]->course ?> - <?= $this->view->studentDataGeneral[0]->shift ?>">
-                        
+
                         <?php $modality = $this->view->studentDataGeneral[0]->course_modality_id == 1 ? '' : 'Técnico' ?>
 
-                        <input type="hidden" id="series" value="<?=  $this->view->studentDataGeneral[0]->acronym_series ?>ª - <?= $modality ?> em <?= $this->view->studentDataGeneral[0]->course_name ?> ">
+                        <input type="hidden" id="series" value="<?= $this->view->studentDataGeneral[0]->acronym_series ?>ª - <?= $modality ?> em <?= $this->view->studentDataGeneral[0]->course_name ?> ">
 
                     </div>
 
@@ -656,9 +656,9 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                     <option value="0">Todas</option>
 
-                                                                    <?php foreach ($this->view->unity as $key => $unity) { ?>
+                                                                        <?php foreach ($this->view->unity as $key => $unity) { ?>
 
-                                                                        <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+                                                                            <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
 
                                                                     <?php } ?>
 
@@ -781,9 +781,9 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                                                                     <option value="0">Todas</option>
 
-                                                                    <?php foreach ($this->view->unity as $key => $unity) { ?>
+                                                                        <?php foreach ($this->view->unity as $key => $unity) { ?>
 
-                                                                        <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
+                                                                            <option value="<?= $unity->option_value ?>"><?= $unity->option_text ?></option>
 
                                                                     <?php } ?>
 

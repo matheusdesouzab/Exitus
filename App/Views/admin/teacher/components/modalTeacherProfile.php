@@ -131,9 +131,9 @@
 
                                             <div class="col-4 d-flex justify-content-end">
 
-                                                <span idElement="#teacherModal<?= $teacher->id ?>" formGroup="containerListTeacher" class="mr-2 edit-data-icon"><i class="fas fa-edit"></i></span>
+                                                <span idElement="#teacherModal<?= $teacher->id ?>" formGroup="containerListTeacher" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
 
-                                                <span idElement="#teacherModal<?= $teacher->id ?>" routeUpdate="/admin/professor/lista/perfil-professor/atualizar" toastData="Dados atualizados" routeData="#teacherModal<?= $teacher->id ?>" container="containerTeacherProfileModal" routeList="/admin/professor/lista/perfil-professor" class="mr-2 update-data-icon"><i class="fas fa-check"></i></span>
+                                                <span idElement="#teacherModal<?= $teacher->id ?>" routeUpdate="/admin/professor/lista/perfil-professor/atualizar" toastData="Dados atualizados" routeData="#teacherModal<?= $teacher->id ?>" container="containerTeacherProfileModal" routeList="/admin/professor/lista/perfil-professor" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="fas fa-check"></i></span>
 
                                             </div>
 

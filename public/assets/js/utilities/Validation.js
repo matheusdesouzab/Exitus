@@ -1,5 +1,7 @@
 class Validation {
 
+    // Validar o CPF informado
+
     cpfAlreadyInformed() {
 
         let state = false
@@ -19,6 +21,7 @@ class Validation {
         return state
     }
 
+    // Verificar o status do CPF
 
     cpfState(cpf) {
 
@@ -50,6 +53,7 @@ class Validation {
 
     }
 
+    // Validar pelo total de caracteres 
 
     validateBySize(element, size, classField, elementInfo) {
 
@@ -69,6 +73,7 @@ class Validation {
 
     }
 
+    // Função para verificar se o campo possui um valor, caso sim, ele recebe a .class 'is-valid'
 
     validateByContent(element) {
 
@@ -78,6 +83,7 @@ class Validation {
 
     }
 
+    // Função para verificar se a imagem recebida é valida
 
     validateImage() {
 
@@ -113,6 +119,7 @@ class Validation {
 
     }
 
+    // Função para verificar se todos os campos do formulário foram preenchidos
 
     checkAllFields(form, totalFields, button) {
 
@@ -151,6 +158,7 @@ class Validation {
 
     }
 
+    // Função para verificar se o nome da avaliação já foi informada em outra na mesma unidade da disciplina
 
     checkRedundantName(route, form, button) {
 
@@ -181,6 +189,7 @@ class Validation {
 
     }
 
+    // Função para verificar se o formato do e-mail é válido
 
     checkEmail(email) {
 

@@ -4,6 +4,7 @@ $students = [];
 $clasSubjects = [];
 $exams = [];
 
+
 if(count($this->view->listStudent) >= 1){
 
 foreach ($this->view->listStudent as $key => $value) {
@@ -25,6 +26,7 @@ foreach ($this->view->listStudent as $key => $value) {
         }
     }
 }
+
 
 
 foreach ($this->view->linkedDisciplines as $key => $discipline) {

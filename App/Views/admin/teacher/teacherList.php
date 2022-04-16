@@ -31,33 +31,11 @@
                             </div>
 
 
-                            <!-- <div class="form-group col-2 col-sm-1">
-                                <label for="">&nbsp;</label><br>
-                                <div id="heading-busca-avancada">
-                                    <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
-                                </div>
-                            </div> -->
-
-                        </div>
-
-                        <div id="activate-advanced-search-accordion" class="collapse" data-parent="#advanced-search-accordion">
-
-                          <!--   <div class="form-row mx-auto">
-
-                                <div class="form-group col-6 col-lg-4">
-                                    <label for="">PcD:</label>
-                                    <select class="form-control custom-select" name="" id="">
-                                        <option value="">Não</option>
-                                        <option value="">Sim</option>
-                                    </select>
-                                </div>
-
-                            </div> -->
                         </div>
 
                     </form>
 
-                    <hr class="">
+                    <hr class="col-lg-11 mx-auto">
 
                     <div class="table-responsive">
 

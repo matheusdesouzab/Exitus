@@ -658,7 +658,7 @@ html > .sidebar-responsive #left-panel #sidebar .sidebar-header {
   display: none;
 }
 html > .sidebar-responsive #left-panel #sidebar .logo img {
-  max-width: 50px;
+  width: 40px;
 }
 html > .sidebar-responsive #left-panel #sidebar .sidebar-lists i.fas, html > .sidebar-responsive #left-panel #sidebar .sidebar-lists i.bi {
   color: #C4C4C4;
@@ -1169,7 +1169,7 @@ footer p {
 #admin #pagina section#home .recently-enrolled,
 #teacherPortal #pagina section#home .recently-enrolled,
 #studentPortal #pagina section#home .recently-enrolled {
-  height: 60vh;
+  height: 61vh;
   overflow-y: auto;
   overflow-x: hidden;
 }

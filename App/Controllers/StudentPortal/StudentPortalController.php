@@ -81,9 +81,9 @@ class StudentPortalController extends Action
         $Classe->__set('classId', $_SESSION['Student']['classId']);
         $ClassDiscipline->__set("fk_id_class", $_SESSION['Student']['classId']);
         $Exam->__set("fk_id_class", $_SESSION['Student']['classId']);
+        $Unity->__set('unityId', 0);
 
         $this->view->listWarning = $ClasseWarning->readByIdClasse($Classe);
-        $this->view->unity = $Unity->readOpenUnits();
         $this->view->listNote = $Note->readByIdStudent();
         $this->view->listObservation = $Observation->readByIdStudent();
         $this->view->lackList = $Lack->readByIdStudent();
@@ -100,6 +100,7 @@ class StudentPortalController extends Action
         $this->view->typeTeacherList = 'class';
         $this->view->listTeacher = $ClassDiscipline->listTeachersClass();
         $this->view->linkedDisciplines = $ClassDiscipline->classLinkedSubjects();
+        $this->view->unity = ( $this->view->schoolTermActive[0]->option_value == $this->view->studentDataGeneral[0]->school_term_id ? $Unity->readOpenUnits() : $Unity->searchSpecificUniy() );
 
         $this->render("pages/home", "SimpleLayout", "studentPortal");
     }
