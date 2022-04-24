@@ -33,7 +33,7 @@ INSERT INTO endereco (cep , bairro , endereco , municipio , uf) VALUES (48601340
 
 INSERT INTO situacao_conta (situacao_conta) VALUES ('Ativa'),('Desativada');
 
-INSERT INTO administrador(codigo_acesso , cpf_administrador , data_nascimento_administrador , email_administrador , nacionalidade_administrador , naturalidade_administrador , nome_administrador , foto_perfil_administrador , fk_id_tipo_sanguineo_administrador , fk_id_sexo_administrador , fk_id_pcd_administrador , fk_id_telefone_administrador , fk_id_endereco_administrador , fk_id_administrador_hierarquia_funcao, fk_id_situacao_conta_administrador) VALUES (804403 , 73893245723 , '2001-10-09' , 'usuariopadrao@gmail.com' , 'Brasileiro' , 'Paulo Afonso' , 'Usuário Padrão' , 'foto-vazia.jpg' , 1 , 1 , 1 , 1 , 1 , 1 , 1);
+INSERT INTO administrador(codigo_acesso , cpf_administrador , data_nascimento_administrador , email_administrador , nacionalidade_administrador , naturalidade_administrador , nome_administrador , foto_perfil_administrador , fk_id_tipo_sanguineo_administrador , fk_id_sexo_administrador , fk_id_pcd_administrador , fk_id_telefone_administrador , fk_id_endereco_administrador , fk_id_administrador_hierarquia_funcao, fk_id_situacao_conta_administrador) VALUES (867532 , 73893245723 , '2001-10-09' , 'usuariopadrao@gmail.com' , 'Brasileiro' , 'Paulo Afonso' , 'Usuário Padrão' , 'foto-vazia.jpg' , 1 , 1 , 1 , 1 , 1 , 1 , 1);
 
 INSERT INTO legenda(legenda) VALUES ('Aprovado', 'AP'),('Reprovado', 'RP'),('Regime de Progressão Parcial', 'RPP'),('Reprovado por Falta', 'RPF'),('Recuperação Final', 'RF');
 
