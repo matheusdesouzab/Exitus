@@ -32,7 +32,7 @@ CREATE DATABASE Exitus;
 
 > Obs: Lembrando que caso você deseje criar o banco de dados pelo Workbench, ou utilizar um nome diferente no BD só e preciso mudar as pré-definições do aqruivo "Connection.php".
 
-Após a criação do banco de dados e necessario criar também as tabelas, para isso copie o conjunto de código abaixo no seu administrador de banco de dados e rode.
+Após a criação do banco de dados e necessário criar também as tabelas, para isso copie o conjunto de código abaixo no seu administrador de banco de dados e execute.
 
 ```sh
 -- phpMyAdmin SQL Dump
@@ -1362,13 +1362,15 @@ Agora você já pode acessar a aplicação atráves do seu navegador com a url l
 http://localhost:8000
 ```
 
-O primeiro portal que você deve acessar e o portal do admin, nele você irá configurar a sua escolar e poderá acessar ao resto posteriomente. O usuário e o código de acesso dele estão abaixo:
+O primeiro portal que você deve acessar e o portal do admin, nele você irá configurar a sua escolar. O usuário e o código de acesso para o primeiro acesso estão abaixo:
 
 | Usuário | Código de acesso |
 | ------ | ------ |
 | Usuário Padrão | 867532 |
 
-Caso você deseje conhecer como funciona cada componente do sistema dentro da pasta de download há o PDF da documentação do TCC da nossa equipe, nele esta a explição de cada componente do Exitus.
+Caso você deseje conhecer como funciona cada componente do sistema dentro da pasta de download há o PDF da documentação do TCC da nossa equipe, nele esta há a explição de cada componente do Exitus.
+
+O Exitus foi desenvolvido por Everton Andrade, João Pedro e Matheus de Souza.
 
 
 
