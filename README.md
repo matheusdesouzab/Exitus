@@ -1370,7 +1370,9 @@ O primeiro portal que você deve acessar e o portal do admin, nele você irá co
 
 Caso você deseje conhecer como funciona cada componente do sistema dentro da pasta de download há o PDF da documentação do TCC da nossa equipe, nele esta há a explição de cada componente do Exitus.
 
-O Exitus foi desenvolvido por Everton Andrade, João Pedro e Matheus de Souza.
+> Obs: Na pasta img dentro de public/assets existem três pastas, são elas: adminProfilePhotos | teacherProfilePhotos | studentProfilePhotos . Quando você baixar o projeto você irá notar que já existem algumas fotos dentro dessa pasta, então elimine as mesmas, menos a "foto-vazia.jpg".  
+
+O Exitus foi desenvolvido por Everton Andrade, João Pedro e Matheus de Souza, Exs alunos do CETEPI-I da cidade de Paulo Afonso. 
 
 
 
