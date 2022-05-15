@@ -308,7 +308,10 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
                                 </div>
-                                <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $student->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                                <input id="accessCode" name="accessCode" type="password" disabled class="form-control" value="<?= $student->access_code ?>" maxlength="30" aria-label="Username" aria-describedby="addon-wrapping">
+                                <div class="input-group-append">
+                                <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
+                                </div>
                             </div>
 
                             <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">

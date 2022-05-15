@@ -22,7 +22,7 @@ class Tools
 	public function formatElement($value)
 	{
 
-		return preg_replace('/[^0-9]/', '', $value);
+		return  preg_replace("/[^a-zA-Z0-9\s]/", "", $value);
 	}
 
 

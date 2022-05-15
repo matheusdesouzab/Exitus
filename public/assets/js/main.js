@@ -86,8 +86,8 @@ $(document).on("click", "#profileClassModal #buttonAddClassDiscipline", function
 
     application.loadOptions([
 
-        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "", "#formClassId", "Nenhuma disciplina vincula a turma"] ,
-        
+        ["disciplineClass", "/admin/gestao/turma/perfil-turma/turma-disciplina/disciplinas-adicionadas", "clean", "", "#formClassId", "Nenhuma disciplina vincula a turma"],
+
         ["disciplineClassAdd", "/admin/gestao/turma/perfil-turma/turma-disciplina/select-disciplinas", "clean", "#addClassDiscipline", "#formClassId", "Todas disciplinas já adicionadas", "#buttonAddClassDiscipline"]
 
     ])
@@ -151,7 +151,7 @@ $(document).on("click", "#buttonAddRematrung", function (e) {
 
 
 $("#addTeacher").submit(function (e) {
-    if(botaoClicado){
+    if (botaoClicado) {
         application.addMultipleParts(this, "/admin/professor/cadastro/inserir")
         botaoClicado = false
     }
@@ -159,7 +159,7 @@ $("#addTeacher").submit(function (e) {
 
 
 $("#student-registration #addStudent").submit(function (e) {
-    if(botaoClicado){
+    if (botaoClicado) {
         application.addMultipleParts(this, "/admin/aluno/cadastro/inserir")
         botaoClicado = false
     }
@@ -478,7 +478,6 @@ $(document).on("click", "#profileClassModal #students-list tbody tr", function (
 $('#settingsModal , #profileStudentModal').on('show.bs.modal', function (e) {
     $('#cpf').mask("000.000.000-00")
     $('#zipCode').mask("00000-000")
-    $('#accessCode').mask("000.000")
     $('#telephoneNumber').mask(("(00) 00000-0000"))
     $('#totalLack').mask(("00"))
 })
@@ -705,9 +704,21 @@ $(document).on("keypress", "#totalLack", e => $(e.target).mask(("00")))
 
 $("input[name='acronym'] , input[name='uf']").on("keyup", e => e.target.value = e.target.value.toUpperCase())
 
-$("#accessCode").on("keypress", e => $(e.target).mask("000.000"))
+//$("#accessCode").on("keypress", e => $(e.target).mask("000.000.000"))
 
 $("#zipCode").on("blur", getLocation)
+
+$(document).on('keypress', '#accessCode', function (e) {
+    var regex = new RegExp("^[a-zA-Z0-9\b]+$")
+    var str = String.fromCharCode(!e.charCode ? e.which : e.charCode)
+
+    if (regex.test(str)) {
+        return true;
+    }
+
+    e.preventDefault();
+    return false;
+})
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -716,7 +727,7 @@ $("#zipCode").on("blur", getLocation)
 
 
 $("[data-target='#student-registration-finishing']").on("click", function (e) {
-    validation.checkAllFields("#addStudent", 19, "#buttonAddStudent")
+    validation.checkAllFields("#addStudent", 3, "#buttonAddStudent")
 })
 
 
@@ -845,4 +856,16 @@ $(document).on("click", ".refesh-data-icon", function (e) {
 $(document).on('click', '#updateStudentPortalData', function (e) {
     application.updateElement("#formSettingsStudent", "/portal-aluno/configuracoes/atualizar", "Configurações atualizadas")
     location.reload()
+})
+
+
+$(document).on('click', '.input-group-accessCode', function (e) {
+
+    $('.input-group-accessCode i').toggleClass('fa-eye fa-eye-slash')
+
+    if ($('#accessCode').attr('type') == 'password') {
+        $('#accessCode').attr('type', 'text')
+    } else {
+        $('#accessCode').attr('type', 'password')
+    }
 })

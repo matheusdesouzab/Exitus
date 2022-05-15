@@ -24,6 +24,7 @@
         }
     }
 
+    
     .sub-header {
 
         p,div {
@@ -54,6 +55,10 @@
 #studentPortal {
 
     #pagina {
+
+        .input-group-accessCode .fa-eye, .input-group-accessCode .fa-eye-slash{
+            cursor: pointer;
+        }
 
         #table-bulletin-print thead {
             background: #E8F0FE;

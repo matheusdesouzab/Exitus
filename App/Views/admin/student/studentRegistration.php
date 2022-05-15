@@ -310,7 +310,7 @@
 
                                                 <p class="col-lg-12 mb-4 p-0">Todos os campos foram preenchidos de forma correta <i class="fas text-success fa-check-circle ml-2"></i></p>
 
-                                                <p class="col-lg-12 p-0 font-weight-bold"><i class="fas text-info fa-info-circle mr-2"></i> Informe ao aluno seu código de acesso ao portal</p>
+                                                <p class="col-lg-12 p-0 font-weight-bold"><i class="fas text-info fa-info-circle mr-2"></i> O código de acesso é criado para que o estudante possa acessar o portal do aluno pela primeira vez. Em seguida, é recomendado que essa senha seja alterada!</p>
 
                                                 <p accessCode class="card col-lg-5 mx-auto font-weight-bold text-center mt-4 mb-3"></p>
 

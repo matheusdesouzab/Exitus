@@ -104,7 +104,7 @@
 
                                             <span idElement="#adminDate<?= $teacher->id ?>" formGroup="containerSettingsModal" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
 
-                                            <span idElement="#adminDate<?= $teacher->id ?>" routeUpdate="/portal-docente/perfil/atualizar" toastData="Dados atualizados" routeData="#adminDate<?= $teacher->id ?>" container="containerSettingsModal" routeList="/portal-docente/configuracoes" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="fas fa-check"></i></span>
+                                            <span idElement="#adminDate<?= $teacher->id ?>" routeUpdate="/admin/professor/lista/perfil-professor/atualizar" toastData="Dados atualizados" routeData="#adminDate<?= $teacher->id ?>" container="containerSettingsModal" routeList="/portal-docente/configuracoes" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="top" title="Atualizar"><i class="fas fa-check"></i></span>
 
                                         </div>
 
@@ -207,8 +207,12 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
                                 </div>
-                                <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $teacher->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                                <input id="accessCode" name="accessCode" type="password" disabled class="form-control" value="<?= $teacher->access_code ?>" maxlength="30" aria-label="Username" aria-describedby="addon-wrapping">
+                                <div class="input-group-append">
+                                <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
+                                </div>
                             </div>
+
 
                             <div class="input-group d-flex justify-content-start col-lg-9 flex-nowrap">
 

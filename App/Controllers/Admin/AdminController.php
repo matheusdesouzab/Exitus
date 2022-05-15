@@ -15,6 +15,47 @@ class AdminController extends Action
     }
 
 
+    public function auth()
+    {
+
+        $Admin = Container::getModel('Admin\\Admin');
+        $Tool = new Tools();
+
+        $Admin->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
+        $Admin->__set('name', $_POST['name']);
+
+        $auth = $Admin->login();
+        $account_status = $Admin->accountStatus();
+
+        if (count($auth) != 1) {
+
+            header('Location: /admin?error=dados-incorretos');
+
+        } else {
+
+            if ($account_status[0]->account_status == 1) {
+
+                if (!isset($_SESSION)) session_start();
+
+                $adminName = explode(" ", $auth[0]->name);
+
+                $_SESSION['Admin'] = [
+                    'id' => $auth[0]->id,
+                    'name' => $adminName[0] . ' ' . $adminName[1] . ' ' . $adminName[2],
+                    'profilePhoto' => $auth[0]->profile_photo,
+                    'hierarchyFunction' => $auth[0]->hierarchy_function
+                ];
+
+                header('Location: /admin/home');
+
+            } else {
+
+                header("Location: /admin?error=Conta desativada");
+            }
+        }
+    }
+
+
     public function adminRegistration()
     {
 
@@ -68,47 +109,6 @@ class AdminController extends Action
     }
 
 
-    public function auth()
-    {
-
-        $Admin = Container::getModel('Admin\\Admin');
-        $Tool = new Tools();
-
-        $Admin->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
-        $Admin->__set('name', $_POST['name']);
-
-        $auth = $Admin->login();
-        $account_status = $Admin->accountStatus();
-
-        if (count($auth) != 1) {
-
-            header('Location: /admin?error=dados-incorretos');
-
-        } else {
-
-            if ($account_status[0]->account_status == 1) {
-
-                if (!isset($_SESSION)) session_start();
-
-                $adminName = explode(" ", $auth[0]->name);
-
-                $_SESSION['Admin'] = [
-                    'id' => $auth[0]->id,
-                    'name' => $adminName[0] . ' ' . $adminName[1] . ' ' . $adminName[2],
-                    'profilePhoto' => $auth[0]->profile_photo,
-                    'hierarchyFunction' => $auth[0]->hierarchy_function
-                ];
-
-                header('Location: /admin/home');
-
-            } else {
-
-                header("Location: /admin?error=Conta desativada");
-            }
-        }
-    }
-
-
     public function settings()
     {
 
@@ -158,6 +158,7 @@ class AdminController extends Action
         $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
 
         $Admin->__set('name', $_POST['name']);
+        $Admin->__set('accessCode', $Tool->formatElement($_POST['accessCode']));
         $Admin->__set('birthDate', $_POST['birthDate']);
         $Admin->__set('cpf', $Tool->formatElement($_POST['cpf']));
         $Admin->__set('naturalness', $_POST['naturalness']);

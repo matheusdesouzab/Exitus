@@ -108,8 +108,8 @@ class AdminTeacherController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
         $ClassDiscipline =  Container::getModel('GeneralManagement\\ClassDiscipline');
 
-        $Teacher->__set('teacherId', ! isset($_GET['id']) ? $_GET['teacherId'] :  $_GET['id']);
-        $ClassDiscipline->__set('fk_id_teacher', ! isset($_GET['id']) ? $_GET['teacherId'] :  $_GET['id']);
+        $Teacher->__set('teacherId', !isset($_GET['id']) ? $_GET['teacherId'] :  $_GET['id']);
+        $ClassDiscipline->__set('fk_id_teacher', !isset($_GET['id']) ? $_GET['teacherId'] :  $_GET['id']);
 
         $this->view->teacherProfile = $Teacher->dataGeneral();
         $this->view->availableSex = $Teacher->availableSex();
@@ -125,39 +125,51 @@ class AdminTeacherController extends Action
     public function updateTeacherProfile()
     {
 
-        $Address =  Container::getModel('People\\Address');
-        $Telephone = Container::getModel('People\Telephone');
-        $Teacher = Container::getModel('Teacher\\Teacher');
-        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        if (!isset($_SESSION)) session_start();
 
-        $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
+        if ($_SESSION['Teacher']['id'] == $_POST['teacherId'] || $_SESSION['Admin']['hierarchyFunction'] <= 2 ) {
 
-        $Address->__set('addressId', $_POST['addressId']);
-        $Address->__set('district', $_POST['district']);
-        $Address->__set('address', $_POST['address']);
-        $Address->__set('uf', $_POST['uf']);
-        $Address->__set('county', $_POST['county']);
-        $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
+            $Address =  Container::getModel('People\\Address');
+            $Telephone = Container::getModel('People\Telephone');
+            $Teacher = Container::getModel('Teacher\\Teacher');
+            $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
 
-        $Telephone->__set('telephoneId', $_POST['telephoneId']);
-        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
-        $Teacher->__set('email', $_POST['email']);
+            $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
 
-        $Teacher->__set('name', $_POST['name']);
-        $Teacher->__set('birthDate', $_POST['birthDate']);
-        $Teacher->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
-        $Teacher->__set('naturalness', $_POST['naturalness']);
-        $Teacher->__set('nationality', $_POST['nationality']);
-        $Teacher->__set('fk_id_sex', $_POST['sex']);
-        $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
-        $Teacher->__set('fk_id_pcd', $_POST['pcd']);
-        $Teacher->__set('teacherId', $_POST['teacherId']);
-        $Teacher->__set('fk_id_account_state', $_POST['accountState']);
+            $Address->__set('addressId', $_POST['addressId']);
+            $Address->__set('district', $_POST['district']);
+            $Address->__set('address', $_POST['address']);
+            $Address->__set('uf', $_POST['uf']);
+            $Address->__set('county', $_POST['county']);
+            $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
 
-        $Telephone->update();
-        $Address->update();
-        $Teacher->update();
+            $Telephone->__set('telephoneId', $_POST['telephoneId']);
+            $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
+            $Teacher->__set('email', $_POST['email']);
 
+            $Teacher->__set('accessCode', $_POST['accessCode']);
+            $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
+            $Teacher->__set('teacherId', $_POST['teacherId']);
+
+            if ($_SESSION['Admin']['hierarchyFunction'] <= 2) {
+
+                $Teacher->__set('name', $_POST['name']);
+                $Teacher->__set('birthDate', $_POST['birthDate']);
+                $Teacher->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
+                $Teacher->__set('naturalness', $_POST['naturalness']);
+                $Teacher->__set('nationality', $_POST['nationality']);
+                $Teacher->__set('fk_id_sex', $_POST['sex']);
+                $Teacher->__set('fk_id_pcd', $_POST['pcd']);
+                $Teacher->__set('fk_id_account_state', $_POST['accountState']);
+            }
+
+            $Telephone->update();
+            $Address->update();
+            $Teacher->update();
+
+        }else{
+            header('Location: portal-docente/home');
+        }
     }
 
 
@@ -173,7 +185,6 @@ class AdminTeacherController extends Action
         $this->view->listTeacher = $Teacher->seek();
 
         $this->render('teacher/components/teacherListing', 'SimpleLayout');
-
     }
 
 

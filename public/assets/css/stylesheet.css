@@ -688,6 +688,9 @@ html > .sidebar-responsive #left-panel #sidebar li {
 #index {
   animation: theme 21s linear infinite;
 }
+#index::-webkit-scrollbar {
+  display: none;
+}
 #index:after, #index:before {
   content: "";
   display: block;
@@ -843,116 +846,6 @@ footer p {
   height: 100vh;
 }
 
-.circles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.circles li {
-  position: absolute;
-  display: block;
-  opacity: 0.7;
-  list-style: none;
-  width: 20px;
-  height: 20px;
-  background: #E6FBF9;
-  animation: animate 25s linear infinite;
-  bottom: -150px;
-  border: 1px solid white;
-  border-radius: 50% !important;
-}
-
-.circles li:nth-child(1) {
-  left: 25%;
-  width: 30px;
-  height: 30px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(2) {
-  left: 10%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 2s;
-  animation-duration: 12s;
-}
-
-.circles li:nth-child(3) {
-  left: 70%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 4s;
-}
-
-.circles li:nth-child(4) {
-  left: 40%;
-  width: 10px;
-  height: 10px;
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
-
-.circles li:nth-child(5) {
-  left: 65%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(6) {
-  left: 75%;
-  width: 40px;
-  height: 40px;
-  animation-delay: 3s;
-}
-
-.circles li:nth-child(7) {
-  left: 35%;
-  width: 100px;
-  height: 100px;
-  animation-delay: 7s;
-}
-
-.circles li:nth-child(8) {
-  left: 50%;
-  width: 25px;
-  height: 25px;
-  animation-delay: 15s;
-  animation-duration: 45s;
-}
-
-.circles li:nth-child(9) {
-  left: 20%;
-  width: 15px;
-  height: 15px;
-  animation-delay: 2s;
-  animation-duration: 35s;
-}
-
-.circles li:nth-child(10) {
-  left: 85%;
-  width: 40px;
-  height: 40px;
-  animation-delay: 0s;
-  animation-duration: 11s;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-    border-radius: 0;
-  }
-  100% {
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-    border-radius: 50%;
-  }
-}
 #errorPage {
   background-color: white;
 }
@@ -1013,6 +906,13 @@ footer p {
   background: #E8F0FE;
 }
 
+#admin #pagina .input-group-accessCode .fa-eye, #admin #pagina .input-group-accessCode .fa-eye-slash,
+#teacherPortal #pagina .input-group-accessCode .fa-eye,
+#teacherPortal #pagina .input-group-accessCode .fa-eye-slash,
+#studentPortal #pagina .input-group-accessCode .fa-eye,
+#studentPortal #pagina .input-group-accessCode .fa-eye-slash {
+  cursor: pointer;
+}
 #admin #pagina #table-bulletin-print thead,
 #teacherPortal #pagina #table-bulletin-print thead,
 #studentPortal #pagina #table-bulletin-print thead {
@@ -1813,6 +1713,9 @@ footer p {
 @media (max-width: 992px) {
   body .sidebar-primary .portal i.fas {
     display: none;
+  }
+  body #index::-webkit-scrollbar {
+    display: hidden;
   }
   body #home .index-disciplines {
     margin-bottom: 20px;

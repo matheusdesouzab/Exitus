@@ -190,6 +190,7 @@ class Admin extends People
             
             nome_administrador = :nameAdmin , 
             cpf_administrador = :cpf  , 
+            codigo_acesso = :accessCode ,
             naturalidade_administrador = :naturalness , 
             nacionalidade_administrador = :nationality , 
             fk_id_sexo_administrador = :fk_id_sex , 
@@ -207,6 +208,7 @@ class Admin extends People
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':nameAdmin', $this->__get('name'));
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
         $stmt->bindValue(':cpf', $this->__get('cpf'));
         $stmt->bindValue(':birthDate', $this->__get('birthDate'));
         $stmt->bindValue(':naturalness', $this->__get('naturalness'));

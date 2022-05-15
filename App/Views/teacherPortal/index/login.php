@@ -115,9 +115,9 @@ if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
                                         <label for="accessCode">Código de acesso:</label>
                                         <div class="input-group">
                                             <div class="input-group-prepend bg-white">
-                                                <div class="input-group-text bg-white"><i class="fas fa-key"></i></div>
+                                                <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
                                             </div>
-                                            <input type="text" class="form-control" maxlength="7" id="accessCode" name="accessCode" placeholder="000.000">
+                                        <input type="password" class="form-control" maxlength="30" id="accessCode" name="accessCode" placeholder="Código de acesso">
                                         </div>
                                     </div>
 

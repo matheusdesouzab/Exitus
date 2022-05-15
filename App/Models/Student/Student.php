@@ -84,6 +84,7 @@ class Student extends People
             
             nome_aluno = :studentName , 
             cpf_aluno = :cpf  , 
+            codigo_acesso = :accessCode ,
             naturalidade_aluno = :naturalness , 
             nacionalidade_aluno = :nationality , 
             nome_mae = :motherName , 
@@ -102,6 +103,7 @@ class Student extends People
         $stmt = $this->db->prepare($query);
 
         $stmt->bindValue(':studentName', $this->__get('name'));
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
         $stmt->bindValue(':cpf', $this->__get('cpf'));
         $stmt->bindValue(':birthDate', $this->__get('birthDate'));
         $stmt->bindValue(':naturalness', $this->__get('naturalness'));

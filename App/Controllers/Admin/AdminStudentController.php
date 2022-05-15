@@ -153,6 +153,7 @@ class AdminStudentController extends Action
         $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
 
         $Student->__set('name', $_POST['name']);
+        $Student->__set('accessCode', $_POST['accessCode']);
         $Student->__set('birthDate', $_POST['birthDate']);
         $Student->__set('cpf', $Tool->formatElement($_POST['cpf']));
         $Student->__set('naturalness', $_POST['naturalness']);

@@ -259,6 +259,7 @@ class Teacher extends People
             
             nome_professor = :teacherName , 
             cpf_professor = :cpf  , 
+            codigo_acesso = :accessCode ,
             naturalidade_professor = :naturalness , 
             nacionalidade_professor = :nationality , 
             fk_id_sexo_professor = :fk_id_sex , 
@@ -276,6 +277,7 @@ class Teacher extends People
 
         $stmt->bindValue(':teacherName', $this->__get('name'));
         $stmt->bindValue(':cpf', $this->__get('cpf'));
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
         $stmt->bindValue(':birthDate', $this->__get('birthDate'));
         $stmt->bindValue(':naturalness', $this->__get('naturalness'));
         $stmt->bindValue(':nationality', $this->__get('nationality'));
