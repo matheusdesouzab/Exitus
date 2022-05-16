@@ -173,21 +173,15 @@ class TeacherPortalController extends Action
         $Telephone->__set('telephoneId', $_POST['telephoneId']);
         $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
 
-        $Teacher->__set('name', $_POST['name']);
-        $Teacher->__set('birthDate', $_POST['birthDate']);
-        $Teacher->__set('cpf', $Tool->formatElement($_POST['cpf']));
-        $Teacher->__set('naturalness', $_POST['naturalness']);
-        $Teacher->__set('nationality', $_POST['nationality']);
         $Teacher->__set('email', $_POST['email']);
-        $Teacher->__set('fk_id_sex', $_POST['sex']);
+        $Teacher->__set('accessCode', $_POST['accessCode']);
         $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
         $Teacher->__set('fk_id_pcd', $_POST['pcd']);
         $Teacher->__set('teacherId', $_SESSION['Teacher']['id']);
-        $Teacher->__set('fk_id_account_state', $_POST['accountState']);
 
         $Telephone->update();
         $Address->update();
-        $Teacher->update();
+        $Teacher->updatePath();
     }
 
 

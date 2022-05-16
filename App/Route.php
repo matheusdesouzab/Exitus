@@ -804,6 +804,12 @@ class Route extends Bootstrap
 			'action' => 'index'
 		);
 
+		$routes['StudentPortalUpdate'] = array(
+			'route' => '/portal-aluno/atualizar',
+			'controller' => 'StudentPortal\\StudentPortalController',
+			'action' => 'updateStudentPortal'
+		);
+
 		$routes['HomeStudentPortal'] = array(
 			'route' => '/portal-aluno/home',
 			'controller' => 'StudentPortal\\StudentPortalController',

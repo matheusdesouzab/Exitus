@@ -293,6 +293,39 @@ class Teacher extends People
 
 
     /**
+     * Atualizar dados do docente
+     * 
+     * @return void
+     */
+    public function updatePath()
+    {
+
+        $query =
+
+            "UPDATE professor SET 
+            
+            codigo_acesso = :accessCode ,
+            fk_id_tipo_sanguineo_professor = :fk_id_blood_type, 
+            fk_id_pcd_professor = :fk_id_pcd , 
+            email_professor = :email 
+            
+            WHERE id_professor = :teacherId
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
+        $stmt->bindValue(':fk_id_blood_type', $this->__get('fk_id_blood_type'));
+        $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
+        $stmt->bindValue(':teacherId', $this->__get('teacherId'));
+        $stmt->bindValue(':email', $this->__get('email'));
+
+        $stmt->execute();
+    }
+
+
+    /**
      * Esse método retorna todos os docentes. Entretanto, ele deve ser usado para peencher a tag select na View.
      * 
      * @return array

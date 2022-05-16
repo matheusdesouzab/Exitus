@@ -114,7 +114,7 @@ class AdminStudentController extends Action
         $this->view->bloodType = $Student->availablebloodType();
 
         if (!isset($_SESSION)) session_start();
-        if(isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
+        if (isset($_SESSION['Teacher']['id'])) $ClassDiscipline->__set("fk_id_teacher", $_SESSION['Teacher']['id']);
 
         $ClassDiscipline->__set("fk_id_class", $this->view->studentDataEnrollment[0]->class_id);
 
@@ -135,45 +135,52 @@ class AdminStudentController extends Action
     public function updateStudentProfile()
     {
 
-        $Address =  Container::getModel('People\\Address');
-        $Telephone = Container::getModel('People\Telephone');
-        $Student = Container::getModel('Student\\Student');
-        $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
+        if (!isset($_SESSION)) session_start();
 
-        $Tool = new Tools();
+        if ($_SESSION['Admin']['hierarchyFunction'] <= 2) {
 
-        $Address->__set('addressId', $_POST['addressId']);
-        $Address->__set('district', $_POST['district']);
-        $Address->__set('address', $_POST['address']);
-        $Address->__set('uf', $_POST['uf']);
-        $Address->__set('county', $_POST['county']);
-        $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
+            $Address =  Container::getModel('People\\Address');
+            $Telephone = Container::getModel('People\Telephone');
+            $Student = Container::getModel('Student\\Student');
+            $StudentEnrollment = Container::getModel('Student\\StudentEnrollment');
 
-        $Telephone->__set('telephoneId', $_POST['telephoneId']);
-        $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
+            $Tool = new Tools();
 
-        $Student->__set('name', $_POST['name']);
-        $Student->__set('accessCode', $_POST['accessCode']);
-        $Student->__set('birthDate', $_POST['birthDate']);
-        $Student->__set('cpf', $Tool->formatElement($_POST['cpf']));
-        $Student->__set('naturalness', $_POST['naturalness']);
-        $Student->__set('nationality', $_POST['nationality']);
-        $Student->__set('motherName', $_POST['motherName']);
-        $Student->__set('fatherName', $_POST['fatherName']);
-        $Student->__set('email', $_POST['email']);
-        $Student->__set('fk_id_sex', $_POST['sex']);
-        $Student->__set('fk_id_blood_type', $_POST['bloodType']);
-        $Student->__set('fk_id_pcd', $_POST['pcd']);
-        $Student->__set('studentId', $_POST['studentId']);
-        $Student->__set('fk_id_general_situation', $_POST['situationStudentGeneral']);
+            $Address->__set('addressId', $_POST['addressId']);
+            $Address->__set('district', $_POST['district']);
+            $Address->__set('address', $_POST['address']);
+            $Address->__set('uf', $_POST['uf']);
+            $Address->__set('county', $_POST['county']);
+            $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
 
-        $StudentEnrollment->__set('studentEnrollmentId', $_POST['enrollmentId']);
-        $StudentEnrollment->__set('fk_id_student_situation', $_POST['situationStudent']);
+            $Telephone->__set('telephoneId', $_POST['telephoneId']);
+            $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
 
-        $Telephone->update();
-        $Address->update();
-        $Student->update();
-        $StudentEnrollment->update();
+            $Student->__set('accessCode', $_POST['accessCode']);
+            $Student->__set('email', $_POST['email']);
+            $Student->__set('fk_id_blood_type', $_POST['bloodType']);
+            $Student->__set('studentId', $_POST['studentId']);
+
+            $Student->__set('name', $_POST['name']);
+            $Student->__set('birthDate', $_POST['birthDate']);
+            $Student->__set('cpf', $Tool->formatElement($_POST['cpf']));
+            $Student->__set('naturalness', $_POST['naturalness']);
+            $Student->__set('nationality', $_POST['nationality']);
+            $Student->__set('motherName', $_POST['motherName']);
+            $Student->__set('fatherName', $_POST['fatherName']);
+            $Student->__set('fk_id_sex', $_POST['sex']);
+            $Student->__set('fk_id_pcd', $_POST['pcd']);
+            $Student->__set('fk_id_general_situation', $_POST['situationStudentGeneral']);
+            $StudentEnrollment->__set('studentEnrollmentId', $_POST['enrollmentId']);
+            $StudentEnrollment->__set('fk_id_student_situation', $_POST['situationStudent']);
+
+
+            $Telephone->update();
+            $Address->update();
+            $Student->update();
+        } else {
+            header('Location: portal-aluno/home');
+        }
     }
 
 

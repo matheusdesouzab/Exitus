@@ -89,13 +89,26 @@
 
                         <form id="studentModal<?= $student->id ?>" class="col-lg-12" action="">
 
+                        <input type="hidden" value="<?= $student->id ?>" name="studentId">
+                        <input type="hidden" value="<?= $student->telephone_id ?>" name="telephoneId">
+                        <input type="hidden" value="<?= $student->address_id ?>" name="addressId">
+
+
                             <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
 
                                 <div class="col-lg-12">
 
                                     <div class="row d-flex align-items-center">
 
-                                        <h5 class="col-lg-8">Dados pessoais</h5>
+                                        <h5 class="col-8">Dados pessoais</h5>
+
+                                        <div class="col-4 d-flex justify-content-end">
+
+                                                <span idElement="#studentModal<?= $student->id ?>" formGroup="containerListStudent" class="mr-2 edit-data-icon" data-toggle="tooltip" data-placement="left" title="Editar"><i class="fas fa-edit"></i></span>
+
+                                                <span idElement="#studentModal<?= $student->id ?>" routeUpdate="/portal-aluno/atualizar" toastData="Dados atualizados" routeData="#studentModal<?= $student->id ?>" container="containerStudentProfileModal" routeList="" class="mr-2 update-data-icon" data-toggle="tooltip" data-placement="bottom" title="Atualizar"><i class="fas fa-check"></i></span>
+
+                                            </div>
 
                                     </div>
 
@@ -109,7 +122,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Nome:</span>
                                 </div>
-                                <input type="text" id="name" name="name" disabled class="form-control" value="<?= $student->name ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="text" id="name" name="name" disabled class="form-control" value="<?= $student->name ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                             </div>
 
 
@@ -117,21 +130,21 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Nome da mãe:</span>
                                 </div>
-                                <input type="text" id="motherName" name="motherName" disabled class="form-control" value="<?= $student->mother ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="text" id="motherName" name="motherName" disabled class="form-control" value="<?= $student->mother ?>" aria-label="Username" aria-describedby="addon-wrapping" >
                             </div>
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Nome do pai:</span>
                                 </div>
-                                <input type="text" id="fatherName" name="fatherName" disabled class="form-control" value="<?= $student->father ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="text" id="fatherName" name="fatherName" disabled class="form-control" value="<?= $student->father ?>" aria-label="Username" aria-describedby="addon-wrapping"  style="pointer-events:none">
                             </div>
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">CPF:</span>
                                 </div>
-                                <input type="text" onload="this.value = this.value.mask('000.000.000-00')" id="cpf" name="cpf" disabled class="form-control" value="<?= $student->cpf ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="text" onload="this.value = this.value.mask('000.000.000-00')" id="cpf" name="cpf" disabled class="form-control" value="<?= $student->cpf ?>" aria-label="Username" aria-describedby="addon-wrapping"  style="pointer-events:none">
                             </div>
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
@@ -140,7 +153,7 @@
                                     <span class="input-group-text" id="addon-wrapping">Sexo:</span>
                                 </div>
 
-                                <select id="sex" name="sex" disabled class="form-control custom-select">
+                                <select id="sex" name="sex" disabled class="form-control custom-select"  style="pointer-events:none">
                                     <option value="<?= $student->sex_id ?>"><?= $student->sex ?></option>
                                     <?php foreach ($this->view->availableSex as $key => $sex) { ?>
                                         <?php if ($sex->option_value != $student->sex_id) { ?>
@@ -155,21 +168,21 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Nacionalidade:</span>
                                 </div>
-                                <input type="text" id="nationality" name="nationality" disabled class="form-control" value="<?= $student->nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="text" id="nationality" name="nationality" disabled class="form-control" value="<?= $student->nacionality ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                             </div>
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Naturalidade:</span>
                                 </div>
-                                <input type="text" id="naturalness" name="naturalness" disabled class="form-control" value="<?= $student->naturalness ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="text" id="naturalness" name="naturalness" disabled class="form-control" value="<?= $student->naturalness ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                             </div>
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Data de Nascimento:</span>
                                 </div>
-                                <input type="date" id="birthDate" name="birthDate" disabled class="form-control" value="<?= $student->birth_date ?>" max="2006-01-31" min="1940-01-31" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input type="date" id="birthDate" name="birthDate" disabled class="form-control" value="<?= $student->birth_date ?>" max="2006-01-31" min="1940-01-31" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                             </div>
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
@@ -178,7 +191,7 @@
                                     <span class="input-group-text" id="addon-wrapping">PcD:</span>
                                 </div>
 
-                                <select id="pcd" name="pcd" disabled class="form-control custom-select">
+                                <select id="pcd" name="pcd" disabled class="form-control custom-select" style="pointer-events:none">
                                     <option value="<?= $student->pcd_id ?>"><?= $student->pcd ?></option>
                                     <?php foreach ($this->view->pcd as $key => $pcd) { ?>
                                         <?php if ($pcd->option_value != $student->pcd_id) { ?>
@@ -195,7 +208,7 @@
                                     <span class="input-group-text" id="addon-wrapping">Tipo sanguíneo:</span>
                                 </div>
 
-                                <select id="bloodType" name="bloodType" disabled class="form-control custom-select">
+                                <select id="bloodType" name="bloodType" disabled class="form-control custom-select" style="pointer-events:none">
                                     <option value="<?= $student->blood_type_id ?>"><?= $student->blood_type ?></option>
                                     <?php foreach ($this->view->bloodType as $key => $bloodType) { ?>
                                         <?php if ($bloodType->option_value != $student->blood_type_id) { ?>
@@ -210,7 +223,10 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="addon-wrapping">Código de acesso ao portal:</span>
                                 </div>
-                                <input id="accessCode" name="accessCode" type="text" disabled class="form-control" value="<?= $student->access_code ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input id="accessCode" name="accessCode" type="password" disabled class="form-control" value="<?= $student->access_code ?>" maxlength="30" aria-label="Username" aria-describedby="addon-wrapping">
+                                <div class="input-group-append">
+                                <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
+                                </div>
                             </div>
 
 
@@ -276,7 +292,7 @@
                                     <span class="input-group-text" id="addon-wrapping">Situação atual na escola:</span>
                                 </div>
 
-                                <input id="tet" name="tet" type="text" disabled class="form-control" value="<?= $student->general_situation ?>" aria-label="Username" aria-describedby="addon-wrapping">
+                                <input id="tet" name="tet" type="text" disabled class="form-control" value="<?= $student->general_situation ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                             </div>
 
                         <?php } ?>

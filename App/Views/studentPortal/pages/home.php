@@ -833,6 +833,13 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
             </div>
 
+            <div class="toast" id="toastContainer">
+					<div class="toast-header text-white">
+						<strong class="text-center mx-auto"><span class="icon-toast mr-3"><i class="fas text-white"></i></span>
+						<span class="toast-data"></span></strong>
+					</div>
+				</div>
+
             <nav class="navbar fixed-bottom navbar-expand p-2 rounded-0" id="navbarBottomStudentPortal" style="border-radius: 0px">
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

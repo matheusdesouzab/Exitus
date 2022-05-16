@@ -122,6 +122,42 @@ class Student extends People
 
 
     /**
+     * Atualizar dados do aluno
+     * 
+     * @return void
+     */
+    public function updatePath()
+    {
+
+        $query =
+
+            "UPDATE aluno SET 
+            
+            codigo_acesso = :accessCode ,
+            fk_id_tipo_sanguineo_aluno = :fk_id_blood_type, 
+            fk_id_aluno_pcd = :fk_id_pcd , 
+            email_aluno = :email 
+         
+            WHERE id_aluno = :studentId 
+        
+        ";
+
+        $stmt = $this->db->prepare($query);
+
+        $stmt->bindValue(':accessCode', $this->__get('accessCode'));
+        $stmt->bindValue(':fk_id_blood_type', $this->__get('fk_id_blood_type'));
+        $stmt->bindValue(':fk_id_pcd', $this->__get('fk_id_pcd'));
+        $stmt->bindValue(':studentId', $this->__get('studentId'));
+        $stmt->bindValue(':email', $this->__get('email'));
+        
+        $stmt->execute();
+    }
+
+
+
+
+
+    /**
      * Retorna todos os alunos vinculados ao período letivo ativo
      * 
      * @return array

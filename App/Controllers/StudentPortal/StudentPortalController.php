@@ -160,6 +160,39 @@ class StudentPortalController extends Action
         $_SESSION['Student']['class'] = $class0[0]->series_id . 'ª ' . $class0[0]->ballot . ' - ' . $class0[0]->course_name . ' - ' . $class0[0]->shift;
     }
 
+    public function updateStudentPortal()
+    {
+
+        if (!isset($_SESSION)) session_start();
+
+        $Address =  Container::getModel('People\\Address');
+        $Telephone = Container::getModel('People\Telephone');
+        $Student = Container::getModel('Student\\Student');
+
+        $Tool = new Tools();
+
+        $Address->__set('addressId', $_POST['addressId']);
+        $Address->__set('district', $_POST['district']);
+        $Address->__set('address', $_POST['address']);
+        $Address->__set('uf', $_POST['uf']);
+        $Address->__set('county', $_POST['county']);
+        $Address->__set('zipCode', $Tool->formatElement($_POST['zipCode']));
+
+        $Telephone->__set('telephoneId', $_POST['telephoneId']);
+        $Telephone->__set('telephoneNumber', $Tool->formatElement($_POST['telephoneNumber']));
+
+        $Student->__set('accessCode', $_POST['accessCode']);
+        $Student->__set('email', $_POST['email']);
+        $Student->__set('fk_id_blood_type', $_POST['bloodType']);
+        $Student->__set('fk_id_pcd', $_POST['pcd']);
+        $Student->__set('studentId', $_SESSION['Student']['id']);
+
+        $Telephone->update();
+        $Address->update();
+        $Student->updatePath();
+
+    }
+
 
     public function exit()
     {

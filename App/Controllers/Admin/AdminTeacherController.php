@@ -125,51 +125,40 @@ class AdminTeacherController extends Action
     public function updateTeacherProfile()
     {
 
-        if (!isset($_SESSION)) session_start();
+        $Address =  Container::getModel('People\\Address');
+        $Telephone = Container::getModel('People\Telephone');
+        $Teacher = Container::getModel('Teacher\\Teacher');
+        $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
 
-        if ($_SESSION['Teacher']['id'] == $_POST['teacherId'] || $_SESSION['Admin']['hierarchyFunction'] <= 2 ) {
+        $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
 
-            $Address =  Container::getModel('People\\Address');
-            $Telephone = Container::getModel('People\Telephone');
-            $Teacher = Container::getModel('Teacher\\Teacher');
-            $ClassDiscipline = Container::getModel('GeneralManagement\\ClassDiscipline');
+        $Address->__set('addressId', $_POST['addressId']);
+        $Address->__set('district', $_POST['district']);
+        $Address->__set('address', $_POST['address']);
+        $Address->__set('uf', $_POST['uf']);
+        $Address->__set('county', $_POST['county']);
+        $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
 
-            $ClassDiscipline->__set("fk_id_teacher", $_POST['teacherId']);
+        $Telephone->__set('telephoneId', $_POST['telephoneId']);
+        $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
+        $Teacher->__set('email', $_POST['email']);
 
-            $Address->__set('addressId', $_POST['addressId']);
-            $Address->__set('district', $_POST['district']);
-            $Address->__set('address', $_POST['address']);
-            $Address->__set('uf', $_POST['uf']);
-            $Address->__set('county', $_POST['county']);
-            $Address->__set('zipCode', preg_replace('/[^0-9]/', '', $_POST['zipCode']));
+        $Teacher->__set('accessCode', $_POST['accessCode']);
+        $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
+        $Teacher->__set('teacherId', $_POST['teacherId']);
 
-            $Telephone->__set('telephoneId', $_POST['telephoneId']);
-            $Telephone->__set('telephoneNumber', preg_replace('/[^0-9]/', '', $_POST['telephoneNumber']));
-            $Teacher->__set('email', $_POST['email']);
+        $Teacher->__set('name', $_POST['name']);
+        $Teacher->__set('birthDate', $_POST['birthDate']);
+        $Teacher->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
+        $Teacher->__set('naturalness', $_POST['naturalness']);
+        $Teacher->__set('nationality', $_POST['nationality']);
+        $Teacher->__set('fk_id_sex', $_POST['sex']);
+        $Teacher->__set('fk_id_pcd', $_POST['pcd']);
+        $Teacher->__set('fk_id_account_state', $_POST['accountState']);
 
-            $Teacher->__set('accessCode', $_POST['accessCode']);
-            $Teacher->__set('fk_id_blood_type', $_POST['bloodType']);
-            $Teacher->__set('teacherId', $_POST['teacherId']);
-
-            if ($_SESSION['Admin']['hierarchyFunction'] <= 2) {
-
-                $Teacher->__set('name', $_POST['name']);
-                $Teacher->__set('birthDate', $_POST['birthDate']);
-                $Teacher->__set('cpf', preg_replace('/[^0-9]/', '', $_POST['cpf']));
-                $Teacher->__set('naturalness', $_POST['naturalness']);
-                $Teacher->__set('nationality', $_POST['nationality']);
-                $Teacher->__set('fk_id_sex', $_POST['sex']);
-                $Teacher->__set('fk_id_pcd', $_POST['pcd']);
-                $Teacher->__set('fk_id_account_state', $_POST['accountState']);
-            }
-
-            $Telephone->update();
-            $Address->update();
-            $Teacher->update();
-
-        }else{
-            header('Location: portal-docente/home');
-        }
+        $Telephone->update();
+        $Address->update();
+        $Teacher->update();
     }
 
 
