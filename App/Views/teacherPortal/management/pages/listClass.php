@@ -122,7 +122,7 @@
                                             <div class="modal-content">
                                                 <div class="row">
                                                     <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#modalExam">
-                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-info mr-3 mt-2"></i></span>
                                                         </button></div>
                                                 </div>
                                                 <div class="modal-body">
@@ -137,7 +137,7 @@
                                             <div class="modal-content">
                                                 <div class="row">
                                                     <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileClasseModal">
-                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-info mr-3 mt-2"></i></span>
                                                         </button></div>
                                                 </div>
                                                 <div class="modal-body">
@@ -153,7 +153,7 @@
                                             <div class="modal-content">
                                                 <div class="row">
                                                     <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileStudentModal">
-                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-info mr-3 mt-2"></i></span>
                                                         </button></div>
                                                 </div>
 
@@ -169,7 +169,7 @@
                                             <div class="modal-content">
                                                 <div class="row">
                                                     <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileClasseModal">
-                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-info mr-3 mt-2"></i></span>
                                                         </button></div>
                                                 </div>
 
@@ -183,7 +183,7 @@
                                             <div class="modal-content" style="border-radius: 10px">
                                                 <div class="row">
                                                     <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#profileClasseModal">
-                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                                            <span aria-hidden="true"><i class="fas fa-times-circle text-info mr-3 mt-2"></i></span>
                                                         </button></div>
                                                 </div>
                                                 <div class="modal-body">

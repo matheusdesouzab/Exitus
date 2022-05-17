@@ -28,100 +28,203 @@ h5 {
   font-family: Bold;
 }
 
-.nightMode #admin {
+.nightMode body#admin, .nightMode body#teacherPortal {
   background-color: #050A11;
 }
-.nightMode #admin h5,
-.nightMode #admin h4,
-.nightMode #admin h3,
-.nightMode #admin h2,
-.nightMode #admin h1,
-.nightMode #admin p {
+.nightMode body#admin h5,
+.nightMode body#admin h4,
+.nightMode body#admin h3,
+.nightMode body#admin h2,
+.nightMode body#admin h1,
+.nightMode body#admin p, .nightMode body#teacherPortal h5,
+.nightMode body#teacherPortal h4,
+.nightMode body#teacherPortal h3,
+.nightMode body#teacherPortal h2,
+.nightMode body#teacherPortal h1,
+.nightMode body#teacherPortal p {
   color: white;
 }
-.nightMode #admin #left-panel #sidebar {
+.nightMode body#admin #left-panel #sidebar, .nightMode body#teacherPortal #left-panel #sidebar {
   background-color: #0D151D;
 }
-.nightMode #admin #navbar-top {
+.nightMode body#admin #navbar-top, .nightMode body#teacherPortal #navbar-top {
   background-color: #0D151D;
   border-left: 2px solid #424549;
 }
-.nightMode #admin #navbar-top .fa-bars,
-.nightMode #admin #navbar-top .nav-item,
-.nightMode #admin #navbar-top .fa-sign-out-alt {
+.nightMode body#admin #navbar-top .fa-bars,
+.nightMode body#admin #navbar-top .nav-item,
+.nightMode body#admin #navbar-top .fa-sign-out-alt, .nightMode body#teacherPortal #navbar-top .fa-bars,
+.nightMode body#teacherPortal #navbar-top .nav-item,
+.nightMode body#teacherPortal #navbar-top .fa-sign-out-alt {
   color: white;
 }
-.nightMode #admin #pagina form label,
-.nightMode #admin #pagina form .font-weight-bold {
+.nightMode body#admin #pagina form label,
+.nightMode body#admin #pagina form .font-weight-bold, .nightMode body#teacherPortal #pagina form label,
+.nightMode body#teacherPortal #pagina form .font-weight-bold {
   color: white;
 }
-.nightMode #admin #pagina form hr {
+.nightMode body#admin #pagina form hr, .nightMode body#teacherPortal #pagina form hr {
   background-color: white;
 }
-.nightMode #admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
-.nightMode #admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > th {
+.nightMode body#admin #pagina form .fa-ellipsis-h, .nightMode body#teacherPortal #pagina form .fa-ellipsis-h {
+  color: white;
+}
+@media (max-width: 576px) {
+  .nightMode body#admin #pagina #navbar-top, .nightMode body#teacherPortal #pagina #navbar-top {
+    border: none;
+  }
+  .nightMode body#admin #pagina .modal-profile #main-accordion,
+.nightMode body#admin #pagina .modal-profile #main-accordion-settings,
+.nightMode body#admin #pagina .modal-profile #main-accordion-class,
+.nightMode body#admin #pagina .modal-profile #main-accordion-student, .nightMode body#teacherPortal #pagina .modal-profile #main-accordion,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-settings,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-class,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student {
+    background-color: #0D151D;
+  }
+  .nightMode body#admin #pagina .modal-profile #main-accordion .modal-sidebar,
+.nightMode body#admin #pagina .modal-profile #main-accordion-settings .modal-sidebar,
+.nightMode body#admin #pagina .modal-profile #main-accordion-class .modal-sidebar,
+.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar, .nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-class .modal-sidebar,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar {
+    background-color: #0D151D;
+  }
+  .nightMode body#admin #pagina .modal-profile #main-accordion .modal-sidebar .main-sheet span,
+.nightMode body#admin #pagina .modal-profile #main-accordion-settings .modal-sidebar .main-sheet span,
+.nightMode body#admin #pagina .modal-profile #main-accordion-class .modal-sidebar .main-sheet span,
+.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar .main-sheet span, .nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar .main-sheet span,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar .main-sheet span,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-class .modal-sidebar .main-sheet span,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar .main-sheet span {
+    color: #0D151D;
+  }
+  .nightMode body#admin #pagina .modal-profile #main-accordion .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#admin #pagina .modal-profile #main-accordion-settings .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#admin #pagina .modal-profile #main-accordion-class .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar .container-list-group nav ul [aria-expanded=true], .nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-class .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar .container-list-group nav ul [aria-expanded=true] {
+    color: white;
+  }
+}
+.nightMode body#admin #pagina #navbarBottom, .nightMode body#teacherPortal #pagina #navbarBottom {
+  background-color: #0D151D;
+}
+.nightMode body#admin #pagina #navbarBottom ul a, .nightMode body#teacherPortal #pagina #navbarBottom ul a {
+  color: white;
+}
+.nightMode body#admin #pagina #navbarBottom ul i.fas,
+.nightMode body#admin #pagina #navbarBottom ul i.bi, .nightMode body#teacherPortal #pagina #navbarBottom ul i.fas,
+.nightMode body#teacherPortal #pagina #navbarBottom ul i.bi {
+  color: #ffffff;
+}
+.nightMode body#admin #pagina label, .nightMode body#teacherPortal #pagina label {
+  color: white;
+}
+.nightMode body#admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
+.nightMode body#admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > th, .nightMode body#teacherPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
+.nightMode body#teacherPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > th {
   background-color: #2F3044;
 }
-.nightMode #admin #pagina .modal-content {
+.nightMode body#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p, .nightMode body#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
+  color: white;
+}
+.nightMode body#admin #pagina .modal-content, .nightMode body#teacherPortal #pagina .modal-content {
   background-color: #2F3044;
 }
-.nightMode #admin #pagina .modal-content [containerListDisciplineClass] form {
+.nightMode body#admin #pagina .modal-content .main-content [containerListDisciplineClass] form,
+.nightMode body#admin #pagina .modal-content .main-content [containerDisciplineAverageList] form, .nightMode body#teacherPortal #pagina .modal-content .main-content [containerListDisciplineClass] form,
+.nightMode body#teacherPortal #pagina .modal-content .main-content [containerDisciplineAverageList] form {
   border: 1px solid white;
 }
-.nightMode #admin #pagina .modal-content form .input-group-text {
+.nightMode body#admin #pagina .modal-content .main-content .teacher-class-title, .nightMode body#teacherPortal #pagina .modal-content .main-content .teacher-class-title {
+  color: white;
+}
+.nightMode body#admin #pagina .modal-content .main-content form .input-group-text, .nightMode body#teacherPortal #pagina .modal-content .main-content form .input-group-text {
   color: white;
   background-color: transparent;
 }
-.nightMode #admin #pagina .modal-sidebar {
+.nightMode body#admin #pagina .modal-content .main-content form input,
+.nightMode body#admin #pagina .modal-content .main-content form select, .nightMode body#teacherPortal #pagina .modal-content .main-content form input,
+.nightMode body#teacherPortal #pagina .modal-content .main-content form select {
+  color: #2F3044;
+}
+.nightMode body#admin #pagina .modal-content .main-content #accordion-data-student form input,
+.nightMode body#admin #pagina .modal-content .main-content #accordion-data-student form select,
+.nightMode body#admin #pagina .modal-content .main-content #accordion-data-teacher form input,
+.nightMode body#admin #pagina .modal-content .main-content #accordion-data-teacher form select,
+.nightMode body#admin #pagina .modal-content .main-content #accordion-data-admin form input,
+.nightMode body#admin #pagina .modal-content .main-content #accordion-data-admin form select, .nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-student form input,
+.nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-student form select,
+.nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-teacher form input,
+.nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-teacher form select,
+.nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-admin form input,
+.nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-admin form select {
+  color: #7F8C8D;
+  font-weight: bold;
+}
+.nightMode body#admin #pagina .modal-sidebar, .nightMode body#teacherPortal #pagina .modal-sidebar {
   background-color: #0D151D;
   border: none;
 }
-.nightMode #admin #pagina .modal-sidebar .container-list-group nav ul a {
+.nightMode body#admin #pagina .modal-sidebar .container-list-group nav ul a, .nightMode body#teacherPortal #pagina .modal-sidebar .container-list-group nav ul a {
   border-left: 4px solid #0D151D;
 }
-.nightMode #admin #pagina .modal-sidebar .main-sheet span {
+.nightMode body#admin #pagina .modal-sidebar .main-sheet span, .nightMode body#teacherPortal #pagina .modal-sidebar .main-sheet span {
   color: white;
 }
-.nightMode #admin #pagina table tr td,
-.nightMode #admin #pagina table tr th {
+.nightMode body#admin #pagina table tr td,
+.nightMode body#admin #pagina table tr th, .nightMode body#teacherPortal #pagina table tr td,
+.nightMode body#teacherPortal #pagina table tr th {
   color: white;
 }
-.nightMode #admin #pagina .card {
+.nightMode body#admin #pagina .card, .nightMode body#teacherPortal #pagina .card {
   background-color: #0D151D;
   border: 1px solid #2F3044;
 }
-.nightMode #admin #pagina .table tbody tr:hover td,
-.nightMode #admin #pagina .table tbody tr:hover th {
+.nightMode body#admin #pagina .table tbody tr:hover td,
+.nightMode body#admin #pagina .table tbody tr:hover th, .nightMode body#teacherPortal #pagina .table tbody tr:hover td,
+.nightMode body#teacherPortal #pagina .table tbody tr:hover th {
   background-color: #3F3D56;
 }
-.nightMode #admin #pagina .collapse-options-container [aria-expanded=true] span {
+.nightMode body#admin #pagina .collapse-options-container [aria-expanded=true] span, .nightMode body#teacherPortal #pagina .collapse-options-container [aria-expanded=true] span {
   background-color: white;
   color: #3F3D56 !important;
 }
-.nightMode #admin #pagina .collapse-options-container span {
+.nightMode body#admin #pagina .collapse-options-container span, .nightMode body#teacherPortal #pagina .collapse-options-container span {
   background-color: #3F3D56;
   color: white;
+  border: none;
 }
-.nightMode #admin #pagina .collapse-options-container span:hover {
+.nightMode body#admin #pagina .collapse-options-container span:hover, .nightMode body#teacherPortal #pagina .collapse-options-container span:hover {
   background-color: white;
   color: #3F3D56;
 }
-.nightMode #admin #pagina section#home .card .card-title {
+.nightMode body#admin #pagina section#home .class-and-value, .nightMode body#teacherPortal #pagina section#home .class-and-value {
   color: white;
 }
-.nightMode #admin #pagina section#home .card .total-student-enrolled {
+.nightMode body#admin #pagina section#home hr, .nightMode body#teacherPortal #pagina section#home hr {
+  background-color: #e5e5e5;
+}
+.nightMode body#admin #pagina section#home .card .card-title, .nightMode body#teacherPortal #pagina section#home .card .card-title {
+  color: white;
+}
+.nightMode body#admin #pagina section#home .card .total-student-enrolled, .nightMode body#teacherPortal #pagina section#home .card .total-student-enrolled {
   color: #e4d9ff;
 }
-.nightMode #admin #pagina section#home .recently-enrolled table td {
+.nightMode body#admin #pagina section#home .recently-enrolled table td, .nightMode body#teacherPortal #pagina section#home .recently-enrolled table td {
   color: white;
 }
-.nightMode #admin #pagina section#home .recent-activities .teacher-name {
+.nightMode body#admin #pagina section#home .recent-activities .teacher-name, .nightMode body#teacherPortal #pagina section#home .recent-activities .teacher-name {
   color: white;
 }
-.nightMode #admin #pagina section#home .recent-activities p {
+.nightMode body#admin #pagina section#home .recent-activities p, .nightMode body#teacherPortal #pagina section#home .recent-activities p {
   color: #f9f8f8;
 }
-.nightMode #admin #pagina section#home .recent-activities hr {
+.nightMode body#admin #pagina section#home .recent-activities hr, .nightMode body#teacherPortal #pagina section#home .recent-activities hr {
   background-color: #e5e5e5;
 }
 
@@ -238,9 +341,6 @@ h5 {
 }
 #pagina .modal-profile #class-profile-assessments {
   overflow-y: hidden;
-}
-#pagina .modal-profile .main-sheet {
-  border-bottom: 1px solid #e5e5e5;
 }
 #pagina .modal-profile .main-sheet span {
   text-align: center;
@@ -1002,6 +1102,11 @@ footer p {
   background: #E8F0FE;
 }
 
+#admin,
+#teacherPortal,
+#studentPortal {
+  background-color: #F2F2F2;
+}
 #admin #pagina .input-group-accessCode .fa-eye, #admin #pagina .input-group-accessCode .fa-eye-slash,
 #teacherPortal #pagina .input-group-accessCode .fa-eye,
 #teacherPortal #pagina .input-group-accessCode .fa-eye-slash,
@@ -1846,75 +1951,76 @@ footer p {
   }
 }
 @media (max-width: 769px) {
-  html #login .container-login {
+  #login .container-login {
     background: white;
     box-shadow: none;
   }
-  html #login .container-login .sidebar-primary {
+  #login .container-login .sidebar-primary {
     display: none !important;
   }
-  html #login .container-login .sidebar-secondary {
+  #login .container-login .sidebar-secondary {
     border-radius: 20px;
   }
-  html #login .container-login .sidebar-secondary form {
+  #login .container-login .sidebar-secondary form {
     padding: 15px;
   }
-  html body#admin .panel-side,
-html body#teacherPortal .panel-side,
-html body#studentPortal .panel-side {
+
+  body#admin .panel-side,
+body#teacherPortal .panel-side,
+body#studentPortal .panel-side {
     display: none;
   }
-  html body#admin .panel-side #left-panel #sidebar,
-html body#teacherPortal .panel-side #left-panel #sidebar,
-html body#studentPortal .panel-side #left-panel #sidebar {
+  body#admin .panel-side #left-panel #sidebar,
+body#teacherPortal .panel-side #left-panel #sidebar,
+body#studentPortal .panel-side #left-panel #sidebar {
     z-index: 120000000;
   }
-  html body#admin nav#studentPortalNavbar a,
-html body#teacherPortal nav#studentPortalNavbar a,
-html body#studentPortal nav#studentPortalNavbar a {
+  body#admin nav#studentPortalNavbar a,
+body#teacherPortal nav#studentPortalNavbar a,
+body#studentPortal nav#studentPortalNavbar a {
     padding: 5px;
   }
-  html body#admin nav#studentPortalNavbar ul .nav-item,
-html body#teacherPortal nav#studentPortalNavbar ul .nav-item,
-html body#studentPortal nav#studentPortalNavbar ul .nav-item {
+  body#admin nav#studentPortalNavbar ul .nav-item,
+body#teacherPortal nav#studentPortalNavbar ul .nav-item,
+body#studentPortal nav#studentPortalNavbar ul .nav-item {
     display: none;
   }
-  html body#admin nav#studentPortalNavbar ul .nav-fixed,
-html body#teacherPortal nav#studentPortalNavbar ul .nav-fixed,
-html body#studentPortal nav#studentPortalNavbar ul .nav-fixed {
+  body#admin nav#studentPortalNavbar ul .nav-fixed,
+body#teacherPortal nav#studentPortalNavbar ul .nav-fixed,
+body#studentPortal nav#studentPortalNavbar ul .nav-fixed {
     display: block;
   }
-  html body#admin .panel-side,
-html body#teacherPortal .panel-side,
-html body#studentPortal .panel-side {
+  body#admin .panel-side,
+body#teacherPortal .panel-side,
+body#studentPortal .panel-side {
     display: none;
   }
-  html body#admin .panel-side #left-panel #sidebar,
-html body#teacherPortal .panel-side #left-panel #sidebar,
-html body#studentPortal .panel-side #left-panel #sidebar {
+  body#admin .panel-side #left-panel #sidebar,
+body#teacherPortal .panel-side #left-panel #sidebar,
+body#studentPortal .panel-side #left-panel #sidebar {
     width: 30vw;
   }
-  html body#admin .panel-side #left-panel #sidebar .sidebar-lists #minimize,
-html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists #minimize,
-html body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists #minimize {
+  body#admin .panel-side #left-panel #sidebar .sidebar-lists #minimize,
+body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists #minimize,
+body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists #minimize {
     display: block;
   }
-  html body#admin .panel-side #left-panel #sidebar .sidebar-lists a,
-html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists a,
-html body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists a {
+  body#admin .panel-side #left-panel #sidebar .sidebar-lists a,
+body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists a,
+body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists a {
     font-size: 2vw;
   }
-  html body#admin .panel-side #left-panel #sidebar .sidebar-lists p,
-html body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists p,
-html body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists p {
+  body#admin .panel-side #left-panel #sidebar .sidebar-lists p,
+body#teacherPortal .panel-side #left-panel #sidebar .sidebar-lists p,
+body#studentPortal .panel-side #left-panel #sidebar .sidebar-lists p {
     font-size: 2.5vw;
   }
-  html body#admin #pagina #navbarBottom,
-html body#admin #pagina #navbarBottomStudentPortal,
-html body#teacherPortal #pagina #navbarBottom,
-html body#teacherPortal #pagina #navbarBottomStudentPortal,
-html body#studentPortal #pagina #navbarBottom,
-html body#studentPortal #pagina #navbarBottomStudentPortal {
+  body#admin #pagina #navbarBottom,
+body#admin #pagina #navbarBottomStudentPortal,
+body#teacherPortal #pagina #navbarBottom,
+body#teacherPortal #pagina #navbarBottomStudentPortal,
+body#studentPortal #pagina #navbarBottom,
+body#studentPortal #pagina #navbarBottomStudentPortal {
     display: block;
     border-top-right-radius: 15px;
     padding: 2px;
@@ -1924,134 +2030,134 @@ html body#studentPortal #pagina #navbarBottomStudentPortal {
     display: flex;
     justify-content: center;
   }
-  html body#admin #pagina #navbarBottom ul,
-html body#admin #pagina #navbarBottomStudentPortal ul,
-html body#teacherPortal #pagina #navbarBottom ul,
-html body#teacherPortal #pagina #navbarBottomStudentPortal ul,
-html body#studentPortal #pagina #navbarBottom ul,
-html body#studentPortal #pagina #navbarBottomStudentPortal ul {
+  body#admin #pagina #navbarBottom ul,
+body#admin #pagina #navbarBottomStudentPortal ul,
+body#teacherPortal #pagina #navbarBottom ul,
+body#teacherPortal #pagina #navbarBottomStudentPortal ul,
+body#studentPortal #pagina #navbarBottom ul,
+body#studentPortal #pagina #navbarBottomStudentPortal ul {
     display: flex;
     justify-content: space-around;
     width: 100%;
     align-items: center;
     margin-top: 10px;
   }
-  html body#admin #pagina #navbarBottom ul i.fas,
-html body#admin #pagina #navbarBottom ul i.bi,
-html body#admin #pagina #navbarBottomStudentPortal ul i.fas,
-html body#admin #pagina #navbarBottomStudentPortal ul i.bi,
-html body#teacherPortal #pagina #navbarBottom ul i.fas,
-html body#teacherPortal #pagina #navbarBottom ul i.bi,
-html body#teacherPortal #pagina #navbarBottomStudentPortal ul i.fas,
-html body#teacherPortal #pagina #navbarBottomStudentPortal ul i.bi,
-html body#studentPortal #pagina #navbarBottom ul i.fas,
-html body#studentPortal #pagina #navbarBottom ul i.bi,
-html body#studentPortal #pagina #navbarBottomStudentPortal ul i.fas,
-html body#studentPortal #pagina #navbarBottomStudentPortal ul i.bi {
+  body#admin #pagina #navbarBottom ul i.fas,
+body#admin #pagina #navbarBottom ul i.bi,
+body#admin #pagina #navbarBottomStudentPortal ul i.fas,
+body#admin #pagina #navbarBottomStudentPortal ul i.bi,
+body#teacherPortal #pagina #navbarBottom ul i.fas,
+body#teacherPortal #pagina #navbarBottom ul i.bi,
+body#teacherPortal #pagina #navbarBottomStudentPortal ul i.fas,
+body#teacherPortal #pagina #navbarBottomStudentPortal ul i.bi,
+body#studentPortal #pagina #navbarBottom ul i.fas,
+body#studentPortal #pagina #navbarBottom ul i.bi,
+body#studentPortal #pagina #navbarBottomStudentPortal ul i.fas,
+body#studentPortal #pagina #navbarBottomStudentPortal ul i.bi {
     font-size: 18px;
     color: #506177;
   }
-  html body#admin #pagina #navbarBottom ul img,
-html body#admin #pagina #navbarBottomStudentPortal ul img,
-html body#teacherPortal #pagina #navbarBottom ul img,
-html body#teacherPortal #pagina #navbarBottomStudentPortal ul img,
-html body#studentPortal #pagina #navbarBottom ul img,
-html body#studentPortal #pagina #navbarBottomStudentPortal ul img {
+  body#admin #pagina #navbarBottom ul img,
+body#admin #pagina #navbarBottomStudentPortal ul img,
+body#teacherPortal #pagina #navbarBottom ul img,
+body#teacherPortal #pagina #navbarBottomStudentPortal ul img,
+body#studentPortal #pagina #navbarBottom ul img,
+body#studentPortal #pagina #navbarBottomStudentPortal ul img {
     width: 5vw;
     border-radius: 50%;
   }
-  html body#admin #pagina form label,
-html body#teacherPortal #pagina form label,
-html body#studentPortal #pagina form label {
+  body#admin #pagina form label,
+body#teacherPortal #pagina form label,
+body#studentPortal #pagina form label {
     font-size: 2vw;
   }
-  html body#admin #pagina form input,
-html body#admin #pagina form select,
-html body#teacherPortal #pagina form input,
-html body#teacherPortal #pagina form select,
-html body#studentPortal #pagina form input,
-html body#studentPortal #pagina form select {
+  body#admin #pagina form input,
+body#admin #pagina form select,
+body#teacherPortal #pagina form input,
+body#teacherPortal #pagina form select,
+body#studentPortal #pagina form input,
+body#studentPortal #pagina form select {
     font-size: 1.5vw;
   }
-  html body#admin #pagina form .btn,
-html body#teacherPortal #pagina form .btn,
-html body#studentPortal #pagina form .btn {
+  body#admin #pagina form .btn,
+body#teacherPortal #pagina form .btn,
+body#studentPortal #pagina form .btn {
     font-size: 2vw;
   }
-  html body#admin #pagina table th,
-html body#teacherPortal #pagina table th,
-html body#studentPortal #pagina table th {
+  body#admin #pagina table th,
+body#teacherPortal #pagina table th,
+body#studentPortal #pagina table th {
     font-size: 2.5vw;
   }
-  html body#admin #pagina table td,
-html body#teacherPortal #pagina table td,
-html body#studentPortal #pagina table td {
+  body#admin #pagina table td,
+body#teacherPortal #pagina table td,
+body#studentPortal #pagina table td {
     font-size: 2vw;
   }
-  html body#admin #pagina table td .miniature-photo,
-html body#teacherPortal #pagina table td .miniature-photo,
-html body#studentPortal #pagina table td .miniature-photo {
+  body#admin #pagina table td .miniature-photo,
+body#teacherPortal #pagina table td .miniature-photo,
+body#studentPortal #pagina table td .miniature-photo {
     width: 8vw;
   }
-  html body#admin #pagina #navbar-top,
-html body#teacherPortal #pagina #navbar-top,
-html body#studentPortal #pagina #navbar-top {
+  body#admin #pagina #navbar-top,
+body#teacherPortal #pagina #navbar-top,
+body#studentPortal #pagina #navbar-top {
     padding: 10px;
     height: 70px;
   }
-  html body#admin #pagina #navbar-top .navbar-toggler .fa-bars,
-html body#teacherPortal #pagina #navbar-top .navbar-toggler .fa-bars,
-html body#studentPortal #pagina #navbar-top .navbar-toggler .fa-bars {
+  body#admin #pagina #navbar-top .navbar-toggler .fa-bars,
+body#teacherPortal #pagina #navbar-top .navbar-toggler .fa-bars,
+body#studentPortal #pagina #navbar-top .navbar-toggler .fa-bars {
     font-size: 20px;
   }
-  html body#admin #pagina #navbar-top ul,
-html body#teacherPortal #pagina #navbar-top ul,
-html body#studentPortal #pagina #navbar-top ul {
+  body#admin #pagina #navbar-top ul,
+body#teacherPortal #pagina #navbar-top ul,
+body#studentPortal #pagina #navbar-top ul {
     margin-right: 0;
   }
-  html body#admin #pagina #navbar-top b,
-html body#admin #pagina #navbar-top a,
-html body#teacherPortal #pagina #navbar-top b,
-html body#teacherPortal #pagina #navbar-top a,
-html body#studentPortal #pagina #navbar-top b,
-html body#studentPortal #pagina #navbar-top a {
+  body#admin #pagina #navbar-top b,
+body#admin #pagina #navbar-top a,
+body#teacherPortal #pagina #navbar-top b,
+body#teacherPortal #pagina #navbar-top a,
+body#studentPortal #pagina #navbar-top b,
+body#studentPortal #pagina #navbar-top a {
     font-size: 2.5vw;
   }
-  html body#admin #pagina #navbar-top a#bars,
-html body#teacherPortal #pagina #navbar-top a#bars,
-html body#studentPortal #pagina #navbar-top a#bars {
+  body#admin #pagina #navbar-top a#bars,
+body#teacherPortal #pagina #navbar-top a#bars,
+body#studentPortal #pagina #navbar-top a#bars {
     display: none;
   }
-  html body#admin #pagina #navbar-top a.bars-xs,
-html body#teacherPortal #pagina #navbar-top a.bars-xs,
-html body#studentPortal #pagina #navbar-top a.bars-xs {
+  body#admin #pagina #navbar-top a.bars-xs,
+body#teacherPortal #pagina #navbar-top a.bars-xs,
+body#studentPortal #pagina #navbar-top a.bars-xs {
     display: block;
     position: absolute;
     left: 10px;
   }
-  html body#admin #pagina #navbar-top .navbar-toggler,
-html body#teacherPortal #pagina #navbar-top .navbar-toggler,
-html body#studentPortal #pagina #navbar-top .navbar-toggler {
+  body#admin #pagina #navbar-top .navbar-toggler,
+body#teacherPortal #pagina #navbar-top .navbar-toggler,
+body#studentPortal #pagina #navbar-top .navbar-toggler {
     display: none;
   }
-  html body#admin #pagina #navbar-top .navbar-nav,
-html body#teacherPortal #pagina #navbar-top .navbar-nav,
-html body#studentPortal #pagina #navbar-top .navbar-nav {
+  body#admin #pagina #navbar-top .navbar-nav,
+body#teacherPortal #pagina #navbar-top .navbar-nav,
+body#studentPortal #pagina #navbar-top .navbar-nav {
     display: none;
   }
-  html body#admin #pagina #navbar-top #bars,
-html body#teacherPortal #pagina #navbar-top #bars,
-html body#studentPortal #pagina #navbar-top #bars {
+  body#admin #pagina #navbar-top #bars,
+body#teacherPortal #pagina #navbar-top #bars,
+body#studentPortal #pagina #navbar-top #bars {
     display: block;
   }
-  html body#admin #pagina #navbar-top .navbar-toggler,
-html body#teacherPortal #pagina #navbar-top .navbar-toggler,
-html body#studentPortal #pagina #navbar-top .navbar-toggler {
+  body#admin #pagina #navbar-top .navbar-toggler,
+body#teacherPortal #pagina #navbar-top .navbar-toggler,
+body#studentPortal #pagina #navbar-top .navbar-toggler {
     display: none;
   }
-  html body#admin #pagina #navbar-top .logo img,
-html body#teacherPortal #pagina #navbar-top .logo img,
-html body#studentPortal #pagina #navbar-top .logo img {
+  body#admin #pagina #navbar-top .logo img,
+body#teacherPortal #pagina #navbar-top .logo img,
+body#studentPortal #pagina #navbar-top .logo img {
     display: block;
     position: absolute;
     margin-left: auto;
@@ -2064,70 +2170,70 @@ html body#studentPortal #pagina #navbar-top .logo img {
     width: 150px;
     height: 40px;
   }
-  html body#admin #pagina #profileClassModal .main-sheet,
-html body#teacherPortal #pagina #profileClassModal .main-sheet,
-html body#studentPortal #pagina #profileClassModal .main-sheet {
+  body#admin #pagina #profileClassModal .main-sheet,
+body#teacherPortal #pagina #profileClassModal .main-sheet,
+body#studentPortal #pagina #profileClassModal .main-sheet {
     margin-top: -3.5vw;
   }
-  html body#admin #pagina .modal-profile .horizontal-control-list,
-html body#teacherPortal #pagina .modal-profile .horizontal-control-list,
-html body#studentPortal #pagina .modal-profile .horizontal-control-list {
+  body#admin #pagina .modal-profile .horizontal-control-list,
+body#teacherPortal #pagina .modal-profile .horizontal-control-list,
+body#studentPortal #pagina .modal-profile .horizontal-control-list {
     display: flex;
   }
-  html body#admin #pagina .modal-profile .collapse-options-container,
-html body#teacherPortal #pagina .modal-profile .collapse-options-container,
-html body#studentPortal #pagina .modal-profile .collapse-options-container {
+  body#admin #pagina .modal-profile .collapse-options-container,
+body#teacherPortal #pagina .modal-profile .collapse-options-container,
+body#studentPortal #pagina .modal-profile .collapse-options-container {
     margin-top: 20px;
   }
-  html body#admin #pagina .modal-profile .side-collapse-options,
-html body#teacherPortal #pagina .modal-profile .side-collapse-options,
-html body#studentPortal #pagina .modal-profile .side-collapse-options {
+  body#admin #pagina .modal-profile .side-collapse-options,
+body#teacherPortal #pagina .modal-profile .side-collapse-options,
+body#studentPortal #pagina .modal-profile .side-collapse-options {
     display: none;
   }
-  html body#admin #pagina .modal-profile .modal-sidebar .container-list-group nav a,
-html body#teacherPortal #pagina .modal-profile .modal-sidebar .container-list-group nav a,
-html body#studentPortal #pagina .modal-profile .modal-sidebar .container-list-group nav a {
+  body#admin #pagina .modal-profile .modal-sidebar .container-list-group nav a,
+body#teacherPortal #pagina .modal-profile .modal-sidebar .container-list-group nav a,
+body#studentPortal #pagina .modal-profile .modal-sidebar .container-list-group nav a {
     font-size: 1.2vw;
   }
-  html body#admin #pagina .modal-profile .accordion-container,
-html body#teacherPortal #pagina .modal-profile .accordion-container,
-html body#studentPortal #pagina .modal-profile .accordion-container {
+  body#admin #pagina .modal-profile .accordion-container,
+body#teacherPortal #pagina .modal-profile .accordion-container,
+body#studentPortal #pagina .modal-profile .accordion-container {
     overflow: auto;
     height: 520px;
     width: 70vw;
     margin: auto;
   }
-  html body#admin #pagina .modal-profile .main-content [data-parent="#main-accordion-class"],
-html body#teacherPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-class"],
-html body#studentPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-class"] {
+  body#admin #pagina .modal-profile .main-content [data-parent="#main-accordion-class"],
+body#teacherPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-class"],
+body#studentPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-class"] {
     margin-top: -3vw;
   }
-  html body#admin #pagina .modal-profile .main-content [data-parent="#main-accordion-student"],
-html body#teacherPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-student"],
-html body#studentPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-student"] {
+  body#admin #pagina .modal-profile .main-content [data-parent="#main-accordion-student"],
+body#teacherPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-student"],
+body#studentPortal #pagina .modal-profile .main-content [data-parent="#main-accordion-student"] {
     margin-top: -3vw;
   }
-  html body#admin #pagina .modal-profile .main-content h5,
-html body#teacherPortal #pagina .modal-profile .main-content h5,
-html body#studentPortal #pagina .modal-profile .main-content h5 {
+  body#admin #pagina .modal-profile .main-content h5,
+body#teacherPortal #pagina .modal-profile .main-content h5,
+body#studentPortal #pagina .modal-profile .main-content h5 {
     font-size: 2.5vw;
   }
-  html body#admin #pagina .modal-profile .main-content form .input-group-text,
-html body#teacherPortal #pagina .modal-profile .main-content form .input-group-text,
-html body#studentPortal #pagina .modal-profile .main-content form .input-group-text {
+  body#admin #pagina .modal-profile .main-content form .input-group-text,
+body#teacherPortal #pagina .modal-profile .main-content form .input-group-text,
+body#studentPortal #pagina .modal-profile .main-content form .input-group-text {
     font-size: 2vw;
   }
-  html body#admin #pagina .modal-profile .main-content form select,
-html body#admin #pagina .modal-profile .main-content form input,
-html body#teacherPortal #pagina .modal-profile .main-content form select,
-html body#teacherPortal #pagina .modal-profile .main-content form input,
-html body#studentPortal #pagina .modal-profile .main-content form select,
-html body#studentPortal #pagina .modal-profile .main-content form input {
+  body#admin #pagina .modal-profile .main-content form select,
+body#admin #pagina .modal-profile .main-content form input,
+body#teacherPortal #pagina .modal-profile .main-content form select,
+body#teacherPortal #pagina .modal-profile .main-content form input,
+body#studentPortal #pagina .modal-profile .main-content form select,
+body#studentPortal #pagina .modal-profile .main-content form input {
     font-size: 1.8vw;
   }
-  html body#admin #pagina .modal-profile .option-list,
-html body#teacherPortal #pagina .modal-profile .option-list,
-html body#studentPortal #pagina .modal-profile .option-list {
+  body#admin #pagina .modal-profile .option-list,
+body#teacherPortal #pagina .modal-profile .option-list,
+body#studentPortal #pagina .modal-profile .option-list {
     display: flex;
     justify-content: flex-end;
     margin: 15px 0px 15px 0px;
@@ -2343,7 +2449,6 @@ html body#studentPortal #pagina #profileStudentModal #main-accordion,
 html body#studentPortal #pagina #profileStudentModal #main-accordion-settings,
 html body#studentPortal #pagina #settingsModal #main-accordion,
 html body#studentPortal #pagina #settingsModal #main-accordion-settings {
-    background-color: white;
     border-radius: 15px;
   }
   html body#admin #pagina #profileTeacherModal #main-accordion .modal-sidebar, html body#admin #pagina #profileTeacherModal #main-accordion-settings .modal-sidebar,
@@ -2824,33 +2929,33 @@ html #studentPortal #pagina #table-teachers {
     width: 450px;
   }
 }
-html body #navbar-top {
+body #navbar-top {
   background-color: #ffffff;
   transition: 0.7s;
   position: fixed;
   z-index: 3;
   padding: 10px 15px;
 }
-html body #navbar-top .navbar-brand {
+body #navbar-top .navbar-brand {
   font-weight: bold;
 }
-html body #navbar-top .fa-sign-out-alt {
+body #navbar-top .fa-sign-out-alt {
   color: black;
 }
-html body #navbar-top ul {
+body #navbar-top ul {
   margin-right: 20px;
 }
-html body #navbar-top .fa-cog {
+body #navbar-top .fa-cog {
   font-size: 20px;
   color: #506177;
 }
-html body #navbar-top .fa-bars {
+body #navbar-top .fa-bars {
   color: #080809;
 }
-html body #navbar-top a.bars-xs {
+body #navbar-top a.bars-xs {
   display: none;
 }
-html body #navbar-top .foto-perfil {
+body #navbar-top .foto-perfil {
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -2859,25 +2964,25 @@ html body #navbar-top .foto-perfil {
   cursor: pointer;
   border: 1px solid #e5e5e5;
 }
-html body #navbar-top .logo {
+body #navbar-top .logo {
   display: none;
 }
-html body #navbar-top #navbarDropdown {
+body #navbar-top #navbarDropdown {
   color: #506177;
   font-size: 14px;
   font-weight: 500;
 }
-html body nav#navbarBottom,
-html body #navbarBottomStudentPortal {
+body nav#navbarBottom,
+body #navbarBottomStudentPortal {
   border-radius: 0px;
   border: none;
 }
-html body nav#navbarBottom li,
-html body #navbarBottomStudentPortal li {
+body nav#navbarBottom li,
+body #navbarBottomStudentPortal li {
   padding-top: 5px;
 }
-html body nav#navbarBottom a,
-html body #navbarBottomStudentPortal a {
+body nav#navbarBottom a,
+body #navbarBottomStudentPortal a {
   font-size: 12px;
   font-family: Bold;
   display: flex;
@@ -2885,43 +2990,43 @@ html body #navbarBottomStudentPortal a {
   padding-top: 10px;
   border-bottom: 3px solid white;
 }
-html body nav#navbarBottom i.fas,
-html body #navbarBottomStudentPortal i.fas {
+body nav#navbarBottom i.fas,
+body #navbarBottomStudentPortal i.fas {
   font-size: 10px;
 }
-html body nav#navbarBottom a:hover span,
-html body #navbarBottomStudentPortal a:hover span {
+body nav#navbarBottom a:hover span,
+body #navbarBottomStudentPortal a:hover span {
   display: inline;
   color: #09023B;
 }
-html body nav#navbarBottom span,
-html body #navbarBottomStudentPortal span {
+body nav#navbarBottom span,
+body #navbarBottomStudentPortal span {
   display: none;
   margin-left: 10px;
   transition: 1s ease-in-out infinite alternate-reverse both;
 }
-html body nav#navbarBottom .navbar-collapse,
-html body #navbarBottomStudentPortal .navbar-collapse {
+body nav#navbarBottom .navbar-collapse,
+body #navbarBottomStudentPortal .navbar-collapse {
   margin-top: -18px;
 }
-html body nav#navbarBottom .navbar-nav a[aria-expanded=true],
-html body nav#navbarBottom .navbar-nav .link-active,
-html body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true],
-html body #navbarBottomStudentPortal .navbar-nav .link-active {
+body nav#navbarBottom .navbar-nav a[aria-expanded=true],
+body nav#navbarBottom .navbar-nav .link-active,
+body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true],
+body #navbarBottomStudentPortal .navbar-nav .link-active {
   border-bottom: 3px solid #5C4CFF;
   padding: 10px;
   color: #09023B;
 }
-html body nav#navbarBottom .navbar-nav a[aria-expanded=true] span,
-html body nav#navbarBottom .navbar-nav .link-active span,
-html body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true] span,
-html body #navbarBottomStudentPortal .navbar-nav .link-active span {
+body nav#navbarBottom .navbar-nav a[aria-expanded=true] span,
+body nav#navbarBottom .navbar-nav .link-active span,
+body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true] span,
+body #navbarBottomStudentPortal .navbar-nav .link-active span {
   display: inline-block;
 }
-html body nav#navbarBottom .navbar-nav a[aria-expanded=true] i.fas,
-html body nav#navbarBottom .navbar-nav .link-active i.fas,
-html body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true] i.fas,
-html body #navbarBottomStudentPortal .navbar-nav .link-active i.fas {
+body nav#navbarBottom .navbar-nav a[aria-expanded=true] i.fas,
+body nav#navbarBottom .navbar-nav .link-active i.fas,
+body #navbarBottomStudentPortal .navbar-nav a[aria-expanded=true] i.fas,
+body #navbarBottomStudentPortal .navbar-nav .link-active i.fas {
   color: #09023B;
 }
 

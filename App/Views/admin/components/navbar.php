@@ -14,7 +14,7 @@
 			</li>
 		</ul>
 
-		<a class="logo" href=""><img class="mx-auto" src="/assets/img/logo-components/logo-completa.png" alt=""></a>
+		<a class="logo" href=""><img class="mx-auto" id="logo-exitus" src="/assets/img/logo-components/logo-completa.png" alt=""></a>
 
 		<ul class="navbar-nav ml-auto d-flex align-items-center">
 

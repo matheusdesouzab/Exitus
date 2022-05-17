@@ -7,35 +7,42 @@ const management = new Management()
 
 let botaoClicado = true
 
-const nightModeStorage = localStorage.getItem('gmtNightMode')
-const nightMode = $('#nightMode')
-
-if (nightModeStorage) {
-    $('html').addClass('nightMode')
-}
-
-$(document).on('click', '#nightMode', function (e) {
-    $('html').toggleClass('nightMode')
-    if ($('html').hasClass('nightMode')) {
-        localStorage.setItem('gmtNightMode', true)
-        document.location.reload()
-        return
-    }
-    localStorage.removeItem('gmtNightMode')
-    document.location.reload()
-})
-
-
-$(document).on('click', '[data-target="#accordion-interface-admin"]', function (e) {
-    if ($('html').hasClass('nightMode')) {
-        $('#nightMode').prop("checked", true)
-    }
-})
-
 // Iniciando o tooltip
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
+})
+
+
+$(document).ready(function(){
+
+    $(document).on('click', '#nightMode', function (e) {
+        $('html').toggleClass('nightMode')
+        let portal = 'nightMode' + $(this).attr('portal')
+        if ($('html').hasClass('nightMode')) {
+            localStorage.setItem(portal, true)
+            document.location.reload()
+            return
+        }
+        localStorage.removeItem(portal)
+        document.location.reload()
+    })
+
+    if (localStorage.getItem('nightModeAdmin')) {
+        $('#logo-exitus').attr('src', '/assets/img/logo-components/logo-completa-branca.png')
+    }
+
+    if (localStorage.getItem('nightModeTeacher')) {
+        $('#logo-exitus').attr('src', '/assets/img/logo-components/logo-completa-branca.png')
+    }
+
+
+    $(document).on('click', '[data-target="#accordion-interface-admin"] , [data-target="#accordion-interface-teacher"]', function (e) {
+        if ($('html').hasClass('nightMode')) {
+            $('#nightMode').prop("checked", true)
+        }
+    })
+
 })
 
 
@@ -752,7 +759,7 @@ $(document).on('keypress', '#accessCode', function (e) {
 
 
 $("[data-target='#student-registration-finishing']").on("click", function (e) {
-    validation.checkAllFields("#addStudent", 3, "#buttonAddStudent")
+    validation.checkAllFields("#addStudent", 19, "#buttonAddStudent")
 })
 
 

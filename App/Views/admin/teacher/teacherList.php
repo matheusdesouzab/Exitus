@@ -65,7 +65,7 @@
                     <div class="modal-content p-2">
                         <div class="row">
                             <div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+                                    <span aria-hidden="true"><i class="fas fa-times-circle text-info mr-3 mt-2"></i></span>
                                 </button></div>
                         </div>
 

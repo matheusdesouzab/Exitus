@@ -1,4 +1,4 @@
-<div class="row mb-4 d-flex justify-content-around" id="main-accordion-class">
+<div class="row mb-4 d-flex justify-content-around" id="main-accordion">
 
     <div class="col-lg-3 col-11 mx-auto">
 
@@ -32,6 +32,9 @@
                                 <ul>
 
                                     <a class="collapse" href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-admin"><i class="fas fa-user mr-3"></i> Seu perfil</a>
+
+                                    <a class="collapse" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-interface-teacher">
+                                            <span class="box-icon"><i class="fas fa-magic"></i></span> Interface</a>
 
                                 </ul>
 
@@ -84,7 +87,7 @@
 
                 <?php foreach ($this->view->Data as $key => $teacher) { ?>
 
-                    <div class="col-lg-11 mx-auto collapse show" id="accordion-data-admin" data-parent="#main-accordion-class">
+                    <div class="col-lg-11 mx-auto collapse show" id="accordion-data-admin" data-parent="#main-accordion">
 
                         <form id="adminDate<?= $teacher->id ?>" class="col-lg-12" action="">
 
@@ -209,7 +212,7 @@
                                 </div>
                                 <input id="accessCode" name="accessCode" type="password" disabled class="form-control" value="<?= $teacher->access_code ?>" maxlength="30" aria-label="Username" aria-describedby="addon-wrapping">
                                 <div class="input-group-append">
-                                <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
+                                <div class="input-group-text input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
                                 </div>
                             </div>
 
@@ -285,7 +288,32 @@
 
                         </form>
 
+                    </div>
 
+                    <div class="col-11 mx-auto collapse" id="accordion-interface-teacher" data-parent="#main-accordion">
+
+                        <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
+
+                            <div class="col-lg-12">
+
+                                <div class="row d-flex align-items-center">
+
+                                    <h5 class="col-8 p-0">Interface do portal</h5>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-11 ml-2">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="nightMode" portal="Teacher">
+                                <label class="custom-control-label" for="nightMode">Modo Noturno</label>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 

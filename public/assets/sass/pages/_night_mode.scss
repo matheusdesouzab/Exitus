@@ -1,6 +1,6 @@
 .nightMode {
 
-    #admin {
+    body#admin, body#teacherPortal {
         background-color: #050A11;
 
         h5,
@@ -44,6 +44,66 @@
                 hr {
                     background-color: white;
                 }
+
+                .fa-ellipsis-h {
+                    color: white;
+                }
+
+            }
+
+            @media (max-width:576px) {
+
+                #navbar-top{
+                    border: none;
+                }
+
+                .modal-profile { 
+
+                    #main-accordion,
+                    #main-accordion-settings,
+                    #main-accordion-class,
+                    #main-accordion-student
+                    {
+                        background-color: #0D151D;
+
+                        .modal-sidebar {
+                            background-color: #0D151D;
+
+                            .main-sheet span{
+                                color: #0D151D;
+                            }
+
+                            .container-list-group {
+                                nav{
+                                    ul{
+                                        [aria-expanded="true"] {
+                                            color: white;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #navbarBottom {
+                background-color: #0D151D;
+
+                ul {
+                    a {
+                        color: white;
+                    }
+
+                    i.fas,
+                    i.bi {
+                        color: $color-white;
+                    }
+                }
+            }
+
+            label {
+                color: white;
             }
 
             .table-striped>tbody>tr:nth-child(2n+1)>td,
@@ -51,19 +111,58 @@
                 background-color: #2F3044;
             }
 
+            .registration-in-stages {
+
+                .registration-header-by-step .row {
+                    .container-option {
+                        p {
+                            color: white;
+                        }
+                    }
+                }
+
+            }
+
             .modal-content {
                 background-color: #2F3044;
 
-                [containerListDisciplineClass] form {
-                    border: 1px solid white;
-                }
+                .main-content {
 
-                form {
-
-                    .input-group-text {
-                        color: white;
-                        background-color: transparent;
+                    [containerListDisciplineClass] form,
+                    [containerDisciplineAverageList] form {
+                        border: 1px solid white;
                     }
+
+                    .teacher-class-title {
+                        color: white;
+                    }
+
+                    form {
+
+                        .input-group-text {
+                            color: white;
+                            background-color: transparent;
+                        }
+
+
+                        input,
+                        select {
+                            color: #2F3044;
+                        }
+
+                    }
+
+                    #accordion-data-student,
+                    #accordion-data-teacher,
+                    #accordion-data-admin {
+
+                        form input,
+                        form select {
+                            color: #7F8C8D;
+                            font-weight: bold;
+                        }
+                    }
+
 
                 }
             }
@@ -120,6 +219,7 @@
                 span {
                     background-color: #3F3D56;
                     color: white;
+                    border: none;
 
                     &:hover {
                         background-color: white;
@@ -129,6 +229,14 @@
             }
 
             section#home {
+
+                .class-and-value{
+                    color: white;
+                }
+
+                hr{
+                    background-color: #e5e5e5;
+                }
 
                 .card {
                     .card-title {

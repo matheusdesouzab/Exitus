@@ -13,6 +13,7 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title> Exitus - Portal do docente</title>
 	<link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo-components/logo.png"/>
+	<script> if (localStorage.getItem('nightModeTeacher')) { document.documentElement.classList.add('nightMode') } </script>
 	<link rel="stylesheet" href="/assets/css/stylesheet.css">
 	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
@@ -50,7 +51,7 @@ isset($_SESSION['Teacher']) ? '' : header('Location: /portal-docente');
 						<div class="modal-content">
 							<div class="row">
 								<div class="col-lg-12"> <button type="button" class="close text-rig" data-dismiss="modal" aria-label="Close" data-toggle="modal" data-target="#settingsModal">
-										<span aria-hidden="true"><i class="fas fa-times-circle text-dark mr-3 mt-2"></i></span>
+										<span aria-hidden="true"><i class="fas fa-times-circle text-info mr-3 mt-2"></i></span>
 									</button></div>
 							</div>
 

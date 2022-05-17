@@ -6,7 +6,7 @@
 		<i class="fas fa-bars"></i>
 	</button>
 
-	<a class="logo" href=""><img src="/assets/img/logo-components/logo-completa.png" alt=""></a>
+	<a class="logo" href=""><img id="logo-exitus" src="/assets/img/logo-components/logo-completa.png" alt=""></a>
 
 
 	<div class="collapse navbar-collapse" id="navbarText">
@@ -24,7 +24,7 @@
 			</li>
 
 			<li class="nav-item ml-4 mr-2 d-none d-md-block">
-				<a href="/portal-docente/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a>
+				<a href="/portal-docente/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt"></i></a>
 			</li>
 
 		</ul>

@@ -17,7 +17,7 @@
         </li>
 
         <li class="nav-item">
-            <a name="sair" class="nav-link" href="/admin/gestao"><i class="fas fa-sign-out-alt text-dark"></i> <span>Sair da conta</span></a>
+            <a name="sair" class="nav-link" href="/admin/gestao"><i class="fas fa-sign-out-alt"></i> <span>Sair da conta</span></a>
 		</li>
 
     </ul>
