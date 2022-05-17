@@ -29,7 +29,7 @@
 			</li>
  
 			<li class="nav-item ml-4 mr-2 d-none d-md-block">
-				<a href="#"><a href="/admin/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt text-dark"></i></a></a>
+				<a href="#"><a href="/admin/sair" data-toggle="tooltip" data-placement="bottom" title="Sair da conta"><i class="fas fa-sign-out-alt"></i></a></a>
 			</li>
 
 		</ul>

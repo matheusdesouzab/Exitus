@@ -7,6 +7,31 @@ const management = new Management()
 
 let botaoClicado = true
 
+const nightModeStorage = localStorage.getItem('gmtNightMode')
+const nightMode = $('#nightMode')
+
+if (nightModeStorage) {
+    $('html').addClass('nightMode')
+}
+
+$(document).on('click', '#nightMode', function (e) {
+    $('html').toggleClass('nightMode')
+    if ($('html').hasClass('nightMode')) {
+        localStorage.setItem('gmtNightMode', true)
+        document.location.reload()
+        return
+    }
+    localStorage.removeItem('gmtNightMode')
+    document.location.reload()
+})
+
+
+$(document).on('click', '[data-target="#accordion-interface-admin"]', function (e) {
+    if ($('html').hasClass('nightMode')) {
+        $('#nightMode').prop("checked", true)
+    }
+})
+
 // Iniciando o tooltip
 
 $(function () {

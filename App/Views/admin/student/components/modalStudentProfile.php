@@ -310,7 +310,7 @@
                                 </div>
                                 <input id="accessCode" name="accessCode" type="password" disabled class="form-control" value="<?= $student->access_code ?>" maxlength="30" aria-label="Username" aria-describedby="addon-wrapping">
                                 <div class="input-group-append">
-                                <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
+                                <div class="input-group-text input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
                                 </div>
                             </div>
 

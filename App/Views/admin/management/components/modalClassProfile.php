@@ -89,7 +89,7 @@
 
                 <div class="col-lg-12 mt-4">
 
-                    <div class="row p-3 text-secondary main-sheet">
+                    <div class="row p-3 main-sheet">
 
                         <div class="col-lg-12">
 

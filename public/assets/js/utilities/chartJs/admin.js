@@ -1,4 +1,5 @@
 let studentsTotal;
+let colorLabels =  localStorage.getItem('gmtNightMode') ? '#fff' : '#000'
 
 $.ajax({
   type: "GET",
@@ -24,29 +25,44 @@ $.ajax({
                 label: 'Total de alunos',
                 backgroundColor: colors['primary'],
                 borderColor: '#e5e5e5',
+                color: colorLabels,
                 data: datas
               }]
             },
-            options: {
+            options: {        
               plugins: {
                 title: {
                   display: true,
                   text: 'Divisão de alunos por curso',
+                  color: colorLabels,
                   padding: {
                     top: 10,
                     bottom: 30
                   }
-                }
+                },
+                legend: {
+                  labels: {
+                    color: colorLabels
+                  }
               },
+            },
               scales: {
                 x: {
                   grid: {
                     display: false
+                  },
+                  ticks: {
+                    color: colorLabels,
+                    beginAtZero: true
                   }
                 },
                 y: {
                   grid: {
                     display: false
+                  },
+                  ticks: {
+                    color: colorLabels,
+                    beginAtZero: true
                   }
                 }
               }
@@ -109,11 +125,17 @@ $.ajax({
                 title: {
                   display: true,
                   text: 'Situação dos alunos no ano letivo',
+                  color: colorLabels,
                   padding: {
                     top: 10,
                     bottom: 10
                   }
-                }
+                },
+                legend: {
+                  labels: {
+                    color: colorLabels
+                  }
+              }
               },
               responsive: true,
               maintainAspectRatio: false
@@ -167,11 +189,17 @@ $.ajax({
                 title: {
                   display: true,
                   text: 'Status das solicitações de rematrículas recebidas',
+                  color: colorLabels,
                   padding: {
                     top: 10,
                     bottom: 10
                   }
-                }
+                },
+                legend: {
+                  labels: {
+                    color: colorLabels
+                  }
+              }
               },
               responsive: true,
               maintainAspectRatio: false

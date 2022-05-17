@@ -10,7 +10,7 @@ html {
   overflow-y: scroll;
 }
 
-html > body {
+body {
   background-color: #F2F2F2;
   color: #2b2b2f;
 }
@@ -26,6 +26,103 @@ li {
 h5 {
   color: #09023B;
   font-family: Bold;
+}
+
+.nightMode #admin {
+  background-color: #050A11;
+}
+.nightMode #admin h5,
+.nightMode #admin h4,
+.nightMode #admin h3,
+.nightMode #admin h2,
+.nightMode #admin h1,
+.nightMode #admin p {
+  color: white;
+}
+.nightMode #admin #left-panel #sidebar {
+  background-color: #0D151D;
+}
+.nightMode #admin #navbar-top {
+  background-color: #0D151D;
+  border-left: 2px solid #424549;
+}
+.nightMode #admin #navbar-top .fa-bars,
+.nightMode #admin #navbar-top .nav-item,
+.nightMode #admin #navbar-top .fa-sign-out-alt {
+  color: white;
+}
+.nightMode #admin #pagina form label,
+.nightMode #admin #pagina form .font-weight-bold {
+  color: white;
+}
+.nightMode #admin #pagina form hr {
+  background-color: white;
+}
+.nightMode #admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
+.nightMode #admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > th {
+  background-color: #2F3044;
+}
+.nightMode #admin #pagina .modal-content {
+  background-color: #2F3044;
+}
+.nightMode #admin #pagina .modal-content [containerListDisciplineClass] form {
+  border: 1px solid white;
+}
+.nightMode #admin #pagina .modal-content form .input-group-text {
+  color: white;
+  background-color: transparent;
+}
+.nightMode #admin #pagina .modal-sidebar {
+  background-color: #0D151D;
+  border: none;
+}
+.nightMode #admin #pagina .modal-sidebar .container-list-group nav ul a {
+  border-left: 4px solid #0D151D;
+}
+.nightMode #admin #pagina .modal-sidebar .main-sheet span {
+  color: white;
+}
+.nightMode #admin #pagina table tr td,
+.nightMode #admin #pagina table tr th {
+  color: white;
+}
+.nightMode #admin #pagina .card {
+  background-color: #0D151D;
+  border: 1px solid #2F3044;
+}
+.nightMode #admin #pagina .table tbody tr:hover td,
+.nightMode #admin #pagina .table tbody tr:hover th {
+  background-color: #3F3D56;
+}
+.nightMode #admin #pagina .collapse-options-container [aria-expanded=true] span {
+  background-color: white;
+  color: #3F3D56 !important;
+}
+.nightMode #admin #pagina .collapse-options-container span {
+  background-color: #3F3D56;
+  color: white;
+}
+.nightMode #admin #pagina .collapse-options-container span:hover {
+  background-color: white;
+  color: #3F3D56;
+}
+.nightMode #admin #pagina section#home .card .card-title {
+  color: white;
+}
+.nightMode #admin #pagina section#home .card .total-student-enrolled {
+  color: #e4d9ff;
+}
+.nightMode #admin #pagina section#home .recently-enrolled table td {
+  color: white;
+}
+.nightMode #admin #pagina section#home .recent-activities .teacher-name {
+  color: white;
+}
+.nightMode #admin #pagina section#home .recent-activities p {
+  color: #f9f8f8;
+}
+.nightMode #admin #pagina section#home .recent-activities hr {
+  background-color: #e5e5e5;
 }
 
 @font-face {
@@ -536,7 +633,6 @@ table tr {
   position: fixed;
   top: 0;
   padding: 5px;
-  transition: all 0.7s ease;
   left: 0;
   height: 100vh;
   background: #09023B;
@@ -2737,6 +2833,9 @@ html body #navbar-top {
 }
 html body #navbar-top .navbar-brand {
   font-weight: bold;
+}
+html body #navbar-top .fa-sign-out-alt {
+  color: black;
 }
 html body #navbar-top ul {
   margin-right: 20px;

@@ -1,0 +1,168 @@
+.nightMode {
+
+    #admin {
+        background-color: #050A11;
+
+        h5,
+        h4,
+        h3,
+        h2,
+        h1,
+        p {
+            color: white;
+        }
+
+        #left-panel {
+
+            #sidebar {
+                background-color: #0D151D;
+            }
+
+        }
+
+        #navbar-top {
+            background-color: #0D151D;
+            border-left: 2px solid #424549;
+
+            .fa-bars,
+            .nav-item,
+            .fa-sign-out-alt {
+                color: white;
+            }
+        }
+
+
+        #pagina {
+
+            form {
+
+                label,
+                .font-weight-bold {
+                    color: white;
+                }
+
+                hr {
+                    background-color: white;
+                }
+            }
+
+            .table-striped>tbody>tr:nth-child(2n+1)>td,
+            .table-striped>tbody>tr:nth-child(2n+1)>th {
+                background-color: #2F3044;
+            }
+
+            .modal-content {
+                background-color: #2F3044;
+
+                [containerListDisciplineClass] form {
+                    border: 1px solid white;
+                }
+
+                form {
+
+                    .input-group-text {
+                        color: white;
+                        background-color: transparent;
+                    }
+
+                }
+            }
+
+            .modal-sidebar {
+                background-color: #0D151D;
+                border: none;
+
+                .container-list-group {
+
+                    nav {
+                        ul {
+                            a {
+                                border-left: 4px solid #0D151D;
+                            }
+                        }
+                    }
+
+                }
+
+                .main-sheet span {
+                    color: white;
+                }
+            }
+
+            table {
+                tr {
+
+                    td,
+                    th {
+                        color: white;
+                    }
+                }
+            }
+
+            .card {
+                background-color: #0D151D;
+                border: 1px solid #2F3044;
+            }
+
+            .table tbody tr:hover td,
+            .table tbody tr:hover th {
+                background-color: #3F3D56;
+            }
+
+            .collapse-options-container {
+                [aria-expanded="true"] {
+                    span {
+                        background-color: white;
+                        color: #3F3D56 !important;
+                    }
+                }
+
+                span {
+                    background-color: #3F3D56;
+                    color: white;
+
+                    &:hover {
+                        background-color: white;
+                        color: #3F3D56;
+                    }
+                }
+            }
+
+            section#home {
+
+                .card {
+                    .card-title {
+                        color: white;
+                    }
+
+                    .total-student-enrolled {
+                        color: $color-extra-light-blue;
+                    }
+                }
+
+                .recently-enrolled {
+                    table {
+                        td {
+                            color: white;
+                        }
+                    }
+                }
+
+                .recent-activities {
+                    .teacher-name {
+                        color: white;
+                    }
+
+                    p {
+                        color: #f9f8f8;
+                    }
+
+                    hr {
+                        background-color: #e5e5e5;
+                    }
+                }
+
+            }
+        }
+    }
+}

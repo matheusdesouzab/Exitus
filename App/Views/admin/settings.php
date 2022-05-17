@@ -12,7 +12,7 @@
 
                         <?php $photoDir =  "/assets/img/adminProfilePhotos/" ?>
 
-                        <img class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" <?= $this->view->modalType != 'data-and-config' ? 'data-target="#profilePhotoModal"' : '' ?> >
+                        <img class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" <?= $this->view->modalType != 'data-and-config' ? 'data-target="#profilePhotoModal"' : '' ?>>
 
                         <div class="col-lg-10 mx-auto main-sheet">
                             <div class="row p-3">
@@ -35,14 +35,17 @@
                                         <span class="box-icon"><i class="fas fa-user"></i></span> Dados gerais</a>
 
 
-                                    <?php if ($this->view->modalType == 'data-and-config' && $_SESSION['Admin']['hierarchyFunction'] == 1) { 
-                                        
+                                    <?php if ($this->view->modalType == 'data-and-config' && $_SESSION['Admin']['hierarchyFunction'] == 1) {
+
                                     ?>
 
                                         <a class="collapse show" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-settings">
                                             <span class="box-icon"><i class="fas fa-cogs"></i></span> Configurações</a>
 
                                     <?php } ?>
+
+                                    <a class="collapse" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-interface-admin">
+                                        <span class="box-icon"><i class="fas fa-magic"></i></span> Interface</a>
 
                                 </ul>
 
@@ -316,7 +319,7 @@
                                 </div>
                                 <input id="accessCode" name="accessCode" type="password" disabled class="form-control" value="<?= $admin->access_code ?>" maxlength="30" aria-label="Username" aria-describedby="addon-wrapping">
                                 <div class="input-group-append">
-                                <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
+                                    <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
                                 </div>
                             </div>
 
@@ -330,8 +333,8 @@
                                 <select id="hierarchyFunction" name="hierarchyFunction" disabled class="form-control custom-select">
                                     <option value="<?= $admin->hierarchy_function_id ?>"><?= $admin->hierarchy_function ?></option>
 
-                                    <?php                                 
-                       
+                                    <?php
+
                                     if ($admin->hierarchy_function_id == 1) {
 
                                         foreach ($this->listHierarchyFunction as $key => $value) { ?>
@@ -421,7 +424,30 @@
 
                         </form>
 
+                    </div>
 
+                    <div class="col-11 mx-auto collapse" id="accordion-interface-admin" data-parent="#main-accordion-settings">
+
+                        <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
+
+                            <div class="col-lg-12">
+
+                                <div class="row d-flex align-items-center">
+
+                                    <h5 class="col-8 p-0">Interface do portal</h5>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                        <div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="nightMode">
+  <label class="custom-control-label" for="nightMode">Modo Noturno</label>
+</div>
+                        </div>
 
                     </div>
 
