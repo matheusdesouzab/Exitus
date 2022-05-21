@@ -130,6 +130,7 @@ class AdminController extends Action
         $this->view->bloodType = $Admin->availablebloodType();
         $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
         $this->view->modalType = 'data-and-config';
+        $this->view->adminCurrentHierarchy = $_SESSION['Admin']['hierarchyFunction'];
         $this->view->accountStates = $Admin->accountStates();
 
         $this->render('settings', 'SimpleLayout');
@@ -198,6 +199,7 @@ class AdminController extends Action
         empty($_GET['oldPhoto']) ? '' : unlink('../public/assets/img/adminProfilePhotos/' . $_POST['oldPhoto']);
 
         $Tool->image($Admin, '../public/assets/img/adminProfilePhotos/');
+        
         $Admin->__set('id', $_POST['id']);
 
         if (!isset($_SESSION)) session_start();
@@ -206,6 +208,7 @@ class AdminController extends Action
         $profilePhoto = $Admin->dataGeneral();
         
         $_SESSION['Admin']['profilePhoto'] = $profilePhoto[0]->profile_photo;
+        
     }
 
 
@@ -217,6 +220,8 @@ class AdminController extends Action
 
         $Admin->__set('id', $_GET['id']);
 
+        if (!isset($_SESSION)) session_start();
+
         $this->view->data = $Admin->dataGeneral();
         $this->view->modalType = 'data';
         $this->view->availableSex = $Admin->availableSex();
@@ -224,6 +229,7 @@ class AdminController extends Action
         $this->view->bloodType = $Admin->availablebloodType();
         $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
         $this->view->accountStates = $Admin->accountStates();
+        $this->view->adminCurrentHierarchy = $_SESSION['Admin']['hierarchyFunction'];
 
         $this->render('settings', 'SimpleLayout');
     }

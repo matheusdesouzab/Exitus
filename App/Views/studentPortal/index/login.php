@@ -2,7 +2,9 @@
 
 session_start();
 
-isset($_SESSION["Student"]) ? header("Location: /portal-aluno/home") : '';
+if (isset($_SESSION['Admin'])) header("Location: /admin/home");
+if (isset($_SESSION['Teacher'])) header("Location: /portal-docente/home");
+if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 
 ?>
 

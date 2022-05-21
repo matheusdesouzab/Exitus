@@ -1,7 +1,9 @@
 .nightMode {
 
-    body#admin, body#teacherPortal {
-        background-color: #050A11;
+    body#admin,
+    body#teacherPortal,
+    body#studentPortal {
+        background-color: $color-main-night-mode;
 
         h5,
         h4,
@@ -9,75 +11,160 @@
         h2,
         h1,
         p {
-            color: white;
+            color: $color-white;
+        }
+
+        .tooltip-inner {
+            background-color: $color-white;
+            color: $color-black;
+        }
+
+        .bs-tooltip-left .arrow::before,
+        .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+            border-left-color: $color-white;
+        }
+
+        .bs-tooltip-top .arrow::before,
+        .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+            border-top-color: $color-white;
+        }
+
+        .bs-tooltip-right .arrow::before,
+        .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+            border-right-color: $color-white;
+        }
+
+
+        .bs-tooltip-bottom .arrow::before,
+        .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+            border-bottom-color: $color-white;
+        }
+
+        #mural {
+
+            .side-mural {
+
+                p,
+                .text-important {
+                    color: $color-white;
+                }
+
+            }
+
+            .side-exams {
+
+                .exam-description,
+                .exam-description-footer,
+                .name-teacher {
+                    color: $color-white;
+                }
+            }
+        }
+
+        #bulletin {
+            table {
+                th {
+                    color: $color-black !important;
+                }
+            }
         }
 
         #left-panel {
 
             #sidebar {
-                background-color: #0D151D;
+                background-color: $color-secondary-night-mode;
+                border-right: 1px solid #424549;
+                box-shadow: none;
             }
 
         }
 
+        #studentsTeachersAccordion,
+        #averageAndNotes {
+            [aria-expanded="true"] {
+                background-color: $color-white;
+                color: $color-black;
+            }
+
+            a {
+                background-color: $color-tertiary-night-mode;
+                border: none;
+                color: $color-white;
+            }
+        }
+
+        nav#studentPortalNavbar {
+            background-color: $color-secondary-night-mode;
+
+            a {
+                color: $color-white;
+            }
+        }
+
+        .posts-null {
+            color: $color-white;
+        }
+
         #navbar-top {
-            background-color: #0D151D;
-            border-left: 2px solid #424549;
+            background-color: $color-secondary-night-mode;
+            border-left: 1px solid #424549;
+            border-bottom: 1px solid #424549;
 
             .fa-bars,
             .nav-item,
             .fa-sign-out-alt {
-                color: white;
+                color: $color-white;
             }
         }
 
 
         #pagina {
 
+            background-color: $color-main-night-mode;
+
             form {
 
                 label,
                 .font-weight-bold {
-                    color: white;
+                    color: $color-white;
                 }
 
                 hr {
-                    background-color: white;
+                    background-color: $color-white;
                 }
 
                 .fa-ellipsis-h {
-                    color: white;
+                    color: $color-white;
                 }
 
             }
 
             @media (max-width:576px) {
 
-                #navbar-top{
+                #navbar-top {
                     border: none;
                 }
 
-                .modal-profile { 
+                .modal-profile {
 
                     #main-accordion,
                     #main-accordion-settings,
                     #main-accordion-class,
-                    #main-accordion-student
-                    {
-                        background-color: #0D151D;
+                    #main-accordion-student {
+                        background-color: $color-secondary-night-mode;
 
                         .modal-sidebar {
-                            background-color: #0D151D;
+                            background-color: $color-secondary-night-mode;
 
-                            .main-sheet span{
-                                color: #0D151D;
+                            .main-sheet span {
+                                color: $color-secondary-night-mode;
                             }
 
                             .container-list-group {
-                                nav{
-                                    ul{
+                                nav {
+                                    ul {
                                         [aria-expanded="true"] {
-                                            color: white;
+                                            color: $color-white;
                                         }
                                     }
                                 }
@@ -87,28 +174,34 @@
                 }
             }
 
-            #navbarBottom {
-                background-color: #0D151D;
+            #navbarBottom,
+            #navbarBottomStudentPortal {
+                background-color: $color-secondary-night-mode;
 
                 ul {
                     a {
-                        color: white;
+                        color: $color-white;
                     }
 
                     i.fas,
                     i.bi {
                         color: $color-white;
                     }
+
+                    a[aria-expanded="true"],
+                    .link-active {
+                        color: $color-white;
+                    }
                 }
             }
 
             label {
-                color: white;
+                color: $color-white;
             }
 
             .table-striped>tbody>tr:nth-child(2n+1)>td,
             .table-striped>tbody>tr:nth-child(2n+1)>th {
-                background-color: #2F3044;
+                background-color: $color-quaternary-night-mode;
             }
 
             .registration-in-stages {
@@ -116,7 +209,7 @@
                 .registration-header-by-step .row {
                     .container-option {
                         p {
-                            color: white;
+                            color: $color-white;
                         }
                     }
                 }
@@ -124,30 +217,30 @@
             }
 
             .modal-content {
-                background-color: #2F3044;
+                background-color: $color-quaternary-night-mode;
 
                 .main-content {
 
                     [containerListDisciplineClass] form,
                     [containerDisciplineAverageList] form {
-                        border: 1px solid white;
+                        border: 1px solid $color-white;
                     }
 
                     .teacher-class-title {
-                        color: white;
+                        color: $color-white;
                     }
 
                     form {
 
                         .input-group-text {
-                            color: white;
+                            color: $color-white;
                             background-color: transparent;
                         }
 
 
                         input,
                         select {
-                            color: #2F3044;
+                            color: $color-quaternary-night-mode;
                         }
 
                     }
@@ -168,7 +261,7 @@
             }
 
             .modal-sidebar {
-                background-color: #0D151D;
+                background-color: $color-secondary-night-mode;
                 border: none;
 
                 .container-list-group {
@@ -176,7 +269,7 @@
                     nav {
                         ul {
                             a {
-                                border-left: 4px solid #0D151D;
+                                border-left: 4px solid $color-secondary-night-mode;
                             }
                         }
                     }
@@ -184,7 +277,7 @@
                 }
 
                 .main-sheet span {
-                    color: white;
+                    color: $color-white;
                 }
             }
 
@@ -193,54 +286,54 @@
 
                     td,
                     th {
-                        color: white;
+                        color: $color-white;
                     }
                 }
             }
 
             .card {
-                background-color: #0D151D;
-                border: 1px solid #2F3044;
+                background-color: $color-secondary-night-mode;
+                border: 1px solid $color-quaternary-night-mode;
             }
 
             .table tbody tr:hover td,
             .table tbody tr:hover th {
-                background-color: #3F3D56;
+                background-color: $color-tertiary-night-mode;
             }
 
             .collapse-options-container {
                 [aria-expanded="true"] {
                     span {
-                        background-color: white;
-                        color: #3F3D56 !important;
+                        background-color: $color-white;
+                        color: $color-tertiary-night-mode !important;
                     }
                 }
 
                 span {
-                    background-color: #3F3D56;
-                    color: white;
+                    background-color: $color-tertiary-night-mode;
+                    color: $color-white;
                     border: none;
 
                     &:hover {
-                        background-color: white;
-                        color: #3F3D56;
+                        background-color: $color-white;
+                        color: $color-tertiary-night-mode;
                     }
                 }
             }
 
             section#home {
 
-                .class-and-value{
-                    color: white;
+                .class-and-value {
+                    color: $color-white;
                 }
 
-                hr{
-                    background-color: #e5e5e5;
+                hr {
+                    background-color: $color-smooth-gray;
                 }
 
                 .card {
                     .card-title {
-                        color: white;
+                        color: $color-white;
                     }
 
                     .total-student-enrolled {
@@ -251,22 +344,22 @@
                 .recently-enrolled {
                     table {
                         td {
-                            color: white;
+                            color: $color-white;
                         }
                     }
                 }
 
                 .recent-activities {
                     .teacher-name {
-                        color: white;
+                        color: $color-white;
                     }
 
                     p {
-                        color: #f9f8f8;
+                        color: $color-pure-gray;
                     }
 
                     hr {
-                        background-color: #e5e5e5;
+                        background-color: $color-smooth-gray;
                     }
                 }
 

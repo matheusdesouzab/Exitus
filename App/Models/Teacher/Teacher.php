@@ -187,6 +187,8 @@ class Teacher extends People
             AND
 
             CASE WHEN :fk_id_sex = 0 THEN sexo.id_sexo <> :fk_id_sex ELSE sexo.id_sexo = :fk_id_sex END
+
+            ORDER BY professor.nome_professor ASC
             
         ";
 

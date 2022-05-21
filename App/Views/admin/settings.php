@@ -82,7 +82,7 @@
 
                         <form id="formUpdateProfilePhoto" method="POST" enctype="multipart/form-data">
 
-                            <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" id="">
+                            <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*">
 
                             <input type="hidden" id="id" value="<?= $this->view->data[0]->id ?>" name="id">
 
@@ -92,7 +92,7 @@
 
                                 <div class="col-lg-12 mt-3 d-flex justify-content-end">
 
-                                    <button id="updateImg" type='submit' disabled class="btn btn-success">Atualizar foto</button>
+                                    <button id="updateImgAdmin" type='submit' disabled class="btn btn-success">Atualizar foto</button>
 
                                 </div>
 
@@ -337,7 +337,7 @@
 
                                     <?php
 
-                                    if ($admin->hierarchy_function_id == 1) {
+                                    if ($this->view->adminCurrentHierarchy == 1) {
 
                                         foreach ($this->listHierarchyFunction as $key => $value) { ?>
                                             <?php if ($value->option_value != $admin->hierarchy_function_id) { ?>

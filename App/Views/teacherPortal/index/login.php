@@ -2,7 +2,7 @@
 
 if (!isset($_SESSION)) session_start();
 
-if (isset($_SESSION['Admin'])) header("Location: /admin/gestao/turmas");
+if (isset($_SESSION['Admin'])) header("Location: /admin/home");
 if (isset($_SESSION['Teacher'])) header("Location: /portal-docente/home");
 if (isset($_SESSION['Student'])) header("Location: /portal-aluno/home");
 

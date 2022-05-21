@@ -1,5 +1,5 @@
 let studentsTotal;
-let colorLabels =  localStorage.getItem('gmtNightMode') ? '#fff' : '#000'
+let colorLabels =  localStorage.getItem('nightModeAdmin') ? '#fff' : '#000'
 
 $.ajax({
   type: "GET",

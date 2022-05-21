@@ -145,7 +145,7 @@ array_multisort($order, $orderBy, $studentsEnd);
             <?php if ($this->view->averageType == 'averageUnity') { ?> <th class="text-center" scope="col">Unidade</th> <?php } ?>
             <th class="text-center" scope="col">Nota</th>
             <th class="text-center" scope="col">Status</th>
-            <?php if ($this->view->averageType == 'averageUnity') { ?> <th class="text-center" data-toggle="tooltip" data-placement="bottom" title="Status do total de avaliaçãoes cadastradas" scope="col">STA</th> <?php } ?>
+            <?php if ($this->view->averageType == 'averageUnity') { ?> <th class="text-center" data-toggle="tooltip" data-placement="bottom" title="Status do total de avaliações cadastradas" scope="col">STA</th> <?php } ?>
         </tr>
     </thead>
 

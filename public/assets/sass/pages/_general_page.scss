@@ -278,15 +278,15 @@
         }
 
         .school-term-active {
-            border-left: 8px solid $color-green;
+            border-left: 8px solid $color-green !important;
         }
 
         .school-term-finished {
-            border-left: 8px solid $color-smooth-gray;
+            border-left: 8px solid $color-smooth-gray !important;
         }
 
         .school-term-scheduled {
-            border-left: 8px solid $color-blue;
+            border-left: 8px solid $color-blue !important;
         }
 
         .option-icon-group {

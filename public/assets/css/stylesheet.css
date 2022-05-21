@@ -28,7 +28,9 @@ h5 {
   font-family: Bold;
 }
 
-.nightMode body#admin, .nightMode body#teacherPortal {
+.nightMode body#admin,
+.nightMode body#teacherPortal,
+.nightMode body#studentPortal {
   background-color: #050A11;
 }
 .nightMode body#admin h5,
@@ -36,120 +38,320 @@ h5 {
 .nightMode body#admin h3,
 .nightMode body#admin h2,
 .nightMode body#admin h1,
-.nightMode body#admin p, .nightMode body#teacherPortal h5,
+.nightMode body#admin p,
+.nightMode body#teacherPortal h5,
 .nightMode body#teacherPortal h4,
 .nightMode body#teacherPortal h3,
 .nightMode body#teacherPortal h2,
 .nightMode body#teacherPortal h1,
-.nightMode body#teacherPortal p {
-  color: white;
+.nightMode body#teacherPortal p,
+.nightMode body#studentPortal h5,
+.nightMode body#studentPortal h4,
+.nightMode body#studentPortal h3,
+.nightMode body#studentPortal h2,
+.nightMode body#studentPortal h1,
+.nightMode body#studentPortal p {
+  color: #ffffff;
 }
-.nightMode body#admin #left-panel #sidebar, .nightMode body#teacherPortal #left-panel #sidebar {
+.nightMode body#admin .tooltip-inner,
+.nightMode body#teacherPortal .tooltip-inner,
+.nightMode body#studentPortal .tooltip-inner {
+  background-color: #ffffff;
+  color: #080809;
+}
+.nightMode body#admin .bs-tooltip-left .arrow::before,
+.nightMode body#admin .bs-tooltip-auto[x-placement^=left] .arrow::before,
+.nightMode body#teacherPortal .bs-tooltip-left .arrow::before,
+.nightMode body#teacherPortal .bs-tooltip-auto[x-placement^=left] .arrow::before,
+.nightMode body#studentPortal .bs-tooltip-left .arrow::before,
+.nightMode body#studentPortal .bs-tooltip-auto[x-placement^=left] .arrow::before {
+  border-left-color: #ffffff;
+}
+.nightMode body#admin .bs-tooltip-top .arrow::before,
+.nightMode body#admin .bs-tooltip-auto[x-placement^=top] .arrow::before,
+.nightMode body#teacherPortal .bs-tooltip-top .arrow::before,
+.nightMode body#teacherPortal .bs-tooltip-auto[x-placement^=top] .arrow::before,
+.nightMode body#studentPortal .bs-tooltip-top .arrow::before,
+.nightMode body#studentPortal .bs-tooltip-auto[x-placement^=top] .arrow::before {
+  border-top-color: #ffffff;
+}
+.nightMode body#admin .bs-tooltip-right .arrow::before,
+.nightMode body#admin .bs-tooltip-auto[x-placement^=right] .arrow::before,
+.nightMode body#teacherPortal .bs-tooltip-right .arrow::before,
+.nightMode body#teacherPortal .bs-tooltip-auto[x-placement^=right] .arrow::before,
+.nightMode body#studentPortal .bs-tooltip-right .arrow::before,
+.nightMode body#studentPortal .bs-tooltip-auto[x-placement^=right] .arrow::before {
+  border-right-color: #ffffff;
+}
+.nightMode body#admin .bs-tooltip-bottom .arrow::before,
+.nightMode body#admin .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.nightMode body#teacherPortal .bs-tooltip-bottom .arrow::before,
+.nightMode body#teacherPortal .bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.nightMode body#studentPortal .bs-tooltip-bottom .arrow::before,
+.nightMode body#studentPortal .bs-tooltip-auto[x-placement^=bottom] .arrow::before {
+  border-bottom-color: #ffffff;
+}
+.nightMode body#admin #mural .side-mural p,
+.nightMode body#admin #mural .side-mural .text-important,
+.nightMode body#teacherPortal #mural .side-mural p,
+.nightMode body#teacherPortal #mural .side-mural .text-important,
+.nightMode body#studentPortal #mural .side-mural p,
+.nightMode body#studentPortal #mural .side-mural .text-important {
+  color: #ffffff;
+}
+.nightMode body#admin #mural .side-exams .exam-description,
+.nightMode body#admin #mural .side-exams .exam-description-footer,
+.nightMode body#admin #mural .side-exams .name-teacher,
+.nightMode body#teacherPortal #mural .side-exams .exam-description,
+.nightMode body#teacherPortal #mural .side-exams .exam-description-footer,
+.nightMode body#teacherPortal #mural .side-exams .name-teacher,
+.nightMode body#studentPortal #mural .side-exams .exam-description,
+.nightMode body#studentPortal #mural .side-exams .exam-description-footer,
+.nightMode body#studentPortal #mural .side-exams .name-teacher {
+  color: #ffffff;
+}
+.nightMode body#admin #bulletin table th,
+.nightMode body#teacherPortal #bulletin table th,
+.nightMode body#studentPortal #bulletin table th {
+  color: #080809 !important;
+}
+.nightMode body#admin #left-panel #sidebar,
+.nightMode body#teacherPortal #left-panel #sidebar,
+.nightMode body#studentPortal #left-panel #sidebar {
+  background-color: #0D151D;
+  border-right: 1px solid #424549;
+  box-shadow: none;
+}
+.nightMode body#admin #studentsTeachersAccordion [aria-expanded=true],
+.nightMode body#admin #averageAndNotes [aria-expanded=true],
+.nightMode body#teacherPortal #studentsTeachersAccordion [aria-expanded=true],
+.nightMode body#teacherPortal #averageAndNotes [aria-expanded=true],
+.nightMode body#studentPortal #studentsTeachersAccordion [aria-expanded=true],
+.nightMode body#studentPortal #averageAndNotes [aria-expanded=true] {
+  background-color: #ffffff;
+  color: #080809;
+}
+.nightMode body#admin #studentsTeachersAccordion a,
+.nightMode body#admin #averageAndNotes a,
+.nightMode body#teacherPortal #studentsTeachersAccordion a,
+.nightMode body#teacherPortal #averageAndNotes a,
+.nightMode body#studentPortal #studentsTeachersAccordion a,
+.nightMode body#studentPortal #averageAndNotes a {
+  background-color: #3F3D56;
+  border: none;
+  color: #ffffff;
+}
+.nightMode body#admin nav#studentPortalNavbar,
+.nightMode body#teacherPortal nav#studentPortalNavbar,
+.nightMode body#studentPortal nav#studentPortalNavbar {
   background-color: #0D151D;
 }
-.nightMode body#admin #navbar-top, .nightMode body#teacherPortal #navbar-top {
+.nightMode body#admin nav#studentPortalNavbar a,
+.nightMode body#teacherPortal nav#studentPortalNavbar a,
+.nightMode body#studentPortal nav#studentPortalNavbar a {
+  color: #ffffff;
+}
+.nightMode body#admin .posts-null,
+.nightMode body#teacherPortal .posts-null,
+.nightMode body#studentPortal .posts-null {
+  color: #ffffff;
+}
+.nightMode body#admin #navbar-top,
+.nightMode body#teacherPortal #navbar-top,
+.nightMode body#studentPortal #navbar-top {
   background-color: #0D151D;
-  border-left: 2px solid #424549;
+  border-left: 1px solid #424549;
+  border-bottom: 1px solid #424549;
 }
 .nightMode body#admin #navbar-top .fa-bars,
 .nightMode body#admin #navbar-top .nav-item,
-.nightMode body#admin #navbar-top .fa-sign-out-alt, .nightMode body#teacherPortal #navbar-top .fa-bars,
+.nightMode body#admin #navbar-top .fa-sign-out-alt,
+.nightMode body#teacherPortal #navbar-top .fa-bars,
 .nightMode body#teacherPortal #navbar-top .nav-item,
-.nightMode body#teacherPortal #navbar-top .fa-sign-out-alt {
-  color: white;
+.nightMode body#teacherPortal #navbar-top .fa-sign-out-alt,
+.nightMode body#studentPortal #navbar-top .fa-bars,
+.nightMode body#studentPortal #navbar-top .nav-item,
+.nightMode body#studentPortal #navbar-top .fa-sign-out-alt {
+  color: #ffffff;
+}
+.nightMode body#admin #pagina,
+.nightMode body#teacherPortal #pagina,
+.nightMode body#studentPortal #pagina {
+  background-color: #050A11;
 }
 .nightMode body#admin #pagina form label,
-.nightMode body#admin #pagina form .font-weight-bold, .nightMode body#teacherPortal #pagina form label,
-.nightMode body#teacherPortal #pagina form .font-weight-bold {
-  color: white;
+.nightMode body#admin #pagina form .font-weight-bold,
+.nightMode body#teacherPortal #pagina form label,
+.nightMode body#teacherPortal #pagina form .font-weight-bold,
+.nightMode body#studentPortal #pagina form label,
+.nightMode body#studentPortal #pagina form .font-weight-bold {
+  color: #ffffff;
 }
-.nightMode body#admin #pagina form hr, .nightMode body#teacherPortal #pagina form hr {
-  background-color: white;
+.nightMode body#admin #pagina form hr,
+.nightMode body#teacherPortal #pagina form hr,
+.nightMode body#studentPortal #pagina form hr {
+  background-color: #ffffff;
 }
-.nightMode body#admin #pagina form .fa-ellipsis-h, .nightMode body#teacherPortal #pagina form .fa-ellipsis-h {
-  color: white;
+.nightMode body#admin #pagina form .fa-ellipsis-h,
+.nightMode body#teacherPortal #pagina form .fa-ellipsis-h,
+.nightMode body#studentPortal #pagina form .fa-ellipsis-h {
+  color: #ffffff;
 }
 @media (max-width: 576px) {
-  .nightMode body#admin #pagina #navbar-top, .nightMode body#teacherPortal #pagina #navbar-top {
+  .nightMode body#admin #pagina #navbar-top,
+.nightMode body#teacherPortal #pagina #navbar-top,
+.nightMode body#studentPortal #pagina #navbar-top {
     border: none;
   }
   .nightMode body#admin #pagina .modal-profile #main-accordion,
 .nightMode body#admin #pagina .modal-profile #main-accordion-settings,
 .nightMode body#admin #pagina .modal-profile #main-accordion-class,
-.nightMode body#admin #pagina .modal-profile #main-accordion-student, .nightMode body#teacherPortal #pagina .modal-profile #main-accordion,
+.nightMode body#admin #pagina .modal-profile #main-accordion-student,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion,
 .nightMode body#teacherPortal #pagina .modal-profile #main-accordion-settings,
 .nightMode body#teacherPortal #pagina .modal-profile #main-accordion-class,
-.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student {
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-settings,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-class,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-student {
     background-color: #0D151D;
   }
   .nightMode body#admin #pagina .modal-profile #main-accordion .modal-sidebar,
 .nightMode body#admin #pagina .modal-profile #main-accordion-settings .modal-sidebar,
 .nightMode body#admin #pagina .modal-profile #main-accordion-class .modal-sidebar,
-.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar, .nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar,
+.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar,
 .nightMode body#teacherPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar,
 .nightMode body#teacherPortal #pagina .modal-profile #main-accordion-class .modal-sidebar,
-.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar {
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion .modal-sidebar,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-class .modal-sidebar,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-student .modal-sidebar {
     background-color: #0D151D;
   }
   .nightMode body#admin #pagina .modal-profile #main-accordion .modal-sidebar .main-sheet span,
 .nightMode body#admin #pagina .modal-profile #main-accordion-settings .modal-sidebar .main-sheet span,
 .nightMode body#admin #pagina .modal-profile #main-accordion-class .modal-sidebar .main-sheet span,
-.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar .main-sheet span, .nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar .main-sheet span,
+.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar .main-sheet span,
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar .main-sheet span,
 .nightMode body#teacherPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar .main-sheet span,
 .nightMode body#teacherPortal #pagina .modal-profile #main-accordion-class .modal-sidebar .main-sheet span,
-.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar .main-sheet span {
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar .main-sheet span,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion .modal-sidebar .main-sheet span,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar .main-sheet span,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-class .modal-sidebar .main-sheet span,
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-student .modal-sidebar .main-sheet span {
     color: #0D151D;
   }
   .nightMode body#admin #pagina .modal-profile #main-accordion .modal-sidebar .container-list-group nav ul [aria-expanded=true],
 .nightMode body#admin #pagina .modal-profile #main-accordion-settings .modal-sidebar .container-list-group nav ul [aria-expanded=true],
 .nightMode body#admin #pagina .modal-profile #main-accordion-class .modal-sidebar .container-list-group nav ul [aria-expanded=true],
-.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar .container-list-group nav ul [aria-expanded=true], .nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#admin #pagina .modal-profile #main-accordion-student .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion .modal-sidebar .container-list-group nav ul [aria-expanded=true],
 .nightMode body#teacherPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar .container-list-group nav ul [aria-expanded=true],
 .nightMode body#teacherPortal #pagina .modal-profile #main-accordion-class .modal-sidebar .container-list-group nav ul [aria-expanded=true],
-.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar .container-list-group nav ul [aria-expanded=true] {
-    color: white;
+.nightMode body#teacherPortal #pagina .modal-profile #main-accordion-student .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-settings .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-class .modal-sidebar .container-list-group nav ul [aria-expanded=true],
+.nightMode body#studentPortal #pagina .modal-profile #main-accordion-student .modal-sidebar .container-list-group nav ul [aria-expanded=true] {
+    color: #ffffff;
   }
 }
-.nightMode body#admin #pagina #navbarBottom, .nightMode body#teacherPortal #pagina #navbarBottom {
+.nightMode body#admin #pagina #navbarBottom,
+.nightMode body#admin #pagina #navbarBottomStudentPortal,
+.nightMode body#teacherPortal #pagina #navbarBottom,
+.nightMode body#teacherPortal #pagina #navbarBottomStudentPortal,
+.nightMode body#studentPortal #pagina #navbarBottom,
+.nightMode body#studentPortal #pagina #navbarBottomStudentPortal {
   background-color: #0D151D;
 }
-.nightMode body#admin #pagina #navbarBottom ul a, .nightMode body#teacherPortal #pagina #navbarBottom ul a {
-  color: white;
-}
-.nightMode body#admin #pagina #navbarBottom ul i.fas,
-.nightMode body#admin #pagina #navbarBottom ul i.bi, .nightMode body#teacherPortal #pagina #navbarBottom ul i.fas,
-.nightMode body#teacherPortal #pagina #navbarBottom ul i.bi {
+.nightMode body#admin #pagina #navbarBottom ul a,
+.nightMode body#admin #pagina #navbarBottomStudentPortal ul a,
+.nightMode body#teacherPortal #pagina #navbarBottom ul a,
+.nightMode body#teacherPortal #pagina #navbarBottomStudentPortal ul a,
+.nightMode body#studentPortal #pagina #navbarBottom ul a,
+.nightMode body#studentPortal #pagina #navbarBottomStudentPortal ul a {
   color: #ffffff;
 }
-.nightMode body#admin #pagina label, .nightMode body#teacherPortal #pagina label {
-  color: white;
+.nightMode body#admin #pagina #navbarBottom ul i.fas,
+.nightMode body#admin #pagina #navbarBottom ul i.bi,
+.nightMode body#admin #pagina #navbarBottomStudentPortal ul i.fas,
+.nightMode body#admin #pagina #navbarBottomStudentPortal ul i.bi,
+.nightMode body#teacherPortal #pagina #navbarBottom ul i.fas,
+.nightMode body#teacherPortal #pagina #navbarBottom ul i.bi,
+.nightMode body#teacherPortal #pagina #navbarBottomStudentPortal ul i.fas,
+.nightMode body#teacherPortal #pagina #navbarBottomStudentPortal ul i.bi,
+.nightMode body#studentPortal #pagina #navbarBottom ul i.fas,
+.nightMode body#studentPortal #pagina #navbarBottom ul i.bi,
+.nightMode body#studentPortal #pagina #navbarBottomStudentPortal ul i.fas,
+.nightMode body#studentPortal #pagina #navbarBottomStudentPortal ul i.bi {
+  color: #ffffff;
+}
+.nightMode body#admin #pagina #navbarBottom ul a[aria-expanded=true],
+.nightMode body#admin #pagina #navbarBottom ul .link-active,
+.nightMode body#admin #pagina #navbarBottomStudentPortal ul a[aria-expanded=true],
+.nightMode body#admin #pagina #navbarBottomStudentPortal ul .link-active,
+.nightMode body#teacherPortal #pagina #navbarBottom ul a[aria-expanded=true],
+.nightMode body#teacherPortal #pagina #navbarBottom ul .link-active,
+.nightMode body#teacherPortal #pagina #navbarBottomStudentPortal ul a[aria-expanded=true],
+.nightMode body#teacherPortal #pagina #navbarBottomStudentPortal ul .link-active,
+.nightMode body#studentPortal #pagina #navbarBottom ul a[aria-expanded=true],
+.nightMode body#studentPortal #pagina #navbarBottom ul .link-active,
+.nightMode body#studentPortal #pagina #navbarBottomStudentPortal ul a[aria-expanded=true],
+.nightMode body#studentPortal #pagina #navbarBottomStudentPortal ul .link-active {
+  color: #ffffff;
+}
+.nightMode body#admin #pagina label,
+.nightMode body#teacherPortal #pagina label,
+.nightMode body#studentPortal #pagina label {
+  color: #ffffff;
 }
 .nightMode body#admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
-.nightMode body#admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > th, .nightMode body#teacherPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
-.nightMode body#teacherPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > th {
+.nightMode body#admin #pagina .table-striped > tbody > tr:nth-child(2n+1) > th,
+.nightMode body#teacherPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
+.nightMode body#teacherPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > th,
+.nightMode body#studentPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > td,
+.nightMode body#studentPortal #pagina .table-striped > tbody > tr:nth-child(2n+1) > th {
   background-color: #2F3044;
 }
-.nightMode body#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p, .nightMode body#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
-  color: white;
+.nightMode body#admin #pagina .registration-in-stages .registration-header-by-step .row .container-option p,
+.nightMode body#teacherPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p,
+.nightMode body#studentPortal #pagina .registration-in-stages .registration-header-by-step .row .container-option p {
+  color: #ffffff;
 }
-.nightMode body#admin #pagina .modal-content, .nightMode body#teacherPortal #pagina .modal-content {
+.nightMode body#admin #pagina .modal-content,
+.nightMode body#teacherPortal #pagina .modal-content,
+.nightMode body#studentPortal #pagina .modal-content {
   background-color: #2F3044;
 }
 .nightMode body#admin #pagina .modal-content .main-content [containerListDisciplineClass] form,
-.nightMode body#admin #pagina .modal-content .main-content [containerDisciplineAverageList] form, .nightMode body#teacherPortal #pagina .modal-content .main-content [containerListDisciplineClass] form,
-.nightMode body#teacherPortal #pagina .modal-content .main-content [containerDisciplineAverageList] form {
-  border: 1px solid white;
+.nightMode body#admin #pagina .modal-content .main-content [containerDisciplineAverageList] form,
+.nightMode body#teacherPortal #pagina .modal-content .main-content [containerListDisciplineClass] form,
+.nightMode body#teacherPortal #pagina .modal-content .main-content [containerDisciplineAverageList] form,
+.nightMode body#studentPortal #pagina .modal-content .main-content [containerListDisciplineClass] form,
+.nightMode body#studentPortal #pagina .modal-content .main-content [containerDisciplineAverageList] form {
+  border: 1px solid #ffffff;
 }
-.nightMode body#admin #pagina .modal-content .main-content .teacher-class-title, .nightMode body#teacherPortal #pagina .modal-content .main-content .teacher-class-title {
-  color: white;
+.nightMode body#admin #pagina .modal-content .main-content .teacher-class-title,
+.nightMode body#teacherPortal #pagina .modal-content .main-content .teacher-class-title,
+.nightMode body#studentPortal #pagina .modal-content .main-content .teacher-class-title {
+  color: #ffffff;
 }
-.nightMode body#admin #pagina .modal-content .main-content form .input-group-text, .nightMode body#teacherPortal #pagina .modal-content .main-content form .input-group-text {
-  color: white;
+.nightMode body#admin #pagina .modal-content .main-content form .input-group-text,
+.nightMode body#teacherPortal #pagina .modal-content .main-content form .input-group-text,
+.nightMode body#studentPortal #pagina .modal-content .main-content form .input-group-text {
+  color: #ffffff;
   background-color: transparent;
 }
 .nightMode body#admin #pagina .modal-content .main-content form input,
-.nightMode body#admin #pagina .modal-content .main-content form select, .nightMode body#teacherPortal #pagina .modal-content .main-content form input,
-.nightMode body#teacherPortal #pagina .modal-content .main-content form select {
+.nightMode body#admin #pagina .modal-content .main-content form select,
+.nightMode body#teacherPortal #pagina .modal-content .main-content form input,
+.nightMode body#teacherPortal #pagina .modal-content .main-content form select,
+.nightMode body#studentPortal #pagina .modal-content .main-content form input,
+.nightMode body#studentPortal #pagina .modal-content .main-content form select {
   color: #2F3044;
 }
 .nightMode body#admin #pagina .modal-content .main-content #accordion-data-student form input,
@@ -157,74 +359,117 @@ h5 {
 .nightMode body#admin #pagina .modal-content .main-content #accordion-data-teacher form input,
 .nightMode body#admin #pagina .modal-content .main-content #accordion-data-teacher form select,
 .nightMode body#admin #pagina .modal-content .main-content #accordion-data-admin form input,
-.nightMode body#admin #pagina .modal-content .main-content #accordion-data-admin form select, .nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-student form input,
+.nightMode body#admin #pagina .modal-content .main-content #accordion-data-admin form select,
+.nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-student form input,
 .nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-student form select,
 .nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-teacher form input,
 .nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-teacher form select,
 .nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-admin form input,
-.nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-admin form select {
+.nightMode body#teacherPortal #pagina .modal-content .main-content #accordion-data-admin form select,
+.nightMode body#studentPortal #pagina .modal-content .main-content #accordion-data-student form input,
+.nightMode body#studentPortal #pagina .modal-content .main-content #accordion-data-student form select,
+.nightMode body#studentPortal #pagina .modal-content .main-content #accordion-data-teacher form input,
+.nightMode body#studentPortal #pagina .modal-content .main-content #accordion-data-teacher form select,
+.nightMode body#studentPortal #pagina .modal-content .main-content #accordion-data-admin form input,
+.nightMode body#studentPortal #pagina .modal-content .main-content #accordion-data-admin form select {
   color: #7F8C8D;
   font-weight: bold;
 }
-.nightMode body#admin #pagina .modal-sidebar, .nightMode body#teacherPortal #pagina .modal-sidebar {
+.nightMode body#admin #pagina .modal-sidebar,
+.nightMode body#teacherPortal #pagina .modal-sidebar,
+.nightMode body#studentPortal #pagina .modal-sidebar {
   background-color: #0D151D;
   border: none;
 }
-.nightMode body#admin #pagina .modal-sidebar .container-list-group nav ul a, .nightMode body#teacherPortal #pagina .modal-sidebar .container-list-group nav ul a {
+.nightMode body#admin #pagina .modal-sidebar .container-list-group nav ul a,
+.nightMode body#teacherPortal #pagina .modal-sidebar .container-list-group nav ul a,
+.nightMode body#studentPortal #pagina .modal-sidebar .container-list-group nav ul a {
   border-left: 4px solid #0D151D;
 }
-.nightMode body#admin #pagina .modal-sidebar .main-sheet span, .nightMode body#teacherPortal #pagina .modal-sidebar .main-sheet span {
-  color: white;
+.nightMode body#admin #pagina .modal-sidebar .main-sheet span,
+.nightMode body#teacherPortal #pagina .modal-sidebar .main-sheet span,
+.nightMode body#studentPortal #pagina .modal-sidebar .main-sheet span {
+  color: #ffffff;
 }
 .nightMode body#admin #pagina table tr td,
-.nightMode body#admin #pagina table tr th, .nightMode body#teacherPortal #pagina table tr td,
-.nightMode body#teacherPortal #pagina table tr th {
-  color: white;
+.nightMode body#admin #pagina table tr th,
+.nightMode body#teacherPortal #pagina table tr td,
+.nightMode body#teacherPortal #pagina table tr th,
+.nightMode body#studentPortal #pagina table tr td,
+.nightMode body#studentPortal #pagina table tr th {
+  color: #ffffff;
 }
-.nightMode body#admin #pagina .card, .nightMode body#teacherPortal #pagina .card {
+.nightMode body#admin #pagina .card,
+.nightMode body#teacherPortal #pagina .card,
+.nightMode body#studentPortal #pagina .card {
   background-color: #0D151D;
   border: 1px solid #2F3044;
 }
 .nightMode body#admin #pagina .table tbody tr:hover td,
-.nightMode body#admin #pagina .table tbody tr:hover th, .nightMode body#teacherPortal #pagina .table tbody tr:hover td,
-.nightMode body#teacherPortal #pagina .table tbody tr:hover th {
+.nightMode body#admin #pagina .table tbody tr:hover th,
+.nightMode body#teacherPortal #pagina .table tbody tr:hover td,
+.nightMode body#teacherPortal #pagina .table tbody tr:hover th,
+.nightMode body#studentPortal #pagina .table tbody tr:hover td,
+.nightMode body#studentPortal #pagina .table tbody tr:hover th {
   background-color: #3F3D56;
 }
-.nightMode body#admin #pagina .collapse-options-container [aria-expanded=true] span, .nightMode body#teacherPortal #pagina .collapse-options-container [aria-expanded=true] span {
-  background-color: white;
+.nightMode body#admin #pagina .collapse-options-container [aria-expanded=true] span,
+.nightMode body#teacherPortal #pagina .collapse-options-container [aria-expanded=true] span,
+.nightMode body#studentPortal #pagina .collapse-options-container [aria-expanded=true] span {
+  background-color: #ffffff;
   color: #3F3D56 !important;
 }
-.nightMode body#admin #pagina .collapse-options-container span, .nightMode body#teacherPortal #pagina .collapse-options-container span {
+.nightMode body#admin #pagina .collapse-options-container span,
+.nightMode body#teacherPortal #pagina .collapse-options-container span,
+.nightMode body#studentPortal #pagina .collapse-options-container span {
   background-color: #3F3D56;
-  color: white;
+  color: #ffffff;
   border: none;
 }
-.nightMode body#admin #pagina .collapse-options-container span:hover, .nightMode body#teacherPortal #pagina .collapse-options-container span:hover {
-  background-color: white;
+.nightMode body#admin #pagina .collapse-options-container span:hover,
+.nightMode body#teacherPortal #pagina .collapse-options-container span:hover,
+.nightMode body#studentPortal #pagina .collapse-options-container span:hover {
+  background-color: #ffffff;
   color: #3F3D56;
 }
-.nightMode body#admin #pagina section#home .class-and-value, .nightMode body#teacherPortal #pagina section#home .class-and-value {
-  color: white;
+.nightMode body#admin #pagina section#home .class-and-value,
+.nightMode body#teacherPortal #pagina section#home .class-and-value,
+.nightMode body#studentPortal #pagina section#home .class-and-value {
+  color: #ffffff;
 }
-.nightMode body#admin #pagina section#home hr, .nightMode body#teacherPortal #pagina section#home hr {
+.nightMode body#admin #pagina section#home hr,
+.nightMode body#teacherPortal #pagina section#home hr,
+.nightMode body#studentPortal #pagina section#home hr {
   background-color: #e5e5e5;
 }
-.nightMode body#admin #pagina section#home .card .card-title, .nightMode body#teacherPortal #pagina section#home .card .card-title {
-  color: white;
+.nightMode body#admin #pagina section#home .card .card-title,
+.nightMode body#teacherPortal #pagina section#home .card .card-title,
+.nightMode body#studentPortal #pagina section#home .card .card-title {
+  color: #ffffff;
 }
-.nightMode body#admin #pagina section#home .card .total-student-enrolled, .nightMode body#teacherPortal #pagina section#home .card .total-student-enrolled {
+.nightMode body#admin #pagina section#home .card .total-student-enrolled,
+.nightMode body#teacherPortal #pagina section#home .card .total-student-enrolled,
+.nightMode body#studentPortal #pagina section#home .card .total-student-enrolled {
   color: #e4d9ff;
 }
-.nightMode body#admin #pagina section#home .recently-enrolled table td, .nightMode body#teacherPortal #pagina section#home .recently-enrolled table td {
-  color: white;
+.nightMode body#admin #pagina section#home .recently-enrolled table td,
+.nightMode body#teacherPortal #pagina section#home .recently-enrolled table td,
+.nightMode body#studentPortal #pagina section#home .recently-enrolled table td {
+  color: #ffffff;
 }
-.nightMode body#admin #pagina section#home .recent-activities .teacher-name, .nightMode body#teacherPortal #pagina section#home .recent-activities .teacher-name {
-  color: white;
+.nightMode body#admin #pagina section#home .recent-activities .teacher-name,
+.nightMode body#teacherPortal #pagina section#home .recent-activities .teacher-name,
+.nightMode body#studentPortal #pagina section#home .recent-activities .teacher-name {
+  color: #ffffff;
 }
-.nightMode body#admin #pagina section#home .recent-activities p, .nightMode body#teacherPortal #pagina section#home .recent-activities p {
-  color: #f9f8f8;
+.nightMode body#admin #pagina section#home .recent-activities p,
+.nightMode body#teacherPortal #pagina section#home .recent-activities p,
+.nightMode body#studentPortal #pagina section#home .recent-activities p {
+  color: #E5E7E9;
 }
-.nightMode body#admin #pagina section#home .recent-activities hr, .nightMode body#teacherPortal #pagina section#home .recent-activities hr {
+.nightMode body#admin #pagina section#home .recent-activities hr,
+.nightMode body#teacherPortal #pagina section#home .recent-activities hr,
+.nightMode body#studentPortal #pagina section#home .recent-activities hr {
   background-color: #e5e5e5;
 }
 
@@ -1425,17 +1670,17 @@ footer p {
 #admin #pagina .school-term-active,
 #teacherPortal #pagina .school-term-active,
 #studentPortal #pagina .school-term-active {
-  border-left: 8px solid #28A745;
+  border-left: 8px solid #28A745 !important;
 }
 #admin #pagina .school-term-finished,
 #teacherPortal #pagina .school-term-finished,
 #studentPortal #pagina .school-term-finished {
-  border-left: 8px solid #e5e5e5;
+  border-left: 8px solid #e5e5e5 !important;
 }
 #admin #pagina .school-term-scheduled,
 #teacherPortal #pagina .school-term-scheduled,
 #studentPortal #pagina .school-term-scheduled {
-  border-left: 8px solid #363C90;
+  border-left: 8px solid #363C90 !important;
 }
 #admin #pagina .option-icon-group span,
 #teacherPortal #pagina .option-icon-group span,

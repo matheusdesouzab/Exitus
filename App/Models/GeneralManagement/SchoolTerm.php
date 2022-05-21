@@ -61,13 +61,13 @@ class SchoolTerm extends Model
 
 
     /**
-     * Inserir período letivo 
+     * Criar um período letivo 
      * 
      * @return void
      */
     public function insert()
     {
-
+        
         $this->disableActiveScheduledPeriod();
 
         $query =

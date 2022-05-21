@@ -34,7 +34,11 @@
                                     <ul>
 
                                         <a href="#" data-toggle="collapse" aria-expanded="true" data-target="#accordion-data-student"><i class="fas fa-user mr-3"></i> Seu perfil</a>
+
                                         <a href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-settings-student"><i class="fas fa-cogs mr-2"></i> Configurações</a>
+
+                                        <a class="collapse" href="#" data-toggle="collapse" aria-expanded="false" data-target="#accordion-interface-student">
+                                            <span class="box-icon"><i class="fas fa-magic"></i></span> Interface</a>
 
                                     </ul>
 
@@ -225,7 +229,7 @@
                                 </div>
                                 <input id="accessCode" name="accessCode" type="password" disabled class="form-control" value="<?= $student->access_code ?>" maxlength="30" aria-label="Username" aria-describedby="addon-wrapping">
                                 <div class="input-group-append">
-                                <div class="input-group-text bg-white input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
+                                <div class="input-group-text input-group-accessCode"><i class="fas fa-eye-slash"></i></div>
                                 </div>
                             </div>
 
@@ -299,6 +303,33 @@
 
                         </form>
 
+
+                    </div>
+
+                    <div class="col-11 mx-auto collapse" id="accordion-interface-student" data-parent="#main-accordion-student">
+
+                        <div class="row mb-3 mt-2 ml-2 d-flex align-items-center">
+
+                            <div class="col-lg-12">
+
+                                <div class="row d-flex align-items-center">
+
+                                    <h5 class="col-8 p-0">Interface do portal</h5>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-11 ml-2">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="nightMode" portal="Student">
+                                <label class="custom-control-label" for="nightMode">Modo Noturno</label>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 

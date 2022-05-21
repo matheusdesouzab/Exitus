@@ -19,7 +19,7 @@ class Admin extends People
 
 
     /**
-     * Criar a conta de um administrador
+     * Cria a conta de um administrador
      * 
      * @return void
      */

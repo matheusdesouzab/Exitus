@@ -29,15 +29,19 @@ $(document).ready(function(){
     })
 
     if (localStorage.getItem('nightModeAdmin')) {
-        $('#logo-exitus').attr('src', '/assets/img/logo-components/logo-completa-branca.png')
+        $('#admin #logo-exitus').attr('src', '/assets/img/logo-components/logo-completa-branca.png')
     }
 
     if (localStorage.getItem('nightModeTeacher')) {
-        $('#logo-exitus').attr('src', '/assets/img/logo-components/logo-completa-branca.png')
+        $('#teacherPortal #logo-exitus').attr('src', '/assets/img/logo-components/logo-completa-branca.png')
+    }
+
+    if (localStorage.getItem('nightModeStudent')) {
+        $('#studentPortal #logo-exitus-main').attr('src', '/assets/img/logo-components/logo-completa-branca.png')
     }
 
 
-    $(document).on('click', '[data-target="#accordion-interface-admin"] , [data-target="#accordion-interface-teacher"]', function (e) {
+    $(document).on('click', '[data-target="#accordion-interface-admin"] , [data-target="#accordion-interface-teacher"],  [data-target="#accordion-interface-student"]', function (e) {
         if ($('html').hasClass('nightMode')) {
             $('#nightMode').prop("checked", true)
         }
@@ -791,7 +795,7 @@ $(document).on("change", "#profilePhotoModal #profilePhoto", function () {
 
     tools.imagePreview(file, "#profilePhotoModal img")
 
-    $("#updateImg").attr("disabled", false)
+    $("#updateImg , #updateImgAdmin").attr("disabled", false)
 
 })
 
@@ -806,9 +810,8 @@ $(document).on("click", "#profileTeacherModal #updateImg", function (e) {
 })
 
 
-$(document).on("click", "#settingsModal #updateImg", function (e) {
+$(document).on("click", "#updateImgAdmin", function (e) {
     application.addMultipleParts($("#formUpdateProfilePhoto")[0], "/admin/configuracoes/atualizar-foto")
-
 })
 
 

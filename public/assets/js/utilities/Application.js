@@ -13,7 +13,8 @@ class Application {
             cache: false,
             contentType: false,
             processData: false,
-            error: error => tools.showToast('Tente novamente mais tarde', 'bg-info')
+            error: error => tools.showToast('Tente novamente mais tarde', 'bg-info'),
+            success: data => console.log(data)
         })
     }
 
