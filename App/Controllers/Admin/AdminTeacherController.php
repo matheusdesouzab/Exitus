@@ -79,12 +79,23 @@ class AdminTeacherController extends Action
     {
 
         $Teacher = Container::getModel('Teacher\\Teacher');
+        $Course = Container::getModel('GeneralManagement\\Course');
+        $Discipline = Container::getModel('GeneralManagement\\Discipline');
+        $Series = Container::getModel('GeneralManagement\\Series');
+        $Shift = Container::getModel('GeneralManagement\\Shift');
+        $ClassRoom = Container::getModel('GeneralManagement\\ClassRoom');
+        $SchoolTerm = Container::getModel('GeneralManagement\\SchoolTerm');
 
         $this->view->listTeacher = $Teacher->readAll();
         $this->view->availableSex = $Teacher->availableSex();
         $this->view->pcd = $Teacher->pcd();
         $this->view->typeTeacherList = 'normal';
         $this->view->bloodType = $Teacher->availablebloodType();
+        $this->view->listCourse = $Course->listForSelect();
+        $this->view->listDiscipline = $Discipline->readAll();
+        $this->view->availableSeries = $Series->listForSelect();
+        $this->view->availableShift = $Shift->listForSelect();
+        $this->view->availableClassRoom = $ClassRoom->listForSelect();
 
         $this->render('teacher/teacherList', 'AdminLayout');
     }
@@ -168,7 +179,12 @@ class AdminTeacherController extends Action
         $Teacher = Container::getModel('Teacher\\Teacher');
 
         $Teacher->__set('name', $_GET['name']);
+        $Teacher->__set('fk_id_discipline', $_GET['discipline']);
+        $Teacher->__set('fk_id_course', $_GET['course']);
+        $Teacher->__set('fk_id_series', $_GET['serie']);
+        $Teacher->__set('fk_id_shift', $_GET['shift']);
         $Teacher->__set('fk_id_sex', $_GET['sex']);
+        $Teacher->__set('fk_id_classroom', $_GET['classRoom']);
 
         $this->view->typeTeacherList = 'normal';
         $this->view->listTeacher = $Teacher->seek();

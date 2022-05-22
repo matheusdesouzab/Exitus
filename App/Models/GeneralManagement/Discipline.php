@@ -75,7 +75,9 @@ class Discipline extends Model
             
             FROM disciplina 
             
-            INNER JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina)"
+            INNER JOIN modalidade_disciplina ON(disciplina.fk_id_modalidade_disciplina = modalidade_disciplina.id_modalidade_disciplina)
+
+            ORDER BY disciplina.nome_disciplina ASC"
 
         );
     }

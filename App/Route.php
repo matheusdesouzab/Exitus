@@ -602,7 +602,7 @@ class Route extends Bootstrap
 			'action' => 'noteDelete'
 		);
 
-		$routes['adminNoteDelete'] = array(
+		$routes['adminObservationInsert'] = array(
 			'route' => '/admin/gestao/turma/perfil-turma/aluno/obervacoes/inserir',
 			'controller' => 'Admin\\AdminTeacherStudentController',
 			'action' => 'observationInsert'

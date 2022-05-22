@@ -181,12 +181,43 @@ class Teacher extends People
             LEFT JOIN sexo ON(sexo.id_sexo = professor.fk_id_sexo_professor)
             LEFT JOIN situacao_conta ON(professor.fk_id_situacao_conta_professor = situacao_conta.id_situacao_conta)
             LEFT JOIN turma_disciplina ON(professor.id_professor = turma_disciplina.fk_id_professor)
+            INNER JOIN turma ON(turma.id_turma = turma_disciplina.fk_id_turma)
+            INNER JOIN curso ON(curso.id_curso = turma.fk_id_curso)
+            INNER JOIN serie ON(serie.id_serie = turma.fk_id_serie)
+            INNER JOIN turno ON(turno.id_turno = turma.fk_id_turno)
+            INNER JOIN sala ON(sala.id_sala = turma.fk_id_sala)
+            INNER JOIN periodo_letivo ON(turma.fk_id_periodo_letivo = periodo_letivo.id_ano_letivo) 
+            INNER JOIN situacao_periodo_letivo ON(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo) 
 
             WHERE professor.nome_professor LIKE :teacherName 
 
             AND
 
+            periodo_letivo.fk_id_situacao_periodo_letivo = 1
+
+            AND
+
+            CASE WHEN :fk_id_discipline = 0 THEN turma_disciplina.fk_id_disciplina <> :fk_id_discipline ELSE turma_disciplina.fk_id_disciplina = :fk_id_discipline END
+
+            AND
+
+            CASE WHEN :fk_id_series = 0 THEN serie.id_serie <> :fk_id_series ELSE serie.id_serie = :fk_id_series END
+
+            AND
+
+            CASE WHEN :fk_id_course = 0 THEN curso.id_curso <> :fk_id_course ELSE curso.id_curso = :fk_id_course END
+
+            AND
+
+            CASE WHEN :fk_id_shift = 0 THEN turno.id_turno <> :fk_id_shift ELSE turno.id_turno = :fk_id_shift END
+
+            AND
+
             CASE WHEN :fk_id_sex = 0 THEN sexo.id_sexo <> :fk_id_sex ELSE sexo.id_sexo = :fk_id_sex END
+
+            AND
+
+            CASE WHEN :fk_id_classroom = 0 THEN sala.id_sala <> :fk_id_classroom ELSE sala.id_sala = :fk_id_classroom END
 
             ORDER BY professor.nome_professor ASC
             
@@ -194,7 +225,12 @@ class Teacher extends People
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':teacherName', "%" . $this->__get('name') . "%", \PDO::PARAM_STR);
+        $stmt->bindValue(':fk_id_discipline', $this->__get('fk_id_discipline'));
+        $stmt->bindValue(':fk_id_course', $this->__get('fk_id_course'));
+        $stmt->bindValue(':fk_id_series', $this->__get('fk_id_series'));
+        $stmt->bindValue(':fk_id_shift', $this->__get('fk_id_shift'));
         $stmt->bindValue(':fk_id_sex', $this->__get('fk_id_sex'));
+        $stmt->bindValue(':fk_id_classroom', $this->__get('fk_id_classroom'));
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);

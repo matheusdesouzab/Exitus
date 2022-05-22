@@ -73,7 +73,7 @@
 
             #sidebar {
                 background-color: $color-secondary-night-mode;
-                border-right: 1px solid #424549;
+                border-right: 2px solid #424549;
                 box-shadow: none;
             }
 
@@ -107,8 +107,8 @@
 
         #navbar-top {
             background-color: $color-secondary-night-mode;
-            border-left: 1px solid #424549;
-            border-bottom: 1px solid #424549;
+            border-left: 2px solid #424549;
+            border-bottom: 2px solid #424549;
 
             .fa-bars,
             .nav-item,
@@ -127,6 +127,10 @@
                 label,
                 .font-weight-bold {
                     color: $color-white;
+                }
+
+                .custom-file-label{
+                    color: $color-black;
                 }
 
                 hr {

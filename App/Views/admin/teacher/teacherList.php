@@ -8,30 +8,96 @@
 
             <div class="col-lg-12">
 
-                <div class="card p-3 mb-3">
+                <div class="card p-3 mb-3" id="advanced-search-accordion">
 
                     <form class="col-lg-11 accordion mx-auto mt-3" id="seekTeacher">
 
                         <div class="form-row">
 
-                            <div class="form-group col-12 col-sm-7">
-                                <label for="">Professor:</label>
+                            <div class="form-group col-12 col-sm-4">
+                                <label for="name">Professor:</label>
                                 <input class="form-control" type="text" name="name" placeholder="Nome do professor" id="">
                             </div>
 
 
-                            <div class="form-group col-10 col-sm-5">
-                                <label for="">Sexo:</label>
-                                <select class="form-control custom-select" name="sex">
+                            <div class="form-group col-10 col-sm-4">
+                                <label for="course">Curso:</label>
+                                <select class="form-control custom-select" name="course">
                                     <option value="0">Todos</option>
-                                    <?php foreach ($this->view->availableSex as $key => $sex) { ?>
-                                        <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+                                    <?php foreach ($this->view->listCourse as $key => $course) { ?>
+                                        <option value="<?= $course->option_value ?>"><?= $course->option_text ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
 
+                            <div class="form-group col-10 col-sm-3">
+                                <label for="discipline">Disciplina:</label>
+                                <select class="form-control custom-select" name="discipline">
+                                    <option value="0">Todas</option>
+                                    <?php foreach ($this->view->listDiscipline as $key => $discipline) { ?>
+                                        <option value="<?= $discipline->discipline_id ?>"><?= $discipline->discipline_name ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-2 col-lg-1">
+                                <label for="">&nbsp;</label><br>
+                                <div>
+                                    <a class="btn btn-white w-100 p-2" href="" data-toggle="collapse" data-target="#activate-advanced-search-accordion" aria-expanded="false" aria-controls="activate-advanced-search-accordion"><i class="fas fa-ellipsis-h"></i></a>
+                                </div>
+                            </div>
+
 
                         </div>
+
+                        <div id="activate-advanced-search-accordion" class="collapse" data-parent="#advanced-search-accordion">
+
+                            <div class="form-row">
+
+                                <div class="form-group col-10 col-sm-3">
+                                    <label for="serie">Série:</label>
+                                    <select class="form-control custom-select" name="serie">
+                                        <option value="0">Todas</option>
+                                        <?php foreach ($this->view->availableSeries as $key => $serie) { ?>
+                                            <option value="<?= $serie->option_value ?>"><?= $serie->option_text ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-10 col-sm-3">
+                                    <label for="shift">Turno:</label>
+                                    <select class="form-control custom-select" name="shift">
+                                        <option value="0">Todos</option>
+                                        <?php foreach ($this->view->availableShift as $key => $shift) { ?>
+                                            <option value="<?= $shift->option_value ?>"><?= $shift->option_text ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-10 col-sm-3">
+                                    <label for="sex">Sexo:</label>
+                                    <select class="form-control custom-select" name="sex">
+                                        <option value="0">Todos</option>
+                                        <?php foreach ($this->view->availableSex as $key => $sex) { ?>
+                                            <option value="<?= $sex->option_value ?>"><?= $sex->option_text ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+                                <div class="form-group col-10 col-sm-3">
+                                    <label for="classroom">Sala:</label>
+                                    <select class="form-control custom-select" name="classRoom">
+                                        <option value="0">Todas</option>
+                                        <?php foreach ($this->view->availableClassRoom as $key => $classroom) { ?>
+                                            <option value="<?= $classroom->option_value ?>"><?= $classroom->option_text ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+
 
                     </form>
 
@@ -73,7 +139,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 

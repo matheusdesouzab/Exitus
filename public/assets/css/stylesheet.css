@@ -119,7 +119,7 @@ h5 {
 .nightMode body#teacherPortal #left-panel #sidebar,
 .nightMode body#studentPortal #left-panel #sidebar {
   background-color: #0D151D;
-  border-right: 1px solid #424549;
+  border-right: 2px solid #424549;
   box-shadow: none;
 }
 .nightMode body#admin #studentsTeachersAccordion [aria-expanded=true],
@@ -160,8 +160,8 @@ h5 {
 .nightMode body#teacherPortal #navbar-top,
 .nightMode body#studentPortal #navbar-top {
   background-color: #0D151D;
-  border-left: 1px solid #424549;
-  border-bottom: 1px solid #424549;
+  border-left: 2px solid #424549;
+  border-bottom: 2px solid #424549;
 }
 .nightMode body#admin #navbar-top .fa-bars,
 .nightMode body#admin #navbar-top .nav-item,
@@ -186,6 +186,11 @@ h5 {
 .nightMode body#studentPortal #pagina form label,
 .nightMode body#studentPortal #pagina form .font-weight-bold {
   color: #ffffff;
+}
+.nightMode body#admin #pagina form .custom-file-label,
+.nightMode body#teacherPortal #pagina form .custom-file-label,
+.nightMode body#studentPortal #pagina form .custom-file-label {
+  color: #080809;
 }
 .nightMode body#admin #pagina form hr,
 .nightMode body#teacherPortal #pagina form hr,
