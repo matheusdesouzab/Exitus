@@ -1,25 +1,74 @@
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/60266964/162435563-436fa05e-7e66-4419-8811-81ab90d758fa.png" width="300px">
+  <img style="margin-bottom: 40px" src="https://user-images.githubusercontent.com/60266964/162435563-436fa05e-7e66-4419-8811-81ab90d758fa.png" width="300px">
 </div>
 
-<br>
+</br>
 
-Exitus propõe tornar disponível um sistema de gestão escolar online em função dos gestores, docentes e alunos, ou seja, das escolas.
+<div align="center">
+  <img src="http://img.shields.io/static/v1?label=STATUS&message=Finalizado&color=BLUE&style=for-the-badge"/>
+</div>
+
+##  
 
 <div align="justify">
-  E como objetivo geral buscamos aumentar a disponibilidade dos dados referente aos alunos, mediante o uso do nosso sistema de gestão escolar, isto é, a ideia que    originou a criação do Exitus surgiu justamente após uma análise do SGE da Bahia, que levando em consideração a disponibilidade dos dados em seu sistema, percebemos algumas limitações que prejudicava a experiência de uso dos alunos. Bem como, levando em consideração o meio de acesso ao SGE, percebemos que não era possível acessa-lo em todos os tipos de dispositivos.
-Então, a partir das limitações levantadas após essa análise, projetamos o Exitus para que as limitações de então fossem sanadas e podemos constatar essa ideia analisando os nossos objetivos específicos que são:
- </div>
+
+<p>O Exitus é um Sistema de Gestão Escolar que foi desenvolvido durante o ano de 2021 para o TCC da minha equipe no curso de Técnico de Informática pelo CETEPI-I da cidade de Paulo Afonso-BA.</p>
+  
+<p>O presente projeto visou a criação de uma aplicação web composta por 3 portais, voltado para os gestores da escolar, os docentes e os alunos.</p> 
+  
+<img src="https://user-images.githubusercontent.com/60266964/173249538-4ba03e49-3891-4096-b5ab-2ada87c7c629.png">
+  
+<br>
+  
+### Problema que originou a criação do projeto
+  
+<p>Como alunos do estado da Bahia, nós tínhamos a nossa disposição o Sistema de Gestão Escolar da Bahia. Contudo, esse sistema apenas fornecia o boletim do ano letivo, que muitas vezes nem tinha todas nossas notas. Tendo em vista essa baixa disponibilidade de dados, resolvemos criar uma aplicação semelhante ao SGE da Bahia, onde o aluno pudesse ter acesso a todos os dados vinculados a ele, ou seja, notas de avaliações, faltas, médias gerais, avisos da turma, rematrícula, entre outros.</p>
+  
+## Demonstração da Aplicação
+  
+<p>Como o projeto possui diversas funcionalidades, não vai ser possível falar sobre todas, então abaixo temos um link para um vídeo do YouTube que demonstramos de forma breve cada uma delas. Além disso, nos arquivos do projeto existe o documento final do nosso TCC, nele também é descrito de forma detalhada, cada funcionalidade integrada ao Exitus.</p>
+  
+[Demostração do projeto no YouTube](https://www.youtube.com/watch?v=i2gDSvTih8c&t=4s)
+  
+### Algumas imagens do projeto
+  
  <br>
+  
+<img src="https://user-images.githubusercontent.com/60266964/173252157-41a78e83-065d-4c35-ae1d-fc2666032c1c.png">
+  <div align="center">:camera: Tela de home do portal do administrador</div>
+<br>
+  
+<img src="https://user-images.githubusercontent.com/60266964/173254378-7276fa10-fc50-43f9-a51a-976c21ee3a09.png">
+  <div align="center">:camera: Tela de gestão geral do portal do administrador</div>
+<br>
+  
+<img src="https://user-images.githubusercontent.com/60266964/173254726-8af29902-6ebb-4df8-9aa9-ad65b2bc00be.png">
+  <div align="center">:camera: Tela do painel de uma turma no portal do administrador</div>
+<br>
+  
+<img src="https://user-images.githubusercontent.com/60266964/173254940-c242f627-ba81-4894-bf13-7d1ec61bdd34.png">
+  <div align="center">:camera: Tela do perfil do aluno no portal do administrador</div>
+<br>
+  
+<img src="https://user-images.githubusercontent.com/60266964/173255127-30f04552-e6d5-43eb-9c2a-ec9fecd318e4.png">
+  <div align="center">:camera: Tela de home do portal do docente</div>
+<br>
+  
+<img src="https://user-images.githubusercontent.com/60266964/173255293-91bbeff7-014c-4fac-9594-7294afd259dc.png">
+  <div align="center">:camera: Tela de home do portal do aluno</div>
+<br>
+  
+## Tecnologias utilizadas
+  
+<code><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" height="40"/></code> <code><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" height="40"/></code> <code><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" height="40" /></code>
+<code><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="40" height="40" /></code>
+<code><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="50" height="50" /></code>
+<code><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" height="40" /></code>
+<code><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" width="50" height="50" /></code>
 
-- Possibilitar que os gestores possam gerenciar os principais componentes de uma escola de forma online
-- Possibilitar que os docentes possam gerenciar as avaliações com mais praticidade
-- Possibilitar que os alunos possam acessar seus dados escolares facilmente;
-- Possibilitar que o sistema seja acessado em qualquer dispositivo;
-- Simplificar o processo de rematrícula na escola;
-
-## Instalação
+  
+## Acesso ao Projeto
 
 Para testar o projeto no seu computador primeiro você deve realizar o seu download a partir dessa página.
 Com o projeto baixado o próximo passo e criar a base de dados do sistema no phpMyAdmin, o comando de criação do BD segue abaixo:
@@ -27,8 +76,6 @@ Com o projeto baixado o próximo passo e criar a base de dados do sistema no php
 ```sh
 CREATE DATABASE Exitus;
 ```
-
-<br>
 
 > Obs: Lembrando que caso você deseje criar o banco de dados pelo Workbench, ou utilizar um nome diferente no BD só e preciso mudar as pré-definições do aqruivo "Connection.php".
 
@@ -49,10 +96,15 @@ O primeiro portal que você deve acessar e o portal do admin, nele você irá co
 | Usuário Padrão | 867532 |
 
 Caso você deseje conhecer como funciona cada componente do sistema dentro da pasta de download há o PDF da documentação do TCC da nossa equipe, nele esta há a explição de cada componente do Exitus.
+  
+  
+## Autores
+  
+João Pedro Rodrigues Souza e Matheus de Souza Barbosa
 
-> Obs: Na pasta img dentro de public/assets existem três pastas, são elas: adminProfilePhotos | teacherProfilePhotos | studentProfilePhotos . Quando você baixar o projeto você irá notar que já existem algumas fotos dentro dessa pasta, então elimine as mesmas, menos a "foto-vazia.jpg".  
 
-O Exitus foi desenvolvido por Everton Andrade, João Pedro e Matheus de Souza, Exs alunos do CETEPI-I da cidade de Paulo Afonso. 
+
+
 
 
 
