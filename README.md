@@ -36,27 +36,27 @@
  <br>
   
 <img src="https://user-images.githubusercontent.com/60266964/173252157-41a78e83-065d-4c35-ae1d-fc2666032c1c.png">
-  <div align="center">:câmera: Tela de home do portal do administrador</div>
+  <div align="center">:camera: Tela de home do portal do administrador</div>
 <br>
   
 <img src="https://user-images.githubusercontent.com/60266964/173254378-7276fa10-fc50-43f9-a51a-976c21ee3a09.png">
-  <div align="center">:câmera: Tela de gestão geral do portal do administrador</div>
+  <div align="center">:camera: Tela de gestão geral do portal do administrador</div>
 <br>
   
 <img src="https://user-images.githubusercontent.com/60266964/173254726-8af29902-6ebb-4df8-9aa9-ad65b2bc00be.png">
-  <div align="center">:cÂmera: Tela do painel de uma turma no portal do administrador</div>
+  <div align="center">:camera: Tela do painel de uma turma no portal do administrador</div>
 <br>
   
 <img src="https://user-images.githubusercontent.com/60266964/173254940-c242f627-ba81-4894-bf13-7d1ec61bdd34.png">
-  <div align="center">:câmera: Tela do perfil do aluno no portal do administrador</div>
+  <div align="center">:camera: Tela do perfil do aluno no portal do administrador</div>
 <br>
   
 <img src="https://user-images.githubusercontent.com/60266964/173255127-30f04552-e6d5-43eb-9c2a-ec9fecd318e4.png">
-  <div align="center">:câmera: Tela de home do portal do docente</div>
+  <div align="center">:camera: Tela de home do portal do docente</div>
 <br>
   
 <img src="https://user-images.githubusercontent.com/60266964/173255293-91bbeff7-014c-4fac-9594-7294afd259dc.png">
-  <div align="center">:câmera: Tela de home do portal do aluno</div>
+  <div align="center">:camera: Tela de home do portal do aluno</div>
 <br>
   
 ## Tecnologias utilizadas
