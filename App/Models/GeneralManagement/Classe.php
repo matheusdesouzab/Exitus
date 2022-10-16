@@ -336,7 +336,6 @@ class Classe extends Model
         ";
 
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(":classId", $this->__get("classId"));
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_OBJ);
