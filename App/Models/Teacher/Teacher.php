@@ -574,7 +574,7 @@ class Teacher extends People
             INNER JOIN periodo_disponivel ON(periodo_letivo.fk_id_ano_letivo = periodo_disponivel.id_periodo_disponivel) 
             INNER JOIN situacao_periodo_letivo on(periodo_letivo.fk_id_situacao_periodo_letivo = situacao_periodo_letivo.id_situacao_periodo_letivo)
             
-            WHERE professor.id_professor = 1
+            WHERE professor.id_professor = :teacherId
 
             AND
 
