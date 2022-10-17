@@ -73,7 +73,6 @@ class TeacherPortalController extends Action
 
         $this->view->unitControlCurrent = $Settings->unitControlCurrent();
         $this->view->SchoolTermActive = $SchoolTerm->active();
-        $this->view->totalStudents = $Teacher->totalStudents();
         $this->view->listExam = $Exam->readExamByIdTeacher($Teacher);
         $this->view->listNote = $Teacher->readNoteByIdTeacher();
         $this->view->listLack = $Teacher->readLackByIdTeacher();
