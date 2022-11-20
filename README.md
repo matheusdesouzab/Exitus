@@ -29,7 +29,7 @@
   
 <p>Como o projeto possui diversas funcionalidades, não vai ser possível falar sobre todas, por isso, logo abaixo, disponibilizamos um link para um vídeo do YouTube em que demonstramos de forma breve cada uma delas. Além disso, nos arquivos do projeto, existe o documento final do nosso TCC, nele também é descrito de forma detalhada cada funcionalidade integrada ao Exitus.</p>
   
-[Demostração do projeto no YouTube](https://www.youtube.com/watch?v=i2gDSvTih8c&t=4s)
+[Demostração do projeto no YouTube](https://www.youtube.com/watch?v=MFScHaBRtDw&t=1984s)
   
 ### Algumas imagens do projeto
   
