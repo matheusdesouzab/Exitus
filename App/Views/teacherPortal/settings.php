@@ -129,9 +129,9 @@
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="addon-wrapping">CPF:</span>
+                                    <span class="input-group-text" id="addon-wrapping">NUIT:</span>
                                 </div>
-                                <input type="text" onload="this.value = this.value.mask('000.000.000-00')" id="cpf" name="cpf" disabled class="form-control" value="<?= $teacher->cpf ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
+                                <input type="text" id="cpf" name="cpf" disabled class="form-control" value="<?= $teacher->cpf ?>" aria-label="Username" aria-describedby="addon-wrapping" style="pointer-events:none">
                             </div>
 
                             <div class="input-group d-flex justify-content-start col-lg-11 flex-nowrap">

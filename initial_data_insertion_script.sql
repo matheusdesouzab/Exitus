@@ -9,7 +9,7 @@ insert into serie(nome,sigla) values ('Primeira','1'),('Segunda','2'),('Terceira
 
 insert into unidade(unidade) values ('1'),('2'),('3');
 
-insert into turno(nome_turno) values ('Matutino'),('Vespertino'),('Noturno');
+insert into turno(nome_turno) values ('Diurno'),('Noturno');
 
 insert into modalidade_disciplina(modalidade_disciplina) values ('Ensino Técnico'),('Ensino Médio');
 

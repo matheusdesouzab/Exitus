@@ -14,7 +14,7 @@ $(function () {
 })
 
 
-$(document).ready(function(){
+$(document).ready(function () {
 
     $(document).on('click', '#nightMode', function (e) {
         $('html').toggleClass('nightMode')
@@ -508,17 +508,6 @@ $(document).on("click", "#profileClassModal #students-list tbody tr", function (
 })
 
 
-// Aplicando máscaras de formatação em dados que estão dentro do modal
-
-
-$('#settingsModal , #profileStudentModal').on('show.bs.modal', function (e) {
-    $('#cpf').mask("000.000.000-00")
-    $('#zipCode').mask("00000-000")
-    $('#telephoneNumber').mask(("(00) 00000-0000"))
-    $('#totalLack').mask(("00"))
-})
-
-
 // Configurações necessária para que um modal possa fica na frente do outro
 
 
@@ -668,10 +657,6 @@ let commonElements = ["#name , #birthDate", "#naturalness", "#nationality", "#mo
 
 commonElements.forEach(element => $(element).on("blur", e => validation.validateByContent(e.target.id)))
 
-$("#cpf").on("blur", e => validation.cpfState(e.target.value))
-
-$("#telephoneNumber").on("blur", e => validation.validateBySize(e.target.id, 11, "#telephoneField", "telephone-info"))
-
 $("#photoField #profilePhoto").change(function (e) {
     validation.validateImage()
     tools.imagePreview(this, "#profilePhotoModal img")
@@ -729,20 +714,11 @@ $(document).on("blur", "#addExam #examDescription", function (e) {
 
 //* Máscaras via @Jquery-mask-plugin
 
-
-$(document).on("keypress", "#cpf", e => $(e.target).mask("000.000.000-00"))
-
-$(document).on("keypress", "#zipCode", e => $(e.target).mask("00000-000"))
-
-$(document).on("keypress", "#telephoneNumber", e => $(e.target).mask(("(00) 00000-0000")))
-
 $(document).on("keypress", "#totalLack", e => $(e.target).mask(("00")))
 
 $("input[name='acronym'] , input[name='uf']").on("keyup", e => e.target.value = e.target.value.toUpperCase())
 
 //$("#accessCode").on("keypress", e => $(e.target).mask("000.000.000"))
-
-$("#zipCode").on("blur", getLocation)
 
 $(document).on('keypress', '#accessCode', function (e) {
     var regex = new RegExp("^[a-zA-Z0-9\b]+$")

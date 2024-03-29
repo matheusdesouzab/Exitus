@@ -58,7 +58,6 @@ class AdminController extends Action
 
     public function adminRegistration()
     {
-
         session_start();
 
         if($_SESSION['Admin']['hierarchyFunction'] == 1){

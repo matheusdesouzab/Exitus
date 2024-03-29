@@ -55,7 +55,7 @@
                                     </div>
 
                                     <div id="cpfField" class="form-group col-md-4">
-                                        <label for="cpf">CPF:</label>
+                                        <label for="cpf">NUIT:</label>
                                         <input type="text" id="cpf" value="" minlength="14" name="cpf" class="form-control" placeholder="" required>
                                     </div>
 
@@ -179,9 +179,9 @@
                                         <input type="text" id="address" name="address" class="form-control" id="address" placeholder="" required>
                                     </div>
 
-                                    <div id="telephoneField" class="form-group col-md-4">
+                                    <div class="form-group col-md-4">
                                         <label for="telephoneNumber">Contato:</label>
-                                        <input type="tel" id="telephoneNumber" value="" class="form-control" name="telephoneNumber" placeholder="(00) 00000-0000" required>
+                                        <input type="tel" id="telephoneNumber" value="" class="form-control" name="telephoneNumber" required>
                                     </div>
 
                                     <div class="form-group col-md-3">

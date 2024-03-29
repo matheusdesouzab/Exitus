@@ -62,8 +62,8 @@
                                 </div>
 
                                 <div id="cpfField" class="form-group col-md-4">
-                                    <label for="cpf">CPF:</label>
-                                    <input type="text" id="cpf" value="" minlength="14" name="cpf" class="form-control" placeholder="000.000.000-00" required>
+                                    <label for="cpf">NUIT:</label>
+                                    <input type="text" id="cpf" value="" name="cpf" class="form-control" required>
                                 </div>
 
                                 <div class="form-group col-md-3">
@@ -150,9 +150,9 @@
 
                             <div class="form-row mt-3">
 
-                                <div id="zipCodeField" class="form-group col-md-3">
+                                <div class="form-group col-md-3">
                                     <label for="zipCode">CEP:</label>
-                                    <input type="text" id="zipCode" value="" class="form-control" name="zipCode" minlength="9" placeholder="00000-000" required>
+                                    <input type="text" value="" class="form-control" name="zipCode" required>
                                 </div>
 
                                 <div class="form-group col-md-5">
@@ -180,9 +180,9 @@
                                     <input type="text" id="uf" class="form-control" value="" maxlength="2" name="uf" placeholder="" required>
                                 </div>
 
-                                <div id="telephoneField" class="form-group col-md-3">
+                                <div class="form-group col-md-3">
                                     <label for="telephoneNumber">Contato:</label>
-                                    <input type="tel" id="telephoneNumber" value="" class="form-control" name="telephoneNumber" placeholder="(00) 00000-0000" required>
+                                    <input type="tel" id="telephoneNumber" value="" class="form-control" name="telephoneNumber" required>
                                 </div>
 
                                 <div class="form-group col-md-3">
