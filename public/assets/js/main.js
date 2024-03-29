@@ -739,17 +739,17 @@ $(document).on('keypress', '#accessCode', function (e) {
 
 
 $("[data-target='#student-registration-finishing']").on("click", function (e) {
-    validation.checkAllFields("#addStudent", 19, "#buttonAddStudent")
+    validation.checkAllFields("#addStudent", 15, "#buttonAddStudent")
 })
 
 
 $("[data-target='#teacher-registration-finishing']").on("click", function (e) {
-    validation.checkAllFields("#addTeacher", 16, "#buttonAddTeacher")
+    validation.checkAllFields("#addTeacher", 13, "#buttonAddTeacher")
 })
 
 
 $("[data-target='#admin-registration-finishing']").on("click", function (e) {
-    validation.checkAllFields("#addAdmin", 17, "#buttonAddAdmin")
+    validation.checkAllFields("#addAdmin", 14, "#buttonAddAdmin")
 })
 
 
