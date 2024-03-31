@@ -152,7 +152,7 @@
 
                                 <div class="form-group col-md-3">
                                     <label for="zipCode">CEP:</label>
-                                    <input type="text" value="" class="form-control" name="zipCode" required>
+                                    <input type="text" value="" id="zipCode" class="form-control" name="zipCode" required>
                                 </div>
 
                                 <div class="form-group col-md-5">

@@ -134,7 +134,9 @@ class Validation {
 
         $.each(inputs, (key, value) => $(value).hasClass('is-valid') ? size += 1 : '')
 
-            !photo.hasClass('is-valid') && $('.photo-info').length == 0 ? size += 1 : ''
+        !photo.hasClass('is-valid') && $('.photo-info').length == 0 ? size += 1 : ''
+
+        console.log(size, totalFields)
 
         if (totalFields == size) {
 

@@ -56,7 +56,7 @@
 
                                     <div id="cpfField" class="form-group col-md-4">
                                         <label for="cpf">NUIT:</label>
-                                        <input type="text" id="cpf" value="" minlength="14" name="cpf" class="form-control" placeholder="" required>
+                                        <input type="text" id="cpf" value="" name="cpf" class="form-control" placeholder="" required>
                                     </div>
 
                                     <div class="form-group col-md-3">
@@ -152,7 +152,7 @@
 
                                     <div id="zipCodeField" class="form-group col-md-3">
                                         <label for="zipCode">CEP:</label>
-                                        <input type="text" id="zipCode" value="" class="form-control" name="zipCode" minlength="9" required>
+                                        <input type="text" id="zipCode" value="" class="form-control" name="zipCode" required>
                                     </div>
 
                                     <div class="form-group col-md-4">

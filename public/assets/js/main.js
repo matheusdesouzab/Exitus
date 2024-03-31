@@ -653,7 +653,7 @@ $("#seekStudent select").change(() => application.loadListElements("containerLis
 //* Sessão de validação de dados
 
 
-let commonElements = ["#name , #birthDate", "#naturalness", "#nationality", "#motherName", "#fatherName", "#county", "#district", "#address", "#uf", "#email"]
+let commonElements = ["#name", "#cpf", "#zipCode", "#birthDate", "#telephoneNumber", "#naturalness", "#nationality", "#motherName", "#fatherName", "#county", "#district", "#address", "#uf", "#email"]
 
 commonElements.forEach(element => $(element).on("blur", e => validation.validateByContent(e.target.id)))
 
@@ -739,17 +739,17 @@ $(document).on('keypress', '#accessCode', function (e) {
 
 
 $("[data-target='#student-registration-finishing']").on("click", function (e) {
-    validation.checkAllFields("#addStudent", 15, "#buttonAddStudent")
+    validation.checkAllFields("#addStudent", 19, "#buttonAddStudent")
 })
 
 
 $("[data-target='#teacher-registration-finishing']").on("click", function (e) {
-    validation.checkAllFields("#addTeacher", 13, "#buttonAddTeacher")
+    validation.checkAllFields("#addTeacher", 16, "#buttonAddTeacher")
 })
 
 
 $("[data-target='#admin-registration-finishing']").on("click", function (e) {
-    validation.checkAllFields("#addAdmin", 14, "#buttonAddAdmin")
+    validation.checkAllFields("#addAdmin", 17, "#buttonAddAdmin")
 })
 
 
