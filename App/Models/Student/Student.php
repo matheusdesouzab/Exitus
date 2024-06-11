@@ -11,6 +11,7 @@ class Student extends People
     private $fatherName;
     private $motherName;
     private $fk_id_general_situation;
+    private $fk_id_enrollmentId;
 
 
     public function __get($att)

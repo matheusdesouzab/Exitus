@@ -13,17 +13,17 @@ class Exam extends Model
     private $realizeDate;
     private $fk_id_exam_unity;
     private $fk_id_discipline_class;
-
+    private $fk_id_class;
+    private $fk_id_teacher;
 
     public function __get($att)
     {
         return $this->$att;
     }
 
-
     public function __set($att, $newValue)
     {
-        return $this->$att = $newValue;
+        $this->$att = $newValue;
     }
 
 

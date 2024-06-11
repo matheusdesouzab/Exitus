@@ -4,7 +4,7 @@ if (!isset($_SESSION)) session_start();
 
 isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
-require __DIR__ . '/../../config/variables.php';
+require __DIR__ . '../../../../config/variables.php';
 ?>
 
 <html lang="pt-br">

@@ -176,6 +176,7 @@ require __DIR__ . '../../../../../config/variables.php';
 
                     <input type="hidden" value="<?= $student->id ?>" name="studentId">
                     <input type="hidden" value="<?= $student->telephone_id ?>" name="telephoneId">
+                    <input type="hidden" value="<?= $app_url ?>" name="appUrl">
                     <input type="hidden" value="<?= $student->address_id ?>" name="addressId">
                     <input type="hidden" value="<?= $this->view->studentDataEnrollment[0]->number_classroom ?>" id="classroom_number">
                     <input value="<?= $this->view->studentDataEnrollment[0]->enrollment_id ?>" type="hidden" name="enrollmentId">

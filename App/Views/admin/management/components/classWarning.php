@@ -1,5 +1,5 @@
 <?php 
-require __DIR__ . '../../../config/variables.php';
+require __DIR__ . '../../../../../config/variables.php';
 ?>
 
 <?php if (count($this->view->listWarning) >= 1) { ?>
