@@ -6,6 +6,22 @@ use App\Models\People\People;
 
 class Admin extends People
 {
+    protected $id;
+    protected $name;
+    protected $cpf;
+    protected $birthDate;
+    protected $naturalness;
+    protected $profilePhoto;
+    protected $nationality;
+    protected $email;
+    protected $accessCode;
+    protected $fk_id_sex;
+    protected $fk_id_blood_type;
+    protected $fk_id_pcd;
+    protected $fk_id_address;
+    protected $fk_id_telephone;
+    protected $fk_id_hierarchy_function;
+    protected $fk_id_account_state;
 
     public function __get($att)
     {
@@ -14,30 +30,20 @@ class Admin extends People
 
     public function __set($att, $newValue)
     {
-        return $this->$att = $newValue;
+        $this->$att = $newValue;
     }
-
 
     /**
      * Cria a conta de um administrador
      * 
      * @return void
      */
-
     public function insert()
     {
-
-        $query =
-
-            "INSERT INTO administrador 
-        
-            (nome_administrador, cpf_administrador, data_nascimento_administrador, naturalidade_administrador, foto_perfil_administrador,nacionalidade_administrador, fk_id_sexo_administrador, fk_id_tipo_sanguineo_administrador, fk_id_pcd_administrador, fk_id_endereco_administrador, fk_id_telefone_administrador , codigo_acesso , fk_id_administrador_hierarquia_funcao , email_administrador, fk_id_situacao_conta_administrador) 
-
+        $query = "INSERT INTO administrador 
+            (nome_administrador, cpf_administrador, data_nascimento_administrador, naturalidade_administrador, foto_perfil_administrador, nacionalidade_administrador, fk_id_sexo_administrador, fk_id_tipo_sanguineo_administrador, fk_id_pcd_administrador, fk_id_endereco_administrador, fk_id_telefone_administrador , codigo_acesso , fk_id_administrador_hierarquia_funcao , email_administrador, fk_id_situacao_conta_administrador) 
             VALUES 
-        
-            (:adminName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, :fk_id_account_state)
-            
-        ";
+            (:adminName, :cpf, :birthDate, :naturalness, :profilePhoto, :nationality, :fk_id_sex, :fk_id_blood_type, :fk_id_pcd, :fk_id_address, :fk_id_telephone , :accessCode , :fk_id_hierarchy_function , :email, :fk_id_account_state)";
 
         $stmt = $this->db->prepare($query);
 

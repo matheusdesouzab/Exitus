@@ -1,8 +1,13 @@
+<?php 
+
+require __DIR__ . '../../../../../config/variables.php';
+
+?>
 
 
 <?php if (count($this->view->listObservation) >= 1) { ?>
 
-    <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
+    <?php $photoDir =  "$app_url/assets/img/teacherProfilePhotos/" ?>
 
     <?php foreach ($this->view->listObservation as $i => $observation) { ?>
 

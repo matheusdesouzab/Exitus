@@ -1,3 +1,9 @@
+<?php 
+
+require __DIR__ . '../../../config/variables.php';
+
+?>
+
 <div class="row mb-4 d-flex justify-content-around" id="main-accordion">
 
     <div class="col-lg-3 col-11 mx-auto">
@@ -10,7 +16,7 @@
 
                     <div class="row">
 
-                        <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
+                        <?php $photoDir =  "$app_url/assets/img/teacherProfilePhotos/" ?>
 
                         <img class="mx-auto mb-2" src='<?= $this->view->Data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->Data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" data-target="#profilePhotoModal">
 

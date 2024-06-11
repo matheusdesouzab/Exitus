@@ -1,3 +1,9 @@
+<?php 
+
+require __DIR__ . '../../../../config/variables.php';
+
+?>
+
 <nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-10 ml-auto shadow-sm navbar-expand">
 
 	<a class="navbar-brand" id="bars" href="#" data-toggle="tooltip" data-placement="right" title="Explandir"><i class="fas fa-bars"></i></a>
@@ -6,7 +12,7 @@
 		<i class="fas fa-bars"></i>
 	</button>
 
-	<a class="logo" href=""><img id="logo-exitus" src="/assets/img/logo-components/logo-completa.png" alt=""></a>
+	<a class="logo" href=""><img id="logo-exitus" src="<?= $app_url ?>/assets/img/logo-components/logo-completa.png" alt=""></a>
 
 
 	<div class="collapse navbar-collapse" id="navbarText">
@@ -16,7 +22,7 @@
 		<?php $photo = ($_SESSION['Teacher']['profilePhoto'] ? $_SESSION['Teacher']['profilePhoto'] : 'foto-vazia.jpg') ?>
 
 			<li class="nav-item d-none d-md-block">			
-				<img class="foto-perfil m-auto" src="/assets/img/teacherProfilePhotos/<?= $photo ?>" alt="">
+				<img class="foto-perfil m-auto" src="<?= $app_url ?>/assets/img/teacherProfilePhotos/<?= $photo ?>" alt="">
 			</li>
 
 			<li class="nav-item ml-3 d-none d-md-block">

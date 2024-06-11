@@ -1,3 +1,8 @@
+<?php 
+require __DIR__ . '../../../../config/variables.php';
+?>
+
+
 <nav id="navbar-top" class="navbar fixed-top col-12 col-lg-10 col-sm-12 col-md-10 ml-auto shadow-sm navbar-expand">
 
 	<a class="navbar-brand bars-xs" href="#"><i class="fas fa-bars"></i></a> 
@@ -14,14 +19,14 @@
 			</li>
 		</ul>
 
-		<a class="logo" href=""><img class="mx-auto" id="logo-exitus" src="/assets/img/logo-components/logo-completa.png" alt=""></a>
+		<a class="logo" href=""><img class="mx-auto" id="logo-exitus" src="<?= $app_url ?>/assets/img/logo-components/logo-completa.png" alt=""></a>
 
 		<ul class="navbar-nav ml-auto d-flex align-items-center">
 
 		<?php $photo = ($_SESSION['Admin']['profilePhoto'] ? $_SESSION['Admin']['profilePhoto'] : 'foto-vazia.jpg') ?>
 
 			<li class="nav-item d-none d-md-block">			
-				<img class="foto-perfil m-auto" src="/assets/img/adminProfilePhotos/<?= $photo ?>">			
+				<img class="foto-perfil m-auto" src="<?= $app_url ?>/assets/img/adminProfilePhotos/<?= $photo ?>">			
 			</li>
 
 			<li class="nav-item ml-3 d-none d-md-block">

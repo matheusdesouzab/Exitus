@@ -1,4 +1,6 @@
-
+<?php 
+require __DIR__ . '../../../../config/variables.php';
+?>
 
 <section id="list-students">
 
@@ -27,7 +29,7 @@
 
                             <tbody>
 
-                            <?php $photoDir =  "/assets/img/adminProfilePhotos/" ?>
+                            <?php $photoDir =  "$app_url/assets/img/adminProfilePhotos/" ?>
 
 
                                 <?php foreach ($this->view->listAdmin as $key => $value) { ?>

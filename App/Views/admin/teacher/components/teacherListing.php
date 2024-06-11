@@ -1,8 +1,14 @@
+<?php 
+
+require __DIR__ . '../../../../../config/variables.php';
+
+?>
+
 <?php if (count($this->view->listTeacher) >= 1) { ?>
 
     <?php foreach ($this->view->listTeacher as $key => $teacher) { ?>
 
-        <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
+        <?php $photoDir =  "$app_url/assets/img/teacherProfilePhotos/" ?>
 
         <tr class="" id="teacher<?= $teacher->id ?>">
 

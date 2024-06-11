@@ -1,3 +1,7 @@
+<?php 
+require __DIR__ . '../../../config/variables.php';
+?>
+
 <section id="home">
 
     <div class="row main-container">
@@ -86,7 +90,7 @@
 
                             <div class="card-title p-2"><?= count($this->view->recentlyEnrolledStudents) >= 1 ? 'Matrículados recentementes' : 'Nenhum aluno matrículado ainda' ?></div>
 
-                            <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
+                            <?php $photoDir =  "$app_url/assets/img/studentProfilePhotos/" ?>
 
                             <?php if(count($this->view->recentlyEnrolledStudents) >= 1){ ?>
 
@@ -119,7 +123,7 @@
 
                                     <div class="col-lg-12">
 
-                                        <img class="enrollment-null d-block mx-auto" src="/assets/img/illustrations/enrollment_null.svg" alt="">
+                                        <img class="enrollment-null d-block mx-auto" src="<?= $app_url ?>/assets/img/illustrations/enrollment_null.svg" alt="">
 
                                     </div>
 

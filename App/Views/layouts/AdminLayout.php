@@ -4,6 +4,7 @@ if (!isset($_SESSION)) session_start();
 
 isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
+require __DIR__ . '/../../config/variables.php';
 ?>
 
 <html lang="pt-br">
@@ -12,11 +13,11 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title> Exitus - Portal do admin </title>
-	<link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+	<link href="<?= $app_url ?>/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?= $app_url ?>/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 	<script> if (localStorage.getItem('nightModeAdmin')) { document.documentElement.classList.add('nightMode') } </script>
-	<link rel="stylesheet" href="/assets/css/stylesheet.css">
-	<link rel = "shortcut icon" type = "imagem/x-icon" href = "/assets/img/logo-components/logo.png"/>
+	<link rel="stylesheet" href="<?= $app_url ?>/assets/css/stylesheet.css">
+	<link rel = "shortcut icon" type = "imagem/x-icon" href = "<?= $app_url ?>/assets/img/logo-components/logo.png"/>
 </head>
 
 <body id="admin">
@@ -68,37 +69,37 @@ isset($_SESSION['Admin']) ? '' : header('Location: /admin');
 
 </body>
 
-<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="<?= $app_url ?>/node_modules/jquery/dist/jquery.js"></script>
 
-<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<?= $app_url ?>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
-<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="<?= $app_url ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-<script src="/node_modules/chart.js/dist/Chart.min.js"></script>
+<script src="<?= $app_url ?>/node_modules/chart.js/dist/Chart.min.js"></script>
 
-<script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<script src="<?= $app_url ?>/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
-<script src="/assets/js/utilities/Tools.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Tools.js"></script>
 
-<script src="/assets/js/utilities/Validation.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Validation.js"></script>
 
-<script src="/assets/js/utilities/Application.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Application.js"></script>
 
-<script src="/assets/js/utilities/Management.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Management.js"></script>
 
-<script src="/assets/js/utilities/style.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/style.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script src="/assets/js/utilities/chartJs/config.js"></script> 
+<script src="<?= $app_url ?>/assets/js/utilities/chartJs/config.js"></script> 
 
-<script src="/assets/js/utilities/chartJs/admin.js"></script> 
+<script src="<?= $app_url ?>/assets/js/utilities/chartJs/admin.js"></script> 
 
-<script src="/assets/js/main.js"></script>
+<script src="<?= $app_url ?>/assets/js/main.js"></script>
 
-<script src="/assets/js/utilities/Bulletin.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Bulletin.js"></script>
 
 
 </html>

@@ -4,6 +4,7 @@ if (!isset($_SESSION)) session_start();
 
 isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
+require __DIR__ . '/../../config/variables.php';
 ?>
 
 <html lang="pt-br">
@@ -12,11 +13,11 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> Exitus - Portal do aluno </title>
-    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link href="<?= $app_url ?>/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= $app_url ?>/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
     <script> if (localStorage.getItem('nightModeStudent')) { document.documentElement.classList.add('nightMode') } </script>
-    <link rel="stylesheet" href="/assets/css/stylesheet.css">
-    <link rel="shortcut icon" type="imagem/x-icon" href="/assets/img/logo-components/logo.png" />
+    <link rel="stylesheet" href="<?= $app_url ?>/assets/css/stylesheet.css">
+    <link rel="shortcut icon" type="imagem/x-icon" href="<?= $app_url ?>/assets/img/logo-components/logo.png" />
 </head>
 
 <body id="studentPortal">
@@ -30,7 +31,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                 <nav id="studentPortalNavbar" class="navbar navbar-expand d-flex align-items-center">
 
                     <a class="logo" href="#">
-                        <img class="d-block" id="logo-exitus-main" src="/assets/img/logo-components/logo-completa.png" alt="">
+                        <img class="d-block" id="logo-exitus-main" src="<?= $app_url ?>/assets/img/logo-components/logo-completa.png" alt="">
                     </a>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +66,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
                             <li class="nav-item nav-fixed d-none d-md-block d-flex align-items-center">
                                 <a class="nav-link" href="#">
-                                    <img data-toggle="tooltip" data-placement="bottom" title="Ver perfil do aluno" class="foto-perfil" src="/assets/img/studentProfilePhotos/<?= $photo ?>">
+                                    <img data-toggle="tooltip" data-placement="bottom" title="Ver perfil do aluno" class="foto-perfil" src="<?= $app_url ?>/assets/img/studentProfilePhotos/<?= $photo ?>">
                                 </a>
                             </li>
 
@@ -121,7 +122,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                             array_multisort($sort, SORT_DESC, $this->view->listExam);
                                         }
 
-                                        $photoDir =  "/assets/img/teacherProfilePhotos/";
+                                        $photoDir =  "$app_url/assets/img/teacherProfilePhotos/";
 
                                         ?>
 
@@ -202,7 +203,7 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
                                         <?php
 
                                         $data = [];
-                                        $photoDir =  "/assets/img/teacherProfilePhotos/";
+                                        $photoDir =  "$app_url/assets/img/teacherProfilePhotos/";
                                         $sort = [];
 
                                         foreach ($this->view->listNote as $key => $note) {
@@ -873,30 +874,30 @@ isset($_SESSION['Student']) ? '' : header('Location: /portal-aluno');
 
 </body>
 
-<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="<?= $app_url ?>/node_modules/jquery/dist/jquery.js"></script>
 
-<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<?= $app_url ?>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
-<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="<?= $app_url ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-<script src="/node_modules/chart.js/dist/Chart.min.js"></script>
+<script src="<?= $app_url ?>/node_modules/chart.js/dist/Chart.min.js"></script>
 
-<script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+<script src="<?= $app_url ?>/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
-<script src="/assets/js/utilities/Tools.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Tools.js"></script>
 
-<script src="/assets/js/utilities/Validation.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Validation.js"></script>
 
-<script src="/assets/js/utilities/Application.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Application.js"></script>
 
-<script src="/assets/js/utilities/Management.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Management.js"></script>
 
-<script src="/assets/js/utilities/style.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/style.js"></script>
 
-<script src="/assets/js/main.js"></script>
+<script src="<?= $app_url ?>/assets/js/main.js"></script>
 
-<script src="/assets/js/utilities/Bulletin.js"></script>
+<script src="<?= $app_url ?>/assets/js/utilities/Bulletin.js"></script>
 
 </html>

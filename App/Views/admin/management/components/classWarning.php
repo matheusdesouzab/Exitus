@@ -1,6 +1,10 @@
+<?php 
+require __DIR__ . '../../../config/variables.php';
+?>
+
 <?php if (count($this->view->listWarning) >= 1) { ?>
 
-    <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
+    <?php $photoDir =  "$app_url/assets/img/teacherProfilePhotos/" ?>
 
     <?php foreach ($this->view->listWarning as $i => $warning) { ?>
 
@@ -71,7 +75,7 @@
 
     <div class="row">
 
-        <div class="col-lg-12 d-flex justify-content-center illustrations"><img class="" src="/assets/img/illustrations/warning.svg" alt=""></div> 
+        <div class="col-lg-12 d-flex justify-content-center illustrations"><img class="" src="<?= $app_url ?>/assets/img/illustrations/warning.svg" alt=""></div> 
 
         <h5 class="col-lg-12 mt-4 text-center">Nenhum aviso adicionado</h5>
 

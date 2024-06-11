@@ -1,8 +1,14 @@
+<?php 
+
+require __DIR__ . '../../../../config/variables.php';
+
+?>
+
 <div class="row mb-4 d-flex justify-content-center" id="main-accordion-student">
 
     <?php foreach ($this->view->studentProfile as $key => $student) { ?>
 
-        <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
+        <?php $photoDir =  "$app_url/assets/img/studentProfilePhotos/" ?>
 
         <div class="col-md-3 col-11 mx-auto">
 

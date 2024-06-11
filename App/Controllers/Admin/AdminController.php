@@ -8,12 +8,10 @@ use App\Tools\Tools;
 
 class AdminController extends Action
 {
-
     public function index()
     {
         $this->render('index', 'SimpleLayout');
     }
-
 
     public function auth()
     {
@@ -69,8 +67,7 @@ class AdminController extends Action
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->availablebloodType();
-
-        $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
+        $this->view->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
 
         $this->render('admin/adminRegistration', 'AdminLayout');
 
@@ -128,7 +125,7 @@ class AdminController extends Action
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->availablebloodType();
-        $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
+        $this->view->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
         $this->view->modalType = 'data-and-config';
         $this->view->adminCurrentHierarchy = $_SESSION['Admin']['hierarchyFunction'];
         $this->view->accountStates = $Admin->accountStates();
@@ -227,7 +224,7 @@ class AdminController extends Action
         $this->view->availableSex = $Admin->availableSex();
         $this->view->pcd = $Admin->pcd();
         $this->view->bloodType = $Admin->availablebloodType();
-        $this->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
+        $this->view->listHierarchyFunction = $HierarchyFunction->listStateAdmin();
         $this->view->accountStates = $Admin->accountStates();
         $this->view->adminCurrentHierarchy = $_SESSION['Admin']['hierarchyFunction'];
 

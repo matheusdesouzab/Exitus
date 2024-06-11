@@ -1,3 +1,7 @@
+<?php 
+require __DIR__ . '../../../../../config/variables.php';
+?>
+
 <div class="card">
 
     <div class="card-title">Linha do tempo</div>
@@ -56,8 +60,8 @@
         return $data;
     }
 
-    $photoDir =  "/assets/img/teacherProfilePhotos/";
-    $photoStudentDir =  "/assets/img/studentProfilePhotos/";
+    $photoDir =  "$app_url/assets/img/teacherProfilePhotos/";
+    $photoStudentDir =  "$app_url/assets/img/studentProfilePhotos/";
 
     ?>
 
@@ -235,7 +239,7 @@
 
                 <div class="row">
 
-                    <img class="enrollment-null d-block mx-auto" src="/assets/img/illustrations/timeline.svg" alt="">
+                    <img class="enrollment-null d-block mx-auto" src="<?= $app_url ?>/assets/img/illustrations/timeline.svg" alt="">
 
                     <p class="mt-3 col-lg-12 p-0 text-justify text-right">A linha do tempo está vazia</p>
 

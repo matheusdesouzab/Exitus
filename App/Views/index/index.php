@@ -1,13 +1,17 @@
+<?php
+require __DIR__ . '/../../config/variables.php';
+?>
+
 <html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bem vindo ao Exitus</title>
-    <link href="/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/stylesheet.css">
-    <link rel="shortcut icon" type="imagem/x-icon" href="/assets/img/logo-components/logo.png" />
+    <link href="<?= $app_url ?>/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= $app_url ?>/node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= $app_url ?>/assets/css/stylesheet.css">
+    <link rel="shortcut icon" type="imagem/x-icon" href="<?= $app_url ?>/assets/img/logo-components/logo.png" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -29,7 +33,7 @@
         </ul>  -->
 
         <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center">
-            <a class="navbar-brand" href="#"><img data-aos-duration="2000" data-aos="zoom-in" src="/assets/img/logo-components/logo-completa-branca.png" alt=""></a>
+            <a class="navbar-brand" href="#"><img data-aos-duration="2000" data-aos="zoom-in" src="<?= $app_url ?>/assets/img/logo-components/logo-completa-branca.png" alt=""></a>
         </nav>
 
         <div class="row">
@@ -43,7 +47,7 @@
                     <div class="box-card" data-aos="zoom-in-right" data-aos-duration="3000">
                         <div class="card">
                             <div class="card-title">Admin</div>
-                            <div class="card-img mb-3"><img src="/assets/img/illustrations/admin.svg" alt=""></div>
+                            <div class="card-img mb-3"><img src="<?= $app_url ?>/assets/img/illustrations/admin.svg" alt=""></div>
                             <a href="/admin"><i class="fas fa-sign-in-alt mr-2"></i> Acessar</a>
                         </div>
                     </div>
@@ -51,7 +55,7 @@
                     <div class="box-card" data-aos="zoom-out" data-aos-duration="2500">
                         <div class="card">
                             <div class="card-title">Docente</div>
-                            <div class="card-img"><img src="/assets/img/illustrations/teacher.svg" alt=""></div>
+                            <div class="card-img"><img src="<?= $app_url ?>/assets/img/illustrations/teacher.svg" alt=""></div>
                             <a href="/portal-docente"><i class="fas fa-sign-in-alt mr-2"></i> Acessar</a>
                         </div>
                     </div>
@@ -59,7 +63,7 @@
                     <div class="box-card" data-aos="zoom-in-left" data-aos-duration="3000">
                         <div class="card">
                             <div class="card-title">Aluno</div>
-                            <div class="card-img"><img src="/assets/img/illustrations/students.svg" alt=""></div>
+                            <div class="card-img"><img src="<?= $app_url ?>/assets/img/illustrations/students.svg" alt=""></div>
                             <a href="/portal-aluno"><i class="fas fa-sign-in-alt mr-2"></i> Acessar</a>
                         </div>
                     </div>
@@ -84,13 +88,13 @@
 
 </body>
 
-<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="<?= $app_url ?>/node_modules/jquery/dist/jquery.js"></script>
 
-<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="<?= $app_url ?>/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
-<script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script src="<?= $app_url ?>/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 

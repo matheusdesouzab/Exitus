@@ -1,8 +1,14 @@
+<?php 
+
+require __DIR__ . '../../../../config/variables.php';
+
+?>
+
 <div id="left-panel" class="row">
 
     <nav id="sidebar">
 
-        <div class="col-lg-12 logo d-flex justify-content-center"><img src="/assets/img/logo-components/logo-completa-branca.png" alt=""></div> 
+        <div class="col-lg-12 logo d-flex justify-content-center"><img src="<?= $app_url ?>/assets/img/logo-components/logo-completa-branca.png" alt=""></div> 
 
         <ul class="sidebar-lists">
 

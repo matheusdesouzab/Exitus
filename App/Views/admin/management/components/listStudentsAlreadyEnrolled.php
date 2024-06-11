@@ -1,7 +1,9 @@
 <?php
 
+require __DIR__ . '../../../../../config/variables.php';
+
 $studentsRematrung = [];
-$photoDir =  "/assets/img/studentProfilePhotos/";
+$photoDir =  "$app_url/assets/img/studentProfilePhotos/";
 $studentsRematrungSuccess = 0;
 
 foreach ($this->view->listStudent as $key => $value) {

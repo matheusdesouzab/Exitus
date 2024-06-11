@@ -1,6 +1,8 @@
 <?php
+ 
+require __DIR__ . '../../../../../config/variables.php';
 
-$photoDir =  "/assets/img/studentProfilePhotos/";
+$photoDir =  "$app_url/assets/img/studentProfilePhotos/";
 
 $totalRequest = 0;
 
@@ -89,7 +91,7 @@ $totalRequest = 0;
 
         <div class="row">
 
-            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="/assets/img/illustrations/arrived.svg" alt=""></div> 
+            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="<?= $app_url ?>/assets/img/illustrations/arrived.svg" alt=""></div> 
 
             <h5 class="col-lg-12 mt-4 text-center">Nenhuma solicitação recebida</h5>
 

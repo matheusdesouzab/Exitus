@@ -1,3 +1,9 @@
+<?php 
+
+require __DIR__ . '../../../../../config/variables.php';
+
+?>
+
 <?php
 
 if (count($this->view->disciplineAverageList) >= 1) {
@@ -60,7 +66,7 @@ if (count($this->view->disciplineAverageList) >= 1) {
 
         <div class="row">
 
-            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="/assets/img/illustrations/discipline_link.svg" alt="" style="width: 30vw"></div>
+            <div class="col-lg-12 d-flex justify-content-center"><img class="" src="<? $app_url ?>/assets/img/illustrations/discipline_link.svg" alt="" style="width: 30vw"></div>
 
             <h5 class="col-lg-12 mt-4 text-center">Nenhuma média final criada</h5>
 

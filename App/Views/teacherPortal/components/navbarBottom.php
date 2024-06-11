@@ -1,3 +1,9 @@
+<?php 
+
+require __DIR__ . '../../../../config/variables.php';
+
+?>
+
 <nav class="navbar fixed-bottom navbar-expand p-2 rounded-0 navbarBottomTeacher" id="navbarBottom" style="border-radius: 0px">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -15,7 +21,7 @@
             <?php $photo = ($_SESSION['Teacher']['profilePhoto'] ? $_SESSION['Teacher']['profilePhoto'] : 'foto-vazia.jpg') ?>
 
             <li class="nav-item">
-                <a class="nav-link" id="settingsTeacherPortal" href="#"><img class="foto-perfil" src="/assets/img/teacherProfilePhotos/<?= $photo ?>" alt=""></a>
+                <a class="nav-link" id="settingsTeacherPortal" href="#"><img class="foto-perfil" src="<?= $app_url ?>/assets/img/teacherProfilePhotos/<?= $photo ?>" alt=""></a>
             </li>
 
             <li class="nav-item">

@@ -1,9 +1,14 @@
+<?php 
+
+require __DIR__ . '../../../../../config/variables.php';
+
+?>
+
 <?php
 
 $students = [];
 $clasSubjects = [];
 $exams = [];
-
 
 if(count($this->view->listStudent) >= 1){
 
@@ -70,7 +75,7 @@ foreach ($this->view->listExam as $key => $exam) {
 }
 
 $studentsEnd = [];
-$photoDir =  "/assets/img/studentProfilePhotos/";
+$photoDir =  "$app_url/assets/img/studentProfilePhotos/";
 
 foreach ($students as $x => $value) {
 

@@ -1,3 +1,9 @@
+<?php 
+
+require __DIR__ . '../../../config/variables.php';
+
+?>
+
 <section id="home">
 
     <div class="row main-container">
@@ -112,7 +118,7 @@
 
                                 <div class="row">
 
-                                    <img class="enrollment-null d-block mx-auto" src="/assets/img/illustrations/calendar.svg" alt="">
+                                    <img class="enrollment-null d-block mx-auto" src="<?= $app_url ?>/assets/img/illustrations/calendar.svg" alt="">
 
                                     <p class="mt-3 col-lg-12 p-0 text-justify text-right">Nenhuma avaliação criada ainda</p>
 

@@ -1,8 +1,14 @@
+<?php 
+
+require __DIR__ . '../../../../../config/variables.php';
+
+?>
+
 <?php if (count($this->view->listStudent) >= 1) { ?>
 
     <?php foreach ($this->view->listStudent as $key => $student) { ?>
 
-        <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
+        <?php $photoDir =  "$app_url/assets/img/studentProfilePhotos/" ?>
 
         <tr class="" id="aluno<?= $student->enrollment_id ?>">
 

@@ -1,3 +1,7 @@
+<?php 
+require __DIR__ . '../../../config/variables.php';
+?>
+
 <div class="row mb-4 d-flex justify-content-center" id="main-accordion-settings">
 
     <div class="col-lg-3 col-12 col-sm-4">
@@ -10,7 +14,7 @@
 
                     <div class="row">
 
-                        <?php $photoDir =  "/assets/img/adminProfilePhotos/" ?>
+                        <?php $photoDir =  "$app_url/assets/img/adminProfilePhotos/" ?>
 
                         <img class="mx-auto" src='<?= $this->view->data[0]->profile_photo == null ? $photoDir . "foto-vazia.jpg" : $photoDir . $this->view->data[0]->profile_photo ?>' onerror='this.src="<?= $photoDir . "foto-vazia.jpg" ?>" ' data-toggle="modal" <?= $this->view->modalType != 'data-and-config' ? 'data-target="#profilePhotoModal"' : '' ?>>
 

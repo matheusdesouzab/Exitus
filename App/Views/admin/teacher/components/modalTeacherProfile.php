@@ -1,8 +1,14 @@
+<?php 
+
+require __DIR__ . '../../../../../config/variables.php';
+
+?>
+
 <div class="row mb-4 d-flex justify-content-center" id="main-accordion">
 
     <?php foreach ($this->view->teacherProfile as $key => $teacher) { ?>
 
-        <?php $photoDir =  "/assets/img/teacherProfilePhotos/" ?>
+        <?php $photoDir =  "$app_url/assets/img/teacherProfilePhotos/" ?>
 
         <div class="col-lg-3 col-12 col-sm-4">
 
@@ -392,7 +398,7 @@
 
                                 <div class="col-lg-12 mt-3">
 
-                                    <img class="link_discipline d-block mx-auto" src="/assets/img/illustrations/link_discipline.svg" alt="">
+                                    <img class="link_discipline d-block mx-auto" src="<?= $app_url ?>/assets/img/illustrations/link_discipline.svg" alt="">
 
                                 </div>
 

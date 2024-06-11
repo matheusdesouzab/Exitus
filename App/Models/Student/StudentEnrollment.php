@@ -87,24 +87,19 @@ class StudentEnrollment extends Model
         $query =
 
             "SELECT 
- 
-            disciplina.nome_disciplina AS discipline_name , 
-            unidade.unidade AS unity,
-            SUM(nota_avaliacao.valor_nota) AS note ,
-            turma_disciplina.id_turma_disciplina AS class_id
-            
-            FROM nota_avaliacao 
-            
-            INNER JOIN avaliacoes ON(nota_avaliacao.fk_id_avaliacao = avaliacoes.id_avaliacao) 
-            INNER JOIN unidade ON(avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade) 
-            INNER JOIN turma_disciplina ON(avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina) 
-            INNER JOIN disciplina ON(turma_disciplina.fk_id_disciplina = disciplina.id_disciplina) 
-            INNER JOIN matricula ON(nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula) 
-            INNER JOIN aluno ON(matricula.fk_id_aluno = aluno.id_aluno) 
-            
+                disciplina.nome_disciplina AS discipline_name, 
+                unidade.unidade AS unity,
+                SUM(nota_avaliacao.valor_nota) AS note,
+                MIN(turma_disciplina.id_turma_disciplina) AS class_id
+            FROM nota_avaliacao
+            INNER JOIN avaliacoes ON (nota_avaliacao.fk_id_avaliacao = avaliacoes.id_avaliacao)
+            INNER JOIN unidade ON (avaliacoes.fk_id_unidade_avaliacao = unidade.id_unidade)
+            INNER JOIN turma_disciplina ON (avaliacoes.fk_id_turma_disciplina_avaliacao = turma_disciplina.id_turma_disciplina)
+            INNER JOIN disciplina ON (turma_disciplina.fk_id_disciplina = disciplina.id_disciplina)
+            INNER JOIN matricula ON (nota_avaliacao.fk_id_matricula_aluno = matricula.id_matricula)
+            INNER JOIN aluno ON (matricula.fk_id_aluno = aluno.id_aluno)
             WHERE matricula.id_matricula = :studentEnrollmentId
-            
-            GROUP BY unidade.unidade , disciplina.nome_disciplina
+            GROUP BY unidade.unidade, disciplina.nome_disciplina
         ";
 
         $stmt = $this->db->prepare($query);

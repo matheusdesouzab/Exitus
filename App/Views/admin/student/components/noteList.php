@@ -1,10 +1,16 @@
+<?php 
+
+require __DIR__ . '../../../../../config/variables.php';
+
+?>
+
 <?php if (count($this->view->listNote) >= 1) {
 
     $total = 1;
 
     foreach ($this->view->listNote as $i => $note) { ?>
 
-        <?php $photoDir =  "/assets/img/studentProfilePhotos/" ?>
+        <?php $photoDir =  "$app_url/assets/img/studentProfilePhotos/" ?>
 
         <tr id="note<?= $note->note_id ?>">
 
